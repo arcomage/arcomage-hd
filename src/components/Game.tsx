@@ -1,5 +1,29 @@
 import React from 'react'
-import cx from 'classnames'
-import c from './Game.module.scss'
+import TableO from './TableO'
+import TableCommon from './TableCommon'
+import TableP from './TableP'
+// import cx from 'classnames'
+// import c from './Game.module.scss'
 
-export default () => <div className={cx(c.m, 'w-screen h-screen')}></div>
+const Game = () => (
+  <div className='w-screen h-screen flex flex-col bg-black'>
+    <TableO />
+    <TableCommon />
+    <TableP />
+  </div>
+)
+
+export default Game
+
+// Game
+//   TableO
+//   TableCommon
+//     NameP
+//     StatusP
+//     TowerP
+//     WallP
+//     WallO
+//     OTowe
+//     NameO
+//     StatusO
+//   TableP
