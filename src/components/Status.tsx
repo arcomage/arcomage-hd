@@ -1,5 +1,4 @@
 import React from 'react'
-import c from './Status.module.scss'
 
 type StatusProps = {
   playerName: string
@@ -18,6 +17,6 @@ const Status = ({
   brickProd,
   gemProd,
   recruitProd,
-}: StatusProps) => <div></div>
+}: StatusProps) => <div>{playerName}</div>
 
 export default Status

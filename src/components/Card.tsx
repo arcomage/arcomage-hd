@@ -1,15 +1,40 @@
 import React from 'react'
 import cx from 'classnames'
-import c from './Card.module.scss'
+import { createUseStyles } from 'react-jss'
+import noise from '../../assets/img/noise.png'
+
+const useStyles = createUseStyles({
+  main: {
+    background: {
+      image: `url(${noise})`,
+    },
+  },
+  image: {
+    // width: calc(100% - 0.5rem),
+    height: 'calc((100% / 63 * 47 - 0.5rem) / 22 * 13)',
+  },
+  text: {
+    // width: calc(100% - 0.5rem),
+    height: 'calc(100% - 2.25rem - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
+  },
+})
 
 const cardCountPerType = 34
 
 type CardProps = { index: number; unusable?: boolean }
 const Card = ({ index, unusable }: CardProps) => {
+  const classes = useStyles()
   const color = ['red', 'blue', 'green'][Math.floor(index / cardCountPerType)]
+  // Make TailwindCSS include these classes:
+  // bg-red-200
+  // bg-blue-200
+  // bg-green-200
+  // bg-red-300
+  // bg-blue-300
+  // bg-green-300
   return (
     <div
-      className={cx(c.m, 'absolute cursor-pointer', `bg-${color}-300`)}
+      className={cx(classes.main, 'absolute cursor-pointer', `bg-${color}-300`)}
       style={{
         width: '188px',
         height: '252px',
@@ -24,7 +49,10 @@ const Card = ({ index, unusable }: CardProps) => {
         ABC ABC
       </div>
       <div
-        className={cx(c.image, 'm-1 shadow-md bg-no-repeat bg-cover bg-center')}
+        className={cx(
+          classes.image,
+          'm-1 shadow-md bg-no-repeat bg-cover bg-center',
+        )}
         style={{
           backgroundImage: `url("assets/img/cards/${Math.floor(
             index / cardCountPerType,
@@ -33,7 +61,7 @@ const Card = ({ index, unusable }: CardProps) => {
       ></div>
       <div
         className={cx(
-          c.text,
+          classes.text,
           'm-1 leading-none break-words text-center flex flex-wrap content-center',
         )}
       >

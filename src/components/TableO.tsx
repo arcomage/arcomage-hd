@@ -1,6 +1,11 @@
 import React from 'react'
-import c from './TableO.module.scss'
+import cx from 'classnames'
 
-const TableO = () => <div className='w-full h-full'></div>
+const TableO = () => (
+  <div
+    className="w-full h-full flex-grow-0 flex-shrink-0"
+    style={{ flexBasis: '2rem' }}
+  ></div>
+)
 
 export default TableO

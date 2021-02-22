@@ -1,5 +1,6 @@
 // const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = (env, argv) => {
   const dev = argv.mode === 'development'
@@ -82,6 +83,9 @@ module.exports = (env, argv) => {
           use: [
             {
               loader: 'file-loader',
+              options: {
+                name: 'assets/img/[hash].[ext]',
+              },
             },
           ],
         },
@@ -91,6 +95,11 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './src/index.html',
         filename: './index.html',
+      }),
+      new CopyPlugin({
+        patterns: [
+          { from: 'assets/img/cards', to: 'assets/img/cards' },
+        ],
       }),
     ],
   }

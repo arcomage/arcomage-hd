@@ -3,7 +3,6 @@ import TableO from './TableO'
 import TableCommon from './TableCommon'
 import TableP from './TableP'
 // import cx from 'classnames'
-// import c from './Game.module.scss'
 
 const Game = () => (
   <div className='w-screen h-screen flex flex-col bg-black'>
