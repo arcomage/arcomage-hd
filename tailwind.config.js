@@ -1,7 +1,20 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: ['./src/**/*.{ts,tsx,js,jsx,scss,sass,css}', './src/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.coolGray,
+      red: colors.red,
+      blue: colors.blue,
+      green: colors.green,
+      yellow: colors.amber,
+    },
     screens: {
       sm: '640px',
       // => @media (min-width: 640px) { ... }

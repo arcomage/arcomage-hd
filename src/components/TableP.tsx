@@ -18,8 +18,8 @@ const TableP = () => {
         <Card index={2} />
         <Card index={5} />
         <Card index={45} />
-        <Card index={64} />
         <Card index={36} />
+        <Card index={84} />
       </div>
     </div>
   )

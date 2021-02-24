@@ -27,7 +27,8 @@
   "license": "MIT",
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.11",
@@ -63,7 +64,6 @@
     "sass-loader": "^11.0.1",
     "sharp": "^0.27.2",
     "style-loader": "^2.0.0",
-    "tailwindcss": "^2.0.3",
     "ts-loader": "^8.0.17",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.5",
