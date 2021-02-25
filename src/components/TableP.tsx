@@ -5,14 +5,13 @@ import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
   main: {
-    margin: '1.5rem',
   },
 })
 
 const TableP = () => {
   const classes = useStyles()
   return (
-    <div className="w-full h-full flex">
+    <div className="flex-1 flex p-5">
       <div className={cx(classes.main, 'flex-1')}>
         <Card index={1} />
         <Card index={2} />

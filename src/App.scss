@@ -1,3 +1,38 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer utilities {
+  @variants responsive {
+    .text-shadow {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .text-shadow-md {
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .text-shadow-lg {
+      text-shadow: 0 15px 30px rgba(0, 0, 0, 0.55),
+        0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .text-shadow-none {
+      text-shadow: none;
+    }
+  }
+}
+
+@font-face {
+  font-family: 'FatNumber';
+  src: url('../assets/font/FatNumber.woff2') format('woff2'),
+    url('../assets/font/FatNumber.woff') format('woff');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'RobotoCondensed';
+  src: url('../assets/font/RobotoCondensed-Bold.woff2') format('woff2'),
+    url('../assets/font/RobotoCondensed-Bold.woff') format('woff');
+  font-weight: bold;
+}

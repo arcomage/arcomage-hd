@@ -20,28 +20,29 @@ const useStyles = createUseStyles({
 const TableCommon = () => {
   const classes = useStyles()
   return (
-    <div className={cx('bg-green-100 w-full h-full', classes.main)}>
+    <div className={cx('flex-1 bg-green-100', classes.main)}>
       <Status
         playerName="Pete"
-        bricks={5}
-        gems={5}
-        recruits={5}
-        brickProd={5}
-        gemProd={5}
-        recruitProd={5}
+        bricks={599}
+        gems={599}
+        recruits={599}
+        brickProd={599}
+        gemProd={599}
+        recruitProd={599}
       />
-      <Tower color="red" goal={100} current={23} />
+      {/* <Tower color="red" goal={100} current={23} />
       <Wall goal={100} current={23} />
       <Wall goal={100} current={23} />
-      <Tower color="blue" goal={100} current={23} />
+      <Tower color="blue" goal={100} current={23} /> */}
       <Status
         playerName="Computer"
         bricks={5}
-        gems={5}
+        gems={2}
         recruits={5}
         brickProd={5}
-        gemProd={5}
+        gemProd={2}
         recruitProd={5}
+        isOpponent={true}
       />
     </div>
   )

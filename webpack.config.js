@@ -89,6 +89,17 @@ module.exports = (env, argv) => {
             },
           ],
         },
+        {
+          test: /\.(woff2?|ttf|eot)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: 'assets/font/[hash].[ext]',
+              },
+            },
+          ],
+        },
       ],
     },
     plugins: [

@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 const TableO = () => (
   <div
-    className="w-full h-full flex-grow-0 flex-shrink-0"
+    className="flex-grow-0 flex-shrink-0"
     style={{ flexBasis: '2rem' }}
   ></div>
 )
