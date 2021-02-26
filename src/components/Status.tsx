@@ -55,7 +55,7 @@ const Status = ({
       }}
     >
       <div className="bg-black bg-opacity-50 mb-4 p-1 shadow-lg">
-        <div className="border border-yellow-400 border-opacity-50 text-yellow-400 text-center h-7 leading-7 font-mono">
+        <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
           {playerName}
         </div>
       </div>

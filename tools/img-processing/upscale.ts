@@ -9,6 +9,12 @@ const _extractedDir = path.join(__dirname, extractedDir)
 const _outputDir = path.join(__dirname, outputDir)
 
 /**
+ * Instead of using this script and npm waifu2x package,
+ * it is preferable to use
+ * waifu2x-caffe (https://github.com/lltcggie/waifu2x-caffe/releases) on Windows
+ */
+
+/**
  * upscale all images
  * (cardback has already been prepared)
  */

@@ -30,10 +30,10 @@ const TableCommon = () => {
         gemProd={599}
         recruitProd={599}
       />
-      {/* <Tower color="red" goal={100} current={23} />
-      <Wall goal={100} current={23} />
-      <Wall goal={100} current={23} />
-      <Tower color="blue" goal={100} current={23} /> */}
+      {/* <Tower color="red" goal={100} current={23} /> */}
+      {/* <Wall current={23} />
+      <Wall current={123} /> */}
+      {/* <Tower color="blue" goal={100} current={23} /> */}
       <Status
         playerName="Computer"
         bricks={5}
