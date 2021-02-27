@@ -1,11 +1,6 @@
-import React, { useState, useLayoutEffect, useRef } from 'react'
-import Ressource from './Ressource'
-import cx from 'classnames'
-import { createUseStyles } from 'react-jss'
-
-const useStyles = createUseStyles({
-  main: {},
-})
+import React from 'react'
+import Ressource, { calcStatusWidth } from './Ressource'
+import useGameSize from '../utils/useGameSize'
 
 type StatusProps = {
   playerName: string
@@ -27,28 +22,12 @@ const Status = ({
   recruitProd,
   isOpponent = false,
 }: StatusProps) => {
-  const classes = useStyles()
-
-  const main = useRef<HTMLDivElement>(null)
-
-  const [height, setHeight] = useState(50)
-  useLayoutEffect(() => {
-    const mainc = main.current
-    if (mainc !== null) {
-      setHeight(mainc.clientHeight)
-    }
-  }, [main.current])
-
-  const calcProdHeight = (height: number): string =>
-    `(${height}px - (1.75rem + 1px * 2 + 0.25rem * 2 + 1rem) - (0.25rem * 2 + 1.5rem + 0.75rem + 0.25rem) * 3) / 3`
-
-  const calcStatusWidth = (height: number): string =>
-    `${calcProdHeight(height)} / 208 * 286 + 0.25rem * 2 + 1.25rem * 2`
+  const size = useGameSize()
+  const height = (size.height / 3) * 2
 
   return (
     <div
-      className={cx(classes.main, 'p-5 h-full')}
-      ref={main}
+      className="p-5 h-full relative z-20"
       style={{
         width: `calc(${calcStatusWidth(height)})`,
         float: isOpponent ? 'right' : 'left',
@@ -64,19 +43,16 @@ const Status = ({
         type="brick"
         count={bricks}
         prod={brickProd}
-        prodHeightCss={calcProdHeight(height)}
       />
       <Ressource
         type="gem"
         count={gems}
         prod={gemProd}
-        prodHeightCss={calcProdHeight(height)}
       />
       <Ressource
         type="recruit"
         count={recruits}
         prod={recruitProd}
-        prodHeightCss={calcProdHeight(height)}
       />
     </div>
   )

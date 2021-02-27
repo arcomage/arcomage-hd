@@ -4,22 +4,19 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles({
-  main: {
-  },
+  main: { background: { image: 'linear-gradient(#326a4b, #000 2rem)' } },
 })
 
 const TableP = () => {
   const classes = useStyles()
   return (
-    <div className="flex-1 flex p-5">
-      <div className={cx(classes.main, 'flex-1')}>
-        <Card index={1} />
-        <Card index={2} />
-        <Card index={5} />
-        <Card index={45} />
-        <Card index={36} />
-        <Card index={84} />
-      </div>
+    <div className={cx(classes.main, 'h-1/3 flex-auto')}>
+      <Card n={1}  position={1} total={6} />
+      <Card n={2}  position={2} total={6} />
+      <Card n={5}  position={3} total={6} />
+      <Card n={45} position={4} total={6} />
+      <Card n={36} position={5} total={6} />
+      <Card n={84} position={6} total={6} />
     </div>
   )
 }

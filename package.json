@@ -1,10 +1,10 @@
 {
-  "name": "arcomage-2021",
+  "name": "arcomage-hd",
   "version": "1.0.0-alpha.1",
   "description": "Clone of Arcomage, mini card game inside 3DO / NWC's Might and Magic",
   "repository": {
     "type": "git",
-    "url": "https://github.com/might-and-magic/arcomage-2021"
+    "url": "https://github.com/might-and-magic/arcomage-hd"
   },
   "scripts": {
     "start": "webpack serve --mode development",
@@ -21,7 +21,11 @@
     "nwc",
     "rpg",
     "minigame",
-    "clone"
+    "clone",
+    "hd",
+    "remake",
+    "remaster",
+    "high resolution"
   ],
   "author": "Tom Chen <tomchen.org@gmail.com>",
   "license": "MIT",

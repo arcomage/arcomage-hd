@@ -1,6 +1,8 @@
 import React from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
+import useGameSize from '../utils/useGameSize'
+
 import noise from '../../assets/img/noise.png'
 
 const useStyles = createUseStyles({
@@ -27,10 +29,16 @@ const useStyles = createUseStyles({
 
 const cardCountPerType = 34
 
-type CardProps = { index: number; unusable?: boolean }
-const Card = ({ index, unusable }: CardProps) => {
+type CardProps = {
+  n: number
+  unusable?: boolean
+  position: number
+  total: number
+}
+const Card = ({ n, unusable, position, total }: CardProps) => {
+  const size = useGameSize()
   const classes = useStyles()
-  const color = ['red', 'blue', 'green'][Math.floor(index / cardCountPerType)]
+  const color = ['red', 'blue', 'green'][Math.floor(n / cardCountPerType)]
   // Make TailwindCSS aware of these classes:
   // bg-red-200
   // bg-blue-200
@@ -40,7 +48,11 @@ const Card = ({ index, unusable }: CardProps) => {
   // bg-green-300
   return (
     <div
-      className={cx(classes.main, 'absolute cursor-pointer', `bg-${color}-300`)}
+      className={cx(
+        classes.main,
+        'transition duration-300 ease-in-out transform hover:scale-105 absolute cursor-pointer',
+        `bg-${color}-300`,
+      )}
       style={{
         width: '188px',
         height: '252px',
@@ -61,8 +73,8 @@ const Card = ({ index, unusable }: CardProps) => {
         )}
         style={{
           backgroundImage: `url("assets/img/cards/${Math.floor(
-            index / cardCountPerType,
-          ).toString()}_${(index % cardCountPerType).toString()}.png")`,
+            n / cardCountPerType,
+          ).toString()}_${(n % cardCountPerType).toString()}.png")`,
         }}
       ></div>
       <div

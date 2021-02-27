@@ -1,21 +1,36 @@
 import React from 'react'
-import TableO from './TableO'
 import TableCommon from './TableCommon'
 import TableP from './TableP'
-// import cx from 'classnames'
+import cx from 'classnames'
+import { createUseStyles } from 'react-jss'
 
-const Game = () => (
-  <div className='w-screen h-screen flex flex-col bg-black'>
-    <TableO />
-    <TableCommon />
-    <TableP />
-  </div>
-)
+const useStyles = createUseStyles({
+  main: {
+    'min-width': '300px',
+    'min-height': '600px',
+  },
+})
+
+const Game = () => {
+  const classes = useStyles()
+  return (
+    <>
+      <div
+        className={cx(
+          'w-screen h-screen flex flex-col bg-black overflow-x-hidden',
+          classes.main,
+        )}
+      >
+        <TableCommon />
+        <TableP />
+      </div>
+    </>
+  )
+}
 
 export default Game
 
 // Game
-//   TableO
 //   TableCommon
 //     NameP
 //     StatusP

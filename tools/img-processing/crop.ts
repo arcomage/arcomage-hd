@@ -1,5 +1,5 @@
 import sharp from 'sharp'
-// import mergeImg from 'merge-img'
+import mergeImg from 'merge-img'
 import fs from 'fs'
 import path from 'path'
 
@@ -54,9 +54,9 @@ function exe(type: number): void {
   }
 }
 
-// function handleRejectedAny(e: Error): void {
-//   // console.log(e)
-// }
+function handleRejectedAny(e: Error): void {
+  // console.log(e)
+}
 
 // const mergePromises: Promise<boolean>[] = []
 
@@ -137,9 +137,9 @@ mainSharp
  * bg crop
  */
 
-sharp(path.join(_originalDir, 'bg.jpg'))
+sharp(path.join(_originalDir, 'bg.png'))
   .extract({ left: 0, top: 0, width: 640, height: 311 })
-  .toFile(path.join(_extractedDir, `bg.jpg`))
+  .toFile(path.join(_extractedDir, `bg.png`))
 
 /**
  * copy tower_blue.png, tower_red.png, tower.png, wall.png
@@ -158,3 +158,43 @@ sharp(path.join(_originalDir, 'bg.jpg'))
     )
   },
 )
+
+/**
+ * split and horizontally combine explosion.png
+ */
+
+const explSharp = sharp(path.join(_originalDir, 'explosion.png'))
+
+const explPromises: Promise<sharp.OutputInfo>[] = []
+
+for (let n = 0; n < 4; n++) {
+  explPromises.push(
+    explSharp
+      .extract({ left: 0, top: (768 / 4) * n, width: 960, height: 768 / 4 })
+      .toFile(path.join(_extractedDir, `explosion_${n}.png`)),
+  )
+}
+Promise.all(explPromises).then((_) => {
+  mergeImg(
+    [...Array(4).keys()].map((i) =>
+      path.join(_extractedDir, `explosion_${i}.png`),
+    ),
+  )
+})
+
+const explosionImgArr = [...Array(4).keys()].map((i) =>
+  path.join(_extractedDir, `explosion_${i}.png`),
+)
+
+Promise.all(explPromises).then((_) => {
+  mergeImg(explosionImgArr, { direction: false })
+    .then((img) => {
+      img.write(path.join(_extractedDir, 'explosion.png'), () => {
+        console.log('explosion.png done')
+        explosionImgArr.forEach((item) => {
+          fs.unlinkSync(item)
+        })
+      })
+    })
+    .catch(handleRejectedAny)
+})

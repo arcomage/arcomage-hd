@@ -1,16 +1,18 @@
-# Arcomage 2020's Licenses
+# Arcomage HD's Licenses
 
-The code of the Arcomage 2020 game: MIT License (c) 2020 Tom Chen. See [§ MIT License](mit-license).
+The code of the **Arcomage HD** game: MIT License (c) 2021 Tom Chen. See [§ MIT License](#mit-license).
 
-The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company. See [§ 3DO Copyright Notice](3do-copyright-notice).
+The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company. See [§ 3DO Copyright Notice](#3do-copyright-notice).
 
 Logos and trademarks of "Arcomage": The 3DO Company in the U.S. and other countries.
 
-[Arcomage](https://en.wikipedia.org/wiki/Arcomage) game's assets, text and appearance are copyrighted, the logos and trademarks are held today by either Ubisoft or the defunct 3DO: [Ubisoft](https://en.wikipedia.org/wiki/Ubisoft) purchased [Might and Magic](https://en.wikipedia.org/wiki/Might_and_Magic) game series' copyright and trademarks from [The 3DO Company](https://en.wikipedia.org/wiki/The_3DO_Company) when 3DO went bankrupt in 2003, but Ubisoft didn't purchased Arcomage. The 2000 stand-alone game Arcomage is now an [abandonware](https://en.wikipedia.org/wiki/Abandonware), but is still copyrighted. Arcomage did appear as a mini-game in *Might and Magic VII: For Blood and Honor* and *Might and Magic VIII: Day of the Destroyer*, which are owned by Ubisoft and are still actively sold.
+[Arcomage](https://en.wikipedia.org/wiki/Arcomage) game's assets, text and appearance are copyrighted, the logos and trademarks are held today by either Ubisoft or the defunct 3DO: [Ubisoft](https://en.wikipedia.org/wiki/Ubisoft) purchased [Might and Magic](https://en.wikipedia.org/wiki/Might_and_Magic) game series' copyright and trademarks from [The 3DO Company](https://en.wikipedia.org/wiki/The_3DO_Company) when 3DO went bankrupt in 2003, but Ubisoft didn't purchased Arcomage. The 2000 stand-alone game Arcomage is now an [abandonware](https://en.wikipedia.org/wiki/Abandonware), but is still copyrighted. Arcomage did appear as a mini-game in *Might and Magic VII: For Blood and Honor* and *Might and Magic VIII: Day of the Destroyer*, which are owned by Ubisoft and are still sold actively.
 
 The assets, text and appearance of the game are protected by copyright law, but the gameplay design [may or may not be protected](https://en.wikipedia.org/wiki/Video_game_clone#Legal_aspects).
 
-Arcomage 2020 is not-for-profit. The assets, text, appearance and other copyrightable elements of the original Arcomage game are used within scope of the "[fair use](https://en.wikipedia.org/wiki/Fair_use)" doctrine.
+**Arcomage HD** is not-for-profit. The assets, text, appearance and other copyrightable elements of the original Arcomage game are used within scope of the "[fair use](https://en.wikipedia.org/wiki/Fair_use)" doctrine.
+
+**Arcomage HD** uses React.js and other open-source JavaScript / TypeScript libraries. See [§ Copyright Notice of the Dependencies](#copyright-notice-of-the-dependencies) and [§ Other Copyright Notices](#other-copyright-notices).
 
 ## MIT License
 
@@ -37,3 +39,9 @@ SOFTWARE.
 ## 3DO Copyright Notice
 
 (c) 2001 The 3DO Company. All Rights Reserved. 3DO, Arcomage, New World Computing, and their respective logos, are trademarks or registered trademarks of The 3DO Company in the U.S. and other countries. All other trademarks belong to their respective owners. New World Computing is a division of The 3DO Company.
+
+## Copyright Notice of the Dependencies
+
+See dist/bundle.js.LICENSE.txt
+
+## Other Copyright Notices
