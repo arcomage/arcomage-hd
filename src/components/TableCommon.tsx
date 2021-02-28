@@ -2,6 +2,7 @@ import React from 'react'
 import Status from './Status'
 import Tower from './Tower'
 import Wall from './Wall'
+import Bird from './Bird'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
@@ -46,6 +47,7 @@ const TableCommon = () => {
       />
       <Tower isOpponent={true} goal={100} current={23} />
       <Wall isOpponent={true} current={123} />
+      <Bird />
     </div>
   )
 }
