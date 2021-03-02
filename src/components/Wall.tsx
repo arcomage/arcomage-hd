@@ -42,10 +42,15 @@ const Wall = ({ current, isOpponent = false }: WallProps) => {
   const height = (size.height / 3) * 2
 
   const classes = useStyles(height)
+
+  // Make TailwindCSS aware of these classes:
+  // float-left
+  // float-right
+
   return (
     <div
       className={cx(
-        'h-full mx-4 relative z-20',
+        'h-full mx-2 relative z-20',
         `float-${isOpponent ? 'right' : 'left'}`,
         classes.main
       )}

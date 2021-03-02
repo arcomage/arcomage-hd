@@ -7,6 +7,8 @@ import brickBg from '../../assets/img/res_1.png'
 import gemBg from '../../assets/img/res_2.png'
 import recruitBg from '../../assets/img/res_3.png'
 
+const whRatio = 156 / 216
+
 const getFontSize = (height: number, percentage: number): number => {
   const fontSizeTemp = height * percentage
   return fontSizeTemp >= 12 ? fontSizeTemp : 12
@@ -22,7 +24,7 @@ const calcProdHeight = (height: number): string =>
   )}px + 0.25rem + 0.75rem) * 3) / 3`
 
 export const calcStatusWidth = (height: number): string =>
-  `${calcProdHeight(height)} / 208 * 286 + 0.25rem * 2 + 1.25rem * 2`
+  `${calcProdHeight(height)} / ${whRatio} + 0.25rem * 2 + 1.25rem * 2`
 
 const useStyles = createUseStyles({
   brick: {
@@ -119,7 +121,7 @@ const Ressource = ({ type, count, prod }: RessourceProps) => {
         </div>
         <div
           className={cx(
-            'text-black flex-1 text-right',
+            'text-black flex-1 text-right hidden lg:block',
             classes.condensed,
             classes.unit,
           )}

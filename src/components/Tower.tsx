@@ -84,6 +84,10 @@ const Tower = ({ isOpponent = false, goal, current }: TowerProps) => {
 
   const classes = useStyles({ height, current, goal })
 
+  // Make TailwindCSS aware of these classes:
+  // float-left
+  // float-right
+
   return (
     <div
       className={cx(
