@@ -3,6 +3,9 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
 
+import i18nCardsEn from '../../src/i18n/cards.en'
+import dataCards from '../../src/data/cards'
+
 import noise from '../../assets/img/noise.png'
 import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'
@@ -90,7 +93,7 @@ const useStyles = createUseStyles({
         getMarginX(winWidth, total, winHeight / 3) +
         (getWidth(winHeight / 3, winWidth, total) +
           getSpacingX(winWidth, total, winHeight / 3)) *
-          (position - 1)
+          position
       }px`,
   },
   image: {
@@ -99,7 +102,7 @@ const useStyles = createUseStyles({
   },
   text: {
     // width: calc(100% - 0.25rem * 2),
-    height: 'calc(100% - 2.25rem - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
+    height: 'calc(100% - (1.25rem + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
   },
   resbg: {
     'background-image': ({ type }) => `url(${[brick, gem, recruit][type]})`,
@@ -117,14 +120,14 @@ const cardCountPerType = 34
 type CardProps = {
   n: number
   unusable?: boolean
-  position: number
-  total: number
+  position: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
+  total: 4 | 5 | 6 | 7 | 8
 }
 const Card = ({ n, unusable, position, total }: CardProps) => {
   const size = useGameSize()
   const winHeight = size.height
   const winWidth = size.width
-  const type = Math.floor(n / cardCountPerType)
+  const type = dataCards[n].type
   const classes = useStyles({ type, winHeight, winWidth, total, position })
   const color = ['red', 'blue', 'green'][type]
   // Make TailwindCSS aware of these classes:
@@ -148,7 +151,7 @@ const Card = ({ n, unusable, position, total }: CardProps) => {
           `bg-${color}-200`,
         )}
       >
-        ABC ABC
+        {i18nCardsEn[n].name}
       </div>
       <div
         className={cx(
@@ -156,24 +159,28 @@ const Card = ({ n, unusable, position, total }: CardProps) => {
           'm-1 shadow bg-no-repeat bg-cover bg-center',
         )}
         style={{
-          backgroundImage: `url("assets/img/cards/${Math.floor(
-            n / cardCountPerType,
-          ).toString()}_${(n % cardCountPerType).toString()}.png")`,
+          backgroundImage: `url("assets/img/cards/${dataCards[
+            n
+          ].type.toString()}_${(n % cardCountPerType).toString()}.png")`,
         }}
       ></div>
       <div
         className={cx(
           classes.text,
-          'm-1 leading-none break-words text-center flex flex-wrap content-center',
+          'm-2 flex flex-wrap content-center justify-center',
         )}
       >
-        ABC ABCABC ABCABC ABC Blanditi
+        <div className="leading-none break-words text-center">
+          {i18nCardsEn[n].desc}
+        </div>
       </div>
       <div className="absolute bottom-1 right-1 w-9 h-9 leading-9 text-center font-bold">
         <div
           className={cx(classes.resbg, 'absolute top-0 left-0 w-full h-full')}
         ></div>
-        <div className="absolute top-0 left-0 w-full h-full">99</div>
+        <div className="absolute top-0 left-0 w-full h-full">
+          {dataCards[n].cost}
+        </div>
       </div>
     </div>
   )

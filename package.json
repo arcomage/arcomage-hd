@@ -10,7 +10,8 @@
     "start": "webpack serve --mode development",
     "build": "rimraf dist && webpack --mode production",
     "test": "jest --coverage",
-    "imgpc": "ts-node --project ./tools/img-processing/tsconfig.json ./tools/img-processing/crop.ts && ts-node --project ./tools/img-processing/tsconfig.json ./tools/img-processing/upscale.ts"
+    "imgpc": "ts-node --project ./tools/tsconfig.json ./tools/img-processing/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/img-processing/upscale.ts",
+    "datapc": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/docards.ts"
   },
   "keywords": [
     "arcomage",
@@ -36,12 +37,14 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.11",
+    "@types/convert-excel-to-json": "^1.7.0",
     "@types/merge-img": "^2.1.0",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/sharp": "^0.27.1",
     "autoprefixer": "^10.2.4",
     "classnames": "^2.2.6",
+    "convert-excel-to-json": "^1.7.0",
     "copy-webpack-plugin": "^8.0.0",
     "css-loader": "^5.0.2",
     "css-modules-typescript-loader": "^4.0.1",
