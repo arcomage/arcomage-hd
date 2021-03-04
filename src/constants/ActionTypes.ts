@@ -1,0 +1,6 @@
+export const CHANGE_LANG = 'CHANGE_LANG'
+
+export const CHANGE_RESOURCE = 'CHANGE_RESOURCE'
+export const CHANGE_PROD = 'CHANGE_PROD'
+export const CHANGE_TOWER = 'CHANGE_TOWER'
+export const CHANGE_WALL = 'CHANGE_WALL'

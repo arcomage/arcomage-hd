@@ -120,8 +120,8 @@ const cardCountPerType = 34
 type CardProps = {
   n: number
   unusable?: boolean
-  position: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
-  total: 4 | 5 | 6 | 7 | 8
+  position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
+  total: number // 4 | 5 | 6 | 7 | 8
 }
 const Card = ({ n, unusable, position, total }: CardProps) => {
   const size = useGameSize()
@@ -141,7 +141,7 @@ const Card = ({ n, unusable, position, total }: CardProps) => {
     <div
       className={cx(
         classes.main,
-        'transition duration-300 ease-in-out transform hover:scale-105 absolute cursor-pointer rounded shadow-lg select-none',
+        'transition duration-300 ease-in-out transform hover:scale-105 absolute cursor-pointer rounded shadow-lg',
         `bg-${color}-300`,
       )}
     >

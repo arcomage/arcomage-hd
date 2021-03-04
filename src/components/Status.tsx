@@ -1,5 +1,5 @@
 import React from 'react'
-import Ressource, { calcStatusWidth } from './Ressource'
+import Resource, { calcStatusWidth } from './Resource'
 import useGameSize from '../utils/useGameSize'
 
 type StatusProps = {
@@ -39,21 +39,9 @@ const Status = ({
         </div>
       </div>
 
-      <Ressource
-        type="brick"
-        count={bricks}
-        prod={brickProd}
-      />
-      <Ressource
-        type="gem"
-        count={gems}
-        prod={gemProd}
-      />
-      <Ressource
-        type="recruit"
-        count={recruits}
-        prod={recruitProd}
-      />
+      <Resource type="brick" count={bricks} prod={brickProd} />
+      <Resource type="gem" count={gems} prod={gemProd} />
+      <Resource type="recruit" count={recruits} prod={recruitProd} />
     </div>
   )
 }

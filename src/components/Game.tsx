@@ -17,7 +17,7 @@ const Game = () => {
     <>
       <div
         className={cx(
-          'w-screen h-screen flex flex-col bg-black overflow-x-hidden',
+          'w-screen h-screen flex flex-col bg-black overflow-x-hidden select-none',
           classes.main,
         )}
       >

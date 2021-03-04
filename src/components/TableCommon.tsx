@@ -6,6 +6,10 @@ import Bird from './Bird'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
+import { connect, useDispatch } from 'react-redux'
+import { changeResource, changeProd, changeTower, changeWall } from '../actions'
+import { StateType } from '../types/statetype'
+
 import bg from '../../assets/img/bg.jpg'
 
 const useStyles = createUseStyles({
@@ -19,37 +23,96 @@ const useStyles = createUseStyles({
   },
 })
 
-const TableCommon = () => {
+const TableCommon = ({
+  bricksP,
+  gemsP,
+  recruitsP,
+  brickProdP,
+  gemProdP,
+  recruitProdP,
+  towerP,
+  wallP,
+  bricksO,
+  gemsO,
+  recruitsO,
+  brickProdO,
+  gemProdO,
+  recruitProdO,
+  towerO,
+  wallO,
+}: {
+  bricksP: number
+  gemsP: number
+  recruitsP: number
+  brickProdP: number
+  gemProdP: number
+  recruitProdP: number
+  towerP: number
+  wallP: number
+  bricksO: number
+  gemsO: number
+  recruitsO: number
+  brickProdO: number
+  gemProdO: number
+  recruitProdO: number
+  towerO: number
+  wallO: number
+}) => {
   const classes = useStyles()
+  const dispatch = useDispatch()
   return (
-    <div className={cx('h-2/3 flex-auto bg-green-100 relative z-0', classes.main)}>
+    <div
+      className={cx('h-2/3 flex-auto bg-green-100 relative z-0', classes.main)}
+      onClick={() => {
+        dispatch(changeResource(true, false, 5, 0, true, true))
+      }}
+    >
       <Status
-        playerName="Pete"
-        bricks={599}
-        gems={599}
-        recruits={599}
-        brickProd={599}
-        gemProd={599}
-        recruitProd={599}
+        playerName="Tom Chen"
+        bricks={bricksP}
+        gems={gemsP}
+        recruits={recruitsP}
+        brickProd={brickProdP}
+        gemProd={gemProdP}
+        recruitProd={recruitProdP}
       />
-      <Tower goal={100} current={123} />
-      <Wall current={23} />
+      <Tower goal={100} current={towerP} />
+      <Wall current={wallP} />
 
       <Status
         playerName="Computer"
-        bricks={5}
-        gems={2}
-        recruits={5}
-        brickProd={5}
-        gemProd={2}
-        recruitProd={5}
+        bricks={bricksO}
+        gems={gemsO}
+        recruits={recruitsO}
+        brickProd={brickProdO}
+        gemProd={gemProdO}
+        recruitProd={recruitProdO}
         isOpponent={true}
       />
-      <Tower isOpponent={true} goal={100} current={23} />
-      <Wall isOpponent={true} current={123} />
+      <Tower isOpponent={true} goal={100} current={towerO} />
+      <Wall isOpponent={true} current={wallO} />
       <Bird />
     </div>
   )
 }
 
-export default TableCommon
+const mapStateToProps = (state: StateType) => ({
+  bricksP: state.status.player.resources[0],
+  gemsP: state.status.player.resources[1],
+  recruitsP: state.status.player.resources[2],
+  brickProdP: state.status.player.prods[0],
+  gemProdP: state.status.player.prods[1],
+  recruitProdP: state.status.player.prods[2],
+  towerP: state.status.player.tower,
+  wallP: state.status.player.wall,
+  bricksO: state.status.opponent.resources[0],
+  gemsO: state.status.opponent.resources[1],
+  recruitsO: state.status.opponent.resources[2],
+  brickProdO: state.status.opponent.prods[0],
+  gemProdO: state.status.opponent.prods[1],
+  recruitProdO: state.status.opponent.prods[2],
+  towerO: state.status.opponent.tower,
+  wallO: state.status.opponent.wall,
+})
+
+export default connect(mapStateToProps)(TableCommon)

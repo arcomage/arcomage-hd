@@ -72,12 +72,12 @@ const useStyles = createUseStyles({
   },
 })
 
-type RessourceProps = {
+type ResourceProps = {
   type: 'brick' | 'gem' | 'recruit'
   count: number
   prod: number
 }
-const Ressource = ({ type, count, prod }: RessourceProps) => {
+const Resource = ({ type, count, prod }: ResourceProps) => {
   const size = useGameSize()
   const height = (size.height / 3) * 2
 
@@ -109,19 +109,19 @@ const Ressource = ({ type, count, prod }: RessourceProps) => {
           {prod}
         </div>
       </div>
-      <div className="flex mt-1">
+      <div className="flow-root mt-1">
+          <div
+            className={cx(
+              'float-left text-black flex-1 text-left',
+              classes.fatnumber,
+              classes.count,
+            )}
+          >
+            {count}
+          </div>
         <div
           className={cx(
-            'text-black flex-1 text-left',
-            classes.fatnumber,
-            classes.count,
-          )}
-        >
-          {count}
-        </div>
-        <div
-          className={cx(
-            'text-black flex-1 text-right hidden lg:block',
+            'float-right text-black flex-1 text-right hidden lg:block',
             classes.condensed,
             classes.unit,
           )}
@@ -133,4 +133,4 @@ const Ressource = ({ type, count, prod }: RessourceProps) => {
   )
 }
 
-export default Ressource
+export default Resource

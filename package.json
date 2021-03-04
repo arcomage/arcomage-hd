@@ -31,8 +31,11 @@
   "author": "Tom Chen <tomchen.org@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "immer": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
@@ -41,6 +44,7 @@
     "@types/merge-img": "^2.1.0",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "@types/react-redux": "^7.1.16",
     "@types/sharp": "^0.27.1",
     "autoprefixer": "^10.2.4",
     "classnames": "^2.2.6",
@@ -61,12 +65,14 @@
     "html-webpack-plugin": "^5.2.0",
     "jest": "^26.6.3",
     "merge-img": "^2.1.3",
+    "nanoid": "^3.1.21",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.6",
     "postcss-import": "^14.0.0",
     "postcss-loader": "^5.0.0",
     "prettier": "^2.2.1",
     "react-jss": "^10.5.1",
+    "redux-devtools": "^3.7.0",
     "rimraf": "^3.0.2",
     "sass-loader": "^11.0.1",
     "sharp": "^0.27.2",
@@ -74,7 +80,6 @@
     "ts-loader": "^8.0.17",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.5",
-    "waifu2x": "^0.7.2",
     "webpack": "^5.23.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
