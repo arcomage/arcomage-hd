@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
+import AnimatedNumber from './AnimatedNumber'
 
 import brickBg from '../../assets/img/res_1.png'
 import gemBg from '../../assets/img/res_2.png'
@@ -106,19 +107,19 @@ const Resource = ({ type, count, prod }: ResourceProps) => {
             classes.prod,
           )}
         >
-          {prod}
+          <AnimatedNumber n={prod} />
         </div>
       </div>
       <div className="flow-root mt-1">
-          <div
-            className={cx(
-              'float-left text-black flex-1 text-left',
-              classes.fatnumber,
-              classes.count,
-            )}
-          >
-            {count}
-          </div>
+        <div
+          className={cx(
+            'float-left text-black flex-1 text-left',
+            classes.fatnumber,
+            classes.count,
+          )}
+        >
+          <AnimatedNumber n={count} />
+        </div>
         <div
           className={cx(
             'float-right text-black flex-1 text-right hidden lg:block',

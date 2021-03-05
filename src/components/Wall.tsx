@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
+import AnimatedNumber from './AnimatedNumber'
 
 import wall from '../../assets/img/wall.png'
 
@@ -52,7 +53,7 @@ const Wall = ({ current, isOpponent = false }: WallProps) => {
       className={cx(
         'h-full mx-2 relative z-20',
         `float-${isOpponent ? 'right' : 'left'}`,
-        classes.main
+        classes.main,
       )}
     >
       <div className={cx('w-full absolute px-4', classes.wallwrapper)}>
@@ -63,7 +64,7 @@ const Wall = ({ current, isOpponent = false }: WallProps) => {
       </div>
       <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
-          {current}
+          <AnimatedNumber n={current} />
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
+import AnimatedNumber from './AnimatedNumber'
 
 import tower from '../../assets/img/tower.png'
 import towerRed from '../../assets/img/tower_red.png'
@@ -107,7 +108,7 @@ const Tower = ({ isOpponent = false, goal, current }: TowerProps) => {
       </div>
       <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
-          {current}
+          <AnimatedNumber n={current} />
         </div>
       </div>
     </div>
