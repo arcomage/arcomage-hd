@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
 import AnimatedNumber from './AnimatedNumber'
+import NumberDiff from './NumberDiff'
 
 import brickBg from '../../assets/img/res_1.png'
 import gemBg from '../../assets/img/res_2.png'
@@ -85,7 +86,7 @@ const Resource = ({ type, count, prod }: ResourceProps) => {
   const classes = useStyles(height)
   const color = { brick: 'red', gem: 'blue', recruit: 'green' }[type]
   const text = { brick: 'bricks', gem: 'gems', recruit: 'recruits' }[type]
-  // Make TailwindCSS aware of these classes:
+  // Force TailwindCSS to aware of these classes:
   // bg-red-300
   // bg-blue-300
   // bg-green-300
@@ -107,22 +108,24 @@ const Resource = ({ type, count, prod }: ResourceProps) => {
             classes.prod,
           )}
         >
+          <NumberDiff n={prod} />
           <AnimatedNumber n={prod} />
         </div>
       </div>
       <div className="flow-root mt-1">
         <div
           className={cx(
-            'float-left text-black flex-1 text-left',
+            'float-left text-black flex-1 text-left relative',
             classes.fatnumber,
             classes.count,
           )}
         >
+          <NumberDiff n={count} />
           <AnimatedNumber n={count} />
         </div>
         <div
           className={cx(
-            'float-right text-black flex-1 text-right hidden lg:block',
+            'float-right text-black flex-1 text-right',
             classes.condensed,
             classes.unit,
           )}

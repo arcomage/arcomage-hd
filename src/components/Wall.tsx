@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
 import AnimatedNumber from './AnimatedNumber'
+import NumberDiff from './NumberDiff'
 
 import wall from '../../assets/img/wall.png'
 
@@ -44,7 +45,7 @@ const Wall = ({ current, isOpponent = false }: WallProps) => {
 
   const classes = useStyles(height)
 
-  // Make TailwindCSS aware of these classes:
+  // Force TailwindCSS to aware of these classes:
   // float-left
   // float-right
 
@@ -64,6 +65,7 @@ const Wall = ({ current, isOpponent = false }: WallProps) => {
       </div>
       <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
+          <NumberDiff n={current} />
           <AnimatedNumber n={current} />
         </div>
       </div>

@@ -130,7 +130,7 @@ const Card = ({ n, unusable, position, total }: CardProps) => {
   const type = dataCards[n].type
   const classes = useStyles({ type, winHeight, winWidth, total, position })
   const color = ['red', 'blue', 'green'][type]
-  // Make TailwindCSS aware of these classes:
+  // Force TailwindCSS to aware of these classes:
   // bg-red-200
   // bg-blue-200
   // bg-green-200

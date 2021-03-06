@@ -64,7 +64,7 @@ const TableCommon = ({
     <div
       className={cx('h-2/3 flex-auto bg-green-100 relative z-0', classes.main)}
       onClick={() => {
-        dispatch(changeResource(true, false, 5, 0, true, true))
+        dispatch(changeWall(true, true, 5, true, true))
       }}
     >
       <Status

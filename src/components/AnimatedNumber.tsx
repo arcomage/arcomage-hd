@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from 'react'
 const AnimatedNumber = ({ n }: { n: number }) => {
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)
+  const timer = useRef<NodeJS.Timeout | null>(null)
+
   const [nv, setNv] = useState(n)
 
   const duration = 0.2
@@ -10,11 +12,19 @@ const AnimatedNumber = ({ n }: { n: number }) => {
   useEffect(() => {
     if (hasMounted.current) {
       const prev = prevNRef.current
-      const timer = setInterval(() => {
+      if (prev !== nv) {
+        if (timer.current !== null) {
+          clearInterval(timer.current)
+        }
+        setNv(prev)
+      }
+      timer.current = setInterval(() => {
         setNv((nv) => {
           const ret = nv + (n > prev ? 1 : -1)
           if (ret === n) {
-            clearInterval(timer)
+            if (timer.current !== null) {
+              clearInterval(timer.current)
+            }
           }
           return ret
         })
