@@ -141,7 +141,7 @@ const Card = ({ n, unusable, position, total }: CardProps) => {
     <div
       className={cx(
         classes.main,
-        'transition duration-300 ease-in-out transform hover:scale-105 absolute cursor-pointer rounded shadow-lg',
+        'transition duration-300 ease-out transform hover:scale-105 absolute cursor-pointer rounded shadow-lg',
         `bg-${color}-300`,
       )}
     >

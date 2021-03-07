@@ -4,6 +4,7 @@ import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
 import AnimatedNumber from './AnimatedNumber'
 import NumberDiff from './NumberDiff'
+import Explosion from './Explosion'
 
 import wall from '../../assets/img/wall.png'
 
@@ -32,14 +33,22 @@ const useStyles = createUseStyles({
     },
     width: (height) => `calc(${calcBaseRatio(height)} * 72)`,
     'max-height': (height) => `calc(${calcBaseRatio(height)} * 597)`,
+    'transition-property': 'height',
+    'transition-timing-function': 'linear',
+    'transition-duration': '0.4s',
   },
 })
 
 type WallProps = {
   current: number
   isOpponent?: boolean
+  ongoingExplosion?: boolean
 }
-const Wall = ({ current, isOpponent = false }: WallProps) => {
+const Wall = ({
+  current,
+  isOpponent = false,
+  ongoingExplosion = false,
+}: WallProps) => {
   const size = useGameSize()
   const height = (size.height / 3) * 2
 
@@ -52,7 +61,7 @@ const Wall = ({ current, isOpponent = false }: WallProps) => {
   return (
     <div
       className={cx(
-        'h-full mx-2 relative z-20',
+        'h-full mx-2 relative',
         `float-${isOpponent ? 'right' : 'left'}`,
         classes.main,
       )}
@@ -67,6 +76,7 @@ const Wall = ({ current, isOpponent = false }: WallProps) => {
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
           <NumberDiff n={current} />
           <AnimatedNumber n={current} />
+          <Explosion ongoing={ongoingExplosion} />
         </div>
       </div>
     </div>

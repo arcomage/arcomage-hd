@@ -11,7 +11,21 @@ export type StatusType = {
   opponent: PlayerStatusType
 }
 
+export type VisualType = {
+  explosion: {
+    player: {
+      tower: boolean
+      wall: boolean
+    }
+    opponent: {
+      tower: boolean
+      wall: boolean
+    }
+  }
+}
+
 export type StateType = {
   status: StatusType
   lang: string
+  visual: VisualType
 }

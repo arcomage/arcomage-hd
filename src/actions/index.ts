@@ -19,6 +19,8 @@ export const changeResource = (
   sound,
 })
 
+export type ChangeResourceType = ReturnType<typeof changeResource>
+
 export const changeProd = (
   isPlayer: boolean,
   increase: boolean,
@@ -36,6 +38,8 @@ export const changeProd = (
   sound,
 })
 
+export type ChangeProdType = ReturnType<typeof changeProd>
+
 export const changeTower = (
   isPlayer: boolean,
   increase: boolean,
@@ -43,6 +47,8 @@ export const changeTower = (
   visual: boolean = false,
   sound: boolean = false,
 ) => ({ type: types.CHANGE_TOWER, increase, isPlayer, amount, visual, sound })
+
+export type ChangeTowerType = ReturnType<typeof changeTower>
 
 export const changeWall = (
   isPlayer: boolean,
@@ -52,12 +58,24 @@ export const changeWall = (
   sound: boolean = false,
 ) => ({ type: types.CHANGE_WALL, increase, isPlayer, amount, visual, sound })
 
-export type ChangeStatusActionType = {
-  type: string
-  increase: boolean
-  isPlayer: boolean
-  resourceType: 0 | 1 | 2
-  amount: number
-  visual?: boolean
-  sound?: boolean
-}
+export type ChangeWallType = ReturnType<typeof changeWall>
+
+export type ChangeStatusActionType =
+  | ChangeResourceType
+  | ChangeProdType
+  | ChangeTowerType
+  | ChangeWallType
+
+export const showExplosion = (
+  isPlayer: boolean = true,
+  isTower: boolean = true,
+) => ({ type: types.SHOW_EXPLOSION, isPlayer, isTower })
+
+export type ShowExplosionType = ReturnType<typeof showExplosion>
+
+export const hideExplosion = (
+  isPlayer: boolean = true,
+  isTower: boolean = true,
+) => ({ type: types.HIDE_EXPLOSION, isPlayer, isTower })
+
+export type HideExplosionType = ReturnType<typeof hideExplosion>

@@ -27,7 +27,7 @@ const Status = ({
 
   return (
     <div
-      className="p-5 h-full relative z-20"
+      className="z-20 p-5 h-full relative"
       style={{
         width: `calc(${calcStatusWidth(height)})`,
         float: isOpponent ? 'right' : 'left',

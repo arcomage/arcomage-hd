@@ -40,6 +40,10 @@ const TableCommon = ({
   recruitProdO,
   towerO,
   wallO,
+  explosionTowerP,
+  explosionWallP,
+  explosionTowerO,
+  explosionWallO,
 }: {
   bricksP: number
   gemsP: number
@@ -57,14 +61,18 @@ const TableCommon = ({
   recruitProdO: number
   towerO: number
   wallO: number
+  explosionTowerP: boolean
+  explosionWallP: boolean
+  explosionTowerO: boolean
+  explosionWallO: boolean
 }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   return (
     <div
-      className={cx('h-2/3 flex-auto bg-green-100 relative z-0', classes.main)}
+      className={cx('z-0 h-2/3 flex-auto bg-green-100 relative', classes.main)}
       onClick={() => {
-        dispatch(changeWall(true, true, 5, true, true))
+        dispatch(changeWall(true, false, 10, true, true))
       }}
     >
       <Status
@@ -76,8 +84,8 @@ const TableCommon = ({
         gemProd={gemProdP}
         recruitProd={recruitProdP}
       />
-      <Tower goal={100} current={towerP} />
-      <Wall current={wallP} />
+      <Tower goal={100} current={towerP} ongoingExplosion={explosionTowerP} />
+      <Wall current={wallP} ongoingExplosion={explosionWallP} />
 
       <Status
         playerName="Computer"
@@ -89,8 +97,17 @@ const TableCommon = ({
         recruitProd={recruitProdO}
         isOpponent={true}
       />
-      <Tower isOpponent={true} goal={100} current={towerO} />
-      <Wall isOpponent={true} current={wallO} />
+      <Tower
+        isOpponent={true}
+        goal={100}
+        current={towerO}
+        ongoingExplosion={explosionTowerO}
+      />
+      <Wall
+        isOpponent={true}
+        current={wallO}
+        ongoingExplosion={explosionWallO}
+      />
       <Bird />
     </div>
   )
@@ -113,6 +130,10 @@ const mapStateToProps = (state: StateType) => ({
   recruitProdO: state.status.opponent.prods[2],
   towerO: state.status.opponent.tower,
   wallO: state.status.opponent.wall,
+  explosionTowerP: state.visual.explosion.player.tower,
+  explosionWallP: state.visual.explosion.player.wall,
+  explosionTowerO: state.visual.explosion.opponent.tower,
+  explosionWallO: state.visual.explosion.opponent.wall,
 })
 
 export default connect(mapStateToProps)(TableCommon)

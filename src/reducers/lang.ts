@@ -1,6 +1,6 @@
 import { CHANGE_LANG } from '../constants/ActionTypes'
 
-const lang = (state = null, action: { type: any; lang: any }) => {
+const lang = (state = 'en', action: { type: string; lang: string }) => {
   switch (action.type) {
     case CHANGE_LANG:
       return action.lang

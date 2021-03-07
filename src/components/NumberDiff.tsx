@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-const duration = 1
+const duration = 1.2
 
 const useStyles = createUseStyles({
   '@keyframes fadeOutUp': {
@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
     },
 
     to: {
-      transform: 'translate3d(0, -2em, 0)',
+      transform: 'translate3d(0, -2.5em, 0)',
       opacity: 0,
     },
   },
@@ -51,14 +51,12 @@ const NumberDiff = ({
         divEl.className = cx(
           classes.main,
           `absolute font-mono text-2xl text-${
-            diff >= 0 ? 'green-200' : 'red-500'
-          } text-shadow`,
+            diff >= 0 ? 'green-600' : 'red-600'
+          } text-shadow-md`,
         )
         divEl.appendChild(textNode)
         mainEl.appendChild(divEl)
-        setTimeout(() => {
-          mainEl.removeChild(divEl)
-        }, duration * 1000)
+        divEl.onanimationend = () => mainEl.removeChild(divEl)
       }
     }
     if (!hasMounted.current) {
@@ -68,10 +66,10 @@ const NumberDiff = ({
   }, [n])
 
   // Force TailwindCSS to aware of these classes:
-  // text-green-200
-  // text-red-500
+  // text-green-600
+  // text-red-600
 
-  return <div ref={main} className="absolute w-full h-full"></div>
+  return <div ref={main} className="z-50 absolute w-full h-full"></div>
 }
 
 export default NumberDiff

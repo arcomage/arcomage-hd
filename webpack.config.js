@@ -100,6 +100,17 @@ module.exports = (env, argv) => {
             },
           ],
         },
+        {
+          test: /\.(wav|mp3)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: 'assets/sfx/[hash].[ext]',
+              },
+            },
+          ],
+        },
       ],
     },
     plugins: [

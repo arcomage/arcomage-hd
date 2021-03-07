@@ -4,6 +4,7 @@ import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
 import AnimatedNumber from './AnimatedNumber'
 import NumberDiff from './NumberDiff'
+import Explosion from './Explosion'
 
 import tower from '../../assets/img/tower.png'
 import towerRed from '../../assets/img/tower_red.png'
@@ -43,10 +44,14 @@ const useStyles = createUseStyles({
     height: ({ height, current, goal }) =>
       heightByCurrent(height, current / goal),
     'max-height': ({ height }) => heightByCurrent(height, 1),
+    'transition-property': 'height',
+    'transition-timing-function': 'linear',
+    'transition-duration': '0.4s',
+
     '&:before': {
       content: '""',
       position: 'absolute',
-      top: ({ height }) => `calc(0px - ${calcWidth(height)} / 204 * 282)`,
+      top: ({ height }) => `calc(0px - ${calcWidth(height)} / 204 * 282 + 1px)`,
       left: ({ height }) => `calc(0px - ${calcPaddingX(height)})`,
       right: ({ height }) => `calc(0px - ${calcPaddingX(height)})`,
       width: ({ height }) => `calc(${calcWidth(height)})`,
@@ -79,8 +84,9 @@ type TowerProps = {
   isOpponent?: boolean
   goal: number
   current: number
+  ongoingExplosion?: boolean
 }
-const Tower = ({ isOpponent = false, goal, current }: TowerProps) => {
+const Tower = ({ isOpponent = false, goal, current, ongoingExplosion = false }: TowerProps) => {
   const size = useGameSize()
   const height = (size.height / 3) * 2
 
@@ -93,7 +99,7 @@ const Tower = ({ isOpponent = false, goal, current }: TowerProps) => {
   return (
     <div
       className={cx(
-        'h-full mx-1 relative z-20',
+        'h-full mx-1 relative',
         `float-${isOpponent ? 'right' : 'left'}`,
         classes.main,
       )}
@@ -111,6 +117,7 @@ const Tower = ({ isOpponent = false, goal, current }: TowerProps) => {
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
           <NumberDiff n={current} />
           <AnimatedNumber n={current} />
+          <Explosion ongoing={ongoingExplosion} />
         </div>
       </div>
     </div>
