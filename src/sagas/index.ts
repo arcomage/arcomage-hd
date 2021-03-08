@@ -12,19 +12,32 @@ import {
   ChangeWallType,
 } from '../actions'
 
+import playSound from './playSound'
 import showVisual from './showVisual'
 
 function* changeResource(action: ChangeResourceType) {
+  if (action.sound) {
+    yield playSound(action)
+  }
 }
 
 function* changeProd(action: ChangeProdType) {
+  if (action.sound) {
+    yield playSound(action)
+  }
 }
 
 function* changeTower(action: ChangeTowerType) {
+  if (action.sound) {
+    yield playSound(action)
+  }
   yield showVisual(action)
 }
 
 function* changeWall(action: ChangeWallType) {
+  if (action.sound) {
+    yield playSound(action)
+  }
   yield showVisual(action)
 }
 
