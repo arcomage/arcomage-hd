@@ -66,7 +66,7 @@ const Wall = ({
         classes.main,
       )}
     >
-      <div className={cx('w-full absolute px-4', classes.wallwrapper)}>
+      <div className={cx('z-20 w-full absolute px-4', classes.wallwrapper)}>
         <div
           className={cx('absolute bottom-0', classes.wallbody)}
           style={{ height: heightByCurrent(height, current) }}

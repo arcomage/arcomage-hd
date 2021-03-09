@@ -1,10 +1,39 @@
-export default [
+import { DataCardsType, DataCardEffectPersonType } from '../types/datacardtype'
+
+const set = (
+  person: DataCardEffectPersonType,
+  prop: keyof DataCardEffectPersonType,
+  res: number,
+) => {
+  person[prop] = res > 0 ? res : 0
+}
+
+const change = (
+  person: DataCardEffectPersonType,
+  prop: keyof DataCardEffectPersonType,
+  diff: number,
+) => {
+  set(person, prop, person[prop] + diff)
+}
+
+const damage = (person: DataCardEffectPersonType, n: number) => {
+  change(person, 'wall', -n)
+  if (person.wall < n) {
+    change(person, 'tower', person.wall - n)
+  }
+}
+
+const cards: DataCardsType = [
   {
     // name: 'Brick Shortage',
     // desc: 'All players lose 8 bricks',
     type: 0,
     cost: 0,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'bricks', -8)
+      change(o, 'bricks', -8)
+    },
   },
   {
     // name: 'Lucky Cache',
@@ -12,6 +41,11 @@ export default [
     type: 0,
     cost: 0,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'bricks', 2)
+      change(p, 'gems', 2)
+      return { playAgain: true }
+    },
   },
   {
     // name: 'Friendly Terrain',
@@ -19,6 +53,10 @@ export default [
     type: 0,
     cost: 1,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'wall', 1)
+      return { playAgain: true }
+    },
   },
   {
     // name: 'Miners',
@@ -26,6 +64,9 @@ export default [
     type: 0,
     cost: 3,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'brickProd', 1)
+    },
   },
   {
     // name: 'Mother Lode',
@@ -33,6 +74,13 @@ export default [
     type: 0,
     cost: 4,
     count: 1,
+    effect: (p, o) => {
+      if (p.brickProd < o.brickProd) {
+        change(p, 'brickProd', 2)
+      } else {
+        change(p, 'brickProd', 1)
+      }
+    },
   },
   {
     // name: 'Dwarven Miners',
@@ -40,6 +88,10 @@ export default [
     type: 0,
     cost: 7,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 4)
+      change(p, 'brickProd', 1)
+    },
   },
   {
     // name: 'Work Overtime',
@@ -47,6 +99,10 @@ export default [
     type: 0,
     cost: 2,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'wall', 5)
+      change(p, 'gems', -6)
+    },
   },
   {
     // name: 'Copping the Tech',
@@ -54,6 +110,11 @@ export default [
     type: 0,
     cost: 5,
     count: 1,
+    effect: (p, o) => {
+      if (p.brickProd < o.brickProd) {
+        set(p, 'brickProd', o.brickProd)
+      }
+    },
   },
   {
     // name: 'Basic Wall',
@@ -61,6 +122,9 @@ export default [
     type: 0,
     cost: 2,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'wall', 3)
+    },
   },
   {
     // name: 'Sturdy Wall',
@@ -68,6 +132,9 @@ export default [
     type: 0,
     cost: 3,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 4)
+    },
   },
   {
     // name: 'Innovations',
@@ -75,6 +142,11 @@ export default [
     type: 0,
     cost: 2,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'brickProd', 1)
+      change(o, 'brickProd', 1)
+      change(p, 'gems', 4)
+    },
   },
   {
     // name: 'Foundations',
@@ -82,6 +154,9 @@ export default [
     type: 0,
     cost: 3,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'wall', p.wall === 0 ? 6 : 3)
+    },
   },
   {
     // name: 'Tremors',
@@ -89,6 +164,11 @@ export default [
     type: 0,
     cost: 7,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', -5)
+      change(o, 'wall', -5)
+      return { playAgain: true }
+    },
   },
   {
     // name: 'Secret Room',
@@ -96,6 +176,10 @@ export default [
     type: 0,
     cost: 8,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'gemProd', 1)
+      return { playAgain: true }
+    },
   },
   {
     // name: 'Earthquake',
@@ -103,6 +187,10 @@ export default [
     type: 0,
     cost: 0,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'brickProd', -1)
+      change(o, 'brickProd', -1)
+    },
   },
   {
     // name: 'Big Wall',
@@ -110,6 +198,9 @@ export default [
     type: 0,
     cost: 5,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'wall', 6)
+    },
   },
   {
     // name: 'Collapse!',
@@ -117,6 +208,9 @@ export default [
     type: 0,
     cost: 4,
     count: 1,
+    effect: (p, o) => {
+      change(o, 'brickProd', -1)
+    },
   },
   {
     // name: 'New Equipment',
@@ -124,6 +218,9 @@ export default [
     type: 0,
     cost: 6,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'brickProd', 2)
+    },
   },
   {
     // name: 'Strip Mine',
@@ -131,6 +228,11 @@ export default [
     type: 0,
     cost: 0,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'brickProd', -1)
+      change(p, 'wall', 10)
+      change(p, 'gems', 5)
+    },
   },
   {
     // name: 'Reinforced Wall',
@@ -138,6 +240,9 @@ export default [
     type: 0,
     cost: 8,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'wall', 8)
+    },
   },
   {
     // name: 'Porticulus',
@@ -145,6 +250,10 @@ export default [
     type: 0,
     cost: 9,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 5)
+      change(p, 'recruitProd', 1)
+    },
   },
   {
     // name: 'Crystal Rocks',
@@ -152,6 +261,10 @@ export default [
     type: 0,
     cost: 9,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 7)
+      change(p, 'gems', 7)
+    },
   },
   {
     // name: 'Harmonic Ore',
@@ -159,6 +272,10 @@ export default [
     type: 0,
     cost: 11,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 6)
+      change(p, 'tower', 3)
+    },
   },
   {
     // name: 'Mondo Wall',
@@ -166,6 +283,9 @@ export default [
     type: 0,
     cost: 13,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 12)
+    },
   },
   {
     // name: 'Focused Designs',
@@ -173,6 +293,10 @@ export default [
     type: 0,
     cost: 15,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 8)
+      change(p, 'tower', 5)
+    },
   },
   {
     // name: 'Great Wall',
@@ -180,6 +304,9 @@ export default [
     type: 0,
     cost: 16,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 15)
+    },
   },
   {
     // name: 'Rock Launcher',
@@ -187,6 +314,10 @@ export default [
     type: 0,
     cost: 18,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 6)
+      damage(o, 10)
+    },
   },
   {
     // name: "Dragon's Heart",
@@ -194,6 +325,10 @@ export default [
     type: 0,
     cost: 24,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 20)
+      change(p, 'tower', 8)
+    },
   },
   {
     // name: 'Forced Labor',
@@ -201,6 +336,10 @@ export default [
     type: 0,
     cost: 7,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 9)
+      change(p, 'recruits', -5)
+    },
   },
   {
     // name: 'Rock Garden',
@@ -208,6 +347,11 @@ export default [
     type: 0,
     cost: 1,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 1)
+      change(p, 'tower', 1)
+      change(p, 'recruits', 2)
+    },
   },
   {
     // name: 'Flood Water',
@@ -215,6 +359,20 @@ export default [
     type: 0,
     cost: 6,
     count: 1,
+    effect: (p, o) => {
+      if (o.wall < p.wall) {
+        change(o, 'recruitProd', -1)
+        change(o, 'tower', -2)
+      } else if (p.wall === o.wall) {
+        change(o, 'recruitProd', -1)
+        change(o, 'tower', -2)
+        change(p, 'recruitProd', -1)
+        change(p, 'tower', -2)
+      } else {
+        change(p, 'recruitProd', -1)
+        change(p, 'tower', -2)
+      }
+    },
   },
   {
     // name: 'Barracks',
@@ -222,6 +380,13 @@ export default [
     type: 0,
     cost: 10,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'recruits', 6)
+      change(p, 'wall', 6)
+      if (p.recruitProd < o.recruitProd) {
+        change(p, 'recruitProd', 1)
+      }
+    },
   },
   {
     // name: 'Battlements',
@@ -229,6 +394,10 @@ export default [
     type: 0,
     cost: 14,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'wall', 7)
+      damage(o, 6)
+    },
   },
   {
     // name: 'Shift',
@@ -236,6 +405,11 @@ export default [
     type: 0,
     cost: 17,
     count: 1,
+    effect: (p, o) => {
+      const pWallOriginal = p.wall
+      change(p, 'wall', o.wall)
+      change(o, 'wall', pWallOriginal)
+    },
   },
   {
     // name: 'Quartz',
@@ -243,6 +417,10 @@ export default [
     type: 1,
     cost: 1,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'tower', 1)
+      return { playAgain: true }
+    },
   },
   {
     // name: 'Smoky Quartz',
@@ -250,6 +428,10 @@ export default [
     type: 1,
     cost: 2,
     count: 1,
+    effect: (p, o) => {
+      change(o, 'tower', -1)
+      return { playAgain: true }
+    },
   },
   {
     // name: 'Amethyst',
@@ -257,6 +439,9 @@ export default [
     type: 1,
     cost: 2,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'tower', 3)
+    },
   },
   {
     // name: 'Spell Weavers',
@@ -264,6 +449,9 @@ export default [
     type: 1,
     cost: 3,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'gemProd', 1)
+    },
   },
   {
     // name: 'Prism',
@@ -271,6 +459,9 @@ export default [
     type: 1,
     cost: 2,
     count: 1,
+    effect: (p, o) => {
+      return { playAgain: true, changeCard: true }
+    },
   },
   {
     // name: 'Lodestone',
@@ -278,6 +469,10 @@ export default [
     type: 1,
     cost: 5,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 8)
+      return { undiscardable: true }
+    },
   },
   {
     // name: 'Solar Flare',
@@ -285,6 +480,10 @@ export default [
     type: 1,
     cost: 4,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 2)
+      change(o, 'tower', -2)
+    },
   },
   {
     // name: 'Crystal Matrix',
@@ -292,6 +491,11 @@ export default [
     type: 1,
     cost: 6,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'gemProd', 1)
+      change(p, 'tower', 3)
+      change(o, 'tower', 1)
+    },
   },
   {
     // name: 'Gemstone Flaw',
@@ -299,6 +503,9 @@ export default [
     type: 1,
     cost: 2,
     count: 2,
+    effect: (p, o) => {
+      change(o, 'tower', -3)
+    },
   },
   {
     // name: 'Ruby',
@@ -306,6 +513,9 @@ export default [
     type: 1,
     cost: 3,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'tower', 5)
+    },
   },
   {
     // name: 'Gem Spear',
@@ -313,6 +523,9 @@ export default [
     type: 1,
     cost: 4,
     count: 1,
+    effect: (p, o) => {
+      change(o, 'tower', -5)
+    },
   },
   {
     // name: 'Power Burn',
@@ -320,6 +533,10 @@ export default [
     type: 1,
     cost: 3,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', -5)
+      change(p, 'gemProd', 2)
+    },
   },
   {
     // name: 'Harmonic Vibe',
@@ -327,6 +544,11 @@ export default [
     type: 1,
     cost: 7,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'gemProd', 1)
+      change(p, 'tower', 3)
+      change(p, 'wall', 3)
+    },
   },
   {
     // name: 'Parity',
@@ -334,6 +556,11 @@ export default [
     type: 1,
     cost: 7,
     count: 1,
+    effect: (p, o) => {
+      const max = Math.max(o.gemProd, p.gemProd)
+      set(p, 'gemProd', max)
+      set(o, 'gemProd', max)
+    },
   },
   {
     // name: 'Emerald',
@@ -341,6 +568,9 @@ export default [
     type: 1,
     cost: 6,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'tower', 8)
+    },
   },
   {
     // name: 'Pearl of Wisdom',
@@ -348,6 +578,10 @@ export default [
     type: 1,
     cost: 9,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 5)
+      change(p, 'gemProd', 1)
+    },
   },
   {
     // name: 'Shatterer',
@@ -355,6 +589,10 @@ export default [
     type: 1,
     cost: 8,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'gemProd', -1)
+      change(o, 'tower', -9)
+    },
   },
   {
     // name: 'Crumblestone',
@@ -362,6 +600,10 @@ export default [
     type: 1,
     cost: 7,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 5)
+      change(o, 'bricks', -6)
+    },
   },
   {
     // name: 'Sapphire',
@@ -369,20 +611,33 @@ export default [
     type: 1,
     cost: 10,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'tower', 11)
+    },
   },
   {
     // name: 'Discord',
-    // desc: '7 Damage to all towers, all players magic -',
+    // desc: '7 Damage to all towers, all players magic -1',
     type: 1,
     cost: 5,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', -7)
+      change(o, 'tower', -7)
+      change(p, 'gemProd', -1)
+      change(o, 'gemProd', -1)
+    },
   },
   {
     // name: 'Fire Ruby',
-    // desc: '+6 Tower. 4 Damage to all enemy towers',
+    // desc: '+6 Tower. 4 Damage to enemy tower',
     type: 1,
     cost: 13,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 6)
+      change(o, 'tower', -4)
+    },
   },
   {
     // name: "Quarry's Help",
@@ -390,6 +645,10 @@ export default [
     type: 1,
     cost: 4,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 7)
+      change(p, 'bricks', -10)
+    },
   },
   {
     // name: 'Crystal Shield',
@@ -397,6 +656,10 @@ export default [
     type: 1,
     cost: 12,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 8)
+      change(p, 'wall', 3)
+    },
   },
   {
     // name: 'Empathy Gem',
@@ -404,6 +667,10 @@ export default [
     type: 1,
     cost: 14,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 8)
+      change(p, 'recruitProd', 1)
+    },
   },
   {
     // name: 'Diamond',
@@ -411,6 +678,9 @@ export default [
     type: 1,
     cost: 16,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 15)
+    },
   },
   {
     // name: 'Sanctuary',
@@ -418,13 +688,22 @@ export default [
     type: 1,
     cost: 15,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 10)
+      change(p, 'wall', 5)
+      change(p, 'recruits', 5)
+    },
   },
   {
     // name: 'Lava Jewel',
-    // desc: '+12 Tower. 6 Damage to all enemies',
+    // desc: '+12 Tower. 6 Damage to enemy',
     type: 1,
     cost: 17,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 12)
+      damage(o, 6)
+    },
   },
   {
     // name: "Dragon's Eye",
@@ -432,6 +711,9 @@ export default [
     type: 1,
     cost: 21,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 20)
+    },
   },
   {
     // name: 'Crystallize',
@@ -439,6 +721,10 @@ export default [
     type: 1,
     cost: 8,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 11)
+      change(p, 'wall', -6)
+    },
   },
   {
     // name: 'Bag of Baubles',
@@ -446,6 +732,13 @@ export default [
     type: 1,
     cost: 0,
     count: 1,
+    effect: (p, o) => {
+      if (p.tower < o.tower) {
+        change(p, 'tower', 2)
+      } else {
+        change(p, 'tower', 1)
+      }
+    },
   },
   {
     // name: 'Rainbow',
@@ -453,6 +746,11 @@ export default [
     type: 1,
     cost: 0,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 1)
+      change(o, 'tower', 1)
+      change(p, 'gems', 3)
+    },
   },
   {
     // name: 'Apprentice',
@@ -460,6 +758,11 @@ export default [
     type: 1,
     cost: 5,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 4)
+      change(p, 'recruits', -3)
+      damage(o, 2)
+    },
   },
   {
     // name: 'Lightning Shard',
@@ -467,6 +770,13 @@ export default [
     type: 1,
     cost: 11,
     count: 1,
+    effect: (p, o) => {
+      if (p.tower < o.wall) {
+        change(o, 'tower', -8)
+      } else {
+        damage(o, 8)
+      }
+    },
   },
   {
     // name: 'Phase Jewel',
@@ -474,6 +784,11 @@ export default [
     type: 1,
     cost: 18,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'tower', 13)
+      change(p, 'recruits', 6)
+      change(p, 'bricks', 6)
+    },
   },
   {
     // name: 'Mad Cow Disease',
@@ -481,6 +796,10 @@ export default [
     type: 2,
     cost: 0,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'recruits', -6)
+      change(o, 'recruits', -6)
+    },
   },
   {
     // name: 'Faerie',
@@ -488,6 +807,10 @@ export default [
     type: 2,
     cost: 1,
     count: 2,
+    effect: (p, o) => {
+      damage(o, 2)
+      return { playAgain: true }
+    },
   },
   {
     // name: 'Moody Goblins',
@@ -495,6 +818,10 @@ export default [
     type: 2,
     cost: 1,
     count: 2,
+    effect: (p, o) => {
+      damage(o, 4)
+      change(p, 'gems', -3)
+    },
   },
   {
     // name: 'Minotaur',
@@ -502,6 +829,9 @@ export default [
     type: 2,
     cost: 3,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'recruitProd', 1)
+    },
   },
   {
     // name: 'Elven Scout',
@@ -509,6 +839,9 @@ export default [
     type: 2,
     cost: 2,
     count: 1,
+    effect: (p, o) => {
+      return { playAgain: true, changeCard: true }
+    },
   },
   {
     // name: 'Goblin Mob',
@@ -516,6 +849,10 @@ export default [
     type: 2,
     cost: 3,
     count: 2,
+    effect: (p, o) => {
+      damage(o, 6)
+      damage(p, 3)
+    },
   },
   {
     // name: 'Goblin Archers',
@@ -523,6 +860,10 @@ export default [
     type: 2,
     cost: 4,
     count: 1,
+    effect: (p, o) => {
+      change(o, 'tower', -3)
+      damage(p, 1)
+    },
   },
   {
     // name: 'Shadow Faerie',
@@ -530,6 +871,10 @@ export default [
     type: 2,
     cost: 6,
     count: 1,
+    effect: (p, o) => {
+      change(o, 'tower', -2)
+      return { playAgain: true }
+    },
   },
   {
     // name: 'Orc',
@@ -537,6 +882,9 @@ export default [
     type: 2,
     cost: 3,
     count: 2,
+    effect: (p, o) => {
+      damage(o, 5)
+    },
   },
   {
     // name: 'Dwarves',
@@ -544,6 +892,10 @@ export default [
     type: 2,
     cost: 5,
     count: 2,
+    effect: (p, o) => {
+      damage(o, 4)
+      change(p, 'wall', 3)
+    },
   },
   {
     // name: 'Little Snakes',
@@ -551,6 +903,9 @@ export default [
     type: 2,
     cost: 6,
     count: 1,
+    effect: (p, o) => {
+      change(o, 'tower', -4)
+    },
   },
   {
     // name: 'Troll Trainer',
@@ -558,6 +913,9 @@ export default [
     type: 2,
     cost: 7,
     count: 2,
+    effect: (p, o) => {
+      change(p, 'recruitProd', 2)
+    },
   },
   {
     // name: 'Tower Gremlin',
@@ -565,6 +923,11 @@ export default [
     type: 2,
     cost: 8,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 2)
+      change(p, 'tower', 4)
+      change(p, 'wall', 2)
+    },
   },
   {
     // name: 'Full Moon',
@@ -572,6 +935,11 @@ export default [
     type: 2,
     cost: 0,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'recruitProd', 1)
+      change(o, 'recruitProd', 1)
+      change(p, 'recruits', 3)
+    },
   },
   {
     // name: 'Slasher',
@@ -579,6 +947,9 @@ export default [
     type: 2,
     cost: 5,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 6)
+    },
   },
   {
     // name: 'Ogre',
@@ -586,6 +957,9 @@ export default [
     type: 2,
     cost: 6,
     count: 2,
+    effect: (p, o) => {
+      damage(o, 7)
+    },
   },
   {
     // name: 'Rabid Sheep',
@@ -593,6 +967,10 @@ export default [
     type: 2,
     cost: 6,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 6)
+      change(o, 'recruits', -3)
+    },
   },
   {
     // name: 'Imp',
@@ -600,6 +978,15 @@ export default [
     type: 2,
     cost: 5,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 6)
+      change(p, 'bricks', -5)
+      change(p, 'gems', -5)
+      change(p, 'recruits', -5)
+      change(o, 'bricks', -5)
+      change(o, 'gems', -5)
+      change(o, 'recruits', -5)
+    },
   },
   {
     // name: 'Spizzer',
@@ -607,6 +994,13 @@ export default [
     type: 2,
     cost: 8,
     count: 1,
+    effect: (p, o) => {
+      if (o.wall === 0) {
+        damage(o, 10)
+      } else {
+        damage(o, 6)
+      }
+    },
   },
   {
     // name: 'Werewolf',
@@ -614,6 +1008,9 @@ export default [
     type: 2,
     cost: 9,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 9)
+    },
   },
   {
     // name: 'Corrosion Cloud',
@@ -621,6 +1018,13 @@ export default [
     type: 2,
     cost: 11,
     count: 1,
+    effect: (p, o) => {
+      if (o.wall > 0) {
+        damage(o, 10)
+      } else {
+        damage(o, 7)
+      }
+    },
   },
   {
     // name: 'Unicorn',
@@ -628,6 +1032,13 @@ export default [
     type: 2,
     cost: 9,
     count: 1,
+    effect: (p, o) => {
+      if (p.gemProd > o.gemProd) {
+        damage(o, 12)
+      } else {
+        damage(o, 8)
+      }
+    },
   },
   {
     // name: 'Elven Archers',
@@ -635,6 +1046,13 @@ export default [
     type: 2,
     cost: 10,
     count: 1,
+    effect: (p, o) => {
+      if (p.wall > o.wall) {
+        change(o, 'tower', -6)
+      } else {
+        damage(o, 6)
+      }
+    },
   },
   {
     // name: 'Succubus',
@@ -642,6 +1060,10 @@ export default [
     type: 2,
     cost: 14,
     count: 1,
+    effect: (p, o) => {
+      change(o, 'tower', -5)
+      change(o, 'recruits', -8)
+    },
   },
   {
     // name: 'Rock Stompers',
@@ -649,6 +1071,10 @@ export default [
     type: 2,
     cost: 11,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 8)
+      change(o, 'brickProd', -1)
+    },
   },
   {
     // name: 'Thief',
@@ -656,6 +1082,12 @@ export default [
     type: 2,
     cost: 12,
     count: 1,
+    effect: (p, o) => {
+      change(p, 'gems', Math.ceil((o.gems >= 10 ? 10 : o.gems) / 2))
+      change(p, 'bricks', Math.ceil((o.bricks >= 5 ? 5 : o.bricks) / 2))
+      change(o, 'gems', -10)
+      change(o, 'bricks', -5)
+    },
   },
   {
     // name: 'Stone Giant',
@@ -663,6 +1095,10 @@ export default [
     type: 2,
     cost: 15,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 10)
+      change(p, 'wall', 4)
+    },
   },
   {
     // name: 'Vampire',
@@ -670,6 +1106,11 @@ export default [
     type: 2,
     cost: 17,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 10)
+      change(o, 'recruits', -5)
+      change(o, 'recruitProd', -1)
+    },
   },
   {
     // name: 'Dragon',
@@ -677,6 +1118,11 @@ export default [
     type: 2,
     cost: 25,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 20)
+      change(o, 'gems', -10)
+      change(o, 'recruitProd', -1)
+    },
   },
   {
     // name: 'Spearman',
@@ -684,6 +1130,13 @@ export default [
     type: 2,
     cost: 2,
     count: 1,
+    effect: (p, o) => {
+      if (p.wall > o.wall) {
+        damage(o, 3)
+      } else {
+        damage(o, 2)
+      }
+    },
   },
   {
     // name: 'Gnome',
@@ -691,6 +1144,10 @@ export default [
     type: 2,
     cost: 2,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 3)
+      change(p, 'gems', 1)
+    },
   },
   {
     // name: 'Berserker',
@@ -698,6 +1155,10 @@ export default [
     type: 2,
     cost: 4,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 8)
+      change(p, 'tower', -3)
+    },
   },
   {
     // name: 'Warlord',
@@ -705,6 +1166,10 @@ export default [
     type: 2,
     cost: 13,
     count: 1,
+    effect: (p, o) => {
+      damage(o, 13)
+      change(p, 'gems', -3)
+    },
   },
   {
     // name: 'Pegasus Lancer',
@@ -712,5 +1177,10 @@ export default [
     type: 2,
     cost: 18,
     count: 1,
+    effect: (p, o) => {
+      change(o, 'tower', -12)
+    },
   },
 ]
+
+export default cards

@@ -104,7 +104,7 @@ const Tower = ({ isOpponent = false, goal, current, ongoingExplosion = false }: 
         classes.main,
       )}
     >
-      <div className={cx('w-full absolute', classes.towerwrapper)}>
+      <div className={cx('z-20 w-full absolute', classes.towerwrapper)}>
         <div
           className={cx(
             'absolute bottom-0',

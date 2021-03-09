@@ -213,11 +213,11 @@ export default [
   },
   {
     name: 'Discord',
-    desc: '7 Damage to all towers, all players magic -',
+    desc: '7 Damage to all towers, all players magic -1',
   },
   {
     name: 'Fire Ruby',
-    desc: '+6 Tower. 4 Damage to all enemy towers',
+    desc: '+6 Tower. 4 Damage to enemy tower',
   },
   {
     name: "Quarry's Help",
@@ -241,7 +241,7 @@ export default [
   },
   {
     name: 'Lava Jewel',
-    desc: '+12 Tower. 6 Damage to all enemies',
+    desc: '+12 Tower. 6 Damage to enemy',
   },
   {
     name: "Dragon's Eye",
