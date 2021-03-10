@@ -40,10 +40,6 @@ const TableCommon = ({
   recruitProdO,
   towerO,
   wallO,
-  explosionTowerP,
-  explosionWallP,
-  explosionTowerO,
-  explosionWallO,
 }: {
   bricksP: number
   gemsP: number
@@ -61,10 +57,6 @@ const TableCommon = ({
   recruitProdO: number
   towerO: number
   wallO: number
-  explosionTowerP: boolean
-  explosionWallP: boolean
-  explosionTowerO: boolean
-  explosionWallO: boolean
 }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
@@ -84,8 +76,8 @@ const TableCommon = ({
         gemProd={gemProdP}
         recruitProd={recruitProdP}
       />
-      <Tower goal={100} current={towerP} ongoingExplosion={explosionTowerP} />
-      <Wall current={wallP} ongoingExplosion={explosionWallP} />
+      <Tower goal={100} current={towerP} />
+      <Wall current={wallP} />
 
       <Status
         playerName="Computer"
@@ -97,17 +89,8 @@ const TableCommon = ({
         recruitProd={recruitProdO}
         isOpponent={true}
       />
-      <Tower
-        isOpponent={true}
-        goal={100}
-        current={towerO}
-        ongoingExplosion={explosionTowerO}
-      />
-      <Wall
-        isOpponent={true}
-        current={wallO}
-        ongoingExplosion={explosionWallO}
-      />
+      <Tower isOpponent={true} goal={100} current={towerO} />
+      <Wall isOpponent={true} current={wallO} />
       <Bird />
     </div>
   )
@@ -130,10 +113,6 @@ const mapStateToProps = (state: StateType) => ({
   recruitProdO: state.status.opponent.prods[2],
   towerO: state.status.opponent.tower,
   wallO: state.status.opponent.wall,
-  explosionTowerP: state.visual.explosion.player.tower,
-  explosionWallP: state.visual.explosion.player.wall,
-  explosionTowerO: state.visual.explosion.opponent.tower,
-  explosionWallO: state.visual.explosion.opponent.wall,
 })
 
 export default connect(mapStateToProps)(TableCommon)

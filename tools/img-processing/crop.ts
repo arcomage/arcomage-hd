@@ -115,37 +115,51 @@ sharp(path.join(_originalDir, 'bg.png'))
  * split and horizontally combine explosion.png
  */
 
-const explSharpOrig = sharp(path.join(_originalDir, 'explosion.png'))
+const combine = (
+  fileName: string,
+  explosionW: number,
+  explosionH: number,
+  explosionWN: number,
+  explosionHN: number,
+) => {
+  const sharpOrig = sharp(path.join(_originalDir, fileName))
 
-const explSharpList: sharp.Sharp[] = []
+  const sharpList: sharp.Sharp[] = []
 
-for (let n = 0; n < 4; n++) {
-  explSharpList.push(
-    explSharpOrig
-      .clone()
-      .extract({ left: 0, top: (768 / 4) * n, width: 960, height: 768 / 4 }),
-  )
+  for (let n = 0; n < explosionHN; n++) {
+    sharpList.push(
+      sharpOrig.clone().extract({
+        left: 0,
+        top: (explosionH / explosionHN) * n,
+        width: explosionW,
+        height: explosionH / explosionHN,
+      }),
+    )
+  }
+
+  ;(async () => {
+    try {
+      const joinedImage = await joinImages(
+        await Promise.all(sharpList.map((sharp) => sharp.toBuffer())),
+        { direction: 'horizontal', color: { alpha: 0, r: 0, g: 0, b: 0 } },
+      )
+
+      const joinedImageBuffer = await joinedImage.png().toBuffer()
+
+      sharp(joinedImageBuffer)
+        .extend({
+          top: 0,
+          bottom: 0,
+          left: explosionW / explosionWN,
+          right: 0,
+          background: { r: 0, g: 0, b: 0, alpha: 0 },
+        })
+        .toFile(path.join(_extractedDir, fileName))
+    } catch (e) {
+      handleRejectedAny(e)
+    }
+  })()
 }
 
-;(async () => {
-  try {
-    const joinedImage = await joinImages(
-      await Promise.all(explSharpList.map((explSharp) => explSharp.toBuffer())),
-      { direction: 'horizontal', color: { alpha: 0, r: 0, g: 0, b: 0 } },
-    )
-
-    const joinedImageBuffer = await joinedImage.png().toBuffer()
-
-    sharp(joinedImageBuffer)
-      .extend({
-        top: 0,
-        bottom: 0,
-        left: 192,
-        right: 0,
-        background: { r: 0, g: 0, b: 0, alpha: 0 },
-      })
-      .toFile(path.join(_extractedDir, 'explosion.png'))
-  } catch (e) {
-    handleRejectedAny(e)
-  }
-})()
+combine('explosion.png', 960, 768, 5, 4)
+combine('firework.png', 1536, 1280, 6, 5)

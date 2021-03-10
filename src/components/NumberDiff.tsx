@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
@@ -26,14 +26,8 @@ const useStyles = createUseStyles({
   },
 })
 
-const NumberDiff = ({
-  n,
-  position = 'top',
-}: {
-  n: number
-  position?: 'top' | 'right' | 'bottom' | 'left'
-}) => {
-  const classes = useStyles(position)
+const NumberDiff = ({ n }: { n: number }) => {
+  const classes = useStyles()
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)
   const main = useRef<HTMLDivElement | null>(null)
@@ -51,7 +45,7 @@ const NumberDiff = ({
         divEl.className = cx(
           classes.main,
           `absolute font-mono text-2xl text-${
-            diff >= 0 ? 'green-600' : 'red-600'
+            diff >= 0 ? 'green-500' : 'red-700'
           } text-shadow-md`,
         )
         divEl.appendChild(textNode)
@@ -66,8 +60,8 @@ const NumberDiff = ({
   }, [n])
 
   // Force TailwindCSS to aware of these classes:
-  // text-green-600
-  // text-red-600
+  // text-green-500
+  // text-red-700
 
   return <div ref={main} className="z-50 absolute w-full h-full"></div>
 }

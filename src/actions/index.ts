@@ -65,17 +65,3 @@ export type ChangeStatusActionType =
   | ChangeProdType
   | ChangeTowerType
   | ChangeWallType
-
-export const showExplosion = (
-  isPlayer: boolean = true,
-  isTower: boolean = true,
-) => ({ type: types.SHOW_EXPLOSION, isPlayer, isTower })
-
-export type ShowExplosionType = ReturnType<typeof showExplosion>
-
-export const hideExplosion = (
-  isPlayer: boolean = true,
-  isTower: boolean = true,
-) => ({ type: types.HIDE_EXPLOSION, isPlayer, isTower })
-
-export type HideExplosionType = ReturnType<typeof hideExplosion>
