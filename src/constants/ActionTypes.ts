@@ -1,6 +1,5 @@
-export const CHANGE_LANG = 'CHANGE_LANG' as const
+export const UPDATE_LANG = 'UPDATE_LANG' as const
 
-export const CHANGE_RESOURCE = 'CHANGE_RESOURCE' as const
-export const CHANGE_PROD = 'CHANGE_PROD' as const
-export const CHANGE_TOWER = 'CHANGE_TOWER' as const
-export const CHANGE_WALL = 'CHANGE_WALL' as const
+export const UPDATE_STATUS = 'UPDATE_STATUS' as const
+export const UPDATE_STATUS_MAIN = 'UPDATE_STATUS_MAIN' as const
+export const EXEC_CARD = 'EXEC_CARD' as const

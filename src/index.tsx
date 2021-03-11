@@ -7,14 +7,14 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
 import rootReducer from './reducers'
-import mySaga from './sagas'
+import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware)),
 )
-sagaMiddleware.run(mySaga)
+sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(
   <React.StrictMode>

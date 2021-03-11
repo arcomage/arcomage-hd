@@ -3,6 +3,9 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
 
+import { useDispatch } from 'react-redux'
+import { EXEC_CARD } from '../constants/ActionTypes'
+
 import i18nCardsEn from '../../src/i18n/cards.en'
 import dataCards from '../../src/data/cards'
 
@@ -102,7 +105,8 @@ const useStyles = createUseStyles({
   },
   text: {
     // width: calc(100% - 0.25rem * 2),
-    height: 'calc(100% - (1.25rem + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
+    height:
+      'calc(100% - (1.25rem + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
   },
   resbg: {
     'background-image': ({ type }) => `url(${[brick, gem, recruit][type]})`,
@@ -117,13 +121,14 @@ const useStyles = createUseStyles({
 
 const cardCountPerType = 34
 
-type CardProps = {
+type PropType = {
   n: number
   unusable?: boolean
   position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
   total: number // 4 | 5 | 6 | 7 | 8
 }
-const Card = ({ n, unusable, position, total }: CardProps) => {
+const Card = ({ n, unusable, position, total }: PropType) => {
+  const dispatch = useDispatch()
   const size = useGameSize()
   const winHeight = size.height
   const winWidth = size.width
@@ -144,6 +149,12 @@ const Card = ({ n, unusable, position, total }: CardProps) => {
         'transition duration-300 ease-out transform hover:scale-105 absolute cursor-pointer rounded shadow-lg',
         `bg-${color}-300`,
       )}
+      onClick={() => {
+        dispatch({
+          type: EXEC_CARD,
+          n,
+        })
+      }}
     >
       <div
         className={cx(

@@ -6,9 +6,8 @@ import Bird from './Bird'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import { connect, useDispatch } from 'react-redux'
-import { changeResource, changeProd, changeTower, changeWall } from '../actions'
-import { StateType } from '../types/statetype'
+import { connect } from 'react-redux'
+import { StateType } from '../types/state'
 
 import bg from '../../assets/img/bg.jpg'
 
@@ -23,6 +22,24 @@ const useStyles = createUseStyles({
   },
 })
 
+type PropType = {
+  bricksP: number
+  gemsP: number
+  recruitsP: number
+  brickProdP: number
+  gemProdP: number
+  recruitProdP: number
+  towerP: number
+  wallP: number
+  bricksO: number
+  gemsO: number
+  recruitsO: number
+  brickProdO: number
+  gemProdO: number
+  recruitProdO: number
+  towerO: number
+  wallO: number
+}
 const TableCommon = ({
   bricksP,
   gemsP,
@@ -40,32 +57,11 @@ const TableCommon = ({
   recruitProdO,
   towerO,
   wallO,
-}: {
-  bricksP: number
-  gemsP: number
-  recruitsP: number
-  brickProdP: number
-  gemProdP: number
-  recruitProdP: number
-  towerP: number
-  wallP: number
-  bricksO: number
-  gemsO: number
-  recruitsO: number
-  brickProdO: number
-  gemProdO: number
-  recruitProdO: number
-  towerO: number
-  wallO: number
-}) => {
+}: PropType) => {
   const classes = useStyles()
-  const dispatch = useDispatch()
   return (
     <div
       className={cx('z-0 h-2/3 flex-auto bg-green-100 relative', classes.main)}
-      onClick={() => {
-        dispatch(changeTower(true, false, 10, true, true))
-      }}
     >
       <Status
         playerName="Tom Chen"
@@ -97,20 +93,20 @@ const TableCommon = ({
 }
 
 const mapStateToProps = (state: StateType) => ({
-  bricksP: state.status.player.resources[0],
-  gemsP: state.status.player.resources[1],
-  recruitsP: state.status.player.resources[2],
-  brickProdP: state.status.player.prods[0],
-  gemProdP: state.status.player.prods[1],
-  recruitProdP: state.status.player.prods[2],
+  bricksP: state.status.player.bricks,
+  gemsP: state.status.player.gems,
+  recruitsP: state.status.player.recruits,
+  brickProdP: state.status.player.brickProd,
+  gemProdP: state.status.player.gemProd,
+  recruitProdP: state.status.player.recruitProd,
   towerP: state.status.player.tower,
   wallP: state.status.player.wall,
-  bricksO: state.status.opponent.resources[0],
-  gemsO: state.status.opponent.resources[1],
-  recruitsO: state.status.opponent.resources[2],
-  brickProdO: state.status.opponent.prods[0],
-  gemProdO: state.status.opponent.prods[1],
-  recruitProdO: state.status.opponent.prods[2],
+  bricksO: state.status.opponent.bricks,
+  gemsO: state.status.opponent.gems,
+  recruitsO: state.status.opponent.recruits,
+  brickProdO: state.status.opponent.brickProd,
+  gemProdO: state.status.opponent.gemProd,
+  recruitProdO: state.status.opponent.recruitProd,
   towerO: state.status.opponent.tower,
   wallO: state.status.opponent.wall,
 })

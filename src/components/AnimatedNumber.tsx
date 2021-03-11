@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-const AnimatedNumber = ({ n }: { n: number }) => {
+type PropType = { n: number }
+
+const AnimatedNumber = ({ n }: PropType) => {
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)
   const timer = useRef<NodeJS.Timeout | null>(null)

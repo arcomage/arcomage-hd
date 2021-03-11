@@ -2,7 +2,7 @@ import React from 'react'
 import Resource, { calcStatusWidth } from './Resource'
 import useGameSize from '../utils/useGameSize'
 
-type StatusProps = {
+type PropType = {
   playerName: string
   bricks: number
   gems: number
@@ -21,7 +21,7 @@ const Status = ({
   gemProd,
   recruitProd,
   isOpponent = false,
-}: StatusProps) => {
+}: PropType) => {
   const size = useGameSize()
   const height = (size.height / 3) * 2
 

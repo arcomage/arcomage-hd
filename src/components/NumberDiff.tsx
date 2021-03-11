@@ -26,7 +26,9 @@ const useStyles = createUseStyles({
   },
 })
 
-const NumberDiff = ({ n }: { n: number }) => {
+type PropType = { n: number }
+
+const NumberDiff = ({ n }: PropType) => {
   const classes = useStyles()
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)

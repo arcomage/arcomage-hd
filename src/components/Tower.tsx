@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
 import AnimatedNumber from './AnimatedNumber'
 import NumberDiff from './NumberDiff'
-import NumberChangeVisual from './NumberChangeVisual'
+import NumberChangeVisual from './NumberChangeEffect'
 
 import tower from '../../assets/img/tower.png'
 import towerRed from '../../assets/img/tower_red.png'
@@ -80,12 +80,12 @@ const useStyles = createUseStyles({
   },
 })
 
-type TowerProps = {
+type PropType = {
   isOpponent?: boolean
   goal: number
   current: number
 }
-const Tower = ({ isOpponent = false, goal, current }: TowerProps) => {
+const Tower = ({ isOpponent = false, goal, current }: PropType) => {
   const size = useGameSize()
   const height = (size.height / 3) * 2
 

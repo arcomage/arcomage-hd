@@ -74,12 +74,12 @@ const useStyles = createUseStyles({
   },
 })
 
-type ResourceProps = {
+type PropType = {
   type: 'brick' | 'gem' | 'recruit'
   count: number
   prod: number
 }
-const Resource = ({ type, count, prod }: ResourceProps) => {
+const Resource = ({ type, count, prod }: PropType) => {
   const size = useGameSize()
   const height = (size.height / 3) * 2
 

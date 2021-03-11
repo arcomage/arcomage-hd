@@ -1,11 +1,11 @@
-import { DataCardsType, DataCardEffectPersonType } from '../types/datacardtype'
+import { DataCardsType, DataCardEffectPersonType } from '../types/dataCard'
 
 const set = (
   person: DataCardEffectPersonType,
   prop: keyof DataCardEffectPersonType,
-  res: number,
+  to: number,
 ) => {
-  person[prop] = res > 0 ? res : 0
+  person[prop] = to > 0 ? to : 0
 }
 
 const change = (

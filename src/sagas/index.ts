@@ -1,49 +1,27 @@
-import { put, takeEvery, delay } from 'redux-saga/effects'
+import { put, takeEvery } from 'redux-saga/effects'
 import {
-  CHANGE_RESOURCE,
-  CHANGE_PROD,
-  CHANGE_TOWER,
-  CHANGE_WALL,
+  UPDATE_STATUS,
+  UPDATE_STATUS_MAIN,
+  EXEC_CARD,
 } from '../constants/ActionTypes'
-import {
-  ChangeResourceType,
-  ChangeProdType,
-  ChangeTowerType,
-  ChangeWallType,
-} from '../actions'
+import { UpdateStatusActionType } from '../types/actionObj'
 
 import playSound from './playSound'
-import showVisual from './showVisual'
+import execCard from './execCard'
 
-function* changeResource(action: ChangeResourceType) {
-  if (action.sound) {
+function* updateStatus(action: UpdateStatusActionType) {
+  if (!action.noSound) {
     yield playSound(action)
   }
+  yield put({
+    type: UPDATE_STATUS_MAIN,
+    isPlayer: action.isPlayer,
+    statusProp: action.statusProp,
+    to: action.to,
+  })
 }
 
-function* changeProd(action: ChangeProdType) {
-  if (action.sound) {
-    yield playSound(action)
-  }
-}
-
-function* changeTower(action: ChangeTowerType) {
-  if (action.sound) {
-    yield playSound(action)
-  }
-  yield showVisual(action)
-}
-
-function* changeWall(action: ChangeWallType) {
-  if (action.sound) {
-    yield playSound(action)
-  }
-  yield showVisual(action)
-}
-
-export default function* rootSage() {
-  yield takeEvery(CHANGE_RESOURCE, changeResource)
-  yield takeEvery(CHANGE_PROD, changeProd)
-  yield takeEvery(CHANGE_TOWER, changeTower)
-  yield takeEvery(CHANGE_WALL, changeWall)
+export default function* rootSaga() {
+  yield takeEvery(UPDATE_STATUS, updateStatus)
+  yield takeEvery(EXEC_CARD, execCard)
 }

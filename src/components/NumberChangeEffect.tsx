@@ -45,7 +45,9 @@ const useStyles = createUseStyles({
   },
 })
 
-const NumberChangeVisual = ({ n }: { n: number }) => {
+type PropType = { n: number }
+
+const NumberChangeVisual = ({ n }: PropType) => {
   const classes = useStyles()
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)
@@ -63,7 +65,7 @@ const NumberChangeVisual = ({ n }: { n: number }) => {
           n < prev ? classes.explosion : classes.firework,
         )
         mainEl.appendChild(divEl)
-        // divEl.onanimationend = () => mainEl.removeChild(divEl)
+        divEl.onanimationend = () => mainEl.removeChild(divEl)
       }
     }
     if (!hasMounted.current) {
