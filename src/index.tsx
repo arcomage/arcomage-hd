@@ -5,16 +5,17 @@ import App from './App'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { Provider } from 'react-redux'
-import createSagaMiddleware from 'redux-saga'
 import rootReducer from './reducers'
-import rootSaga from './sagas'
+import rootEpic from './epics'
+import { createEpicMiddleware } from 'redux-observable'
 
-const sagaMiddleware = createSagaMiddleware()
+const epicMiddleware = createEpicMiddleware()
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware)),
+  composeWithDevTools(applyMiddleware(epicMiddleware)),
 )
-sagaMiddleware.run(rootSaga)
+
+epicMiddleware.run(rootEpic)
 
 ReactDOM.render(
   <React.StrictMode>

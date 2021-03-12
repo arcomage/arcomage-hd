@@ -1,13 +1,6 @@
-export type DataCardEffectPersonType = {
-  bricks: number
-  gems: number
-  recruits: number
-  brickProd: number
-  gemProd: number
-  recruitProd: number
-  tower: number
-  wall: number
-}
+import { PlayerStatusType } from '../types/state'
+
+export type DataCardEffectPersonType = PlayerStatusType
 
 export type DataCardEffectReturnType = {
   playAgain?: boolean

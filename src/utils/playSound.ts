@@ -1,7 +1,5 @@
-import { UpdateStatusActionType } from '../types/actionObj'
-import { select } from 'redux-saga/effects'
-
-import { StateType, StatusType } from '../types/state'
+import { PlayerStatusType } from '../types/state'
+import { cloneNode } from './typeHelpers'
 
 import towerUp from '../../assets/sfx/tower_up.mp3'
 import wallUp from '../../assets/sfx/wall_up.mp3'
@@ -23,43 +21,38 @@ const gemDownAudio = new Audio(gemDown)
 const recruitDownAudio = new Audio(recruitDown)
 const damageAudio = new Audio(damage)
 
-function cloneNode<T extends Node>(node: T) {
-  return <T>node.cloneNode()
-}
-
-export default function* playSound(action: UpdateStatusActionType): any {
-  const { isPlayer, statusProp, to } = action
-  const status: StatusType = yield select(
-    (state: StateType): StatusType => state.status,
-  )
-  const from: number = status[isPlayer ? 'player' : 'opponent'][statusProp]
-  if (to !== from) {
-    const up = to > from
+const playSound = (
+  increase: boolean | null,
+  statusProp: keyof PlayerStatusType,
+): void => {
+  if (increase !== null) {
     switch (statusProp) {
       case 'tower':
-        yield cloneNode(up ? towerUpAudio : damageAudio).play()
+        cloneNode(increase ? towerUpAudio : damageAudio).play()
         break
       case 'wall':
-        yield cloneNode(up ? wallUpAudio : damageAudio).play()
+        cloneNode(increase ? wallUpAudio : damageAudio).play()
         break
       case 'bricks':
-        yield cloneNode(up ? brickUpAudio : brickDownAudio).play()
+        cloneNode(increase ? brickUpAudio : brickDownAudio).play()
         break
       case 'brickProd':
-        yield cloneNode(up ? brickUpAudio : brickDownAudio).play()
+        cloneNode(increase ? brickUpAudio : brickDownAudio).play()
         break
       case 'gems':
-        yield cloneNode(up ? gemUpAudio : gemDownAudio).play()
+        cloneNode(increase ? gemUpAudio : gemDownAudio).play()
         break
       case 'gemProd':
-        yield cloneNode(up ? gemUpAudio : gemDownAudio).play()
+        cloneNode(increase ? gemUpAudio : gemDownAudio).play()
         break
       case 'recruits':
-        yield cloneNode(up ? recruitUpAudio : recruitDownAudio).play()
+        cloneNode(increase ? recruitUpAudio : recruitDownAudio).play()
         break
       case 'recruitProd':
-        yield cloneNode(up ? recruitUpAudio : recruitDownAudio).play()
+        cloneNode(increase ? recruitUpAudio : recruitDownAudio).play()
         break
     }
   }
 }
+
+export default playSound

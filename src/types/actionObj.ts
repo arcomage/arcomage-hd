@@ -6,25 +6,52 @@ import {
 } from '../constants/ActionTypes'
 import { PlayerStatusType } from '../types/state'
 
-export type UpdateLangActionType = { type: typeof UPDATE_LANG; lang: string }
+export type LangActionType = { type: typeof UPDATE_LANG; lang: string }
+
+type UpdateStatusActionTypeSingle = {
+  isPlayer: boolean
+  statusProp: keyof PlayerStatusType
+  noSound?: boolean
+} & (
+  | {
+      to: number
+    }
+  | {
+      diff: number
+    }
+)
+
+type UpdateStatusMainActionTypeSingle = {
+  increase: boolean
+  isPlayer: boolean
+  statusProp: keyof PlayerStatusType
+} & (
+  | {
+      to: number
+    }
+  | {
+      diff: number
+    }
+)
 
 export type UpdateStatusActionType = {
   type: typeof UPDATE_STATUS
-  isPlayer: boolean
-  statusProp: keyof PlayerStatusType
-  to: number
-  noSound?: boolean
+  updArr: UpdateStatusActionTypeSingle[]
 }
 
-export type UpdateStatusMainActionType = Omit<
-  UpdateStatusActionType,
-  'type' | 'noSound'
-> & {
+export type UpdateStatusMainActionType = {
   type: typeof UPDATE_STATUS_MAIN
-  increase: boolean
+  updArr: UpdateStatusMainActionTypeSingle[]
 }
 
 export type ExecCardActionType = {
   type: typeof EXEC_CARD
   n: number
 }
+
+export type StatusActionType =
+  | UpdateStatusActionType
+  | UpdateStatusMainActionType
+  | ExecCardActionType
+
+export type ActionType = LangActionType | StatusActionType

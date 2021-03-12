@@ -1,7 +1,7 @@
 import { UPDATE_LANG } from '../constants/ActionTypes'
-import { UpdateLangActionType } from '../types/actionObj'
+import { LangActionType } from '../types/actionObj'
 
-const lang = (state = 'en', action: UpdateLangActionType) => {
+const lang = (state = 'en', action: LangActionType) => {
   switch (action.type) {
     case UPDATE_LANG:
       return action.lang
