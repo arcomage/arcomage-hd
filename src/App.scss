@@ -56,5 +56,43 @@
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
+}
+
+@keyframes cardFlip {
+  0% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  }
+  50% {
+    transform: rotateZ(-10deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes cardUnFlip {
+  0% {
+    transform: rotateZ(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateZ(-10deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotateZ(0deg) rotateY(180deg);
+  }
+}
+
+body {
+  perspective: 120vh;
+}
+
+.card {
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.card:hover {
+  transform: translateX(-100%) rotateY(-180deg);
 }

@@ -83,10 +83,6 @@ const getMarginX = (
 
 const useStyles = createUseStyles({
   main: {
-    'background-image': ({ n }) => `url(${n === -1 ? cardbackbg : noise})`,
-    'background-size': ({ n }) => (n === -1 ? 'cover' : 'initial'),
-    'background-position': ({ n }) => (n === -1 ? 'center' : 'initial'),
-    'background-repeat': ({ n }) => (n === -1 ? 'no-repeat' : 'initial'),
     width: ({ winHeight, winWidth, total }) =>
       `${getWidth(winHeight / 3, winWidth, total)}px`,
     height: ({ winHeight, winWidth, total }) =>
@@ -125,6 +121,32 @@ const useStyles = createUseStyles({
         }px`
       }
     },
+    'transition-property': 'opacity, transform, left, top',
+    'transition-timing-function': 'ease',
+    'transition-duration': '300ms',
+  },
+  cardeffect: {
+    'transform-style': 'preserve-3d',
+    'transform-origin': 'center right',
+  },
+  isflipped: {
+    transform: 'translateX(-100%) rotateY(-180deg)',
+  },
+  cardfront: {
+    background: {
+      image: `url(${noise})`,
+    },
+  },
+  cardback: {
+    background: {
+      image: `url(${cardbackbg})`,
+      size: 'cover',
+      position: 'center',
+      repeat: 'no-repeat',
+    },
+  },
+  cardbackeffect: {
+    transform: 'rotateY(180deg)',
   },
   image: {
     // width: calc(100% - 0.25rem * 2),
@@ -167,12 +189,13 @@ const Card = ({ n, discarded = false, position, total }: PropType) => {
   const winWidth = size.width
 
   if (n === -1) {
-    const classes = useStyles({ n, winHeight, winWidth, total, position })
+    const classes = useStyles({ winHeight, winWidth, total, position })
     return (
       <div
         className={cx(
           classes.main,
-          'transition duration-300 ease-out transform absolute cursor-pointer rounded shadow-lg',
+          classes.cardback,
+          'transform absolute cursor-pointer rounded shadow-lg',
         )}
       ></div>
     )
@@ -191,7 +214,8 @@ const Card = ({ n, discarded = false, position, total }: PropType) => {
       <div
         className={cx(
           classes.main,
-          'transition duration-300 ease-out transform hover:scale-105 absolute cursor-pointer rounded shadow-lg',
+          classes.cardeffect,
+          'transform absolute cursor-pointer rounded shadow-lg hover:scale-105',
           `bg-${color}-300`,
         )}
         onClick={() => {
@@ -201,38 +225,59 @@ const Card = ({ n, discarded = false, position, total }: PropType) => {
           })
         }}
       >
-        <div
-          className={cx(
-            classes.image,
-            classes.condensed,
-            'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-600 text-xl font-bold uppercase text-shadow-stroke',
-          )}
-          style={{
-            backgroundImage: `url("assets/img/cards/${dataCards[
-              n
-            ].type.toString()}_${(n % cardCountPerType).toString()}.png")`,
-          }}
-        >
-          {discarded && 'discarded'}
-        </div>
-        <div
-          className={cx(
-            classes.text,
-            'm-2 flex flex-wrap content-center justify-center',
-          )}
-        >
-          <div className="leading-none break-words text-center">
-            {i18nCardsEn[n].desc}
-          </div>
-        </div>
-        <div className="absolute bottom-1 right-1 w-9 h-9 leading-9 text-center font-bold">
+        <div className="absolute top-0 bottom-0 left-0 right-0">
           <div
-            className={cx(classes.resbg, 'absolute top-0 left-0 w-full h-full')}
-          ></div>
-          <div className="absolute top-0 left-0 w-full h-full">
-            {dataCards[n].cost}
+            className={cx(
+              classes.cardfront,
+              'm-1 shadow text-center font-bold leading-5 h-5',
+              `bg-${color}-200`,
+            )}
+          >
+            {i18nCardsEn[n].name}
+          </div>
+          <div
+            className={cx(
+              classes.image,
+              classes.condensed,
+              'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-600 text-xl font-bold uppercase text-shadow-stroke',
+            )}
+            style={{
+              backgroundImage: `url("assets/img/cards/${dataCards[
+                n
+              ].type.toString()}_${(n % cardCountPerType).toString()}.png")`,
+            }}
+          >
+            {discarded && 'discarded'}
+          </div>
+          <div
+            className={cx(
+              classes.text,
+              'm-2 flex flex-wrap content-center justify-center',
+            )}
+          >
+            <div className="leading-none break-words text-center">
+              {i18nCardsEn[n].desc}
+            </div>
+          </div>
+          <div className="absolute bottom-1 right-1 w-9 h-9 leading-9 text-center font-bold">
+            <div
+              className={cx(
+                classes.resbg,
+                'absolute top-0 left-0 w-full h-full',
+              )}
+            ></div>
+            <div className="absolute top-0 left-0 w-full h-full">
+              {dataCards[n].cost}
+            </div>
           </div>
         </div>
+        <div
+          className={cx(
+            classes.cardback,
+            classes.cardbackeffect,
+            'absolute top-0 bottom-0 left-0 right-0',
+          )}
+        ></div>
       </div>
     )
   }

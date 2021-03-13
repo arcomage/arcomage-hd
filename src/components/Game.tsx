@@ -14,17 +14,15 @@ const useStyles = createUseStyles({
 const Game = () => {
   const classes = useStyles()
   return (
-    <>
-      <div
-        className={cx(
-          'w-screen h-screen flex flex-col bg-black overflow-x-hidden select-none',
-          classes.main,
-        )}
-      >
-        <TableCommon />
-        <TableP />
-      </div>
-    </>
+    <div
+      className={cx(
+        'w-screen h-screen flex flex-col bg-black overflow-x-hidden select-none',
+        classes.main,
+      )}
+    >
+      <TableCommon />
+      <TableP />
+    </div>
   )
 }
 
