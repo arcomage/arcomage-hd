@@ -10,6 +10,7 @@ import i18nCardsEn from '../../src/i18n/cards.en'
 import dataCards from '../../src/data/cards'
 
 import noise from '../../assets/img/noise.png'
+import cardbackbg from '../../assets/img/cardback.png'
 import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'
 import recruit from '../../assets/img/recruit.svg'
@@ -18,6 +19,9 @@ const heightPercToTable = 0.8
 const whRatio = 188 / 252
 const marginSpacingXRatio = 1.5
 const minSpacingXPx = 5
+const topCardSpacingPx = 10
+const topCardMarginTop = '1rem'
+const middleCardMarginBottom = '1rem'
 
 const useWidth = (
   tableHeight: number,
@@ -79,25 +83,48 @@ const getMarginX = (
 
 const useStyles = createUseStyles({
   main: {
-    background: {
-      image: `url(${noise})`,
-    },
+    'background-image': ({ n }) => `url(${n === -1 ? cardbackbg : noise})`,
+    'background-size': ({ n }) => (n === -1 ? 'cover' : 'initial'),
+    'background-position': ({ n }) => (n === -1 ? 'center' : 'initial'),
+    'background-repeat': ({ n }) => (n === -1 ? 'no-repeat' : 'initial'),
     width: ({ winHeight, winWidth, total }) =>
       `${getWidth(winHeight / 3, winWidth, total)}px`,
     height: ({ winHeight, winWidth, total }) =>
       `${getHeight(winHeight / 3, winWidth, total)}px`,
-    top: ({ winHeight, winWidth, total }) =>
-      `${
-        (winHeight / 3) * 2 +
-        (winHeight / 3 - getHeight(winHeight / 3, winWidth, total)) / 2
-      }px`,
-    left: ({ winHeight, winWidth, total, position }) =>
-      `${
-        getMarginX(winWidth, total, winHeight / 3) +
-        (getWidth(winHeight / 3, winWidth, total) +
-          getSpacingX(winWidth, total, winHeight / 3)) *
-          position
-      }px`,
+    top: ({ winHeight, winWidth, total, position }) => {
+      if (position >= 0) {
+        return `${
+          (winHeight / 3) * 2 +
+          (winHeight / 3 - getHeight(winHeight / 3, winWidth, total)) / 2
+        }px`
+      } else if (position === -5) {
+        return `calc(${
+          (winHeight / 3) * 2 - getHeight(winHeight / 3, winWidth, total)
+        }px - ${middleCardMarginBottom})`
+      } else {
+        return topCardMarginTop
+      }
+    },
+    left: ({ winHeight, winWidth, total, position }) => {
+      if (position >= 0) {
+        return `${
+          getMarginX(winWidth, total, winHeight / 3) +
+          (getWidth(winHeight / 3, winWidth, total) +
+            getSpacingX(winWidth, total, winHeight / 3)) *
+            position
+        }px`
+      } else if (position === -5) {
+        return `${
+          winWidth / 2 - getWidth(winHeight / 3, winWidth, total) / 2
+        }px`
+      } else {
+        return `${
+          winWidth / 2 -
+          (getWidth(winHeight / 3, winWidth, total) * (position + 3) -
+            (1 / 2 - 3 - position) * topCardSpacingPx)
+        }px`
+      }
+    },
   },
   image: {
     // width: calc(100% - 0.25rem * 2),
@@ -117,84 +144,98 @@ const useStyles = createUseStyles({
     },
     opacity: 0.35,
   },
+  condensed: {
+    font: {
+      family: 'RobotoCondensed',
+      weight: 'bold',
+    },
+  },
 })
 
 const cardCountPerType = 34
 
 type PropType = {
-  n: number
-  unusable?: boolean
-  position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
+  n: number // .. | -1: cardback
+  discarded?: boolean
+  position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | -1 | -2 | -3 | -4 | -5
   total: number // 4 | 5 | 6 | 7 | 8
 }
-const Card = ({ n, unusable, position, total }: PropType) => {
+const Card = ({ n, discarded = false, position, total }: PropType) => {
   const dispatch = useDispatch()
   const size = useGameSize()
   const winHeight = size.height
   const winWidth = size.width
-  const type = dataCards[n].type
-  const classes = useStyles({ type, winHeight, winWidth, total, position })
-  const color = ['red', 'blue', 'green'][type]
-  // Force TailwindCSS to aware of these classes:
-  // bg-red-200
-  // bg-blue-200
-  // bg-green-200
-  // bg-red-300
-  // bg-blue-300
-  // bg-green-300
-  return (
-    <div
-      className={cx(
-        classes.main,
-        'transition duration-300 ease-out transform hover:scale-105 absolute cursor-pointer rounded shadow-lg',
-        `bg-${color}-300`,
-      )}
-      onClick={() => {
-        dispatch({
-          type: EXEC_CARD,
-          n,
-        })
-      }}
-    >
+
+  if (n === -1) {
+    const classes = useStyles({ n, winHeight, winWidth, total, position })
+    return (
       <div
         className={cx(
-          'm-1 shadow text-center font-bold leading-5 h-5',
-          `bg-${color}-200`,
+          classes.main,
+          'transition duration-300 ease-out transform absolute cursor-pointer rounded shadow-lg',
         )}
-      >
-        {i18nCardsEn[n].name}
-      </div>
-      <div
-        className={cx(
-          classes.image,
-          'm-1 shadow bg-no-repeat bg-cover bg-center',
-        )}
-        style={{
-          backgroundImage: `url("assets/img/cards/${dataCards[
-            n
-          ].type.toString()}_${(n % cardCountPerType).toString()}.png")`,
-        }}
       ></div>
+    )
+  } else {
+    const type = dataCards[n].type
+    const classes = useStyles({ type, winHeight, winWidth, total, position })
+    const color = ['red', 'blue', 'green'][type]
+    // Force TailwindCSS to aware of these classes:
+    // bg-red-200
+    // bg-blue-200
+    // bg-green-200
+    // bg-red-300
+    // bg-blue-300
+    // bg-green-300
+    return (
       <div
         className={cx(
-          classes.text,
-          'm-2 flex flex-wrap content-center justify-center',
+          classes.main,
+          'transition duration-300 ease-out transform hover:scale-105 absolute cursor-pointer rounded shadow-lg',
+          `bg-${color}-300`,
         )}
+        onClick={() => {
+          dispatch({
+            type: EXEC_CARD,
+            n,
+          })
+        }}
       >
-        <div className="leading-none break-words text-center">
-          {i18nCardsEn[n].desc}
-        </div>
-      </div>
-      <div className="absolute bottom-1 right-1 w-9 h-9 leading-9 text-center font-bold">
         <div
-          className={cx(classes.resbg, 'absolute top-0 left-0 w-full h-full')}
-        ></div>
-        <div className="absolute top-0 left-0 w-full h-full">
-          {dataCards[n].cost}
+          className={cx(
+            classes.image,
+            classes.condensed,
+            'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-600 text-xl font-bold uppercase text-shadow-stroke',
+          )}
+          style={{
+            backgroundImage: `url("assets/img/cards/${dataCards[
+              n
+            ].type.toString()}_${(n % cardCountPerType).toString()}.png")`,
+          }}
+        >
+          {discarded && 'discarded'}
+        </div>
+        <div
+          className={cx(
+            classes.text,
+            'm-2 flex flex-wrap content-center justify-center',
+          )}
+        >
+          <div className="leading-none break-words text-center">
+            {i18nCardsEn[n].desc}
+          </div>
+        </div>
+        <div className="absolute bottom-1 right-1 w-9 h-9 leading-9 text-center font-bold">
+          <div
+            className={cx(classes.resbg, 'absolute top-0 left-0 w-full h-full')}
+          ></div>
+          <div className="absolute top-0 left-0 w-full h-full">
+            {dataCards[n].cost}
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default Card

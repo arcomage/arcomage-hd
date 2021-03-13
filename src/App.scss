@@ -17,6 +17,11 @@
         0 5px 15px rgba(0, 0, 0, 0.4);
     }
 
+    .text-shadow-stroke {
+      text-shadow: 1px 1px 0 black, -1px 1px 0 black, -1px -1px 0 black,
+        1px -1px 0 black;
+    }
+
     // .text-shadow-white {
     //   text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
     // }

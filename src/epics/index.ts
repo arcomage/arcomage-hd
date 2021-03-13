@@ -4,13 +4,12 @@ import { Action } from 'redux'
 import { combineEpics, Epic } from 'redux-observable'
 import updateStatusEpic from './updateStatusEpic'
 import execCardEpic from './execCardEpic'
-import langEpic from './langEpic'
-import cardsEpic from './cardsEpic'
+import useCardEpic from './useCardEpic'
 
 export type MyEpic = Epic<Action<ActionType>, Action<ActionType>>
 
 const rootEpic: MyEpic = (action$, store$, dependencies) =>
-  combineEpics(updateStatusEpic, execCardEpic, langEpic, cardsEpic)(
+  combineEpics(updateStatusEpic, execCardEpic, useCardEpic)(
     action$,
     store$,
     dependencies,

@@ -18,7 +18,12 @@ const TableP = ({ cardsP }: PropType) => {
   return (
     <div className={cx(classes.main, 'h-1/3 flex-auto')}>
       {cardsP.map((card, i) => (
-        <Card n={card} position={i} total={cardsP.length} key={nanoid()} />
+        <Card
+          n={card}
+          position={i}
+          total={cardsP.length}
+          key={nanoid()}
+        />
       ))}
     </div>
   )
