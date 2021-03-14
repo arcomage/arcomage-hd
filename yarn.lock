@@ -6577,6 +6577,11 @@ onetime@^5.1.0, onetime@^5.1.2:
   dependencies:
     mimic-fn "^2.1.0"
 
+opencc-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/opencc-js/-/opencc-js-1.0.1.tgz#4db523cb1aa1bc3cd3ad8b8391ce34355ae3499a"
+  integrity sha512-Lcv+apB/CwpTLMwgV0ItddS8BGBgTRS24/4zZQL8bYyHP6vAf0XDn7URt1dl28gojCB89yDx0OL+nnlXmpiFuQ==
+
 opn@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/opn/-/opn-5.5.0.tgz#fc7164fab56d235904c51c3b27da6758ca3b9bfc"
