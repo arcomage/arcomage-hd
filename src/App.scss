@@ -86,13 +86,3 @@ body {
 body {
   perspective: 120vh;
 }
-
-.card {
-  transform-style: preserve-3d;
-  transform-origin: center right;
-  transition: transform 1s;
-}
-
-.card:hover {
-  transform: translateX(-100%) rotateY(-180deg);
-}

@@ -1,5 +1,8 @@
 import { useState, useLayoutEffect } from 'react'
 
+export const minWidth = 300
+export const minHeight = 300
+
 type vType = {
   width: number
   height: number
@@ -16,8 +19,8 @@ const useGameSize = () => {
   useLayoutEffect(() => {
     const handleResize = () => {
       setGameSize({
-        width: window.innerWidth > 300 ? window.innerWidth : 300,
-        height: window.innerHeight > 600 ? window.innerHeight : 600,
+        width: window.innerWidth > minWidth ? window.innerWidth : minWidth,
+        height: window.innerHeight > minHeight ? window.innerHeight : minHeight,
       })
     }
 

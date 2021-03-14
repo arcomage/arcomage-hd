@@ -4,13 +4,13 @@ import {
   UPDATE_STATUS_MAIN,
   EXEC_CARD,
 } from '../constants/ActionTypes'
-import { PlayerStatusType } from '../types/state'
+import { PersonStatusType } from '../types/state'
 
 export type LangActionType = { type: typeof UPDATE_LANG; lang: string }
 
 type UpdateStatusActionTypeSingle = {
   isPlayer: boolean
-  statusProp: keyof PlayerStatusType
+  statusProp: keyof PersonStatusType
   noSound?: boolean
 } & (
   | {
@@ -24,7 +24,7 @@ type UpdateStatusActionTypeSingle = {
 type UpdateStatusMainActionTypeSingle = {
   increase: boolean
   isPlayer: boolean
-  statusProp: keyof PlayerStatusType
+  statusProp: keyof PersonStatusType
 } & (
   | {
       to: number

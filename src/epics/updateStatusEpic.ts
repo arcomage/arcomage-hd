@@ -28,7 +28,7 @@ export const updateStatusEpic = (
             increase = upd.diff > 0
           }
         }
-        playSound(increase, statusProp)
+        playSound(statusProp, increase)
         return {
           increase,
           isPlayer,

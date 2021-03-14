@@ -3,11 +3,12 @@ import TableCommon from './TableCommon'
 import TableP from './TableP'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
+import { minWidth, minHeight } from '../utils/useGameSize'
 
 const useStyles = createUseStyles({
   main: {
-    'min-width': '300px',
-    'min-height': '600px',
+    'min-width': `${minWidth}px`,
+    'min-height': `${minHeight}px`,
   },
 })
 

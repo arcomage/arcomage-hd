@@ -123,19 +123,24 @@ const useStyles = createUseStyles({
     },
     'transition-property': 'opacity, transform, left, top',
     'transition-timing-function': 'ease',
-    'transition-duration': '300ms',
+    'transition-duration': '0.6s',
+    '&:hover': {
+      // transform: 'translateX(-100%) rotateY(-180deg)',
+      'transition-timing-function': 'ease-in-out',
+      'transition-duration': '0.3s',
+    },
+  },
+  isflipped: {
+    transform: 'translateX(-100%) rotateY(-180deg)',
   },
   cardeffect: {
     'transform-style': 'preserve-3d',
     'transform-origin': 'center right',
   },
-  isflipped: {
-    transform: 'translateX(-100%) rotateY(-180deg)',
-  },
   cardfront: {
-    background: {
-      image: `url(${noise})`,
-    },
+    'background-image': `url(${noise})`,
+    'backface-visibility': 'hidden',
+    opacity: ({ unusable }) => (unusable ? 0.5 : 1),
   },
   cardback: {
     background: {
@@ -144,9 +149,11 @@ const useStyles = createUseStyles({
       position: 'center',
       repeat: 'no-repeat',
     },
+    opacity: ({ unusable }) => (unusable ? 0.5 : 1),
   },
   cardbackeffect: {
-    transform: 'rotateY(180deg)',
+    transform: 'translateX(0) rotateY(180deg)',
+    'backface-visibility': 'hidden',
   },
   image: {
     // width: calc(100% - 0.25rem * 2),
@@ -178,18 +185,31 @@ const cardCountPerType = 34
 
 type PropType = {
   n: number // .. | -1: cardback
+  unusable?: boolean
   discarded?: boolean
   position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | -1 | -2 | -3 | -4 | -5
   total: number // 4 | 5 | 6 | 7 | 8
 }
-const Card = ({ n, discarded = false, position, total }: PropType) => {
+const Card = ({
+  n,
+  unusable = false,
+  discarded = false,
+  position,
+  total,
+}: PropType) => {
   const dispatch = useDispatch()
   const size = useGameSize()
   const winHeight = size.height
   const winWidth = size.width
 
   if (n === -1) {
-    const classes = useStyles({ winHeight, winWidth, total, position })
+    const classes = useStyles({
+      winHeight,
+      winWidth,
+      total,
+      position,
+      unusable,
+    })
     return (
       <div
         className={cx(
@@ -201,7 +221,14 @@ const Card = ({ n, discarded = false, position, total }: PropType) => {
     )
   } else {
     const type = dataCards[n].type
-    const classes = useStyles({ type, winHeight, winWidth, total, position })
+    const classes = useStyles({
+      type,
+      winHeight,
+      winWidth,
+      total,
+      position,
+      unusable,
+    })
     const color = ['red', 'blue', 'green'][type]
     // Force TailwindCSS to aware of these classes:
     // bg-red-200
@@ -215,20 +242,36 @@ const Card = ({ n, discarded = false, position, total }: PropType) => {
         className={cx(
           classes.main,
           classes.cardeffect,
-          'transform absolute cursor-pointer rounded shadow-lg hover:scale-105',
-          `bg-${color}-300`,
+          'transform absolute rounded shadow-lg',
+          { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
-        onClick={() => {
-          dispatch({
-            type: EXEC_CARD,
-            n,
-          })
-        }}
+        {...(position >= 0 && unusable === false
+          ? {
+              onClick: () => {
+                dispatch({
+                  type: EXEC_CARD,
+                  n,
+                })
+              },
+            }
+          : {})}
+        {...(position >= 0
+          ? {
+              onContextMenu: (e) => {
+                // e.preventDefault()
+              },
+            }
+          : {})}
       >
-        <div className="absolute top-0 bottom-0 left-0 right-0">
+        <div
+          className={cx(
+            classes.cardfront,
+            'absolute top-0 bottom-0 left-0 right-0 rounded',
+            `bg-${color}-300`,
+          )}
+        >
           <div
             className={cx(
-              classes.cardfront,
               'm-1 shadow text-center font-bold leading-5 h-5',
               `bg-${color}-200`,
             )}
@@ -275,7 +318,7 @@ const Card = ({ n, discarded = false, position, total }: PropType) => {
           className={cx(
             classes.cardback,
             classes.cardbackeffect,
-            'absolute top-0 bottom-0 left-0 right-0',
+            'absolute top-0 bottom-0 left-0 right-0 rounded',
           )}
         ></div>
       </div>

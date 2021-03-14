@@ -1,4 +1,4 @@
-export type PlayerStatusType = {
+export type PersonStatusType = {
   bricks: number
   gems: number
   recruits: number
@@ -10,13 +10,24 @@ export type PlayerStatusType = {
 }
 
 export type StatusType = {
-  player: PlayerStatusType
-  opponent: PlayerStatusType
+  player: PersonStatusType
+  opponent: PersonStatusType
 }
 
+export type PersonCardStateExistedType = {
+  position: number
+  n: number
+  unusable: boolean
+  discarded: boolean
+  isflipped: boolean
+}
+
+export type PersonCardStateType = PersonCardStateExistedType | null
+
 export type CardStateType = {
-  player: number[]
-  opponent: number[]
+  total: number
+  player: PersonCardStateType[]
+  opponent: PersonCardStateType[]
 }
 
 export type StateType = {

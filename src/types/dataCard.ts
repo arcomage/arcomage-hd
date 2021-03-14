@@ -1,6 +1,6 @@
-import { PlayerStatusType } from '../types/state'
+import { PersonStatusType } from '../types/state'
 
-export type DataCardEffectPersonType = PlayerStatusType
+export type DataCardEffectPersonType = PersonStatusType
 
 export type DataCardEffectReturnType = {
   playAgain?: boolean
