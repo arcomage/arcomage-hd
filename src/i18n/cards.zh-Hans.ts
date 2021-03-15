@@ -175,7 +175,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '深红宝石',
-    desc: '城堡+3',
+    desc: '城堡+5',
   },
   {
     name: '水晶之矛',
@@ -183,7 +183,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '焚心之火',
-    desc: '宝石产量+2，城堡-5',
+    desc: '城堡-5，宝石产量+2',
   },
   {
     name: '忠诚代价',
@@ -199,7 +199,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '智慧珍珠',
-    desc: '宝石产量+1，城堡+5',
+    desc: '城堡+5，宝石产量+1',
   },
   {
     name: '赌命狂徒',
@@ -215,7 +215,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '生死相斗',
-    desc: '双方宝石产量同时-1，城堡同时-7',
+    desc: '双方城堡同时-7，宝石产量同时-1',
   },
   {
     name: '幻火之石',

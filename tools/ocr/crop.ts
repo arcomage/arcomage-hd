@@ -1,7 +1,7 @@
 import sharp from 'sharp'
 import fs from 'fs'
 import path from 'path'
-import locales from './locales'
+import { locales } from './locales'
 
 const originalDir = './original'
 const extractedDir = './extracted'

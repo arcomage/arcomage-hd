@@ -464,13 +464,13 @@ const cards: DataCardsType = [
   },
   {
     // name: 'Lodestone',
-    // desc: "+8 Tower. This card can't be discarded without playing it",
+    // desc: "+3 Tower. This card can't be discarded without playing it",
     type: 1,
     cost: 5,
     count: 1,
     special: { undiscardable: true },
     effect: (p, o) => {
-      change(p, 'tower', 8)
+      change(p, 'tower', 3)
     },
   },
   {

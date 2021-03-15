@@ -159,7 +159,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Lodestone',
-    desc: "+8 Tower. This card can't be discarded without playing it",
+    desc: "+3 Tower. This card can't be discarded without playing it",
   },
   {
     name: 'Solar Flare',

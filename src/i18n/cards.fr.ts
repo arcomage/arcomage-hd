@@ -275,7 +275,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Maladie De La Vache Folle',
-    desc: 'Chaque joueur perd 3 recrues',
+    desc: 'Chaque joueur perd 6 recrues',
   },
   {
     name: 'Fée',
