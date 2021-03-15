@@ -1,6 +1,6 @@
 import { DataCardsI18nType } from '../types/dataCard'
 
-const cardsI18n: DataCardsI18nType = [
+export const cardsI18n: DataCardsI18nType = [
   {
     name: 'Brick Shortage',
     desc: 'All players lose 8 bricks',
@@ -410,5 +410,3 @@ const cardsI18n: DataCardsI18nType = [
     desc: '12 Damage to enemy tower',
   },
 ]
-
-export default cardsI18n

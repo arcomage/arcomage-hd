@@ -41,10 +41,10 @@ const cards: DataCardsType = [
     type: 0,
     cost: 0,
     count: 1,
+    special: { playAgain: true },
     effect: (p, o) => {
       change(p, 'bricks', 2)
       change(p, 'gems', 2)
-      return { playAgain: true }
     },
   },
   {
@@ -53,9 +53,9 @@ const cards: DataCardsType = [
     type: 0,
     cost: 1,
     count: 2,
+    special: { playAgain: true },
     effect: (p, o) => {
       change(p, 'wall', 1)
-      return { playAgain: true }
     },
   },
   {
@@ -164,10 +164,10 @@ const cards: DataCardsType = [
     type: 0,
     cost: 7,
     count: 1,
+    special: { playAgain: true },
     effect: (p, o) => {
       change(p, 'wall', -5)
       change(o, 'wall', -5)
-      return { playAgain: true }
     },
   },
   {
@@ -176,9 +176,9 @@ const cards: DataCardsType = [
     type: 0,
     cost: 8,
     count: 1,
+    special: { playAgain: true },
     effect: (p, o) => {
       change(p, 'gemProd', 1)
-      return { playAgain: true }
     },
   },
   {
@@ -417,9 +417,9 @@ const cards: DataCardsType = [
     type: 1,
     cost: 1,
     count: 2,
+    special: { playAgain: true },
     effect: (p, o) => {
       change(p, 'tower', 1)
-      return { playAgain: true }
     },
   },
   {
@@ -428,9 +428,9 @@ const cards: DataCardsType = [
     type: 1,
     cost: 2,
     count: 1,
+    special: { playAgain: true },
     effect: (p, o) => {
       change(o, 'tower', -1)
-      return { playAgain: true }
     },
   },
   {
@@ -459,9 +459,8 @@ const cards: DataCardsType = [
     type: 1,
     cost: 2,
     count: 1,
-    effect: (p, o) => {
-      return { playAgain: true, changeCard: true }
-    },
+    special: { playAgain: true, changeCard: true },
+    effect: (p, o) => {},
   },
   {
     // name: 'Lodestone',
@@ -469,9 +468,9 @@ const cards: DataCardsType = [
     type: 1,
     cost: 5,
     count: 1,
+    special: { undiscardable: true },
     effect: (p, o) => {
       change(p, 'tower', 8)
-      return { undiscardable: true }
     },
   },
   {
@@ -807,9 +806,9 @@ const cards: DataCardsType = [
     type: 2,
     cost: 1,
     count: 2,
+    special: { playAgain: true },
     effect: (p, o) => {
       damage(o, 2)
-      return { playAgain: true }
     },
   },
   {
@@ -818,6 +817,7 @@ const cards: DataCardsType = [
     type: 2,
     cost: 1,
     count: 2,
+    special: {},
     effect: (p, o) => {
       damage(o, 4)
       change(p, 'gems', -3)
@@ -839,9 +839,8 @@ const cards: DataCardsType = [
     type: 2,
     cost: 2,
     count: 1,
-    effect: (p, o) => {
-      return { playAgain: true, changeCard: true }
-    },
+    special: { playAgain: true, changeCard: true },
+    effect: (p, o) => {},
   },
   {
     // name: 'Goblin Mob',
@@ -849,6 +848,7 @@ const cards: DataCardsType = [
     type: 2,
     cost: 3,
     count: 2,
+    special: {},
     effect: (p, o) => {
       damage(o, 6)
       damage(p, 3)
@@ -871,9 +871,9 @@ const cards: DataCardsType = [
     type: 2,
     cost: 6,
     count: 1,
+    special: { playAgain: true },
     effect: (p, o) => {
       change(o, 'tower', -2)
-      return { playAgain: true }
     },
   },
   {
@@ -882,6 +882,7 @@ const cards: DataCardsType = [
     type: 2,
     cost: 3,
     count: 2,
+    special: {},
     effect: (p, o) => {
       damage(o, 5)
     },

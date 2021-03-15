@@ -11,7 +11,10 @@
     "build": "rimraf dist && webpack --mode production",
     "test": "jest --coverage",
     "imgpc": "ts-node --project ./tools/tsconfig.json ./tools/img-processing/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/img-processing/upscale.ts",
-    "datapc": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/docards.ts"
+    "datapc": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/docards.ts",
+    "ocr:pre": "ts-node --project ./tools/tsconfig.json ./tools/ocr/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/ocr/composite.ts",
+    "ocr": "ts-node --project ./tools/tsconfig.json ./tools/ocr/ocr.ts",
+    "cardi18ncheck": "ts-node --project ./tools/tsconfig.json ./tools/cardi18ncheck/check.ts"
   },
   "keywords": [
     "arcomage",
@@ -80,6 +83,7 @@
     "sass-loader": "^11.0.1",
     "sharp": "^0.27.2",
     "style-loader": "^2.0.0",
+    "tesseract.js": "^2.1.4",
     "ts-loader": "^8.0.17",
     "ts-node": "^9.1.1",
     "typesafe-actions": "^5.1.0",

@@ -1,3 +1,8 @@
+*.traineddata
+/tools/ocr/*.bmp
+/tools/ocr/*.png
+/tools/ocr/*.jpg
+
 others
 
 *.css.d.ts

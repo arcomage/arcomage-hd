@@ -6,7 +6,7 @@ import useGameSize from '../utils/useGameSize'
 import { useDispatch } from 'react-redux'
 import { EXEC_CARD } from '../constants/ActionTypes'
 
-import i18nCardsEn from '../../src/i18n/cards.en'
+import { cardsI18n } from '../../src/i18n/cards.en'
 import dataCards from '../../src/data/cards'
 
 import noise from '../../assets/img/noise.png'
@@ -276,7 +276,7 @@ const Card = ({
               `bg-${color}-200`,
             )}
           >
-            {i18nCardsEn[n].name}
+            {cardsI18n[n].name}
           </div>
           <div
             className={cx(
@@ -299,7 +299,7 @@ const Card = ({
             )}
           >
             <div className="leading-none break-words text-center">
-              {i18nCardsEn[n].desc}
+              {cardsI18n[n].desc}
             </div>
           </div>
           <div className="absolute bottom-1 right-1 w-9 h-9 leading-9 text-center font-bold">

@@ -13,55 +13,59 @@ const _extractedDir = path.join(__dirname, extractedDir)
  * card crop & combine start
  */
 
-fs.rmdirSync(_extractedDir, { recursive: true })
-fs.mkdirSync(_extractedDir)
+const doFiles = (
+  file: string,
+  outFolder: string,
+  w: number,
+  h: number,
+  x: number,
+  y: number,
+): void => {
+  const mainSharp = sharp(file)
 
-const mainSharp = sharp(path.join(_originalDir, 'main_en_fixed.png'))
-
-const w = 88
-const h = 52
-
-let x = 4
-let y = 240
-
-let xInterval = 96
-let yInterval = 128
-
-const promises: Promise<sharp.OutputInfo>[][] = [[], [], []]
-
-function exe(type: number): void {
-  let xTemp = 0
-  let yTemp = 0
-  let count = 0
-  const xInit = x
-  const yInit = [y, y + 4 * yInterval, y + 8 * yInterval][type]
-  let j = -1
-  while (true) {
-    j++
-    yTemp = yInit + j * yInterval
-    for (let i = 0; i < 10; i++) {
-      xTemp = xInit + i * xInterval
-      promises[type].push(
+  const xInterval = 96
+  const yInterval = 128
+  const doFileType = (type: number): void => {
+    let xTemp = 0
+    let yTemp = 0
+    let count = 0
+    const xInit = x
+    const yInit = [y, y + 4 * yInterval, y + 8 * yInterval][type]
+    let j = -1
+    while (true) {
+      j++
+      yTemp = yInit + j * yInterval
+      for (let i = 0; i < 10; i++) {
+        xTemp = xInit + i * xInterval
         mainSharp
           .extract({ left: xTemp, top: yTemp, width: w, height: h })
-          .toFile(path.join(_extractedDir, `${type}_${count}.png`)),
-      )
-      count++
-      if (count === 34) {
-        return
+          .toFile(path.join(outFolder, `${type}_${count}.png`)),
+          count++
+        if (count === 34) {
+          return
+        }
       }
     }
   }
+
+  for (let type = 0; type < 3; type++) {
+    doFileType(type)
+  }
 }
+
+fs.rmdirSync(_extractedDir, { recursive: true })
+fs.mkdirSync(_extractedDir, { recursive: true })
+doFiles(
+  path.join(_originalDir, 'main_en_fixed.png'),
+  _extractedDir,
+  88,
+  52,
+  4,
+  240,
+)
 
 function handleRejectedAny(e: Error): void {
   // console.log(e)
-}
-
-// const mergePromises: Promise<boolean>[] = []
-
-for (let type = 0; type < 3; type++) {
-  exe(type)
 }
 
 /**
@@ -72,6 +76,8 @@ for (let type = 0; type < 3; type++) {
  * resources crop
  * (the tower tops, tower and wall have already been extracted)
  */
+
+const mainSharp = sharp(path.join(_originalDir, 'main_en_fixed.png'))
 
 mainSharp
   .extract({ left: 768, top: 3, width: 72, height: 52 })

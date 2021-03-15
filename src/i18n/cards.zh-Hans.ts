@@ -1,6 +1,6 @@
 import { DataCardsI18nType } from '../types/dataCard'
 
-const cardsI18n: DataCardsI18nType = [
+export const cardsI18n: DataCardsI18nType = [
   {
     name: '生死抗争',
     desc: '双方同时失去8块砖头',
@@ -375,7 +375,7 @@ const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '无影神偷',
-    desc: '对手宝石-10，砖头-5，你得到其中一半',
+    desc: '对手宝石-10，砖头-5，你得到其中一半（向上取整）',
   },
   {
     name: '岩石巨人',
@@ -410,5 +410,3 @@ const cardsI18n: DataCardsI18nType = [
     desc: '对手城堡-12',
   },
 ]
-
-export default cardsI18n

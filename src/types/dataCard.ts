@@ -2,11 +2,11 @@ import { PersonStatusType } from '../types/state'
 
 export type DataCardEffectPersonType = PersonStatusType
 
-export type DataCardEffectReturnType = {
+export type DataCardSpecialType = {
   playAgain?: boolean
   changeCard?: boolean
   undiscardable?: boolean
-} | void
+}
 
 export type DataCardType = {
   // name: string
@@ -14,10 +14,8 @@ export type DataCardType = {
   type: 0 | 1 | 2
   cost: number
   count: number
-  effect: (
-    p: DataCardEffectPersonType,
-    o: DataCardEffectPersonType,
-  ) => DataCardEffectReturnType
+  special?: DataCardSpecialType
+  effect: (p: DataCardEffectPersonType, o: DataCardEffectPersonType) => void
 }
 
 export type DataCardsType = DataCardType[]
