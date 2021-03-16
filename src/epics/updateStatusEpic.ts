@@ -1,5 +1,5 @@
 import { UPDATE_STATUS, UPDATE_STATUS_MAIN } from '../constants/ActionTypes'
-import { StatusActionType } from '../types/actionObj'
+import { ActionType } from '../types/actionObj'
 import { map, withLatestFrom, filter } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -7,7 +7,7 @@ import { StateType } from '../types/state'
 import playSound from '../utils/playSound'
 
 export const updateStatusEpic = (
-  action$: ActionsObservable<StatusActionType>,
+  action$: ActionsObservable<ActionType>,
   state$: StateObservable<StateType>,
 ) =>
   action$.pipe(

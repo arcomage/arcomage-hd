@@ -3,8 +3,17 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
 
-import { useDispatch } from 'react-redux'
-import { EXEC_CARD } from '../constants/ActionTypes'
+import { connect, useDispatch } from 'react-redux'
+import {
+  USE_CARD,
+  MOVE_CARD_TO_TOP,
+  SWITCH_TURN,
+} from '../constants/ActionTypes'
+import { ownerType, StateType } from '../types/state'
+import {
+  cardTransitionDurationMs,
+  cardNextStepTimeoutMs,
+} from '../constants/transition'
 
 import { cardsI18n } from '../../src/i18n/cards.en'
 import dataCards from '../../src/data/cards'
@@ -121,14 +130,9 @@ const useStyles = createUseStyles({
         }px`
       }
     },
-    'transition-property': 'opacity, transform, left, top',
-    'transition-timing-function': 'ease',
-    'transition-duration': '0.6s',
-    '&:hover': {
-      // transform: 'translateX(-100%) rotateY(-180deg)',
-      'transition-timing-function': 'ease-in-out',
-      'transition-duration': '0.3s',
-    },
+    'transition-property': 'opacity, transform, left, top, box-shadow',
+    'transition-timing-function': 'ease-in-out',
+    'transition-duration': `${cardTransitionDurationMs}ms`,
   },
   isflipped: {
     transform: 'translateX(-100%) rotateY(-180deg)',
@@ -189,6 +193,10 @@ type PropType = {
   discarded?: boolean
   position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | -1 | -2 | -3 | -4 | -5
   total: number // 4 | 5 | 6 | 7 | 8
+  owner?: ownerType
+  index?: number // in-store index
+  isflipped?: boolean
+  playersTurn: boolean
 }
 const Card = ({
   n,
@@ -196,6 +204,10 @@ const Card = ({
   discarded = false,
   position,
   total,
+  owner = 'common',
+  index = -1,
+  isflipped = false,
+  playersTurn, // from store
 }: PropType) => {
   const dispatch = useDispatch()
   const size = useGameSize()
@@ -215,7 +227,7 @@ const Card = ({
         className={cx(
           classes.main,
           classes.cardback,
-          'transform absolute cursor-pointer rounded shadow-lg',
+          'transform absolute rounded shadow-lg',
         )}
       ></div>
     )
@@ -242,15 +254,23 @@ const Card = ({
         className={cx(
           classes.main,
           classes.cardeffect,
-          'transform absolute rounded shadow-lg',
+          { [classes.isflipped]: isflipped },
+          'transform absolute rounded',
+          {
+            'opacity-0 pointer-events-none':
+              (playersTurn && owner === 'opponent') ||
+              (!playersTurn && owner === 'player'),
+          },
+          { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
         {...(position >= 0 && unusable === false
           ? {
               onClick: () => {
                 dispatch({
-                  type: EXEC_CARD,
+                  type: USE_CARD,
                   n,
+                  index,
                 })
               },
             }
@@ -262,6 +282,21 @@ const Card = ({
               },
             }
           : {})}
+        onTransitionEnd={(e) => {
+          if (e.propertyName === 'top' && position === -5) {
+            setTimeout(() => {
+              dispatch({
+                type: MOVE_CARD_TO_TOP,
+                index,
+              })
+            }, cardNextStepTimeoutMs)
+          }
+          if (e.propertyName === 'top' && [-2, -3, -4].includes(position)) {
+            dispatch({
+              type: SWITCH_TURN,
+            })
+          }
+        }}
       >
         <div
           className={cx(
@@ -326,4 +361,8 @@ const Card = ({
   }
 }
 
-export default Card
+const mapStateToProps = (state: StateType) => ({
+  playersTurn: state.game.playersTurn,
+})
+
+export default connect(mapStateToProps)(Card)

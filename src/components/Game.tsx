@@ -28,15 +28,3 @@ const Game = () => {
 }
 
 export default Game
-
-// Game
-//   TableCommon
-//     NameP
-//     StatusP
-//     TowerP
-//     WallP
-//     WallO
-//     OTowe
-//     NameO
-//     StatusO
-//   TableP

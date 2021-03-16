@@ -3,10 +3,10 @@ import {
   UPDATE_STATUS_MAIN,
 } from '../constants/ActionTypes'
 import { StatusType } from '../types/state'
-import { StatusActionType } from '../types/actionObj'
+import { ActionType } from '../types/actionObj'
 import { defaultStatus } from '../constants/defaultStatus'
 
-const status = produce((draft: StatusType, action: StatusActionType) => {
+const status = produce((draft: StatusType, action: ActionType) => {
   switch (action.type) {
     case UPDATE_STATUS_MAIN:
       for (const upd of action.updArr) {

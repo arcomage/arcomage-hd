@@ -13,5 +13,8 @@ export const MOVE_CARD_TO_DECK = 'MOVE_CARD_TO_DECK' as const
 export const NEW_CARD = 'NEW_CARD' as const
 export const DISCARD_CARD = 'DISCARD_CARD' as const
 export const CHANGE_CARD = 'CHANGE_CARD' as const
+export const REMOVE_CARD = 'REMOVE_CARD' as const
 
 export const TEST_CARD = 'TEST_CARD' as const
+
+export const SWITCH_TURN = 'SWITCH_TURN' as const
