@@ -1,7 +1,7 @@
 import { CardStateType } from '../types/state'
 
 export const defaultCards: CardStateType = {
-  total: 3,
+  total: { player: 3, opponent: 3 },
   list: [
     {
       position: 0,

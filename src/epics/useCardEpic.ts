@@ -1,7 +1,10 @@
 import {
+  CLEAR_CARD,
   USE_CARD,
   EXEC_CARD,
   MOVE_CARD_TO_CENTER,
+  SWITCH_LOCK,
+  REMOVE_CARD,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import {
@@ -25,8 +28,11 @@ export const useCardEpic = (
 ) =>
   action$.pipe(
     filter(isOfType(USE_CARD)),
-    mergeMap(({ n, index }) =>
+    mergeMap(({ n, index, position, owner }) =>
       merge(
+        of({
+          type: CLEAR_CARD,
+        }),
         of({
           type: EXEC_CARD,
           n,
@@ -34,6 +40,15 @@ export const useCardEpic = (
         of({
           type: MOVE_CARD_TO_CENTER,
           index,
+        }),
+        of({
+          type: REMOVE_CARD,
+          index,
+          position,
+          owner,
+        }),
+        of({
+          type: SWITCH_LOCK,
         }),
       ),
     ),

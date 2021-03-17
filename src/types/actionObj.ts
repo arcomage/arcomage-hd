@@ -8,9 +8,10 @@ import {
   MOVE_CARD_TO_TOP,
   MOVE_CARD_TO_DECK,
   CLEAR_CARD,
-  REMOVE_CARD,
-  TEST_CARD,
+  DELETE_CARD,
   SWITCH_TURN,
+  SWITCH_LOCK,
+  REMOVE_CARD,
 } from '../constants/ActionTypes'
 import { PersonStatusType } from '../types/state'
 
@@ -61,6 +62,8 @@ export type UseCardActionType = {
   type: typeof USE_CARD
   n: number
   index: number
+  position: number
+  owner: 'player' | 'opponent'
 }
 
 export type MoveCardToCenterActionType = {
@@ -82,17 +85,24 @@ export type ClearCardActionType = {
   type: typeof CLEAR_CARD
 }
 
-export type RemoveCardInDeckActionType = {
-  type: typeof REMOVE_CARD
+export type DeleteCardInDeckActionType = {
+  type: typeof DELETE_CARD
   index: number
 }
 
-export type TestCardActionType = {
-  type: typeof TEST_CARD
+export type RemoveCardActionType = {
+  type: typeof REMOVE_CARD
+  index: number
+  position: number
+  owner: 'player' | 'opponent'
 }
 
 export type SwitchTurnActionType = {
   type: typeof SWITCH_TURN
+}
+
+export type SwitchLockActionType = {
+  type: typeof SWITCH_LOCK
 }
 
 export type ActionType =
@@ -105,6 +115,7 @@ export type ActionType =
   | MoveCardToTopActionType
   | MoveCardToDeckActionType
   | ClearCardActionType
-  | RemoveCardInDeckActionType
-  | TestCardActionType
+  | DeleteCardInDeckActionType
+  | RemoveCardActionType
   | SwitchTurnActionType
+  | SwitchLockActionType

@@ -1,4 +1,4 @@
-import { DISCARD_CARD, EXEC_CARD } from '../constants/ActionTypes'
+import { DISCARD_CARD, SWITCH_LOCK } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import { map, withLatestFrom, filter } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
@@ -13,8 +13,9 @@ export const discardCardEpic = (
 ) =>
   action$.pipe(
     filter(isOfType(DISCARD_CARD)),
-    withLatestFrom(state$),
-    map(([action, state]) => {}),
+    map(() => ({
+      type: SWITCH_LOCK,
+    })),
   )
 
 export default discardCardEpic

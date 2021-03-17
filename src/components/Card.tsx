@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
@@ -8,11 +8,13 @@ import {
   USE_CARD,
   MOVE_CARD_TO_TOP,
   SWITCH_TURN,
+  DELETE_CARD,
 } from '../constants/ActionTypes'
-import { ownerType, StateType } from '../types/state'
+import { CardTotalType, ownerType, StateType } from '../types/state'
 import {
   cardTransitionDurationMs,
   cardNextStepTimeoutMs,
+  unusableCardOpacity,
 } from '../constants/transition'
 
 import { cardsI18n } from '../../src/i18n/cards.en'
@@ -135,7 +137,7 @@ const useStyles = createUseStyles({
     'transition-duration': `${cardTransitionDurationMs}ms`,
   },
   isflipped: {
-    transform: 'translateX(-100%) rotateY(-180deg)',
+    transform: 'translateX(-100%) rotateY(-179.99deg)',
   },
   cardeffect: {
     'transform-style': 'preserve-3d',
@@ -144,7 +146,18 @@ const useStyles = createUseStyles({
   cardfront: {
     'background-image': `url(${noise})`,
     'backface-visibility': 'hidden',
-    opacity: ({ unusable }) => (unusable ? 0.5 : 1),
+    opacity: ({ unusable, zeroOpacity }) => {
+      if (zeroOpacity) {
+        return 0
+      }
+      if (unusable) {
+        return unusableCardOpacity
+      }
+      return 1
+    },
+    'transition-property': 'opacity, transform, left, top, box-shadow',
+    'transition-timing-function': 'ease-in-out',
+    'transition-duration': `${cardTransitionDurationMs}ms`,
   },
   cardback: {
     background: {
@@ -153,7 +166,18 @@ const useStyles = createUseStyles({
       position: 'center',
       repeat: 'no-repeat',
     },
-    opacity: ({ unusable }) => (unusable ? 0.5 : 1),
+    opacity: ({ unusable, zeroOpacity }) => {
+      if (zeroOpacity) {
+        return 0
+      }
+      if (unusable) {
+        return unusableCardOpacity
+      }
+      return 1
+    },
+    'transition-property': 'opacity, transform, left, top, box-shadow',
+    'transition-timing-function': 'ease-in-out',
+    'transition-duration': `${cardTransitionDurationMs}ms`,
   },
   cardbackeffect: {
     transform: 'translateX(0) rotateY(180deg)',
@@ -192,27 +216,38 @@ type PropType = {
   unusable?: boolean
   discarded?: boolean
   position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | -1 | -2 | -3 | -4 | -5
-  total: number // 4 | 5 | 6 | 7 | 8
+  totalObj: CardTotalType // player: 4 | 5 | 6 | 7 | 8, opponent:...
   owner?: ownerType
   index?: number // in-store index
   isflipped?: boolean
   playersTurn: boolean
+  locked: boolean
 }
 const Card = ({
   n,
   unusable = false,
   discarded = false,
   position,
-  total,
+  totalObj,
   owner = 'common',
   index = -1,
   isflipped = false,
   playersTurn, // from store
+  locked, // from store
 }: PropType) => {
   const dispatch = useDispatch()
   const size = useGameSize()
   const winHeight = size.height
   const winWidth = size.width
+  const [zeroOpacity, setZeroOpacity] = useState(false)
+
+  let total
+
+  if (owner === 'common') {
+    total = totalObj[playersTurn ? 'player' : 'opponent']
+  } else {
+    total = totalObj[owner]
+  }
 
   if (n === -1) {
     const classes = useStyles({
@@ -221,6 +256,7 @@ const Card = ({
       total,
       position,
       unusable,
+      zeroOpacity,
     })
     return (
       <div
@@ -240,6 +276,7 @@ const Card = ({
       total,
       position,
       unusable,
+      zeroOpacity,
     })
     const color = ['red', 'blue', 'green'][type]
     // Force TailwindCSS to aware of these classes:
@@ -264,18 +301,20 @@ const Card = ({
           { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
-        {...(position >= 0 && unusable === false
+        {...(position >= 0 && !unusable && !locked
           ? {
               onClick: () => {
                 dispatch({
                   type: USE_CARD,
                   n,
                   index,
+                  position,
+                  owner,
                 })
               },
             }
           : {})}
-        {...(position >= 0
+        {...(position >= 0 && !locked
           ? {
               onContextMenu: (e) => {
                 // e.preventDefault()
@@ -294,6 +333,15 @@ const Card = ({
           if (e.propertyName === 'top' && [-2, -3, -4].includes(position)) {
             dispatch({
               type: SWITCH_TURN,
+            })
+          }
+          if (e.propertyName === 'transform' && position === -1) {
+            setZeroOpacity(true)
+          }
+          if (e.propertyName === 'opacity' && position === -1) {
+            dispatch({
+              type: DELETE_CARD,
+              index,
             })
           }
         }}
@@ -363,6 +411,7 @@ const Card = ({
 
 const mapStateToProps = (state: StateType) => ({
   playersTurn: state.game.playersTurn,
+  locked: state.game.locked,
 })
 
 export default connect(mapStateToProps)(Card)

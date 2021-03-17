@@ -10,11 +10,13 @@ export const CLEAR_CARD = 'CLEAR_CARD' as const
 export const MOVE_CARD_TO_CENTER = 'MOVE_CARD_TO_CENTER' as const
 export const MOVE_CARD_TO_TOP = 'MOVE_CARD_TO_TOP' as const
 export const MOVE_CARD_TO_DECK = 'MOVE_CARD_TO_DECK' as const
-export const NEW_CARD = 'NEW_CARD' as const
+export const DELETE_CARD = 'DELETE_CARD' as const
+export const REMOVE_CARD = 'REMOVE_CARD' as const
 export const DISCARD_CARD = 'DISCARD_CARD' as const
 export const CHANGE_CARD = 'CHANGE_CARD' as const
-export const REMOVE_CARD = 'REMOVE_CARD' as const
-
-export const TEST_CARD = 'TEST_CARD' as const
+export const DRAW_CARD = 'DRAW_CARD' as const
+export const NEW_GAME = 'NEW_GAME' as const
+export const ALLOCATE_CARD = 'ALLOCATE_CARD' as const
 
 export const SWITCH_TURN = 'SWITCH_TURN' as const
+export const SWITCH_LOCK = 'SWITCH_LOCK' as const

@@ -5,15 +5,17 @@ import { combineEpics, Epic } from 'redux-observable'
 import updateStatusEpic from './updateStatusEpic'
 import execCardEpic from './execCardEpic'
 import useCardEpic from './useCardEpic'
+import switchTurnEpic from './switchTurnEpic'
 
 export type MyEpic = Epic<Action<ActionType>, Action<ActionType>>
 
 const rootEpic: MyEpic = (action$, store$, dependencies) =>
-  combineEpics(updateStatusEpic, execCardEpic, useCardEpic)(
-    action$,
-    store$,
-    dependencies,
-  ).pipe(
+  combineEpics(
+    updateStatusEpic,
+    execCardEpic,
+    useCardEpic,
+    switchTurnEpic,
+  )(action$, store$, dependencies).pipe(
     catchError((error, source) => {
       console.error(error)
       return source

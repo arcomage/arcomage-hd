@@ -27,13 +27,19 @@ export type CardListItemType = {
 
 export type CardListItemAllType = CardListItemType | null
 
+export type CardTotalType = {
+  player: number
+  opponent: number
+}
+
 export type CardStateType = {
-  total: number
+  total: CardTotalType
   list: CardListItemAllType[]
 }
 
 export type GameStateType = {
   playersTurn: boolean
+  locked: boolean
 }
 
 export type StateType = {

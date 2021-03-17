@@ -1,10 +1,10 @@
 import produce from 'immer'
 import {
-  TEST_CARD,
   MOVE_CARD_TO_CENTER,
   MOVE_CARD_TO_TOP,
   MOVE_CARD_TO_DECK,
   CLEAR_CARD,
+  DELETE_CARD,
   REMOVE_CARD,
 } from '../constants/ActionTypes'
 // import {  } from '../types/actionObj'
@@ -18,6 +18,7 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
       const card = draft.list[action.index]
       if (card !== null) {
         card.position = -5
+        card.unusable = true
         card.owner = 'common'
       }
       break
@@ -31,6 +32,7 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
             const card = draft.list[action.index]
             if (card !== null) {
               card.position = p
+              card.unusable = true
               card.owner = 'common'
             }
           }
@@ -46,6 +48,7 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
       const card = draft.list[action.index]
       if (card !== null) {
         card.position = -1
+        card.unusable = true
         card.isflipped = true
         card.owner = 'common'
       }
@@ -62,23 +65,23 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
       })
       break
     }
-    case REMOVE_CARD: {
+    case DELETE_CARD: {
       if (draft.list[action.index] !== null) {
         draft.list[action.index] = null
       }
       break
     }
-    case TEST_CARD: {
-      if (draft.list[3] !== null) {
-        draft.list[3] = null
+    case REMOVE_CARD: {
+      const card = draft.list[action.index]
+      if (card !== null) {
+        const owner = action.owner
+        draft.total[owner] -= 1
+        draft.list.forEach((c) => {
+          if (c?.owner === owner && c.position > action.position) {
+            c.position -= 1
+          }
+        })
       }
-      if (draft.list[4] !== null) {
-        draft.list[4].position = 3
-      }
-      if (draft.list[5] !== null) {
-        draft.list[5].position = 4
-      }
-      draft.total = 5
       break
     }
   }
