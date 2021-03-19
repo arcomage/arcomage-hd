@@ -20,7 +20,7 @@ const data = excelToJson({
   columnToKey: {
     A: 'type',
     B: 'index',
-    C: 'count',
+    C: 'prob',
     D: 'cost',
     E: 'name',
     F: 'desc',
@@ -43,7 +43,7 @@ cardSheets.forEach((cardSheet) => {
       desc: el.desc,
       type: el.type,
       cost: el.cost,
-      count: el.count,
+      prob: el.prob,
     }))
   } else {
     curDataNew = curData.map((el) => ({

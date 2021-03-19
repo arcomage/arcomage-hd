@@ -1,15 +1,24 @@
 import produce from 'immer'
-import {
-  UPDATE_STATUS_MAIN,
-} from '../constants/ActionTypes'
+import { INIT_STATUS, UPDATE_STATUS_MAIN } from '../constants/ActionTypes'
 import { StatusType } from '../types/state'
 import { ActionType } from '../types/actionObj'
-import { defaultStatus } from '../constants/defaultStatus'
+import { defaultSettings } from '../constants/defaultSettings'
+
+const defaultStatus: StatusType = {
+  player: { ...defaultSettings.start },
+  opponent: { ...defaultSettings.start },
+}
 
 const status = produce((draft: StatusType, action: ActionType) => {
   switch (action.type) {
+    case INIT_STATUS: {
+      return {
+        player: { ...action.payload },
+        opponent: { ...action.payload },
+      }
+    }
     case UPDATE_STATUS_MAIN:
-      for (const upd of action.updArr) {
+      for (const upd of action.payload) {
         const { isPlayer, statusProp } = upd
         if ('to' in upd) {
           draft[isPlayer ? 'player' : 'opponent'][statusProp] = upd.to

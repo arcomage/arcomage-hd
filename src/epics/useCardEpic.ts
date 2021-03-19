@@ -20,7 +20,8 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
 import { entries } from '../utils/typeHelpers'
 import dataCards from '../data/cards'
-import { concat, interval, merge, of } from 'rxjs'
+import { concat, interval, merge, Observable, of } from 'rxjs'
+import playSound from '../utils/playSound'
 
 export const useCardEpic = (
   action$: ActionsObservable<ActionType>,
@@ -36,6 +37,10 @@ export const useCardEpic = (
         of({
           type: EXEC_CARD,
           n,
+          owner,
+        }),
+        new Observable(() => {
+          playSound('deal')
         }),
         of({
           type: MOVE_CARD_TO_CENTER,

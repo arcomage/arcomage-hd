@@ -42,9 +42,29 @@ export type GameStateType = {
   locked: boolean
 }
 
+export type SettingsBaseType = {
+  start: PersonStatusType
+  win: {
+    tower: number
+    resource: number
+  }
+  cardsInHand: number
+  aiType?: number
+}
+
+export type SettingsType = SettingsBaseType & {
+  settingsName?: string
+}
+
+export type SettingsStateType = SettingsBaseType & {
+  playerName: string
+  opponentName: string
+}
+
 export type StateType = {
   lang: string
   status: StatusType
   cards: CardStateType
   game: GameStateType
+  settings: SettingsStateType
 }

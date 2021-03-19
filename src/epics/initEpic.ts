@@ -1,49 +1,42 @@
 import {
-  CLEAR_CARD,
-  DISCARD_CARD,
-  DISCARD_CARD_MAIN,
-  REMOVE_CARD,
-  SWITCH_LOCK,
+  CHANGE_SETTINGS_AND_INIT,
+  CHANGE_SETTINGS,
+  INIT,
+  INIT_CARD,
+  INIT_GAME,
+  INIT_STATUS,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import { map, withLatestFrom, filter, mergeMap } from 'rxjs/operators'
+import { of, merge } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
 import { entries } from '../utils/typeHelpers'
 import dataCards from '../data/cards'
-import { Observable, merge, of } from 'rxjs'
-import playSound from '../utils/playSound'
 
-export const discardCardEpic = (
+export const changeSettingsAndInitEpic = (
   action$: ActionsObservable<ActionType>,
   state$: StateObservable<StateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(DISCARD_CARD)),
-    mergeMap(({ index, position, owner }) =>
+    filter(isOfType(INIT)),
+    withLatestFrom(state$),
+    mergeMap(([action, state]) =>
       merge(
         of({
-          type: CLEAR_CARD,
+          type: INIT_CARD,
+          total: state.settings.cardsInHand,
         }),
         of({
-          type: DISCARD_CARD_MAIN,
-          index,
-        }),
-        new Observable(() => {
-          playSound('deal')
+          type: INIT_GAME,
         }),
         of({
-          type: REMOVE_CARD,
-          index,
-          position,
-          owner,
-        }),
-        of({
-          type: SWITCH_LOCK,
+          type: INIT_STATUS,
+          payload: state.settings.start,
         }),
       ),
     ),
   )
 
-export default discardCardEpic
+export default changeSettingsAndInitEpic

@@ -6,7 +6,7 @@ import Bird from './Bird'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { StateType } from '../types/state'
 
 import bg from '../../assets/img/bg.jpg'
@@ -23,6 +23,8 @@ const useStyles = createUseStyles({
 })
 
 type PropType = {
+  playerName: string
+  opponentName: string
   bricksP: number
   gemsP: number
   recruitsP: number
@@ -41,6 +43,8 @@ type PropType = {
   wallO: number
 }
 const TableCommon = ({
+  playerName,
+  opponentName,
   bricksP,
   gemsP,
   recruitsP,
@@ -59,12 +63,18 @@ const TableCommon = ({
   wallO,
 }: PropType) => {
   const classes = useStyles()
+  const dispatch = useDispatch()
   return (
     <div
       className={cx('z-0 h-2/3 flex-auto bg-green-100 relative', classes.main)}
+      onClick={() => {
+        dispatch({
+          type: 'INIT',
+        })
+      }}
     >
       <Status
-        playerName="Tom Chen"
+        playerName={playerName}
         bricks={bricksP}
         gems={gemsP}
         recruits={recruitsP}
@@ -76,7 +86,7 @@ const TableCommon = ({
       <Wall current={wallP} />
 
       <Status
-        playerName="Computer"
+        playerName={opponentName}
         bricks={bricksO}
         gems={gemsO}
         recruits={recruitsO}
@@ -93,6 +103,8 @@ const TableCommon = ({
 }
 
 const mapStateToProps = (state: StateType) => ({
+  playerName: state.settings.playerName,
+  opponentName: state.settings.opponentName,
   bricksP: state.status.player.bricks,
   gemsP: state.status.player.gems,
   recruitsP: state.status.player.recruits,

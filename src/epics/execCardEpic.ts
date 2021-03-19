@@ -1,5 +1,5 @@
 import { UPDATE_STATUS, EXEC_CARD } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
+import { ActionType, UpdateStatusActionTypeSingle } from '../types/actionObj'
 import { map, withLatestFrom, filter } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -20,9 +20,16 @@ export const execCardEpic = (
       const p = { ...pOriginal }
       const o = { ...oOriginal }
 
-      const ret = dataCards[action.n].effect(p, o)
+      const card = dataCards[action.n]
+      const effectFunc = card.effect
+      if (action.owner === 'player') {
+        effectFunc(p, o)
+      } else {
+        // action.owner === 'opponent'
+        effectFunc(o, p)
+      }
 
-      const newUpdArr = entries(p)
+      const newArr: UpdateStatusActionTypeSingle[] = entries(p)
         .filter(([key, value]) => value !== pOriginal[key])
         .map(([key, value]) => ({
           isPlayer: true,
@@ -39,9 +46,16 @@ export const execCardEpic = (
             })),
         )
 
+      newArr.push({
+        isPlayer: action.owner === 'player',
+        statusProp: (['bricks', 'gems', 'recruits'] as const)[card.type],
+        diff: -card.cost,
+        noSound: true,
+      })
+
       return {
         type: UPDATE_STATUS,
-        updArr: newUpdArr,
+        payload: newArr,
       }
     }),
   )

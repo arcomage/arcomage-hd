@@ -14,8 +14,8 @@ export const updateStatusEpic = (
     filter(isOfType(UPDATE_STATUS)),
     withLatestFrom(state$),
     map(([action, state]) => {
-      const newUpdArr = action.updArr.map((upd) => {
-        const { isPlayer, statusProp } = upd
+      const newUpdArr = action.payload.map((upd) => {
+        const { isPlayer, statusProp, noSound } = upd
         let increase: boolean | null = null
         if ('to' in upd) {
           const from =
@@ -28,7 +28,9 @@ export const updateStatusEpic = (
             increase = upd.diff > 0
           }
         }
-        playSound(statusProp, increase)
+        if (!noSound) {
+          playSound(statusProp, increase)
+        }
         return {
           increase,
           isPlayer,
@@ -38,7 +40,7 @@ export const updateStatusEpic = (
       })
       return {
         type: UPDATE_STATUS_MAIN,
-        updArr: newUpdArr,
+        payload: newUpdArr,
       }
     }),
   )

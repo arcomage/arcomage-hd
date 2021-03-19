@@ -13,7 +13,7 @@ export type DataCardType = {
   // desc: string
   type: 0 | 1 | 2
   cost: number
-  count: number
+  prob: number
   special?: DataCardSpecialType
   effect: (p: DataCardEffectPersonType, o: DataCardEffectPersonType) => void
 }

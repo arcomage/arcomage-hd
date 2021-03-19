@@ -1,9 +1,18 @@
 import React from 'react'
 import cx from 'classnames'
+import { createUseStyles } from 'react-jss'
 import Resource, { calcStatusWidth } from './Resource'
 import { connect } from 'react-redux'
 import { StateType } from '../types/state'
 import useGameSize from '../utils/useGameSize'
+
+const useStyles = createUseStyles({
+  username: {
+    'transition-property': 'color, border-color',
+    'transition-timing-function': 'ease-in-out',
+    'transition-duration': `0.3s`,
+  },
+})
 
 type PropType = {
   playerName: string
@@ -30,6 +39,8 @@ const Status = ({
   const size = useGameSize()
   const height = (size.height / 3) * 2
 
+  const classes = useStyles()
+
   return (
     <div
       className="z-20 p-5 h-full relative"
@@ -43,6 +54,7 @@ const Status = ({
           className={cx(
             'border border-yellow-400 text-yellow-400 text-center h-7 leading-7 font-mono',
             { 'border-opacity-25 text-opacity-25': playersTurn === isOpponent },
+            classes.username,
           )}
         >
           {playerName}

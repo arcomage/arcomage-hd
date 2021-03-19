@@ -6,14 +6,50 @@ import {
   CLEAR_CARD,
   DELETE_CARD,
   REMOVE_CARD,
+  DISCARD_CARD_MAIN,
+  INIT_CARD,
 } from '../constants/ActionTypes'
-// import {  } from '../types/actionObj'
-import { CardStateType } from '../types/state'
-import { defaultCards } from '../constants/defaultCards'
+import { CardListItemAllType, CardStateType } from '../types/state'
 import { ActionType } from '../types/actionObj'
+import dataCards from '../data/cards'
+
+const defaultCards: CardStateType = {
+  total: { player: 0, opponent: 0 },
+  list: [],
+}
+
+const numbersWithProbs = dataCards
+  .map((card) => card.prob)
+  .reduce(
+    (acc: number[], n: number, i: number): number[] =>
+      acc.concat(Array(n).fill(i)),
+    [],
+  )
+
+const randomWithProbs = (): number =>
+  numbersWithProbs[Math.floor(Math.random() * numbersWithProbs.length)]
 
 const cards = produce((draft: CardStateType, action: ActionType) => {
   switch (action.type) {
+    case INIT_CARD: {
+      const { total } = action
+      const obj: CardStateType = {
+        total: { player: total, opponent: total },
+        list: [],
+      }
+      for (let i = 0, l = total * 2; i < l; i++) {
+        const card: CardListItemAllType = {
+          position: i % total,
+          n: randomWithProbs(),
+          unusable: false,
+          discarded: false,
+          isflipped: false,
+          owner: i < total ? 'player' : 'opponent',
+        }
+        obj.list.push(card)
+      }
+      return obj
+    }
     case MOVE_CARD_TO_CENTER: {
       const card = draft.list[action.index]
       if (card !== null) {
@@ -65,12 +101,6 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
       })
       break
     }
-    case DELETE_CARD: {
-      if (draft.list[action.index] !== null) {
-        draft.list[action.index] = null
-      }
-      break
-    }
     case REMOVE_CARD: {
       const card = draft.list[action.index]
       if (card !== null) {
@@ -81,6 +111,22 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
             c.position -= 1
           }
         })
+      }
+      break
+    }
+    case DISCARD_CARD_MAIN: {
+      const card = draft.list[action.index]
+      if (card !== null) {
+        card.position = -2
+        card.unusable = true
+        card.discarded = true
+        card.owner = 'common'
+      }
+      break
+    }
+    case DELETE_CARD: {
+      if (draft.list[action.index] !== null) {
+        draft.list[action.index] = null
       }
       break
     }

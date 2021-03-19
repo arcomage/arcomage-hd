@@ -9,6 +9,8 @@ import {
   MOVE_CARD_TO_TOP,
   SWITCH_TURN,
   DELETE_CARD,
+  DISCARD_CARD,
+  SWITCH_LOCK,
 } from '../constants/ActionTypes'
 import { CardTotalType, ownerType, StateType } from '../types/state'
 import {
@@ -317,7 +319,13 @@ const Card = ({
         {...(position >= 0 && !locked
           ? {
               onContextMenu: (e) => {
-                // e.preventDefault()
+                e.preventDefault()
+                dispatch({
+                  type: DISCARD_CARD,
+                  index,
+                  position,
+                  owner,
+                })
               },
             }
           : {})}
@@ -333,6 +341,9 @@ const Card = ({
           if (e.propertyName === 'top' && [-2, -3, -4].includes(position)) {
             dispatch({
               type: SWITCH_TURN,
+            })
+            dispatch({
+              type: SWITCH_LOCK,
             })
           }
           if (e.propertyName === 'transform' && position === -1) {
