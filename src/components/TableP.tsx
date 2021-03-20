@@ -3,16 +3,22 @@ import Card from './Card'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import { connect } from 'react-redux'
+import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { StateType, CardListItemAllType, CardTotalType } from '../types/state'
+import { DeepReadonly } from '../utils/typeHelpers'
 
 const useStyles = createUseStyles({
   main: { background: { image: 'linear-gradient(#326a4b, #000 2rem)' } },
 })
 
-type PropType = { cards: CardListItemAllType[]; totalObj: CardTotalType }
+const TableP = () => {
+  const cards: DeepReadonly<CardListItemAllType[]> = useAppSelector(
+    (state) => state.cards.list,
+  )
+  const totalObj: DeepReadonly<CardTotalType> = useAppSelector(
+    (state) => state.cards.total,
+  )
 
-const TableP = ({ cards, totalObj }: PropType) => {
   const classes = useStyles()
   return (
     <div className={cx(classes.main, 'h-1/3 flex-auto')}>
@@ -28,9 +34,4 @@ const TableP = ({ cards, totalObj }: PropType) => {
   )
 }
 
-const mapStateToProps = (state: StateType) => ({
-  cards: state.cards.list,
-  totalObj: state.cards.total,
-})
-
-export default connect(mapStateToProps)(TableP)
+export default TableP

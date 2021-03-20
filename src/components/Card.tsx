@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import useGameSize from '../utils/useGameSize'
 
-import { connect, useDispatch } from 'react-redux'
+import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import {
   USE_CARD,
   MOVE_CARD_TO_TOP,
@@ -222,8 +222,6 @@ type PropType = {
   owner?: ownerType
   index?: number // in-store index
   isflipped?: boolean
-  playersTurn: boolean
-  locked: boolean
 }
 const Card = ({
   n,
@@ -234,10 +232,11 @@ const Card = ({
   owner = 'common',
   index = -1,
   isflipped = false,
-  playersTurn, // from store
-  locked, // from store
 }: PropType) => {
-  const dispatch = useDispatch()
+  const playersTurn = useAppSelector((state) => state.game.playersTurn)
+  const locked = useAppSelector((state) => state.game.locked)
+
+  const dispatch = useAppDispatch()
   const size = useGameSize()
   const winHeight = size.height
   const winWidth = size.width
@@ -306,13 +305,15 @@ const Card = ({
         {...(position >= 0 && !unusable && !locked
           ? {
               onClick: () => {
-                dispatch({
-                  type: USE_CARD,
-                  n,
-                  index,
-                  position,
-                  owner,
-                })
+                if (owner !== 'common') {
+                  dispatch({
+                    type: USE_CARD,
+                    n,
+                    index,
+                    position,
+                    owner,
+                  })
+                }
               },
             }
           : {})}
@@ -320,12 +321,14 @@ const Card = ({
           ? {
               onContextMenu: (e) => {
                 e.preventDefault()
-                dispatch({
-                  type: DISCARD_CARD,
-                  index,
-                  position,
-                  owner,
-                })
+                if (owner !== 'common') {
+                  dispatch({
+                    type: DISCARD_CARD,
+                    index,
+                    position,
+                    owner,
+                  })
+                }
               },
             }
           : {})}
@@ -420,9 +423,4 @@ const Card = ({
   }
 }
 
-const mapStateToProps = (state: StateType) => ({
-  playersTurn: state.game.playersTurn,
-  locked: state.game.locked,
-})
-
-export default connect(mapStateToProps)(Card)
+export default Card

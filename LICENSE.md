@@ -1,6 +1,6 @@
-# Arcomage HD's Licenses
+# ArcoMage HD's Licenses
 
-The code of the **Arcomage HD** game: MIT License (c) 2021 Tom Chen. See [§ MIT License](#mit-license).
+The code of the **ArcoMage HD** game: MIT License (c) 2021 Tom Chen. See [§ MIT License](#mit-license).
 
 The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company. See [§ 3DO Copyright Notice](#3do-copyright-notice).
 
@@ -10,9 +10,9 @@ Logos and trademarks of "Arcomage": The 3DO Company in the U.S. and other countr
 
 The assets, text and appearance of the game are protected by copyright law, but the gameplay design [may or may not be protected](https://en.wikipedia.org/wiki/Video_game_clone#Legal_aspects).
 
-**Arcomage HD** is not-for-profit. The assets, text, appearance and other copyrightable elements of the original Arcomage game are used within scope of the "[fair use](https://en.wikipedia.org/wiki/Fair_use)" doctrine.
+**ArcoMage HD** is not-for-profit. The assets, text, appearance and other copyrightable elements of the original Arcomage game are used within scope of the "[fair use](https://en.wikipedia.org/wiki/Fair_use)" doctrine.
 
-**Arcomage HD** uses React.js and other open-source JavaScript / TypeScript libraries. See [§ Copyright Notice of the Dependencies](#copyright-notice-of-the-dependencies) and [§ Other Copyright Notices](#other-copyright-notices).
+**ArcoMage HD** uses React.js and other open-source JavaScript / TypeScript libraries. See [§ Copyright Notice of the Dependencies](#copyright-notice-of-the-dependencies) and [§ Other Copyright Notices](#other-copyright-notices).
 
 ## MIT License
 

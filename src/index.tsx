@@ -1,19 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-
-import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
 import { Provider } from 'react-redux'
-import rootReducer from './reducers'
+import { store, epicMiddleware } from './store'
 import rootEpic from './epics'
-import { createEpicMiddleware } from 'redux-observable'
-
-const epicMiddleware = createEpicMiddleware()
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(epicMiddleware)),
-)
 
 epicMiddleware.run(rootEpic)
 

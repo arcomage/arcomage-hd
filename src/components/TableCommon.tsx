@@ -6,7 +6,7 @@ import Bird from './Bird'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import { connect, useDispatch } from 'react-redux'
+import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { StateType } from '../types/state'
 
 import bg from '../../assets/img/bg.jpg'
@@ -22,48 +22,32 @@ const useStyles = createUseStyles({
   },
 })
 
-type PropType = {
-  playerName: string
-  opponentName: string
-  bricksP: number
-  gemsP: number
-  recruitsP: number
-  brickProdP: number
-  gemProdP: number
-  recruitProdP: number
-  towerP: number
-  wallP: number
-  bricksO: number
-  gemsO: number
-  recruitsO: number
-  brickProdO: number
-  gemProdO: number
-  recruitProdO: number
-  towerO: number
-  wallO: number
-}
-const TableCommon = ({
-  playerName,
-  opponentName,
-  bricksP,
-  gemsP,
-  recruitsP,
-  brickProdP,
-  gemProdP,
-  recruitProdP,
-  towerP,
-  wallP,
-  bricksO,
-  gemsO,
-  recruitsO,
-  brickProdO,
-  gemProdO,
-  recruitProdO,
-  towerO,
-  wallO,
-}: PropType) => {
+const TableCommon = () => {
+  const playerName = useAppSelector((state) => state.settings.playerName)
+  const opponentName = useAppSelector((state) => state.settings.opponentName)
+  const bricksP = useAppSelector((state) => state.status.player.bricks)
+  const gemsP = useAppSelector((state) => state.status.player.gems)
+  const recruitsP = useAppSelector((state) => state.status.player.recruits)
+  const brickProdP = useAppSelector((state) => state.status.player.brickProd)
+  const gemProdP = useAppSelector((state) => state.status.player.gemProd)
+  const recruitProdP = useAppSelector(
+    (state) => state.status.player.recruitProd,
+  )
+  const towerP = useAppSelector((state) => state.status.player.tower)
+  const wallP = useAppSelector((state) => state.status.player.wall)
+  const bricksO = useAppSelector((state) => state.status.opponent.bricks)
+  const gemsO = useAppSelector((state) => state.status.opponent.gems)
+  const recruitsO = useAppSelector((state) => state.status.opponent.recruits)
+  const brickProdO = useAppSelector((state) => state.status.opponent.brickProd)
+  const gemProdO = useAppSelector((state) => state.status.opponent.gemProd)
+  const recruitProdO = useAppSelector(
+    (state) => state.status.opponent.recruitProd,
+  )
+  const towerO = useAppSelector((state) => state.status.opponent.tower)
+  const wallO = useAppSelector((state) => state.status.opponent.wall)
+
   const classes = useStyles()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   return (
     <div
       className={cx('z-0 h-2/3 flex-auto bg-green-100 relative', classes.main)}
@@ -102,25 +86,4 @@ const TableCommon = ({
   )
 }
 
-const mapStateToProps = (state: StateType) => ({
-  playerName: state.settings.playerName,
-  opponentName: state.settings.opponentName,
-  bricksP: state.status.player.bricks,
-  gemsP: state.status.player.gems,
-  recruitsP: state.status.player.recruits,
-  brickProdP: state.status.player.brickProd,
-  gemProdP: state.status.player.gemProd,
-  recruitProdP: state.status.player.recruitProd,
-  towerP: state.status.player.tower,
-  wallP: state.status.player.wall,
-  bricksO: state.status.opponent.bricks,
-  gemsO: state.status.opponent.gems,
-  recruitsO: state.status.opponent.recruits,
-  brickProdO: state.status.opponent.brickProd,
-  gemProdO: state.status.opponent.gemProd,
-  recruitProdO: state.status.opponent.recruitProd,
-  towerO: state.status.opponent.tower,
-  wallO: state.status.opponent.wall,
-})
-
-export default connect(mapStateToProps)(TableCommon)
+export default TableCommon

@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import Resource, { calcStatusWidth } from './Resource'
-import { connect } from 'react-redux'
+import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { StateType } from '../types/state'
 import useGameSize from '../utils/useGameSize'
 
@@ -23,7 +23,6 @@ type PropType = {
   gemProd: number
   recruitProd: number
   isOpponent?: boolean
-  playersTurn: boolean
 }
 const Status = ({
   playerName,
@@ -34,8 +33,9 @@ const Status = ({
   gemProd,
   recruitProd,
   isOpponent = false,
-  playersTurn, // from store
 }: PropType) => {
+  const playersTurn = useAppSelector((state) => state.game.playersTurn)
+
   const size = useGameSize()
   const height = (size.height / 3) * 2
 
@@ -68,8 +68,4 @@ const Status = ({
   )
 }
 
-const mapStateToProps = (state: StateType) => ({
-  playersTurn: state.game.playersTurn,
-})
-
-export default connect(mapStateToProps)(Status)
+export default Status

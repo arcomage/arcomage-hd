@@ -74,10 +74,6 @@ module.exports = (env, argv) => {
             },
           ],
         },
-        // {
-        //   test: /\.svg$/,
-        //   use: ['@svgr/webpack'],
-        // },
         {
           test: /\.(png|jpe?g|gif|svg|ico)$/i,
           use: [
@@ -115,13 +111,17 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './src/index.html.ejs',
         filename: './index.html',
+        title: 'ArcoMage',
+        url: 'https://arcomage.github.io/',
+        ogImage: './assets/misc/ogimage.jpg',
+        faviconSvg: './assets/logo/favicon.svg',
+        faviconIco: './assets/logo/favicon.ico',
+        description: '',
       }),
       new CopyPlugin({
-        patterns: [
-          { from: 'assets/img/cards', to: 'assets/img/cards' },
-        ],
+        patterns: [{ from: 'assets/img/cards', to: 'assets/img/cards' }],
       }),
     ],
   }

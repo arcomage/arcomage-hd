@@ -1,6 +1,6 @@
-# Arcomage 2020 - Open Source Arcomage Clone
+# ArcoMage HD - Open Source Arcomage Clone
 
-Arcomage 2020 is a web-based open source clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the *Might and Magic* RPG game series.
+ArcoMage HD is a web-based open source HD clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the *Might and Magic* RPG game series.
 
 ## Gameplay
 
@@ -12,7 +12,7 @@ Arcomage was initially developed by Stickman Games and later sold to The 3DO Com
 
 ## Copyright
 
-The code of the Arcomage 2020 game: MIT License (c) 2020 Tom Chen.
+The code of the ArcoMage HD game: MIT License (c) 2021 Tom Chen.
 
 The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company.
 
