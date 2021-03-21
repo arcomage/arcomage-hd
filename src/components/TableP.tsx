@@ -1,21 +1,20 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Card from './Card'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
 import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { StateType, CardListItemAllType, CardTotalType } from '../types/state'
-import { DeepReadonly } from '../utils/typeHelpers'
 
 const useStyles = createUseStyles({
   main: { background: { image: 'linear-gradient(#326a4b, #000 2rem)' } },
 })
 
 const TableP = () => {
-  const cards: DeepReadonly<CardListItemAllType[]> = useAppSelector(
+  const cards: Readonly<CardListItemAllType[]> = useAppSelector(
     (state) => state.cards.list,
   )
-  const totalObj: DeepReadonly<CardTotalType> = useAppSelector(
+  const totalObj: Readonly<CardTotalType> = useAppSelector(
     (state) => state.cards.total,
   )
 
@@ -34,4 +33,4 @@ const TableP = () => {
   )
 }
 
-export default TableP
+export default memo(TableP)

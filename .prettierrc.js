@@ -4,4 +4,12 @@ module.exports = {
   trailingComma: 'all',
   arrowParens: 'always',
   printWidth: 80,
+  overrides: [
+    {
+      files: 'src/**/*.html.ejs',
+      options: {
+        printWidth: 140,
+      },
+    },
+  ],
 }

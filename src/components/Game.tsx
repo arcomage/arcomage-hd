@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { memo } from 'react'
 import TableCommon from './TableCommon'
 import TableP from './TableP'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { minWidth, minHeight } from '../utils/useGameSize'
+import { minWidth, minHeight } from '../utils/GameSizeContext'
 
 const useStyles = createUseStyles({
   main: {
@@ -27,4 +27,4 @@ const Game = () => {
   )
 }
 
-export default Game
+export default memo(Game)

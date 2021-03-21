@@ -1,7 +1,4 @@
-/// <reference path="./opencc.d.ts" />
-
 import excelToJson from 'convert-excel-to-json'
-import { Converter } from 'opencc-js'
 import fs from 'fs'
 
 const sourceFile = './tools/data-processing/data.xlsx'
@@ -55,17 +52,3 @@ cardSheets.forEach((cardSheet) => {
   const resultJson = JSON.stringify(curDataNew, null, 2)
   fs.writeFileSync(`./tools/data-processing/${cardSheet}.json`, resultJson)
 })
-
-const convert = Converter({ from: 'cn', to: 'tw' })
-
-;(async () => {
-  const data = await fs.promises.readFile(
-    './tools/data-processing/cards.zh-Hans.json',
-    'utf8',
-  )
-  await fs.promises.writeFile(
-    './tools/data-processing/cards.zh-Hant.json',
-    (await convert)(data),
-  )
-  console.log(`File cards.zh-Hant.json was saved!`)
-})()

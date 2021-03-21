@@ -1,9 +1,12 @@
 import { langs } from '../../src/i18n/langs'
 import { DataCardsI18nType } from '../../src/types/dataCard'
+import { entries } from '../../src/utils/typeHelpers'
 
-const i18nPromises: Promise<{ cardsI18n: DataCardsI18nType }>[] = langs.map(
-  ({ code }) => import(`../../src/i18n/cards.${code}`),
-)
+const langEntries = entries(langs)
+
+const i18nPromises: Promise<{
+  cardsI18n: DataCardsI18nType
+}>[] = langEntries.map(([code, name]) => import(`../../src/i18n/cards.${code}`))
 
 const arraysEqual = (a: any[] | null, b: any[] | null) => {
   if (a === b) {
@@ -33,12 +36,12 @@ const arraysEqual = (a: any[] | null, b: any[] | null) => {
       const descCur = i18n[index].desc
       if (/(_|\n)/.test(nameCur)) {
         console.log(
-          `${langs[i].name} ${index} name "${nameCur}" contains "_" or "\\n"`,
+          `${langEntries[i][1]} ${index} name "${nameCur}" contains "_" or "\\n"`,
         )
       }
       if (/(_|\n)/.test(descCur)) {
         console.log(
-          `${langs[i].name} ${index} desc "${descCur}" contains "_" or "\\n"`,
+          `${langEntries[i][1]} ${index} desc "${descCur}" contains "_" or "\\n"`,
         )
       }
       const regex = /\d+/g
@@ -46,7 +49,7 @@ const arraysEqual = (a: any[] | null, b: any[] | null) => {
       const foundCur = descCur.match(regex)
       if (!arraysEqual(found, foundCur)) {
         console.log(
-          `${langs[i].name} ${index} desc "${descCur}" 's numbers do not match ${langs[0].name} ${index} desc "${desc}" 's`,
+          `${langEntries[i][1]} ${index} desc "${descCur}" 's numbers do not match ${langEntries[0][1]} ${index} desc "${desc}" 's`,
         )
       }
     })

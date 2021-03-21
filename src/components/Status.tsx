@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import Resource, { calcStatusWidth } from './Resource'
 import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { StateType } from '../types/state'
-import useGameSize from '../utils/useGameSize'
+import { GameSizeContext } from '../utils/GameSizeContext'
 
 const useStyles = createUseStyles({
   username: {
@@ -36,7 +36,7 @@ const Status = ({
 }: PropType) => {
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
 
-  const size = useGameSize()
+  const size = useContext(GameSizeContext)
   const height = (size.height / 3) * 2
 
   const classes = useStyles()
@@ -68,4 +68,4 @@ const Status = ({
   )
 }
 
-export default Status
+export default memo(Status)

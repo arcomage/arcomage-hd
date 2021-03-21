@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import useGameSize from '../utils/useGameSize'
+import { GameSizeContext } from '../utils/GameSizeContext'
 import AnimatedNumber from './AnimatedNumber'
 import NumberDiff from './NumberDiff'
 import NumberChangeEffect from './NumberChangeEffect'
@@ -44,7 +44,7 @@ type PropType = {
   isOpponent?: boolean
 }
 const Wall = ({ current, isOpponent = false }: PropType) => {
-  const size = useGameSize()
+  const size = useContext(GameSizeContext)
   const height = (size.height / 3) * 2
 
   const classes = useStyles(height)
@@ -78,4 +78,4 @@ const Wall = ({ current, isOpponent = false }: PropType) => {
   )
 }
 
-export default Wall
+export default memo(Wall)

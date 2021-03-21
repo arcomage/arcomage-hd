@@ -1,4 +1,4 @@
-// const webpack = require('webpack')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
@@ -8,7 +8,9 @@ module.exports = (env, argv) => {
   const config = {
     entry: './src/index.tsx',
     output: {
-      filename: 'bundle.js',
+      filename: '[name].[contenthash:8].js',
+      sourceMapFilename: '[name].[contenthash:8].map',
+      chunkFilename: '[id].[contenthash:8].js',
     },
     ...(dev ? { devtool: 'eval-cheap-module-source-map' } : {}),
     devServer: {
@@ -110,6 +112,7 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
+      new ForkTsCheckerWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html.ejs',
         filename: './index.html',
@@ -124,6 +127,30 @@ module.exports = (env, argv) => {
         patterns: [{ from: 'assets/img/cards', to: 'assets/img/cards' }],
       }),
     ],
+    optimization: {
+      splitChunks: {
+        chunks: 'async',
+        minSize: 20000,
+        minRemainingSize: 0,
+        maxSize: 0,
+        minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
+        enforceSizeThreshold: 50000,
+        cacheGroups: {
+          defaultVendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10,
+            reuseExistingChunk: true,
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
+        },
+      },
+    },
   }
 
   return config

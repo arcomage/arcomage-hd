@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext, memo } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import useGameSize from '../utils/useGameSize'
+import { GameSizeContext } from '../utils/GameSizeContext'
 
 import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import {
@@ -19,7 +19,6 @@ import {
   unusableCardOpacity,
 } from '../constants/transition'
 
-import { cardsI18n } from '../../src/i18n/cards.en'
 import dataCards from '../../src/data/cards'
 
 import noise from '../../assets/img/noise.png'
@@ -27,6 +26,8 @@ import cardbackbg from '../../assets/img/cardback.png'
 import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'
 import recruit from '../../assets/img/recruit.svg'
+import { I18nContext } from '../i18n/I18nContext'
+import { DataCardI18nType } from '../types/dataCard'
 
 const heightPercToTable = 0.8
 const whRatio = 188 / 252
@@ -233,11 +234,14 @@ const Card = ({
   index = -1,
   isflipped = false,
 }: PropType) => {
+  const trans = useContext(I18nContext)
+  const cardsI18n = trans.cards
+  const cardsI18nCurrent: DataCardI18nType | undefined = cardsI18n?.[n]
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
   const locked = useAppSelector((state) => state.game.locked)
 
   const dispatch = useAppDispatch()
-  const size = useGameSize()
+  const size = useContext(GameSizeContext)
   const winHeight = size.height
   const winWidth = size.width
   const [zeroOpacity, setZeroOpacity] = useState(false)
@@ -373,7 +377,7 @@ const Card = ({
               `bg-${color}-200`,
             )}
           >
-            {cardsI18n[n].name}
+            {cardsI18nCurrent?.name}
           </div>
           <div
             className={cx(
@@ -387,7 +391,7 @@ const Card = ({
               ].type.toString()}_${(n % cardCountPerType).toString()}.png")`,
             }}
           >
-            {discarded && 'discarded'}
+            {discarded && trans?.i18n?.discarded}
           </div>
           <div
             className={cx(
@@ -396,7 +400,7 @@ const Card = ({
             )}
           >
             <div className="leading-none break-words text-center">
-              {cardsI18n[n].desc}
+              {cardsI18nCurrent?.desc}
             </div>
           </div>
           <div className="absolute bottom-1 right-1 w-9 h-9 leading-9 text-center font-bold">
@@ -423,4 +427,4 @@ const Card = ({
   }
 }
 
-export default Card
+export default memo(Card)

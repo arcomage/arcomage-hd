@@ -1,13 +1,13 @@
+import produce from 'immer'
 import { UPDATE_LANG } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 
-const lang = (state = 'en', action: ActionType) => {
+const lang = produce((draft: 'en' | 'nl' | 'fr', action: ActionType) => {
   switch (action.type) {
-    case UPDATE_LANG:
+    case UPDATE_LANG: {
       return action.lang
-    default:
-      return state
+    }
   }
-}
+}, 'en')
 
 export default lang

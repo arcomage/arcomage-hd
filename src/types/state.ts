@@ -1,3 +1,5 @@
+import { AvailableLangType } from "../i18n/types"
+
 export type PersonStatusType = {
   bricks: number
   gems: number
@@ -62,7 +64,7 @@ export type SettingsStateType = SettingsBaseType & {
 }
 
 export type StateType = {
-  lang: string
+  lang: AvailableLangType
   status: StatusType
   cards: CardStateType
   game: GameStateType

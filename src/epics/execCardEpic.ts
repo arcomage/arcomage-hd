@@ -38,7 +38,7 @@ export const execCardEpic = (
         }))
         .concat(
           entries(o)
-            .filter(([key, value]) => value !== pOriginal[key])
+            .filter(([key, value]) => value !== oOriginal[key])
             .map(([key, value]) => ({
               isPlayer: false,
               statusProp: key,

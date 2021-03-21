@@ -1,9 +1,11 @@
-export const langs = [
-  { code: 'en', name: 'English' },
-  { code: 'fr', name: 'Français' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'zh-Hans', name: '简体中文' },
-  { code: 'zh-Hant', name: '繁體中文' },
-]
+export const langs = {
+  en: 'English',
+  fr: 'Français',
+  de: 'Deutsch',
+  'zh-Hans': '简体中文',
+  'zh-Hant': '繁體中文',
+}
+
+export const defaultLang = 'en' as const
 
 // complete and checked langs only

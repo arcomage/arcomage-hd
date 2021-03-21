@@ -17,9 +17,10 @@ const change = (
 }
 
 const damage = (person: DataCardEffectPersonType, n: number) => {
+  const d = person.wall - n
   change(person, 'wall', -n)
-  if (person.wall < n) {
-    change(person, 'tower', person.wall - n)
+  if (d < 0) {
+    change(person, 'tower', d)
   }
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
@@ -108,4 +108,4 @@ const Bird = () => {
   )
 }
 
-export default Bird
+export default memo(Bird)

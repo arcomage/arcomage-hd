@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import useGameSize from '../utils/useGameSize'
+import { GameSizeContext } from '../utils/GameSizeContext'
+
+import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import AnimatedNumber from './AnimatedNumber'
 import NumberDiff from './NumberDiff'
 
 import brickBg from '../../assets/img/res_1.png'
 import gemBg from '../../assets/img/res_2.png'
 import recruitBg from '../../assets/img/res_3.png'
+import { I18nContext } from '../i18n/I18nContext'
 
 const whRatio = 156 / 216
 
@@ -80,12 +83,17 @@ type PropType = {
   prod: number
 }
 const Resource = ({ type, count, prod }: PropType) => {
-  const size = useGameSize()
+  const trans = useContext(I18nContext)
+  const size = useContext(GameSizeContext)
   const height = (size.height / 3) * 2
 
   const classes = useStyles(height)
   const color = { brick: 'red', gem: 'blue', recruit: 'green' }[type]
-  const text = { brick: 'bricks', gem: 'gems', recruit: 'recruits' }[type]
+  const text = {
+    brick: trans?.i18n?.bricks,
+    gem: trans?.i18n?.gems,
+    recruit: trans?.i18n?.recruits,
+  }[type]
   // Force TailwindCSS to aware of these classes:
   // bg-red-300
   // bg-blue-300
@@ -137,4 +145,4 @@ const Resource = ({ type, count, prod }: PropType) => {
   )
 }
 
-export default Resource
+export default memo(Resource)

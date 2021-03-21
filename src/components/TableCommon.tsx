@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Status from './Status'
 import Tower from './Tower'
 import Wall from './Wall'
@@ -86,4 +86,4 @@ const TableCommon = () => {
   )
 }
 
-export default TableCommon
+export default memo(TableCommon)

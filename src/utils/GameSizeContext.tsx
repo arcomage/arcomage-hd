@@ -1,21 +1,26 @@
-import { useState, useLayoutEffect } from 'react'
+import React, { useState, useLayoutEffect, createContext } from 'react'
 
 export const minWidth = 300
 export const minHeight = 300
 
-type vType = {
+export type vType = {
   width: number
   height: number
 }
 
-const useGameSize = () => {
-  const v: vType = {
-    width: 0,
-    height: 0,
-  }
+const defaultGameSize = {
+  width: 0,
+  height: 0,
+}
 
-  const [gameSize, setGameSize] = useState(v)
+export const GameSizeContext = createContext<vType>(defaultGameSize)
 
+export const GameSizeProvider = ({
+  children,
+}: {
+  children: React.ReactNode
+}) => {
+  const [gameSize, setGameSize] = useState<vType>(defaultGameSize)
   useLayoutEffect(() => {
     const handleResize = () => {
       setGameSize({
@@ -31,7 +36,9 @@ const useGameSize = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  return gameSize
+  return (
+    <GameSizeContext.Provider value={gameSize}>
+      {children}
+    </GameSizeContext.Provider>
+  )
 }
-
-export default useGameSize
