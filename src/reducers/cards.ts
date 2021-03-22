@@ -8,47 +8,54 @@ import {
   REMOVE_CARD,
   DISCARD_CARD_MAIN,
   INIT_CARD,
+  DRAW_CARD_PRE,
+  DRAW_CARD_MAIN,
 } from '../constants/ActionTypes'
-import { CardListItemAllType, CardStateType } from '../types/state'
+import {
+  CardListItemAllType,
+  CardListItemType,
+  CardStateType,
+} from '../types/state'
 import { ActionType } from '../types/actionObj'
-import dataCards from '../data/cards'
 
 const defaultCards: CardStateType = {
   total: { player: 0, opponent: 0 },
   list: [],
+  nextPos: { player: 0, opponent: 0 },
 }
-
-const numbersWithProbs = dataCards
-  .map((card) => card.prob)
-  .reduce(
-    (acc: number[], n: number, i: number): number[] =>
-      acc.concat(Array(n).fill(i)),
-    [],
-  )
-
-const randomWithProbs = (): number =>
-  numbersWithProbs[Math.floor(Math.random() * numbersWithProbs.length)]
 
 const cards = produce((draft: CardStateType, action: ActionType) => {
   switch (action.type) {
     case INIT_CARD: {
-      const { total } = action
-      const obj: CardStateType = {
-        total: { player: total, opponent: total },
-        list: [],
-      }
-      for (let i = 0, l = total * 2; i < l; i++) {
-        const card: CardListItemAllType = {
-          position: i % total,
-          n: randomWithProbs(),
-          unusable: false,
-          discarded: false,
-          isflipped: false,
-          owner: i < total ? 'player' : 'opponent',
+      return action.payload
+    }
+    case DRAW_CARD_PRE: {
+      draft.list.push({
+        n: action.n,
+        position: -1,
+        owner: 'common',
+        unusable: false,
+        discarded: false,
+        isflipped: true,
+      })
+      break
+    }
+    case DRAW_CARD_MAIN: {
+      const { position, owner } = action
+      draft.total[owner] += 1
+      const li = draft.list
+      li.forEach((c) => {
+        if (c?.owner === owner && c.position >= position) {
+          c.position += 1
         }
-        obj.list.push(card)
+      })
+      const lastCard = li[li.length - 1]
+      if (lastCard !== null) {
+        lastCard.position = position
+        lastCard.owner = owner
+        lastCard.isflipped = false
       }
-      return obj
+      break
     }
     case MOVE_CARD_TO_CENTER: {
       const card = draft.list[action.index]
@@ -111,6 +118,7 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
             c.position -= 1
           }
         })
+        draft.nextPos[owner] = action.position
       }
       break
     }

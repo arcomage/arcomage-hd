@@ -20,8 +20,16 @@ import {
   INIT_CARD,
   INIT_GAME,
   INIT_STATUS,
+  DRAW_CARD,
+  SWITCH_TURN_MAIN,
+  DRAW_CARD_MAIN,
+  DRAW_CARD_PRE,
 } from '../constants/ActionTypes'
-import { PersonStatusType, SettingsStateType } from '../types/state'
+import {
+  CardStateType,
+  PersonStatusType,
+  SettingsStateType,
+} from '../types/state'
 
 export type LangActionType = { type: typeof UPDATE_LANG; lang: string }
 
@@ -75,6 +83,24 @@ export type UseCardActionType = {
   owner: 'player' | 'opponent'
 }
 
+export type DrawCardActionType = {
+  type: typeof DRAW_CARD
+  n: number
+  position: number
+  owner: 'player' | 'opponent'
+}
+
+export type DrawCardPreActionType = {
+  type: typeof DRAW_CARD_PRE
+  n: number
+}
+
+export type DrawCardMainActionType = {
+  type: typeof DRAW_CARD_MAIN
+  position: number
+  owner: 'player' | 'opponent'
+}
+
 export type MoveCardToCenterActionType = {
   type: typeof MOVE_CARD_TO_CENTER
   index: number
@@ -122,6 +148,10 @@ export type SwitchTurnActionType = {
   type: typeof SWITCH_TURN
 }
 
+export type SwitchTurnMainActionType = {
+  type: typeof SWITCH_TURN_MAIN
+}
+
 export type SwitchLockActionType = {
   type: typeof SWITCH_LOCK
 }
@@ -137,11 +167,12 @@ export type InitActionType = {
 
 export type InitCardActionType = {
   type: typeof INIT_CARD
-  total: number
+  payload: CardStateType
 }
 
 export type InitGameActionType = {
   type: typeof INIT_GAME
+  playersTurn: boolean
 }
 
 export type InitStatusActionType = {
@@ -160,6 +191,9 @@ export type ActionType =
   | UpdateStatusMainActionType
   | ExecCardActionType
   | UseCardActionType
+  | DrawCardActionType
+  | DrawCardPreActionType
+  | DrawCardMainActionType
   | MoveCardToCenterActionType
   | MoveCardToTopActionType
   | MoveCardToDeckActionType
@@ -169,6 +203,7 @@ export type ActionType =
   | RemoveCardActionType
   | DeleteCardInDeckActionType
   | SwitchTurnActionType
+  | SwitchTurnMainActionType
   | SwitchLockActionType
   | ChangeSettingsActionType
   | InitActionType

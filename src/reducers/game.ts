@@ -1,5 +1,9 @@
 import produce from 'immer'
-import { INIT_GAME, SWITCH_LOCK, SWITCH_TURN } from '../constants/ActionTypes'
+import {
+  INIT_GAME,
+  SWITCH_LOCK,
+  SWITCH_TURN_MAIN,
+} from '../constants/ActionTypes'
 import { GameStateType } from '../types/state'
 import { ActionType } from '../types/actionObj'
 
@@ -12,11 +16,11 @@ const game = produce((draft: GameStateType, action: ActionType) => {
   switch (action.type) {
     case INIT_GAME: {
       return {
-        playersTurn: Math.random() < 0.5,
+        playersTurn: action.playersTurn,
         locked: false,
       }
     }
-    case SWITCH_TURN: {
+    case SWITCH_TURN_MAIN: {
       draft.playersTurn = !draft.playersTurn
       break
     }

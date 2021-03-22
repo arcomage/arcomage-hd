@@ -349,9 +349,6 @@ const Card = ({
             dispatch({
               type: SWITCH_TURN,
             })
-            dispatch({
-              type: SWITCH_LOCK,
-            })
           }
           if (e.propertyName === 'transform' && position === -1) {
             setZeroOpacity(true)

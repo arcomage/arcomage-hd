@@ -116,7 +116,7 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './src/index.html.ejs',
         filename: './index.html',
-        title: 'ArcoMage',
+        title: 'ArcoMage HD',
         url: 'https://arcomage.github.io/',
         ogImage: './assets/misc/ogimage.jpg',
         faviconSvg: './assets/logo/favicon.svg',

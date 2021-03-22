@@ -34,9 +34,12 @@ export type CardTotalType = {
   opponent: number
 }
 
+export type CardNextPosType = CardTotalType
+
 export type CardStateType = {
   total: CardTotalType
   list: CardListItemAllType[]
+  nextPos: CardNextPosType
 }
 
 export type GameStateType = {
