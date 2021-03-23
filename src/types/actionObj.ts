@@ -9,7 +9,7 @@ import {
   MOVE_CARD_TO_DECK,
   CLEAR_CARD,
   DELETE_CARD,
-  SWITCH_TURN,
+  NEXT_ROUND,
   SWITCH_LOCK,
   REMOVE_CARD,
   DISCARD_CARD,
@@ -21,9 +21,10 @@ import {
   INIT_GAME,
   INIT_STATUS,
   DRAW_CARD,
-  SWITCH_TURN_MAIN,
+  SWITCH_TURN,
   DRAW_CARD_MAIN,
   DRAW_CARD_PRE,
+  RESOURCE_PROD,
 } from '../constants/ActionTypes'
 import {
   CardStateType,
@@ -144,12 +145,17 @@ export type DeleteCardInDeckActionType = {
   index: number
 }
 
-export type SwitchTurnActionType = {
-  type: typeof SWITCH_TURN
+export type NextRoundActionType = {
+  type: typeof NEXT_ROUND
 }
 
-export type SwitchTurnMainActionType = {
-  type: typeof SWITCH_TURN_MAIN
+export type ResourceProdActionType = {
+  type: typeof RESOURCE_PROD
+  owner: 'player' | 'opponent'
+}
+
+export type SwitchTurnActionType = {
+  type: typeof SWITCH_TURN
 }
 
 export type SwitchLockActionType = {
@@ -202,8 +208,9 @@ export type ActionType =
   | DiscardCardMainActionType
   | RemoveCardActionType
   | DeleteCardInDeckActionType
+  | NextRoundActionType
+  | ResourceProdActionType
   | SwitchTurnActionType
-  | SwitchTurnMainActionType
   | SwitchLockActionType
   | ChangeSettingsActionType
   | InitActionType

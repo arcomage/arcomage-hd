@@ -1,7 +1,9 @@
 import {
+  SWITCH_TURN,
+  SWITCH_LOCK,
+  NEXT_ROUND,
   DRAW_CARD,
-  DRAW_CARD_PRE,
-  DRAW_CARD_MAIN,
+  RESOURCE_PROD,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import {
@@ -26,24 +28,28 @@ export const nextRoundEpic = (
   state$: StateObservable<StateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(DRAW_CARD)),
-    mergeMap((action) => {
-      const { n, position, owner } = action
+    filter(isOfType(NEXT_ROUND)),
+    withLatestFrom(state$),
+    mergeMap(([action, state]) => {
+      const newCardN = randomWithProbs()
       return merge(
-        new Observable(() => {
-          setTimeout(() => {
-            playSound('deal')
-          }, 10)
+        of({
+          type: SWITCH_TURN,
         }),
         of({
-          type: DRAW_CARD_PRE,
-          n,
+          type: RESOURCE_PROD,
+          owner: state.game.playersTurn ? 'opponent' : 'player',
         }),
         of({
-          type: DRAW_CARD_MAIN,
-          position,
-          owner,
-        }).pipe(delay(10)),
+          type: SWITCH_LOCK,
+        }),
+        of({
+          type: DRAW_CARD,
+          n: newCardN,
+          position:
+            state.cards.nextPos[state.game.playersTurn ? 'opponent' : 'player'],
+          owner: state.game.playersTurn ? 'opponent' : 'player',
+        }),
       )
     }),
   )

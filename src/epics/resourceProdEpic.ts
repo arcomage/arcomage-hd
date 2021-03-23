@@ -1,8 +1,12 @@
 import {
-  SWITCH_TURN_MAIN,
+  CLEAR_CARD,
+  USE_CARD,
+  EXEC_CARD,
+  MOVE_CARD_TO_CENTER,
   SWITCH_LOCK,
-  SWITCH_TURN,
-  DRAW_CARD,
+  REMOVE_CARD,
+  RESOURCE_PROD,
+  UPDATE_STATUS,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import {
@@ -19,34 +23,32 @@ import { StateType } from '../types/state'
 import { entries } from '../utils/typeHelpers'
 import dataCards from '../data/cards'
 import { concat, interval, merge, Observable, of } from 'rxjs'
-import playSound from '../utils/playSound'
-import { randomWithProbs } from '../utils/randomWithProbs'
+import { resProdMap } from '../constants/resourceNames'
 
-export const switchTurnEpic = (
+export const resourceProdEpic = (
   action$: ActionsObservable<ActionType>,
   state$: StateObservable<StateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(SWITCH_TURN)),
+    filter(isOfType(RESOURCE_PROD)),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
-      const newCardN = randomWithProbs()
+      const currentStatus = state.status[action.owner]
+
+      const payload = entries(resProdMap).map(([prod, res]) => ({
+        isPlayer: action.owner === 'player',
+        statusProp: res,
+        diff: currentStatus[prod],
+        noSound: true,
+      }))
+
       return merge(
         of({
-          type: SWITCH_TURN_MAIN,
-        }),
-        of({
-          type: SWITCH_LOCK,
-        }),
-        of({
-          type: DRAW_CARD,
-          n: newCardN,
-          position:
-            state.cards.nextPos[state.game.playersTurn ? 'opponent' : 'player'],
-          owner: state.game.playersTurn ? 'opponent' : 'player',
+          type: UPDATE_STATUS,
+          payload,
         }),
       )
     }),
   )
 
-export default switchTurnEpic
+export default resourceProdEpic

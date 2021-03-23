@@ -17,7 +17,7 @@ const status = produce((draft: StatusType, action: ActionType) => {
         opponent: { ...action.payload },
       }
     }
-    case UPDATE_STATUS_MAIN:
+    case UPDATE_STATUS_MAIN: {
       for (const upd of action.payload) {
         const { isPlayer, statusProp } = upd
         if ('to' in upd) {
@@ -27,6 +27,7 @@ const status = produce((draft: StatusType, action: ActionType) => {
         }
       }
       break
+    }
   }
 }, defaultStatus)
 

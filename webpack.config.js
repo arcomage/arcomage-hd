@@ -1,6 +1,7 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = (env, argv) => {
   const dev = argv.mode === 'development'
@@ -117,15 +118,15 @@ module.exports = (env, argv) => {
         filename: './index.html',
         title: 'ArcoMage HD',
         url: 'https://arcomage.github.io/',
-        ogImage: './assets/misc/ogimage.jpg',
-        faviconSvg: './assets/logo/favicon.svg',
-        faviconIco: './assets/logo/favicon.ico',
+        ogImage: './ogimage.jpg',
+        faviconSvg: './favicon.svg',
+        faviconIco: './favicon.ico',
         description: '',
       }),
       new PreloadWebpackPlugin({
         rel: 'preload',
         include: 'all',
-        fileBlacklist: [/\.(?!(css$|woff$|woff2$|png$|jpe?g$|svg$|)).*$/],
+        fileBlacklist: [/\.(?!(css$|woff$|woff2$|png$|jpe?g$|svg$)).*$/],
         as(entry) {
           if (/\.css$/.test(entry)) return 'style'
           if (/\.(woff|woff2)$/.test(entry)) return 'font'
@@ -141,6 +142,13 @@ module.exports = (env, argv) => {
           if (/\.mp3$/.test(entry)) return 'audio'
           return 'script'
         },
+      }),
+      new CopyPlugin({
+        patterns: [
+          { from: './assets/logo/favicon.svg', to: './favicon.svg' },
+          { from: './assets/logo/favicon.ico', to: './favicon.ico' },
+          { from: './assets/misc/ogimage.jpg', to: './ogimage.jpg' },
+        ],
       }),
     ],
     optimization: {

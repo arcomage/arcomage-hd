@@ -20,10 +20,11 @@ export const DRAW_CARD_PRE = 'DRAW_CARD_PRE' as const
 export const DRAW_CARD_MAIN = 'DRAW_CARD_MAIN' as const
 export const CHANGE_SETTINGS_AND_INIT = 'CHANGE_SETTINGS_AND_INIT' as const
 export const CHANGE_SETTINGS = 'CHANGE_SETTINGS' as const
-export const INIT_MAIN = 'INIT_MAIN' as const
 export const INIT = 'INIT' as const
+export const INIT_MAIN = 'INIT_MAIN' as const
 
-export const SWITCH_TURN_MAIN = 'SWITCH_TURN_MAIN' as const
+export const NEXT_ROUND = 'NEXT_ROUND' as const
+export const RESOURCE_PROD = 'RESOURCE_PROD' as const
 export const SWITCH_TURN = 'SWITCH_TURN' as const
 export const SWITCH_LOCK = 'SWITCH_LOCK' as const
 export const INIT_CARD = 'INIT_CARD' as const

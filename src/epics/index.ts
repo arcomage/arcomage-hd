@@ -8,8 +8,9 @@ import useCardEpic from './useCardEpic'
 import discardCardEpic from './discardCardEpic'
 import changeSettingsAndInitEpic from './changeSettingsAndInitEpic'
 import initEpic from './initEpic'
-import switchTurnEpic from './switchTurnEpic'
+import nextRoundEpic from './nextRoundEpic'
 import drawCardEpic from './drawCardEpic'
+import resourceProdEpic from './resourceProdEpic'
 
 export type MyEpic = Epic<Action<ActionType>, Action<ActionType>>
 
@@ -22,7 +23,8 @@ const rootEpic: MyEpic = (action$, store$, dependencies) =>
     changeSettingsAndInitEpic,
     initEpic,
     drawCardEpic,
-    switchTurnEpic,
+    nextRoundEpic,
+    resourceProdEpic,
   )(action$, store$, dependencies).pipe(
     catchError((error, source) => {
       console.error(error)

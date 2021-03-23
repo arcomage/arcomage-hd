@@ -6,6 +6,7 @@ import {
   INIT_GAME,
   INIT_STATUS,
   DRAW_CARD,
+  RESOURCE_PROD,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import { map, withLatestFrom, filter, mergeMap } from 'rxjs/operators'
@@ -59,6 +60,10 @@ export const changeSettingsAndInitEpic = (
         of({
           type: INIT_STATUS,
           payload: state.settings.start,
+        }),
+        of({
+          type: RESOURCE_PROD,
+          owner: playersTurn ? 'player' : 'opponent',
         }),
         of({
           type: DRAW_CARD,

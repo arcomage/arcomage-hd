@@ -7,10 +7,9 @@ import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import {
   USE_CARD,
   MOVE_CARD_TO_TOP,
-  SWITCH_TURN,
+  NEXT_ROUND,
   DELETE_CARD,
   DISCARD_CARD,
-  SWITCH_LOCK,
 } from '../constants/ActionTypes'
 import { CardTotalType, ownerType, StateType } from '../types/state'
 import {
@@ -18,6 +17,8 @@ import {
   cardNextStepTimeoutMs,
   unusableCardOpacity,
 } from '../constants/transition'
+import { resNames } from '../constants/resourceNames'
+import { cardCountPerType } from '../data/cardCountPerType'
 
 import dataCards from '../../src/data/cards'
 
@@ -26,6 +27,7 @@ import cardbackbg from '../../assets/img/cardback.png'
 import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'
 import recruit from '../../assets/img/recruit.svg'
+
 import { I18nContext } from '../i18n/I18nContext'
 import { DataCardI18nType } from '../types/dataCard'
 
@@ -212,8 +214,6 @@ const useStyles = createUseStyles({
   },
 })
 
-const cardCountPerType = 34
-
 type PropType = {
   n: number // .. | -1: cardback
   unusable?: boolean
@@ -246,6 +246,18 @@ const Card = ({
   const winWidth = size.width
   const [zeroOpacity, setZeroOpacity] = useState(false)
 
+  const res = {
+    player: {
+      bricks: useAppSelector((state) => state.status.player.bricks),
+      gems: useAppSelector((state) => state.status.player.gems),
+      recruits: useAppSelector((state) => state.status.player.recruits),
+    },
+    opponent: {
+      bricks: useAppSelector((state) => state.status.opponent.bricks),
+      gems: useAppSelector((state) => state.status.opponent.gems),
+      recruits: useAppSelector((state) => state.status.opponent.recruits),
+    },
+  }
   let total
 
   if (owner === 'common') {
@@ -273,14 +285,24 @@ const Card = ({
       ></div>
     )
   } else {
-    const type = dataCards[n].type
+    const { type, cost } = dataCards[n]
+
+    const _unusable =
+      unusable ||
+      (!unusable &&
+        owner !== 'common' &&
+        !isflipped &&
+        cost > res[owner][resNames[dataCards[n].type]])
+
+    console.log(_unusable)
+
     const classes = useStyles({
       type,
       winHeight,
       winWidth,
       total,
       position,
-      unusable,
+      unusable: _unusable,
       zeroOpacity,
     })
     const color = ['red', 'blue', 'green'][type]
@@ -306,7 +328,7 @@ const Card = ({
           { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
-        {...(position >= 0 && !unusable && !locked
+        {...(position >= 0 && !_unusable && !locked
           ? {
               onClick: () => {
                 if (owner !== 'common') {
@@ -347,7 +369,7 @@ const Card = ({
           }
           if (e.propertyName === 'top' && [-2, -3, -4].includes(position)) {
             dispatch({
-              type: SWITCH_TURN,
+              type: NEXT_ROUND,
             })
           }
           if (e.propertyName === 'transform' && position === -1) {
@@ -410,9 +432,7 @@ const Card = ({
                 'absolute top-0 left-0 w-full h-full',
               )}
             ></div>
-            <div className="absolute top-0 left-0 w-full h-full">
-              {dataCards[n].cost}
-            </div>
+            <div className="absolute top-0 left-0 w-full h-full">{cost}</div>
           </div>
         </div>
         <div

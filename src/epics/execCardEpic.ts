@@ -6,6 +6,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
 import { entries } from '../utils/typeHelpers'
 import dataCards from '../data/cards'
+import { resNames } from '../constants/resourceNames'
 
 export const execCardEpic = (
   action$: ActionsObservable<ActionType>,
@@ -48,7 +49,7 @@ export const execCardEpic = (
 
       newArr.push({
         isPlayer: action.owner === 'player',
-        statusProp: (['bricks', 'gems', 'recruits'] as const)[card.type],
+        statusProp: resNames[card.type],
         diff: -card.cost,
         noSound: true,
       })
