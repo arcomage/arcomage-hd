@@ -383,9 +383,12 @@ const Card = ({
               'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-600 text-xl font-bold uppercase text-shadow-stroke',
             )}
             style={{
-              backgroundImage: `url("assets/img/cards/${dataCards[
-                n
-              ].type.toString()}_${(n % cardCountPerType).toString()}.png")`,
+              backgroundImage: `url(${
+                require(`../../assets/img/cards/${dataCards[
+                  n
+                ].type.toString()}_${(n % cardCountPerType).toString()}.png`)
+                  .default
+              })`,
             }}
           >
             {discarded && trans?.i18n?.discarded}

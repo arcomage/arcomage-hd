@@ -30,8 +30,20 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
       setTranslation({ ...translation, [lang]: null })
       ;(async () => {
         const [{ i18n }, { cardsI18n }] = await Promise.all([
-          import(`./${lang}`),
-          import(`./cards.${lang}`),
+          import(
+            /* webpackChunkName: "i18n" */
+            /* webpackMode: "lazy" */
+            /* webpackPrefetch: true */
+            /* webpackPreload: false */
+            `./${lang}`
+          ),
+          import(
+            /* webpackChunkName: "cardi18n" */
+            /* webpackMode: "lazy" */
+            /* webpackPrefetch: true */
+            /* webpackPreload: false */
+            `./cards.${lang}`
+          ),
         ])
         setTranslation({ ...translation, [lang]: { i18n, cards: cardsI18n } })
       })()

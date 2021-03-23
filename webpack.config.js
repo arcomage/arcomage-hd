@@ -1,6 +1,6 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
+const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin')
 
 module.exports = (env, argv) => {
   const dev = argv.mode === 'development'
@@ -8,9 +8,8 @@ module.exports = (env, argv) => {
   const config = {
     entry: './src/index.tsx',
     output: {
-      filename: '[name].[contenthash:8].js',
-      sourceMapFilename: '[name].[contenthash:8].map',
-      chunkFilename: '[id].[contenthash:8].js',
+      filename: '[name].[contenthash:6].js',
+      chunkFilename: '[name].[contenthash:6].js',
     },
     ...(dev ? { devtool: 'eval-cheap-module-source-map' } : {}),
     devServer: {
@@ -123,8 +122,25 @@ module.exports = (env, argv) => {
         faviconIco: './assets/logo/favicon.ico',
         description: '',
       }),
-      new CopyPlugin({
-        patterns: [{ from: 'assets/img/cards', to: 'assets/img/cards' }],
+      new PreloadWebpackPlugin({
+        rel: 'preload',
+        include: 'all',
+        fileBlacklist: [/\.(?!(css$|woff$|woff2$|png$|jpe?g$|svg$|)).*$/],
+        as(entry) {
+          if (/\.css$/.test(entry)) return 'style'
+          if (/\.(woff|woff2)$/.test(entry)) return 'font'
+          if (/\.(png|jpe?g|svg)$/.test(entry)) return 'image'
+          return 'script'
+        },
+      }),
+      new PreloadWebpackPlugin({
+        rel: 'prefetch',
+        include: 'all',
+        fileBlacklist: [/\.(?!(mp3$)).*$/],
+        as(entry) {
+          if (/\.mp3$/.test(entry)) return 'audio'
+          return 'script'
+        },
       }),
     ],
     optimization: {
