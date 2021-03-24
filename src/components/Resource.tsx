@@ -89,9 +89,9 @@ const Resource = ({ type, count, prod }: PropType) => {
   const classes = useStyles(height)
   const color = { brick: 'red', gem: 'blue', recruit: 'green' }[type]
   const text = {
-    brick: trans?.i18n?.bricks,
-    gem: trans?.i18n?.gems,
-    recruit: trans?.i18n?.recruits,
+    brick: trans.i18n?.bricks,
+    gem: trans.i18n?.gems,
+    recruit: trans.i18n?.recruits,
   }[type]
   // Force TailwindCSS to aware of these classes:
   // bg-red-300

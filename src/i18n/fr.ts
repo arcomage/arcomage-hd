@@ -3,4 +3,5 @@ export const i18n = {
   gems: 'gemmes',
   recruits: 'recrues',
   discarded: 'se défausser',
+  'Discard a card': 'Se défausser',
 }

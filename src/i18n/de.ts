@@ -3,4 +3,5 @@ export const i18n = {
   gems: 'Edelsteine',
   recruits: 'Rekruten',
   discarded: 'abgelegt',
+  'Discard a card': 'Eine Karte ablegen',
 }

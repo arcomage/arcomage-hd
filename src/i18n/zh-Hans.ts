@@ -3,4 +3,5 @@ export const i18n = {
   gems: '宝石',
   recruits: '怪物',
   discarded: '弃牌',
+  'Discard a card': '丢弃一张牌',
 }

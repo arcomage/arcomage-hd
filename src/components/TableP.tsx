@@ -5,6 +5,7 @@ import { createUseStyles } from 'react-jss'
 
 import { useAppSelector } from '../utils/useAppDispatch'
 import { CardListItemAllType } from '../types/state'
+import DiscardModeNotice from './DiscardModeNotice'
 
 const useStyles = createUseStyles({
   main: { background: { image: 'linear-gradient(#326a4b, #000 2rem)' } },
@@ -14,6 +15,7 @@ const TableP = () => {
   const cards: Readonly<CardListItemAllType[]> = useAppSelector(
     (state) => state.cards.list,
   )
+  const discardMode = useAppSelector((state) => state.game.discardMode)
 
   const classes = useStyles()
   return (
@@ -26,6 +28,7 @@ const TableP = () => {
           return <Card key={i} index={i} {...card} />
         }
       })}
+      <DiscardModeNotice shown={discardMode} />
     </div>
   )
 }

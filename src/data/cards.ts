@@ -459,7 +459,7 @@ const cards: DataCardsType = [
     // desc: 'Draw 1 card. Discard 1 card. Play again',
     type: 1,
     cost: 2,
-    prob: 100,
+    prob: 1,
     special: { drawDiscardPlayagain: true },
     effect: (p, o) => {},
   },

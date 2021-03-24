@@ -1,13 +1,10 @@
-import React, { useState, useContext, memo } from 'react'
+import React, { useState, useContext, memo, MouseEvent } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
 
 import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
-import {
-  USE_CARD,
-  DISCARD_CARD,
-} from '../constants/ActionTypes'
+import { USE_CARD, DISCARD_CARD } from '../constants/ActionTypes'
 import { CardTotalType, ownerType, StateType } from '../types/state'
 import {
   cardTransitionDurationMs,
@@ -311,6 +308,58 @@ const Card = ({
     // bg-red-300
     // bg-blue-300
     // bg-green-300
+
+    const onClickFunc = (() => {
+      if (owner !== 'common' && !locked) {
+        if (discardMode) {
+          if (!special?.undiscardable) {
+            return {
+              onClick: () => {
+                dispatch({
+                  type: DISCARD_CARD,
+                  index,
+                  position,
+                  owner,
+                })
+              },
+            }
+          }
+        } else {
+          if (!_unusable) {
+            return {
+              onClick: () => {
+                dispatch({
+                  type: USE_CARD,
+                  n,
+                  index,
+                  position,
+                  owner,
+                })
+              },
+            }
+          }
+        }
+      }
+      return {}
+    })()
+
+    const onContextMenuFunc = (() => {
+      if (owner !== 'common' && !locked && !special?.undiscardable) {
+        return {
+          onContextMenu: (e: MouseEvent<HTMLDivElement>) => {
+            e.preventDefault()
+            dispatch({
+              type: DISCARD_CARD,
+              index,
+              position,
+              owner,
+            })
+          },
+        }
+      }
+      return {}
+    })()
+
     return (
       <div
         className={cx(
@@ -326,45 +375,8 @@ const Card = ({
           { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
-        {...(owner !== 'common' && !locked
-          ? discardMode
-            ? {
-                onClick: () => {
-                  dispatch({
-                    type: DISCARD_CARD,
-                    index,
-                    position,
-                    owner,
-                  })
-                },
-              }
-            : !_unusable
-            ? {
-                onClick: () => {
-                  dispatch({
-                    type: USE_CARD,
-                    n,
-                    index,
-                    position,
-                    owner,
-                  })
-                },
-              }
-            : {}
-          : {})}
-        {...(owner !== 'common' && !locked && !special?.undiscardable
-          ? {
-              onContextMenu: (e) => {
-                e.preventDefault()
-                dispatch({
-                  type: DISCARD_CARD,
-                  index,
-                  position,
-                  owner,
-                })
-              },
-            }
-          : {})}
+        {...onClickFunc}
+        {...onContextMenuFunc}
         onTransitionEnd={(e) => {
           if (e.propertyName === 'transform' && position === -1) {
             // card moved to the stack, will fade
@@ -403,7 +415,7 @@ const Card = ({
               })`,
             }}
           >
-            {discarded && trans?.i18n?.discarded}
+            {discarded && trans.i18n?.discarded}
           </div>
           <div
             className={cx(
