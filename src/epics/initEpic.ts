@@ -1,6 +1,4 @@
 import {
-  CHANGE_SETTINGS_AND_INIT,
-  CHANGE_SETTINGS,
   INIT,
   INIT_CARD,
   INIT_GAME,
@@ -9,13 +7,11 @@ import {
   RESOURCE_PROD,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { map, withLatestFrom, filter, mergeMap } from 'rxjs/operators'
-import { of, merge, concat } from 'rxjs'
+import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
+import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardListItemAllType, CardStateType, StateType } from '../types/state'
-import { entries } from '../utils/typeHelpers'
-import dataCards from '../data/cards'
 import { randomWithProbs } from '../utils/randomWithProbs'
 
 export const changeSettingsAndInitEpic = (

@@ -3,8 +3,8 @@ import Card from './Card'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
-import { StateType, CardListItemAllType, CardTotalType } from '../types/state'
+import { useAppSelector } from '../utils/useAppDispatch'
+import { CardListItemAllType } from '../types/state'
 
 const useStyles = createUseStyles({
   main: { background: { image: 'linear-gradient(#326a4b, #000 2rem)' } },

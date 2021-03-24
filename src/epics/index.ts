@@ -1,6 +1,4 @@
 import { ActionType } from '../types/actionObj'
-import { catchError } from 'rxjs/operators'
-import { Action } from 'redux'
 import { combineEpics, Epic } from 'redux-observable'
 import updateStatusEpic from './updateStatusEpic'
 import execCardEpic from './execCardEpic'
@@ -11,7 +9,6 @@ import initEpic from './initEpic'
 import nextRoundEpic from './nextRoundEpic'
 import drawCardEpic from './drawCardEpic'
 import resourceProdEpic from './resourceProdEpic'
-import moveCenterCardToTopEpic from './moveCenterCardToTopEpic'
 import clearCardEpic from './clearCardEpic'
 import { StateType } from '../types/state'
 
@@ -27,7 +24,6 @@ const rootEpic: MyEpic = combineEpics(
   drawCardEpic,
   nextRoundEpic,
   resourceProdEpic,
-  moveCenterCardToTopEpic,
   clearCardEpic,
 )
 

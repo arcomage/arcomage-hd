@@ -3,7 +3,6 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
 
-import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import AnimatedNumber from './AnimatedNumber'
 import NumberDiff from './NumberDiff'
 

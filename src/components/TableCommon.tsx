@@ -7,7 +7,6 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
 import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
-import { StateType } from '../types/state'
 
 import bg from '../../assets/img/bg.jpg'
 

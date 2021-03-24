@@ -25,7 +25,6 @@ import {
   DRAW_CARD_PRE,
   RESOURCE_PROD,
   SWITCH_DISCARD_MODE,
-  MOVE_CENTER_CARD_TO_TOP,
   MOVE_CARD_TO_STACK,
 } from '../constants/ActionTypes'
 import {
@@ -194,10 +193,6 @@ export type SwitchDiscardModeActionType = {
   type: typeof SWITCH_DISCARD_MODE
 }
 
-export type MoveCenterCardToTopActionType = {
-  type: typeof MOVE_CENTER_CARD_TO_TOP
-}
-
 export type ActionType =
   | LangActionType
   | UpdateStatusActionType
@@ -226,4 +221,3 @@ export type ActionType =
   | InitStatusActionType
   | ChangeSettingsAndInitActionType
   | SwitchDiscardModeActionType
-  | MoveCenterCardToTopActionType

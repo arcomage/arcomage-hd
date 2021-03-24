@@ -2,8 +2,7 @@ import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import Resource, { calcStatusWidth } from './Resource'
-import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
-import { StateType } from '../types/state'
+import { useAppSelector } from '../utils/useAppDispatch'
 import { GameSizeContext } from '../utils/GameSizeContext'
 
 const useStyles = createUseStyles({

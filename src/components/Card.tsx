@@ -6,14 +6,7 @@ import { GameSizeContext } from '../utils/GameSizeContext'
 import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import {
   USE_CARD,
-  MOVE_CARD_TO_TOP,
-  NEXT_ROUND,
-  DELETE_CARD,
   DISCARD_CARD,
-  SWITCH_LOCK,
-  DRAW_CARD,
-  MOVE_CENTER_CARD_TO_TOP,
-  SWITCH_DISCARD_MODE,
 } from '../constants/ActionTypes'
 import { CardTotalType, ownerType, StateType } from '../types/state'
 import {
@@ -373,17 +366,6 @@ const Card = ({
             }
           : {})}
         onTransitionEnd={(e) => {
-          // if (discardMode && e.propertyName === 'transform' && position >= 0) {
-          //   // card moved to bottom during 'discardMode'
-          //   console.log(e.target)
-          //   // dispatch({
-          //   //   type: SWITCH_LOCK,
-          //   // })
-          //   // dispatch({
-          //   //   type: MOVE_CENTER_CARD_TO_TOP,
-          //   // })
-          // }
-
           if (e.propertyName === 'transform' && position === -1) {
             // card moved to the stack, will fade
             setZeroOpacity(true)

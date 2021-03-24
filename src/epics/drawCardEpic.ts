@@ -4,20 +4,11 @@ import {
   DRAW_CARD_MAIN,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import {
-  map,
-  withLatestFrom,
-  filter,
-  mergeMap,
-  delay,
-  concatMap,
-} from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
-import { entries } from '../utils/typeHelpers'
-import dataCards from '../data/cards'
-import { concat, interval, merge, Observable, of } from 'rxjs'
+import { concat, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import { randomWithProbs } from '../utils/randomWithProbs'
 import { drawCardPre } from '../constants/transition'

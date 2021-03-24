@@ -10,11 +10,7 @@ import {
   DRAW_CARD_MAIN,
   MOVE_CARD_TO_STACK,
 } from '../constants/ActionTypes'
-import {
-  CardListItemAllType,
-  CardListItemType,
-  CardStateType,
-} from '../types/state'
+import { CardStateType } from '../types/state'
 import { ActionType } from '../types/actionObj'
 
 const defaultCards: CardStateType = {

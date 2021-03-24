@@ -14,7 +14,6 @@ export const DELETE_CARD = 'DELETE_CARD' as const
 export const REMOVE_CARD = 'REMOVE_CARD' as const
 export const DISCARD_CARD = 'DISCARD_CARD' as const
 export const DISCARD_CARD_MAIN = 'DISCARD_CARD_MAIN' as const
-export const CHANGE_CARD = 'CHANGE_CARD' as const
 export const DRAW_CARD = 'DRAW_CARD' as const
 export const DRAW_CARD_PRE = 'DRAW_CARD_PRE' as const
 export const DRAW_CARD_MAIN = 'DRAW_CARD_MAIN' as const
@@ -32,4 +31,3 @@ export const INIT_GAME = 'INIT_GAME' as const
 export const INIT_STATUS = 'INIT_STATUS' as const
 
 export const SWITCH_DISCARD_MODE = 'SWITCH_DISCARD_MODE' as const
-export const MOVE_CENTER_CARD_TO_TOP = 'MOVE_CENTER_CARD_TO_TOP' as const

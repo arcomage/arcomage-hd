@@ -1,31 +1,14 @@
 import {
   CLEAR_CARD,
-  USE_CARD,
-  EXEC_CARD,
-  MOVE_CARD_TO_CENTER,
-  SWITCH_LOCK,
-  REMOVE_CARD,
-  RESOURCE_PROD,
-  UPDATE_STATUS,
   DELETE_CARD,
   MOVE_CARD_TO_STACK,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import {
-  map,
-  withLatestFrom,
-  filter,
-  mergeMap,
-  delay,
-  concatMap,
-} from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
-import { entries } from '../utils/typeHelpers'
-import dataCards from '../data/cards'
-import { concat, interval, merge, Observable, of } from 'rxjs'
-import { resProdMap } from '../constants/resourceNames'
+import { concat, Observable, of } from 'rxjs'
 import { cardTransitionDurationMs } from '../constants/transition'
 
 export const clearCardEpic = (

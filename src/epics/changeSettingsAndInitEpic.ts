@@ -4,13 +4,11 @@ import {
   INIT,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { map, withLatestFrom, filter, mergeMap } from 'rxjs/operators'
-import { of, merge, concat } from 'rxjs'
+import { filter, mergeMap } from 'rxjs/operators'
+import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
-import { entries } from '../utils/typeHelpers'
-import dataCards from '../data/cards'
 
 export const changeSettingsAndInitEpic = (
   action$: ActionsObservable<ActionType>,

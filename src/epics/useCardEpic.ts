@@ -9,23 +9,13 @@ import {
   MOVE_CARD_TO_TOP,
   DRAW_CARD,
   NEXT_ROUND,
-  MOVE_CENTER_CARD_TO_TOP,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import {
-  map,
-  withLatestFrom,
-  filter,
-  mergeMap,
-  delay,
-  concatMap,
-} from 'rxjs/operators'
+import { filter, mergeMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
-import { entries } from '../utils/typeHelpers'
-import dataCards from '../data/cards'
-import { concat, interval, merge, Observable, of } from 'rxjs'
+import { concat, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import cards from '../data/cards'
 import {
@@ -73,7 +63,8 @@ export const useCardEpic = (
                 type: DRAW_CARD,
               }),
               of({
-                type: MOVE_CENTER_CARD_TO_TOP,
+                type: MOVE_CARD_TO_TOP,
+                index,
               }).pipe(delay(cardTransitionDurationMs + cardNextStepTimeoutMs)),
               of({
                 type: SWITCH_LOCK,
