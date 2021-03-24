@@ -6,7 +6,6 @@ import {
   USE_CARD,
   MOVE_CARD_TO_CENTER,
   MOVE_CARD_TO_TOP,
-  MOVE_CARD_TO_DECK,
   CLEAR_CARD,
   DELETE_CARD,
   NEXT_ROUND,
@@ -25,6 +24,9 @@ import {
   DRAW_CARD_MAIN,
   DRAW_CARD_PRE,
   RESOURCE_PROD,
+  SWITCH_DISCARD_MODE,
+  MOVE_CENTER_CARD_TO_TOP,
+  MOVE_CARD_TO_STACK,
 } from '../constants/ActionTypes'
 import {
   CardStateType,
@@ -86,9 +88,6 @@ export type UseCardActionType = {
 
 export type DrawCardActionType = {
   type: typeof DRAW_CARD
-  n: number
-  position: number
-  owner: 'player' | 'opponent'
 }
 
 export type DrawCardPreActionType = {
@@ -102,6 +101,15 @@ export type DrawCardMainActionType = {
   owner: 'player' | 'opponent'
 }
 
+export type ClearCardActionType = {
+  type: typeof CLEAR_CARD
+}
+
+export type MoveCardToStackActionType = {
+  type: typeof MOVE_CARD_TO_STACK
+  index: number
+}
+
 export type MoveCardToCenterActionType = {
   type: typeof MOVE_CARD_TO_CENTER
   index: number
@@ -110,15 +118,6 @@ export type MoveCardToCenterActionType = {
 export type MoveCardToTopActionType = {
   type: typeof MOVE_CARD_TO_TOP
   index: number
-}
-
-export type MoveCardToDeckActionType = {
-  type: typeof MOVE_CARD_TO_DECK
-  index: number
-}
-
-export type ClearCardActionType = {
-  type: typeof CLEAR_CARD
 }
 
 export type DiscardCardActionType = {
@@ -140,7 +139,7 @@ export type RemoveCardActionType = {
   owner: 'player' | 'opponent'
 }
 
-export type DeleteCardInDeckActionType = {
+export type DeleteCardInStackActionType = {
   type: typeof DELETE_CARD
   index: number
 }
@@ -191,6 +190,14 @@ export type ChangeSettingsAndInitActionType = {
   payload: SettingsStateType
 }
 
+export type SwitchDiscardModeActionType = {
+  type: typeof SWITCH_DISCARD_MODE
+}
+
+export type MoveCenterCardToTopActionType = {
+  type: typeof MOVE_CENTER_CARD_TO_TOP
+}
+
 export type ActionType =
   | LangActionType
   | UpdateStatusActionType
@@ -200,14 +207,14 @@ export type ActionType =
   | DrawCardActionType
   | DrawCardPreActionType
   | DrawCardMainActionType
+  | ClearCardActionType
+  | MoveCardToStackActionType
   | MoveCardToCenterActionType
   | MoveCardToTopActionType
-  | MoveCardToDeckActionType
-  | ClearCardActionType
   | DiscardCardActionType
   | DiscardCardMainActionType
   | RemoveCardActionType
-  | DeleteCardInDeckActionType
+  | DeleteCardInStackActionType
   | NextRoundActionType
   | ResourceProdActionType
   | SwitchTurnActionType
@@ -218,3 +225,5 @@ export type ActionType =
   | InitGameActionType
   | InitStatusActionType
   | ChangeSettingsAndInitActionType
+  | SwitchDiscardModeActionType
+  | MoveCenterCardToTopActionType

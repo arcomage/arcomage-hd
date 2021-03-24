@@ -1,6 +1,7 @@
 import produce from 'immer'
 import {
   INIT_GAME,
+  SWITCH_DISCARD_MODE,
   SWITCH_LOCK,
   SWITCH_TURN,
 } from '../constants/ActionTypes'
@@ -10,6 +11,7 @@ import { ActionType } from '../types/actionObj'
 const defaultGame: GameStateType = {
   playersTurn: true,
   locked: false,
+  discardMode: false,
 }
 
 const game = produce((draft: GameStateType, action: ActionType) => {
@@ -18,7 +20,12 @@ const game = produce((draft: GameStateType, action: ActionType) => {
       return {
         playersTurn: action.playersTurn,
         locked: false,
+        discardMode: false,
       }
+    }
+    case SWITCH_DISCARD_MODE: {
+      draft.discardMode = !draft.discardMode
+      break
     }
     case SWITCH_TURN: {
       draft.playersTurn = !draft.playersTurn

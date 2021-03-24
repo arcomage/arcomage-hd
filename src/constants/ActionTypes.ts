@@ -7,9 +7,9 @@ export const EXEC_CARD = 'EXEC_CARD' as const
 export const USE_CARD = 'USE_CARD' as const
 
 export const CLEAR_CARD = 'CLEAR_CARD' as const
+export const MOVE_CARD_TO_STACK = 'MOVE_CARD_TO_STACK' as const
 export const MOVE_CARD_TO_CENTER = 'MOVE_CARD_TO_CENTER' as const
 export const MOVE_CARD_TO_TOP = 'MOVE_CARD_TO_TOP' as const
-export const MOVE_CARD_TO_DECK = 'MOVE_CARD_TO_DECK' as const
 export const DELETE_CARD = 'DELETE_CARD' as const
 export const REMOVE_CARD = 'REMOVE_CARD' as const
 export const DISCARD_CARD = 'DISCARD_CARD' as const
@@ -30,3 +30,6 @@ export const SWITCH_LOCK = 'SWITCH_LOCK' as const
 export const INIT_CARD = 'INIT_CARD' as const
 export const INIT_GAME = 'INIT_GAME' as const
 export const INIT_STATUS = 'INIT_STATUS' as const
+
+export const SWITCH_DISCARD_MODE = 'SWITCH_DISCARD_MODE' as const
+export const MOVE_CENTER_CARD_TO_TOP = 'MOVE_CENTER_CARD_TO_TOP' as const

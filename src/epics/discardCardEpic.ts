@@ -2,18 +2,22 @@ import {
   CLEAR_CARD,
   DISCARD_CARD,
   DISCARD_CARD_MAIN,
+  DRAW_CARD,
+  NEXT_ROUND,
   REMOVE_CARD,
+  SWITCH_DISCARD_MODE,
   SWITCH_LOCK,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { map, withLatestFrom, filter, mergeMap } from 'rxjs/operators'
+import { map, withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
 import { entries } from '../utils/typeHelpers'
 import dataCards from '../data/cards'
-import { Observable, merge, of } from 'rxjs'
+import { Observable, merge, of, concat } from 'rxjs'
 import playSound from '../utils/playSound'
+import { cardTransitionDurationMs } from '../constants/transition'
 
 export const discardCardEpic = (
   action$: ActionsObservable<ActionType>,
@@ -21,8 +25,10 @@ export const discardCardEpic = (
 ) =>
   action$.pipe(
     filter(isOfType(DISCARD_CARD)),
-    mergeMap(({ index, position, owner }) =>
-      merge(
+    withLatestFrom(state$),
+    mergeMap(([{ index, position, owner }, state]) => {
+      playSound('deal')
+      return concat(
         of({
           type: CLEAR_CARD,
         }),
@@ -30,20 +36,32 @@ export const discardCardEpic = (
           type: DISCARD_CARD_MAIN,
           index,
         }),
-        new Observable(() => {
-          playSound('deal')
-        }),
         of({
           type: REMOVE_CARD,
           index,
           position,
           owner,
         }),
-        of({
-          type: SWITCH_LOCK,
-        }),
-      ),
-    ),
+        state.game.discardMode
+          ? concat(
+              of({
+                type: SWITCH_DISCARD_MODE,
+              }),
+              of({
+                type: DRAW_CARD,
+              }),
+            )
+          : concat(
+              of({
+                type: SWITCH_LOCK,
+              }),
+              of({
+                type: NEXT_ROUND,
+                index,
+              }).pipe(delay(cardTransitionDurationMs)),
+            ),
+      )
+    }),
   )
 
 export default discardCardEpic

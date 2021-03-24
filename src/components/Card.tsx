@@ -10,6 +10,10 @@ import {
   NEXT_ROUND,
   DELETE_CARD,
   DISCARD_CARD,
+  SWITCH_LOCK,
+  DRAW_CARD,
+  MOVE_CENTER_CARD_TO_TOP,
+  SWITCH_DISCARD_MODE,
 } from '../constants/ActionTypes'
 import { CardTotalType, ownerType, StateType } from '../types/state'
 import {
@@ -219,7 +223,6 @@ type PropType = {
   unusable?: boolean
   discarded?: boolean
   position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | -1 | -2 | -3 | -4 | -5
-  totalObj: CardTotalType // player: 4 | 5 | 6 | 7 | 8, opponent:...
   owner?: ownerType
   index?: number // in-store index
   isflipped?: boolean
@@ -229,7 +232,6 @@ const Card = ({
   unusable = false,
   discarded = false,
   position,
-  totalObj,
   owner = 'common',
   index = -1,
   isflipped = false,
@@ -239,6 +241,11 @@ const Card = ({
   const cardsI18nCurrent: DataCardI18nType | undefined = cardsI18n?.[n]
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
   const locked = useAppSelector((state) => state.game.locked)
+  const discardMode = useAppSelector((state) => state.game.discardMode)
+
+  const totalObj: Readonly<CardTotalType> = useAppSelector(
+    (state) => state.cards.total,
+  ) // player: 4 | 5 | 6 | 7 | 8, opponent:...
 
   const dispatch = useAppDispatch()
   const size = useContext(GameSizeContext)
@@ -285,7 +292,7 @@ const Card = ({
       ></div>
     )
   } else {
-    const { type, cost } = dataCards[n]
+    const { type, cost, special } = dataCards[n]
 
     const _unusable =
       unusable ||
@@ -293,8 +300,6 @@ const Card = ({
         owner !== 'common' &&
         !isflipped &&
         cost > res[owner][resNames[dataCards[n].type]])
-
-    console.log(_unusable)
 
     const classes = useStyles({
       type,
@@ -328,10 +333,21 @@ const Card = ({
           { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
-        {...(position >= 0 && !_unusable && !locked
-          ? {
-              onClick: () => {
-                if (owner !== 'common') {
+        {...(owner !== 'common' && !locked
+          ? discardMode
+            ? {
+                onClick: () => {
+                  dispatch({
+                    type: DISCARD_CARD,
+                    index,
+                    position,
+                    owner,
+                  })
+                },
+              }
+            : !_unusable
+            ? {
+                onClick: () => {
                   dispatch({
                     type: USE_CARD,
                     n,
@@ -339,47 +355,39 @@ const Card = ({
                     position,
                     owner,
                   })
-                }
-              },
-            }
+                },
+              }
+            : {}
           : {})}
-        {...(position >= 0 && !locked
+        {...(owner !== 'common' && !locked && !special?.undiscardable
           ? {
               onContextMenu: (e) => {
                 e.preventDefault()
-                if (owner !== 'common') {
-                  dispatch({
-                    type: DISCARD_CARD,
-                    index,
-                    position,
-                    owner,
-                  })
-                }
+                dispatch({
+                  type: DISCARD_CARD,
+                  index,
+                  position,
+                  owner,
+                })
               },
             }
           : {})}
         onTransitionEnd={(e) => {
-          if (e.propertyName === 'top' && position === -5) {
-            setTimeout(() => {
-              dispatch({
-                type: MOVE_CARD_TO_TOP,
-                index,
-              })
-            }, cardNextStepTimeoutMs)
-          }
-          if (e.propertyName === 'top' && [-2, -3, -4].includes(position)) {
-            dispatch({
-              type: NEXT_ROUND,
-            })
-          }
+          // if (discardMode && e.propertyName === 'transform' && position >= 0) {
+          //   // card moved to bottom during 'discardMode'
+          //   console.log(e.target)
+          //   // dispatch({
+          //   //   type: SWITCH_LOCK,
+          //   // })
+          //   // dispatch({
+          //   //   type: MOVE_CENTER_CARD_TO_TOP,
+          //   // })
+          // }
+
           if (e.propertyName === 'transform' && position === -1) {
+            // card moved to the stack, will fade
             setZeroOpacity(true)
-          }
-          if (e.propertyName === 'opacity' && position === -1) {
-            dispatch({
-              type: DELETE_CARD,
-              index,
-            })
+            // when the card fade finishes, it will be deleted, see epics/clearCardEpic.ts
           }
         }}
       >

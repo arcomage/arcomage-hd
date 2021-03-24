@@ -11,25 +11,24 @@ import initEpic from './initEpic'
 import nextRoundEpic from './nextRoundEpic'
 import drawCardEpic from './drawCardEpic'
 import resourceProdEpic from './resourceProdEpic'
+import moveCenterCardToTopEpic from './moveCenterCardToTopEpic'
+import clearCardEpic from './clearCardEpic'
+import { StateType } from '../types/state'
 
-export type MyEpic = Epic<Action<ActionType>, Action<ActionType>>
+export type MyEpic = Epic<ActionType, ActionType, StateType>
 
-const rootEpic: MyEpic = (action$, store$, dependencies) =>
-  combineEpics(
-    updateStatusEpic,
-    execCardEpic,
-    useCardEpic,
-    discardCardEpic,
-    changeSettingsAndInitEpic,
-    initEpic,
-    drawCardEpic,
-    nextRoundEpic,
-    resourceProdEpic,
-  )(action$, store$, dependencies).pipe(
-    catchError((error, source) => {
-      console.error(error)
-      return source
-    }),
-  )
+const rootEpic: MyEpic = combineEpics(
+  updateStatusEpic,
+  execCardEpic,
+  useCardEpic,
+  discardCardEpic,
+  changeSettingsAndInitEpic,
+  initEpic,
+  drawCardEpic,
+  nextRoundEpic,
+  resourceProdEpic,
+  moveCenterCardToTopEpic,
+  clearCardEpic,
+)
 
 export default rootEpic

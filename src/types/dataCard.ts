@@ -3,8 +3,8 @@ import { PersonStatusType } from '../types/state'
 export type DataCardEffectPersonType = PersonStatusType
 
 export type DataCardSpecialType = {
-  playAgain?: boolean
-  changeCard?: boolean
+  playagain?: boolean
+  drawDiscardPlayagain?: boolean
   undiscardable?: boolean
 }
 

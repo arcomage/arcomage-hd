@@ -5,7 +5,7 @@ import {
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import { map, withLatestFrom, filter, mergeMap } from 'rxjs/operators'
-import { of, merge } from 'rxjs'
+import { of, merge, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
@@ -19,7 +19,7 @@ export const changeSettingsAndInitEpic = (
   action$.pipe(
     filter(isOfType(CHANGE_SETTINGS_AND_INIT)),
     mergeMap(({ payload }) =>
-      merge(
+      concat(
         of({
           type: CHANGE_SETTINGS,
           payload,

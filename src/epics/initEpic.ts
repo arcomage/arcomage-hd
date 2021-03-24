@@ -10,7 +10,7 @@ import {
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import { map, withLatestFrom, filter, mergeMap } from 'rxjs/operators'
-import { of, merge } from 'rxjs'
+import { of, merge, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardListItemAllType, CardStateType, StateType } from '../types/state'
@@ -46,9 +46,7 @@ export const changeSettingsAndInitEpic = (
         obj.list.push(card)
       }
 
-      const newCardN = randomWithProbs()
-
-      return merge(
+      return concat(
         of({
           type: INIT_CARD,
           payload: obj,
@@ -67,9 +65,6 @@ export const changeSettingsAndInitEpic = (
         }),
         of({
           type: DRAW_CARD,
-          n: newCardN,
-          position: obj.nextPos[playersTurn ? 'player' : 'opponent'],
-          owner: playersTurn ? 'player' : 'opponent',
         }),
       )
     }),

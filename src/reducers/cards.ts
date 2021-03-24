@@ -2,14 +2,13 @@ import produce from 'immer'
 import {
   MOVE_CARD_TO_CENTER,
   MOVE_CARD_TO_TOP,
-  MOVE_CARD_TO_DECK,
-  CLEAR_CARD,
   DELETE_CARD,
   REMOVE_CARD,
   DISCARD_CARD_MAIN,
   INIT_CARD,
   DRAW_CARD_PRE,
   DRAW_CARD_MAIN,
+  MOVE_CARD_TO_STACK,
 } from '../constants/ActionTypes'
 import {
   CardListItemAllType,
@@ -87,7 +86,7 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
       }
       break
     }
-    case MOVE_CARD_TO_DECK: {
+    case MOVE_CARD_TO_STACK: {
       const card = draft.list[action.index]
       if (card !== null) {
         card.position = -1
@@ -95,17 +94,6 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
         card.isflipped = true
         card.owner = 'common'
       }
-      break
-    }
-    case CLEAR_CARD: {
-      ;[-2, -3, -4].forEach((p) => {
-        draft.list.forEach((card) => {
-          if (card !== null && card.position === p) {
-            card.position = -1
-            card.isflipped = true
-          }
-        })
-      })
       break
     }
     case REMOVE_CARD: {

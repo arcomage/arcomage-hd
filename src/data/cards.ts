@@ -42,7 +42,7 @@ const cards: DataCardsType = [
     type: 0,
     cost: 0,
     prob: 1,
-    special: { playAgain: true },
+    special: { playagain: true },
     effect: (p, o) => {
       change(p, 'bricks', 2)
       change(p, 'gems', 2)
@@ -54,7 +54,7 @@ const cards: DataCardsType = [
     type: 0,
     cost: 1,
     prob: 2,
-    special: { playAgain: true },
+    special: { playagain: true },
     effect: (p, o) => {
       change(p, 'wall', 1)
     },
@@ -165,7 +165,7 @@ const cards: DataCardsType = [
     type: 0,
     cost: 7,
     prob: 1,
-    special: { playAgain: true },
+    special: { playagain: true },
     effect: (p, o) => {
       change(p, 'wall', -5)
       change(o, 'wall', -5)
@@ -177,7 +177,7 @@ const cards: DataCardsType = [
     type: 0,
     cost: 8,
     prob: 1,
-    special: { playAgain: true },
+    special: { playagain: true },
     effect: (p, o) => {
       change(p, 'gemProd', 1)
     },
@@ -418,7 +418,7 @@ const cards: DataCardsType = [
     type: 1,
     cost: 1,
     prob: 2,
-    special: { playAgain: true },
+    special: { playagain: true },
     effect: (p, o) => {
       change(p, 'tower', 1)
     },
@@ -429,7 +429,7 @@ const cards: DataCardsType = [
     type: 1,
     cost: 2,
     prob: 1,
-    special: { playAgain: true },
+    special: { playagain: true },
     effect: (p, o) => {
       change(o, 'tower', -1)
     },
@@ -459,8 +459,8 @@ const cards: DataCardsType = [
     // desc: 'Draw 1 card. Discard 1 card. Play again',
     type: 1,
     cost: 2,
-    prob: 1,
-    special: { playAgain: true, changeCard: true },
+    prob: 100,
+    special: { drawDiscardPlayagain: true },
     effect: (p, o) => {},
   },
   {
@@ -807,7 +807,7 @@ const cards: DataCardsType = [
     type: 2,
     cost: 1,
     prob: 2,
-    special: { playAgain: true },
+    special: { playagain: true },
     effect: (p, o) => {
       damage(o, 2)
     },
@@ -840,7 +840,7 @@ const cards: DataCardsType = [
     type: 2,
     cost: 2,
     prob: 1,
-    special: { playAgain: true, changeCard: true },
+    special: { drawDiscardPlayagain: true },
     effect: (p, o) => {},
   },
   {
@@ -872,7 +872,7 @@ const cards: DataCardsType = [
     type: 2,
     cost: 6,
     prob: 1,
-    special: { playAgain: true },
+    special: { playagain: true },
     effect: (p, o) => {
       change(o, 'tower', -2)
     },

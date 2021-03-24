@@ -31,8 +31,7 @@ export const nextRoundEpic = (
     filter(isOfType(NEXT_ROUND)),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
-      const newCardN = randomWithProbs()
-      return merge(
+      return concat(
         of({
           type: SWITCH_TURN,
         }),
@@ -45,10 +44,6 @@ export const nextRoundEpic = (
         }),
         of({
           type: DRAW_CARD,
-          n: newCardN,
-          position:
-            state.cards.nextPos[state.game.playersTurn ? 'opponent' : 'player'],
-          owner: state.game.playersTurn ? 'opponent' : 'player',
         }),
       )
     }),

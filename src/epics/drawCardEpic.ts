@@ -20,6 +20,7 @@ import dataCards from '../data/cards'
 import { concat, interval, merge, Observable, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import { randomWithProbs } from '../utils/randomWithProbs'
+import { drawCardPre } from '../constants/transition'
 
 export const nextRoundEpic = (
   action$: ActionsObservable<ActionType>,
@@ -27,23 +28,23 @@ export const nextRoundEpic = (
 ) =>
   action$.pipe(
     filter(isOfType(DRAW_CARD)),
-    mergeMap((action) => {
-      const { n, position, owner } = action
-      return merge(
-        new Observable(() => {
-          setTimeout(() => {
-            playSound('deal')
-          }, 10)
-        }),
+    withLatestFrom(state$),
+    mergeMap(([action, state]) => {
+      const newCardN = randomWithProbs()
+
+      playSound('deal')
+
+      return concat(
         of({
           type: DRAW_CARD_PRE,
-          n,
+          n: newCardN,
         }),
         of({
           type: DRAW_CARD_MAIN,
-          position,
-          owner,
-        }).pipe(delay(10)),
+          position:
+            state.cards.nextPos[state.game.playersTurn ? 'player' : 'opponent'],
+          owner: state.game.playersTurn ? 'player' : 'opponent',
+        }).pipe(delay(drawCardPre)),
       )
     }),
   )

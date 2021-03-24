@@ -14,19 +14,16 @@ const TableP = () => {
   const cards: Readonly<CardListItemAllType[]> = useAppSelector(
     (state) => state.cards.list,
   )
-  const totalObj: Readonly<CardTotalType> = useAppSelector(
-    (state) => state.cards.total,
-  )
 
   const classes = useStyles()
   return (
     <div className={cx(classes.main, 'h-1/3 flex-auto')}>
-      <Card n={-1} position={-1} totalObj={totalObj} unusable={true} />
+      <Card n={-1} position={-1} unusable={true} />
       {cards.map((card, i) => {
         if (card === null) {
           return null
         } else {
-          return <Card key={i} index={i} totalObj={totalObj} {...card} />
+          return <Card key={i} index={i} {...card} />
         }
       })}
     </div>
