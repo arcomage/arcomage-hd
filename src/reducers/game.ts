@@ -3,6 +3,7 @@ import {
   INIT_GAME,
   SWITCH_DISCARD_MODE,
   SWITCH_LOCK,
+  SWITCH_NEW_TURN,
   SWITCH_TURN,
 } from '../constants/ActionTypes'
 import { GameStateType } from '../types/state'
@@ -12,15 +13,15 @@ const defaultGame: GameStateType = {
   playersTurn: true,
   locked: false,
   discardMode: false,
+  isNewTurn: true,
 }
 
 const game = produce((draft: GameStateType, action: ActionType) => {
   switch (action.type) {
     case INIT_GAME: {
       return {
+        ...defaultGame,
         playersTurn: action.playersTurn,
-        locked: false,
-        discardMode: false,
       }
     }
     case SWITCH_DISCARD_MODE: {
@@ -33,6 +34,10 @@ const game = produce((draft: GameStateType, action: ActionType) => {
     }
     case SWITCH_LOCK: {
       draft.locked = !draft.locked
+      break
+    }
+    case SWITCH_NEW_TURN: {
+      draft.isNewTurn = !draft.isNewTurn
       break
     }
   }

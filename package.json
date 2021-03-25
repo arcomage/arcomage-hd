@@ -36,6 +36,7 @@
   "license": "MIT",
   "dependencies": {
     "immer": "^8.0.1",
+    "lodash.memoize": "^4.1.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
@@ -48,6 +49,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "@types/classnames": "^2.2.11",
     "@types/convert-excel-to-json": "^1.7.0",
+    "@types/lodash.memoize": "^4.1.6",
     "@types/merge-img": "^2.1.0",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",

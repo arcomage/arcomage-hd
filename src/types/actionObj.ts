@@ -6,13 +6,14 @@ import {
   USE_CARD,
   MOVE_CARD_TO_CENTER,
   MOVE_CARD_TO_TOP,
+  MOVE_CARD_TO_TOP_MAIN,
   CLEAR_CARD,
   DELETE_CARD,
   NEXT_ROUND,
   SWITCH_LOCK,
   REMOVE_CARD,
   DISCARD_CARD,
-  DISCARD_CARD_MAIN,
+  ADD_DISCARDED_TAG,
   CHANGE_SETTINGS,
   INIT,
   CHANGE_SETTINGS_AND_INIT,
@@ -28,6 +29,7 @@ import {
   MOVE_CARD_TO_STACK,
   CHECK_UNUSABLE,
   SET_UNUSABLE,
+  SWITCH_NEW_TURN,
 } from '../constants/ActionTypes'
 import {
   CardStateType,
@@ -121,6 +123,12 @@ export type MoveCardToTopActionType = {
   index: number
 }
 
+export type MoveCardToTopMainActionType = {
+  type: typeof MOVE_CARD_TO_TOP_MAIN
+  index: number
+  toPosition: number
+}
+
 export type DiscardCardActionType = {
   type: typeof DISCARD_CARD
   index: number
@@ -128,8 +136,8 @@ export type DiscardCardActionType = {
   owner: 'player' | 'opponent'
 }
 
-export type DiscardCardMainActionType = {
-  type: typeof DISCARD_CARD_MAIN
+export type AddDiscardedTagActionType = {
+  type: typeof ADD_DISCARDED_TAG
   index: number
 }
 
@@ -202,7 +210,12 @@ export type CheckUnusableActionType = {
 
 export type SetUnusableActionType = {
   type: typeof SET_UNUSABLE
-  payload: number[]
+  unusables: number[]
+  usables: number[]
+}
+
+export type SwitchNewTurnActionType = {
+  type: typeof SWITCH_NEW_TURN
 }
 
 export type ActionType =
@@ -218,8 +231,9 @@ export type ActionType =
   | MoveCardToStackActionType
   | MoveCardToCenterActionType
   | MoveCardToTopActionType
+  | MoveCardToTopMainActionType
   | DiscardCardActionType
-  | DiscardCardMainActionType
+  | AddDiscardedTagActionType
   | RemoveCardActionType
   | DeleteCardInStackActionType
   | NextRoundActionType
@@ -235,3 +249,4 @@ export type ActionType =
   | SwitchDiscardModeActionType
   | CheckUnusableActionType
   | SetUnusableActionType
+  | SwitchNewTurnActionType

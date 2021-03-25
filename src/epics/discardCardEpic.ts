@@ -1,19 +1,20 @@
 import {
   CLEAR_CARD,
   DISCARD_CARD,
-  DISCARD_CARD_MAIN,
+  ADD_DISCARDED_TAG,
   DRAW_CARD,
   NEXT_ROUND,
   REMOVE_CARD,
   SWITCH_DISCARD_MODE,
   SWITCH_LOCK,
+  MOVE_CARD_TO_TOP,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
-import { of, concat } from 'rxjs'
+import { of, concat, EMPTY } from 'rxjs'
 import playSound from '../utils/playSound'
 import { cardTransitionDurationMs } from '../constants/transition'
 
@@ -27,13 +28,19 @@ export const discardCardEpic = (
     concatMap(([{ index, position, owner }, state]) => {
       playSound('deal')
       return concat(
+        state.game.isNewTurn
+          ? of({
+              type: CLEAR_CARD,
+            })
+          : EMPTY,
         of({
-          type: CLEAR_CARD,
-        }),
-        of({
-          type: DISCARD_CARD_MAIN,
+          type: ADD_DISCARDED_TAG,
           index,
         }),
+        of({
+          type: MOVE_CARD_TO_TOP,
+          index,
+        }).pipe(delay(0)),
         of({
           type: REMOVE_CARD,
           index,

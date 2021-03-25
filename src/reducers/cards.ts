@@ -1,15 +1,15 @@
 import produce from 'immer'
 import {
   MOVE_CARD_TO_CENTER,
-  MOVE_CARD_TO_TOP,
   DELETE_CARD,
   REMOVE_CARD,
-  DISCARD_CARD_MAIN,
+  ADD_DISCARDED_TAG,
   INIT_CARD,
   DRAW_CARD_PRE,
   DRAW_CARD_MAIN,
   MOVE_CARD_TO_STACK,
   SET_UNUSABLE,
+  MOVE_CARD_TO_TOP_MAIN,
 } from '../constants/ActionTypes'
 import { CardStateType } from '../types/state'
 import { ActionType } from '../types/actionObj'
@@ -62,24 +62,12 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
       }
       break
     }
-    case MOVE_CARD_TO_TOP: {
-      const c = draft.list[action.index]
-      if (c !== null && [-2, -3, -4].includes(c.position) === false) {
-        const topOk = [-2, -3, -4].some((p) => {
-          const bol = draft.list.every((card) => card?.position !== p)
-          if (bol) {
-            const card = draft.list[action.index]
-            if (card !== null) {
-              card.position = p
-              card.unusable = true
-              card.owner = 'common'
-            }
-          }
-          return bol
-        })
-        if (topOk === false) {
-          throw new Error('Top line is full!')
-        }
+    case MOVE_CARD_TO_TOP_MAIN: {
+      const card = draft.list[action.index]
+      if (card !== null) {
+        card.position = action.toPosition
+        card.unusable = true
+        card.owner = 'common'
       }
       break
     }
@@ -107,13 +95,10 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
       }
       break
     }
-    case DISCARD_CARD_MAIN: {
+    case ADD_DISCARDED_TAG: {
       const card = draft.list[action.index]
       if (card !== null) {
-        card.position = -2
-        card.unusable = true
         card.discarded = true
-        card.owner = 'common'
       }
       break
     }
@@ -124,10 +109,16 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
       break
     }
     case SET_UNUSABLE: {
-      action.payload.forEach((index) => {
+      action.unusables.forEach((index) => {
         const card = draft.list[index]
         if (card !== null) {
           card.unusable = true
+        }
+      })
+      action.usables.forEach((index) => {
+        const card = draft.list[index]
+        if (card !== null) {
+          card.unusable = false
         }
       })
       break

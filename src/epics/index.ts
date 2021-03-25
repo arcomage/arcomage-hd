@@ -5,6 +5,7 @@ import updateStatusEpic from './updateStatusEpic'
 import execCardEpic from './execCardEpic'
 import useCardEpic from './useCardEpic'
 import discardCardEpic from './discardCardEpic'
+import moveCardToTopEpic from './moveCardToTopEpic'
 import changeSettingsAndInitEpic from './changeSettingsAndInitEpic'
 import initEpic from './initEpic'
 import nextRoundEpic from './nextRoundEpic'
@@ -20,6 +21,7 @@ const rootEpic: MyEpic = combineEpics(
   execCardEpic,
   useCardEpic,
   discardCardEpic,
+  moveCardToTopEpic,
   changeSettingsAndInitEpic,
   initEpic,
   drawCardEpic,

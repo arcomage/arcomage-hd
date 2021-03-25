@@ -4,4 +4,6 @@ export const i18n = {
   recruits: 'recruits',
   discarded: 'discarded',
   'Discard a card': 'Discard a card',
+  'You Win!': 'You Win!',
+  'You Lose!': 'You Lose!',
 }

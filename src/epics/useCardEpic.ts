@@ -11,11 +11,11 @@ import {
   NEXT_ROUND,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { filter, concatMap, delay } from 'rxjs/operators'
+import { filter, concatMap, delay, withLatestFrom } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
-import { concat, of } from 'rxjs'
+import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import cards from '../data/cards'
 import {
@@ -29,13 +29,17 @@ export const useCardEpic = (
 ) =>
   action$.pipe(
     filter(isOfType(USE_CARD)),
-    concatMap(({ n, index, position, owner }) => {
+    withLatestFrom(state$),
+    concatMap(([action, state]) => {
+      const { n, index, position, owner } = action
       const special = cards[n].special
       playSound('deal')
       return concat(
-        of({
-          type: CLEAR_CARD,
-        }),
+        state.game.isNewTurn
+          ? of({
+              type: CLEAR_CARD,
+            })
+          : EMPTY,
         of({
           type: EXEC_CARD,
           n,
@@ -92,10 +96,5 @@ export const useCardEpic = (
       )
     }),
   )
-
-// action$.filter(isOfType(USE_CARD))
-//   .concatMapTo(Observable.of({ type: 'FETCH_REQUEST' })
-//     .concat(Observable.of({ type: 'FETCH_SUCCESS' })
-//       .delay(1000)))
 
 export default useCardEpic

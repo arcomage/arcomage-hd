@@ -1,11 +1,9 @@
 import { CHECK_UNUSABLE, SET_UNUSABLE } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap, delay, map } from 'rxjs/operators'
+import { withLatestFrom, filter, map } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardListItemAllType, StateType } from '../types/state'
-import { concat, Observable, of } from 'rxjs'
-import { cardTransitionDurationMs } from '../constants/transition'
 import cards from '../data/cards'
 import { resNames } from '../constants/resourceNames'
 
@@ -17,15 +15,26 @@ export const checkUnusableEpic = (
     filter(isOfType(CHECK_UNUSABLE)),
     withLatestFrom(state$),
     map(([action, state]) => {
-      const payload: number[] = []
+      const unusables: number[] = []
+      const usables: number[] = []
 
       const payloadPush = (card: CardListItemAllType, i: number) => {
         if (card !== null) {
-          const owner = card.owner
+          const owner = !action.lastOnly
+            ? card.owner
+            : state.game.playersTurn
+            ? 'player'
+            : 'opponent'
           if (owner !== 'common') {
             const { type, cost } = cards[card.n]
             if (state.status[owner][resNames[type]] < cost) {
-              payload.push(i)
+              if (!card.unusable) {
+                unusables.push(i)
+              }
+            } else {
+              if (card.unusable) {
+                usables.push(i)
+              }
             }
           }
         }
@@ -42,7 +51,8 @@ export const checkUnusableEpic = (
 
       return {
         type: SET_UNUSABLE,
-        payload,
+        unusables,
+        usables,
       }
     }),
   )

@@ -2,16 +2,15 @@ import React, { useState, useContext, memo, MouseEvent } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
+import memoize from 'lodash.memoize'
 
 import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { USE_CARD, DISCARD_CARD } from '../constants/ActionTypes'
-import { CardTotalType, ownerType, StateType } from '../types/state'
+import { CardTotalType, ownerType } from '../types/state'
 import {
   cardTransitionDurationMs,
-  cardNextStepTimeoutMs,
   unusableCardOpacity,
 } from '../constants/transition'
-import { resNames } from '../constants/resourceNames'
 import { cardCountPerType } from '../data/cardCountPerType'
 
 import dataCards from '../../src/data/cards'
@@ -34,42 +33,36 @@ const topCardSpacingPx = 10
 const topCardMarginTop = '1rem'
 const middleCardMarginBottom = '1rem'
 
-const useWidth = (
-  tableHeight: number,
-  tableWidth: number,
-  total: number,
-): boolean =>
-  tableHeight * heightPercToTable * whRatio * total +
-    (minSpacingXPx * (total - 1) + minSpacingXPx * marginSpacingXRatio) <=
-  tableWidth
+const useWidth = memoize(
+  (tableHeight: number, tableWidth: number, total: number): boolean =>
+    tableHeight * heightPercToTable * whRatio * total +
+      (minSpacingXPx * (total - 1) + minSpacingXPx * marginSpacingXRatio) <=
+    tableWidth,
+)
 
-const getHeight = (
-  tableHeight: number,
-  tableWidth: number,
-  total: number,
-): number => {
-  if (useWidth(tableHeight, tableWidth, total)) {
-    return tableHeight * heightPercToTable
-  } else {
-    return getWidth(tableHeight, tableWidth, total) / whRatio
-  }
-}
+const getHeight = memoize(
+  (tableHeight: number, tableWidth: number, total: number): number => {
+    if (useWidth(tableHeight, tableWidth, total)) {
+      return tableHeight * heightPercToTable
+    } else {
+      return getWidth(tableHeight, tableWidth, total) / whRatio
+    }
+  },
+)
 
-const getWidth = (
-  tableHeight: number,
-  tableWidth: number,
-  total: number,
-): number => {
-  if (useWidth(tableHeight, tableWidth, total)) {
-    return getHeight(tableHeight, tableWidth, total) * whRatio
-  } else {
-    return (
-      (tableWidth -
-        (minSpacingXPx * (total - 1) + minSpacingXPx * marginSpacingXRatio)) /
-      total
-    )
-  }
-}
+const getWidth = memoize(
+  (tableHeight: number, tableWidth: number, total: number): number => {
+    if (useWidth(tableHeight, tableWidth, total)) {
+      return getHeight(tableHeight, tableWidth, total) * whRatio
+    } else {
+      return (
+        (tableWidth -
+          (minSpacingXPx * (total - 1) + minSpacingXPx * marginSpacingXRatio)) /
+        total
+      )
+    }
+  },
+)
 
 const getSpacingX = (
   winWidth: number,
@@ -244,13 +237,10 @@ const Card = ({
   const winWidth = size.width
   const [zeroOpacity, setZeroOpacity] = useState(false)
 
-  let total
-
-  if (owner === 'common') {
-    total = totalObj[playersTurn ? 'player' : 'opponent']
-  } else {
-    total = totalObj[owner]
-  }
+  const total =
+    owner === 'common'
+      ? totalObj[playersTurn ? 'player' : 'opponent']
+      : totalObj[owner]
 
   if (n === -1) {
     const classes = useStyles({

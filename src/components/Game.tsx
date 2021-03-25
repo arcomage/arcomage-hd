@@ -4,6 +4,7 @@ import TableP from './TableP'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { minWidth, minHeight } from '../utils/GameSizeContext'
+import EndScreen from './EndScreen'
 
 const useStyles = createUseStyles({
   main: {
@@ -23,6 +24,7 @@ const Game = () => {
     >
       <TableCommon />
       <TableP />
+      {/* <EndScreen win={true} /> */}
     </div>
   )
 }

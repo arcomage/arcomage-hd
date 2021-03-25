@@ -46,6 +46,7 @@ export type GameStateType = {
   playersTurn: boolean
   locked: boolean
   discardMode: boolean
+  isNewTurn: boolean
 }
 
 export type SettingsBaseType = {

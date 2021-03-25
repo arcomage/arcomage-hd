@@ -12,7 +12,7 @@ The assets, text and appearance of the game are protected by copyright law, but 
 
 **ArcoMage HD** is not-for-profit. The assets, text, appearance and other copyrightable elements of the original Arcomage game are used within scope of the "[fair use](https://en.wikipedia.org/wiki/Fair_use)" doctrine.
 
-**ArcoMage HD** uses React.js and other open-source JavaScript / TypeScript libraries. See [§ Copyright Notice of the Dependencies](#copyright-notice-of-the-dependencies) and [§ Other Copyright Notices](#other-copyright-notices).
+**ArcoMage HD** uses [React.js](https://reactjs.org/), [Redux](https://redux.js.org/), [Redux Observable](https://redux-observable.js.org/) and other free and open-source [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) / [TypeScript](https://www.typescriptlang.org/) libraries. See [§ Copyright Notice of the Dependencies](#copyright-notice-of-the-dependencies).
 
 ## MIT License
 
@@ -40,11 +40,11 @@ SOFTWARE.
 
 (c) 2001 The 3DO Company. All Rights Reserved. 3DO, Arcomage, New World Computing, and their respective logos, are trademarks or registered trademarks of The 3DO Company in the U.S. and other countries. All other trademarks belong to their respective owners. New World Computing is a division of The 3DO Company.
 
-## Copyright Notice of the Dependencies
+## Free Licenses
 
-See dist/bundle.js.LICENSE.txt
+### Copyright Notice of the Dependencies
 
-## Other Copyright Notices
+See dist/\*.js.LICENSE.txt
 
 ### SVG Animated Birds
 
@@ -60,6 +60,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-### Unknown Original Author, Fair-use
+### Free License Images
 
-explosion.png and Fat Number font
+* https://pixabay.com/vectors/laurel-wreath-wreath-accolade-150577/ Pixabay License
+* https://pixabay.com/vectors/trophy-achievement-award-cup-merit-153395/ Pixabay License
+* https://www.svgrepo.com/svg/211751/maps-and-flags-surrender CC0
+
+### Erathian Font
+
+Erathian letters' shapes:  
+Copyright (c) New World Computing, Inc., The 3DO Company and Ubisoft Entertainment S.A.  
+Proprietary
+
+Erathian font (https://github.com/might-and-magic/erathian-font/):  
+Copyright (c) 2008-2020 Tom CHEN (tomchen.org)  
+SIL Open Font License, Version 1.1.  
+See [OFL.txt file](https://github.com/might-and-magic/erathian-font/blob/master/OFL.txt) file for SIL Open Font License (OFL) text
+
+## Fair-use
+
+### Unknown License Or Unknown Original Author, Fair-use
+
+* explosion.png
+* Fat Number font
+* Magic the Gathering by Stick Fonts - first seen in 1998

@@ -4,6 +4,7 @@ import {
   NEXT_ROUND,
   DRAW_CARD,
   RESOURCE_PROD,
+  SWITCH_NEW_TURN,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
 import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
@@ -34,6 +35,9 @@ export const nextRoundEpic = (
         of({
           type: DRAW_CARD,
         }).pipe(delay(0)),
+        of({
+          type: SWITCH_NEW_TURN,
+        }),
       )
     }),
   )
