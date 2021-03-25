@@ -1,5 +1,6 @@
 import { ActionType } from '../types/actionObj'
 import { combineEpics, Epic } from 'redux-observable'
+import { StateType } from '../types/state'
 import updateStatusEpic from './updateStatusEpic'
 import execCardEpic from './execCardEpic'
 import useCardEpic from './useCardEpic'
@@ -10,7 +11,7 @@ import nextRoundEpic from './nextRoundEpic'
 import drawCardEpic from './drawCardEpic'
 import resourceProdEpic from './resourceProdEpic'
 import clearCardEpic from './clearCardEpic'
-import { StateType } from '../types/state'
+import checkUnusableEpic from './checkUnusableEpic'
 
 export type MyEpic = Epic<ActionType, ActionType, StateType>
 
@@ -25,6 +26,7 @@ const rootEpic: MyEpic = combineEpics(
   nextRoundEpic,
   resourceProdEpic,
   clearCardEpic,
+  checkUnusableEpic,
 )
 
 export default rootEpic

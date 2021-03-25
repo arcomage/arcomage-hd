@@ -11,7 +11,7 @@ import {
   NEXT_ROUND,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { filter, mergeMap, delay } from 'rxjs/operators'
+import { filter, concatMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
@@ -29,7 +29,7 @@ export const useCardEpic = (
 ) =>
   action$.pipe(
     filter(isOfType(USE_CARD)),
-    mergeMap(({ n, index, position, owner }) => {
+    concatMap(({ n, index, position, owner }) => {
       const special = cards[n].special
       playSound('deal')
       return concat(
@@ -61,7 +61,7 @@ export const useCardEpic = (
               }),
               of({
                 type: DRAW_CARD,
-              }),
+              }).pipe(delay(0)),
               of({
                 type: MOVE_CARD_TO_TOP,
                 index,
@@ -79,7 +79,7 @@ export const useCardEpic = (
                 ? concat(
                     of({
                       type: DRAW_CARD,
-                    }),
+                    }).pipe(delay(0)),
                     of({
                       type: SWITCH_LOCK,
                     }),
@@ -94,7 +94,7 @@ export const useCardEpic = (
   )
 
 // action$.filter(isOfType(USE_CARD))
-//   .mergeMapTo(Observable.of({ type: 'FETCH_REQUEST' })
+//   .concatMapTo(Observable.of({ type: 'FETCH_REQUEST' })
 //     .concat(Observable.of({ type: 'FETCH_SUCCESS' })
 //       .delay(1000)))
 

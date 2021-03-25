@@ -7,7 +7,7 @@ import {
   RESOURCE_PROD,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -21,7 +21,7 @@ export const changeSettingsAndInitEpic = (
   action$.pipe(
     filter(isOfType(INIT)),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    concatMap(([action, state]) => {
       const playersTurn = Math.random() < 0.5
 
       const total = state.settings.cardsInHand
@@ -61,7 +61,7 @@ export const changeSettingsAndInitEpic = (
         }),
         of({
           type: DRAW_CARD,
-        }),
+        }).pipe(delay(0)),
       )
     }),
   )

@@ -26,6 +26,8 @@ import {
   RESOURCE_PROD,
   SWITCH_DISCARD_MODE,
   MOVE_CARD_TO_STACK,
+  CHECK_UNUSABLE,
+  SET_UNUSABLE,
 } from '../constants/ActionTypes'
 import {
   CardStateType,
@@ -193,6 +195,16 @@ export type SwitchDiscardModeActionType = {
   type: typeof SWITCH_DISCARD_MODE
 }
 
+export type CheckUnusableActionType = {
+  type: typeof CHECK_UNUSABLE
+  lastOnly?: boolean // if true then only check last card, if false or not present then check all card
+}
+
+export type SetUnusableActionType = {
+  type: typeof SET_UNUSABLE
+  payload: number[]
+}
+
 export type ActionType =
   | LangActionType
   | UpdateStatusActionType
@@ -221,3 +233,5 @@ export type ActionType =
   | InitStatusActionType
   | ChangeSettingsAndInitActionType
   | SwitchDiscardModeActionType
+  | CheckUnusableActionType
+  | SetUnusableActionType

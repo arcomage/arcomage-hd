@@ -6,7 +6,7 @@ import {
   RESOURCE_PROD,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
@@ -19,7 +19,7 @@ export const nextRoundEpic = (
   action$.pipe(
     filter(isOfType(NEXT_ROUND)),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    concatMap(([action, state]) => {
       return concat(
         of({
           type: SWITCH_TURN,
@@ -33,7 +33,7 @@ export const nextRoundEpic = (
         }),
         of({
           type: DRAW_CARD,
-        }),
+        }).pipe(delay(0)),
       )
     }),
   )

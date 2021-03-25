@@ -1,5 +1,9 @@
-export const enableContextMenu = true
+export const disableContextMenu = false
 
-export const disableWindowUnloadWarning = true
+export const enableWindowUnloadWarning = false
 
-export const hideOpponentCard = true
+export const hideOpponentCard = false
+
+export const canDiscardUndiscardableWhenDDP = true
+
+// should set all to `true` for prod version

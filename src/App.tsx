@@ -2,15 +2,15 @@ import React, { memo } from 'react'
 import './App.scss'
 import Game from './components/Game'
 import {
-  enableContextMenu,
-  disableWindowUnloadWarning,
+  disableContextMenu,
+  enableWindowUnloadWarning,
 } from './constants/devSettings'
 import useBeforeWindowUnloadWarning from './utils/useBeforeWindowUnloadWarning'
 import useDisableContextMenu from './utils/useDisableContextMenu'
 
 const App = () => {
-  !enableContextMenu && useDisableContextMenu()
-  !disableWindowUnloadWarning && useBeforeWindowUnloadWarning()
+  disableContextMenu && useDisableContextMenu()
+  enableWindowUnloadWarning && useBeforeWindowUnloadWarning()
 
   return <Game />
 }

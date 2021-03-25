@@ -1,10 +1,15 @@
-import { UPDATE_STATUS, UPDATE_STATUS_MAIN } from '../constants/ActionTypes'
+import {
+  CHECK_UNUSABLE,
+  UPDATE_STATUS,
+  UPDATE_STATUS_MAIN,
+} from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { map, withLatestFrom, filter } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
 import playSound from '../utils/playSound'
+import { concat, of } from 'rxjs'
 
 export const updateStatusEpic = (
   action$: ActionsObservable<ActionType>,
@@ -13,7 +18,7 @@ export const updateStatusEpic = (
   action$.pipe(
     filter(isOfType(UPDATE_STATUS)),
     withLatestFrom(state$),
-    map(([action, state]) => {
+    concatMap(([action, state]) => {
       const newUpdArr = action.payload.map((upd) => {
         const { isPlayer, statusProp, noSound } = upd
         let increase: boolean | null = null
@@ -38,10 +43,15 @@ export const updateStatusEpic = (
           ...('to' in upd ? { to: upd.to } : { diff: upd.diff }),
         }
       })
-      return {
-        type: UPDATE_STATUS_MAIN,
-        payload: newUpdArr,
-      }
+      return concat(
+        of({
+          type: UPDATE_STATUS_MAIN,
+          payload: newUpdArr,
+        }),
+        of({
+          type: CHECK_UNUSABLE,
+        }),
+      )
     }),
   )
 

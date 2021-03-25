@@ -31,3 +31,5 @@ export const INIT_GAME = 'INIT_GAME' as const
 export const INIT_STATUS = 'INIT_STATUS' as const
 
 export const SWITCH_DISCARD_MODE = 'SWITCH_DISCARD_MODE' as const
+export const CHECK_UNUSABLE = 'CHECK_UNUSABLE' as const
+export const SET_UNUSABLE = 'SET_UNUSABLE' as const

@@ -2,9 +2,10 @@ import {
   DRAW_CARD,
   DRAW_CARD_PRE,
   DRAW_CARD_MAIN,
+  CHECK_UNUSABLE,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
@@ -20,7 +21,7 @@ export const nextRoundEpic = (
   action$.pipe(
     filter(isOfType(DRAW_CARD)),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    concatMap(([action, state]) => {
       const newCardN = randomWithProbs()
 
       playSound('deal')
@@ -29,6 +30,10 @@ export const nextRoundEpic = (
         of({
           type: DRAW_CARD_PRE,
           n: newCardN,
+        }),
+        of({
+          type: CHECK_UNUSABLE,
+          lastOnly: true,
         }),
         of({
           type: DRAW_CARD_MAIN,

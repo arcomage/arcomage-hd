@@ -4,7 +4,7 @@ import {
   INIT,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { filter, mergeMap } from 'rxjs/operators'
+import { filter, concatMap } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -16,7 +16,7 @@ export const changeSettingsAndInitEpic = (
 ) =>
   action$.pipe(
     filter(isOfType(CHANGE_SETTINGS_AND_INIT)),
-    mergeMap(({ payload }) =>
+    concatMap(({ payload }) =>
       concat(
         of({
           type: CHANGE_SETTINGS,

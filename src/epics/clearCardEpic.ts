@@ -4,7 +4,7 @@ import {
   MOVE_CARD_TO_STACK,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
@@ -18,7 +18,7 @@ export const clearCardEpic = (
   action$.pipe(
     filter(isOfType(CLEAR_CARD)),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    concatMap(([action, state]) => {
       const obs: Observable<ActionType>[] = []
       ;[-2, -3, -4].forEach((p) => {
         state.cards.list.forEach((card, index) => {

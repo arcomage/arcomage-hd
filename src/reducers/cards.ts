@@ -9,6 +9,7 @@ import {
   DRAW_CARD_PRE,
   DRAW_CARD_MAIN,
   MOVE_CARD_TO_STACK,
+  SET_UNUSABLE,
 } from '../constants/ActionTypes'
 import { CardStateType } from '../types/state'
 import { ActionType } from '../types/actionObj'
@@ -120,6 +121,15 @@ const cards = produce((draft: CardStateType, action: ActionType) => {
       if (draft.list[action.index] !== null) {
         draft.list[action.index] = null
       }
+      break
+    }
+    case SET_UNUSABLE: {
+      action.payload.forEach((index) => {
+        const card = draft.list[index]
+        if (card !== null) {
+          card.unusable = true
+        }
+      })
       break
     }
   }

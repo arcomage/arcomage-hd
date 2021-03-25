@@ -9,7 +9,7 @@ import {
   SWITCH_LOCK,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
@@ -24,7 +24,7 @@ export const discardCardEpic = (
   action$.pipe(
     filter(isOfType(DISCARD_CARD)),
     withLatestFrom(state$),
-    mergeMap(([{ index, position, owner }, state]) => {
+    concatMap(([{ index, position, owner }, state]) => {
       playSound('deal')
       return concat(
         of({

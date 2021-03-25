@@ -1,6 +1,6 @@
 import { RESOURCE_PROD, UPDATE_STATUS } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, map } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'
@@ -15,7 +15,7 @@ export const resourceProdEpic = (
   action$.pipe(
     filter(isOfType(RESOURCE_PROD)),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    map(([action, state]) => {
       const currentStatus = state.status[action.owner]
 
       const payload = entries(resProdMap).map(([prod, res]) => ({
@@ -25,12 +25,10 @@ export const resourceProdEpic = (
         noSound: true,
       }))
 
-      return concat(
-        of({
-          type: UPDATE_STATUS,
-          payload,
-        }),
-      )
+      return {
+        type: UPDATE_STATUS,
+        payload,
+      }
     }),
   )
 

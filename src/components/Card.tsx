@@ -24,6 +24,7 @@ import recruit from '../../assets/img/recruit.svg'
 
 import { I18nContext } from '../i18n/I18nContext'
 import { DataCardI18nType } from '../types/dataCard'
+import { canDiscardUndiscardableWhenDDP } from '../constants/devSettings'
 
 const heightPercToTable = 0.8
 const whRatio = 188 / 252
@@ -243,18 +244,6 @@ const Card = ({
   const winWidth = size.width
   const [zeroOpacity, setZeroOpacity] = useState(false)
 
-  const res = {
-    player: {
-      bricks: useAppSelector((state) => state.status.player.bricks),
-      gems: useAppSelector((state) => state.status.player.gems),
-      recruits: useAppSelector((state) => state.status.player.recruits),
-    },
-    opponent: {
-      bricks: useAppSelector((state) => state.status.opponent.bricks),
-      gems: useAppSelector((state) => state.status.opponent.gems),
-      recruits: useAppSelector((state) => state.status.opponent.recruits),
-    },
-  }
   let total
 
   if (owner === 'common') {
@@ -284,20 +273,13 @@ const Card = ({
   } else {
     const { type, cost, special } = dataCards[n]
 
-    const _unusable =
-      unusable ||
-      (!unusable &&
-        owner !== 'common' &&
-        !isflipped &&
-        cost > res[owner][resNames[dataCards[n].type]])
-
     const classes = useStyles({
       type,
       winHeight,
       winWidth,
       total,
       position,
-      unusable: _unusable,
+      unusable,
       zeroOpacity,
     })
     const color = ['red', 'blue', 'green'][type]
@@ -312,7 +294,7 @@ const Card = ({
     const onClickFunc = (() => {
       if (owner !== 'common' && !locked) {
         if (discardMode) {
-          if (!special?.undiscardable) {
+          if (canDiscardUndiscardableWhenDDP || !special?.undiscardable) {
             return {
               onClick: () => {
                 dispatch({
@@ -325,7 +307,7 @@ const Card = ({
             }
           }
         } else {
-          if (!_unusable) {
+          if (!unusable) {
             return {
               onClick: () => {
                 dispatch({
@@ -344,7 +326,12 @@ const Card = ({
     })()
 
     const onContextMenuFunc = (() => {
-      if (owner !== 'common' && !locked && !special?.undiscardable) {
+      if (
+        owner !== 'common' &&
+        !locked &&
+        (!special?.undiscardable ||
+          (discardMode && canDiscardUndiscardableWhenDDP))
+      ) {
         return {
           onContextMenu: (e: MouseEvent<HTMLDivElement>) => {
             e.preventDefault()
