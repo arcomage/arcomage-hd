@@ -2,11 +2,15 @@ import produce from 'immer'
 import { CHANGE_SETTINGS } from '../constants/ActionTypes'
 import { SettingsStateType } from '../types/state'
 import { ActionType } from '../types/actionObj'
-import { defaultSettings } from '../constants/defaultSettings'
+import {
+  defaultSettings,
+  defaultPlayerName,
+  defaultOpponentName,
+} from '../constants/defaultSettings'
 
 const defaults: SettingsStateType = {
-  playerName: '',
-  opponentName: '',
+  playerName: defaultPlayerName,
+  opponentName: defaultOpponentName,
   start: { ...defaultSettings.start },
   win: { ...defaultSettings.win },
   cardsInHand: defaultSettings.cardsInHand,
@@ -16,7 +20,7 @@ const defaults: SettingsStateType = {
 const game = produce((draft: SettingsStateType, action: ActionType) => {
   switch (action.type) {
     case CHANGE_SETTINGS: {
-      break
+      return action.payload
     }
   }
 }, defaults)

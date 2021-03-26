@@ -84,3 +84,9 @@ See [OFL.txt file](https://github.com/might-and-magic/erathian-font/blob/master/
 * explosion.png
 * Fat Number font
 * Magic the Gathering by Stick Fonts - first seen in 1998
+
+
+
+https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg
+https://www.materialui.co/icon/configuration
+https://commons.wikimedia.org/wiki/File:VisualEditor_-_Icon_-_Help.svg

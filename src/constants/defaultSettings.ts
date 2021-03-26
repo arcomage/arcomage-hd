@@ -19,3 +19,6 @@ export const defaultSettings: SettingsType = {
   cardsInHand: 5,
   // aiType: 'Random',
 }
+
+export const defaultPlayerName = '🧝'
+export const defaultOpponentName = '👾'

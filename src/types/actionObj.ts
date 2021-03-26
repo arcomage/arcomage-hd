@@ -30,6 +30,12 @@ import {
   CHECK_UNUSABLE,
   SET_UNUSABLE,
   SWITCH_NEW_TURN,
+  SCREEN_PREF,
+  SCREEN_LANG_PREF,
+  SCREEN_VOLUME_PREF,
+  SCREEN_YOU_WIN,
+  SCREEN_YOU_LOSE,
+  SCREEN_HELP,
 } from '../constants/ActionTypes'
 import {
   CardStateType,
@@ -218,6 +224,36 @@ export type SwitchNewTurnActionType = {
   type: typeof SWITCH_NEW_TURN
 }
 
+export type ScreenPrefActionType = {
+  type: typeof SCREEN_PREF
+  show: boolean
+}
+
+export type ScreenLangPrefActionType = {
+  type: typeof SCREEN_LANG_PREF
+  show: boolean
+}
+
+export type ScreenVolumePrefActionType = {
+  type: typeof SCREEN_VOLUME_PREF
+  show: boolean
+}
+
+export type ScreenYouWinActionType = {
+  type: typeof SCREEN_YOU_WIN
+  show: boolean
+}
+
+export type ScreenYouLoseActionType = {
+  type: typeof SCREEN_YOU_LOSE
+  show: boolean
+}
+
+export type ScreenHelpActionType = {
+  type: typeof SCREEN_HELP
+  show: boolean
+}
+
 export type ActionType =
   | LangActionType
   | UpdateStatusActionType
@@ -250,3 +286,9 @@ export type ActionType =
   | CheckUnusableActionType
   | SetUnusableActionType
   | SwitchNewTurnActionType
+  | ScreenPrefActionType
+  | ScreenLangPrefActionType
+  | ScreenVolumePrefActionType
+  | ScreenYouWinActionType
+  | ScreenYouLoseActionType
+  | ScreenHelpActionType

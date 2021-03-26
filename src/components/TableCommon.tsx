@@ -46,15 +46,9 @@ const TableCommon = () => {
   const wallO = useAppSelector((state) => state.status.opponent.wall)
 
   const classes = useStyles()
-  const dispatch = useAppDispatch()
   return (
     <div
       className={cx('z-0 h-2/3 flex-auto bg-green-100 relative', classes.main)}
-      onClick={() => {
-        dispatch({
-          type: 'INIT',
-        })
-      }}
     >
       <Status
         playerName={playerName}

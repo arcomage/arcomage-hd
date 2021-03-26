@@ -56,3 +56,6 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
     </I18nContext.Provider>
   )
 }
+
+export const upper1st = (s: string | undefined): string | undefined =>
+  s && s.charAt(0).toUpperCase() + s.slice(1)

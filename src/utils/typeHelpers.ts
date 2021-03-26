@@ -19,3 +19,16 @@ export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 
 export type RequiredBy<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>
+
+export function getProperty<T, K extends keyof T>(obj: T, key: K) {
+  return obj[key] // Inferred type is T[K]
+}
+
+export function setProperty<T, K extends keyof T>(obj: T, key: K, value: T[K]) {
+  obj[key] = value
+}
+
+export function hasOwnProperty<X extends {}, Y extends PropertyKey>
+  (obj: X, prop: Y): obj is X & Record<Y, unknown> {
+  return obj.hasOwnProperty(prop)
+}

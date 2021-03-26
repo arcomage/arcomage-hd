@@ -60,12 +60,22 @@ export type SettingsBaseType = {
 }
 
 export type SettingsType = SettingsBaseType & {
-  settingsName?: string
+  tavern?: string
+  location?: string
 }
 
 export type SettingsStateType = SettingsBaseType & {
   playerName: string
   opponentName: string
+}
+
+export type ScreenStateType = {
+  pref: boolean
+  langPref: boolean
+  volumePref: boolean
+  youWin: boolean
+  youLose: boolean
+  help: boolean
 }
 
 export type StateType = {
@@ -74,4 +84,5 @@ export type StateType = {
   cards: CardStateType
   game: GameStateType
   settings: SettingsStateType
+  screen: ScreenStateType
 }

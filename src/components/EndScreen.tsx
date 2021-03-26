@@ -83,7 +83,7 @@ const EndScreen = ({ win = true }: PropType) => {
   return (
     <div
       className={cx(
-        'absolute w-full h-full top-0 left-0 z-50 bg-contain bg-black bg-opacity-50',
+        'absolute w-full h-full top-0 left-0 z-90 bg-black bg-opacity-50',
         classes.container,
       )}
     >

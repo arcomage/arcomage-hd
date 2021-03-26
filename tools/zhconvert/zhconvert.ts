@@ -3,7 +3,7 @@
 import fs from 'fs'
 import { Converter } from 'opencc-js'
 
-const convert = Converter({ from: 'cn', to: 'tw' })
+const convert = Converter({ from: 'cn', to: 'twp' })
 
 const filePrefixes = ['cards.', '']
 

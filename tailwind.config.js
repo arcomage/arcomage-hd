@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors')
 const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette')
   .default
+const forms = require('@tailwindcss/forms')
 
 module.exports = {
   purge: ['./src/**/*.{ts,tsx,js,jsx,scss,sass,css}', './src/index.html'],
@@ -18,6 +19,20 @@ module.exports = {
       yellow: colors.yellow,
       darkborder: 'rgba(31, 41, 55, 0.65)',
       lightborder: 'rgba(243, 244, 246, 0.65)',
+    },
+    zIndex: {
+      0: 0,
+      10: 10,
+      20: 20,
+      30: 30,
+      40: 40,
+      50: 50,
+      60: 60,
+      70: 70,
+      80: 80,
+      90: 90,
+      100: 100,
+      auto: 'auto',
     },
     boxShadow: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.25)',
@@ -49,13 +64,16 @@ module.exports = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     },
-    extend: {},
+
+    extend: {
+    },
   },
   variants: {
     extend: {},
   },
 
   plugins: [
+    forms,
     ({ addUtilities, theme, variants }) => {
       const borderColor = flattenColorPalette(theme('borderColor'))
       delete borderColor.default

@@ -35,3 +35,10 @@ export const SWITCH_DISCARD_MODE = 'SWITCH_DISCARD_MODE' as const
 export const CHECK_UNUSABLE = 'CHECK_UNUSABLE' as const
 export const SET_UNUSABLE = 'SET_UNUSABLE' as const
 export const SWITCH_NEW_TURN = 'SWITCH_NEW_TURN' as const
+
+export const SCREEN_PREF = 'SCREEN_PREF' as const
+export const SCREEN_LANG_PREF = 'SCREEN_LANG_PREF' as const
+export const SCREEN_VOLUME_PREF = 'SCREEN_VOLUME_PREF' as const
+export const SCREEN_YOU_WIN = 'SCREEN_YOU_WIN' as const
+export const SCREEN_YOU_LOSE = 'SCREEN_YOU_LOSE' as const
+export const SCREEN_HELP = 'SCREEN_HELP' as const

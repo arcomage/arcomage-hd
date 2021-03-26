@@ -35,6 +35,7 @@
   "author": "Tom Chen <tomchen.org@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@tailwindcss/forms": "^0.3.2",
     "immer": "^8.0.1",
     "lodash.memoize": "^4.1.2",
     "react": "^17.0.1",
@@ -46,7 +47,6 @@
     "tailwindcss": "^2.0.3"
   },
   "devDependencies": {
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "@types/classnames": "^2.2.11",
     "@types/convert-excel-to-json": "^1.7.0",
     "@types/lodash.memoize": "^4.1.6",

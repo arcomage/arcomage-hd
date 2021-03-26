@@ -2,7 +2,8 @@ import { SettingsType } from '../types/state'
 
 export const preSettings: SettingsType[] = [
   {
-    settingsName: 'On The House - Harmondale',
+    tavern: 'On The House',
+    location: 'Harmondale',
     start: {
       tower: 15,
       wall: 5,
@@ -21,7 +22,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Random',
   },
   {
-    settingsName: "Griffin's Rest - Erathia",
+    tavern: "Griffin's Rest",
+    location: 'Erathia',
     start: {
       tower: 20,
       wall: 5,
@@ -40,7 +42,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Defense',
   },
   {
-    settingsName: 'Emerald Inn - Tularean Forest',
+    tavern: 'Emerald Inn',
+    location: 'Tularean Forest',
     start: {
       tower: 20,
       wall: 5,
@@ -59,7 +62,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    settingsName: 'Snobbish Goblin - Deyja',
+    tavern: 'Snobbish Goblin',
+    location: 'Deyja',
     start: {
       tower: 25,
       wall: 10,
@@ -78,7 +82,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    settingsName: 'Familiar Place - Bracada Desert',
+    tavern: 'Familiar Place',
+    location: 'Bracada Desert',
     start: {
       tower: 20,
       wall: 10,
@@ -97,7 +102,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Defense',
   },
   {
-    settingsName: 'The Blessed Brew - Celeste',
+    tavern: 'The Blessed Brew',
+    location: 'Celeste',
     start: {
       tower: 30,
       wall: 15,
@@ -116,7 +122,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Defense',
   },
   {
-    settingsName: 'The Vampyre Lounge - The Pit',
+    tavern: 'The Vampyre Lounge',
+    location: 'The Pit',
     start: {
       tower: 30,
       wall: 15,
@@ -135,7 +142,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    settingsName: 'The Laughing Monk - Evermorn Island',
+    tavern: 'The Laughing Monk',
+    location: 'Evermorn Island',
     start: {
       tower: 20,
       wall: 10,
@@ -154,7 +162,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Random',
   },
   {
-    settingsName: "Fortune's Folly - Nighon",
+    tavern: "Fortune's Folly",
+    location: 'Nighon',
     start: {
       tower: 20,
       wall: 10,
@@ -173,7 +182,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    settingsName: "Miner's Only - Barrow Downs",
+    tavern: "Miner's Only",
+    location: 'Barrow Downs',
     start: {
       tower: 20,
       wall: 50,
@@ -192,7 +202,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Random',
   },
   {
-    settingsName: 'The Loyal Mercenary - Tidewater',
+    tavern: 'The Loyal Mercenary',
+    location: 'Tidewater',
     start: {
       tower: 10,
       wall: 20,
@@ -211,7 +222,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    settingsName: 'The Potted Pixie - Avlee',
+    tavern: 'The Potted Pixie',
+    location: 'Avlee',
     start: {
       tower: 10,
       wall: 20,
@@ -230,7 +242,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Defense',
   },
   {
-    settingsName: "Grogg's Grog - Stone City",
+    tavern: "Grogg's Grog",
+    location: 'Stone City',
     start: {
       tower: 50,
       wall: 50,
