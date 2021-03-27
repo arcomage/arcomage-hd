@@ -5,12 +5,9 @@ import { defaultLang } from './langs'
 import {
   AvailableLangType,
   TranslationFullType,
-  TranslationItemType,
   TranslationObjType,
-  TranslationType,
 } from './types'
 import { useAppSelector } from '../utils/useAppDispatch'
-import { RequiredBy } from '../utils/typeHelpers'
 
 const allDefault = { i18n: defaultTrans, cards: cardsI18n }
 

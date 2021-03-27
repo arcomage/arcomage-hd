@@ -3,8 +3,8 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
 
-import AnimatedNumber from './AnimatedNumber'
-import NumberDiff from './NumberDiff'
+import AnimatedNumber from './effects/AnimatedNumber'
+import NumberDiff from './effects/NumberDiff'
 
 import brickBg from '../../assets/img/res_1.png'
 import gemBg from '../../assets/img/res_2.png'

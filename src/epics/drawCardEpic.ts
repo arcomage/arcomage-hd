@@ -24,7 +24,7 @@ export const nextRoundEpic = (
     concatMap(([action, state]) => {
       const newCardN = randomWithProbs()
 
-      playSound('deal')
+      playSound('deal', state.volume)
 
       return concat(
         of({

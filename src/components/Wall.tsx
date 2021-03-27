@@ -2,9 +2,9 @@ import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
-import AnimatedNumber from './AnimatedNumber'
-import NumberDiff from './NumberDiff'
-import NumberChangeEffect from './NumberChangeEffect'
+import AnimatedNumber from './effects/AnimatedNumber'
+import NumberDiff from './effects/NumberDiff'
+import NumberChangeEffect from './effects/NumberChangeEffect'
 
 import wall from '../../assets/img/wall.png'
 

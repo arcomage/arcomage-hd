@@ -85,4 +85,5 @@ export type StateType = {
   game: GameStateType
   settings: SettingsStateType
   screen: ScreenStateType
+  volume: number
 }

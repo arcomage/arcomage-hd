@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import Status from './Status'
 import Tower from './Tower'
 import Wall from './Wall'
-import Bird from './Bird'
+import Bird from './effects/Bird'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 

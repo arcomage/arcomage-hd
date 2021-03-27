@@ -26,7 +26,7 @@ export const discardCardEpic = (
     filter(isOfType(DISCARD_CARD)),
     withLatestFrom(state$),
     concatMap(([{ index, position, owner }, state]) => {
-      playSound('deal')
+      playSound('deal', state.volume)
       return concat(
         state.game.isNewTurn
           ? of({

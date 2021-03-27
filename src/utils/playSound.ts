@@ -33,53 +33,70 @@ const typingAudio = new Audio(typing)
 
 type soundAddtionalType = 'deal' | 'start' | 'victory' | 'defeat' | 'typing'
 
+const cloneAndVolume = (
+  audio: HTMLAudioElement,
+  volume: number,
+): HTMLAudioElement => {
+  const _audio = cloneNode(audio)
+  _audio.volume = volume
+  return _audio
+}
+
 const playSound = (
   type: keyof PersonStatusType | soundAddtionalType,
+  volume: number = 10,
   increase: boolean | null = null,
 ): void => {
+  const _volume = volume / 10
   if (increase !== null) {
     switch (type) {
       case 'tower':
-        cloneNode(increase ? towerUpAudio : damageAudio).play()
+        cloneAndVolume(increase ? towerUpAudio : damageAudio, _volume).play()
         break
       case 'wall':
-        cloneNode(increase ? wallUpAudio : damageAudio).play()
+        cloneAndVolume(increase ? wallUpAudio : damageAudio, _volume).play()
         break
       case 'bricks':
-        cloneNode(increase ? brickUpAudio : brickDownAudio).play()
+        cloneAndVolume(increase ? brickUpAudio : brickDownAudio, _volume).play()
         break
       case 'brickProd':
-        cloneNode(increase ? brickUpAudio : brickDownAudio).play()
+        cloneAndVolume(increase ? brickUpAudio : brickDownAudio, _volume).play()
         break
       case 'gems':
-        cloneNode(increase ? gemUpAudio : gemDownAudio).play()
+        cloneAndVolume(increase ? gemUpAudio : gemDownAudio, _volume).play()
         break
       case 'gemProd':
-        cloneNode(increase ? gemUpAudio : gemDownAudio).play()
+        cloneAndVolume(increase ? gemUpAudio : gemDownAudio, _volume).play()
         break
       case 'recruits':
-        cloneNode(increase ? recruitUpAudio : recruitDownAudio).play()
+        cloneAndVolume(
+          increase ? recruitUpAudio : recruitDownAudio,
+          _volume,
+        ).play()
         break
       case 'recruitProd':
-        cloneNode(increase ? recruitUpAudio : recruitDownAudio).play()
+        cloneAndVolume(
+          increase ? recruitUpAudio : recruitDownAudio,
+          _volume,
+        ).play()
         break
     }
   } else {
     switch (type) {
       case 'deal':
-        cloneNode(dealAudio).play()
+        cloneAndVolume(dealAudio, _volume).play()
         break
       case 'start':
-        cloneNode(startAudio).play()
+        cloneAndVolume(startAudio, _volume).play()
         break
       case 'victory':
-        cloneNode(victoryAudio).play()
+        cloneAndVolume(victoryAudio, _volume).play()
         break
       case 'defeat':
-        cloneNode(defeatAudio).play()
+        cloneAndVolume(defeatAudio, _volume).play()
         break
       case 'typing':
-        cloneNode(typingAudio).play()
+        cloneAndVolume(typingAudio, _volume).play()
         break
     }
   }

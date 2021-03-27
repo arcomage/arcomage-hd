@@ -34,5 +34,6 @@ export const i18n = {
 
   Language: 'Language',
   Volume: 'Volume',
+  Mute: 'Mute',
   Help: 'Help',
 }

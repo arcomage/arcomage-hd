@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import bird from '../../assets/img/bird.svg'
+import bird from '../../../assets/img/bird.svg'
 
 const useStyles = createUseStyles({
   '@keyframes fly-cycle': {

@@ -5,11 +5,12 @@ import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { minWidth, minHeight } from '../utils/GameSizeContext'
 import TableCommon from './TableCommon'
 import TableP from './TableP'
-import ButtonBar from './ButtonBar'
+import ButtonBar from './screens/ButtonBar'
 
-import EndScreen from './EndScreen'
-import Pref from './Pref'
-import LangPref from './LangPref'
+import EndScreen from './screens/EndScreen'
+import Pref from './screens/Pref'
+import LangPref from './screens/LangPref'
+import VolumePref from './screens/VolumePref'
 
 const useStyles = createUseStyles({
   main: {
@@ -40,7 +41,7 @@ const Game = () => {
       {(youWin || youLose) && <EndScreen win={youWin} />}
       {pref && <Pref />}
       {langPref && <LangPref />}
-
+      {volumePref && <VolumePref />}
       <ButtonBar />
     </div>
   )

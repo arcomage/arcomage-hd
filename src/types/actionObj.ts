@@ -1,5 +1,6 @@
 import {
   UPDATE_LANG,
+  UPDATE_VOLUME,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
   EXEC_CARD,
@@ -43,7 +44,15 @@ import {
   SettingsStateType,
 } from '../types/state'
 
-export type LangActionType = { type: typeof UPDATE_LANG; lang: string }
+export type LangActionType = {
+  type: typeof UPDATE_LANG
+  lang: string
+}
+
+export type VolumeActionType = {
+  type: typeof UPDATE_VOLUME
+  volume: number
+}
 
 export type UpdateStatusActionTypeSingle = {
   isPlayer: boolean
@@ -256,6 +265,7 @@ export type ScreenHelpActionType = {
 
 export type ActionType =
   | LangActionType
+  | VolumeActionType
   | UpdateStatusActionType
   | UpdateStatusMainActionType
   | ExecCardActionType

@@ -5,6 +5,7 @@ import cards from './cards'
 import game from './game'
 import settings from './settings'
 import screen from './screen'
+import volume from './volume'
 
 const rootReducer = combineReducers({
   status,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   game,
   settings,
   screen,
+  volume,
 })
 
 export default rootReducer

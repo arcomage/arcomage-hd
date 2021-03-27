@@ -1,4 +1,5 @@
 export const UPDATE_LANG = 'UPDATE_LANG' as const
+export const UPDATE_VOLUME = 'UPDATE_VOLUME' as const
 
 export const UPDATE_STATUS = 'UPDATE_STATUS' as const
 export const UPDATE_STATUS_MAIN = 'UPDATE_STATUS_MAIN' as const

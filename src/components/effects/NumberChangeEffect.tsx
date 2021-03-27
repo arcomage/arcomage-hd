@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import explosion from '../../assets/img/explosion.png'
-import firework from '../../assets/img/firework.png'
+import explosion from '../../../assets/img/explosion.png'
+import firework from '../../../assets/img/firework.png'
 
 const useStyles = createUseStyles({
   '@keyframes explosion': {

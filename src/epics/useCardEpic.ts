@@ -33,7 +33,7 @@ export const useCardEpic = (
     concatMap(([action, state]) => {
       const { n, index, position, owner } = action
       const special = cards[n].special
-      playSound('deal')
+      playSound('deal', state.volume)
       return concat(
         state.game.isNewTurn
           ? of({

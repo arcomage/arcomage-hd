@@ -2,10 +2,10 @@ import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import youWinImg from '../../assets/img/you-win.svg'
-import youLoseImg from '../../assets/img/you-lose.svg'
-import firework from '../../assets/img/firework.png'
-import { I18nContext } from '../i18n/I18nContext'
+import youWinImg from '../../../assets/img/you-win.svg'
+import youLoseImg from '../../../assets/img/you-lose.svg'
+import firework from '../../../assets/img/firework.png'
+import { I18nContext } from '../../i18n/I18nContext'
 
 const useStyles = createUseStyles({
   '@keyframes fadein': {

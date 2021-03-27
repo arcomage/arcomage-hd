@@ -1,20 +1,21 @@
 import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
+import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
 
 import {
   SCREEN_HELP,
   SCREEN_LANG_PREF,
   SCREEN_PREF,
   SCREEN_VOLUME_PREF,
-} from '../constants/ActionTypes'
-import { I18nContext } from '../i18n/I18nContext'
+} from '../../constants/ActionTypes'
+import { I18nContext } from '../../i18n/I18nContext'
 
 const useStyles = createUseStyles({
   topButton: {
     '& svg': {
       fill: '#fff',
+      filter: 'drop-shadow(1px 1px 0 #000)',
     },
   },
   '@keyframes rotate': {
@@ -47,45 +48,78 @@ const useStyles = createUseStyles({
     },
   },
 
-  '@keyframes visible1-3': {
+  '@keyframes visible-1-3': {
     '24.99%': {
       visibility: 'hidden',
     },
-    '49.99%': {
-      visibility: 'visible',
-    },
-    '74.99%': {
-      visibility: 'visible',
-    },
-    '99.99%': {
+    '25%': {
       visibility: 'visible',
     },
   },
 
-  '@keyframes visible2-3': {
-    '24.99%': {
-      visibility: 'hidden',
-    },
+  '@keyframes visible-2-3': {
     '49.99%': {
       visibility: 'hidden',
     },
-    '74.99%': {
-      visibility: 'visible',
-    },
-    '99.99%': {
+    '50%': {
       visibility: 'visible',
     },
   },
 
-  '@keyframes visible3-3': {
-    '24.99%': {
-      visibility: 'hidden',
-    },
-    '49.99%': {
-      visibility: 'hidden',
-    },
+  '@keyframes visible-3-3': {
     '74.99%': {
       visibility: 'hidden',
+    },
+    '75%': {
+      visibility: 'visible',
+    },
+  },
+
+  '@keyframes visible1by1-1-3': {
+    '0%, 100%': {
+      visibility: 'visible',
+    },
+    '33.32%': {
+      visibility: 'visible',
+    },
+    '33.33%': {
+      visibility: 'hidden',
+    },
+    '99.99%': {
+      visibility: 'hidden',
+    },
+  },
+
+  '@keyframes visible1by1-2-3': {
+    '0%, 100%': {
+      visibility: 'hidden',
+    },
+    '33.32%': {
+      visibility: 'hidden',
+    },
+    '33.33%': {
+      visibility: 'visible',
+    },
+    '66.65%': {
+      visibility: 'visible',
+    },
+    '66.66%': {
+      visibility: 'hidden',
+    },
+    '99.99%': {
+      visibility: 'hidden',
+    },
+  },
+
+  '@keyframes visible1by1-3-3': {
+    '0%, 100%': {
+      visibility: 'hidden',
+    },
+    '66.65%': {
+      visibility: 'hidden',
+    },
+    '66.66%': {
+      visibility: 'visible',
     },
     '99.99%': {
       visibility: 'visible',
@@ -93,7 +127,7 @@ const useStyles = createUseStyles({
   },
 
   prefButton: {
-    left: '66.666%',
+    left: '60%',
     '&:hover, &.windowactive': {
       '& svg': {
         animation: '$rotate 2s linear infinite',
@@ -101,48 +135,78 @@ const useStyles = createUseStyles({
     },
   },
   langPrefButton: {
-    left: 'calc(66.666% + 3rem)',
+    left: 'calc(60% + 3rem)',
     '&:hover, &.windowactive': {
       '& svg': {
         '& .el-1': {
           visibility: 'hidden',
-          animation: '$visible1-3 2s linear infinite',
+          animation: '$visible-1-3 1.2s linear infinite',
         },
         '& .el-2': {
           visibility: 'hidden',
-          animation: '$visible2-3 2s linear infinite',
+          animation: '$visible-2-3 1.2s linear infinite',
         },
         '& .el-3': {
           visibility: 'hidden',
-          animation: '$visible3-3 2s linear infinite',
+          animation: '$visible-3-3 1.2s linear infinite',
         },
       },
     },
   },
   volumePrefButton: {
-    left: 'calc(66.666% + 6rem)',
+    left: 'calc(60% + 6rem)',
     '&:hover, &.windowactive': {
       '& svg': {
         '& .el-1': {
           visibility: 'hidden',
-          animation: '$visible1-3 2s linear infinite',
+          animation: '$visible-1-3 2s linear infinite',
         },
         '& .el-2': {
           visibility: 'hidden',
-          animation: '$visible2-3 2s linear infinite',
+          animation: '$visible-2-3 2s linear infinite',
         },
         '& .el-3': {
           visibility: 'hidden',
-          animation: '$visible3-3 2s linear infinite',
+          animation: '$visible-3-3 2s linear infinite',
         },
       },
     },
   },
   helpButton: {
-    left: 'calc(66.666% + 9rem)',
+    left: 'calc(60% + 9rem)',
     '&:hover, &.windowactive': {
       '& svg': {
         animation: '$rotate2 2s linear infinite',
+      },
+    },
+  },
+  githubButton: {
+    left: 'calc(60% + 12rem)',
+    '& svg': {
+      '& .el-0': {
+        visibility: 'visible',
+      },
+      '& .el-1': {
+        visibility: 'hidden',
+      },
+      '& .el-2': {
+        visibility: 'hidden',
+      },
+    },
+    '&:hover': {
+      '& svg': {
+        '& .el-0': {
+          visibility: 'hidden',
+          animation: '$visible1by1-2-3 0.4s linear infinite',
+        },
+        '& .el-1': {
+          visibility: 'visible',
+          animation: '$visible1by1-1-3 0.4s linear infinite',
+        },
+        '& .el-2': {
+          visibility: 'hidden',
+          animation: '$visible1by1-3-3 0.4s linear infinite',
+        },
       },
     },
   },
@@ -280,11 +344,37 @@ const ButtonBar = () => {
         }}
       >
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.001,2.085c-5.478,0-9.916,4.438-9.916,9.916,c0,5.476,4.438,9.914,9.916,9.914c5.476,0,9.914-4.438,9.914-9.914C21.915,6.523,17.477,2.085,12.001,2.085z M12.002,20.085,c-4.465,0-8.084-3.619-8.084-8.083c0-4.465,3.619-8.084,8.084-8.084c4.464,0,8.083,3.619,8.083,8.084,C20.085,16.466,16.466,20.085,12.002,20.085z" />
-          <path d="M11.766,6.688c-2.5,0-3.219,2.188-3.219,2.188l1.411,0.854,c0,0,0.298-0.791,0.901-1.229c0.516-0.375,1.625-0.625,2.219,0.125c0.701,0.885-0.17,1.587-1.078,2.719,C11.047,12.531,11,15,11,15h1.969c0,0,0.135-2.318,1.041-3.381c0.603-0.707,1.443-1.338,1.443-2.494S14.266,6.688,11.766,6.688z" />
+          <path d="M12,2.1c-5.5,0-9.9,4.4-9.9,9.9c0,5.5,4.4,9.9,9.9,9.9c5.5,0,9.9-4.4,9.9-9.9C21.9,6.5,17.5,2.1,12,2.1z M12,20.1c-4.5,0-8.1-3.6-8.1-8.1c0-4.5,3.6-8.1,8.1-8.1c4.5,0,8.1,3.6,8.1,8.1C20.1,16.5,16.5,20.1,12,20.1z" />
+          <path d="M11.8,6.7c-2.5,0-3.2,2.2-3.2,2.2L10,9.7c0,0,0.3-0.8,0.9-1.2c0.5-0.4,1.6-0.6,2.2,0.1c0.7,0.9-0.2,1.6-1.1,2.7 c-1,1.2-1,3.7-1,3.7h2c0,0,0.1-2.3,1-3.4c0.6-0.7,1.4-1.3,1.4-2.5S14.3,6.7,11.8,6.7z" />
           <rect x="11" y="16" width="2" height="2" />
         </svg>
       </button>
+      <a
+        title="GitHub"
+        className={cx(
+          'absolute top-1 bg-no-repeat bg-contain bg-covert w-8 h-8 opacity-60 transition-opacity duration-500 hover:opacity-100 overflow-hidden',
+          classes.topButton,
+          classes.githubButton,
+        )}
+        href="https://github.com/arcomage/arcomage-hd"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            className="el-0"
+            d="M11.968 1.714c-5.82 0-10.541 4.72-10.541 10.54 0 4.657 3.04 8.601 7.178 10.025.518.064.712-.26.712-.518v-1.81c-2.91.646-3.557-1.423-3.557-1.423-.453-1.229-1.164-1.552-1.164-1.552-.97-.647.064-.647.064-.647 1.035.065 1.617 1.1 1.617 1.1.97 1.616 2.458 1.164 3.04.905a2.252 2.252 0 01.646-1.423c-2.328-.258-4.785-1.164-4.785-5.238 0-1.164.388-2.07 1.1-2.845-.066-.194-.454-1.294.128-2.716 0 0 .906-.259 2.91 1.099.841-.259 1.747-.323 2.652-.323s1.81.129 2.651.323c2.005-1.358 2.91-1.1 2.91-1.1.582 1.423.194 2.523.13 2.781a4.183 4.183 0 011.1 2.846c0 4.074-2.458 4.915-4.786 5.173.388.324.711.97.711 1.94v2.91c0 .259.194.582.711.518a10.553 10.553 0 007.179-10.024c-.065-5.82-4.786-10.541-10.606-10.541z"
+          />
+          <path
+            className="el-1"
+            d="M11.968 1.714c-5.82 0-10.541 4.72-10.541 10.54 0 4.657 3.04 8.601 7.178 10.025.518.064.712-.26.712-.518v-1.81c-2.91.646-4.396-1.307-4.396-1.307-.453-1.23-1.164-1.552-1.164-1.552-.97-.647.065-.647.065-.647 1.035.065 1.617 1.1 1.617 1.1.97 1.616 3.296 1.048 3.878.789a2.252 2.252 0 01.646-1.423c-2.328-.258-4.785-1.164-4.785-5.238 0-1.164.388-2.07 1.1-2.845-.066-.194-.454-1.294.128-2.716 0 0 .906-.259 2.91 1.1.841-.26 1.747-.324 2.652-.324s1.81.13 2.651.323c2.005-1.358 2.91-1.1 2.91-1.1.582 1.423.194 2.523.13 2.781a4.183 4.183 0 011.1 2.846c0 4.074-2.458 4.915-4.786 5.173.388.324.711.97.711 1.94v2.91c0 .259.194.582.711.518a10.553 10.553 0 007.179-10.024c-.065-5.82-4.786-10.541-10.606-10.541z"
+          />
+          <path
+            className="el-2"
+            d="M11.968 1.714c-5.82 0-10.541 4.72-10.541 10.54 0 4.657 3.04 8.601 7.178 10.025.518.064.712-.26.712-.518v-1.81c-2.91.646-2.66-1.597-2.66-1.597-.454-1.228-1.165-1.552-1.165-1.552-.97-.646.065-.646.065-.646 1.035.064 1.617 1.1 1.617 1.1.97 1.616 1.56 1.337 2.143 1.078a2.252 2.252 0 01.646-1.423c-2.328-.258-4.785-1.164-4.785-5.238 0-1.164.388-2.07 1.1-2.845-.066-.194-.454-1.294.128-2.716 0 0 .906-.259 2.91 1.099.841-.259 1.747-.323 2.652-.323s1.81.129 2.651.323c2.005-1.358 2.91-1.1 2.91-1.1.582 1.423.194 2.523.13 2.781a4.183 4.183 0 011.1 2.846c0 4.074-2.458 4.915-4.786 5.173.388.324.711.97.711 1.94v2.91c0 .259.194.582.711.518a10.553 10.553 0 007.179-10.024c-.065-5.82-4.786-10.541-10.606-10.541z"
+          />
+        </svg>
+      </a>
     </div>
   )
 }

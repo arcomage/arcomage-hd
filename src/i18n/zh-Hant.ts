@@ -3,13 +3,13 @@ export const i18n = {
   wall: '城牆',
   resource: '資源',
 
-  bricks: '磚頭',
+  bricks: '磚塊',
   gems: '寶石',
-  recruits: '怪物',
+  recruits: '魔獸',
 
-  quarry: '磚頭產量', // brick production
+  quarry: '磚塊產量', // brick production
   magic: '寶石產量', // gem production
-  dungeon: '怪物產量', // recruit production
+  dungeon: '魔獸產量', // recruit production
 
   discarded: '棄牌',
   'Discard a card': '丟棄一張牌',
@@ -33,5 +33,6 @@ export const i18n = {
 
   Language: '語言',
   Volume: '音量',
+  Mute: '靜音',
   Help: '幫助',
 }

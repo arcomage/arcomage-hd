@@ -33,5 +33,6 @@ export const i18n = {
 
   Language: '语言',
   Volume: '音量',
+  Mute: '静音',
   Help: '帮助',
 }

@@ -34,7 +34,7 @@ export const updateStatusEpic = (
           }
         }
         if (!noSound) {
-          playSound(statusProp, increase)
+          playSound(statusProp, state.volume, increase)
         }
         return {
           increase,

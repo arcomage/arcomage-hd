@@ -3,11 +3,11 @@ import { DataCardsI18nType } from '../types/dataCard'
 export const cardsI18n: DataCardsI18nType = [
   {
     name: '生死抗爭',
-    desc: '雙方同時失去8塊磚頭',
+    desc: '雙方同時失去8塊磚塊',
   },
   {
     name: '幸運寶藏',
-    desc: '磚頭+2，寶石+2，再次出牌',
+    desc: '磚塊+2，寶石+2，再次出牌',
   },
   {
     name: '友誼之地',
@@ -15,15 +15,15 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '偉大礦工',
-    desc: '磚頭產量+1',
+    desc: '磚塊產量+1',
   },
   {
     name: '礦石之脈',
-    desc: '如果磚頭產量少於對手，則磚頭產量+2，否則+1',
+    desc: '如果磚塊產量少於對手，則磚塊產量+2，否則+1',
   },
   {
     name: '矮人之礦',
-    desc: '城牆+4，磚頭產量+1',
+    desc: '城牆+4，磚塊產量+1',
   },
   {
     name: '努力工作',
@@ -31,7 +31,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '幻影之手',
-    desc: '如果磚頭產量少於對手，則磚頭產量等於對手',
+    desc: '如果磚塊產量少於對手，則磚塊產量等於對手',
   },
   {
     name: '基礎之牆',
@@ -43,7 +43,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '發明創造',
-    desc: '雙方磚頭產量同時+1，你還得到4個寶石',
+    desc: '雙方磚塊產量同時+1，你還得到4個寶石',
   },
   {
     name: '穩固基礎',
@@ -59,7 +59,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '山崩地裂',
-    desc: '雙方磚頭產量同時-1',
+    desc: '雙方磚塊產量同時-1',
   },
   {
     name: '雄偉之牆',
@@ -67,15 +67,15 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '粉碎之錘',
-    desc: '對手磚頭產量-1',
+    desc: '對手磚塊產量-1',
   },
   {
     name: '完美工具',
-    desc: '磚頭產量+2',
+    desc: '磚塊產量+2',
   },
   {
     name: '矮人之錘',
-    desc: '磚頭產量-1，城牆+10，寶石+5',
+    desc: '磚塊產量-1，城牆+10，寶石+5',
   },
   {
     name: '神奇之石',
@@ -83,7 +83,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '神秘之力',
-    desc: '城牆+5，怪物產量+1',
+    desc: '城牆+5，魔獸產量+1',
   },
   {
     name: '奇幻寶石',
@@ -115,19 +115,19 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '死命工作',
-    desc: '城牆+9，怪物-5',
+    desc: '城牆+9，魔獸-5',
   },
   {
     name: '石頭花園',
-    desc: '城牆+1，城堡+1，怪物+2',
+    desc: '城牆+1，城堡+1，魔獸+2',
   },
   {
     name: '洪澇災害',
-    desc: '城牆最低者怪物產量-1，城堡-2',
+    desc: '城牆最低者魔獸產量-1，城堡-2',
   },
   {
     name: '訓練營地',
-    desc: '怪物+6，城牆+6，如果怪物產量小於對手，則怪物產量+1',
+    desc: '魔獸+6，城牆+6，如果魔獸產量小於對手，則魔獸產量+1',
   },
   {
     name: '防禦工事',
@@ -207,7 +207,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '崩潰之石',
-    desc: '城堡+5，對手磚頭-6',
+    desc: '城堡+5，對手磚塊-6',
   },
   {
     name: '藍色水晶',
@@ -223,7 +223,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '巨人奴僕',
-    desc: '城堡+7，磚頭-10',
+    desc: '城堡+7，磚塊-10',
   },
   {
     name: '水晶護體',
@@ -231,7 +231,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '心領神會',
-    desc: '城堡+8，怪物產量+1',
+    desc: '城堡+8，魔獸產量+1',
   },
   {
     name: '鑽石永恆',
@@ -239,7 +239,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '神聖領域',
-    desc: '城堡+10，城牆+5，怪物+5',
+    desc: '城堡+10，城牆+5，魔獸+5',
   },
   {
     name: '岩漿飛濺',
@@ -263,7 +263,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '魔法學徒',
-    desc: '城堡+4，怪物-3，對手城堡-2',
+    desc: '城堡+4，魔獸-3，對手城堡-2',
   },
   {
     name: '閃電碎片',
@@ -271,11 +271,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '位相寶石',
-    desc: '城堡+13，怪物+6，磚頭+6',
+    desc: '城堡+13，魔獸+6，磚塊+6',
   },
   {
     name: '兇惡蠻牛',
-    desc: '雙方怪物同時-6',
+    desc: '雙方魔獸同時-6',
   },
   {
     name: '幻境仙女',
@@ -287,7 +287,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '百科全書',
-    desc: '怪物產量+1',
+    desc: '魔獸產量+1',
   },
   {
     name: '精靈密探',
@@ -319,7 +319,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '馴獸專家',
-    desc: '怪物產量+2',
+    desc: '魔獸產量+2',
   },
   {
     name: '高塔之妖',
@@ -327,7 +327,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '月圓之夜',
-    desc: '雙方怪物產量同時+1，你再得到3個怪物',
+    desc: '雙方魔獸產量同時+1，你再得到3個魔獸',
   },
   {
     name: '殺手無情',
@@ -339,11 +339,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '惡靈魔獸',
-    desc: '6點攻擊，對手怪物-3',
+    desc: '6點攻擊，對手魔獸-3',
   },
   {
     name: '惡鬼作怪',
-    desc: '6點攻擊，雙方磚頭、寶石和怪物同時-5',
+    desc: '6點攻擊，雙方磚塊、寶石和魔獸同時-5',
   },
   {
     name: '噴火甲蟲',
@@ -367,15 +367,15 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '絕命女妖',
-    desc: '對手城堡-5，怪物-8',
+    desc: '對手城堡-5，魔獸-8',
   },
   {
     name: '上古魔獸',
-    desc: '8點攻擊，對手磚頭產量-1',
+    desc: '8點攻擊，對手磚塊產量-1',
   },
   {
     name: '無影神偷',
-    desc: '對手寶石-10，磚頭-5，你得到其中一半（向上取整）',
+    desc: '對手寶石-10，磚塊-5，你得到其中一半（向上取整）',
   },
   {
     name: '岩石巨人',
@@ -383,11 +383,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '吸血殭屍',
-    desc: '10點攻擊，對手怪物-5，怪物產量-1',
+    desc: '10點攻擊，對手魔獸-5，魔獸產量-1',
   },
   {
     name: '無敵天龍',
-    desc: '20點攻擊，對手寶石-10，怪物產量-1',
+    desc: '20點攻擊，對手寶石-10，魔獸產量-1',
   },
   {
     name: '長矛槍兵',

@@ -22,3 +22,5 @@ export const defaultSettings: SettingsType = {
 
 export const defaultPlayerName = '🧝'
 export const defaultOpponentName = '👾'
+
+export const defaultVolume = 10
