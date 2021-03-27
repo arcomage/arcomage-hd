@@ -22,24 +22,23 @@ export const DRAW_CARD_MAIN = 'DRAW_CARD_MAIN' as const
 export const CHANGE_SETTINGS_AND_INIT = 'CHANGE_SETTINGS_AND_INIT' as const
 export const CHANGE_SETTINGS = 'CHANGE_SETTINGS' as const
 export const INIT = 'INIT' as const
-export const INIT_MAIN = 'INIT_MAIN' as const
+export const INIT_CARD = 'INIT_CARD' as const
+export const INIT_GAME = 'INIT_GAME' as const
+export const INIT_STATUS = 'INIT_STATUS' as const
 
 export const NEXT_ROUND = 'NEXT_ROUND' as const
 export const RESOURCE_PROD = 'RESOURCE_PROD' as const
 export const SWITCH_TURN = 'SWITCH_TURN' as const
 export const SWITCH_LOCK = 'SWITCH_LOCK' as const
-export const INIT_CARD = 'INIT_CARD' as const
-export const INIT_GAME = 'INIT_GAME' as const
-export const INIT_STATUS = 'INIT_STATUS' as const
 
 export const SWITCH_DISCARD_MODE = 'SWITCH_DISCARD_MODE' as const
 export const CHECK_UNUSABLE = 'CHECK_UNUSABLE' as const
 export const SET_UNUSABLE = 'SET_UNUSABLE' as const
 export const SWITCH_NEW_TURN = 'SWITCH_NEW_TURN' as const
+export const CHECK_VICTORY = 'CHECK_VICTORY' as const
 
 export const SCREEN_PREF = 'SCREEN_PREF' as const
 export const SCREEN_LANG_PREF = 'SCREEN_LANG_PREF' as const
 export const SCREEN_VOLUME_PREF = 'SCREEN_VOLUME_PREF' as const
-export const SCREEN_YOU_WIN = 'SCREEN_YOU_WIN' as const
-export const SCREEN_YOU_LOSE = 'SCREEN_YOU_LOSE' as const
+export const SCREEN_END = 'SCREEN_END' as const
 export const SCREEN_HELP = 'SCREEN_HELP' as const

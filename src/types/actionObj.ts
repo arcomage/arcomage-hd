@@ -34,9 +34,9 @@ import {
   SCREEN_PREF,
   SCREEN_LANG_PREF,
   SCREEN_VOLUME_PREF,
-  SCREEN_YOU_WIN,
-  SCREEN_YOU_LOSE,
+  SCREEN_END,
   SCREEN_HELP,
+  CHECK_VICTORY,
 } from '../constants/ActionTypes'
 import {
   CardStateType,
@@ -233,6 +233,10 @@ export type SwitchNewTurnActionType = {
   type: typeof SWITCH_NEW_TURN
 }
 
+export type CheckVictoryActionType = {
+  type: typeof CHECK_VICTORY
+}
+
 export type ScreenPrefActionType = {
   type: typeof SCREEN_PREF
   show: boolean
@@ -248,19 +252,14 @@ export type ScreenVolumePrefActionType = {
   show: boolean
 }
 
-export type ScreenYouWinActionType = {
-  type: typeof SCREEN_YOU_WIN
-  show: boolean
-}
-
-export type ScreenYouLoseActionType = {
-  type: typeof SCREEN_YOU_LOSE
-  show: boolean
-}
-
 export type ScreenHelpActionType = {
   type: typeof SCREEN_HELP
   show: boolean
+}
+
+export type ScreenEndActionType = {
+  type: typeof SCREEN_END
+  kind: 1 | 0 | -1 | null // win | draw | lose | close screen
 }
 
 export type ActionType =
@@ -296,9 +295,9 @@ export type ActionType =
   | CheckUnusableActionType
   | SetUnusableActionType
   | SwitchNewTurnActionType
+  | CheckVictoryActionType
   | ScreenPrefActionType
   | ScreenLangPrefActionType
   | ScreenVolumePrefActionType
-  | ScreenYouWinActionType
-  | ScreenYouLoseActionType
   | ScreenHelpActionType
+  | ScreenEndActionType

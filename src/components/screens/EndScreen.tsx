@@ -6,6 +6,12 @@ import youWinImg from '../../../assets/img/you-win.svg'
 import youLoseImg from '../../../assets/img/you-lose.svg'
 import firework from '../../../assets/img/firework.png'
 import { I18nContext } from '../../i18n/I18nContext'
+import { dispatch } from 'rxjs/internal/observable/pairs'
+import { useAppDispatch } from '../../utils/useAppDispatch'
+import { INIT, SCREEN_END } from '../../constants/ActionTypes'
+import useKeyDown from '../../utils/useKeyDown'
+
+const textArr = ['You Lose!', 'Draw Game', 'You Win!']
 
 const useStyles = createUseStyles({
   '@keyframes fadein': {
@@ -25,7 +31,7 @@ const useStyles = createUseStyles({
     'animation-duration': '0.4s',
   },
   main: {
-    'background-image': (win) => `url(${win ? youWinImg : youLoseImg})`,
+    'background-image': (kind) => `url(${kind >= 0 ? youWinImg : youLoseImg})`,
   },
   '@keyframes firework': {
     '100%': {
@@ -70,22 +76,43 @@ const useStyles = createUseStyles({
     'line-height': '15vh',
     bottom: '53%',
     color: '#fff',
-    animation: (win) =>
-      `${win ? '$redNeon' : '$blackNeon'} 0.08s ease-in-out infinite alternate`,
+    animation: (kind) =>
+      `${
+        kind >= 0 ? '$redNeon' : '$blackNeon'
+      } 0.08s ease-in-out infinite alternate`,
     'font-family': 'RobotoCondensed',
   },
 })
 
-type PropType = { win?: boolean }
-const EndScreen = ({ win = true }: PropType) => {
+type PropType = { kind: 1 | 0 | -1 }
+const EndScreen = ({ kind }: PropType) => {
+  const dispatch = useAppDispatch()
   const trans = useContext(I18nContext)
-  const classes = useStyles(win)
+  const classes = useStyles(kind)
+
+  const text = trans.i18n?.[textArr[kind + 1]]
+
+  const onActionFunc = () => {
+    dispatch({
+      type: SCREEN_END,
+      kind: null,
+    })
+    dispatch({
+      type: INIT,
+    })
+  }
+
+  useKeyDown(null, onActionFunc)
+
   return (
     <div
       className={cx(
         'absolute w-full h-full top-0 left-0 z-90 bg-black bg-opacity-50',
         classes.container,
       )}
+      onClick={onActionFunc}
+      onContextMenu={onActionFunc}
+      tabIndex={0}
     >
       <div
         className={cx(
@@ -99,9 +126,10 @@ const EndScreen = ({ win = true }: PropType) => {
             'absolute w-full font-bold text-white text-center',
           )}
         >
-          {trans.i18n?.[win ? 'You Win!' : 'You Lose!']}
+          {text}
         </div>
-        {win && (
+        {kind >= 0 && (
+          // win OR draw
           <>
             <div
               className={cx(classes.firework, 'absolute top-0 left-1/4')}

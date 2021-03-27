@@ -1,5 +1,6 @@
 import {
   CHECK_UNUSABLE,
+  CHECK_VICTORY,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
 } from '../constants/ActionTypes'
@@ -50,6 +51,9 @@ export const updateStatusEpic = (
         }),
         of({
           type: CHECK_UNUSABLE,
+        }),
+        of({
+          type: CHECK_VICTORY,
         }),
       )
     }),

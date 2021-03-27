@@ -16,6 +16,7 @@ export const i18n = {
 
   'You Win!': 'Vous avez gagné',
   'You Lose!': 'Vous avez perdu',
+  'Draw Game': 'Draw Game',
 
   Preferences: 'Preferences',
   'Your Name:': 'Your Name:',

@@ -23,7 +23,6 @@ import {
 import { hasOwnProperty } from '../../utils/typeHelpers'
 
 const Pref = () => {
-  const volume: number = useAppSelector((state) => state.volume)
   const trans = useContext(I18nContext)
   const dispatch = useAppDispatch()
 

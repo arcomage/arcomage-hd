@@ -7726,7 +7726,7 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
-react-jss@^10.5.1:
+react-jss@10.5.1:
   version "10.5.1"
   resolved "https://registry.yarnpkg.com/react-jss/-/react-jss-10.5.1.tgz#f57f4277649c69c3609844913d2911e2f5ed719a"
   integrity sha512-ZVzMwMg5i0F3lNqXi9M4rDsByLWDxtqJkKyCzC1iUwdTJUlmIzpRdhMzHz/hbeEdh37KFF6+l3Qsjnn2EMyqXQ==

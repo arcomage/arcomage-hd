@@ -11,6 +11,7 @@ import EndScreen from './screens/EndScreen'
 import Pref from './screens/Pref'
 import LangPref from './screens/LangPref'
 import VolumePref from './screens/VolumePref'
+import Help from './screens/Help'
 
 const useStyles = createUseStyles({
   main: {
@@ -25,8 +26,7 @@ const Game = () => {
   const pref = useAppSelector((state) => state.screen.pref)
   const langPref = useAppSelector((state) => state.screen.langPref)
   const volumePref = useAppSelector((state) => state.screen.volumePref)
-  const youWin = useAppSelector((state) => state.screen.youWin)
-  const youLose = useAppSelector((state) => state.screen.youLose)
+  const end = useAppSelector((state) => state.screen.end)
   const help = useAppSelector((state) => state.screen.help)
 
   return (
@@ -38,10 +38,11 @@ const Game = () => {
     >
       <TableCommon />
       <TableP />
-      {(youWin || youLose) && <EndScreen win={youWin} />}
+      {end !== null && <EndScreen kind={end} />}
       {pref && <Pref />}
       {langPref && <LangPref />}
       {volumePref && <VolumePref />}
+      {help && <Help />}
       <ButtonBar />
     </div>
   )

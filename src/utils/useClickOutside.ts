@@ -3,7 +3,7 @@ import { MutableRefObject, useEffect } from 'react'
 const useClickOutside = (
   ref: MutableRefObject<HTMLElement | null>,
   func: (event: MouseEvent) => void,
-) => {
+): void => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -11,11 +11,11 @@ const useClickOutside = (
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
+    window.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
+      window.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [ref])
+  }, [])
 }
 
 export default useClickOutside

@@ -281,10 +281,13 @@ const Card = ({
     // bg-blue-300
     // bg-green-300
 
+    let tabIndexable = false
+
     const onClickFunc = (() => {
       if (owner !== 'common' && !locked) {
         if (discardMode) {
           if (canDiscardUndiscardableWhenDDP || !special?.undiscardable) {
+            tabIndexable = true
             return {
               onClick: () => {
                 dispatch({
@@ -298,6 +301,7 @@ const Card = ({
           }
         } else {
           if (!unusable) {
+            tabIndexable = true
             return {
               onClick: () => {
                 dispatch({
@@ -322,6 +326,7 @@ const Card = ({
         (!special?.undiscardable ||
           (discardMode && canDiscardUndiscardableWhenDDP))
       ) {
+        tabIndexable = true
         return {
           onContextMenu: (e: MouseEvent<HTMLDivElement>) => {
             e.preventDefault()
@@ -336,6 +341,15 @@ const Card = ({
       }
       return {}
     })()
+
+    if (
+      (playersTurn && owner === 'opponent') ||
+      (!playersTurn && owner === 'player')
+    ) {
+      tabIndexable = false
+    }
+
+    const tabIndexObj = tabIndexable ? { tabIndex: 0 } : {}
 
     return (
       <div
@@ -352,6 +366,7 @@ const Card = ({
           { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
+        {...tabIndexObj}
         {...onClickFunc}
         {...onContextMenuFunc}
         onTransitionEnd={(e) => {
