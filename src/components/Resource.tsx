@@ -30,7 +30,7 @@ const calcProdHeight = (height: number): string =>
 export const calcStatusWidth = (height: number): string =>
   `${calcProdHeight(height)} / ${whRatio} + 0.25rem * 2 + 1.25rem * 2`
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles<string, number>({
   brick: {
     background: {
       image: `url(${brickBg})`,

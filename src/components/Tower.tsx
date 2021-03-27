@@ -23,7 +23,10 @@ const heightByCurrent = (height: number, currentGoalRatio: number): string =>
     height,
   )} * 2) / 135 * 600 * ${currentGoalRatio})`
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles<
+  string,
+  { height: number; current: number; goal: number }
+>({
   main: {
     width: ({ height }) => `calc(${calcWidth(height)})`,
   },

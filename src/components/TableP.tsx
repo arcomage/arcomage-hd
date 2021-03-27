@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss'
 
 import { useAppSelector } from '../utils/useAppDispatch'
 import { CardListItemAllType } from '../types/state'
-import DiscardModeNotice from './DiscardModeNotice'
+import DiscardModeNotice from './special/DiscardModeNotice'
 
 const useStyles = createUseStyles({
   main: { background: { image: 'linear-gradient(#326a4b, #000 2rem)' } },

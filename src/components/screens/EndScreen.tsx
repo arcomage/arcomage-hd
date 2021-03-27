@@ -6,14 +6,13 @@ import youWinImg from '../../../assets/img/you-win.svg'
 import youLoseImg from '../../../assets/img/you-lose.svg'
 import firework from '../../../assets/img/firework.png'
 import { I18nContext } from '../../i18n/I18nContext'
-import { dispatch } from 'rxjs/internal/observable/pairs'
 import { useAppDispatch } from '../../utils/useAppDispatch'
 import { INIT, SCREEN_END } from '../../constants/ActionTypes'
 import useKeyDown from '../../utils/useKeyDown'
 
 const textArr = ['You Lose!', 'Draw Game', 'You Win!']
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles<string, 1 | 0 | -1>({
   '@keyframes fadein': {
     '0%': {
       opacity: 0,

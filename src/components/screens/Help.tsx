@@ -1,16 +1,17 @@
-import React, { memo } from 'react'
+import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import Window from './Window'
+import MultilineText from '../special/MultilineText'
 
 import { SCREEN_HELP } from '../../constants/ActionTypes'
+import { I18nContext } from '../../i18n/I18nContext'
 
 const Help = () => {
-
+  const trans = useContext(I18nContext)
+  const text = trans.i18n?.GAMEDESC ?? ''
   return (
     <Window ScreenActionType={SCREEN_HELP}>
-      <div>
-        The game...
-      </div>
+      {<MultilineText>{text}</MultilineText>}
     </Window>
   )
 }

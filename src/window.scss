@@ -15,6 +15,10 @@
       animation-duration: 0.8s;
     }
 
+    p {
+      @apply py-2;
+    }
+
     label {
       @apply flex flex-wrap w-full items-center mb-0.5 md:mb-2;
 

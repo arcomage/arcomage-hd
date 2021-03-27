@@ -1,7 +1,7 @@
 import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { I18nContext } from '../i18n/I18nContext'
+import { I18nContext } from '../../i18n/I18nContext'
 
 const useStyles = createUseStyles({
   main: {

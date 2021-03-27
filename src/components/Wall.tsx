@@ -16,7 +16,7 @@ const calcBaseRatio = (height: number): string =>
 const heightByCurrent = (height: number, current: number): string =>
   `calc(${calcBaseRatio(height)} * 597 * ${current / goal})`
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles<string, number>({
   main: {
     width: (height) => `calc(${calcBaseRatio(height)} * 72 + 1rem * 2)`,
   },

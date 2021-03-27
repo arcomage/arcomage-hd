@@ -4,7 +4,7 @@ import {
   CLEAR_CARD,
 } from '../constants/ActionTypes'
 import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { StateType } from '../types/state'

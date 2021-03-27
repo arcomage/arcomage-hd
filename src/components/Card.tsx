@@ -85,7 +85,18 @@ const getMarginX = (
   tableHeight: number,
 ): number => getSpacingX(winWidth, total, tableHeight) * marginSpacingXRatio
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles<
+  string,
+  {
+    type?: number
+    winHeight: number
+    winWidth: number
+    total: number
+    position: number
+    unusable: boolean
+    zeroOpacity: boolean
+  }
+>({
   main: {
     width: ({ winHeight, winWidth, total }) =>
       `${getWidth(winHeight / 3, winWidth, total)}px`,
@@ -186,7 +197,8 @@ const useStyles = createUseStyles({
       'calc(100% - (1.25rem + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
   },
   resbg: {
-    'background-image': ({ type }) => `url(${[brick, gem, recruit][type]})`,
+    'background-image': ({ type }) =>
+      type === undefined ? 'none' : `url(${[brick, gem, recruit][type]})`,
     background: {
       repeat: 'no-repeat',
       size: 'cover',
