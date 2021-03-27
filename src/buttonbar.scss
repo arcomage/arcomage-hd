@@ -1,0 +1,12 @@
+@layer base {
+  .topbutton {
+    @apply absolute top-1 bg-no-repeat bg-contain bg-center w-8 h-8 opacity-60 transition-opacity duration-500 hover:opacity-100 overflow-hidden;
+    & svg {
+      fill: #fff;
+      filter: drop-shadow(1px 1px 0 #000);
+      & .all {
+        stroke: #fff;
+      }
+    }
+  }
+}

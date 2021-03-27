@@ -5,7 +5,7 @@ import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { minWidth, minHeight } from '../utils/GameSizeContext'
 import TableCommon from './TableCommon'
 import TableP from './TableP'
-import ButtonBar from './screens/ButtonBar'
+import ButtonBar from './buttons/ButtonBar'
 
 import EndScreen from './screens/EndScreen'
 import Pref from './screens/Pref'
