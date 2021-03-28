@@ -51,9 +51,7 @@ const Window = ({ ScreenActionType, children }: PropType) => {
                 show: false,
               })
             }}
-          >
-            ✖
-          </button>
+          ></button>
         </div>
       </div>
     </div>

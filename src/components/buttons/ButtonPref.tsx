@@ -25,7 +25,7 @@ const useStyles = createUseStyles<string>({
   },
 })
 
-const ButtonBar = () => {
+const ButtonPref = () => {
   const trans = useContext(I18nContext)
 
   const pref = useAppSelector((state) => state.screen.pref)
@@ -52,4 +52,4 @@ const ButtonBar = () => {
   )
 }
 
-export default memo(ButtonBar)
+export default memo(ButtonPref)

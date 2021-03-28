@@ -68,7 +68,7 @@ Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses
 * https://commons.wikimedia.org/wiki/File:VisualEditor_-_Icon_-_Help.svg
 * https://www.svgrepo.com/svg/75085/full-screen
 
-The animations of the button icons are developed by Tom Chen and licensed under the MIT license.
+The animations of the button icons, brick.svg, gem.svg, recruit.svg are developed by Tom Chen and licensed under the MIT license.
 
 ### Erathian Font
 

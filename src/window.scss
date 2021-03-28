@@ -93,6 +93,14 @@
       @apply rounded-full cursor-pointer;
     }
 
+    input[type='checkbox'],
+    input[type='radio'] {
+      &,
+      & ~ * {
+        @apply cursor-pointer;
+      }
+    }
+
     h3 {
       @apply text-white text-xl md:text-2xl font-bold;
     }
@@ -114,8 +122,8 @@
         @apply bg-green-500 hover:bg-green-400 border-green-700 hover:border-green-500 border-b-0;
       }
       &.cancel {
-        @apply bg-red-500 hover:bg-red-400 border-red-700 hover:border-red-500 absolute -top-6 -right-6;
-        font-family: 'RobotoCondensed';
+        @apply bg-red-500 hover:bg-red-400 border-red-700 hover:border-red-500 absolute w-12 h-12 -top-6 -right-6 bg-no-repeat bg-contain bg-center;
+        background-image: url('../assets/img/x.svg');
       }
     }
   }

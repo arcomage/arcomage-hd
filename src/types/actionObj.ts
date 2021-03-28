@@ -1,5 +1,6 @@
 import {
   UPDATE_LANG,
+  UPDATE_ERATHIAN,
   UPDATE_VOLUME,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
@@ -48,6 +49,11 @@ import {
 export type LangActionType = {
   type: typeof UPDATE_LANG
   lang: AvailableLangType
+}
+
+export type ErathianActionType = {
+  type: typeof UPDATE_ERATHIAN
+  erathian: boolean
 }
 
 export type VolumeActionType = {
@@ -265,6 +271,7 @@ export type ScreenEndActionType = {
 
 export type ActionType =
   | LangActionType
+  | ErathianActionType
   | VolumeActionType
   | UpdateStatusActionType
   | UpdateStatusMainActionType

@@ -31,7 +31,7 @@ const useStyles = createUseStyles<string>({
     },
   },
   githubButton: {
-    left: 'calc(60% + 12rem)',
+    left: 'calc(60% + 15rem)',
     '& svg': {
       '& .el-0': {
         visibility: 'visible',
@@ -62,7 +62,7 @@ const useStyles = createUseStyles<string>({
   },
 })
 
-const ButtonBar = () => {
+const ButtonGithub = () => {
   const classes = useStyles()
 
   return (
@@ -91,4 +91,4 @@ const ButtonBar = () => {
   )
 }
 
-export default memo(ButtonBar)
+export default memo(ButtonGithub)

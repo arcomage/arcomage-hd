@@ -52,7 +52,7 @@ const useStyles = createUseStyles<string>({
   },
 })
 
-const ButtonBar = () => {
+const ButtonVolumePref = () => {
   const trans = useContext(I18nContext)
 
   const volumePref = useAppSelector((state) => state.screen.volumePref)
@@ -96,4 +96,4 @@ const ButtonBar = () => {
   )
 }
 
-export default memo(ButtonBar)
+export default memo(ButtonVolumePref)

@@ -29,10 +29,13 @@ const Game = () => {
   const end = useAppSelector((state) => state.screen.end)
   const help = useAppSelector((state) => state.screen.help)
 
+  const erathian: boolean = useAppSelector((state) => state.lang.erathian)
+
   return (
     <div
       className={cx(
         'w-screen h-screen flex flex-col bg-black overflow-x-hidden select-none',
+        { erathian },
         classes.main,
       )}
     >

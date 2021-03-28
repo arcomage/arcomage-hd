@@ -79,7 +79,6 @@ const useStyles = createUseStyles<string, 1 | 0 | -1>({
       `${
         kind >= 0 ? '$redNeon' : '$blackNeon'
       } 0.08s ease-in-out infinite alternate`,
-    'font-family': 'RobotoCondensed',
   },
 })
 
@@ -122,7 +121,7 @@ const EndScreen = ({ kind }: PropType) => {
         <div
           className={cx(
             classes.text,
-            'absolute w-full font-bold text-white text-center',
+            'absolute w-full font-bold text-white text-center robotocondensed',
           )}
         >
           {text}

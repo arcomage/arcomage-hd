@@ -86,3 +86,8 @@ export type StateType = {
   screen: ScreenStateType
   volume: number
 }
+
+export type LangStateType = {
+  code: AvailableLangType
+  erathian: boolean
+}

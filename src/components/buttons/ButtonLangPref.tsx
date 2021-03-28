@@ -303,7 +303,7 @@ const useStyles = createUseStyles<string>({
   },
 })
 
-const ButtonBar = () => {
+const ButtonLangPref = () => {
   const trans = useContext(I18nContext)
 
   const langPref = useAppSelector((state) => state.screen.langPref)
@@ -373,4 +373,4 @@ const ButtonBar = () => {
   )
 }
 
-export default memo(ButtonBar)
+export default memo(ButtonLangPref)

@@ -19,7 +19,7 @@ const useStyles = createUseStyles<string>({
     },
   },
   helpButton: {
-    left: 'calc(60% + 9rem)',
+    left: 'calc(60% + 12rem)',
     '&:hover, &.windowactive': {
       '& svg': {
         animation: '$rotate2 2s linear infinite',
@@ -28,7 +28,7 @@ const useStyles = createUseStyles<string>({
   },
 })
 
-const ButtonBar = () => {
+const ButtonHelp = () => {
   const trans = useContext(I18nContext)
 
   const help = useAppSelector((state) => state.screen.help)
@@ -57,4 +57,4 @@ const ButtonBar = () => {
   )
 }
 
-export default memo(ButtonBar)
+export default memo(ButtonHelp)

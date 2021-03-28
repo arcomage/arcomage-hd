@@ -21,7 +21,7 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
   const [translation, setTranslation] = useState<TranslationFullType>(
     translationDefault,
   )
-  const lang = useAppSelector((state): AvailableLangType => state.lang)
+  const lang = useAppSelector((state): AvailableLangType => state.lang.code)
   useEffect(() => {
     if (!translation[lang]) {
       setTranslation({ ...translation, [lang]: null })
