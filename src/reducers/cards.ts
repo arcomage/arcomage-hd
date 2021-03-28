@@ -12,7 +12,7 @@ import {
   MOVE_CARD_TO_TOP_MAIN,
 } from '../constants/ActionTypes'
 import { CardStateType } from '../types/state'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 
 const defaultCards: CardStateType = {
   total: { player: 0, opponent: 0 },
@@ -20,7 +20,7 @@ const defaultCards: CardStateType = {
   nextPos: { player: 0, opponent: 0 },
 }
 
-const cards = produce((draft: CardStateType, action: ActionType) => {
+const cards = produce((draft: CardStateType, action: RootActionType) => {
   switch (action.type) {
     case INIT_CARD: {
       return action.payload

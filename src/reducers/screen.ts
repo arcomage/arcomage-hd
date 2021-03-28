@@ -6,7 +6,7 @@ import {
   SCREEN_PREF,
   SCREEN_VOLUME_PREF,
 } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 import { ScreenStateType } from '../types/state'
 
 const defaultScreen: ScreenStateType = {
@@ -17,7 +17,7 @@ const defaultScreen: ScreenStateType = {
   end: null,
 }
 
-const screen = produce((draft: ScreenStateType, action: ActionType) => {
+const screen = produce((draft: ScreenStateType, action: RootActionType) => {
   switch (action.type) {
     case SCREEN_PREF: {
       draft.pref = action.show

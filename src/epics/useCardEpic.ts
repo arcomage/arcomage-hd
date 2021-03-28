@@ -9,12 +9,19 @@ import {
   MOVE_CARD_TO_TOP,
   DRAW_CARD,
   NEXT_ROUND,
+  SCREEN_END,
 } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
-import { filter, concatMap, delay, withLatestFrom } from 'rxjs/operators'
+import { RootActionType } from '../types/actionObj'
+import {
+  filter,
+  concatMap,
+  delay,
+  withLatestFrom,
+  takeUntil,
+} from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { StateType } from '../types/state'
+import { RootStateType } from '../types/state'
 import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import cards from '../data/cards'
@@ -24,8 +31,8 @@ import {
 } from '../constants/transition'
 
 export const useCardEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(USE_CARD)),
@@ -55,6 +62,7 @@ export const useCardEpic = (
           position,
           owner,
         }),
+        ///////////////////////
         of({
           type: SWITCH_LOCK,
         }),
@@ -93,7 +101,7 @@ export const useCardEpic = (
                     index,
                   }).pipe(delay(cardTransitionDurationMs)),
             ),
-      )
+      ).pipe(takeUntil(action$.ofType(SCREEN_END)))
     }),
   )
 

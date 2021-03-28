@@ -26,6 +26,7 @@ import { DataCardI18nType } from '../types/dataCard'
 import {
   canDiscardUndiscardableWhenDDP,
   hideOpponentCard,
+  useAi,
 } from '../constants/devSettings'
 
 const heightPercToTable = 0.8
@@ -310,7 +311,7 @@ const Card = ({
     let tabIndexable = false
 
     const onClickFunc = (() => {
-      if (owner !== 'common' && !locked) {
+      if (owner !== 'common' && !locked && !(useAi && owner === 'opponent')) {
         if (discardMode) {
           if (canDiscardUndiscardableWhenDDP || !special?.undiscardable) {
             tabIndexable = true
@@ -350,7 +351,8 @@ const Card = ({
         owner !== 'common' &&
         !locked &&
         (!special?.undiscardable ||
-          (discardMode && canDiscardUndiscardableWhenDDP))
+          (discardMode && canDiscardUndiscardableWhenDDP)) &&
+        !(useAi && owner === 'opponent')
       ) {
         tabIndexable = true
         return {

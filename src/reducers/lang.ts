@@ -1,7 +1,7 @@
 import produce from 'immer'
 import { UPDATE_ERATHIAN, UPDATE_LANG } from '../constants/ActionTypes'
 import { defaultLang } from '../i18n/langs'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 import { LangStateType } from '../types/state'
 
 const defaultLangState: LangStateType = {
@@ -9,7 +9,7 @@ const defaultLangState: LangStateType = {
   erathian: false,
 }
 
-const lang = produce((draft: LangStateType, action: ActionType) => {
+const lang = produce((draft: LangStateType, action: RootActionType) => {
   switch (action.type) {
     case UPDATE_LANG: {
       draft.code = action.lang

@@ -1,7 +1,7 @@
 import produce from 'immer'
 import { CHANGE_SETTINGS } from '../constants/ActionTypes'
 import { SettingsStateType } from '../types/state'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 import {
   defaultSettings,
   defaultPlayerName,
@@ -17,7 +17,7 @@ const defaults: SettingsStateType = {
   aiType: defaultSettings.aiType,
 }
 
-const game = produce((draft: SettingsStateType, action: ActionType) => {
+const game = produce((draft: SettingsStateType, action: RootActionType) => {
   switch (action.type) {
     case CHANGE_SETTINGS: {
       return action.payload

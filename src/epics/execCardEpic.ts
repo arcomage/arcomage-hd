@@ -1,16 +1,16 @@
 import { UPDATE_STATUS, EXEC_CARD } from '../constants/ActionTypes'
-import { ActionType, UpdateStatusActionTypeSingle } from '../types/actionObj'
+import { RootActionType, UpdateStatusActionTypeSingle } from '../types/actionObj'
 import { map, withLatestFrom, filter } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { StateType } from '../types/state'
+import { RootStateType } from '../types/state'
 import { entries } from '../utils/typeHelpers'
 import dataCards from '../data/cards'
 import { resNames } from '../constants/resourceNames'
 
 export const execCardEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(EXEC_CARD)),

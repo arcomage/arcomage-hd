@@ -38,10 +38,12 @@ import {
   SCREEN_END,
   SCREEN_HELP,
   CHECK_VICTORY,
+  AI_USE_CARD,
 } from '../constants/ActionTypes'
 import { AvailableLangType } from '../i18n/types'
 import {
   CardStateType,
+  ownerType2,
   PersonStatusType,
   SettingsStateType,
 } from '../types/state'
@@ -100,7 +102,7 @@ export type UpdateStatusMainActionType = {
 export type ExecCardActionType = {
   type: typeof EXEC_CARD
   n: number
-  owner: 'player' | 'opponent'
+  owner: ownerType2
 }
 
 export type UseCardActionType = {
@@ -108,7 +110,7 @@ export type UseCardActionType = {
   n: number
   index: number
   position: number
-  owner: 'player' | 'opponent'
+  owner: ownerType2
 }
 
 export type DrawCardActionType = {
@@ -123,7 +125,7 @@ export type DrawCardPreActionType = {
 export type DrawCardMainActionType = {
   type: typeof DRAW_CARD_MAIN
   position: number
-  owner: 'player' | 'opponent'
+  owner: ownerType2
 }
 
 export type ClearCardActionType = {
@@ -155,7 +157,7 @@ export type DiscardCardActionType = {
   type: typeof DISCARD_CARD
   index: number
   position: number
-  owner: 'player' | 'opponent'
+  owner: ownerType2
 }
 
 export type AddDiscardedTagActionType = {
@@ -167,7 +169,7 @@ export type RemoveCardActionType = {
   type: typeof REMOVE_CARD
   index: number
   position: number
-  owner: 'player' | 'opponent'
+  owner: ownerType2
 }
 
 export type DeleteCardInStackActionType = {
@@ -181,7 +183,7 @@ export type NextRoundActionType = {
 
 export type ResourceProdActionType = {
   type: typeof RESOURCE_PROD
-  owner: 'player' | 'opponent'
+  owner: ownerType2
 }
 
 export type SwitchTurnActionType = {
@@ -269,7 +271,11 @@ export type ScreenEndActionType = {
   kind: 1 | 0 | -1 | null // win | draw | lose | close screen
 }
 
-export type ActionType =
+export type AiUseCardActionType = {
+  type: typeof AI_USE_CARD
+}
+
+export type RootActionType =
   | LangActionType
   | ErathianActionType
   | VolumeActionType
@@ -309,3 +315,4 @@ export type ActionType =
   | ScreenVolumePrefActionType
   | ScreenHelpActionType
   | ScreenEndActionType
+  | AiUseCardActionType

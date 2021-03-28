@@ -7,7 +7,7 @@ import {
   SWITCH_TURN,
 } from '../constants/ActionTypes'
 import { GameStateType } from '../types/state'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 
 const defaultGame: GameStateType = {
   playersTurn: true,
@@ -16,7 +16,7 @@ const defaultGame: GameStateType = {
   isNewTurn: true,
 }
 
-const game = produce((draft: GameStateType, action: ActionType) => {
+const game = produce((draft: GameStateType, action: RootActionType) => {
   switch (action.type) {
     case INIT_GAME: {
       return {

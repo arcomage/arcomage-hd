@@ -5,17 +5,24 @@ import {
   DRAW_CARD,
   RESOURCE_PROD,
   SWITCH_NEW_TURN,
+  SCREEN_END,
 } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
+import { RootActionType } from '../types/actionObj'
+import {
+  withLatestFrom,
+  filter,
+  concatMap,
+  delay,
+  takeUntil,
+} from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { StateType } from '../types/state'
+import { RootStateType } from '../types/state'
 import { concat, of } from 'rxjs'
 
 export const nextRoundEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(NEXT_ROUND)),
@@ -29,6 +36,7 @@ export const nextRoundEpic = (
           type: RESOURCE_PROD,
           owner: state.game.playersTurn ? 'opponent' : 'player',
         }),
+        ///////////////////////
         of({
           type: SWITCH_LOCK,
         }),
@@ -38,7 +46,7 @@ export const nextRoundEpic = (
         of({
           type: SWITCH_NEW_TURN,
         }),
-      )
+      ).pipe(takeUntil(action$.ofType(SCREEN_END)))
     }),
   )
 

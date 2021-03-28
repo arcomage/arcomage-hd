@@ -4,17 +4,17 @@ import {
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
 } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { StateType } from '../types/state'
+import { RootStateType } from '../types/state'
 import playSound from '../utils/playSound'
 import { concat, of } from 'rxjs'
 
 export const updateStatusEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(UPDATE_STATUS)),

@@ -3,27 +3,29 @@ import {
   DRAW_CARD_PRE,
   DRAW_CARD_MAIN,
   CHECK_UNUSABLE,
+  AI_USE_CARD,
 } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { StateType } from '../types/state'
-import { concat, of } from 'rxjs'
+import { RootStateType } from '../types/state'
+import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import { randomWithProbs } from '../utils/randomWithProbs'
-import { drawCardPre } from '../constants/transition'
+import { cardTransitionDurationMs, drawCardPre } from '../constants/transition'
+import { useAi } from '../constants/devSettings'
 
 export const nextRoundEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(DRAW_CARD)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       const newCardN = randomWithProbs()
-
+      const owner = state.game.playersTurn ? 'player' : 'opponent'
       playSound('deal', state.volume)
 
       return concat(
@@ -37,10 +39,14 @@ export const nextRoundEpic = (
         }),
         of({
           type: DRAW_CARD_MAIN,
-          position:
-            state.cards.nextPos[state.game.playersTurn ? 'player' : 'opponent'],
-          owner: state.game.playersTurn ? 'player' : 'opponent',
+          position: state.cards.nextPos[owner],
+          owner: owner,
         }).pipe(delay(drawCardPre)),
+        owner === 'opponent' && useAi
+          ? of({
+              type: AI_USE_CARD,
+            }).pipe(delay(cardTransitionDurationMs))
+          : EMPTY,
       )
     }),
   )

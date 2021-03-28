@@ -3,16 +3,16 @@ import {
   CHANGE_SETTINGS,
   INIT,
 } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 import { filter, concatMap } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { StateType } from '../types/state'
+import { RootStateType } from '../types/state'
 
 export const changeSettingsAndInitEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(CHANGE_SETTINGS_AND_INIT)),

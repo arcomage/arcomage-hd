@@ -1,15 +1,15 @@
 import { CHECK_UNUSABLE, SET_UNUSABLE } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 import { withLatestFrom, filter, map } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { CardListItemAllType, StateType } from '../types/state'
+import { CardListItemAllType, RootStateType } from '../types/state'
 import cards from '../data/cards'
 import { resNames } from '../constants/resourceNames'
 
 export const checkUnusableEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(CHECK_UNUSABLE)),

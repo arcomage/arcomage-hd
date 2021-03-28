@@ -5,18 +5,29 @@ import {
   INIT_STATUS,
   DRAW_CARD,
   RESOURCE_PROD,
+  SCREEN_END,
 } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
+import { RootActionType } from '../types/actionObj'
+import {
+  withLatestFrom,
+  filter,
+  concatMap,
+  delay,
+  takeUntil,
+} from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { CardListItemAllType, CardStateType, StateType } from '../types/state'
+import {
+  CardListItemAllType,
+  CardStateType,
+  RootStateType,
+} from '../types/state'
 import { randomWithProbs } from '../utils/randomWithProbs'
 
 export const changeSettingsAndInitEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(INIT)),
@@ -59,10 +70,11 @@ export const changeSettingsAndInitEpic = (
           type: RESOURCE_PROD,
           owner: playersTurn ? 'player' : 'opponent',
         }),
+        ///////////////////////
         of({
           type: DRAW_CARD,
         }).pipe(delay(0)),
-      )
+      ).pipe(takeUntil(action$.ofType(SCREEN_END)))
     }),
   )
 

@@ -16,6 +16,8 @@ export type StatusType = {
   opponent: PersonStatusType
 }
 
+export type ownerType2 = 'player' | 'opponent'
+
 export type ownerType = 'player' | 'opponent' | 'common'
 
 export type CardListItemType = {
@@ -49,12 +51,14 @@ export type GameStateType = {
   isNewTurn: boolean
 }
 
+export type WinSettingsType = {
+  tower: number
+  resource: number
+}
+
 export type SettingsBaseType = {
   start: PersonStatusType
-  win: {
-    tower: number
-    resource: number
-  }
+  win: WinSettingsType
   cardsInHand: number
   aiType?: number
 }
@@ -77,17 +81,17 @@ export type ScreenStateType = {
   end: 1 | 0 | -1 | null // win | draw | lose | close screen
 }
 
-export type StateType = {
-  lang: AvailableLangType
+export type LangStateType = {
+  code: AvailableLangType
+  erathian: boolean
+}
+
+export type RootStateType = {
+  lang: LangStateType
   status: StatusType
   cards: CardStateType
   game: GameStateType
   settings: SettingsStateType
   screen: ScreenStateType
   volume: number
-}
-
-export type LangStateType = {
-  code: AvailableLangType
-  erathian: boolean
 }

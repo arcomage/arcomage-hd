@@ -9,18 +9,18 @@ import {
   SWITCH_LOCK,
   MOVE_CARD_TO_TOP,
 } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { StateType } from '../types/state'
+import { RootStateType } from '../types/state'
 import { of, concat, EMPTY } from 'rxjs'
 import playSound from '../utils/playSound'
 import { cardTransitionDurationMs } from '../constants/transition'
 
 export const discardCardEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(DISCARD_CARD)),

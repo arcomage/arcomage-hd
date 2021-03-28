@@ -44,3 +44,5 @@ export const SCREEN_LANG_PREF = 'SCREEN_LANG_PREF' as const
 export const SCREEN_VOLUME_PREF = 'SCREEN_VOLUME_PREF' as const
 export const SCREEN_END = 'SCREEN_END' as const
 export const SCREEN_HELP = 'SCREEN_HELP' as const
+
+export const AI_USE_CARD = 'AI_USE_CARD' as const

@@ -28,7 +28,17 @@ export function setProperty<T, K extends keyof T>(obj: T, key: K, value: T[K]) {
   obj[key] = value
 }
 
-export function hasOwnProperty<X extends {}, Y extends PropertyKey>
-  (obj: X, prop: Y): obj is X & Record<Y, unknown> {
+export function hasOwnProperty<X extends {}, Y extends PropertyKey>(
+  obj: X,
+  prop: Y,
+): obj is X & Record<Y, unknown> {
   return obj.hasOwnProperty(prop)
 }
+
+// export function notEmpty<TValue>(
+//   value: TValue | null | undefined,
+// ): value is TValue {
+//   if (value === null || value === undefined) return false
+//   const testDummy: TValue = value
+//   return true
+// }

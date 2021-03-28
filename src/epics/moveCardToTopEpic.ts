@@ -3,18 +3,18 @@ import {
   MOVE_CARD_TO_TOP_MAIN,
   CLEAR_CARD,
 } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
+import { RootActionType } from '../types/actionObj'
 import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { StateType } from '../types/state'
+import { RootStateType } from '../types/state'
 import { concat, EMPTY, of } from 'rxjs'
 
 const topArr = [-2, -3, -4]
 
 export const moveCardToTopEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(MOVE_CARD_TO_TOP)),

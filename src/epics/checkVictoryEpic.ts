@@ -1,19 +1,20 @@
 import { CHECK_VICTORY, SCREEN_END } from '../constants/ActionTypes'
-import { ActionType } from '../types/actionObj'
-import { withLatestFrom, filter, map } from 'rxjs/operators'
+import { RootActionType } from '../types/actionObj'
+import { withLatestFrom, filter, map, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { StateType } from '../types/state'
+import { RootStateType } from '../types/state'
 import { resNames } from '../constants/resourceNames'
+import { EMPTY, of } from 'rxjs'
 
 export const checkVictoryEpic = (
-  action$: ActionsObservable<ActionType>,
-  state$: StateObservable<StateType>,
+  action$: ActionsObservable<RootActionType>,
+  state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     filter(isOfType(CHECK_VICTORY)),
     withLatestFrom(state$),
-    map(([action, state]) => {
+    concatMap(([action, state]) => {
       const { tower: winTower, resource: winResource } = state.settings.win
       const { player, opponent } = state.status
 
@@ -27,28 +28,25 @@ export const checkVictoryEpic = (
         resNames.some((resName) => opponent[resName] >= winResource)
 
       if (playerWin && !opponentWin) {
-        return {
+        return of({
           type: SCREEN_END,
           kind: 1,
-        }
+        })
       }
       if (!playerWin && opponentWin) {
-        return {
+        return of({
           type: SCREEN_END,
           kind: -1,
-        }
+        })
       }
       if (playerWin && opponentWin) {
-        return {
+        return of({
           type: SCREEN_END,
           kind: 0,
-        }
+        })
       }
 
-      return {
-        type: SCREEN_END,
-        kind: null,
-      }
+      return EMPTY
     }),
   )
 
