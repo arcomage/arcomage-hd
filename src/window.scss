@@ -36,6 +36,9 @@
 
     span {
       @apply text-right px-3 py-0.5 md:py-1;
+      .p-0 {
+        padding: 0;
+      }
     }
     input[type='number'],
     input[type='text'],

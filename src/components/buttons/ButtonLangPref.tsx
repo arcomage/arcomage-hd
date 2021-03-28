@@ -353,17 +353,17 @@ const ButtonBar = () => {
           />
           <g strokeWidth="1.5">
             <path className="el-9" d="m7.3906 9.7344 1.0781 2.1562" />
-            <path className="el-10" d="m5.1089 12.672h5.6724" />
+            <path className="el-10" d="m5.812 12.672h4.5169" />
             <path className="el-11" d="m5.7185 14.688h4.4849" />
             <path className="el-12" d="m5.7341 16.578h4.5005" />
             <path className="el-14" d="m5.7341 18.688h3.9069v3.8432" />
             <path className="el-15" d="m6.3982 21.828h3.2974" />
             <path className="el-13" d="m6.375 18.141v5.1406" />
             <path className="el-16" d="m10.812 10.75h7.7818" />
-            <path className="el-19" d="m10.484 16.359h8.3911" />
+            <path className="el-19" d="m11.265 16.359h7.204" />
             <path className="el-18" d="m11.23 13.211h5.7506v2.6089" />
             <path className="el-22" d="m11.988 22.055h5.3599" />
-            <path className="el-20" d="m11.887 17.852v5.5312" />
+            <path className="el-20" d="m11.936 18.031v4.7391" />
             <path className="el-17" d="m13.953 10.984-0.92138 4.8281" />
             <path className="el-21" d="m11.965 18.586h5.3288v4.8432" />
           </g>

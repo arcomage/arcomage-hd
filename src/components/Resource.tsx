@@ -61,19 +61,6 @@ const useStyles = createUseStyles<string, number>({
     'line-height': (height) => `${getLineHeight(height, 0.036)}px`,
     height: (height) => `${getLineHeight(height, 0.036)}px`,
   },
-  fatnumber: {
-    font: {
-      family: 'FatNumber',
-      weight: 'bold',
-    },
-    'letter-spacing': '-1px',
-  },
-  condensed: {
-    font: {
-      family: 'RobotoCondensed',
-      weight: 'bold',
-    },
-  },
 })
 
 type PropType = {
@@ -110,8 +97,8 @@ const Resource = ({ type, count, prod }: PropType) => {
       >
         <div
           className={cx(
-            'text-yellow-400 absolute bottom-1 left-1 text-shadow-md',
-            classes.fatnumber,
+            'text-yellow-400 absolute bottom-1 left-1 text-shadow-md tracking-tighter',
+            'fatnumber',
             classes.prod,
           )}
         >
@@ -122,8 +109,8 @@ const Resource = ({ type, count, prod }: PropType) => {
       <div className="flow-root mt-1">
         <div
           className={cx(
-            'float-left text-black flex-1 text-left relative',
-            classes.fatnumber,
+            'float-left text-black flex-1 text-left relative tracking-tighter',
+            'fatnumber',
             classes.count,
           )}
         >
@@ -133,7 +120,7 @@ const Resource = ({ type, count, prod }: PropType) => {
         <div
           className={cx(
             'float-right text-black flex-1 text-right',
-            classes.condensed,
+            'robotocondensed',
             classes.unit,
           )}
         >

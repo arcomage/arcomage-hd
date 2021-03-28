@@ -11,3 +11,34 @@
     url('../assets/font/RobotoCondensed-Bold.woff') format('woff');
   font-weight: bold;
 }
+
+@font-face {
+  font-family: 'Erathian';
+  src: url('../assets/font/Erathian-min.woff2') format('woff2'),
+    url('../assets/font/Erathian-min.woff') format('woff');
+}
+
+.fatnumber {
+  font-family: 'FatNumber';
+  font-weight: bold;
+}
+
+.robotocondensed {
+  font-family: 'RobotoCondensed';
+  font-weight: bold;
+}
+
+.erathian {
+  &,
+  & * {
+    font-family: 'Erathian';
+    font-weight: bold;
+  }
+  .no-erathian,
+  .no-erathian * {
+    @apply font-sans;
+    .erathian {
+      font-family: 'Erathian';
+    }
+  }
+}

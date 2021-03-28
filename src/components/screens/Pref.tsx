@@ -154,6 +154,14 @@ const Pref = () => {
       e.target.value = '0'
     }
 
+    if (parseInt(e.target.value, 10) < parseInt(e.target.min, 10)) {
+      e.target.value = e.target.min
+    }
+
+    if (parseInt(e.target.value, 10) > parseInt(e.target.max, 10)) {
+      e.target.value = e.target.max
+    }
+
     const { name, value } = e.target
     setFormFields((prev) =>
       produce(prev, (draft) => {
@@ -261,7 +269,7 @@ const Pref = () => {
             type="number"
             name="tower"
             id="tower"
-            min="0"
+            min="1"
             value={formFields.tower}
             onChange={handleChange}
           />

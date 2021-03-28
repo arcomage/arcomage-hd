@@ -15,7 +15,7 @@ const LangPref = () => {
 
   return (
     <Window ScreenActionType={SCREEN_LANG_PREF}>
-      <div className="my-5 grid grid-cols-2 sm:grid-cols-4 gap-1 sm:gap-4 justify-items-center">
+      <div className="my-5 grid grid-cols-2 sm:grid-cols-4 gap-1 sm:gap-4 justify-items-center no-erathian">
         {entries(langs)
           .sort(([codeA], [codeB]) => codeA.localeCompare(codeB))
           .map(([code, name]) => (
@@ -33,6 +33,22 @@ const LangPref = () => {
             </button>
           ))}
       </div>
+      <label className="justify-center">
+        <input
+          type="checkbox"
+          // checked={volume === 0}
+          onChange={(e) => {
+            // dispatch({
+            //   type: UPDATE_VOLUME,
+            //   volume: e.target.checked ? 0 : 10,
+            // })
+          }}
+        />
+        <span className="no-erathian">
+          Use Erathian [<span className="erathian text-2xl p-0">Erathian</span>]
+          (for latin letter based languages only)
+        </span>
+      </label>
     </Window>
   )
 }

@@ -23,7 +23,10 @@ import recruit from '../../assets/img/recruit.svg'
 
 import { I18nContext } from '../i18n/I18nContext'
 import { DataCardI18nType } from '../types/dataCard'
-import { canDiscardUndiscardableWhenDDP } from '../constants/devSettings'
+import {
+  canDiscardUndiscardableWhenDDP,
+  hideOpponentCard,
+} from '../constants/devSettings'
 
 const heightPercToTable = 0.8
 const whRatio = 188 / 252
@@ -163,6 +166,9 @@ const useStyles = createUseStyles<
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDurationMs}ms`,
   },
+  unusableopacity: {
+    opacity: unusableCardOpacity,
+  },
   cardback: {
     background: {
       image: `url(${cardbackbg})`,
@@ -187,6 +193,14 @@ const useStyles = createUseStyles<
     transform: 'translateX(0) rotateY(180deg)',
     'backface-visibility': 'hidden',
   },
+  cardbackhard: {
+    background: {
+      image: `url(${cardbackbg})`,
+      size: 'cover',
+      position: 'center',
+      repeat: 'no-repeat',
+    },
+  },
   image: {
     // width: calc(100% - 0.25rem * 2),
     height: 'calc((100% / 63 * 47 - 0.5rem) / 22 * 13)',
@@ -205,12 +219,6 @@ const useStyles = createUseStyles<
       position: 'center center',
     },
     opacity: 0.35,
-  },
-  condensed: {
-    font: {
-      family: 'RobotoCondensed',
-      weight: 'bold',
-    },
   },
 })
 
@@ -254,7 +262,7 @@ const Card = ({
       ? totalObj[playersTurn ? 'player' : 'opponent']
       : totalObj[owner]
 
-  if (n === -1) {
+  if (n === -1 || (hideOpponentCard && owner === 'opponent')) {
     const classes = useStyles({
       winHeight,
       winWidth,
@@ -267,8 +275,14 @@ const Card = ({
       <div
         className={cx(
           classes.main,
-          classes.cardback,
+          classes.cardbackhard,
           'transform absolute rounded shadow-lg',
+          {
+            'opacity-0 pointer-events-none':
+              (playersTurn && owner === 'opponent') ||
+              (!playersTurn && owner === 'player'),
+            [classes.unusableopacity]: n === -1,
+          },
         )}
       ></div>
     )
@@ -407,7 +421,6 @@ const Card = ({
           <div
             className={cx(
               classes.image,
-              classes.condensed,
               'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-600 text-xl font-bold uppercase text-shadow-stroke',
             )}
             style={{

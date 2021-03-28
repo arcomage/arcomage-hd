@@ -48,23 +48,27 @@ See dist/\*.js.LICENSE.txt
 
 ### SVG Animated Birds
 
-Copyright (c) 2021 by Steven Roberts (https://codepen.io/matchboxhero/pen/RLebOY)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Copyright (c) 2021 by Steven Roberts (https://codepen.io/matchboxhero/pen/RLebOY), MIT License
 
 ### Roboto Condensed Font
 
 Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-### Free License Images
+### Source Han Sans
+
+[Source Han Sans](https://github.com/adobe-fonts/source-han-sans) is licensed under the [SIL OPEN FONT LICENSE Version 1.1](https://github.com/adobe-fonts/source-han-sans/blob/master/LICENSE.txt).
+
+### Other Free License Images
 
 * https://pixabay.com/vectors/laurel-wreath-wreath-accolade-150577/ Pixabay License
 * https://pixabay.com/vectors/trophy-achievement-award-cup-merit-153395/ Pixabay License
 * https://www.svgrepo.com/svg/211751/maps-and-flags-surrender CC0
+* https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg
+* https://www.materialui.co/icon/configuration
+* https://commons.wikimedia.org/wiki/File:VisualEditor_-_Icon_-_Help.svg
+* https://www.svgrepo.com/svg/75085/full-screen
+
+The animations of the button icons are developed by Tom Chen and licensed under the MIT license.
 
 ### Erathian Font
 
@@ -79,14 +83,12 @@ See [OFL.txt file](https://github.com/might-and-magic/erathian-font/blob/master/
 
 ## Fair-use
 
-### Unknown License Or Unknown Original Author, Fair-use
+### GitHub Logos
+
+[GitHub Logo Usage](https://github.com/logos)
+
+### Unknown Original Author and/or Unknown License, Fair-use
 
 * explosion.png
 * Fat Number font
 * Magic the Gathering by Stick Fonts - first seen in 1998
-
-
-
-https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg
-https://www.materialui.co/icon/configuration
-https://commons.wikimedia.org/wiki/File:VisualEditor_-_Icon_-_Help.svg

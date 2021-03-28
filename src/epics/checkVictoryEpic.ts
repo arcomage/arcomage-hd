@@ -19,9 +19,11 @@ export const checkVictoryEpic = (
 
       const playerWin =
         player.tower >= winTower ||
+        opponent.tower <= 0 ||
         resNames.some((resName) => player[resName] >= winResource)
       const opponentWin =
         opponent.tower >= winTower ||
+        player.tower <= 0 ||
         resNames.some((resName) => opponent[resName] >= winResource)
 
       if (playerWin && !opponentWin) {

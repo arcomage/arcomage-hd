@@ -38,6 +38,7 @@ import {
   SCREEN_HELP,
   CHECK_VICTORY,
 } from '../constants/ActionTypes'
+import { AvailableLangType } from '../i18n/types'
 import {
   CardStateType,
   PersonStatusType,
@@ -46,7 +47,7 @@ import {
 
 export type LangActionType = {
   type: typeof UPDATE_LANG
-  lang: string
+  lang: AvailableLangType
 }
 
 export type VolumeActionType = {
