@@ -32,7 +32,7 @@ const _extractedDir = path.join(__dirname, extractedDir)
               ),
           )
         } catch (e) {
-          console.log(e)
+          console.error(e)
         }
       }
     }

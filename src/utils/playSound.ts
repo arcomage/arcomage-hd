@@ -48,7 +48,7 @@ const play = (audio: HTMLAudioElement): void => {
     promise
       .then((_) => {})
       .catch((error) => {
-        console.log(error)
+        console.error(error)
       })
   }
 }

@@ -9,31 +9,32 @@ const checkCardUseDiscard = (state: RootStateType): AiCardListItemType[] => {
   const cardList: AiCardListItemType[] = []
   stateCardList.forEach((card, index) => {
     if (card !== null && card.owner === 'opponent') {
-      cardList.push({ index, n: card.n })
-    }
-  })
+      let canuse = false
+      let candiscard = false
 
-  cardList.forEach((card) => {
-    const { n } = card
-    if (!locked) {
-      if (discardMode) {
-        if (
-          canDiscardUndiscardableWhenDDP ||
-          !cards[n].special?.undiscardable
-        ) {
-          card.candiscard = true
+      const { n } = card
+      if (!locked) {
+        if (discardMode) {
+          if (
+            canDiscardUndiscardableWhenDDP ||
+            !cards[n].special?.undiscardable
+          ) {
+            candiscard = true
+          }
+        } else if (!card.unusable) {
+          canuse = true
         }
-      } else {
-        card.canuse = true
       }
-    }
 
-    if (
-      !locked &&
-      (!cards[n].special?.undiscardable ||
-        (discardMode && canDiscardUndiscardableWhenDDP))
-    ) {
-      card.candiscard = true
+      if (
+        !locked &&
+        (!cards[n].special?.undiscardable ||
+          (discardMode && canDiscardUndiscardableWhenDDP))
+      ) {
+        candiscard = true
+      }
+
+      cardList.push({ index, n, score: 0, canuse, candiscard })
     }
   })
 

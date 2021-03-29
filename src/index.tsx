@@ -9,6 +9,8 @@ import rootEpic from './epics'
 import { I18nProvider } from './i18n/I18nContext'
 import { GameSizeProvider } from './utils/GameSizeContext'
 
+import { HelmetProvider } from 'react-helmet-async'
+
 epicMiddleware.run(rootEpic)
 
 ReactDOM.render(
@@ -16,7 +18,9 @@ ReactDOM.render(
     <Provider store={store}>
       <I18nProvider>
         <GameSizeProvider>
-          <App />
+          <HelmetProvider>
+            <App />
+          </HelmetProvider>
         </GameSizeProvider>
       </I18nProvider>
     </Provider>

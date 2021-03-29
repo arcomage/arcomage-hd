@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <title>weightedRandom() Visualizer</title>
+  </head>
+  <body>
+    <div id="container" style="height: 400px"></div>
+    <script>
+      var dices = [50, 8, 2];
+
+      // https://stackoverflow.com/questions/30492259/get-a-random-number-focused-on-center
+      // http://jsfiddle.net/797qhcza/1/
+      function weightedRandom(max, bellFactor) {
+        var num = 0;
+        for (var i = 0; i < bellFactor; i++) {
+          num += Math.random() * (max / bellFactor);
+        }
+        return num;
+      }
+
+      function getRandomData(bellFactor) {
+        var maxNum = 100;
+
+        // http://stackoverflow.com/questions/1295584/most-efficient-way-to-create-a-zero-filled-javascript-array
+        var numbers = Array.apply(null, new Array(maxNum)).map(function (x, i) {
+          return [i, 0];
+        });
+
+        for (var i = 0; i < 100000; i++) {
+          var num = weightedRandom(maxNum, bellFactor);
+
+          num = Math.floor(num);
+          numbers[num][1]++;
+        }
+
+        return numbers;
+      }
+
+      $(function () {
+        var data1 = getRandomData(dices[0]);
+        var data2 = getRandomData(dices[1]);
+        var data3 = getRandomData(dices[2]);
+
+        $("#container").highcharts({
+          title: {
+            text: "weightedRandom() Visualizer",
+          },
+          chart: {
+            type: "area",
+            zoomType: "x",
+          },
+          series: [
+            {
+              data: data1,
+              name: "Dice: " + dices[0],
+            },
+            {
+              data: data2,
+              name: "Dice: " + dices[1],
+            },
+            {
+              data: data3,
+              name: "Dice: " + dices[2],
+            },
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -39,10 +39,14 @@ export const i18n = {
   Help: 'Aide',
   'Toggle Full Screen': 'Toggle Full Screen',
 
-  GAMEDESC: `Les conditions de victoire diffèrent selon les auberges. Pour remporter la partie, vous devez généralement être le premier à construire votre tour, détruire la tour adverse ou amasser plus de ressources que l’adversaire.
+  GAMEHELP: `Les conditions de victoire diffèrent selon les auberges. Pour remporter la partie, vous devez généralement être le premier à construire votre tour, détruire la tour adverse ou amasser plus de ressources que l’adversaire.
 Les chiffres jaunes sont vos productions. Il s’agit du nombre d’unités d’une ressource que vous amassez à chaque tour. Les chiffres noirs sont les ressources elles-mêmes. Il s’agit des unités dont vous disposez et que vous pouvez dépenser.
 Cartes\u00A0: chaque carte requiert un certain nombre de ressources pour pouvoir être utilisée, indiqué dans l’angle inférieur droit de la carte. Le coût d’utilisation est soustrait aux ressources selon la couleur de la carte. Cliquez sur une carte avec le bouton gauche de la souris pour la jouer. Cliquez sur une carte avec le bouton droit de la souris pour se défausser.
 En Rouge, votre Carrière qui produit des Briques. En Bleu, votre Magie qui produit des Gemmes. En Vert, votre Donjon qui produit des Recrues.`,
 
-  ERATHIAN: 'Use Erathian [%s] (for latin letters only)',
+  ERATHIAN: 'Utiliser Erathian [%s] (pour les lettres latines uniquement)',
+
+  'ArcoMage HD': 'ArcoMage HD',
+  DESC:
+    'Clone HD open source version web du jeu de cartes Arcomage de 3DO et NWC en 2000',
 }

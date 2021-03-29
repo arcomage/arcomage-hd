@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { memo, useContext, useEffect, useState } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
@@ -9,6 +9,7 @@ import { I18nContext } from '../../i18n/I18nContext'
 import { useAppDispatch } from '../../utils/useAppDispatch'
 import { INIT, SCREEN_END } from '../../constants/ActionTypes'
 import useKeyDown from '../../utils/useKeyDown'
+import { endScreenExitableDelay } from '../../constants/transition'
 
 const textArr = ['You Lose!', 'Draw Game', 'You Win!']
 
@@ -90,6 +91,13 @@ const EndScreen = ({ kind }: PropType) => {
 
   const text = trans.i18n?.[textArr[kind + 1]]
 
+  const [exitable, setExitable] = useState(false)
+  useEffect(() => {
+    setTimeout(() => {
+      setExitable(true)
+    }, endScreenExitableDelay)
+  }, [])
+
   const onActionFunc = () => {
     dispatch({
       type: SCREEN_END,
@@ -100,7 +108,11 @@ const EndScreen = ({ kind }: PropType) => {
     })
   }
 
-  useKeyDown(null, onActionFunc)
+  useKeyDown(null, onActionFunc, endScreenExitableDelay)
+
+  const clickObj = exitable
+    ? { onClick: onActionFunc, onContextMenu: onActionFunc, tabIndex: 0 }
+    : {}
 
   return (
     <div
@@ -108,9 +120,7 @@ const EndScreen = ({ kind }: PropType) => {
         'absolute w-full h-full top-0 left-0 z-90 bg-black bg-opacity-50',
         classes.container,
       )}
-      onClick={onActionFunc}
-      onContextMenu={onActionFunc}
-      tabIndex={0}
+      {...clickObj}
     >
       <div
         className={cx(

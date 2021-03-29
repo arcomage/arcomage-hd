@@ -62,7 +62,6 @@ export const useCardEpic = (
           position,
           owner,
         }),
-        ///////////////////////
         of({
           type: SWITCH_LOCK,
         }),

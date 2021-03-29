@@ -314,6 +314,7 @@ const ButtonLangPref = () => {
 
   return (
     <button
+      accessKey="l"
       title={trans.i18n?.['Language']}
       className={cx('topbutton', classes.langPrefButton, {
         windowactive: langPref,

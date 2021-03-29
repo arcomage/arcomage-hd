@@ -11,6 +11,11 @@ body {
   perspective: 120vh;
 }
 
+button[disabled='disabled'],
+button:disabled {
+  cursor: default;
+}
+
 @import './anims';
 
 @import './window';

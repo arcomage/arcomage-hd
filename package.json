@@ -16,7 +16,8 @@
     "zhfont": "ts-node --project ./tools/tsconfig.json ./tools/font/zhfont.ts",
     "ocr:pre": "ts-node --project ./tools/tsconfig.json ./tools/ocr/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/ocr/composite.ts",
     "ocr": "ts-node --project ./tools/tsconfig.json ./tools/ocr/ocr.ts",
-    "cardi18ncheck": "ts-node --project ./tools/tsconfig.json ./tools/cardi18ncheck/check.ts"
+    "cardi18ncheck": "ts-node --project ./tools/tsconfig.json ./tools/cardi18ncheck/check.ts",
+    "calcscore": "ts-node --project ./tools/tsconfig.json ./tools/ai-related/calcscore.ts"
   },
   "keywords": [
     "arcomage",
@@ -42,6 +43,7 @@
     "lodash.memoize": "^4.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.0.9",
     "react-jss": "^10.6.0",
     "react-redux": "^7.2.3",
     "redux": "^4.0.5",

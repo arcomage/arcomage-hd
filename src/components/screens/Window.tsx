@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../utils/useAppDispatch'
 import logo from '../../../assets/logo/logo.svg'
 import useClickOutside from '../../utils/useClickOutside'
 import { I18nContext } from '../../i18n/I18nContext'
+import useKeyDown from '../../utils/useKeyDown'
 
 const useStyles = createUseStyles({
   logo: {
@@ -20,13 +21,16 @@ const Window = ({ ScreenActionType, children }: PropType) => {
   const dispatch = useAppDispatch()
   const trans = useContext(I18nContext)
 
-  const prefRef = useRef(null)
-  useClickOutside(prefRef, () => {
+  const exitFunc = () => {
     dispatch({
       type: ScreenActionType,
       show: false,
     })
-  })
+  }
+
+  const prefRef = useRef(null)
+  useClickOutside(prefRef, exitFunc)
+  useKeyDown('Escape', exitFunc)
 
   const classes = useStyles()
   return (
@@ -45,12 +49,7 @@ const Window = ({ ScreenActionType, children }: PropType) => {
           <button
             className="cancel"
             title={trans.i18n?.['Cancel']}
-            onClick={() => {
-              dispatch({
-                type: ScreenActionType,
-                show: false,
-              })
-            }}
+            onClick={exitFunc}
           ></button>
         </div>
       </div>

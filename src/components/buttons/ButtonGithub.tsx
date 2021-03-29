@@ -67,6 +67,7 @@ const ButtonGithub = () => {
 
   return (
     <a
+      accessKey="g"
       title="GitHub"
       className={cx('topbutton', classes.githubButton)}
       href="https://github.com/arcomage/arcomage-hd"

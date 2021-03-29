@@ -53,6 +53,7 @@ const ButtonFullscreen = () => {
 
   return (
     <button
+      accessKey="t"
       title={trans.i18n?.['Toggle Full Screen']}
       className={cx('topbutton', classes.fullscreenButton)}
       onClick={toggleFullScreen}

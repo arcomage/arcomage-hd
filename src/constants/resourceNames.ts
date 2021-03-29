@@ -5,3 +5,14 @@ export const resProdMap = {
   gemProd: 'gems',
   recruitProd: 'recruits',
 } as const
+
+export const allStatusNames = [
+  'tower',
+  'wall',
+  'bricks',
+  'gems',
+  'recruits',
+  'brickProd',
+  'gemProd',
+  'recruitProd',
+] as const

@@ -63,6 +63,7 @@ const ButtonVolumePref = () => {
 
   return (
     <button
+      accessKey="v"
       title={trans.i18n?.['Volume']}
       className={cx('topbutton', classes.volumePrefButton, {
         windowactive: volumePref,

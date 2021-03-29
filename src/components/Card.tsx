@@ -1,4 +1,4 @@
-import React, { useState, useContext, memo, MouseEvent } from 'react'
+import React, { useState, useContext, memo, MouseEvent, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
@@ -247,6 +247,7 @@ const Card = ({
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
   const locked = useAppSelector((state) => state.game.locked)
   const discardMode = useAppSelector((state) => state.game.discardMode)
+  const main = useRef<HTMLButtonElement | null>(null)
 
   const totalObj: Readonly<CardTotalType> = useAppSelector(
     (state) => state.cards.total,
@@ -273,7 +274,9 @@ const Card = ({
       zeroOpacity,
     })
     return (
-      <div
+      <button
+        ref={main}
+        disabled={true}
         className={cx(
           classes.main,
           classes.cardbackhard,
@@ -285,7 +288,7 @@ const Card = ({
             [classes.unusableopacity]: n === -1,
           },
         )}
-      ></div>
+      ></button>
     )
   } else {
     const { type, cost, special } = dataCards[n]
@@ -308,37 +311,45 @@ const Card = ({
     // bg-blue-300
     // bg-green-300
 
-    let tabIndexable = false
+    let buttonDisabled = true
+
+    const useCardFunc = () => {
+      if (owner !== 'common') {
+        dispatch({
+          type: USE_CARD,
+          n,
+          index,
+          position,
+          owner,
+        })
+      }
+    }
+
+    const discardCardFunc = () => {
+      if (owner !== 'common') {
+        dispatch({
+          type: DISCARD_CARD,
+          index,
+          position,
+          owner,
+        })
+      }
+    }
 
     const onClickFunc = (() => {
       if (owner !== 'common' && !locked && !(useAi && owner === 'opponent')) {
         if (discardMode) {
           if (canDiscardUndiscardableWhenDDP || !special?.undiscardable) {
-            tabIndexable = true
+            buttonDisabled = false
             return {
-              onClick: () => {
-                dispatch({
-                  type: DISCARD_CARD,
-                  index,
-                  position,
-                  owner,
-                })
-              },
+              onClick: discardCardFunc,
             }
           }
         } else {
           if (!unusable) {
-            tabIndexable = true
+            buttonDisabled = false
             return {
-              onClick: () => {
-                dispatch({
-                  type: USE_CARD,
-                  n,
-                  index,
-                  position,
-                  owner,
-                })
-              },
+              onClick: useCardFunc,
             }
           }
         }
@@ -354,16 +365,11 @@ const Card = ({
           (discardMode && canDiscardUndiscardableWhenDDP)) &&
         !(useAi && owner === 'opponent')
       ) {
-        tabIndexable = true
+        buttonDisabled = false
         return {
-          onContextMenu: (e: MouseEvent<HTMLDivElement>) => {
+          onContextMenu: (e: MouseEvent) => {
             e.preventDefault()
-            dispatch({
-              type: DISCARD_CARD,
-              index,
-              position,
-              owner,
-            })
+            discardCardFunc()
           },
         }
       }
@@ -374,13 +380,12 @@ const Card = ({
       (playersTurn && owner === 'opponent') ||
       (!playersTurn && owner === 'player')
     ) {
-      tabIndexable = false
+      buttonDisabled = true
     }
 
-    const tabIndexObj = tabIndexable ? { tabIndex: 0 } : {}
-
     return (
-      <div
+      <button
+        ref={main}
         className={cx(
           classes.main,
           classes.cardeffect,
@@ -394,9 +399,30 @@ const Card = ({
           { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
-        {...tabIndexObj}
+        accessKey={
+          !buttonDisabled && position >= 0 ? (position + 1).toString(10) : ''
+        }
+        tabIndex={!buttonDisabled ? position + 1 : -1}
+        disabled={buttonDisabled}
         {...onClickFunc}
         {...onContextMenuFunc}
+        onKeyDown={(event) => {
+          if (event.key === 'Delete' || event.key === 'Backspace') {
+            const el = main.current
+            if (el) {
+              const mouseEvent = new MouseEvent('contextmenu', {
+                bubbles: true,
+                cancelable: false,
+                view: window,
+                button: 2,
+                buttons: 0,
+                clientX: el.getBoundingClientRect().x,
+                clientY: el.getBoundingClientRect().y,
+              })
+              el.dispatchEvent(mouseEvent)
+            }
+          }
+        }}
         onTransitionEnd={(e) => {
           if (e.propertyName === 'transform' && position === -1) {
             // card moved to the stack, will fade
@@ -463,7 +489,7 @@ const Card = ({
             'absolute top-0 bottom-0 left-0 right-0 rounded',
           )}
         ></div>
-      </div>
+      </button>
     )
   }
 }

@@ -121,7 +121,8 @@ module.exports = (env, argv) => {
         ogImage: './ogimage.jpg',
         faviconSvg: './favicon.svg',
         faviconIco: './favicon.ico',
-        description: '',
+        description:
+          "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
       }),
       new PreloadWebpackPlugin({
         rel: 'preload',

@@ -1,18 +1,23 @@
-import React, { memo } from 'react'
+import React, { memo, useContext } from 'react'
 import './App.scss'
 import Game from './components/Game'
 import {
   disableContextMenu,
   enableWindowUnloadWarning,
 } from './constants/devSettings'
-import { useAppDispatch } from './utils/useAppDispatch'
+import { useAppDispatch, useAppSelector } from './utils/useAppDispatch'
+
+import { Helmet } from 'react-helmet-async'
 
 import useBeforeWindowUnloadWarning from './utils/useBeforeWindowUnloadWarning'
 import useDisableContextMenu from './utils/useDisableContextMenu'
 import useWindowLoad from './utils/useWindowLoad'
+import { I18nContext } from './i18n/I18nContext'
 
 const App = () => {
   const dispatch = useAppDispatch()
+  const lang = useAppSelector((state) => state.lang.code)
+  const trans = useContext(I18nContext)
 
   useWindowLoad(() => {
     dispatch({
@@ -24,7 +29,18 @@ const App = () => {
 
   enableWindowUnloadWarning && useBeforeWindowUnloadWarning()
 
-  return <Game />
+  return (
+    <>
+      <Helmet>
+        <html lang={lang} />
+        <title>{trans.i18n?.['ArcoMage HD']}</title>
+        <meta property="og:title" content={trans.i18n?.['ArcoMage HD']} />
+        <meta name="description" content={trans.i18n?.DESC} />
+        <meta property="og:description" content={trans.i18n?.DESC} />
+      </Helmet>
+      <Game />
+    </>
+  )
 }
 
 export default memo(App)

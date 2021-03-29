@@ -13,8 +13,12 @@ import { RootStateType } from '../types/state'
 import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import { randomWithProbs } from '../utils/randomWithProbs'
-import { cardTransitionDurationMs, drawCardPre } from '../constants/transition'
-import { useAi } from '../constants/devSettings'
+import {
+  cardNextStepTimeoutMs,
+  cardTransitionDurationMs,
+  drawCardPre,
+} from '../constants/transition'
+import { noAiDelay, useAi } from '../constants/devSettings'
 
 export const nextRoundEpic = (
   action$: ActionsObservable<RootActionType>,
@@ -40,12 +44,19 @@ export const nextRoundEpic = (
         of({
           type: DRAW_CARD_MAIN,
           position: state.cards.nextPos[owner],
-          owner: owner,
+          owner,
         }).pipe(delay(drawCardPre)),
         owner === 'opponent' && useAi
           ? of({
               type: AI_USE_CARD,
-            }).pipe(delay(cardTransitionDurationMs))
+            }).pipe(
+              delay(
+                cardTransitionDurationMs +
+                  cardNextStepTimeoutMs +
+                  10 +
+                  (noAiDelay ? 0 : 5000),
+              ),
+            ) // The delay in useCardEpic, plus noAiDelay (5s) in devSettings
           : EMPTY,
       )
     }),

@@ -39,6 +39,7 @@ const ButtonHelp = () => {
 
   return (
     <button
+      accessKey="h"
       title={trans.i18n?.['Help']}
       className={cx('topbutton', classes.helpButton, { windowactive: help })}
       onClick={() => {

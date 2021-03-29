@@ -8,7 +8,7 @@ import { I18nContext } from '../../i18n/I18nContext'
 
 const Help = () => {
   const trans = useContext(I18nContext)
-  const text = trans.i18n?.GAMEDESC ?? ''
+  const text = trans.i18n?.GAMEHELP ?? ''
   return (
     <Window ScreenActionType={SCREEN_HELP}>
       {<MultilineText>{text}</MultilineText>}

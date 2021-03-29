@@ -65,7 +65,7 @@ doFiles(
 )
 
 function handleRejectedAny(e: Error): void {
-  // console.log(e)
+  // console.error(e)
 }
 
 /**

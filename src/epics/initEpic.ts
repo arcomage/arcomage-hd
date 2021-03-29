@@ -70,7 +70,6 @@ export const changeSettingsAndInitEpic = (
           type: RESOURCE_PROD,
           owner: playersTurn ? 'player' : 'opponent',
         }),
-        ///////////////////////
         of({
           type: DRAW_CARD,
         }).pipe(delay(0)),

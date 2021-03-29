@@ -2,6 +2,13 @@ export const entries = Object.entries as <T>(
   o: T,
 ) => [Extract<keyof T, string>, T[keyof T]][]
 
+export function fromEntries<T>(entries: [keyof T, T[keyof T]][]): T {
+  return entries.reduce(
+    (acc, [key, value]) => ({ ...acc, [key]: value }),
+    <T>{},
+  )
+}
+
 export const keys = Object.keys as <T extends object>(obj: T) => Array<keyof T>
 
 export const cloneNode = <T extends Node>(node: T) => {

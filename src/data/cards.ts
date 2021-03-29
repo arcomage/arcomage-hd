@@ -766,12 +766,12 @@ const cards: DataCardsType = [
   },
   {
     // name: 'Lightning Shard',
-    // desc: 'If Tower < enemy wall, 8 damage to enemy tower. Else 8 damage',
+    // desc: 'If Tower > enemy wall, 8 damage to enemy tower. Else 8 damage',
     type: 1,
     cost: 11,
     prob: 1,
     effect: (p, o) => {
-      if (p.tower < o.wall) {
+      if (p.tower > o.wall) {
         change(o, 'tower', -8)
       } else {
         damage(o, 8)

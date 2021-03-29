@@ -36,6 +36,7 @@ const ButtonPref = () => {
 
   return (
     <button
+      accessKey="p"
       title={trans.i18n?.['Preferences']}
       className={cx('topbutton', classes.prefButton, { windowactive: pref })}
       onClick={() => {

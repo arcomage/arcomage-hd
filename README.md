@@ -4,6 +4,39 @@ ArcoMage HD is a web-based open source HD clone of 3DO and New World Computing's
 
 ## Gameplay
 
+
+## Keyboard Control
+
+The game is fully controllable with keyboard.
+
+### Top Menu
+
+Use <kbd>Tab</kbd> to select an icon, then <kbd>Enter</kbd> to open it. When the window is open, use <kbd>Esc</kbd> to close it.
+
+Or with access key (only for opening a window):
+
+* <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences
+* <kbd>Alt</kbd> + <kbd>L</kbd>: Language
+* <kbd>Alt</kbd> + <kbd>V</kbd>: Volume
+* <kbd>Alt</kbd> + <kbd>T</kbd>: Toggle Fullscreen
+* <kbd>Alt</kbd> + <kbd>H</kbd>: Help
+* <kbd>Alt</kbd> + <kbd>G</kbd>: GitHub
+
+### Card
+
+Use <kbd>Tab</kbd> to select a card, then <kbd>Enter</kbd> to **use** it, or <kbd>Delete</kbd> / <kbd>Backspace</kbd> to **discard** it.
+
+Or with access key (only for using a card):
+
+* <kbd>Alt</kbd> + <kbd>1</kbd>: use 1st card
+* <kbd>Alt</kbd> + <kbd>2</kbd>: use 2nd card
+* <kbd>Alt</kbd> + <kbd>3</kbd>: use 3rd card
+* <kbd>Alt</kbd> + ...: use nth card
+
+It could be other key instead of <kbd>Alt</kbd>
+
+[The way to activate the accesskey depends on the browser and its platform](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey), it's "<kbd>Alt</kbd> + key" in Chrome Windows/Linux.
+
 ## Development
 
 ## Arcomage original game

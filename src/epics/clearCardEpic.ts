@@ -12,6 +12,8 @@ import { RootStateType } from '../types/state'
 import { concat, merge, Observable, of } from 'rxjs'
 import { cardTransitionDurationMs } from '../constants/transition'
 
+const topArr = [-2, -3, -4]
+
 export const clearCardEpic = (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
@@ -22,7 +24,7 @@ export const clearCardEpic = (
     mergeMap(([action, state]) => {
       const obs: Observable<RootActionType>[] = []
       const obs2: Observable<RootActionType>[] = []
-      ;[-2, -3, -4].forEach((p) => {
+      topArr.forEach((p) => {
         state.cards.list.forEach((card, index) => {
           if (card !== null && card.position === p) {
             obs.push(

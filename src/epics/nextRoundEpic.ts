@@ -36,7 +36,6 @@ export const nextRoundEpic = (
           type: RESOURCE_PROD,
           owner: state.game.playersTurn ? 'opponent' : 'player',
         }),
-        ///////////////////////
         of({
           type: SWITCH_LOCK,
         }),

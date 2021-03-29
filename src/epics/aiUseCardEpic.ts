@@ -1,6 +1,6 @@
 import { AI_USE_CARD, DISCARD_CARD, USE_CARD } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, take } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
