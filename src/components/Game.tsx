@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
+import { useAppSelector } from '../utils/useAppDispatch'
 import { minWidth, minHeight } from '../utils/GameSizeContext'
 import TableCommon from './TableCommon'
 import TableP from './TableP'

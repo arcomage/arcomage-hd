@@ -9,17 +9,16 @@ export type vType = {
 }
 
 const defaultGameSize = {
-  width: 0,
-  height: 0,
+  width: window.innerWidth,
+  height: window.innerHeight,
 }
 
 export const GameSizeContext = createContext<vType>(defaultGameSize)
 
-export const GameSizeProvider = ({
-  children,
-}: {
+type PropType = {
   children: React.ReactNode
-}) => {
+}
+export const GameSizeProvider = ({ children }: PropType) => {
   const [gameSize, setGameSize] = useState<vType>(defaultGameSize)
   useLayoutEffect(() => {
     const handleResize = () => {

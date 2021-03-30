@@ -48,7 +48,8 @@ const play = (audio: HTMLAudioElement): void => {
     promise
       .then((_) => {})
       .catch((error) => {
-        console.error(error)
+        // it fails here in chrome and some browsers that webpage can't autoplay audio or video
+        console.log(error)
       })
   }
 }

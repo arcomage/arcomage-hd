@@ -3,16 +3,16 @@ export const i18n = {
   wall: 'wall',
   resource: 'resource',
 
-  bricks: 'bricks',
-  gems: 'gems',
-  recruits: 'recruits',
+  bricks: 'cihly',
+  gems: 'drahok.',
+  recruits: 'příšery',
 
   quarry: 'quarry', // brick production
   magic: 'magic', // gem production
   dungeon: 'dungeon', // recruit production
 
-  discarded: 'discarded',
-  'Discard a card': 'Discard a card',
+  discarded: 'odložená',
+  'Discard a card': 'Zahození karty',
 
   'You Win!': 'You Win!',
   'You Lose!': 'You Lose!',
@@ -39,10 +39,10 @@ export const i18n = {
   Help: 'Help',
   'Toggle Full Screen': 'Toggle Full Screen',
 
-  GAMEHELP: `Victory conditions vary per tavern. Build your tower, destroy your opponent's tower, or collect enough resources before your opponent does.
-Large yellow numbers in column are the productions. This is how many new units of a particular resource you will receive on your next turn. Small black numbers in column are the resources. This is how many units you have available to spend on your current turn.
-Cards: Each have their own cost to play, indicated in a small circle in the lower right corner of the card. The cost will be deducted from your resources according to the color of the card. Left click on a card plays the card. Right click on a card to discard without playing.
-Red represents your Quarry Generator which produces your Brick resources, blue represents your Magic Generator which produces Gem resources, green represents your Zoo generator which produces Beast resources.`,
+  GAMEHELP: `Podmínky vítězství jsou v každém hostinci různé. Stavíš svojí věž a snažíš se zničit věž protivníka nebo se snažíš nashromáždit stanovené množství zdrojů dříve, než to udělá tvůj protivník.
+Velká žlutá čísla v sloupcích jsou generátory. Ty určují, kolik nových jednotek jednotlivých zdrojů ti přibude v dalším tahu. Malá černá čísla v sloupcích jsou tvoje zásoby zdrojů. Ty určují, kolik jednotek budeš moci utratit v tomto tahu.
+Karty: Každá má svou cenu pro zahrání. Ta je značena v kroužku v pravém dolním rohu karty. Tato hodnota bude odečtena z tvých zdrojů podle barvy karty. Levým kliknutím kartu vynášíš do hry. Pravým kliknutím na kartě ji odhodíš z ruky.
+Cihly se generují v červeném generátoru těžby, drahokamy v modrém generátoru magie a příšery v zelené jeskyni.`,
 
   ERATHIAN: 'Use Erathian [%s] (for latin letters only)',
 

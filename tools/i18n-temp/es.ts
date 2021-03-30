@@ -3,16 +3,16 @@ export const i18n = {
   wall: 'wall',
   resource: 'resource',
 
-  bricks: 'bricks',
-  gems: 'gems',
-  recruits: 'recruits',
+  bricks: 'ladrillos',
+  gems: 'joyas',
+  recruits: 'reclutas',
 
   quarry: 'quarry', // brick production
   magic: 'magic', // gem production
   dungeon: 'dungeon', // recruit production
 
-  discarded: 'discarded',
-  'Discard a card': 'Discard a card',
+  discarded: 'descartado',
+  'Discard a card': 'Descartar una carta',
 
   'You Win!': 'You Win!',
   'You Lose!': 'You Lose!',

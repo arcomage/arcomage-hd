@@ -6,7 +6,7 @@ import Bird from './effects/Bird'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
+import { useAppSelector } from '../utils/useAppDispatch'
 
 import bg from '../../assets/img/bg.jpg'
 

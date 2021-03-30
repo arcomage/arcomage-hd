@@ -1,6 +1,6 @@
 {
   "name": "arcomage-hd",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
   "repository": {
     "type": "git",
@@ -40,7 +40,6 @@
     "@tailwindcss/forms": "^0.3.2",
     "classnames": "^2.2.6",
     "immer": "^9.0.1",
-    "lodash.memoize": "^4.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet-async": "^1.0.9",
@@ -55,6 +54,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.11",
     "@types/convert-excel-to-json": "^1.7.0",
+    "@types/jest": "^26.0.22",
     "@types/lodash.memoize": "^4.1.6",
     "@types/merge-img": "^2.1.0",
     "@types/react": "^17.0.3",
@@ -62,12 +62,14 @@
     "@types/react-redux": "^7.1.16",
     "@types/sharp": "^0.27.2",
     "@vue/preload-webpack-plugin": "^2.0.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
     "autoprefixer": "^10.2.5",
     "convert-excel-to-json": "^1.7.0",
     "copy-webpack-plugin": "^8.1.0",
     "css-loader": "^5.2.0",
     "css-modules-typescript-loader": "^4.0.1",
     "cssnano": "^4.1.10",
+    "enzyme": "^3.11.0",
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",
@@ -95,6 +97,7 @@
     "sharp": "^0.28.0",
     "style-loader": "^2.0.0",
     "tesseract.js": "^2.1.4",
+    "ts-jest": "^26.5.4",
     "ts-loader": "^8.1.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3",
@@ -114,11 +117,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    }
   }
 }

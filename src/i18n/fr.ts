@@ -16,7 +16,7 @@ export const i18n = {
 
   'You Win!': 'Vous avez gagné',
   'You Lose!': 'Vous avez perdu',
-  'Draw Game': 'Match nul',
+  'Tie Game': 'Match nul',
 
   Preferences: 'Préférences',
   'Your Name:': 'Votre nom\u00A0:',

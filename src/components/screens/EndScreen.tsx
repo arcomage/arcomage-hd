@@ -11,7 +11,7 @@ import { INIT, SCREEN_END } from '../../constants/ActionTypes'
 import useKeyDown from '../../utils/useKeyDown'
 import { endScreenExitableDelay } from '../../constants/transition'
 
-const textArr = ['You Lose!', 'Draw Game', 'You Win!']
+const textArr = ['You Lose!', 'Tie Game', 'You Win!']
 
 const useStyles = createUseStyles<string, 1 | 0 | -1>({
   '@keyframes fadein': {

@@ -1,11 +1,10 @@
 import { RESOURCE_PROD, UPDATE_STATUS } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap, map } from 'rxjs/operators'
+import { withLatestFrom, filter, map } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { entries } from '../utils/typeHelpers'
-import { concat, of } from 'rxjs'
 import { resProdMap } from '../constants/resourceNames'
 
 export const resourceProdEpic = (

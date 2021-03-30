@@ -3,16 +3,16 @@ export const i18n = {
   wall: 'wall',
   resource: 'resource',
 
-  bricks: 'bricks',
-  gems: 'gems',
-  recruits: 'recruits',
+  bricks: 'mattoni',
+  gems: 'gemme',
+  recruits: 'reclute',
 
   quarry: 'quarry', // brick production
   magic: 'magic', // gem production
   dungeon: 'dungeon', // recruit production
 
-  discarded: 'discarded',
-  'Discard a card': 'Discard a card',
+  discarded: 'Scartata',
+  'Discard a card': 'Getta una carta',
 
   'You Win!': 'You Win!',
   'You Lose!': 'You Lose!',
@@ -39,10 +39,10 @@ export const i18n = {
   Help: 'Help',
   'Toggle Full Screen': 'Toggle Full Screen',
 
-  GAMEHELP: `Victory conditions vary per tavern. Build your tower, destroy your opponent's tower, or collect enough resources before your opponent does.
-Large yellow numbers in column are the productions. This is how many new units of a particular resource you will receive on your next turn. Small black numbers in column are the resources. This is how many units you have available to spend on your current turn.
-Cards: Each have their own cost to play, indicated in a small circle in the lower right corner of the card. The cost will be deducted from your resources according to the color of the card. Left click on a card plays the card. Right click on a card to discard without playing.
-Red represents your Quarry Generator which produces your Brick resources, blue represents your Magic Generator which produces Gem resources, green represents your Zoo generator which produces Beast resources.`,
+  GAMEHELP: `Le regole per vincere variano di osteria in osteria. Occorre costruire la propria torre, distruggere la torre dell’avversario, o raccogliere abbastanza risorse prima dell’avversario.
+I grandi numeri gialli incolonnati rappresentano i generatori. Si tratta di quante nuove unità di una risorsa particolare riceverete al prossimo turno. I piccoli numeri neri incolonnati sono le risorse. Si tratta di quante unità avete a disposizione durante il turno in corso.
+Carte: il costo di ogni carta è indicato nell’angolo destro inferiore della carta. Il costo della carta giocata viene sottratto dalle risorse secondo il colore della carta. Per giocare la carta fare clic sul tasto sinistro. Per scartare senza giocare fare clic sul tasto destro.
+il rosso rappresenta il Generatore Pietra, che produce i Mattoni; il blu rappresenta il Generatore Magia, che produce le Gemme; il verde rappresenta il Generatore Zoo, che produce gli Animali.`,
 
   ERATHIAN: 'Use Erathian [%s] (for latin letters only)',
 

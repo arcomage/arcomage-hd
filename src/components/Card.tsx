@@ -1,8 +1,6 @@
 import React, { useState, useContext, memo, MouseEvent, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { GameSizeContext } from '../utils/GameSizeContext'
-import memoize from 'lodash.memoize'
 
 import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { USE_CARD, DISCARD_CARD } from '../constants/ActionTypes'
@@ -28,118 +26,27 @@ import {
   hideOpponentCard,
   useAi,
 } from '../constants/devSettings'
-
-const heightPercToTable = 0.8
-const whRatio = 188 / 252
-const marginSpacingXRatio = 1.5
-const minSpacingXPx = 5
-const topCardSpacingPx = 10
-const topCardMarginTop = '1rem'
-const middleCardMarginBottom = '1rem'
-
-const useWidth = memoize(
-  (tableHeight: number, tableWidth: number, total: number): boolean =>
-    tableHeight * heightPercToTable * whRatio * total +
-      (minSpacingXPx * (total - 1) + minSpacingXPx * marginSpacingXRatio) <=
-    tableWidth,
-)
-
-const getHeight = memoize(
-  (tableHeight: number, tableWidth: number, total: number): number => {
-    if (useWidth(tableHeight, tableWidth, total)) {
-      return tableHeight * heightPercToTable
-    } else {
-      return getWidth(tableHeight, tableWidth, total) / whRatio
-    }
-  },
-)
-
-const getWidth = memoize(
-  (tableHeight: number, tableWidth: number, total: number): number => {
-    if (useWidth(tableHeight, tableWidth, total)) {
-      return getHeight(tableHeight, tableWidth, total) * whRatio
-    } else {
-      return (
-        (tableWidth -
-          (minSpacingXPx * (total - 1) + minSpacingXPx * marginSpacingXRatio)) /
-        total
-      )
-    }
-  },
-)
-
-const getSpacingX = (
-  winWidth: number,
-  total: number,
-  tableHeight: number,
-): number => {
-  if (useWidth(tableHeight, winWidth, total)) {
-    return (
-      (winWidth - getWidth(tableHeight, winWidth, total) * total) /
-      (total - 1 + 2 * marginSpacingXRatio)
-    )
-  } else {
-    return minSpacingXPx
-  }
-}
-
-const getMarginX = (
-  winWidth: number,
-  total: number,
-  tableHeight: number,
-): number => getSpacingX(winWidth, total, tableHeight) * marginSpacingXRatio
+import { CardPosContext, CardPosType } from '../utils/CardPosContext'
 
 const useStyles = createUseStyles<
   string,
   {
-    type?: number
-    winHeight: number
-    winWidth: number
+    cardPos: CardPosType | null
     total: number
     position: number
+    type?: number
     unusable: boolean
     zeroOpacity: boolean
   }
 >({
   main: {
-    width: ({ winHeight, winWidth, total }) =>
-      `${getWidth(winHeight / 3, winWidth, total)}px`,
-    height: ({ winHeight, winWidth, total }) =>
-      `${getHeight(winHeight / 3, winWidth, total)}px`,
-    top: ({ winHeight, winWidth, total, position }) => {
-      if (position >= 0) {
-        return `${
-          (winHeight / 3) * 2 +
-          (winHeight / 3 - getHeight(winHeight / 3, winWidth, total)) / 2
-        }px`
-      } else if (position === -5) {
-        return `calc(${
-          (winHeight / 3) * 2 - getHeight(winHeight / 3, winWidth, total)
-        }px - ${middleCardMarginBottom})`
-      } else {
-        return topCardMarginTop
-      }
-    },
-    left: ({ winHeight, winWidth, total, position }) => {
-      if (position >= 0) {
-        return `${
-          getMarginX(winWidth, total, winHeight / 3) +
-          (getWidth(winHeight / 3, winWidth, total) +
-            getSpacingX(winWidth, total, winHeight / 3)) *
-            position
-        }px`
-      } else if (position === -5) {
-        return `${
-          winWidth / 2 - getWidth(winHeight / 3, winWidth, total) / 2
-        }px`
-      } else {
-        return `${
-          winWidth / 2 -
-          (getWidth(winHeight / 3, winWidth, total) * (position + 3) -
-            (1 / 2 - 3 - position) * topCardSpacingPx)
-        }px`
-      }
-    },
+    width: ({ cardPos }) => cardPos?.width,
+    height: ({ cardPos }) => cardPos?.height,
+    top: ({ cardPos, total, position }) =>
+      cardPos?.[total === cardPos.total ? 'top' : 'topM1'][position + 5],
+    left: ({ cardPos, total, position }) =>
+      cardPos?.[total === cardPos.total ? 'left' : 'leftM1'][position + 5],
+
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDurationMs}ms`,
@@ -254,9 +161,7 @@ const Card = ({
   ) // player: 4 | 5 | 6 | 7 | 8, opponent:...
 
   const dispatch = useAppDispatch()
-  const size = useContext(GameSizeContext)
-  const winHeight = size.height
-  const winWidth = size.width
+  const cardPos = useContext(CardPosContext)
   const [zeroOpacity, setZeroOpacity] = useState(false)
 
   const total =
@@ -266,8 +171,7 @@ const Card = ({
 
   if (n === -1 || (hideOpponentCard && owner === 'opponent')) {
     const classes = useStyles({
-      winHeight,
-      winWidth,
+      cardPos,
       total,
       position,
       unusable,
@@ -294,11 +198,10 @@ const Card = ({
     const { type, cost, special } = dataCards[n]
 
     const classes = useStyles({
-      type,
-      winHeight,
-      winWidth,
+      cardPos,
       total,
       position,
+      type,
       unusable,
       zeroOpacity,
     })
