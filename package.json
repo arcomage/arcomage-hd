@@ -18,7 +18,9 @@
     "ocr:pre": "ts-node --project ./tools/tsconfig.json ./tools/ocr/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/ocr/composite.ts",
     "ocr": "ts-node --project ./tools/tsconfig.json ./tools/ocr/ocr.ts",
     "cardi18ncheck": "ts-node --project ./tools/tsconfig.json ./tools/cardi18ncheck/check.ts",
-    "calcscore": "ts-node --project ./tools/tsconfig.json ./tools/ai-related/calcscore.ts"
+    "calcscore": "ts-node --project ./tools/tsconfig.json ./tools/ai-related/calcscore.ts",
+    "preversion": "git diff-index --quiet HEAD --",
+    "postversion": "git push --follow-tags"
   },
   "keywords": [
     "arcomage",
