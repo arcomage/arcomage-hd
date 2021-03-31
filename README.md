@@ -98,6 +98,8 @@ The stack:
 <a href="https://www.adobe.com/products/illustrator.html" title="Adobe Illustrator"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/adobe-illustrator.svg" alt="Adobe Illustrator" width="21px" height="21px"></a>
 </p>
 
+react + redux + redux-observable, no \<canvas\>.
+
 ## To Do
 
 I'll write a detailed to-do list [here](https://github.com/arcomage/arcomage-hd/projects/1).
