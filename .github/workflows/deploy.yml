@@ -23,8 +23,14 @@ jobs:
           npm i
           fi
           yarn build
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+
+      - name: Deploy to GitHub Pages (in another repo)
+        uses: cpina/github-action-push-to-another-repository@master
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          deploy_key: ${{ secrets.GH_PAGES_DEPLOY }}
-          publish_dir: ./dist
+          source-directory: 'dist'
+          destination-github-username: 'arcomage'
+          destination-repository-name: 'arcomage.github.io'
+          user-email: tomchen.org@gmail.com
+          target-branch: gh-pages

@@ -1,4 +1,6 @@
-# ArcoMage HD - Open Source Arcomage Clone
+<p align="center"><a href="https://arcomage.github.io/" target="_blank" rel="noopener noreferrer"><img width="250" src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/logo/logo.svg" alt="ArcoMage HD logo"></a></p>
+
+<h1 align="center">ArcoMage HD - Open Source Arcomage Clone</h1>
 
 ArcoMage HD is a web-based open source HD clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the *Might and Magic* RPG game series.
 
