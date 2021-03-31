@@ -26,7 +26,7 @@ const useStyles = createUseStyles<string>({
 })
 
 const ButtonPref = () => {
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
 
   const pref = useAppSelector((state) => state.screen.pref)
 
@@ -37,7 +37,7 @@ const ButtonPref = () => {
   return (
     <button
       accessKey="p"
-      title={trans.i18n?.['Preferences']}
+      title={_.i18n('Preferences')}
       className={cx('topbutton', classes.prefButton, { windowactive: pref })}
       onClick={() => {
         dispatch({

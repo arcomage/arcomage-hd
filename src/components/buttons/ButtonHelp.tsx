@@ -29,7 +29,7 @@ const useStyles = createUseStyles<string>({
 })
 
 const ButtonHelp = () => {
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
 
   const help = useAppSelector((state) => state.screen.help)
 
@@ -40,7 +40,7 @@ const ButtonHelp = () => {
   return (
     <button
       accessKey="h"
-      title={trans.i18n?.['Help']}
+      title={_.i18n('Help')}
       className={cx('topbutton', classes.helpButton, { windowactive: help })}
       onClick={() => {
         dispatch({

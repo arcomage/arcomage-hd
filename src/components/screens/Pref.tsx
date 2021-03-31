@@ -23,7 +23,7 @@ import {
 import { hasOwnProperty } from '../../utils/typeHelpers'
 
 const Pref = () => {
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
 
   const [formFields, setFormFields] = useState({
@@ -203,11 +203,11 @@ const Pref = () => {
 
   return (
     <Window ScreenActionType={SCREEN_PREF}>
-      <h3>{trans.i18n?.['Preferences']}</h3>
+      <h3>{_.i18n('Preferences')}</h3>
 
       <div className="two-column half">
         <label>
-          <span>{trans.i18n?.['Your Name:']}</span>
+          <span>{_.i18n('Your Name:')}</span>
           <input
             type="text"
             name="playerName"
@@ -222,7 +222,7 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span>{trans.i18n?.["Opponent's Name:"]}</span>
+          <span>{_.i18n("Opponent's Name:")}</span>
           <input
             type="text"
             name="opponentName"
@@ -239,7 +239,7 @@ const Pref = () => {
       </div>
 
       <label className="one-colume">
-        <span>{trans.i18n?.['Choose a Tavern (Preset Preferences):']}</span>
+        <span>{_.i18n('Choose a Tavern (Preset Preferences):')}</span>
         <select
           name="tavern"
           id="tavern"
@@ -248,23 +248,23 @@ const Pref = () => {
             usePreset(parseInt(e.target.value, 10))
           }}
         >
-          <option value={-2}>{trans.i18n?.['Default']}</option>
+          <option value={-2}>{_.i18n('Default')}</option>
           {preSettings.map(({ tavern, location }, i) => (
             <option value={i} key={i}>
               {tavern} - {location}
             </option>
           ))}
           {preset === -1 && (
-            <option value={-1}>{trans.i18n?.['Customized']}</option>
+            <option value={-1}>{_.i18n('Customized')}</option>
           )}
         </select>
       </label>
 
-      <h4>{trans.i18n?.['Starting Conditions']}</h4>
+      <h4>{_.i18n('Starting Conditions')}</h4>
 
       <div className="two-column">
         <label>
-          <span>{upper1st(trans.i18n?.['tower'])}</span>
+          <span>{upper1st(_.i18n('tower'))}</span>
           <input
             type="number"
             name="tower"
@@ -275,7 +275,7 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span>{upper1st(trans.i18n?.['wall'])}</span>
+          <span>{upper1st(_.i18n('wall'))}</span>
           <input
             type="number"
             name="wall"
@@ -289,7 +289,7 @@ const Pref = () => {
 
       <div className="two-column">
         <label>
-          <span>{upper1st(trans.i18n?.['bricks'])}</span>
+          <span>{upper1st(_.i18n('bricks'))}</span>
           <input
             type="number"
             name="bricks"
@@ -300,7 +300,7 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span>{upper1st(trans.i18n?.['quarry'])}</span>
+          <span>{upper1st(_.i18n('quarry'))}</span>
           <input
             type="number"
             name="brickProd"
@@ -314,7 +314,7 @@ const Pref = () => {
 
       <div className="two-column">
         <label>
-          <span>{upper1st(trans.i18n?.['gems'])}</span>
+          <span>{upper1st(_.i18n('gems'))}</span>
           <input
             type="number"
             name="gems"
@@ -325,7 +325,7 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span>{upper1st(trans.i18n?.['magic'])}</span>
+          <span>{upper1st(_.i18n('magic'))}</span>
           <input
             type="number"
             name="gemProd"
@@ -339,7 +339,7 @@ const Pref = () => {
 
       <div className="two-column">
         <label>
-          <span>{upper1st(trans.i18n?.['recruits'])}</span>
+          <span>{upper1st(_.i18n('recruits'))}</span>
           <input
             type="number"
             name="recruits"
@@ -350,7 +350,7 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span>{upper1st(trans.i18n?.['dungeon'])}</span>
+          <span>{upper1st(_.i18n('dungeon'))}</span>
           <input
             type="number"
             name="recruitProd"
@@ -362,10 +362,10 @@ const Pref = () => {
         </label>
       </div>
 
-      <h4>{trans.i18n?.['Victory Conditions']}</h4>
+      <h4>{_.i18n('Victory Conditions')}</h4>
       <div className="two-column">
         <label>
-          <span>{upper1st(trans.i18n?.['tower'])}</span>
+          <span>{upper1st(_.i18n('tower'))}</span>
           <input
             type="number"
             name="winTower"
@@ -376,7 +376,7 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span>{upper1st(trans.i18n?.['resource'])}</span>
+          <span>{upper1st(_.i18n('resource'))}</span>
           <input
             type="number"
             name="winResource"
@@ -394,9 +394,9 @@ const Pref = () => {
         </label>
       </div>
 
-      <h4>{trans.i18n?.['Other Preferences']}</h4>
+      <h4>{_.i18n('Other Preferences')}</h4>
       <label className="one-colume">
-        <span>{trans.i18n?.['Cards in Hand']}</span>
+        <span>{_.i18n('Cards in Hand')}</span>
         <input
           type="number"
           name="cardsInHand"
@@ -408,7 +408,7 @@ const Pref = () => {
         />
       </label>
       {/* <label className="one-colume">
-          <span>{trans.i18n?.['AI Type']}</span>
+          <span>{_.i18n('AI Type')}</span>
           <select name="aiType" id="aiType">
             <option value={0}>111</option>
             <option value={1}>222</option>
@@ -417,7 +417,7 @@ const Pref = () => {
 
       <div className="button-wrapper">
         <button className="warning" onClick={applyAndNewGame}>
-          {trans.i18n?.['Apply & New Game']}
+          {_.i18n('Apply & New Game')}
         </button>
       </div>
     </Window>

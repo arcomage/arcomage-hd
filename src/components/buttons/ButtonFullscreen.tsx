@@ -48,13 +48,13 @@ const useStyles = createUseStyles<string>({
 })
 
 const ButtonFullscreen = () => {
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
   const classes = useStyles()
 
   return (
     <button
       accessKey="t"
-      title={trans.i18n?.['Toggle Full Screen']}
+      title={_.i18n('Toggle Full Screen')}
       className={cx('topbutton', classes.fullscreenButton)}
       onClick={toggleFullScreen}
     >

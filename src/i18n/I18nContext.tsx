@@ -4,14 +4,16 @@ import { cardsI18n } from '../../src/i18n/cards.en'
 import { defaultLang } from './langs'
 import {
   AvailableLangType,
+  I18nContextType,
   TranslationFullType,
-  TranslationObjType,
 } from './types'
 import { useAppSelector } from '../utils/useAppDispatch'
 
 const allDefault = { i18n: defaultTrans, cards: cardsI18n }
 
-export const I18nContext = createContext<TranslationObjType>(allDefault)
+const transObjDefault = { i18n: () => '', cards: () => '' }
+
+export const I18nContext = createContext<I18nContextType>(transObjDefault)
 
 const translationDefault: TranslationFullType = {
   [defaultLang]: allDefault,
@@ -48,7 +50,20 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
   }, [lang])
 
   return (
-    <I18nContext.Provider value={translation[lang] ?? translation[defaultLang]}>
+    <I18nContext.Provider
+      value={{
+        i18n: (str: string): string => {
+          const t = translation[lang] ?? translation[defaultLang]
+          return t.i18n?.[str] ?? ''
+        },
+        cards: (n: number, cardI18nProp: 'name' | 'desc'): string => {
+          const t = translation[lang] ?? translation[defaultLang]
+          const cont = t.cards
+          const card = cont?.[n]
+          return card?.[cardI18nProp] ?? ''
+        },
+      }}
+    >
       {children}
     </I18nContext.Provider>
   )

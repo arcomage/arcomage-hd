@@ -7,6 +7,7 @@
     "url": "https://github.com/arcomage/arcomage-hd"
   },
   "scripts": {
+    "postinstall": "husky install",
     "start": "webpack serve --mode development",
     "build": "rimraf dist && webpack --mode production",
     "test": "jest --coverage",
@@ -52,10 +53,11 @@
     "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
     "@types/classnames": "^2.2.11",
     "@types/convert-excel-to-json": "^1.7.0",
     "@types/jest": "^26.0.22",
-    "@types/lodash.memoize": "^4.1.6",
     "@types/merge-img": "^2.1.0",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
@@ -82,6 +84,7 @@
     "fork-ts-checker-webpack-plugin": "^6.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
     "join-images": "^0.2.5",
     "node-sass": "^5.0.0",

@@ -24,3 +24,8 @@ export type TranslationFullType = RequiredBy<
   TranslationType,
   typeof defaultLang
 >
+
+export type I18nContextType = {
+  i18n: (str: string) => string
+  cards: (n: number, cardI18nProp: 'name' | 'desc') => string
+}

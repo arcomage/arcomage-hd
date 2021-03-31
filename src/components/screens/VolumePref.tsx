@@ -7,12 +7,12 @@ import { I18nContext } from '../../i18n/I18nContext'
 
 const VolumePref = () => {
   const volume: number = useAppSelector((state) => state.volume)
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
 
   return (
     <Window ScreenActionType={SCREEN_VOLUME_PREF}>
-      <h3 className="text-center">{trans.i18n?.['Volume']}</h3>
+      <h3 className="text-center">{_.i18n('Volume')}</h3>
       <input
         type="range"
         min="0"
@@ -37,7 +37,7 @@ const VolumePref = () => {
             })
           }}
         />
-        <span>{trans.i18n?.['Mute']}</span>
+        <span>{_.i18n('Mute')}</span>
       </label>
     </Window>
   )

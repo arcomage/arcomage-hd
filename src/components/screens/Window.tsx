@@ -19,7 +19,7 @@ const useStyles = createUseStyles({
 type PropType = { ScreenActionType: any; children: React.ReactNode }
 const Window = ({ ScreenActionType, children }: PropType) => {
   const dispatch = useAppDispatch()
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
 
   const exitFunc = () => {
     dispatch({
@@ -48,7 +48,7 @@ const Window = ({ ScreenActionType, children }: PropType) => {
 
           <button
             className="cancel"
-            title={trans.i18n?.['Cancel']}
+            title={_.i18n('Cancel')}
             onClick={exitFunc}
           ></button>
         </div>

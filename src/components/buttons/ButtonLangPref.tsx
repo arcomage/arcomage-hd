@@ -304,7 +304,7 @@ const useStyles = createUseStyles<string>({
 })
 
 const ButtonLangPref = () => {
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
 
   const langPref = useAppSelector((state) => state.screen.langPref)
 
@@ -315,7 +315,7 @@ const ButtonLangPref = () => {
   return (
     <button
       accessKey="l"
-      title={trans.i18n?.['Language']}
+      title={_.i18n('Language')}
       className={cx('topbutton', classes.langPrefButton, {
         windowactive: langPref,
       })}

@@ -10,7 +10,7 @@ ArcoMage HD is a web-based open source HD clone of 3DO and New World Computing's
 > 
 > Cards: Each have their own cost to play, indicated in a small circle in the lower right corner of the card. The cost will be deducted from your resources according to the color of the card. Left click on a card plays the card. Right click on a card to discard without playing.
 > 
-> Red represents your Quarry Generator which produces your Brick resources, blue represents your Magic Generator which produces Gem resources, green represents your Zoo generator which produces Beast resources.
+> Red represents your Quarry Generator which produces your Brick resources, blue represents your Magic Generator which produces Gem resources, green represents your Dungeon generator which produces Recruit resources.
 
 ## Languages (i18n)
 

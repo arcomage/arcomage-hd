@@ -16,11 +16,11 @@ import { I18nContext } from '../../i18n/I18nContext'
 const LangPref = () => {
   const lang: AvailableLangType = useAppSelector((state) => state.lang.code)
   const erathian: boolean = useAppSelector((state) => state.lang.erathian)
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
 
   const erathianLabel = (() => {
-    const er = trans.i18n?.ERATHIAN
+    const er = _.i18n('ERATHIAN')
     if (er !== undefined) {
       const arr = er.split('%s')
       return [

@@ -33,5 +33,5 @@ it('has button(s)', () => {
       </I18nProvider>
     </Provider>,
   )
-  expect(wrapper.find('button').length >= 0).toBeTruthy()
+  expect(wrapper.find('button').length > 0).toBeTruthy()
 })

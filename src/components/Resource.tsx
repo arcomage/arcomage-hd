@@ -69,16 +69,16 @@ type PropType = {
   prod: number
 }
 const Resource = ({ type, count, prod }: PropType) => {
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
   const size = useContext(GameSizeContext)
   const height = (size.height / 3) * 2
 
   const classes = useStyles(height)
   const color = { brick: 'red', gem: 'blue', recruit: 'green' }[type]
   const text = {
-    brick: trans.i18n?.bricks,
-    gem: trans.i18n?.gems,
-    recruit: trans.i18n?.recruits,
+    brick: _.i18n('bricks'),
+    gem: _.i18n('gems'),
+    recruit: _.i18n('recruits'),
   }[type]
   // Force TailwindCSS to aware of these classes:
   // bg-red-300

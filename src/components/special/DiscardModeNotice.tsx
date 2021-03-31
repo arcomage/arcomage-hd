@@ -6,7 +6,7 @@ type PropType = {
   shown?: boolean
 }
 const DiscardModeNotice = ({ shown = true }: PropType) => {
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
   return shown ? (
     <div
       className={cx(
@@ -14,7 +14,7 @@ const DiscardModeNotice = ({ shown = true }: PropType) => {
         'transform -translate-y-1/2 w-full text-center text-yellow-300 pointer-events-none text-4xl text-shadow-lg',
       )}
     >
-      {trans.i18n?.['Discard a card']}
+      {_.i18n('Discard a card')}
     </div>
   ) : null
 }

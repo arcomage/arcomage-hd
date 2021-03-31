@@ -53,7 +53,7 @@ const useStyles = createUseStyles<string>({
 })
 
 const ButtonVolumePref = () => {
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
 
   const volumePref = useAppSelector((state) => state.screen.volumePref)
 
@@ -64,7 +64,7 @@ const ButtonVolumePref = () => {
   return (
     <button
       accessKey="v"
-      title={trans.i18n?.['Volume']}
+      title={_.i18n('Volume')}
       className={cx('topbutton', classes.volumePrefButton, {
         windowactive: volumePref,
       })}

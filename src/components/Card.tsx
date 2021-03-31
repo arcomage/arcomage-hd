@@ -148,9 +148,7 @@ const Card = ({
   index = -1,
   isflipped = false,
 }: PropType) => {
-  const trans = useContext(I18nContext)
-  const cardsI18n = trans.cards
-  const cardsI18nCurrent: DataCardI18nType | undefined = cardsI18n?.[n]
+  const _ = useContext(I18nContext)
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
   const locked = useAppSelector((state) => state.game.locked)
   const discardMode = useAppSelector((state) => state.game.discardMode)
@@ -347,7 +345,7 @@ const Card = ({
               `bg-${color}-200`,
             )}
           >
-            {cardsI18nCurrent?.name}
+            {_.cards(n, 'name')}
           </div>
           <div
             className={cx(
@@ -363,7 +361,7 @@ const Card = ({
               })`,
             }}
           >
-            {discarded && trans.i18n?.discarded}
+            {discarded && _.i18n('discarded')}
           </div>
           <div
             className={cx(
@@ -372,7 +370,7 @@ const Card = ({
             )}
           >
             <div className="leading-none break-words text-center">
-              {cardsI18nCurrent?.desc}
+              {_.cards(n, 'desc')}
             </div>
           </div>
           <div className="absolute bottom-1 right-1 w-9 h-9 leading-9 text-center font-bold">

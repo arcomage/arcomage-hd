@@ -86,10 +86,10 @@ const useStyles = createUseStyles<string, 1 | 0 | -1>({
 type PropType = { kind: 1 | 0 | -1 }
 const EndScreen = ({ kind }: PropType) => {
   const dispatch = useAppDispatch()
-  const trans = useContext(I18nContext)
+  const _ = useContext(I18nContext)
   const classes = useStyles(kind)
 
-  const text = trans.i18n?.[textArr[kind + 1]]
+  const text = _.i18n(textArr[kind + 1])
 
   const [exitable, setExitable] = useState(false)
   useEffect(() => {

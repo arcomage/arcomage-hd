@@ -126,5 +126,22 @@
         background-image: url('../assets/img/x.svg');
       }
     }
+
+    a {
+      @apply text-yellow-300 bg-no-repeat no-underline;
+
+      background-image: linear-gradient(
+        rgba(253, 224, 71, 0.68),
+        rgba(253, 224, 71, 0.68)
+      );
+      transition: background-size 0.25s ease-in;
+      padding-bottom: 2px;
+      background-size: 100% 2px;
+      background-position: 0 88%;
+
+      &:hover {
+        background-size: 0 2px;
+      }
+    }
   }
 }
