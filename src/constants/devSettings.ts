@@ -1,8 +1,8 @@
-export const disableContextMenu = false
+export const disableContextMenu = true
 
-export const enableWindowUnloadWarning = false
+export const enableWindowUnloadWarning = true
 
-export const hideOpponentCard = false
+export const hideOpponentCard = true
 
 export const useAi = true
 
