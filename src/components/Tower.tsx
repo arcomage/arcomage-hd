@@ -47,6 +47,7 @@ const useStyles = createUseStyles<
     height: ({ height, current, goal }) =>
       heightByCurrent(height, current / goal),
     'max-height': ({ height }) => heightByCurrent(height, 1),
+    'will-change': 'height',
     'transition-property': 'height',
     'transition-timing-function': 'linear',
     'transition-duration': '0.4s',

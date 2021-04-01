@@ -1,8 +1,8 @@
 import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { toggleFullScreen } from '../../utils/fullScreen'
 import { I18nContext } from '../../i18n/I18nContext'
+import screenfull from 'screenfull'
 
 const useStyles = createUseStyles<string>({
   '@keyframes moveto-tl': {
@@ -56,7 +56,11 @@ const ButtonFullscreen = () => {
       accessKey="t"
       title={_.i18n('Toggle Full Screen')}
       className={cx('topbutton', classes.fullscreenButton)}
-      onClick={toggleFullScreen}
+      onClick={() => {
+        if (screenfull.isEnabled) {
+          screenfull.toggle()
+        }
+      }}
     >
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path

@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     output: {
       filename: '[name].[contenthash:6].js',
       chunkFilename: '[name].[contenthash:6].js',
-      publicPath: 'https://arcomage.github.io/',
+      publicPath: dev ? '' : 'https://arcomage.github.io/',
     },
     ...(dev ? { devtool: 'eval-cheap-module-source-map' } : {}),
     devServer: {
@@ -119,9 +119,15 @@ module.exports = (env, argv) => {
         filename: './index.html',
         title: 'ArcoMage HD',
         url: 'https://arcomage.github.io/',
-        ogImage: 'https://arcomage.github.io/ogimage.jpg',
-        faviconSvg: 'https://arcomage.github.io/favicon.svg',
-        faviconIco: 'https://arcomage.github.io/favicon.ico',
+        ogImage: dev
+          ? 'https://arcomage.github.io/ogimage.jpg'
+          : './ogimage.jpg',
+        faviconSvg: dev
+          ? 'https://arcomage.github.io/favicon.svg'
+          : './favicon.svg',
+        faviconIco: dev
+          ? 'https://arcomage.github.io/favicon.ico'
+          : './favicon.ico',
         description:
           "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
       }),

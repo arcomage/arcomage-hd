@@ -33,6 +33,7 @@ const useStyles = createUseStyles<string, number>({
     },
     width: (height) => `calc(${calcBaseRatio(height)} * 72)`,
     'max-height': (height) => `calc(${calcBaseRatio(height)} * 597)`,
+    'will-change': 'height',
     'transition-property': 'height',
     'transition-timing-function': 'linear',
     'transition-duration': '0.4s',

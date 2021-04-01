@@ -19,6 +19,7 @@ const useStyles = createUseStyles({
   },
 
   main: {
+    'will-change': 'background-position',
     'background-repeat': 'no-repeat',
     'animation-duration': '1s',
     'animation-iteration-count': 1,

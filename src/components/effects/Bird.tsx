@@ -72,7 +72,6 @@ const useStyles = createUseStyles({
     width: '44px',
     height: '62.5px',
     'will-change': 'background-position',
-
     'animation-name': '$fly-cycle',
     'animation-timing-function': 'steps(10)',
     'animation-iteration-count': 'infinite',

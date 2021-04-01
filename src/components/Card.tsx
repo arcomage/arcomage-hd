@@ -20,7 +20,6 @@ import gem from '../../assets/img/gem.svg'
 import recruit from '../../assets/img/recruit.svg'
 
 import { I18nContext } from '../i18n/I18nContext'
-import { DataCardI18nType } from '../types/dataCard'
 import {
   canDiscardUndiscardableWhenDDP,
   hideOpponentCard,
@@ -47,6 +46,8 @@ const useStyles = createUseStyles<
     left: ({ cardPos, total, position }) =>
       cardPos?.[total === cardPos.total ? 'left' : 'leftM1'][position + 5],
 
+    // 'will-change: opacity' has bug and cannot be set here
+    'will-change': 'transform, left, top, box-shadow',
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDurationMs}ms`,
@@ -70,6 +71,7 @@ const useStyles = createUseStyles<
       }
       return 1
     },
+    'will-change': 'transform, left, top, box-shadow',
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDurationMs}ms`,
@@ -93,6 +95,7 @@ const useStyles = createUseStyles<
       }
       return 1
     },
+    'will-change': 'transform, left, top, box-shadow',
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDurationMs}ms`,

@@ -8,7 +8,7 @@ ArcoMage HD is a web-based open source HD clone of 3DO and New World Computing's
 
 <p align="center">
   <a href="https://github.com/arcomage/arcomage-hd/"><img src="https://img.shields.io/github/package-json/v/arcomage/arcomage-hd" alt="version number"></a>
-  <a href="https://github.com/arcomage/arcomage-hd//actions"><img src="https://github.com/arcomage/arcomage-hd//workflows/Test/badge.svg" alt="Actions Status"></a>
+  <a href="https://github.com/arcomage/arcomage-hd/actions/workflows/test.yml"><img src="https://github.com/arcomage/arcomage-hd//workflows/Test/badge.svg" alt="Actions Status"></a>
   <a href="https://github.com/arcomage/arcomage-hd/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="License"></a>
 </p>
 
@@ -94,7 +94,6 @@ The stack:
 <a href="https://code.visualstudio.com/" title="Visual Studio Code"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/visual-studio-code.svg" alt="Visual Studio Code" width="21px" height="21px"></a>
 <a href="https://yarnpkg.com/" title="Yarn"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/yarn.svg" alt="Yarn" width="21px" height="21px"></a>
 <a href="https://inkscape.org/" title="Inkscape"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Inkscape_Logo.svg" alt="Inkscape" width="21px" height="21px"></a>
-<a href="https://www.adobe.com/products/photoshop.html" title="Adobe Photoshop"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/adobe-photoshop.svg" alt="Adobe Photoshop" width="21px" height="21px"></a>
 <a href="https://www.adobe.com/products/illustrator.html" title="Adobe Illustrator"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/adobe-illustrator.svg" alt="Adobe Illustrator" width="21px" height="21px"></a>
 </p>
 
@@ -102,7 +101,7 @@ TypeScript + React + Redux + redux-observable, no \<canvas\>.
 
 ## To Do
 
-I'll write a detailed to-do list [here](https://github.com/arcomage/arcomage-hd/projects/1).
+[To-do list](https://github.com/arcomage/arcomage-hd/projects/1)
 
 ## Arcomage original game
 
@@ -114,4 +113,4 @@ The code of the ArcoMage HD game: MIT License (c) 2021 Tom Chen.
 
 The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company.
 
-See LICENSE.md for details.
+See [LICENSE.md](LICENSE.md) for details.

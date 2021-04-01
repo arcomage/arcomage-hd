@@ -7,12 +7,12 @@ const duration = 1.2
 const useStyles = createUseStyles({
   '@keyframes fadeOutUp': {
     from: {
-      transform: 'translate3d(0, 0, 0)',
+      transform: 'translateY(0)',
       opacity: 1,
     },
 
     to: {
-      transform: 'translate3d(0, -2.5em, 0)',
+      transform: 'translateY(-2.5em)',
       opacity: 0,
     },
   },
@@ -20,6 +20,7 @@ const useStyles = createUseStyles({
     top: '-0.5em',
     left: '0.4em',
     opacity: 0,
+    'will-change': 'transform, opacity',
     'animation-name': '$fadeOutUp',
     'animation-duration': `${duration}s`,
     'animation-timing-function': 'ease-out',

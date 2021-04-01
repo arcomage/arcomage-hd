@@ -6,11 +6,11 @@ The assets, text, appearance and other copyrightable elements of the game: (c) 2
 
 Logos and trademarks of "Arcomage": The 3DO Company in the U.S. and other countries.
 
-[Arcomage](https://en.wikipedia.org/wiki/Arcomage) game's assets, text and appearance are copyrighted, the logos and trademarks are held today by either Ubisoft or the defunct 3DO: [Ubisoft](https://en.wikipedia.org/wiki/Ubisoft) purchased [Might and Magic](https://en.wikipedia.org/wiki/Might_and_Magic) game series' copyright and trademarks from [The 3DO Company](https://en.wikipedia.org/wiki/The_3DO_Company) when 3DO went bankrupt in 2003, but Ubisoft didn't purchased Arcomage. The 2000 stand-alone game Arcomage is now an [abandonware](https://en.wikipedia.org/wiki/Abandonware), but is still copyrighted. Arcomage did appear as a mini-game in *Might and Magic VII: For Blood and Honor* and *Might and Magic VIII: Day of the Destroyer*, which are owned by Ubisoft and are still sold actively.
+The original [Arcomage](https://en.wikipedia.org/wiki/Arcomage) game's assets, text and appearance are copyrighted, the logos and trademarks are held today by either Ubisoft or the defunct 3DO: [Ubisoft](https://en.wikipedia.org/wiki/Ubisoft) purchased [*Might and Magic*](https://en.wikipedia.org/wiki/Might_and_Magic) game series' copyright and trademarks from [The 3DO Company](https://en.wikipedia.org/wiki/The_3DO_Company) when 3DO went bankrupt in 2003, but Ubisoft didn't purchased Arcomage. The 2000 stand-alone game Arcomage is now an [abandonware](https://en.wikipedia.org/wiki/Abandonware), but is still copyrighted. Arcomage did appear as a mini-game in *Might and Magic VII: For Blood and Honor* and *Might and Magic VIII: Day of the Destroyer*, which are owned by Ubisoft and are still sold actively.
 
 The assets, text and appearance of the game are protected by copyright law, but the gameplay design [may or may not be protected](https://en.wikipedia.org/wiki/Video_game_clone#Legal_aspects).
 
-**ArcoMage HD** is not-for-profit. The assets, text, appearance and other copyrightable elements of the original Arcomage game are used within scope of the "[fair use](https://en.wikipedia.org/wiki/Fair_use)" doctrine.
+**ArcoMage HD** is not-for-profit. The assets, text, appearance and other copyrightable elements from the original Arcomage game are used within scope of the "[fair use](https://en.wikipedia.org/wiki/Fair_use)" doctrine.
 
 **ArcoMage HD** uses [React.js](https://reactjs.org/), [Redux](https://redux.js.org/), [Redux Observable](https://redux-observable.js.org/) and other free and open-source [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) / [TypeScript](https://www.typescriptlang.org/) libraries. See [§ Copyright Notice of the Dependencies](#copyright-notice-of-the-dependencies).
 
@@ -44,19 +44,21 @@ SOFTWARE.
 
 ### Copyright Notice of the Dependencies
 
-See dist/\*.js.LICENSE.txt
+See [dist](https://github.com/arcomage/arcomage.github.io/tree/gh-pages)/\*.js.LICENSE.txt files
 
 ### SVG Animated Birds
 
-Copyright (c) 2021 by Steven Roberts (https://codepen.io/matchboxhero/pen/RLebOY), MIT License
+Copyright (c) 2021 Steven Roberts (https://codepen.io/matchboxhero/pen/RLebOY), [MIT License](#mit-license)
 
 ### Roboto Condensed Font
 
+Copyright (c) Christian Robertson et al. (https://fonts.google.com/specimen/Roboto+Condensed) (https://github.com/googlefonts/roboto)  
 Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-### Source Han Sans
+### Alegreya Medium font
 
-[Source Han Sans](https://github.com/adobe-fonts/source-han-sans) is licensed under the [SIL OPEN FONT LICENSE Version 1.1](https://github.com/adobe-fonts/source-han-sans/blob/master/LICENSE.txt).
+Copyright 2011 The Alegreya Project Authors (https://github.com/huertatipografica/Alegreya)  
+[SIL Open Font License, Version 1.1](https://github.com/huertatipografica/Alegreya/blob/master/LICENSE.md).
 
 ### Other Free License Images
 
@@ -68,7 +70,7 @@ Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses
 * https://commons.wikimedia.org/wiki/File:VisualEditor_-_Icon_-_Help.svg
 * https://www.svgrepo.com/svg/75085/full-screen
 
-The animations of the button icons, brick.svg, gem.svg, recruit.svg are developed by Tom Chen and licensed under the MIT license.
+The animations of the button icons, brick.svg, gem.svg, recruit.svg are developed by Tom Chen and licensed under the [MIT license](#mit-license).
 
 ### Erathian Font
 
@@ -78,8 +80,7 @@ Proprietary
 
 Erathian font (https://github.com/might-and-magic/erathian-font/):  
 Copyright (c) 2008-2020 Tom CHEN (tomchen.org)  
-SIL Open Font License, Version 1.1.  
-See [OFL.txt file](https://github.com/might-and-magic/erathian-font/blob/master/OFL.txt) file for SIL Open Font License (OFL) text
+[SIL Open Font License, Version 1.1](https://github.com/might-and-magic/erathian-font/blob/master/OFL.txt).
 
 ## Fair-use
 
