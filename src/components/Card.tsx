@@ -6,7 +6,9 @@ import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
 import { USE_CARD, DISCARD_CARD } from '../constants/ActionTypes'
 import { CardTotalType, ownerType } from '../types/state'
 import {
+  cardGradientSideOpacity,
   cardTransitionDurationMs,
+  resbgOpacity,
   unusableCardOpacity,
 } from '../constants/transition'
 import { cardCountPerType } from '../data/cardCountPerType'
@@ -75,6 +77,15 @@ const useStyles = createUseStyles<
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDurationMs}ms`,
+    '&:before': {
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      content: '""',
+      background: `linear-gradient(to left, rgba(0, 0, 0, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(0, 0, 0, ${cardGradientSideOpacity}))`,
+    },
   },
   unusableopacity: {
     opacity: unusableCardOpacity,
@@ -99,6 +110,15 @@ const useStyles = createUseStyles<
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDurationMs}ms`,
+    '&:before': {
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      content: '""',
+      background: `linear-gradient(to left, rgba(0, 0, 0, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(0, 0, 0, ${cardGradientSideOpacity}))`,
+    },
   },
   cardbackeffect: {
     transform: 'translateX(0) rotateY(180deg)',
@@ -110,6 +130,15 @@ const useStyles = createUseStyles<
       size: 'cover',
       position: 'center',
       repeat: 'no-repeat',
+    },
+    '&:before': {
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      content: '""',
+      background: `linear-gradient(to left, rgba(0, 0, 0, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(0, 0, 0, ${cardGradientSideOpacity}))`,
     },
   },
   image: {
@@ -129,7 +158,7 @@ const useStyles = createUseStyles<
       size: 'cover',
       position: 'center center',
     },
-    opacity: 0.35,
+    opacity: resbgOpacity,
   },
 })
 
@@ -304,7 +333,9 @@ const Card = ({
           { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
         accessKey={
-          !buttonDisabled && position >= 0 && position < 9 ? (position + 1).toString(10) : ''
+          !buttonDisabled && position >= 0 && position < 9
+            ? (position + 1).toString(10)
+            : ''
         }
         tabIndex={!buttonDisabled ? position + 1 : -1}
         disabled={buttonDisabled}
