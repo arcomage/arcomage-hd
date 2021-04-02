@@ -1,43 +1,43 @@
 export const i18n = {
-  tower: 'tower',
-  wall: 'wall',
-  resource: 'resource',
+  tower: 'wieża',
+  wall: 'mur',
+  resource: 'zasoby',
 
   bricks: 'kamienie',
   gems: 'klejnoty',
   recruits: 'bestie',
 
-  quarry: 'quarry', // brick production
-  magic: 'magic', // gem production
-  dungeon: 'dungeon', // recruit production
+  quarry: 'kamieniołom', // brick production
+  magic: 'magia', // gem production
+  dungeon: 'loch', // recruit production
 
-  discarded: 'usunięta',
+  discarded: 'odrzucona',
   'Discard a card': 'Odrzuæ kartê',
 
-  'You Win!': 'You Win!',
-  'You Lose!': 'You Lose!',
-  'Tie Game': 'Tie Game',
+  'You Win!': 'Zwyciężyłeś!',
+  'You Lose!': 'Przegrałeś',
+  'Tie Game': 'Remis',
 
-  Preferences: 'Preferences',
-  'Your Name:': 'Your Name:',
-  "Opponent's Name:": "Opponent's Name:",
+  Preferences: 'Opcje',
+  'Your Name:': 'Twoje imię:',
+  "Opponent's Name:": "Imię przeciwnika:",
   'Choose a Tavern (Preset Preferences):':
-    'Choose a Tavern (Preset Preferences):',
-  Default: 'Default',
-  Customized: 'Customized',
-  'Starting Conditions': 'Starting Conditions',
-  'Victory Conditions': 'Victory Conditions',
-  'Other Preferences': 'Other Preferences',
-  'Cards in Hand': 'Cards in Hand',
-  'AI Type': 'AI Type',
-  'Apply & New Game': 'Apply & New Game',
-  Cancel: 'Cancel',
+    'Wybierz tawernę (Wstępne ustawienia):',
+  Default: 'Domyślne',
+  Customized: 'Własne',
+  'Starting Conditions': 'Warunki rozpoczęcia',
+  'Victory Conditions': 'Warunki zwycięstwa',
+  'Other Preferences': 'Inne opcje',
+  'Cards in Hand': 'Karty w ręce',
+  'AI Type': 'Typ komputera',
+  'Apply & New Game': 'Akceptuj i zacznij grę',
+  Cancel: 'Zakończ',
 
-  Language: 'Language',
-  Volume: 'Volume',
-  Mute: 'Mute',
-  Help: 'Help',
-  'Toggle Full Screen': 'Toggle Full Screen',
+  Language: 'Język',
+  Volume: 'Głośność',
+  Mute: 'Wycisz',
+  Help: 'Pomoc',
+  'Toggle Full Screen': 'Pełny ekran',
 
   GAMERULES: `Warunki zwycięstwa są różne w zależności od miejsca, w którym gracie. Trzeba zbudować własną wieżę, zniszczyć wieżę przeciwnika lub zebrać wystarczająco dużo surowców zanim uczyni to twój przeciwnik.
 Duże, żółte liczby w kolumnach to generatory. Od nich zależy ile jednostek danego surowca otrzymasz w następnej kolejce. Małe czarne liczby w kolumnach to surowce. Oznaczają ilość surowca, którą możesz wykorzystać podczas trwającej tury.
