@@ -11,6 +11,7 @@ const coefs = {
   drawDiscardPlayagain: 27.6,
   undiscardable: 2.03,
   useDiscardRatio: 2.18,
+  loseDeduction: 999,
   enemy: 1.08,
   randomDice: 100,
 }

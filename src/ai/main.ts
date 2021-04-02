@@ -85,6 +85,10 @@ export const aiDecision = (
     if (special?.undiscardable) {
       card.score += coefs.undiscardable
     }
+
+    if (loseImm) {
+      card.score -= coefs.loseDeduction
+    }
   }
 
   const scores = cardList.map((card, i) => ({
