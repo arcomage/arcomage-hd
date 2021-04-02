@@ -20,7 +20,7 @@ export const i18n = {
 
   Preferences: 'Opcje',
   'Your Name:': 'Twoje imię:',
-  "Opponent's Name:": "Imię przeciwnika:",
+  "Opponent's Name:": 'Imię przeciwnika:',
   'Choose a Tavern (Preset Preferences):':
     'Wybierz tawernę (Wstępne ustawienia):',
   Default: 'Domyślne',
@@ -39,14 +39,23 @@ export const i18n = {
   Help: 'Pomoc',
   'Toggle Full Screen': 'Pełny ekran',
 
+  ERATHIAN: 'Użyj Erathian [%s] (tylko dla liter łacińskich)',
+
+  'ArcoMage HD': 'ArcoMage HD',
+
+  DESC:
+    'Sieciowy, otwartoźródłowy klon 3DO i gry karcianej Arcomage z 2000 roku firmy NWC',
+
+  'Please go to %s to view more information, star the repo and follow %s there.':
+    'Proszę przejść do %s, aby zobaczyć więcej informacji, uruchomić repo i śledzić %s tam.',
+
+  'the GitHub project page': 'strona projektu na GitHubie',
+
+  'Below is a brief presentation of the rules:':
+    'Poniżej znajduje się krótka prezentacja zasad:',
+
   GAMERULES: `Warunki zwycięstwa są różne w zależności od miejsca, w którym gracie. Trzeba zbudować własną wieżę, zniszczyć wieżę przeciwnika lub zebrać wystarczająco dużo surowców zanim uczyni to twój przeciwnik.
 Duże, żółte liczby w kolumnach to generatory. Od nich zależy ile jednostek danego surowca otrzymasz w następnej kolejce. Małe czarne liczby w kolumnach to surowce. Oznaczają ilość surowca, którą możesz wykorzystać podczas trwającej tury.
 Karty: Każda z nich posiada odpowiednią wartość, oznaczoną małym kółkiem w prawym dolnym rogu. Ten koszt zostanie odjęty od posiadanych przez ciebie surowców - w zależności od tego, jakiego koloru jest dana karta. Kliknięcie na karcie lewym przyciskiem myszki spowoduje zagranie karty. Kliknięcie na niej prawym przyciskiem myszy spowoduje odłożenie karty bez zagrania jej.
 Czerwony kolor oznacza generator kamieni, w którym powstaje surowiec zwany kamieniem. Kolor niebieski oznacza generator magii produkujący klejnoty, a zielony to generator stworzeń, w którym powstają bestie.`,
-
-  ERATHIAN: 'Use Erathian [%s] (for latin letters only)',
-
-  'ArcoMage HD': 'ArcoMage HD',
-  DESC:
-    "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
 }
