@@ -20,6 +20,9 @@ export const updateStatusEpic = (
     filter(isOfType(UPDATE_STATUS)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
+      // note that it doesn't perform any negative check,
+      // the negative check must be done at the upper stream:
+      // data/cards.ts & epics/execCardEpic.ts
       const newUpdArr = action.payload.map((upd) => {
         const { isPlayer, statusProp, noSound } = upd
         let increase: boolean | null = null

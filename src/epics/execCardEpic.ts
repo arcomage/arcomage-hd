@@ -1,5 +1,8 @@
 import { UPDATE_STATUS, EXEC_CARD } from '../constants/ActionTypes'
-import { RootActionType, UpdateStatusActionTypeSingle } from '../types/actionObj'
+import {
+  RootActionType,
+  UpdateStatusActionTypeSingle,
+} from '../types/actionObj'
 import { map, withLatestFrom, filter } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -22,6 +25,12 @@ export const execCardEpic = (
       const o = { ...oOriginal }
 
       const card = dataCards[action.n]
+
+      const ownerStatusObj = action.owner === 'player' ? p : o
+      const resName = resNames[card.type]
+      ownerStatusObj[resName] -= card.cost
+      const resAfterCost = ownerStatusObj[resName]
+
       const effectFunc = card.effect
       if (action.owner === 'player') {
         effectFunc(p, o)
@@ -36,6 +45,12 @@ export const execCardEpic = (
           isPlayer: true,
           statusProp: key,
           to: value,
+          noSound:
+            action.owner === 'player' &&
+            key === resName &&
+            value === resAfterCost
+              ? true
+              : false,
         }))
         .concat(
           entries(o)
@@ -44,15 +59,14 @@ export const execCardEpic = (
               isPlayer: false,
               statusProp: key,
               to: value,
+              noSound:
+                action.owner === 'opponent' &&
+                key === resName &&
+                value === resAfterCost
+                  ? true
+                  : false,
             })),
         )
-
-      newArr.push({
-        isPlayer: action.owner === 'player',
-        statusProp: resNames[card.type],
-        diff: -card.cost,
-        noSound: true,
-      })
 
       return {
         type: UPDATE_STATUS,
