@@ -304,7 +304,7 @@ const Card = ({
           { 'cursor-pointer hover:scale-105': position >= 0 },
         )}
         accessKey={
-          !buttonDisabled && position >= 0 ? (position + 1).toString(10) : ''
+          !buttonDisabled && position >= 0 && position < 9 ? (position + 1).toString(10) : ''
         }
         tabIndex={!buttonDisabled ? position + 1 : -1}
         disabled={buttonDisabled}

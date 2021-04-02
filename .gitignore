@@ -1,7 +1,4 @@
 *.traineddata
-/tools/ocr/*.bmp
-/tools/ocr/*.png
-/tools/ocr/*.jpg
 todo.md
 
 others

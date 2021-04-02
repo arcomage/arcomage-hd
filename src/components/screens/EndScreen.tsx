@@ -137,7 +137,7 @@ const EndScreen = ({ kind }: PropType) => {
           {text}
         </div>
         {kind >= 0 && (
-          // win OR draw
+          // win OR tie
           <>
             <div
               className={cx(classes.firework, 'absolute top-0 left-1/4')}

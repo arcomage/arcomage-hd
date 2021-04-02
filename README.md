@@ -1,15 +1,17 @@
-<p align="center"><a href="https://arcomage.github.io/" target="_blank" rel="noopener noreferrer"><img width="250" src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/logo/logo.svg" alt="ArcoMage HD logo"></a></p>
+<p align="center"><a href="https://arcomage.github.io/"><img width="250" src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/logo/logo.svg" alt="ArcoMage HD logo"></a></p>
 
 <h1 align="center">ArcoMage HD - Open Source Arcomage Clone</h1>
 
-ArcoMage HD is a web-based open source HD clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the *Might and Magic* RPG game series.
+**ArcoMage HD** is a web-based, open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the *Might and Magic* RPG game series.
 
-<p align="center"><a href="https://arcomage.github.io/" target="_blank" rel="noopener noreferrer">Click to play it now<br><br><img width="700" src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
+Developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + CSS-based animations, this not-for-profit fan-remake is available in English, French, German, Simplified Chinese and Traditional Chinese.
+
+<p align="center"><a href="https://arcomage.github.io/">Click to play it now<br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
 
 <p align="center">
-  <a href="https://github.com/arcomage/arcomage-hd/"><img src="https://img.shields.io/github/package-json/v/arcomage/arcomage-hd" alt="version number"></a>
-  <a href="https://github.com/arcomage/arcomage-hd/actions/workflows/test.yml"><img src="https://github.com/arcomage/arcomage-hd//workflows/Test/badge.svg" alt="Actions Status"></a>
-  <a href="https://github.com/arcomage/arcomage-hd/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="License"></a>
+<a href="https://github.com/arcomage/arcomage-hd/"><img src="https://img.shields.io/github/package-json/v/arcomage/arcomage-hd" alt="version number"></a>
+<a href="https://github.com/arcomage/arcomage-hd/actions/workflows/test.yml"><img src="https://github.com/arcomage/arcomage-hd//workflows/Test/badge.svg" alt="Actions Status"></a>
+<a href="https://github.com/arcomage/arcomage-hd/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="License"></a>
 </p>
 
 ## Gameplay
@@ -38,9 +40,9 @@ Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`)
 
 <details><summary><strong>Click to show the detailed instruction on how to help me translate it</strong></summary>
 
-I've actually [OCR](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr)'d the card names & descriptions in the incomplete 5 languages.
+I've [OCR](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr) (optical character recognition)'d the card names & descriptions in the incomplete 5 languages.
 
-If you speak one of Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`) and want to help, please go to [tools/i18n-temp](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-temp) folder, then:
+If you speak one of Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`) and want to help, please:
 
 #### Translate General Strings
 
@@ -48,7 +50,7 @@ In [tools/i18n-temp](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18
 
 Look at [en.ts](https://github.com/arcomage/arcomage-hd/blob/main/src/i18n/en.ts) to know what the strings in English are.
 
-Translate the untranslated lines in **\<LANGCODE\>.ts** file, by changing the string on the right. For example, change `'Your Name': 'Your Name',` to `'Your Name': 'Ihr Name',`
+Translate the untranslated lines in **\<LANGCODE\>.ts** file, by changing the string on the right. For example, change `'Your Name': 'Your Name',` to `'Your Name': 'Votre nom',`
 
 #### Translate Card Names & Descriptions
 
@@ -101,7 +103,7 @@ Or with access key (only for using a card):
 * <kbd>Alt</kbd> + <kbd>1</kbd>: Use the 1st card
 * <kbd>Alt</kbd> + <kbd>2</kbd>: Use the 2nd card
 * <kbd>Alt</kbd> + <kbd>3</kbd>: Use the 3rd card
-* <kbd>Alt</kbd> + ...: Use the nth card
+* <kbd>Alt</kbd> + ...: Use the nth card (n <= 9, you can't use 10th or later card with access key)
 
 It could be other key instead of <kbd>Alt</kbd>
 
@@ -118,9 +120,9 @@ The stack:
 <a href="https://reactjs.org/" title="React"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/react.svg" alt="React" width="21px" height="21px"></a>
 <a href="https://redux.js.org/" title="Redux"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/redux.svg" alt="Redux" width="21px" height="21px"></a>
 <a href="https://github.com/redux-observable/redux-observable" title="redux-observable"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/redux-observable.svg" alt="redux-observable" width="21px" height="21px"></a>
-<a href="https://reactivex.io/" title="ReactiveX (RxJS)"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/reactivex.svg" alt="ReactiveX (RxJS)" width="21px" height="21px"></a>
+<a href="https://rxjs-dev.firebaseapp.com/" title="RxJS (ReactiveX)"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/reactivex.svg" alt="RxJS (ReactiveX)" width="21px" height="21px"></a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/javascript.svg" alt="JavaScript" width="21px" height="21px"></a>
-<a href="https://tc39.es/ecma262/" title="ECMAScript 6"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/es6.svg" alt="ECMAScript 6" width="21px" height="21px"></a>
+<a href="https://tc39.es/ecma262/" title="ECMAScript 6+"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/es6.svg" alt="ECMAScript 6+" width="21px" height="21px"></a>
 <a href="https://sass-lang.com/" title="Sass"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/sass.svg" alt="Sass" width="21px" height="21px"></a>
 <a href="https://tailwindcss.com/" title="Tailwind CSS"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/tailwindcss-icon.svg" alt="Tailwind CSS" width="21px" height="21px"></a>
 <a href="https://webpack.js.org/" title="webpack"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/webpack.svg" alt="webpack" width="21px" height="21px"></a>
@@ -131,9 +133,10 @@ The stack:
 <a href="https://github.com/postcss/postcss" title="PostCSS"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/postcss.svg" alt="PostCSS" width="21px" height="21px"></a>
 <a href="https://github.com/postcss/autoprefixer" title="Autoprefixer"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/autoprefixer.svg" alt="Autoprefixer" width="21px" height="21px"></a>
 <a href="https://code.visualstudio.com/" title="Visual Studio Code"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/visual-studio-code.svg" alt="Visual Studio Code" width="21px" height="21px"></a>
-<a href="https://yarnpkg.com/" title="Yarn"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/yarn.svg" alt="Yarn" width="21px" height="21px"></a>
+<a href="https://yarnpkg.com/" title="yarn v1"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/yarn.svg" alt="yarn v1" width="21px" height="21px"></a>
 <a href="https://inkscape.org/" title="Inkscape"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Inkscape_Logo.svg" alt="Inkscape" width="21px" height="21px"></a>
 <a href="https://www.adobe.com/products/illustrator.html" title="Adobe Illustrator"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/adobe-illustrator.svg" alt="Adobe Illustrator" width="21px" height="21px"></a>
+<a href="https://www.adobe.com/products/photoshop.html" title="Adobe Photoshop"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/adobe-photoshop.svg" alt="Adobe Photoshop" width="21px" height="21px"></a>
 </p>
 
 TypeScript + React + Redux + redux-observable, CSS-based animations without \<canvas\>.
@@ -152,4 +155,4 @@ The code of the ArcoMage HD game: MIT License (c) 2021 [Tom Chen](https://github
 
 The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company.
 
-See [LICENSE.md](LICENSE.md file) for details.
+See [LICENSE.md file](LICENSE.md) for a detailed presentation of the copyright status of the game's components.

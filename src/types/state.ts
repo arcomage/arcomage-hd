@@ -78,7 +78,7 @@ export type ScreenStateType = {
   langPref: boolean
   volumePref: boolean
   help: boolean
-  end: 1 | 0 | -1 | null // win | draw | lose | close screen
+  end: 1 | 0 | -1 | null // win | tie | lose | close screen
 }
 
 export type LangStateType = {

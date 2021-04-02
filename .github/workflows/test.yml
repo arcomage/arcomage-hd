@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Install modules
-        run: yarn
+        run: yarn --ignore-optional
       - name: Run devSettings check
         run: yarn devsettingscheck
       - name: Run tests

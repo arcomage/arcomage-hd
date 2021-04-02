@@ -6,6 +6,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { resNames } from '../constants/resourceNames'
 import { EMPTY, of } from 'rxjs'
+import playSound from '../utils/playSound'
 
 export const checkVictoryEpic = (
   action$: ActionsObservable<RootActionType>,
@@ -28,21 +29,24 @@ export const checkVictoryEpic = (
         resNames.some((resName) => opponent[resName] >= winResource)
 
       if (playerWin && !opponentWin) {
+        playSound('victory', state.volume)
         return of({
           type: SCREEN_END,
-          kind: 1,
+          kind: 1, // win
         })
       }
       if (!playerWin && opponentWin) {
+        playSound('defeat', state.volume)
         return of({
           type: SCREEN_END,
-          kind: -1,
+          kind: -1, // lose
         })
       }
       if (playerWin && opponentWin) {
+        playSound('victory', state.volume)
         return of({
           type: SCREEN_END,
-          kind: 0,
+          kind: 0, // tie
         })
       }
 

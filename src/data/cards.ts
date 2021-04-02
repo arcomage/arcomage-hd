@@ -818,7 +818,6 @@ const cards: DataCardsType = [
     type: 2,
     cost: 1,
     prob: 2,
-    special: {},
     effect: (p, o) => {
       damage(o, 4)
       change(p, 'gems', -3)
@@ -849,7 +848,6 @@ const cards: DataCardsType = [
     type: 2,
     cost: 3,
     prob: 2,
-    special: {},
     effect: (p, o) => {
       damage(o, 6)
       damage(p, 3)
@@ -883,7 +881,6 @@ const cards: DataCardsType = [
     type: 2,
     cost: 3,
     prob: 2,
-    special: {},
     effect: (p, o) => {
       damage(o, 5)
     },

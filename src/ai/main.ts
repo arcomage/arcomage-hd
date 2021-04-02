@@ -27,7 +27,7 @@ export const aiDecision = (
     const oAfter: PersonStatusType = { ...oBefore }
     effect(oAfter, pAfter)
     /**
-     * win immediately (but not draw)
+     * win immediately (but not tie)
      */
     const winImm =
       oAfter.tower >= winTower ||
@@ -48,7 +48,7 @@ export const aiDecision = (
     }
 
     /**
-     * draw immediately
+     * tie immediately
      */
     if (canuse && winImm && loseImm) {
       return { index, use: true }
