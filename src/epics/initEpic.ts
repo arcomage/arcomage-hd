@@ -47,7 +47,8 @@ export const changeSettingsAndInitEpic = (
           n: randomWithProbs(),
           unusable: false,
           discarded: false,
-          isflipped: false,
+          isFlipped: false,
+          zeroOpacity: false,
           owner: i < total ? 'player' : 'opponent',
         }
         obj.list.push(card)

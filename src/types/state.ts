@@ -25,7 +25,8 @@ export type CardListItemType = {
   n: number // -1 is cardback, other number is No. of the card
   unusable: boolean // translucent
   discarded: boolean
-  isflipped: boolean // this one is for 3D visual effect. use n: -1 to represent non-flippable cardback state
+  isFlipped: boolean // this one is for 3D visual effect. use n: -1 to represent non-flippable cardback state
+  zeroOpacity: boolean // this one is only useful when the card is moved to the stack and about to be deleted
   owner: ownerType
 }
 

@@ -21,7 +21,7 @@ import {
   defaultSettings,
 } from '../../constants/defaultSettings'
 import { hasOwnProperty } from '../../utils/typeHelpers'
-import { prefApplyDelay } from '../../constants/visuals'
+import { abortAllMinimumDelay } from '../../constants/visuals'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -117,7 +117,7 @@ const Pref = () => {
         type: CHANGE_SETTINGS_AND_INIT,
         payload,
       })
-    }, prefApplyDelay)
+    }, abortAllMinimumDelay)
   }
 
   const [preset, setPreset] = useState<number>(-10)

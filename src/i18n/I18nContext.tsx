@@ -49,7 +49,7 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
             `./cards.${lang}`
           ),
           import(
-            /* webpackChunkName: "cardi18n" */
+            /* webpackChunkName: "taverni18n" */
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
             /* webpackPreload: false */

@@ -11,6 +11,7 @@ export const USE_CARD = 'USE_CARD' as const
 
 export const CLEAR_CARD = 'CLEAR_CARD' as const
 export const MOVE_CARD_TO_STACK = 'MOVE_CARD_TO_STACK' as const
+export const SET_ZERO_OPACITY = 'SET_ZERO_OPACITY' as const
 export const MOVE_CARD_TO_CENTER = 'MOVE_CARD_TO_CENTER' as const
 export const MOVE_CARD_TO_TOP = 'MOVE_CARD_TO_TOP' as const
 export const MOVE_CARD_TO_TOP_MAIN = 'MOVE_CARD_TO_TOP_MAIN' as const

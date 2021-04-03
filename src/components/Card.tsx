@@ -30,6 +30,22 @@ import {
 } from '../constants/devSettings'
 import { CardPosContext, CardPosType } from '../utils/CardPosContext'
 
+const calcOpacity = ({
+  unusable,
+  zeroOpacity,
+}: {
+  unusable: boolean
+  zeroOpacity: boolean
+}): number => {
+  if (zeroOpacity) {
+    return 0
+  }
+  if (unusable) {
+    return unusableCardOpacity
+  }
+  return 1
+}
+
 const useStyles = createUseStyles<
   string,
   {
@@ -65,15 +81,7 @@ const useStyles = createUseStyles<
   cardfront: {
     'background-image': `url(${noise})`,
     'backface-visibility': 'hidden',
-    opacity: ({ unusable, zeroOpacity }) => {
-      if (zeroOpacity) {
-        return 0
-      }
-      if (unusable) {
-        return unusableCardOpacity
-      }
-      return 1
-    },
+    opacity: calcOpacity,
     'will-change': 'transform, left, top, box-shadow',
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
@@ -98,15 +106,7 @@ const useStyles = createUseStyles<
       position: 'center',
       repeat: 'no-repeat',
     },
-    opacity: ({ unusable, zeroOpacity }) => {
-      if (zeroOpacity) {
-        return 0
-      }
-      if (unusable) {
-        return unusableCardOpacity
-      }
-      return 1
-    },
+    opacity: calcOpacity,
     'will-change': 'transform, left, top, box-shadow',
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
@@ -170,7 +170,8 @@ type PropType = {
   position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | -1 | -2 | -3 | -4 | -5
   owner?: ownerType
   index?: number // in-store index
-  isflipped?: boolean
+  isFlipped?: boolean
+  zeroOpacity?: boolean
 }
 const Card = ({
   n,
@@ -179,7 +180,8 @@ const Card = ({
   position,
   owner = 'common',
   index = -1,
-  isflipped = false,
+  isFlipped = false,
+  zeroOpacity = false,
 }: PropType) => {
   const _ = useContext(I18nContext)
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
@@ -193,7 +195,6 @@ const Card = ({
 
   const dispatch = useAppDispatch()
   const cardPos = useContext(CardPosContext)
-  const [zeroOpacity, setZeroOpacity] = useState(false)
 
   const total =
     owner === 'common'
@@ -323,7 +324,7 @@ const Card = ({
         className={cx(
           classes.main,
           classes.cardeffect,
-          { [classes.isflipped]: isflipped },
+          { [classes.isflipped]: isFlipped },
           'transform absolute rounded',
           {
             'opacity-0 pointer-events-none':
@@ -357,13 +358,6 @@ const Card = ({
               })
               el.dispatchEvent(mouseEvent)
             }
-          }
-        }}
-        onTransitionEnd={(e) => {
-          if (e.propertyName === 'transform' && position === -1) {
-            // card moved to the stack, will fade
-            setZeroOpacity(true)
-            // when the card fade finishes, it will be deleted, see epics/clearCardEpic.ts
           }
         }}
       >

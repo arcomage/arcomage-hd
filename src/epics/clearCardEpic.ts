@@ -4,6 +4,7 @@ import {
   ABORT_ALL,
   MOVE_CARD_TO_STACK,
   SWITCH_NEW_TURN,
+  SET_ZERO_OPACITY,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
 import {
@@ -16,7 +17,7 @@ import {
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
-import { concat, merge, Observable, of } from 'rxjs'
+import { merge, Observable, of } from 'rxjs'
 import { cardTransitionDurationMs } from '../constants/visuals'
 
 const topArr = [-2, -3, -4]
@@ -30,6 +31,7 @@ export const clearCardEpic = (
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const obs: Observable<RootActionType>[] = []
+      const obs1: Observable<RootActionType>[] = []
       const obs2: Observable<RootActionType>[] = []
       topArr.forEach((p) => {
         state.cards.list.forEach((card, index) => {
@@ -40,6 +42,12 @@ export const clearCardEpic = (
                 index,
               }),
             )
+            obs1.push(
+              of({
+                type: SET_ZERO_OPACITY,
+                index,
+              }).pipe(delay(cardTransitionDurationMs)),
+            )
             obs2.push(
               of({
                 type: DELETE_CARD,
@@ -49,11 +57,11 @@ export const clearCardEpic = (
           }
         })
       })
-      return concat(
+      return merge(
         of({
           type: SWITCH_NEW_TURN,
         }),
-        merge(...obs, ...obs2),
+        merge(...obs, ...obs1, ...obs2),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

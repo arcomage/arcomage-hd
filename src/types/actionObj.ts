@@ -29,6 +29,7 @@ import {
   RESOURCE_PROD,
   SWITCH_DISCARD_MODE,
   MOVE_CARD_TO_STACK,
+  SET_ZERO_OPACITY,
   CHECK_UNUSABLE,
   SET_UNUSABLE,
   SWITCH_NEW_TURN,
@@ -136,6 +137,11 @@ export type ClearCardActionType = {
 
 export type MoveCardToStackActionType = {
   type: typeof MOVE_CARD_TO_STACK
+  index: number
+}
+
+export type SetZeroOpacityActionType = {
+  type: typeof SET_ZERO_OPACITY
   index: number
 }
 
@@ -299,6 +305,7 @@ export type RootActionType =
   | DrawCardMainActionType
   | ClearCardActionType
   | MoveCardToStackActionType
+  | SetZeroOpacityActionType
   | MoveCardToCenterActionType
   | MoveCardToTopActionType
   | MoveCardToTopMainActionType

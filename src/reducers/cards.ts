@@ -10,6 +10,7 @@ import {
   MOVE_CARD_TO_STACK,
   SET_UNUSABLE,
   MOVE_CARD_TO_TOP_MAIN,
+  SET_ZERO_OPACITY,
 } from '../constants/ActionTypes'
 import { CardStateType } from '../types/state'
 import { RootActionType } from '../types/actionObj'
@@ -32,7 +33,8 @@ const cards = produce((draft: CardStateType, action: RootActionType) => {
         owner: 'common',
         unusable: false,
         discarded: false,
-        isflipped: true,
+        isFlipped: true,
+        zeroOpacity: false,
       })
       break
     }
@@ -49,7 +51,7 @@ const cards = produce((draft: CardStateType, action: RootActionType) => {
       if (lastCard !== null) {
         lastCard.position = position
         lastCard.owner = owner
-        lastCard.isflipped = false
+        lastCard.isFlipped = false
       }
       break
     }
@@ -76,8 +78,15 @@ const cards = produce((draft: CardStateType, action: RootActionType) => {
       if (card !== null) {
         card.position = -1
         card.unusable = true
-        card.isflipped = true
+        card.isFlipped = true
         card.owner = 'common'
+      }
+      break
+    }
+    case SET_ZERO_OPACITY: {
+      const card = draft.list[action.index]
+      if (card !== null) {
+        card.zeroOpacity = true
       }
       break
     }

@@ -12,8 +12,11 @@ export const resbgOpacity = 0.35
 
 export const drawCardPre = 100
 
-export const endScreenExitableDelay = 1200 // cardTransitionDurationMs + cardNextStepTimeoutMs + 200
-
-export const prefApplyDelay = 1010 // cardTransitionDurationMs + cardNextStepTimeoutMs + 10
+/**
+ * `abortAllMinimumDelay` is Preferences' "Apply" button function delay,
+ * it is also end screen's delay of becoming exitable
+ * = cardTransitionDurationMs + cardNextStepTimeoutMs + 10
+ */
+export const abortAllMinimumDelay = 1010
 
 // export const windowEnterAnimDurationMs = 0.8 // see App.scss

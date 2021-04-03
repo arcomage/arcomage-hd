@@ -9,7 +9,7 @@ import { I18nContext } from '../../i18n/I18nContext'
 import { useAppDispatch } from '../../utils/useAppDispatch'
 import { INIT, SCREEN_END } from '../../constants/ActionTypes'
 import useKeyDown from '../../utils/useKeyDown'
-import { endScreenExitableDelay } from '../../constants/visuals'
+import { abortAllMinimumDelay } from '../../constants/visuals'
 
 const textArr = ['You Lose!', 'Tie Game', 'You Win!']
 
@@ -95,7 +95,7 @@ const EndScreen = ({ kind }: PropType) => {
   useEffect(() => {
     setTimeout(() => {
       setExitable(true)
-    }, endScreenExitableDelay)
+    }, abortAllMinimumDelay)
   }, [])
 
   const onActionFunc = () => {
@@ -108,7 +108,7 @@ const EndScreen = ({ kind }: PropType) => {
     })
   }
 
-  useKeyDown(null, onActionFunc, endScreenExitableDelay)
+  useKeyDown(null, onActionFunc, abortAllMinimumDelay)
 
   const clickObj = exitable
     ? { onClick: onActionFunc, onContextMenu: onActionFunc, tabIndex: 0 }
