@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { i18n as defaultTrans } from './en'
 import { cardsI18n } from '../../src/i18n/cards.en'
+import { tavernsI18n } from '../../src/i18n/taverns.en'
 import { defaultLang } from './langs'
 import {
   AvailableLangType,
@@ -9,9 +10,13 @@ import {
 } from './types'
 import { useAppSelector } from '../utils/useAppDispatch'
 
-const allDefault = { i18n: defaultTrans, cards: cardsI18n }
+const allDefault = {
+  i18n: defaultTrans,
+  cards: cardsI18n,
+  taverns: tavernsI18n,
+}
 
-const transObjDefault = { i18n: () => '', cards: () => '' }
+const transObjDefault = { i18n: () => '', cards: () => '', taverns: () => '' }
 
 export const I18nContext = createContext<I18nContextType>(transObjDefault)
 
@@ -28,7 +33,7 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
     if (!translation[lang]) {
       setTranslation({ ...translation, [lang]: null })
       ;(async () => {
-        const [{ i18n }, { cardsI18n }] = await Promise.all([
+        const [{ i18n }, { cardsI18n }, { tavernsI18n }] = await Promise.all([
           import(
             /* webpackChunkName: "i18n" */
             /* webpackMode: "lazy" */
@@ -43,8 +48,18 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
             /* webpackPreload: false */
             `./cards.${lang}`
           ),
+          import(
+            /* webpackChunkName: "cardi18n" */
+            /* webpackMode: "lazy" */
+            /* webpackPrefetch: true */
+            /* webpackPreload: false */
+            `./taverns.${lang}`
+          ),
         ])
-        setTranslation({ ...translation, [lang]: { i18n, cards: cardsI18n } })
+        setTranslation({
+          ...translation,
+          [lang]: { i18n, cards: cardsI18n, taverns: tavernsI18n },
+        })
       })()
     }
   }, [lang])
@@ -58,9 +73,15 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
         },
         cards: (n: number, cardI18nProp: 'name' | 'desc'): string => {
           const t = translation[lang] ?? translation[defaultLang]
-          const cont = t.cards
-          const card = cont?.[n]
+          const c = t.cards
+          const card = c?.[n]
           return card?.[cardI18nProp] ?? ''
+        },
+        taverns: (i: number, tavernI18nProp: 'name' | 'location'): string => {
+          const t = translation[lang] ?? translation[defaultLang]
+          const c = t.taverns
+          const tavern = c?.[i]
+          return tavern?.[tavernI18nProp] ?? ''
         },
       }}
     >

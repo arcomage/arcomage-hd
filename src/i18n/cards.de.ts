@@ -1,4 +1,4 @@
-import { DataCardsI18nType } from '../types/dataCard'
+import { DataCardsI18nType } from './types'
 
 export const cardsI18n: DataCardsI18nType = [
   {

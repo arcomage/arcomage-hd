@@ -40,7 +40,7 @@ Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`)
 
 <details><summary><strong>Click to show the detailed instruction on how to help me translate it</strong></summary>
 
-I've [OCR](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr) (optical character recognition)'d the card names & descriptions in the incomplete 5 languages.
+I've [OCR](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr) (optical character recognition)'d the card names & descriptions in the 5 incomplete languages.
 
 If you speak one of Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`) and want to help, please:
 

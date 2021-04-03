@@ -249,14 +249,12 @@ const Pref = () => {
           }}
         >
           <option value={-2}>{_.i18n('Default')}</option>
-          {preSettings.map(({ tavern, location }, i) => (
+          {preSettings.map((s, i) => (
             <option value={i} key={i}>
-              {tavern} - {location}
+              {_.taverns(i, 'name')} - {_.taverns(i, 'location')}
             </option>
           ))}
-          {preset === -1 && (
-            <option value={-1}>{_.i18n('Customized')}</option>
-          )}
+          {preset === -1 && <option value={-1}>{_.i18n('Customized')}</option>}
         </select>
       </label>
 

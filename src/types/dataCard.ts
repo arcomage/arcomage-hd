@@ -19,10 +19,3 @@ export type DataCardType = {
 }
 
 export type DataCardsType = DataCardType[]
-
-export type DataCardI18nType = {
-  name: string
-  desc: string
-}
-
-export type DataCardsI18nType = DataCardI18nType[]

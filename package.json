@@ -19,6 +19,7 @@
     "ocr": "ts-node --project ./tools/tsconfig.json ./tools/ocr/ocr.ts",
     "cardi18ncheck": "ts-node --project ./tools/tsconfig.json ./tools/cardi18ncheck/check.ts",
     "calcscore": "ts-node --project ./tools/tsconfig.json ./tools/ai-related/calcscore.ts",
+    "i18nextract": "ts-node --project ./tools/tsconfig.json ./tools/i18n-extraction/main.ts",
     "devsettingscheck": "ts-node --project ./tools/tsconfig.json ./tools/precommitcheck/devSettingsCheck.ts",
     "preversion": "git diff-index --quiet HEAD --",
     "postversion": "git push --follow-tags"
@@ -100,6 +101,7 @@
     "@types/merge-img": "^2.1.0",
     "@types/sharp": "^0.27.3",
     "convert-excel-to-json": "^1.7.0",
+    "csv-parse": "^4.15.3",
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.1.0",
