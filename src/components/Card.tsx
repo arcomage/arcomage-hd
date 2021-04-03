@@ -11,7 +11,7 @@ import {
   cardTransitionDurationMs,
   resbgOpacity,
   unusableCardOpacity,
-} from '../constants/transition'
+} from '../constants/visuals'
 import { cardCountPerType } from '../data/cardCountPerType'
 
 import dataCards from '../../src/data/cards'

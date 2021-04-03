@@ -17,7 +17,7 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { concat, merge, Observable, of } from 'rxjs'
-import { cardTransitionDurationMs } from '../constants/transition'
+import { cardTransitionDurationMs } from '../constants/visuals'
 
 const topArr = [-2, -3, -4]
 

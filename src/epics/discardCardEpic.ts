@@ -23,7 +23,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { of, concat, EMPTY } from 'rxjs'
 import playSound from '../utils/playSound'
-import { cardTransitionDurationMs } from '../constants/transition'
+import { cardTransitionDurationMs } from '../constants/visuals'
 
 export const discardCardEpic = (
   action$: ActionsObservable<RootActionType>,

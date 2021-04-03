@@ -24,7 +24,7 @@ import {
   cardNextStepTimeoutMs,
   cardTransitionDurationMs,
   drawCardPre,
-} from '../constants/transition'
+} from '../constants/visuals'
 import { noAiDelay, useAi } from '../constants/devSettings'
 
 export const nextRoundEpic = (

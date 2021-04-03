@@ -9,7 +9,7 @@ import { I18nContext } from '../../i18n/I18nContext'
 import { useAppDispatch } from '../../utils/useAppDispatch'
 import { INIT, SCREEN_END } from '../../constants/ActionTypes'
 import useKeyDown from '../../utils/useKeyDown'
-import { endScreenExitableDelay } from '../../constants/transition'
+import { endScreenExitableDelay } from '../../constants/visuals'
 
 const textArr = ['You Lose!', 'Tie Game', 'You Win!']
 

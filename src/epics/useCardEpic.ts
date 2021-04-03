@@ -28,7 +28,7 @@ import cards from '../data/cards'
 import {
   cardNextStepTimeoutMs,
   cardTransitionDurationMs,
-} from '../constants/transition'
+} from '../constants/visuals'
 
 export const useCardEpic = (
   action$: ActionsObservable<RootActionType>,

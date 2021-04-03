@@ -21,7 +21,7 @@ import {
   defaultSettings,
 } from '../../constants/defaultSettings'
 import { hasOwnProperty } from '../../utils/typeHelpers'
-import { prefApplyDelay } from '../../constants/transition'
+import { prefApplyDelay } from '../../constants/visuals'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
