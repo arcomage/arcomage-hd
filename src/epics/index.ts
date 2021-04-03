@@ -14,6 +14,7 @@ import resourceProdEpic from './resourceProdEpic'
 import clearCardEpic from './clearCardEpic'
 import checkUnusableEpic from './checkUnusableEpic'
 import checkVictoryEpic from './checkVictoryEpic'
+import screenEndEpic from './screenEndEpic'
 import aiUseCardEpic from './aiUseCardEpic'
 
 export type MyEpic = Epic<RootActionType, RootActionType, RootStateType>
@@ -32,6 +33,7 @@ const rootEpic: MyEpic = combineEpics(
   clearCardEpic,
   checkUnusableEpic,
   checkVictoryEpic,
+  screenEndEpic,
   aiUseCardEpic,
 )
 

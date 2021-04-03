@@ -1,15 +1,20 @@
-import { UPDATE_STATUS, EXEC_CARD } from '../constants/ActionTypes'
+import {
+  UPDATE_STATUS,
+  EXEC_CARD,
+  ABORT_ALL,
+} from '../constants/ActionTypes'
 import {
   RootActionType,
   UpdateStatusActionTypeSingle,
 } from '../types/actionObj'
-import { map, withLatestFrom, filter } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { entries } from '../utils/typeHelpers'
 import dataCards from '../data/cards'
 import { resNames } from '../constants/resourceNames'
+import { of } from 'rxjs'
 
 export const execCardEpic = (
   action$: ActionsObservable<RootActionType>,
@@ -18,7 +23,7 @@ export const execCardEpic = (
   action$.pipe(
     filter(isOfType(EXEC_CARD)),
     withLatestFrom(state$),
-    map(([action, state]) => {
+    concatMap(([action, state]) => {
       const pOriginal = state.status.player
       const oOriginal = state.status.opponent
       const p = { ...pOriginal }
@@ -68,10 +73,10 @@ export const execCardEpic = (
             })),
         )
 
-      return {
+      return of({
         type: UPDATE_STATUS,
         payload: newArr,
-      }
+      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 

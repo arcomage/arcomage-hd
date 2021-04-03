@@ -1,36 +1,32 @@
 import {
-  CHANGE_SETTINGS_AND_INIT,
-  CHANGE_SETTINGS,
-  INIT,
   ABORT_ALL,
+  SCREEN_END,
+  SCREEN_END_MAIN,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
 import { filter, concatMap } from 'rxjs/operators'
-import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
+import { concat, of } from 'rxjs'
 
-export const changeSettingsAndInitEpic = (
+export const screenEndEpic = (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(CHANGE_SETTINGS_AND_INIT)),
-    concatMap(({ payload }) =>
+    filter(isOfType(SCREEN_END)),
+    concatMap((action) =>
       concat(
         of({
           type: ABORT_ALL,
         }),
         of({
-          type: CHANGE_SETTINGS,
-          payload,
-        }),
-        of({
-          type: INIT,
+          type: SCREEN_END_MAIN,
+          kind: action.kind,
         }),
       ),
     ),
   )
 
-export default changeSettingsAndInitEpic
+export default screenEndEpic

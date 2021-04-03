@@ -36,9 +36,11 @@ import {
   SCREEN_LANG_PREF,
   SCREEN_VOLUME_PREF,
   SCREEN_END,
+  SCREEN_END_MAIN,
   SCREEN_HELP,
   CHECK_VICTORY,
   AI_USE_CARD,
+  ABORT_ALL,
 } from '../constants/ActionTypes'
 import { AvailableLangType } from '../i18n/types'
 import {
@@ -271,8 +273,17 @@ export type ScreenEndActionType = {
   kind: 1 | 0 | -1 | null // win | draw | lose | close screen
 }
 
+export type ScreenEndMainActionType = {
+  type: typeof SCREEN_END_MAIN
+  kind: 1 | 0 | -1 | null
+}
+
 export type AiUseCardActionType = {
   type: typeof AI_USE_CARD
+}
+
+export type AbortAllActionType = {
+  type: typeof ABORT_ALL
 }
 
 export type RootActionType =
@@ -315,4 +326,6 @@ export type RootActionType =
   | ScreenVolumePrefActionType
   | ScreenHelpActionType
   | ScreenEndActionType
+  | ScreenEndMainActionType
   | AiUseCardActionType
+  | AbortAllActionType

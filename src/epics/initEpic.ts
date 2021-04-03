@@ -5,7 +5,7 @@ import {
   INIT_STATUS,
   DRAW_CARD,
   RESOURCE_PROD,
-  SCREEN_END,
+  ABORT_ALL,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
 import {
@@ -73,7 +73,7 @@ export const changeSettingsAndInitEpic = (
         of({
           type: DRAW_CARD,
         }).pipe(delay(0)),
-      ).pipe(takeUntil(action$.ofType(SCREEN_END)))
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 

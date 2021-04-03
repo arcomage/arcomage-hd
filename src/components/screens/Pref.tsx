@@ -21,6 +21,7 @@ import {
   defaultSettings,
 } from '../../constants/defaultSettings'
 import { hasOwnProperty } from '../../utils/typeHelpers'
+import { prefApplyDelay } from '../../constants/transition'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -111,10 +112,12 @@ const Pref = () => {
       show: false,
     })
 
-    dispatch({
-      type: CHANGE_SETTINGS_AND_INIT,
-      payload,
-    })
+    setTimeout(() => {
+      dispatch({
+        type: CHANGE_SETTINGS_AND_INIT,
+        payload,
+      })
+    }, prefApplyDelay)
   }
 
   const [preset, setPreset] = useState<number>(-10)

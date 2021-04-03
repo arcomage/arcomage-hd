@@ -8,9 +8,16 @@ import {
   SWITCH_DISCARD_MODE,
   SWITCH_LOCK,
   MOVE_CARD_TO_TOP,
+  ABORT_ALL,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
+import {
+  withLatestFrom,
+  filter,
+  concatMap,
+  delay,
+  takeUntil,
+} from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
@@ -55,7 +62,7 @@ export const discardCardEpic = (
               of({
                 type: DRAW_CARD,
               }),
-            )
+            ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
           : concat(
               of({
                 type: SWITCH_LOCK,
@@ -64,8 +71,8 @@ export const discardCardEpic = (
                 type: NEXT_ROUND,
                 index,
               }).pipe(delay(cardTransitionDurationMs)),
-            ),
-      )
+            ).pipe(takeUntil(action$.ofType(ABORT_ALL))),
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 

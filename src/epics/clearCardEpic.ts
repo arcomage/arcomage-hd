@@ -1,11 +1,18 @@
 import {
   CLEAR_CARD,
   DELETE_CARD,
+  ABORT_ALL,
   MOVE_CARD_TO_STACK,
   SWITCH_NEW_TURN,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, delay, mergeMap } from 'rxjs/operators'
+import {
+  withLatestFrom,
+  filter,
+  delay,
+  mergeMap,
+  takeUntil,
+} from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
@@ -47,7 +54,7 @@ export const clearCardEpic = (
           type: SWITCH_NEW_TURN,
         }),
         merge(...obs, ...obs2),
-      )
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 

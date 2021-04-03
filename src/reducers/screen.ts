@@ -1,6 +1,6 @@
 import produce from 'immer'
 import {
-  SCREEN_END,
+  SCREEN_END_MAIN,
   SCREEN_HELP,
   SCREEN_LANG_PREF,
   SCREEN_PREF,
@@ -35,7 +35,7 @@ const screen = produce((draft: ScreenStateType, action: RootActionType) => {
       draft.help = action.show
       break
     }
-    case SCREEN_END: {
+    case SCREEN_END_MAIN: {
       draft.end = action.kind
       break
     }

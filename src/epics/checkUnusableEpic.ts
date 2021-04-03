@@ -1,11 +1,16 @@
-import { CHECK_UNUSABLE, SET_UNUSABLE } from '../constants/ActionTypes'
+import {
+  CHECK_UNUSABLE,
+  ABORT_ALL,
+  SET_UNUSABLE,
+} from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, map } from 'rxjs/operators'
+import { withLatestFrom, filter, takeUntil, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardListItemAllType, RootStateType } from '../types/state'
 import cards from '../data/cards'
 import { resNames } from '../constants/resourceNames'
+import { of } from 'rxjs'
 
 export const checkUnusableEpic = (
   action$: ActionsObservable<RootActionType>,
@@ -14,7 +19,7 @@ export const checkUnusableEpic = (
   action$.pipe(
     filter(isOfType(CHECK_UNUSABLE)),
     withLatestFrom(state$),
-    map(([action, state]) => {
+    concatMap(([action, state]) => {
       const unusables: number[] = []
       const usables: number[] = []
 
@@ -49,11 +54,11 @@ export const checkUnusableEpic = (
         state.cards.list.forEach(payloadPush)
       }
 
-      return {
+      return of({
         type: SET_UNUSABLE,
         unusables,
         usables,
-      }
+      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 

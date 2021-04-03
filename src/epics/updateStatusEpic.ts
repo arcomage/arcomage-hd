@@ -1,11 +1,12 @@
 import {
   CHECK_UNUSABLE,
   CHECK_VICTORY,
+  ABORT_ALL,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
@@ -58,7 +59,7 @@ export const updateStatusEpic = (
         of({
           type: CHECK_VICTORY,
         }),
-      )
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 

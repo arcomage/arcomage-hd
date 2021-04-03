@@ -9,7 +9,7 @@ import {
   MOVE_CARD_TO_TOP,
   DRAW_CARD,
   NEXT_ROUND,
-  SCREEN_END,
+  ABORT_ALL,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
 import {
@@ -80,7 +80,7 @@ export const useCardEpic = (
               of({
                 type: SWITCH_LOCK,
               }),
-            )
+            ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
           : concat(
               of({
                 type: MOVE_CARD_TO_TOP,
@@ -94,13 +94,13 @@ export const useCardEpic = (
                     of({
                       type: SWITCH_LOCK,
                     }),
-                  )
+                  ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
                 : of({
                     type: NEXT_ROUND,
                     index,
                   }).pipe(delay(cardTransitionDurationMs)),
-            ),
-      ).pipe(takeUntil(action$.ofType(SCREEN_END)))
+            ).pipe(takeUntil(action$.ofType(ABORT_ALL))),
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 

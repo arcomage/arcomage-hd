@@ -2,9 +2,10 @@ import {
   MOVE_CARD_TO_TOP,
   MOVE_CARD_TO_TOP_MAIN,
   CLEAR_CARD,
+  ABORT_ALL,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
@@ -38,14 +39,14 @@ export const moveCardToTopEpic = (
               type: MOVE_CARD_TO_TOP,
               index: action.index,
             }),
-          )
+          ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
         }
 
         return of({
           type: MOVE_CARD_TO_TOP_MAIN,
           index: action.index,
           toPosition: topArr[indexFound],
-        })
+        }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
       }
       return EMPTY
     }),

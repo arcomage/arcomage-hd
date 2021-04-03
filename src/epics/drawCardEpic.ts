@@ -4,9 +4,16 @@ import {
   DRAW_CARD_MAIN,
   CHECK_UNUSABLE,
   AI_USE_CARD,
+  ABORT_ALL,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
+import {
+  withLatestFrom,
+  filter,
+  concatMap,
+  delay,
+  takeUntil,
+} from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
@@ -56,9 +63,10 @@ export const nextRoundEpic = (
                   10 +
                   (noAiDelay ? 0 : 5000),
               ),
+              takeUntil(action$.ofType(ABORT_ALL)),
             ) // The delay in useCardEpic, plus noAiDelay (5s) in devSettings
           : EMPTY,
-      )
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 

@@ -5,7 +5,7 @@ import {
   DRAW_CARD,
   RESOURCE_PROD,
   SWITCH_NEW_TURN,
-  SCREEN_END,
+  ABORT_ALL,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
 import {
@@ -45,7 +45,7 @@ export const nextRoundEpic = (
         of({
           type: SWITCH_NEW_TURN,
         }),
-      ).pipe(takeUntil(action$.ofType(SCREEN_END)))
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 

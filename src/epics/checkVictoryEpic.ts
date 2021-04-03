@@ -1,6 +1,10 @@
-import { CHECK_VICTORY, SCREEN_END } from '../constants/ActionTypes'
+import {
+  CHECK_VICTORY,
+  ABORT_ALL,
+  SCREEN_END,
+} from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
@@ -33,21 +37,21 @@ export const checkVictoryEpic = (
         return of({
           type: SCREEN_END,
           kind: 1, // win
-        })
+        }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
       }
       if (!playerWin && opponentWin) {
         playSound('defeat', state.volume)
         return of({
           type: SCREEN_END,
           kind: -1, // lose
-        })
+        }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
       }
       if (playerWin && opponentWin) {
         playSound('victory', state.volume)
         return of({
           type: SCREEN_END,
           kind: 0, // tie
-        })
+        }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
       }
 
       return EMPTY

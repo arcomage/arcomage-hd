@@ -1,6 +1,11 @@
-import { AI_USE_CARD, DISCARD_CARD, USE_CARD } from '../constants/ActionTypes'
+import {
+  AI_USE_CARD,
+  DISCARD_CARD,
+  ABORT_ALL,
+  USE_CARD,
+} from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
@@ -27,13 +32,13 @@ export const aiUseCardEpic = (
               n,
               position,
               owner,
-            })
+            }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
           : of({
               type: DISCARD_CARD,
               index,
               position,
               owner,
-            })
+            }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
       } else {
         return EMPTY
       }
