@@ -7,6 +7,7 @@ import { USE_CARD, DISCARD_CARD } from '../constants/ActionTypes'
 import { CardTotalType, ownerType } from '../types/state'
 import {
   cardGradientSideOpacity,
+  cardGradientSideRgb,
   cardTransitionDurationMs,
   resbgOpacity,
   unusableCardOpacity,
@@ -84,7 +85,7 @@ const useStyles = createUseStyles<
       top: '0',
       left: '0',
       content: '""',
-      background: `linear-gradient(to left, rgba(0, 0, 0, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(0, 0, 0, ${cardGradientSideOpacity}))`,
+      background: `linear-gradient(to left, rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}))`,
     },
   },
   unusableopacity: {
@@ -117,7 +118,7 @@ const useStyles = createUseStyles<
       top: '0',
       left: '0',
       content: '""',
-      background: `linear-gradient(to left, rgba(0, 0, 0, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(0, 0, 0, ${cardGradientSideOpacity}))`,
+      background: `linear-gradient(to left, rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}))`,
     },
   },
   cardbackeffect: {
@@ -138,7 +139,7 @@ const useStyles = createUseStyles<
       top: '0',
       left: '0',
       content: '""',
-      background: `linear-gradient(to left, rgba(0, 0, 0, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(0, 0, 0, ${cardGradientSideOpacity}))`,
+      background: `linear-gradient(to left, rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}))`,
     },
   },
   image: {

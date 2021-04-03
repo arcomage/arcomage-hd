@@ -16,6 +16,33 @@ button:disabled {
   cursor: default;
 }
 
+// button,
+// input[type='range'],
+// input[type='checkbox'],
+// input[type='radio'] {
+//   appearance: none;
+
+//   &:focus {
+//     outline: none;
+//     box-shadow: 0 0 2px 2px lime;
+//   }
+// }
+
+a,
+button,
+input[type='checkbox'],
+input[type='radio'],
+input[type='text'],
+input[type='number'],
+select {
+  appearance: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 2px 2px #40ffff;
+  }
+}
+
 @import './anims';
 
 @import './window';

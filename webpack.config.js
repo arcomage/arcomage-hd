@@ -64,7 +64,8 @@ module.exports = (env, argv) => {
                   plugins: [
                     'postcss-import',
                     'tailwindcss',
-                    ...(dev ? [] : ['autoprefixer', 'cssnano']),
+                    'autoprefixer',
+                    ...(dev ? [] : ['cssnano']),
                   ],
                 },
               },

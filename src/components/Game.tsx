@@ -38,6 +38,7 @@ const Game = () => {
         { erathian },
         classes.main,
       )}
+      tabIndex={-1}
     >
       <TableCommon />
       <TableP />
