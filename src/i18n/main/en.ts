@@ -51,8 +51,7 @@ export const i18n = {
 
   'the GitHub project page': 'the GitHub project page',
 
-  'Below is a brief presentation of the rules:':
-    'Below is a brief presentation of the rules:',
+  'Game rules:': 'Game rules:',
 
   GAMERULES: `Victory conditions vary per tavern. Build your tower, destroy your opponent's tower, or collect enough resources before your opponent does.
 Large yellow numbers in column are the productions. This is how many new units of a particular resource you will receive on your next turn. Small black numbers in column are the resources. This is how many units you have available to spend on your current turn.

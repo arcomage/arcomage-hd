@@ -7,15 +7,15 @@ import specialStrings from './specialStrings'
 
 const convert = Converter({ from: 'cn', to: 'twp' })
 
-const filePrefixes = ['cards.', ''] // do not convert 'taverns.'
+const folders = ['cards', 'main'] // do not convert 'taverns.'
 
-filePrefixes.forEach(async (filePrefix) => {
+folders.forEach(async (folder) => {
   const data = await fs.promises.readFile(
-    `./src/i18n/${filePrefix}zh-Hans.ts`,
+    `./src/i18n/${folder}/zh-Hans.ts`,
     'utf8',
   )
   await fs.promises.writeFile(
-    `./src/i18n/${filePrefix}zh-Hant.ts`,
+    `./src/i18n/${folder}/zh-Hant.ts`,
     (await convert)(
       Object.entries(specialStrings).reduce(
         (data, [from, to]) =>
@@ -27,7 +27,7 @@ filePrefixes.forEach(async (filePrefix) => {
       ),
     ),
   )
-  console.log(`File "${filePrefix}zh-Hant.json" has been saved!`)
+  console.log(`File "${folder}/zh-Hant.json" has been saved!`)
 })
 
 specialStrings.forEach

@@ -51,8 +51,7 @@ export const i18n = {
 
   'the GitHub project page': 'la page du projet GitHub',
 
-  'Below is a brief presentation of the rules:':
-    'Voici une brève présentation des règles\u00A0:',
+  'Game rules:': 'Les règles du jeu\u00A0:',
 
   GAMERULES: `Les conditions de victoire diffèrent selon les auberges. Pour remporter la partie, vous devez généralement être le premier à construire votre tour, détruire la tour adverse ou amasser plus de ressources que l’adversaire.
 Les chiffres jaunes sont vos productions. Il s’agit du nombre d’unités d’une ressource que vous amassez à chaque tour. Les chiffres noirs sont les ressources elles-mêmes. Il s’agit des unités dont vous disposez et que vous pouvez dépenser.

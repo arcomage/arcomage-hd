@@ -51,16 +51,15 @@ export const i18n = {
 
   'the GitHub project page': 'the GitHub project page',
 
-  'Below is a brief presentation of the rules:':
-    'Below is a brief presentation of the rules:',
+  'Game rules:': 'Game rules:',
 
   GAMERULES: `Le regole per vincere variano di osteria in osteria. Occorre costruire la propria torre, distruggere la torre dell’avversario, o raccogliere abbastanza risorse prima dell’avversario.
 I grandi numeri gialli incolonnati rappresentano i generatori. Si tratta di quante nuove unità di una risorsa particolare riceverete al prossimo turno. I piccoli numeri neri incolonnati sono le risorse. Si tratta di quante unità avete a disposizione durante il turno in corso.
 Carte: il costo di ogni carta è indicato nell’angolo destro inferiore della carta. Il costo della carta giocata viene sottratto dalle risorse secondo il colore della carta. Per giocare la carta fare clic sul tasto sinistro. Per scartare senza giocare fare clic sul tasto destro.
 il rosso rappresenta il Generatore Pietra, che produce i Mattoni; il blu rappresenta il Generatore Magia, che produce le Gemme; il verde rappresenta il Generatore Zoo, che produce gli Animali.`,
 
-'With no usable or discardable card, your opponent has surrendered':
-  'With no usable or discardable card, your opponent has surrendered',
-'With no usable or discardable card, you have surrendered':
-  'With no usable or discardable card, you have surrendered',
+  'With no usable or discardable card, your opponent has surrendered':
+    'With no usable or discardable card, your opponent has surrendered',
+  'With no usable or discardable card, you have surrendered':
+    'With no usable or discardable card, you have surrendered',
 }

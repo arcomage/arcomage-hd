@@ -40,34 +40,38 @@ Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`)
 
 <details><summary><strong>Click to show the detailed instruction on how to help me translate it</strong></summary>
 
+[Tavern names and location names](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns) have already been translated by extracting from the original M&M game.
+
 I've [OCR](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr) (optical character recognition)'d the card names & descriptions in the 5 incomplete languages.
 
 If you speak one of Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`) and want to help, please:
 
 #### Translate General Strings
 
-In [tools/i18n-temp](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-temp) folder, go to "**\<LANGCODE\>.ts**" file, click <kbd>Raw</kbd> button, then <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the file.
+In [src/i18n/main/](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main) folder, go to "**\<LANGCODE\>.ts**" file, click <kbd>Raw</kbd> button, then <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the file.
 
-Look at [en.ts](https://github.com/arcomage/arcomage-hd/blob/main/src/i18n/en.ts) to know what the strings in English are.
+Look at src/i18n/main/[en.ts](https://github.com/arcomage/arcomage-hd/blob/main/src/i18n/main/en.ts) file for the strings in English.
 
-Translate the untranslated lines in **\<LANGCODE\>.ts** file, by changing the string on the right. For example, change `'Your Name': 'Your Name',` to `'Your Name': 'Votre nom',`
+Translate the untranslated lines in "[src/i18n/main/](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main)**\<LANGCODE\>.ts**" file, by changing the string on the right. For example, change `'Your Name': 'Your Name',` to `'Your Name': 'Votre nom',`
 
 #### Translate Card Names & Descriptions
 
-In [tools/i18n-temp](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-temp) folder, go to "**cards.\<LANGCODE\>.ts**" file, click <kbd>Raw</kbd> button, then <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the file.
+In [src/i18n/cards/](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards) folder, go to "**\<LANGCODE\>.ts**" file, click <kbd>Raw</kbd> button, then <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the file.
 
-Look at [cards.en.ts](https://github.com/arcomage/arcomage-hd/blob/main/src/i18n/cards.en.ts) to know what the strings in English are.
+Look at src/i18n/cards/[en.ts](https://github.com/arcomage/arcomage-hd/blob/main/src/i18n/cards/en.ts) file for the strings in English.
 
-Please also refer to [main_en_fixed.png](https://github.com/arcomage/arcomage-hd/blob/main/tools/img-processing/original/main_en_fixed.png) which is an image that includes all cards with text in English, and the same image but of your language in [tools/ocr/original](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr/original) folder.
+Please also refer to:
 
-Check and/or translate "**cards.\<LANGCODE\>.ts**" file:
+* [main_en_fixed.png](https://github.com/arcomage/arcomage-hd/blob/main/tools/img-processing/original/main_en_fixed.png) which is an image that includes all cards with text in English
+* The same image but of your language in [tools/ocr/original](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr/original) folder
+* [tools/i18n-temp](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-temp)/**cards.\<LANGCODE\>.ts** files are filled with the text I got with OCR (optical character recognition), which could have poor quality, please retranslate it if it's nonsense, or verify and modify it if it's readable
+
+Check and/or translate "[src/i18n/cards/](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards)**<LANGCODE\>.ts**" file:
 
 ```
 name: '<Translated card name>',
 desc: '<Translated card desciption>',
 ```
-
-Now [tools/i18n-temp](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-temp)/**cards.\<LANGCODE\>.ts** files are filled with the text I got with OCR (optical character recognition), which could be of poor quality, please delete and retranslate it if it's nonsense, or verify and modify it if it's readable.
 
 #### Send it to me
 

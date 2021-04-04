@@ -45,7 +45,7 @@ const Help = () => {
         <strong>{_.i18n('ArcoMage HD')}</strong> - {_.i18n('DESC')}
       </p>
       {el}
-      <p>{_.i18n('Below is a brief presentation of the rules:')}</p>
+      <p>{_.i18n('Game rules:')}</p>
       <div>{<MultilineText>{_.i18n('GAMERULES')}</MultilineText>}</div>
     </Window>
   )

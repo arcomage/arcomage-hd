@@ -51,16 +51,15 @@ export const i18n = {
 
   'the GitHub project page': 'the GitHub project page',
 
-  'Below is a brief presentation of the rules:':
-    'Below is a brief presentation of the rules:',
+  'Game rules:': 'Game rules:',
 
   GAMERULES: `Podmínky vítězství jsou v každém hostinci různé. Stavíš svojí věž a snažíš se zničit věž protivníka nebo se snažíš nashromáždit stanovené množství zdrojů dříve, než to udělá tvůj protivník.
 Velká žlutá čísla v sloupcích jsou generátory. Ty určují, kolik nových jednotek jednotlivých zdrojů ti přibude v dalším tahu. Malá černá čísla v sloupcích jsou tvoje zásoby zdrojů. Ty určují, kolik jednotek budeš moci utratit v tomto tahu.
 Karty: Každá má svou cenu pro zahrání. Ta je značena v kroužku v pravém dolním rohu karty. Tato hodnota bude odečtena z tvých zdrojů podle barvy karty. Levým kliknutím kartu vynášíš do hry. Pravým kliknutím na kartě ji odhodíš z ruky.
 Cihly se generují v červeném generátoru těžby, drahokamy v modrém generátoru magie a příšery v zelené jeskyni.`,
 
-'With no usable or discardable card, your opponent has surrendered':
-  'With no usable or discardable card, your opponent has surrendered',
-'With no usable or discardable card, you have surrendered':
-  'With no usable or discardable card, you have surrendered',
+  'With no usable or discardable card, your opponent has surrendered':
+    'With no usable or discardable card, your opponent has surrendered',
+  'With no usable or discardable card, you have surrendered':
+    'With no usable or discardable card, you have surrendered',
 }

@@ -51,8 +51,7 @@ export const i18n = {
 
   'the GitHub project page': 'die GitHub-Projektseite',
 
-  'Below is a brief presentation of the rules:':
-    'Im Folgenden finden Sie eine kurze Darstellung der Regeln:',
+  'Game rules:': 'Spielregeln:',
 
   GAMERULES: `Die Siegbedingungen variieren je nach Taverne. Baut Euren Turm, zerstört den Turm des Gegners oder sammelt ausreichend Ressourcen, bevor es Euer Gegner tut.
 Die großen gelben Zahlen in einer Spalte stellen die Generatoren dar. Diese Zahlen geben an, wie viele Einheiten einer bestimmten Ressource Euch in der nächsten Runde zur Verfügung stehen. Die kleinen schwarzen Zahlen in einer Spalte geben die Ressourcen selbst an. Sie zeigen, wie viele Einheiten einer Ressource Ihr in dieser Runde verbrauchen könnt.

@@ -49,7 +49,7 @@ export const i18n = {
 
   'the GitHub project page': 'GitHub项目页面',
 
-  'Below is a brief presentation of the rules:': '以下是游戏规则的简要介绍：',
+  'Game rules:': '以下是游戏规则：',
 
   GAMERULES: `每个旅店玩牌的胜利条件各不相同。反正就是要把自己的城堡造好，摧毁对方的城堡，或者赶在对手之前收集到足够的资源。
 黄色的大数字是产量计数器，它代表你们下个回合可以得到的资源的数量。黑色的小数字表示现有资源，也就是本回合你们可以使用的资源数量。
