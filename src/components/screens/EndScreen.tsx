@@ -14,7 +14,9 @@ import { endScreenExitableDelay } from '../../constants/visuals'
 import { EndScreenNoCloseStateType } from '../../types/state'
 
 const textMap = { lose: 'You Lose!', tie: 'Tie Game', win: 'You Win!' }
+const erathianTextMap = { lose: 'you lose', tie: 'tie game', win: 'you win' }
 const imgMap = { lose: loseImg, tie: tieImg, win: winImg }
+const animMap = { lose: 'blackNeon', tie: 'redNeon', win: 'redNeon' }
 
 const useStyles = createUseStyles<string, EndScreenNoCloseStateType>({
   '@keyframes fadein': {
@@ -74,15 +76,31 @@ const useStyles = createUseStyles<string, EndScreenNoCloseStateType>({
     },
   },
 
+  notetext: {
+    'font-size': '5vh',
+    'line-height': '5vh',
+    bottom: '30%',
+  },
+
   text: {
     'font-size': '15vh',
     'line-height': '15vh',
     bottom: '53%',
-    color: '#fff',
     animation: ({ type }) =>
-      `${
-        type === 'win' || type === 'tie' ? '$redNeon' : '$blackNeon'
-      } 0.08s ease-in-out infinite alternate`,
+      `$${animMap[type]} 0.08s ease-in-out infinite alternate`,
+  },
+
+  erathiantext: {
+    'font-size': '6.8vh',
+    'line-height': '6.8vh',
+    bottom: '42%',
+    'text-shadow':
+      '0 0 10px rgba(125,203,255,0.98), 0 0 30px rgba(125,203,255,0.82), 0 0 12px rgba(0,129,255,0.88), 0 0 22px rgba(0,129,255,0.84), 0 0 38px rgba(0,129,255,0.88), 0 0 60px rgba(0,129,255,1)',
+  },
+
+  erathiantextspace: {
+    display: 'inline-block',
+    width: '4em',
   },
 })
 
@@ -95,12 +113,43 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
 
   const text = _.i18n(textMap[type])
 
+  const erathianTextArr = erathianTextMap[type].split(' ')
+
+  const erathianTextContainer = (
+    <>
+      {erathianTextArr[0]}
+      <span className={classes.erathiantextspace}></span>
+      {erathianTextArr[1]}
+    </>
+  )
+
+  let noteText: string | null = null
+  if (surrender) {
+    switch (type) {
+      case 'win':
+        noteText = _.i18n(
+          'With no usable or discardable card, your opponent has surrendered',
+        )
+        break
+      case 'lose':
+        noteText = _.i18n(
+          'With no usable or discardable card, you have surrendered',
+        )
+        break
+    }
+  }
+
   const [exitable, setExitable] = useState(false)
   useEffect(() => {
-    setTimeout(() => {
+    setExitable(false)
+    const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
       setExitable(true)
     }, endScreenExitableDelay)
-  }, [])
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [endScreenState])
 
   const onActionFunc = () => {
     dispatch({
@@ -132,6 +181,16 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
           classes.main,
         )}
       >
+        {noteText !== null && (
+          <div
+            className={cx(
+              classes.notetext,
+              'absolute w-full font-bold text-white text-center robotocondensed text-shadow-stroke',
+            )}
+          >
+            {noteText}
+          </div>
+        )}
         <div
           className={cx(
             classes.text,
@@ -139,6 +198,14 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
           )}
         >
           {text}
+        </div>
+        <div
+          className={cx(
+            classes.erathiantext,
+            'absolute w-full tracking-tighter text-white text-center erathian-normal',
+          )}
+        >
+          {erathianTextContainer}
         </div>
         {(type === 'win' || type === 'tie') && (
           <>

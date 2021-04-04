@@ -47,7 +47,7 @@ export const i18n = {
     'Clone HD open source version web du jeu de cartes Arcomage de 3DO et NWC en 2000',
 
   'Please go to %s to view more information, star the repo and follow %s there.':
-    'Merci d\'aller à %s pour voir plus d\'informations, star le repo et suivre %s là.',
+    "Merci d'aller à %s pour voir plus d'informations, star le repo et suivre %s là.",
 
   'the GitHub project page': 'la page du projet GitHub',
 
@@ -58,4 +58,9 @@ export const i18n = {
 Les chiffres jaunes sont vos productions. Il s’agit du nombre d’unités d’une ressource que vous amassez à chaque tour. Les chiffres noirs sont les ressources elles-mêmes. Il s’agit des unités dont vous disposez et que vous pouvez dépenser.
 Cartes\u00A0: chaque carte requiert un certain nombre de ressources pour pouvoir être utilisée, indiqué dans l’angle inférieur droit de la carte. Le coût d’utilisation est soustrait aux ressources selon la couleur de la carte. Cliquez sur une carte avec le bouton gauche de la souris pour la jouer. Cliquez sur une carte avec le bouton droit de la souris pour se défausser.
 En Rouge, votre Carrière qui produit des Briques. En Bleu, votre Magie qui produit des Gemmes. En Vert, votre Donjon qui produit des Recrues.`,
+
+  'With no usable or discardable card, your opponent has surrendered':
+    'Sans carte utilisable ou défaussable, votre adversaire a capitulé',
+  'With no usable or discardable card, you have surrendered':
+    'Sans carte utilisable ou défaussable, vous avez capitulé',
 }

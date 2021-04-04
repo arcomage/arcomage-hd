@@ -58,4 +58,9 @@ export const i18n = {
 Die großen gelben Zahlen in einer Spalte stellen die Generatoren dar. Diese Zahlen geben an, wie viele Einheiten einer bestimmten Ressource Euch in der nächsten Runde zur Verfügung stehen. Die kleinen schwarzen Zahlen in einer Spalte geben die Ressourcen selbst an. Sie zeigen, wie viele Einheiten einer Ressource Ihr in dieser Runde verbrauchen könnt.
 Karten: Jede Karte benötigt bestimmte Ressourcen, um ausgespielt werden zu können. Diese sind in einem kleinen Kreis in der unteren rechten Ecke der Karte angegeben. Die Kosten werden von Euren Ressourcen entsprechend der Farbe der Karte abgezogen. Mit einem Linksklick wird die Karte ausgespielt, mit einem Rechtsklick wird sie abgelegt, ohne ausgespielt worden zu sein.
 Rot stellt Euren Ziegel-Generator dar, der Ziegel-Ressourcen erzeugt, blau den Magie-Generator, der Edelstein-Ressourcen erzeugt und grün den Monster-Generator, der Monster-Ressourcen erzeugt.`,
+
+  'With no usable or discardable card, your opponent has surrendered':
+    'Ohne verwendbare oder ablegbare Karte hat Ihr Gegner kapituliert',
+  'With no usable or discardable card, you have surrendered':
+    'Ohne verwendbare oder ablegbare Karte haben Sie aufgegeben',
 }

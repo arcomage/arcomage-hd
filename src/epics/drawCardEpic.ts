@@ -5,6 +5,7 @@ import {
   CHECK_UNUSABLE,
   AI_USE_CARD,
   ABORT_ALL,
+  CHECK_SURRENDER,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
 import {
@@ -21,8 +22,8 @@ import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import { randomWithProbs } from '../utils/randomWithProbs'
 import {
-  cardNextStepTimeoutMs,
-  cardTransitionDurationMs,
+  cardNextStepTimeout,
+  cardTransitionDuration,
   drawCardPre,
 } from '../constants/visuals'
 import { noAiDelay, useAi } from '../constants/devSettings'
@@ -58,13 +59,18 @@ export const nextRoundEpic = (
               type: AI_USE_CARD,
             }).pipe(
               delay(
-                cardTransitionDurationMs +
-                  cardNextStepTimeoutMs +
+                cardTransitionDuration +
+                  cardNextStepTimeout +
                   10 +
                   (noAiDelay ? 0 : 5000),
               ),
               takeUntil(action$.ofType(ABORT_ALL)),
             ) // The delay in useCardEpic, plus noAiDelay (5s) in devSettings
+          : EMPTY,
+        owner === 'player'
+          ? of<RootActionType>({
+              type: CHECK_SURRENDER,
+            }).pipe(delay(0), takeUntil(action$.ofType(ABORT_ALL)))
           : EMPTY,
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),

@@ -58,4 +58,9 @@ export const i18n = {
 Duże, żółte liczby w kolumnach to generatory. Od nich zależy ile jednostek danego surowca otrzymasz w następnej kolejce. Małe czarne liczby w kolumnach to surowce. Oznaczają ilość surowca, którą możesz wykorzystać podczas trwającej tury.
 Karty: Każda z nich posiada odpowiednią wartość, oznaczoną małym kółkiem w prawym dolnym rogu. Ten koszt zostanie odjęty od posiadanych przez ciebie surowców - w zależności od tego, jakiego koloru jest dana karta. Kliknięcie na karcie lewym przyciskiem myszki spowoduje zagranie karty. Kliknięcie na niej prawym przyciskiem myszy spowoduje odłożenie karty bez zagrania jej.
 Czerwony kolor oznacza generator kamieni, w którym powstaje surowiec zwany kamieniem. Kolor niebieski oznacza generator magii produkujący klejnoty, a zielony to generator stworzeń, w którym powstają bestie.`,
+
+'With no usable or discardable card, your opponent has surrendered':
+  'With no usable or discardable card, your opponent has surrendered',
+'With no usable or discardable card, you have surrendered':
+  'With no usable or discardable card, you have surrendered',
 }

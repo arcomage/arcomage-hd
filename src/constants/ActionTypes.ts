@@ -49,4 +49,6 @@ export const SCREEN_HELP = 'SCREEN_HELP' as const
 
 export const AI_USE_CARD = 'AI_USE_CARD' as const
 
+export const CHECK_SURRENDER = 'CHECK_SURRENDER' as const
+
 export const ABORT_ALL = 'ABORT_ALL' as const

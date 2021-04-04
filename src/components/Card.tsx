@@ -8,7 +8,7 @@ import { CardTotalType, ownerType } from '../types/state'
 import {
   cardGradientSideOpacity,
   cardGradientSideRgb,
-  cardTransitionDurationMs,
+  cardTransitionDuration,
   resbgOpacity,
   unusableCardOpacity,
 } from '../constants/visuals'
@@ -69,7 +69,7 @@ const useStyles = createUseStyles<
     'will-change': 'transform, left, top, box-shadow',
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
-    'transition-duration': `${cardTransitionDurationMs}ms`,
+    'transition-duration': `${cardTransitionDuration}ms`,
   },
   isflipped: {
     transform: 'translateX(-100%) rotateY(-179.99deg)',
@@ -85,7 +85,7 @@ const useStyles = createUseStyles<
     'will-change': 'transform, left, top, box-shadow',
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
-    'transition-duration': `${cardTransitionDurationMs}ms`,
+    'transition-duration': `${cardTransitionDuration}ms`,
     '&:before': {
       width: '100%',
       height: '100%',
@@ -110,7 +110,7 @@ const useStyles = createUseStyles<
     'will-change': 'transform, left, top, box-shadow',
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
-    'transition-duration': `${cardTransitionDurationMs}ms`,
+    'transition-duration': `${cardTransitionDuration}ms`,
     '&:before': {
       width: '100%',
       height: '100%',

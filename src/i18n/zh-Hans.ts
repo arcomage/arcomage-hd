@@ -55,4 +55,9 @@ export const i18n = {
 黄色的大数字是产量计数器，它代表你们下个回合可以得到的资源的数量。黑色的小数字表示现有资源，也就是本回合你们可以使用的资源数量。
 牌：每张牌右下角小圆圈里面的数字表明它的资源消耗量。消耗的资源种类由每张牌的颜色而定。左键点击一张牌即可出牌。右键点击一张牌表示弃牌。
 红色的“采石场”生产砖头，蓝色的“魔法阵”生产宝石，绿色的“地下城”生产怪物。`,
+
+  'With no usable or discardable card, your opponent has surrendered':
+    '没有任何牌可以使用或丢弃，你的对手被迫投降了',
+  'With no usable or discardable card, you have surrendered':
+    '没有任何牌可以使用或丢弃，你被迫投降了',
 }

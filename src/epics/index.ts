@@ -16,6 +16,7 @@ import checkUnusableEpic from './checkUnusableEpic'
 import checkVictoryEpic from './checkVictoryEpic'
 import screenEndEpic from './screenEndEpic'
 import aiUseCardEpic from './aiUseCardEpic'
+import checkSurrenderEpic from './checkSurrenderEpic'
 
 export type MyEpic = Epic<RootActionType, RootActionType, RootStateType>
 
@@ -35,6 +36,7 @@ const rootEpic: MyEpic = combineEpics(
   checkVictoryEpic,
   screenEndEpic,
   aiUseCardEpic,
+  checkSurrenderEpic,
 )
 
 export default rootEpic

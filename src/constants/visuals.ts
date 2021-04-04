@@ -1,6 +1,6 @@
-export const cardTransitionDurationMs = 500
+export const cardTransitionDuration = 500
 
-export const cardNextStepTimeoutMs = 500
+export const cardNextStepTimeout = 500
 
 export const unusableCardOpacity = 0.48
 
@@ -14,4 +14,4 @@ export const drawCardPre = 100
 
 export const endScreenExitableDelay = 750
 
-// export const windowEnterAnimDurationMs = 0.8 // see App.scss
+// export const windowEnterAnimDurationMs = 0.8 // see window.scss

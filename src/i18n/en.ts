@@ -58,4 +58,9 @@ export const i18n = {
 Large yellow numbers in column are the productions. This is how many new units of a particular resource you will receive on your next turn. Small black numbers in column are the resources. This is how many units you have available to spend on your current turn.
 Cards: Each have their own cost to play, indicated in a small circle in the lower right corner of the card. The cost will be deducted from your resources according to the color of the card. Left click on a card plays the card. Right click on a card to discard without playing.
 Red represents your Quarry Generator which produces your Brick resources, blue represents your Magic Generator which produces Gem resources, green represents your Dungeon generator which produces Recruit resources.`,
+
+  'With no usable or discardable card, your opponent has surrendered':
+    'With no usable or discardable card, your opponent has surrendered',
+  'With no usable or discardable card, you have surrendered':
+    'With no usable or discardable card, you have surrendered',
 }

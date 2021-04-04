@@ -3,6 +3,7 @@ import {
   DISCARD_CARD,
   ABORT_ALL,
   USE_CARD,
+  SCREEN_END,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
@@ -21,7 +22,14 @@ export const aiUseCardEpic = (
     filter(isOfType(AI_USE_CARD)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
-      const { index, use }: AiInstructionType = ai(state)
+      const aiInstruction: AiInstructionType | null = ai(state)
+      if (aiInstruction === null) {
+        return of<RootActionType>({
+          type: SCREEN_END,
+          payload: { type: 'win', surrender: true },
+        }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      }
+      const { index, use } = aiInstruction
       const card = state.cards.list[index]
       if (card !== null && card.owner !== 'common') {
         const { n, position, owner } = card

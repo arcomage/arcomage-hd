@@ -41,6 +41,7 @@ import {
   SCREEN_HELP,
   CHECK_VICTORY,
   AI_USE_CARD,
+  CHECK_SURRENDER,
   ABORT_ALL,
 } from '../constants/ActionTypes'
 import { AvailableLangType } from '../i18n/types'
@@ -288,6 +289,10 @@ export type AiUseCardActionType = {
   type: typeof AI_USE_CARD
 }
 
+export type CheckSurrenderActionType = {
+  type: typeof CHECK_SURRENDER
+}
+
 export type AbortAllActionType = {
   type: typeof ABORT_ALL
 }
@@ -335,4 +340,5 @@ export type RootActionType =
   | ScreenEndActionType
   | ScreenEndMainActionType
   | AiUseCardActionType
+  | CheckSurrenderActionType
   | AbortAllActionType

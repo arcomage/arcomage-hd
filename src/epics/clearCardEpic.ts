@@ -18,7 +18,7 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { merge, Observable, of } from 'rxjs'
-import { cardTransitionDurationMs } from '../constants/visuals'
+import { cardTransitionDuration } from '../constants/visuals'
 
 const topArr = [-2, -3, -4]
 
@@ -46,13 +46,13 @@ export const clearCardEpic = (
               of<RootActionType>({
                 type: SET_ZERO_OPACITY,
                 index,
-              }).pipe(delay(cardTransitionDurationMs)),
+              }).pipe(delay(cardTransitionDuration)),
             )
             obs2.push(
               of<RootActionType>({
                 type: DELETE_CARD,
                 index,
-              }).pipe(delay(cardTransitionDurationMs * 2)),
+              }).pipe(delay(cardTransitionDuration * 2)),
             )
           }
         })

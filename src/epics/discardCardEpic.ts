@@ -23,7 +23,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { of, concat, EMPTY } from 'rxjs'
 import playSound from '../utils/playSound'
-import { cardTransitionDurationMs } from '../constants/visuals'
+import { cardTransitionDuration } from '../constants/visuals'
 
 export const discardCardEpic = (
   action$: ActionsObservable<RootActionType>,
@@ -69,7 +69,7 @@ export const discardCardEpic = (
               }),
               of<RootActionType>({
                 type: NEXT_ROUND,
-              }).pipe(delay(cardTransitionDurationMs)),
+              }).pipe(delay(cardTransitionDuration)),
             ).pipe(takeUntil(action$.ofType(ABORT_ALL))),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),

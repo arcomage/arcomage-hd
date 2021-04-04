@@ -7,11 +7,12 @@ import coefs from './coefs'
 
 // cardList is a list of all opponent card state objects,
 // each card state object includes two additional properties: canUse and canDiscard
+// `null` return value is a 'surrender' instruction
 export const aiDecision = (
   cardList: AiCardListItemType[],
   status: StatusType,
   winSettings: WinSettingsType,
-): AiInstructionType => {
+): AiInstructionType | null => {
   // cardList is not frozen
 
   const { player: pBefore, opponent: oBefore } = status
@@ -108,7 +109,8 @@ export const aiDecision = (
     .filter((c) => (c.use && c.card.canuse) || (!c.use && c.card.candiscard))
 
   if (allScores.length === 0) {
-    console.error('AI cannot find any usable or discardable card!')
+    // cannot find any usable or discardable card
+    return null
   }
 
   const max = allScores.reduce((prev, current) =>
