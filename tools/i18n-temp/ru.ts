@@ -1,60 +1,62 @@
 export const i18n = {
-  tower: 'tower',
-  wall: 'wall',
-  resource: 'resource',
+  tower: 'Башня',
+  wall: 'Стена',
+  resource: 'Ресурс', // where is this used? couldn't find
 
-  bricks: 'кирпичи',
-  gems: 'самоцветы',
-  recruits: 'звери',
+  bricks: 'Камень', 
+  gems: 'Самоцветы',
+  recruits: 'Существа', 
 
-  quarry: 'quarry', // brick production
-  magic: 'magic', // gem production
-  dungeon: 'dungeon', // recruit production
+  quarry: 'Карьер', 
+  magic: 'Магия',
+  dungeon: 'Подземелье', // i wonder what kind of recruits you can get in a dungeon ;)
 
   discarded: 'сброшена',
   'Discard a card': 'Сбросить карту',
 
-  'You Win!': 'You Win!',
-  'You Lose!': 'You Lose!',
-  'Tie Game': 'Tie Game',
+  'You Win!': 'Вы победили!',
+  'You Lose!': 'Вы проиграли!',
+  'Tie Game': 'Ничья!',
 
-  Preferences: 'Preferences',
-  'Your Name:': 'Your Name:',
-  "Opponent's Name:": "Opponent's Name:",
+  Preferences: 'Настройки',
+  'Your Name:': 'Ваше имя:',
+  "Opponent's Name:": "Имя противника:",
   'Choose a Tavern (Preset Preferences):':
-    'Choose a Tavern (Preset Preferences):',
-  Default: 'Default',
-  Customized: 'Customized',
-  'Starting Conditions': 'Starting Conditions',
-  'Victory Conditions': 'Victory Conditions',
-  'Other Preferences': 'Other Preferences',
-  'Cards in Hand': 'Cards in Hand',
-  'AI Type': 'AI Type',
-  'Apply & New Game': 'Apply & New Game',
-  Cancel: 'Cancel',
+    'Выберите Таверну (набор настроек):',
+  Default: 'По умолчанию',
+  Customized: 'Пользовательская',
+  'Starting Conditions': 'Стартовые условия',
+  'Victory Conditions': 'Условия победы',
+  'Other Preferences': 'Другие настройки',
+  'Cards in Hand': 'Карт в руке',
+  'AI Type': 'Тип ИИ', // couldn't find ingame
+  'Apply & New Game': 'Применить и начать игру', // 7 symbols longer, may want to use just "Начать игру!" instead if the button doesn't stretch
+  Cancel: 'Отмена',
 
-  Language: 'Language',
-  Volume: 'Volume',
-  Mute: 'Mute',
-  Help: 'Help',
-  'Toggle Full Screen': 'Toggle Full Screen',
+  Language: 'Язык',
+  Volume: 'Громкость',
+  Mute: 'Заглушить',
+  Help: 'Помощь',
+  'Toggle Full Screen': 'Полноэкранный режим',
 
-  ERATHIAN: 'Use Erathian [%s] (for latin letters only)',
+  ERATHIAN: 'Использовать Эрафийский [%s] (только для латиницы)', //probably not needed in RU locale at all
 
-  'ArcoMage HD': 'ArcoMage HD',
+  'ArcoMage HD': 'Аркомаг HD', // "Аркомаг" name is well known in Russia in its RU version, since just like Gwent (known in Russia as Гвинт), it was first introduced as a minigame inside another game, so they had to translate the name  
 
   DESC:
-    "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
+    "опенсорсная веб-версия игры Arcomage, выпущенной 3DO и New World Computing в 2000 году", //name already mentions it's HD, and "Arcomage" fits perfectly here in english
 
   'Please go to %s to view more information, star the repo and follow %s there.':
-    'Please go to %s to view more information, star the repo and follow %s there.',
+    'Чтобы узнать больше, посетите %s, добавьте репозиторий в избранное и подпишитесь на %s.',
 
-  'the GitHub project page': 'the GitHub project page',
+  'the GitHub project page': 'страницу проекта на GitHub',
 
   'Below is a brief presentation of the rules:':
-    'Below is a brief presentation of the rules:',
+    'Правила игры:', // because full is too long here "Ниже вы можете найти краткое изложение правил:", and pretty pointless too, might even want to shorten it in source lang
 
-  GAMERULES: `Условия победы зависят от конкретной таверны. Всегда есть три способа победить -- отстроить свою башню до определенного уровня, накопить определенное количество ресурсов и уничтожить башню противника.   Существуют три типа ресурсов -- Кирпичи, Самоцветы и Звери. В левом верхнем углу -- ваши источники ресурсов, в правом -- источники ресурсов противника. Кирпичи дает Карьер, Самоцветы -- Генератор, Зверей -- Темница. На каждом источнике есть две цифры. Маленькая черная цифра -- то, сколько единиц этого ресурса есть у вас в данный момент. Большая желтая - то, сколько единиц этого ресурса вы получите в начале своего следующего хода.  На каждой карте написана ее стоимость -- в кружочке в правом нижнем углу. Когда вы используете карту, вы расходуете указанное количество одного из ресурсов. На красные карты расходуются Кирпичи, на синие -- Магия, на зеленые -- Звери. Каждый ход вы можете использовать или сбросить с руки одну карту чтобы использовать, щелкните на ней левой клавишей, чтобы сбросить -- правой. На каждой карте написано то действие, которое она произведет, если ее использовать. Сброс карты не ведет ни к каким изменениям -- это практически пропуск хода.`,
+  GAMERULES: `Условия победы зависят от выбранной Таверны. Есть три способа - отстроить свою Башню до определенного уровня, накопить определенное количество ресурсов или уничтожить Башню противника.
+Существует три типа ресурсов - Камень, Самоцветы и Существа. Камень добывают в Карьере, Самоцветы создаются Магией, Существ разводят в Подземелье. На каждом источнике ресурсов есть две цифры. Маленькая черная цифра - то, сколько единиц этого ресурса есть у вас в данный момент. Большая желтая - то, сколько единиц этого ресурса вы получите в начале своего следующего хода.
+Каждый ход вы можете сыграть одну карту или сбросить её с руки, пропустив ход. Чтобы сыграть, щелкните на ней левой клавишей, чтобы сбросить - правой. На каждой карте написана ее стоимость - в правом нижнем углу. Когда вы играете карту, вы расходуете указанное количество одного из ресурсов. На красные карты расходуется Камень, на синие - Самоцветы, на зеленые - Существа.`,
 
   'With no usable or discardable card, your opponent has surrendered':
     'With no usable or discardable card, your opponent has surrendered',
