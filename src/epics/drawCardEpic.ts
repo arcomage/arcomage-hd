@@ -24,7 +24,6 @@ import { randomWithProbs } from '../utils/randomWithProbs'
 import {
   cardNextStepTimeout,
   cardTransitionDuration,
-  drawCardPre,
 } from '../constants/visuals'
 import { noAiDelay, useAi } from '../constants/devSettings'
 
@@ -51,9 +50,8 @@ export const nextRoundEpic = (
         }),
         of<RootActionType>({
           type: DRAW_CARD_MAIN,
-          position: state.cards.nextPos[owner],
           owner,
-        }).pipe(delay(drawCardPre)),
+        }).pipe(delay(0)),
         owner === 'opponent' && useAi
           ? of<RootActionType>({
               type: AI_USE_CARD,

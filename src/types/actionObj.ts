@@ -128,7 +128,6 @@ export type DrawCardPreActionType = {
 
 export type DrawCardMainActionType = {
   type: typeof DRAW_CARD_MAIN
-  position: number
   owner: ownerType2
 }
 

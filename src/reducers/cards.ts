@@ -39,7 +39,8 @@ const cards = produce((draft: CardStateType, action: RootActionType) => {
       break
     }
     case DRAW_CARD_MAIN: {
-      const { position, owner } = action
+      const { owner } = action
+      const position = draft.nextPos[owner]
       draft.total[owner] += 1
       const li = draft.list
       li.forEach((c) => {
