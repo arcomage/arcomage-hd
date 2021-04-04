@@ -4,6 +4,11 @@ export const langs = {
   de: 'Deutsch',
   'zh-Hans': '简体中文',
   'zh-Hant': '繁體中文',
+  ru: 'Русский',
+  pl: 'Polski',
+  es: 'Español',
+  it: 'Italiano',
+  cs: 'Čeština',
 }
 
 export const defaultLang = 'en' as const
