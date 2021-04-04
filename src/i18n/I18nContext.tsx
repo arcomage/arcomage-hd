@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { i18n as defaultTrans } from './en'
-import { cardsI18n } from '../../src/i18n/cards.en'
-import { tavernsI18n } from '../../src/i18n/taverns.en'
+import { i18n as defaultTrans } from './main/en'
+import { cardsI18n } from '../../src/i18n/cards/en'
+import { tavernsI18n } from '../../src/i18n/taverns/en'
 import { defaultLang } from './langs'
 import {
   AvailableLangType,
@@ -39,21 +39,21 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
             /* webpackPreload: false */
-            `./${lang}`
+            `./main/${lang}`
           ),
           import(
             /* webpackChunkName: "cardi18n" */
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
             /* webpackPreload: false */
-            `./cards.${lang}`
+            `./cards/${lang}`
           ),
           import(
             /* webpackChunkName: "taverni18n" */
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
             /* webpackPreload: false */
-            `./taverns.${lang}`
+            `./taverns/${lang}`
           ),
         ])
         setTranslation({

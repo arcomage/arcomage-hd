@@ -1,4 +1,4 @@
-import { TavernsI18nType } from './types'
+import { TavernsI18nType } from '../types'
 
 export const tavernsI18n: TavernsI18nType = [
   {
