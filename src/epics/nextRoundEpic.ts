@@ -38,12 +38,14 @@ export const nextRoundEpic = (
         }),
         of<RootActionType>({
           type: SWITCH_LOCK,
+          on: false, // switch it back following `DISCARD_CARD`'s switch
         }),
         of<RootActionType>({
           type: DRAW_CARD,
         }).pipe(delay(0)),
         of<RootActionType>({
           type: SWITCH_NEW_TURN,
+          on: true,
         }),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),

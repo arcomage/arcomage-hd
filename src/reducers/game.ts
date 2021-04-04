@@ -25,7 +25,7 @@ const game = produce((draft: GameStateType, action: RootActionType) => {
       }
     }
     case SWITCH_DISCARD_MODE: {
-      draft.discardMode = !draft.discardMode
+      draft.discardMode = action.on
       break
     }
     case SWITCH_TURN: {
@@ -33,11 +33,11 @@ const game = produce((draft: GameStateType, action: RootActionType) => {
       break
     }
     case SWITCH_LOCK: {
-      draft.locked = !draft.locked
+      draft.locked = action.on
       break
     }
     case SWITCH_NEW_TURN: {
-      draft.isNewTurn = !draft.isNewTurn
+      draft.isNewTurn = action.on
       break
     }
   }

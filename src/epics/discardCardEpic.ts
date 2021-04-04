@@ -58,6 +58,7 @@ export const discardCardEpic = (
           ? concat(
               of<RootActionType>({
                 type: SWITCH_DISCARD_MODE,
+                on: false,
               }),
               of<RootActionType>({
                 type: DRAW_CARD,
@@ -66,6 +67,7 @@ export const discardCardEpic = (
           : concat(
               of<RootActionType>({
                 type: SWITCH_LOCK,
+                on: true, // will switch back in `NEXT_ROUND`
               }),
               of<RootActionType>({
                 type: NEXT_ROUND,

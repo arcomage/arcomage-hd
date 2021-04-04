@@ -64,11 +64,13 @@ export const useCardEpic = (
         }),
         of<RootActionType>({
           type: SWITCH_LOCK,
+          on: true,
         }),
         special?.drawDiscardPlayagain
           ? concat(
               of<RootActionType>({
                 type: SWITCH_DISCARD_MODE,
+                on: true,
               }),
               of<RootActionType>({
                 type: DRAW_CARD,
@@ -79,6 +81,7 @@ export const useCardEpic = (
               }).pipe(delay(cardTransitionDuration + cardNextStepTimeout)),
               of<RootActionType>({
                 type: SWITCH_LOCK,
+                on: false,
               }),
             ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
           : concat(
@@ -93,6 +96,7 @@ export const useCardEpic = (
                     }).pipe(delay(0)),
                     of<RootActionType>({
                       type: SWITCH_LOCK,
+                      on: false,
                     }),
                   ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
                 : of<RootActionType>({

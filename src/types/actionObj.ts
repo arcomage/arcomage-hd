@@ -200,6 +200,7 @@ export type SwitchTurnActionType = {
 
 export type SwitchLockActionType = {
   type: typeof SWITCH_LOCK
+  on: boolean
 }
 
 export type ChangeSettingsActionType = {
@@ -233,6 +234,7 @@ export type ChangeSettingsAndInitActionType = {
 
 export type SwitchDiscardModeActionType = {
   type: typeof SWITCH_DISCARD_MODE
+  on: boolean
 }
 
 export type CheckUnusableActionType = {
@@ -248,6 +250,7 @@ export type SetUnusableActionType = {
 
 export type SwitchNewTurnActionType = {
   type: typeof SWITCH_NEW_TURN
+  on: boolean
 }
 
 export type CheckVictoryActionType = {

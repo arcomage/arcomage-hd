@@ -60,6 +60,7 @@ export const clearCardEpic = (
       return merge(
         of<RootActionType>({
           type: SWITCH_NEW_TURN,
+          on: false,
         }),
         merge(...obs, ...obs1, ...obs2),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
