@@ -36,19 +36,19 @@ export const discardCardEpic = (
       playSound('deal', state.volume)
       return concat(
         state.game.isNewTurn
-          ? of({
+          ? of<RootActionType>({
               type: CLEAR_CARD,
             })
           : EMPTY,
-        of({
+        of<RootActionType>({
           type: ADD_DISCARDED_TAG,
           index,
         }),
-        of({
+        of<RootActionType>({
           type: MOVE_CARD_TO_TOP,
           index,
         }).pipe(delay(0)),
-        of({
+        of<RootActionType>({
           type: REMOVE_CARD,
           index,
           position,
@@ -56,20 +56,19 @@ export const discardCardEpic = (
         }),
         state.game.discardMode
           ? concat(
-              of({
+              of<RootActionType>({
                 type: SWITCH_DISCARD_MODE,
               }),
-              of({
+              of<RootActionType>({
                 type: DRAW_CARD,
               }),
             ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
           : concat(
-              of({
+              of<RootActionType>({
                 type: SWITCH_LOCK,
               }),
-              of({
+              of<RootActionType>({
                 type: NEXT_ROUND,
-                index,
               }).pipe(delay(cardTransitionDurationMs)),
             ).pipe(takeUntil(action$.ofType(ABORT_ALL))),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))

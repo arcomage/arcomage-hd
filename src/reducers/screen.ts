@@ -14,7 +14,7 @@ const defaultScreen: ScreenStateType = {
   langPref: false,
   volumePref: false,
   help: false,
-  end: null,
+  end: { type: null },
 }
 
 const screen = produce((draft: ScreenStateType, action: RootActionType) => {
@@ -36,7 +36,8 @@ const screen = produce((draft: ScreenStateType, action: RootActionType) => {
       break
     }
     case SCREEN_END_MAIN: {
-      draft.end = action.kind
+      draft.end.type = action.payload.type
+      draft.end.surrender = action.payload.surrender
       break
     }
   }

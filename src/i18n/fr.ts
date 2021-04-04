@@ -1,6 +1,6 @@
 export const i18n = {
-  tower: 'mur',
-  wall: 'tour',
+  tower: 'tour',
+  wall: 'mur',
   resource: 'ressource',
 
   bricks: 'briques',

@@ -74,12 +74,26 @@ export type SettingsStateType = SettingsBaseType & {
   opponentName: string
 }
 
+export type EndScreenStateType = {
+  type: 'win' | 'tie' | 'lose' | null // null = close screen
+  surrender?: boolean
+}
+
+export type EndScreenNoCloseStateType = {
+  type: 'win' | 'tie' | 'lose'
+  surrender?: boolean
+}
+
+export const isEndScreenNoCloseState = (
+  state: EndScreenStateType,
+): state is EndScreenNoCloseStateType => state.type !== null
+
 export type ScreenStateType = {
   pref: boolean
   langPref: boolean
   volumePref: boolean
   help: boolean
-  end: 1 | 0 | -1 | null // win | tie | lose | close screen
+  end: EndScreenStateType
 }
 
 export type LangStateType = {

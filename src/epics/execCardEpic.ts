@@ -73,7 +73,7 @@ export const execCardEpic = (
             })),
         )
 
-      return of({
+      return of<RootActionType>({
         type: UPDATE_STATUS,
         payload: newArr,
       }).pipe(takeUntil(action$.ofType(ABORT_ALL)))

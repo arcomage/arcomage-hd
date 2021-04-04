@@ -54,7 +54,7 @@ export const checkUnusableEpic = (
         state.cards.list.forEach(payloadPush)
       }
 
-      return of({
+      return of<RootActionType>({
         type: SET_UNUSABLE,
         unusables,
         usables,

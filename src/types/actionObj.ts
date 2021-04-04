@@ -46,6 +46,7 @@ import {
 import { AvailableLangType } from '../i18n/types'
 import {
   CardStateType,
+  EndScreenStateType,
   ownerType2,
   PersonStatusType,
   SettingsStateType,
@@ -80,7 +81,6 @@ export type UpdateStatusActionTypeSingle = {
 )
 
 export type UpdateStatusMainActionTypeSingle = {
-  increase: boolean
   isPlayer: boolean
   statusProp: keyof PersonStatusType
 } & (
@@ -276,12 +276,12 @@ export type ScreenHelpActionType = {
 
 export type ScreenEndActionType = {
   type: typeof SCREEN_END
-  kind: 1 | 0 | -1 | null // win | draw | lose | close screen
+  payload: EndScreenStateType
 }
 
 export type ScreenEndMainActionType = {
   type: typeof SCREEN_END_MAIN
-  kind: 1 | 0 | -1 | null
+  payload: EndScreenStateType
 }
 
 export type AiUseCardActionType = {

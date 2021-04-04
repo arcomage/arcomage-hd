@@ -16,7 +16,7 @@ export const i18n = {
 
   'You Win!': '你赢了!',
   'You Lose!': '你输了!',
-  'Tie Game': '平局',
+  'Tie Game': '握手言和',
 
   Preferences: '设置',
   'Your Name:': '你的名字：',

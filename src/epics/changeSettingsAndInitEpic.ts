@@ -19,14 +19,14 @@ export const changeSettingsAndInitEpic = (
     filter(isOfType(CHANGE_SETTINGS_AND_INIT)),
     concatMap(({ payload }) =>
       concat(
-        of({
+        of<RootActionType>({
           type: ABORT_ALL,
         }),
-        of({
+        of<RootActionType>({
           type: CHANGE_SETTINGS,
           payload,
         }),
-        of({
+        of<RootActionType>({
           type: INIT,
         }),
       ),

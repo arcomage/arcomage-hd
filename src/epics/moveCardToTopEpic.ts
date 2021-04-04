@@ -32,17 +32,17 @@ export const moveCardToTopEpic = (
         if (indexFound === -1) {
           // throw new Error('Top line is full!')
           return concat(
-            of({
+            of<RootActionType>({
               type: CLEAR_CARD,
             }),
-            of({
+            of<RootActionType>({
               type: MOVE_CARD_TO_TOP,
               index: action.index,
             }),
           ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
         }
 
-        return of({
+        return of<RootActionType>({
           type: MOVE_CARD_TO_TOP_MAIN,
           index: action.index,
           toPosition: topArr[indexFound],

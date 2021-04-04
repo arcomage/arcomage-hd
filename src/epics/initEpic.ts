@@ -55,23 +55,23 @@ export const changeSettingsAndInitEpic = (
       }
 
       return concat(
-        of({
+        of<RootActionType>({
           type: INIT_CARD,
           payload: obj,
         }),
-        of({
+        of<RootActionType>({
           type: INIT_GAME,
           playersTurn,
         }),
-        of({
+        of<RootActionType>({
           type: INIT_STATUS,
           payload: state.settings.start,
         }),
-        of({
+        of<RootActionType>({
           type: RESOURCE_PROD,
           owner: playersTurn ? 'player' : 'opponent',
         }),
-        of({
+        of<RootActionType>({
           type: DRAW_CARD,
         }).pipe(delay(0)),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))

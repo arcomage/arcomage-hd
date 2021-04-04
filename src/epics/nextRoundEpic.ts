@@ -29,20 +29,20 @@ export const nextRoundEpic = (
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       return concat(
-        of({
+        of<RootActionType>({
           type: SWITCH_TURN,
         }),
-        of({
+        of<RootActionType>({
           type: RESOURCE_PROD,
           owner: state.game.playersTurn ? 'opponent' : 'player',
         }),
-        of({
+        of<RootActionType>({
           type: SWITCH_LOCK,
         }),
-        of({
+        of<RootActionType>({
           type: DRAW_CARD,
         }).pipe(delay(0)),
-        of({
+        of<RootActionType>({
           type: SWITCH_NEW_TURN,
         }),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))

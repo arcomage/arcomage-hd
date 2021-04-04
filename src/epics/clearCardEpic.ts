@@ -37,19 +37,19 @@ export const clearCardEpic = (
         state.cards.list.forEach((card, index) => {
           if (card !== null && card.position === p) {
             obs.push(
-              of({
+              of<RootActionType>({
                 type: MOVE_CARD_TO_STACK,
                 index,
               }),
             )
             obs1.push(
-              of({
+              of<RootActionType>({
                 type: SET_ZERO_OPACITY,
                 index,
               }).pipe(delay(cardTransitionDurationMs)),
             )
             obs2.push(
-              of({
+              of<RootActionType>({
                 type: DELETE_CARD,
                 index,
               }).pipe(delay(cardTransitionDurationMs * 2)),
@@ -58,7 +58,7 @@ export const clearCardEpic = (
         })
       })
       return merge(
-        of({
+        of<RootActionType>({
           type: SWITCH_NEW_TURN,
         }),
         merge(...obs, ...obs1, ...obs2),

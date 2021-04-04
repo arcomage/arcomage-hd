@@ -40,21 +40,21 @@ export const nextRoundEpic = (
       playSound('deal', state.volume)
 
       return concat(
-        of({
+        of<RootActionType>({
           type: DRAW_CARD_PRE,
           n: newCardN,
         }),
-        of({
+        of<RootActionType>({
           type: CHECK_UNUSABLE,
           lastOnly: true,
         }),
-        of({
+        of<RootActionType>({
           type: DRAW_CARD_MAIN,
           position: state.cards.nextPos[owner],
           owner,
         }).pipe(delay(drawCardPre)),
         owner === 'opponent' && useAi
-          ? of({
+          ? of<RootActionType>({
               type: AI_USE_CARD,
             }).pipe(
               delay(

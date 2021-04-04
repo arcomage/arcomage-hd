@@ -23,17 +23,17 @@ export const aiUseCardEpic = (
     concatMap(([action, state]) => {
       const { index, use }: AiInstructionType = ai(state)
       const card = state.cards.list[index]
-      if (card !== null) {
+      if (card !== null && card.owner !== 'common') {
         const { n, position, owner } = card
         return use
-          ? of({
+          ? of<RootActionType>({
               type: USE_CARD,
               index,
               n,
               position,
               owner,
             }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
-          : of({
+          : of<RootActionType>({
               type: DISCARD_CARD,
               index,
               position,

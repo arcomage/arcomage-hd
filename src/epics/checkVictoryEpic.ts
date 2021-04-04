@@ -1,8 +1,4 @@
-import {
-  CHECK_VICTORY,
-  ABORT_ALL,
-  SCREEN_END,
-} from '../constants/ActionTypes'
+import { CHECK_VICTORY, ABORT_ALL, SCREEN_END } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
@@ -10,7 +6,6 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { resNames } from '../constants/resourceNames'
 import { EMPTY, of } from 'rxjs'
-import playSound from '../utils/playSound'
 
 export const checkVictoryEpic = (
   action$: ActionsObservable<RootActionType>,
@@ -33,24 +28,21 @@ export const checkVictoryEpic = (
         resNames.some((resName) => opponent[resName] >= winResource)
 
       if (playerWin && !opponentWin) {
-        playSound('victory', state.volume)
-        return of({
+        return of<RootActionType>({
           type: SCREEN_END,
-          kind: 1, // win
+          payload: { type: 'win' },
         }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
       }
       if (!playerWin && opponentWin) {
-        playSound('defeat', state.volume)
-        return of({
+        return of<RootActionType>({
           type: SCREEN_END,
-          kind: -1, // lose
+          payload: { type: 'lose' },
         }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
       }
       if (playerWin && opponentWin) {
-        playSound('victory', state.volume)
-        return of({
+        return of<RootActionType>({
           type: SCREEN_END,
-          kind: 0, // tie
+          payload: { type: 'tie' },
         }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
       }
 

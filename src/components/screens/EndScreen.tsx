@@ -2,18 +2,21 @@ import React, { memo, useContext, useEffect, useState } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import youWinImg from '../../../assets/img/you-win.svg'
-import youLoseImg from '../../../assets/img/you-lose.svg'
+import winImg from '../../../assets/img/end_win.svg'
+import loseImg from '../../../assets/img/end_lose.svg'
+import tieImg from '../../../assets/img/end_tie.svg'
 import firework from '../../../assets/img/firework.png'
 import { I18nContext } from '../../i18n/I18nContext'
 import { useAppDispatch } from '../../utils/useAppDispatch'
 import { INIT, SCREEN_END } from '../../constants/ActionTypes'
 import useKeyDown from '../../utils/useKeyDown'
-import { abortAllMinimumDelay } from '../../constants/visuals'
+import { endScreenExitableDelay } from '../../constants/visuals'
+import { EndScreenNoCloseStateType } from '../../types/state'
 
-const textArr = ['You Lose!', 'Tie Game', 'You Win!']
+const textMap = { lose: 'You Lose!', tie: 'Tie Game', win: 'You Win!' }
+const imgMap = { lose: loseImg, tie: tieImg, win: winImg }
 
-const useStyles = createUseStyles<string, 1 | 0 | -1>({
+const useStyles = createUseStyles<string, EndScreenNoCloseStateType>({
   '@keyframes fadein': {
     '0%': {
       opacity: 0,
@@ -31,7 +34,7 @@ const useStyles = createUseStyles<string, 1 | 0 | -1>({
     'animation-duration': '0.4s',
   },
   main: {
-    'background-image': (kind) => `url(${kind >= 0 ? youWinImg : youLoseImg})`,
+    'background-image': ({ type }) => `url(${imgMap[type]})`,
   },
   '@keyframes firework': {
     '100%': {
@@ -76,39 +79,40 @@ const useStyles = createUseStyles<string, 1 | 0 | -1>({
     'line-height': '15vh',
     bottom: '53%',
     color: '#fff',
-    animation: (kind) =>
+    animation: ({ type }) =>
       `${
-        kind >= 0 ? '$redNeon' : '$blackNeon'
+        type === 'win' || type === 'tie' ? '$redNeon' : '$blackNeon'
       } 0.08s ease-in-out infinite alternate`,
   },
 })
 
-type PropType = { kind: 1 | 0 | -1 }
-const EndScreen = ({ kind }: PropType) => {
+const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
   const dispatch = useAppDispatch()
   const _ = useContext(I18nContext)
-  const classes = useStyles(kind)
+  const classes = useStyles(endScreenState)
 
-  const text = _.i18n(textArr[kind + 1])
+  const { type, surrender } = endScreenState
+
+  const text = _.i18n(textMap[type])
 
   const [exitable, setExitable] = useState(false)
   useEffect(() => {
     setTimeout(() => {
       setExitable(true)
-    }, abortAllMinimumDelay)
+    }, endScreenExitableDelay)
   }, [])
 
   const onActionFunc = () => {
     dispatch({
       type: SCREEN_END,
-      kind: null,
+      payload: { type: null },
     })
     dispatch({
       type: INIT,
     })
   }
 
-  useKeyDown(null, onActionFunc, abortAllMinimumDelay)
+  useKeyDown(null, onActionFunc, endScreenExitableDelay)
 
   const clickObj = exitable
     ? { onClick: onActionFunc, onContextMenu: onActionFunc, tabIndex: 0 }
@@ -136,8 +140,7 @@ const EndScreen = ({ kind }: PropType) => {
         >
           {text}
         </div>
-        {kind >= 0 && (
-          // win OR tie
+        {(type === 'win' || type === 'tie') && (
           <>
             <div
               className={cx(classes.firework, 'absolute top-0 left-1/4')}

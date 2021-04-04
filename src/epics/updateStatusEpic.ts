@@ -5,7 +5,10 @@ import {
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
 } from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+import {
+  RootActionType,
+  UpdateStatusMainActionTypeSingle,
+} from '../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -24,39 +27,40 @@ export const updateStatusEpic = (
       // note that it doesn't perform any negative check,
       // the negative check must be done at the upper stream:
       // data/cards.ts & epics/execCardEpic.ts
-      const newUpdArr = action.payload.map((upd) => {
-        const { isPlayer, statusProp, noSound } = upd
-        let increase: boolean | null = null
-        if ('to' in upd) {
-          const from =
-            state.status[isPlayer ? 'player' : 'opponent'][statusProp]
-          if (upd.to !== from) {
-            increase = upd.to > from
+      const newUpdArr: UpdateStatusMainActionTypeSingle[] = action.payload.map(
+        (upd) => {
+          const { isPlayer, statusProp, noSound } = upd
+          let increase: boolean | null = null
+          if ('to' in upd) {
+            const from =
+              state.status[isPlayer ? 'player' : 'opponent'][statusProp]
+            if (upd.to !== from) {
+              increase = upd.to > from
+            }
+          } else {
+            if (upd.diff !== 0) {
+              increase = upd.diff > 0
+            }
           }
-        } else {
-          if (upd.diff !== 0) {
-            increase = upd.diff > 0
+          if (!noSound) {
+            playSound(statusProp, state.volume, increase)
           }
-        }
-        if (!noSound) {
-          playSound(statusProp, state.volume, increase)
-        }
-        return {
-          increase,
-          isPlayer,
-          statusProp,
-          ...('to' in upd ? { to: upd.to } : { diff: upd.diff }),
-        }
-      })
+          return {
+            isPlayer,
+            statusProp,
+            ...('to' in upd ? { to: upd.to } : { diff: upd.diff }),
+          }
+        },
+      )
       return concat(
-        of({
+        of<RootActionType>({
           type: UPDATE_STATUS_MAIN,
           payload: newUpdArr,
         }),
-        of({
+        of<RootActionType>({
           type: CHECK_UNUSABLE,
         }),
-        of({
+        of<RootActionType>({
           type: CHECK_VICTORY,
         }),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))

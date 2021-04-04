@@ -12,6 +12,7 @@ import Pref from './screens/Pref'
 import LangPref from './screens/LangPref'
 import VolumePref from './screens/VolumePref'
 import Help from './screens/Help'
+import { isEndScreenNoCloseState } from '../types/state'
 
 const useStyles = createUseStyles({
   main: {
@@ -42,7 +43,7 @@ const Game = () => {
     >
       <TableCommon />
       <TableP />
-      {end !== null && <EndScreen kind={end} />}
+      {isEndScreenNoCloseState(end) && <EndScreen {...end} />}
       {pref && <Pref />}
       {langPref && <LangPref />}
       {volumePref && <VolumePref />}

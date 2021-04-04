@@ -29,7 +29,7 @@ export const resourceProdEpic = (
         noSound: true,
       }))
 
-      return of({
+      return of<RootActionType>({
         type: UPDATE_STATUS,
         payload,
       }).pipe(takeUntil(action$.ofType(ABORT_ALL)))

@@ -43,61 +43,60 @@ export const useCardEpic = (
       playSound('deal', state.volume)
       return concat(
         state.game.isNewTurn
-          ? of({
+          ? of<RootActionType>({
               type: CLEAR_CARD,
             })
           : EMPTY,
-        of({
+        of<RootActionType>({
           type: EXEC_CARD,
           n,
           owner,
         }),
-        of({
+        of<RootActionType>({
           type: MOVE_CARD_TO_CENTER,
           index,
         }),
-        of({
+        of<RootActionType>({
           type: REMOVE_CARD,
           index,
           position,
           owner,
         }),
-        of({
+        of<RootActionType>({
           type: SWITCH_LOCK,
         }),
         special?.drawDiscardPlayagain
           ? concat(
-              of({
+              of<RootActionType>({
                 type: SWITCH_DISCARD_MODE,
               }),
-              of({
+              of<RootActionType>({
                 type: DRAW_CARD,
               }).pipe(delay(0)),
-              of({
+              of<RootActionType>({
                 type: MOVE_CARD_TO_TOP,
                 index,
               }).pipe(delay(cardTransitionDurationMs + cardNextStepTimeoutMs)),
-              of({
+              of<RootActionType>({
                 type: SWITCH_LOCK,
               }),
             ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
           : concat(
-              of({
+              of<RootActionType>({
                 type: MOVE_CARD_TO_TOP,
                 index,
               }).pipe(delay(cardTransitionDurationMs + cardNextStepTimeoutMs)),
               special?.playagain
                 ? concat(
-                    of({
+                    of<RootActionType>({
                       type: DRAW_CARD,
                     }).pipe(delay(0)),
-                    of({
+                    of<RootActionType>({
                       type: SWITCH_LOCK,
                     }),
                   ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
-                : of({
+                : of<RootActionType>({
                     type: NEXT_ROUND,
-                    index,
                   }).pipe(delay(cardTransitionDurationMs)),
             ).pipe(takeUntil(action$.ofType(ABORT_ALL))),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
