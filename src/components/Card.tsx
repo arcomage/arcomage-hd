@@ -272,7 +272,12 @@ const Card = ({
     }
 
     const onClickFunc = (() => {
-      if (owner !== 'common' && !locked && !(useAi && owner === 'opponent')) {
+      if (
+        owner !== 'common' &&
+        !locked[0] &&
+        !locked[1] &&
+        !(useAi && owner === 'opponent')
+      ) {
         if (discardMode) {
           if (canDiscardUndiscardableWhenDDP || !special?.undiscardable) {
             buttonDisabled = false
@@ -295,7 +300,8 @@ const Card = ({
     const onContextMenuFunc = (() => {
       if (
         owner !== 'common' &&
-        !locked &&
+        !locked[0] &&
+        !locked[1] &&
         (!special?.undiscardable ||
           (discardMode && canDiscardUndiscardableWhenDDP)) &&
         !(useAi && owner === 'opponent')

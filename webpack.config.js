@@ -79,7 +79,21 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.(png|jpe?g|gif|svg|ico)$/i,
+          test: /\.svg$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: 'assets/img/[hash].[ext]',
+              },
+            },
+            {
+              loader: 'svgo-loader',
+            },
+          ],
+        },
+        {
+          test: /\.(png|jpe?g|gif|ico)$/i,
           use: [
             {
               loader: 'file-loader',

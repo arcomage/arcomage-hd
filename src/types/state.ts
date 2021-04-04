@@ -47,7 +47,7 @@ export type CardStateType = {
 
 export type GameStateType = {
   playersTurn: boolean
-  locked: boolean
+  locked: [boolean, boolean]
   discardMode: boolean
   isNewTurn: boolean
 }

@@ -6,6 +6,7 @@ import {
   AI_USE_CARD,
   ABORT_ALL,
   CHECK_SURRENDER,
+  SWITCH_LOCK,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
 import {
@@ -24,6 +25,7 @@ import { randomWithProbs } from '../utils/randomWithProbs'
 import {
   cardNextStepTimeout,
   cardTransitionDuration,
+  drawCardPre,
 } from '../constants/visuals'
 import { noAiDelay, useAi } from '../constants/devSettings'
 
@@ -41,6 +43,11 @@ export const nextRoundEpic = (
 
       return concat(
         of<RootActionType>({
+          type: SWITCH_LOCK,
+          on: true,
+          locknumber: 1,
+        }),
+        of<RootActionType>({
           type: DRAW_CARD_PRE,
           n: newCardN,
         }),
@@ -51,6 +58,11 @@ export const nextRoundEpic = (
         of<RootActionType>({
           type: DRAW_CARD_MAIN,
           owner,
+        }).pipe(delay(drawCardPre)),
+        of<RootActionType>({
+          type: SWITCH_LOCK,
+          on: false,
+          locknumber: 1,
         }).pipe(delay(0)),
         owner === 'opponent' && useAi
           ? of<RootActionType>({

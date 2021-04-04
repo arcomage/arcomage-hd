@@ -16,7 +16,8 @@ const checkCardUseDiscard = (
       let candiscard = false
 
       // locked is not checked here anymore, but be careful about it
-      // if (state.game.locked) {
+      // const { locked } = state.game
+      // if (locked[0] || locked[1]) {
       //   throw new Error(
       //     "Error: can't be perform card usability check when locked. Please report the bug.",
       //   )

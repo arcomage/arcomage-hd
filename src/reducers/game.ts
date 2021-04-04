@@ -11,7 +11,7 @@ import { RootActionType } from '../types/actionObj'
 
 const defaultGame: GameStateType = {
   playersTurn: true,
-  locked: false,
+  locked: [false, false],
   discardMode: false,
   isNewTurn: true,
 }
@@ -33,7 +33,8 @@ const game = produce((draft: GameStateType, action: RootActionType) => {
       break
     }
     case SWITCH_LOCK: {
-      draft.locked = action.on
+      const locknumber = action.locknumber ?? 0
+      draft.locked[locknumber] = action.on
       break
     }
     case SWITCH_NEW_TURN: {

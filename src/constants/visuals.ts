@@ -10,6 +10,8 @@ export const cardGradientSideRgb = 19
 
 export const resbgOpacity = 0.35
 
+export const drawCardPre = 100
+
 export const endScreenExitableDelay = 750
 
 // export const windowEnterAnimDurationMs = 0.8 // see window.scss

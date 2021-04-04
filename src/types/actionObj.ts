@@ -201,6 +201,7 @@ export type SwitchTurnActionType = {
 export type SwitchLockActionType = {
   type: typeof SWITCH_LOCK
   on: boolean
+  locknumber?: 0 | 1
 }
 
 export type ChangeSettingsActionType = {
