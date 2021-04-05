@@ -276,7 +276,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Mucca Pazza',
-    desc: 'Tutti i giocatori perdono 3 reclute',
+    desc: 'Tutti i giocatori perdono 6 reclute',
   },
   {
     name: 'Fata',

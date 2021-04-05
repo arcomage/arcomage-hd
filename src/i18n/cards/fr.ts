@@ -107,7 +107,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Lance-rocher',
-    desc: "+6 mur, 10 dégâts à l'ennemi",
+    desc: '+6 mur, 10 dégâts à l’ennemi',
   },
   {
     name: 'Cœur de dragon',
@@ -131,11 +131,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Remparts',
-    desc: "+7 mur, 6 dégâts à l'ennemi",
+    desc: '+7 mur, 6 dégâts à l’ennemi',
   },
   {
     name: 'Transfert',
-    desc: "Échangez votre mur contre celui de l'ennemi",
+    desc: 'Échangez votre mur contre celui de l’ennemi',
   },
   {
     name: 'Quartz',
@@ -158,7 +158,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: 'Tirer 1 carte. Se défausser. Rejouer',
   },
   {
-    name: "Pierre d'aimant",
+    name: 'Pierre d’aimant',
     desc: '+3 tour. Vous ne pouvez pas vous défausser sans jouer la carte',
   },
   {
@@ -230,7 +230,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '+8 tour, +3 mur',
   },
   {
-    name: "Gemme d'empathie",
+    name: 'Gemme d’empathie',
     desc: '+8 tour, +1 donjon',
   },
   {
@@ -266,7 +266,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '+4 tour, vous perdez 3 recrues, 2 dégâts à la tour ennemie',
   },
   {
-    name: "Écharde d'éclair",
+    name: 'Écharde d’éclair',
     desc: 'si tour > mur ennemi, 8 dégâts à la tour ennemie, sinon 8 dégâts',
   },
   {
@@ -302,7 +302,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '3 dégâts à la tour ennemie. Vous subissez 1 dégât',
   },
   {
-    name: "Fée de l'obscurité",
+    name: 'Fée de l’obscurité',
     desc: '2 dégâts à la tour ennemie. Rejouer',
   },
   {

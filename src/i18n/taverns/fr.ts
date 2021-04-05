@@ -10,7 +10,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Erathia',
   },
   {
-    name: "Auberge d'Emeraude",
+    name: 'Auberge d’Emeraude',
     location: 'La Forêt de Tulare',
   },
   {
@@ -39,7 +39,7 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: 'La Maison des Mineurs',
-    location: "Ile d'Evenmorn",
+    location: 'Ile d’Evenmorn',
   },
   {
     name: 'Le Mercenaire Loyal',

@@ -1,57 +1,57 @@
 export const i18n = {
-  tower: 'tower',
-  wall: 'wall',
-  resource: 'resource',
+  tower: 'věž',
+  wall: 'zed',
+  resource: 'suroviny',
 
   bricks: 'cihly',
   gems: 'drahok.',
   recruits: 'příšery',
 
-  quarry: 'quarry', // brick production
+  quarry: 'těžba', // brick production
   magic: 'magic', // gem production
-  dungeon: 'dungeon', // recruit production
+  dungeon: 'jeskyně', // recruit production
 
   discarded: 'odložená',
-  'Discard a card': 'Zahození karty',
+  'Discard a card': 'Odhoďte kartu',
 
-  'You Win!': 'You Win!',
-  'You Lose!': 'You Lose!',
-  'Tie Game': 'Tie Game',
+  'You Win!': 'Vyhrál jsi!',
+  'You Lose!': 'Prohrál jsi!',
+  'Tie Game': 'Remízová hra',
 
-  Preferences: 'Preferences',
-  'Your Name:': 'Your Name:',
-  "Opponent's Name:": "Opponent's Name:",
+  Preferences: 'Předvolby',
+  'Your Name:': 'Vaše jméno:',
+  "Opponent's Name:": 'Jméno soupeře:',
   'Choose a Tavern (Preset Preferences):':
-    'Choose a Tavern (Preset Preferences):',
-  Default: 'Default',
-  Customized: 'Customized',
-  'Starting Conditions': 'Starting Conditions',
-  'Victory Conditions': 'Victory Conditions',
-  'Other Preferences': 'Other Preferences',
-  'Cards in Hand': 'Cards in Hand',
-  'AI Type': 'AI Type',
-  'Apply & New Game': 'Apply & New Game',
-  Cancel: 'Cancel',
+    'Vyberte hospodu (přednastavené předvolby):',
+  Default: 'Výchozí',
+  Customized: 'Přizpůsobené',
+  'Starting Conditions': 'Počáteční podmínky',
+  'Victory Conditions': 'Podmínky vítězství',
+  'Other Preferences': 'Další předvolby',
+  'Cards in Hand': 'Karty v ruce',
+  'AI Type': 'Typ AI',
+  'Apply & New Game': 'Použít a nová hra',
+  Cancel: 'Zrušit',
 
-  Language: 'Language',
-  Volume: 'Volume',
-  Mute: 'Mute',
-  Help: 'Help',
-  'Toggle Full Screen': 'Toggle Full Screen',
+  Language: 'Jazyk',
+  Volume: 'Hlasitost',
+  Mute: 'Ztlumit',
+  Help: 'Nápověda',
+  'Toggle Full Screen': 'Přepnout na celou obrazovku',
 
-  ERATHIAN: 'Use Erathian [%s] (for latin letters only)',
+  ERATHIAN: 'Používejte Erathian [%s] (pouze pro písmena latinky)',
 
   'ArcoMage HD': 'ArcoMage HD',
 
   DESC:
-    "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
+    'Webový open source HD klon karetní hry Arcomage pro 3DO a NWC z roku 2000',
 
   'Please go to %s to view more information, star the repo and follow %s there.':
-    'Please go to %s to view more information, star the repo and follow %s there.',
+    'Pro zobrazení dalších informací přejděte na %s, označte repozitář hvězdičkou a sledujte %s.',
 
-  'the GitHub project page': 'the GitHub project page',
+  'the GitHub project page': 'stránka projektu GitHub',
 
-  'Game rules:': 'Game rules:',
+  'Game rules:': 'Pravidla hry:',
 
   GAMERULES: `Podmínky vítězství jsou v každém hostinci různé. Stavíš svojí věž a snažíš se zničit věž protivníka nebo se snažíš nashromáždit stanovené množství zdrojů dříve, než to udělá tvůj protivník.
 Velká žlutá čísla v sloupcích jsou generátory. Ty určují, kolik nových jednotek jednotlivých zdrojů ti přibude v dalším tahu. Malá černá čísla v sloupcích jsou tvoje zásoby zdrojů. Ty určují, kolik jednotek budeš moci utratit v tomto tahu.
@@ -59,7 +59,7 @@ Karty: Každá má svou cenu pro zahrání. Ta je značena v kroužku v pravém 
 Cihly se generují v červeném generátoru těžby, drahokamy v modrém generátoru magie a příšery v zelené jeskyni.`,
 
   'With no usable or discardable card, your opponent has surrendered':
-    'With no usable or discardable card, your opponent has surrendered',
+    'Bez použitelné nebo vyřazitelné karty se váš soupeř vzdal',
   'With no usable or discardable card, you have surrendered':
-    'With no usable or discardable card, you have surrendered',
+    'Bez použitelné nebo vyřazitelné karty jste se vzdali',
 }

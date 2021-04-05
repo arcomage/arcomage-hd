@@ -276,7 +276,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Vaca loca',
-    desc: 'Todos los jugadores pierden 3 miembros',
+    desc: 'Todos los jugadores pierden 6 miembros',
   },
   {
     name: 'Hada',

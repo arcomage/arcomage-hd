@@ -20,7 +20,7 @@ export const i18n = {
 
   Preferences: 'Préférences',
   'Your Name:': 'Votre nom\u00A0:',
-  "Opponent's Name:": "Nom de l'adversaire\u00A0:",
+  "Opponent's Name:": 'Nom de l’adversaire\u00A0:',
   'Choose a Tavern (Preset Preferences):':
     'Choisissez une taverne (préférences prédéfinies)\u00A0:',
   Default: 'Par défaut',
@@ -47,7 +47,7 @@ export const i18n = {
     'Clone HD open source version web du jeu de cartes Arcomage de 3DO et NWC en 2000',
 
   'Please go to %s to view more information, star the repo and follow %s there.':
-    "Merci d'aller à %s pour voir plus d'informations, star le repo et suivre %s là.",
+    'Merci d’aller à %s pour voir plus d’informations, star le repo et suivre %s là.',
 
   'the GitHub project page': 'la page du projet GitHub',
 
