@@ -1,6 +1,6 @@
 # ArcoMage HD's Licenses
 
-The code of the **ArcoMage HD** game: MIT License (c) 2021 Tom Chen. See [§ MIT License](#mit-license).
+The code of **ArcoMage HD**: MIT License (c) 2021 Tom Chen. See [§ MIT License](#mit-license).
 
 The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company. See [§ 3DO Copyright Notice](#3do-copyright-notice).
 
@@ -40,7 +40,7 @@ SOFTWARE.
 
 (c) 2001 The 3DO Company. All Rights Reserved. 3DO, Arcomage, New World Computing, and their respective logos, are trademarks or registered trademarks of The 3DO Company in the U.S. and other countries. All other trademarks belong to their respective owners. New World Computing is a division of The 3DO Company.
 
-## Free Licenses
+## Other Free-Licensed Resources
 
 ### Copyright Notice of the Dependencies
 
@@ -83,7 +83,7 @@ Erathian font (https://github.com/might-and-magic/erathian-font/):
 Copyright (c) 2008-2020 Tom CHEN (tomchen.org)  
 [SIL Open Font License, Version 1.1](https://github.com/might-and-magic/erathian-font/blob/master/OFL.txt).
 
-## Fair-use
+## Other Fairly Used Resources
 
 ### GitHub Logos
 

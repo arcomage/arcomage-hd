@@ -1,65 +1,65 @@
 export const i18n = {
-  tower: 'tower',
-  wall: 'wall',
-  resource: 'resource',
+  tower: 'torre',
+  wall: 'muro',
+  resource: 'recurso',
 
   bricks: 'ladrillos',
-  gems: 'joyas',
-  recruits: 'reclutas',
+  gems: 'gemas',
+  recruits: 'miembros',
 
-  quarry: 'quarry', // brick production
-  magic: 'magic', // gem production
-  dungeon: 'dungeon', // recruit production
+  quarry: 'cantera', // brick production
+  magic: 'magia', // gem production
+  dungeon: 'mazmorra', // recruit production
 
   discarded: 'descartado',
   'Discard a card': 'Descartar una carta',
 
-  'You Win!': 'You Win!',
-  'You Lose!': 'You Lose!',
-  'Tie Game': 'Tie Game',
+  'You Win!': '¡Tú ganas!',
+  'You Lose!': '¡Tú pierdes!',
+  'Tie Game': 'Juego empatado',
 
-  Preferences: 'Preferences',
-  'Your Name:': 'Your Name:',
-  "Opponent's Name:": "Opponent's Name:",
+  Preferences: 'Preferencias',
+  'Your Name:': 'Tu nombre:',
+  "Opponent's Name:": 'Nombre del oponente:',
   'Choose a Tavern (Preset Preferences):':
-    'Choose a Tavern (Preset Preferences):',
-  Default: 'Default',
-  Customized: 'Customized',
-  'Starting Conditions': 'Starting Conditions',
-  'Victory Conditions': 'Victory Conditions',
-  'Other Preferences': 'Other Preferences',
-  'Cards in Hand': 'Cards in Hand',
-  'AI Type': 'AI Type',
-  'Apply & New Game': 'Apply & New Game',
-  Cancel: 'Cancel',
+    'Elige una taberna (Preferencias preestablecidas):',
+  Default: 'Por defecto',
+  Customized: 'Personalizado',
+  'Starting Conditions': 'Condiciones de inicio',
+  'Victory Conditions': 'Condiciones de victoria',
+  'Other Preferences': 'Otras Preferencias',
+  'Cards in Hand': 'Cartas en la mano',
+  'AI Type': 'Tipo de IA',
+  'Apply & New Game': 'Aplicar y Nuevo Juego',
+  Cancel: 'Cancelar',
 
-  Language: 'Language',
-  Volume: 'Volume',
-  Mute: 'Mute',
-  Help: 'Help',
-  'Toggle Full Screen': 'Toggle Full Screen',
+  Language: 'Idioma',
+  Volume: 'Volumen',
+  Mute: 'Silenciar',
+  Help: 'Ayuda',
+  'Toggle Full Screen': 'Activar la pantalla completa',
 
-  ERATHIAN: 'Use Erathian [%s] (for latin letters only)',
+  ERATHIAN: 'Usar Erathian [%s] (sólo para letras latinas)',
 
   'ArcoMage HD': 'ArcoMage HD',
 
   DESC:
-    "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
+    'Clon HD de código abierto basado en la web del juego de cartas Arcomage de 3DO y NWC del año 2000',
 
   'Please go to %s to view more information, star the repo and follow %s there.':
-    'Please go to %s to view more information, star the repo and follow %s there.',
+    'Por favor, vaya a %s para ver más información, inicie el repo y siga a %s allí.',
 
-  'the GitHub project page': 'the GitHub project page',
+  'the GitHub project page': 'la página del proyecto en GitHub',
 
-  'Game rules:': 'Game rules:',
+  'Game rules:': 'Reglas del juego:',
 
-  GAMERULES: `Victory conditions vary per tavern. Build your tower, destroy your opponent's tower, or collect enough resources before your opponent does.
-Large yellow numbers in column are the productions. This is how many new units of a particular resource you will receive on your next turn. Small black numbers in column are the resources. This is how many units you have available to spend on your current turn.
-Cards: Each have their own cost to play, indicated in a small circle in the lower right corner of the card. The cost will be deducted from your resources according to the color of the card. Left click on a card plays the card. Right click on a card to discard without playing.
-Red represents your Quarry Generator which produces your Brick resources, blue represents your Magic Generator which produces Gem resources, green represents your Dungeon generator which produces Recruit resources.`,
+  GAMERULES: `Las condiciones de victoria varían según la posada. Para ganar hay que construir una torre, destruir la del adversario o reunir recursos suficientes antes que el adversario.
+Los números grandes amarillos de la columna son los generadores. Indican el número de unidades nuevas de un recurso en particular que recibirás en el próximo turno. Los números pequeños negros de la columna son los recursos. Indica el número de unidades que puedes gastar en el turno actual.
+Cartas: Cada una cuesta un número de recursos, que se indica con un círculo pequeño en la esquina inferior derecha de la carta. El coste se restará de tus recursos según el color de la carta. Al hacer clic con el botón izquierdo se juega la carta. Al hacer clic con el botón derecho se descarta y no se juega.
+El rojo representa el Generador de Cantera, que produce los recursos de Ladrillos; el azul representa el Generador de Magia, que produce los recursos de Gemas; el verde representa el Generador Zoológico, que produce los recursos de Bestias.`,
 
   'With no usable or discardable card, your opponent has surrendered':
-    'With no usable or discardable card, your opponent has surrendered',
+    'Sin carta utilizable o descartable, tu oponente se ha rendido',
   'With no usable or discardable card, you have surrendered':
-    'With no usable or discardable card, you have surrendered',
+    'Sin carta utilizable o descartable, te has rendido',
 }

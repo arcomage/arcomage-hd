@@ -4,7 +4,11 @@
 
 **ArcoMage HD** is a web-based, open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the *Might and Magic* RPG game series.
 
-Developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + CSS-based animations, this not-for-profit fan-remake is available in English, French, German, Simplified Chinese and Traditional Chinese.
+This not-for-profit fan-remake is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + CSS-based animations (see [§Development](#development)).
+
+It's available in (**bold** means fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, Italian, Russian, Czech, Polish.
+
+It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and browsers with Chrome's [Blink engine](https://en.wikipedia.org/wiki/Blink_(browser_engine)), and may or may not have performance issues in Safari & Firefox).
 
 <p align="center"><a href="https://arcomage.github.io/">Click to play it now<br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
 
@@ -30,11 +34,11 @@ Developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Re
 
 ### Complete Translation
 
-English (`en`), French (`fr`), German (`de`), Simplified Chinese (`zh-Hans`), Traditional Chinese (`zh-Hant`)
+English (`en`), French (`fr`), German (`de`), Simplified Chinese (`zh-Hans`), Traditional Chinese (`zh-Hant`), Spanish (`es`)
 
 ### Incomplete Translation
 
-Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`)
+Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`)
 
 ### Help me translate it
 
@@ -44,7 +48,7 @@ Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`)
 
 I've [OCR](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr) (optical character recognition)'d the card names & descriptions in the 5 incomplete languages.
 
-If you speak one of Spanish (`es`), Italian (`it`), Russian (`ru`), Czech (`cs`), Polish (`pl`) and want to help, please:
+If you speak one of Russian (`ru`), Czech (`cs`), Polish (`pl`) and want to help, please:
 
 #### Translate General Strings
 
@@ -81,13 +85,13 @@ Create a pull request if you know how to do it, or just give me the translated t
 
 ## Keyboard Control
 
-The game is fully controllable with keyboard. Use <kbd>Tab</kbd> to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
+The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (<kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
 
 <details><summary><strong>Click to show the detailed keyboard control instruction & additional special "Access Key" usage (e.g. <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences; <kbd>Alt</kbd> + <kbd>1</kbd>: use the 1st card ...)</strong></summary>
 
 ### Top Menu
 
-Use <kbd>Tab</kbd> to select an icon, then <kbd>Enter</kbd> to open it. When the window is open, use <kbd>Esc</kbd> to close it.
+Use <kbd>Tab</kbd> to select an icon (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari), then <kbd>Enter</kbd> to open it. When the window is open, use <kbd>Esc</kbd> to close it.
 
 Or with access key (only for opening a window):
 
@@ -100,7 +104,7 @@ Or with access key (only for opening a window):
 
 ### Card
 
-Use <kbd>Tab</kbd> to select a card, then <kbd>Enter</kbd> to **use** it, or <kbd>Delete</kbd> / <kbd>Backspace</kbd> to **discard** it.
+Use <kbd>Tab</kbd> to select a card (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari), then <kbd>Enter</kbd> to **use** it, or <kbd>Delete</kbd> / <kbd>Backspace</kbd> to **discard** it.
 
 Or with access key (only for using a card):
 
