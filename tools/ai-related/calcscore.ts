@@ -5,7 +5,7 @@ import { defaultSettings } from '../../src/constants/defaultSettings'
 import { preSettings } from '../../src/constants/preSettings'
 import { entries, fromEntries } from '../../src/utils/typeHelpers'
 import coefs from '../../src/ai/coefs'
-import { cardsI18n } from '../../src/i18n/cards.en'
+import { cardsI18n } from '../../src/i18n/cards/en'
 import fs from 'fs'
 
 const settings = defaultSettings

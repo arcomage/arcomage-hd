@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import manifestTmpl from './../../assets/logo/manifest.template'
+import manifestTmpl from '../../assets/logo/manifest.template'
 import resizedSvgToSharp from './resizedSvgToSharp'
 
 const faviconDir = path.join(__dirname, '../../assets/logo/')

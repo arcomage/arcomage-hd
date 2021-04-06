@@ -25,11 +25,11 @@ export const moveCardToTopEpic = (
       const c = l[action.index]
 
       if (c !== null && topArr.includes(c.position) === false) {
-        const indexFound = topArr.findIndex((p) =>
+        const toPosition = topArr.find((p) =>
           l.every((card) => card?.position !== p),
         )
 
-        if (indexFound === -1) {
+        if (toPosition === undefined) {
           // throw new Error('Top line is full!')
           return concat(
             of<RootActionType>({
@@ -45,7 +45,7 @@ export const moveCardToTopEpic = (
         return of<RootActionType>({
           type: MOVE_CARD_TO_TOP_MAIN,
           index: action.index,
-          toPosition: topArr[indexFound],
+          toPosition,
         }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
       }
       return EMPTY

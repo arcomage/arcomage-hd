@@ -14,7 +14,7 @@
 import fs from 'fs'
 import path from 'path'
 import parse from 'csv-parse'
-import { tavernsI18n } from '../../src/i18n/taverns.en'
+import { tavernsI18n } from '../../src/i18n/taverns/en'
 import { TavernsI18nType } from '../../src/i18n/types'
 
 const root = './tools/i18n-extraction/data'
