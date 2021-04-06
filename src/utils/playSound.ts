@@ -11,10 +11,10 @@ import gemDown from '../../assets/sfx/gem_down.mp3'
 import recruitDown from '../../assets/sfx/recruit_down.mp3'
 import damage from '../../assets/sfx/damage.mp3'
 import deal from '../../assets/sfx/deal.mp3'
-import start from '../../assets/sfx/start.mp3'
 import victory from '../../assets/sfx/victory.mp3'
 import defeat from '../../assets/sfx/defeat.mp3'
-import typing from '../../assets/sfx/typing.mp3'
+// import start from '../../assets/sfx/start.mp3'
+// import typing from '../../assets/sfx/typing.mp3'
 
 const towerUpAudio = new Audio(towerUp)
 const wallUpAudio = new Audio(wallUp)
@@ -26,12 +26,12 @@ const gemDownAudio = new Audio(gemDown)
 const recruitDownAudio = new Audio(recruitDown)
 const damageAudio = new Audio(damage)
 const dealAudio = new Audio(deal)
-const startAudio = new Audio(start)
 const victoryAudio = new Audio(victory)
 const defeatAudio = new Audio(defeat)
-const typingAudio = new Audio(typing)
+// const startAudio = new Audio(start)
+// const typingAudio = new Audio(typing)
 
-type soundAddtionalType = 'deal' | 'start' | 'victory' | 'defeat' | 'typing'
+type soundAddtionalType = 'deal' | 'victory' | 'defeat' // | 'typing' | 'start'
 
 const cloneAndVolume = (
   audio: HTMLAudioElement,
@@ -96,18 +96,18 @@ const playSound = (
       case 'deal':
         play(cloneAndVolume(dealAudio, _volume))
         break
-      case 'start':
-        play(cloneAndVolume(startAudio, _volume))
-        break
       case 'victory':
         play(cloneAndVolume(victoryAudio, _volume))
         break
       case 'defeat':
         play(cloneAndVolume(defeatAudio, _volume))
         break
-      case 'typing':
-        play(cloneAndVolume(typingAudio, _volume))
-        break
+      // case 'start':
+      //   play(cloneAndVolume(startAudio, _volume))
+      //   break
+      // case 'typing':
+      //   play(cloneAndVolume(typingAudio, _volume))
+      //   break
     }
   }
 }

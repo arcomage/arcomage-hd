@@ -14,6 +14,7 @@
     "imgpc": "ts-node --project ./tools/tsconfig.json ./tools/img-processing/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/img-processing/upscale.ts",
     "datapc": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/docards.ts",
     "zhconvert": "ts-node --project ./tools/tsconfig.json ./tools/zhconvert/zhconvert.ts",
+    "favicons": "ts-node --project ./tools/tsconfig.json ./tools/favicons/gen.ts",
     "zhfont": "ts-node --project ./tools/tsconfig.json ./tools/font/zhfont.ts",
     "ocr:pre": "ts-node --project ./tools/tsconfig.json ./tools/ocr/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/ocr/composite.ts",
     "ocr": "ts-node --project ./tools/tsconfig.json ./tools/ocr/ocr.ts",
@@ -21,6 +22,7 @@
     "calcscore": "ts-node --project ./tools/tsconfig.json ./tools/ai-related/calcscore.ts",
     "i18nextract": "ts-node --project ./tools/tsconfig.json ./tools/i18n-extraction/main.ts",
     "devsettingscheck": "ts-node --project ./tools/tsconfig.json ./tools/precommitcheck/devSettingsCheck.ts",
+    "resizesvg": "ts-node --project ./tools/tsconfig.json ./tools/resize-svg/index.ts",
     "preversion": "git diff-index --quiet HEAD --",
     "postversion": "git push --follow-tags"
   },
@@ -45,6 +47,7 @@
     "@tailwindcss/forms": "^0.3.2",
     "classnames": "^2.3.0",
     "immer": "^9.0.1",
+    "pwacompat": "^2.0.17",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet-async": "^1.0.9",
@@ -99,6 +102,7 @@
   },
   "optionalDependencies": {
     "@types/convert-excel-to-json": "^1.7.0",
+    "@types/lodash.clonedeep": "^4.5.6",
     "@types/merge-img": "^2.1.0",
     "@types/sharp": "^0.27.3",
     "convert-excel-to-json": "^1.7.0",
@@ -115,7 +119,8 @@
     "opencc-js": "^1.0.3",
     "prettier": "^2.2.1",
     "sharp": "^0.28.0",
-    "tesseract.js": "^2.1.4"
+    "tesseract.js": "^2.1.4",
+    "xml-js": "^1.6.11"
   },
   "browserslist": {
     "production": [

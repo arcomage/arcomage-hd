@@ -1,17 +1,24 @@
+const webpack = require('webpack')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
+const homeUrl = 'https://arcomage.github.io/'
+
 module.exports = (env, argv) => {
   const dev = argv.mode === 'development'
   process.env.NODE_ENV = argv.mode
+
   const config = {
-    entry: './src/index.tsx',
+    entry: {
+      index: './src/index.tsx',
+      pwacompat: './node_modules/pwacompat/src/pwacompat.js',
+    },
     output: {
       filename: '[name].[contenthash:6].js',
       chunkFilename: '[name].[contenthash:6].js',
-      publicPath: dev ? '' : 'https://arcomage.github.io/',
+      publicPath: dev ? '' : homeUrl,
     },
     ...(dev ? { devtool: 'eval-cheap-module-source-map' } : {}),
     devServer: {
@@ -53,13 +60,13 @@ module.exports = (env, argv) => {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: false,
+                sourceMap: dev,
               },
             },
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: false,
+                sourceMap: dev,
                 postcssOptions: {
                   plugins: [
                     'postcss-import',
@@ -73,7 +80,7 @@ module.exports = (env, argv) => {
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: false,
+                sourceMap: dev,
               },
             },
           ],
@@ -128,21 +135,21 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env.APPVERSION': JSON.stringify(
+          process.env.npm_package_version,
+        ),
+      }),
       new ForkTsCheckerWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html.ejs',
         filename: './index.html',
         title: 'ArcoMage HD',
-        url: 'https://arcomage.github.io/',
-        ogImage: dev
-          ? 'https://arcomage.github.io/ogimage.jpg'
-          : './ogimage.jpg',
-        faviconSvg: dev
-          ? 'https://arcomage.github.io/favicon.svg'
-          : './favicon.svg',
-        faviconIco: dev
-          ? 'https://arcomage.github.io/favicon.ico'
-          : './favicon.ico',
+        url: homeUrl,
+        pwaManifestJson: dev ? './manifest.json' : `${homeUrl}manifest.json`,
+        faviconSvg: dev ? './favicon.svg' : `${homeUrl}favicon.svg`,
+        faviconIco: dev ? './favicon.ico' : `${homeUrl}favicon.ico`,
+        ogImage: dev ? './ogimage.jpg' : `${homeUrl}ogimage.jpg`,
         description:
           "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
       }),
@@ -168,9 +175,13 @@ module.exports = (env, argv) => {
       }),
       new CopyPlugin({
         patterns: [
-          { from: './assets/logo/favicon.svg', to: './favicon.svg' },
-          { from: './assets/logo/favicon.ico', to: './favicon.ico' },
-          { from: './assets/misc/ogimage.jpg', to: './ogimage.jpg' },
+          {
+            from: 'assets/logo/**/*',
+            to: '[name][ext]',
+            globOptions: {
+              ignore: ['**/logo.svg*', '**/manifest.template.ts'],
+            },
+          },
         ],
       }),
     ],

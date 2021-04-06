@@ -42,6 +42,7 @@ const LangPref = () => {
           .map(([code, name]) => (
             <button
               key={code}
+              lang={code}
               className={cx({ active: code === lang })}
               onClick={() => {
                 dispatch({

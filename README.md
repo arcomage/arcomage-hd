@@ -4,13 +4,13 @@
 
 **ArcoMage HD** is a web-based, open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the *Might and Magic* RPG game series.
 
-This not-for-profit fan-remake is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + CSS-based animations (see [§Development](#development)).
+This not-for-profit fan-remake is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + CSS-based animations (see [§ Development](#development)).
 
 It's available in (**bold**: fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, **Italian**, Russian, Czech, Polish.
 
-It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/opera.svg" alt="Opera" width="21px" height="21px"></a><!--  <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/tomchen/fetchline/main/images/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> --> and other modern browsers (it works best in Chrome and browsers with Chrome's [Blink engine](https://en.wikipedia.org/wiki/Blink_(browser_engine)), and may or may not have performance issues in Safari & Firefox).
+It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a><!--  <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> --> and other modern browsers (it works best in Chrome and browsers with Chrome's [Blink engine](https://en.wikipedia.org/wiki/Blink_(browser_engine)), and may or may not have performance issues in Safari & Firefox).
 
-<p align="center"><a href="https://arcomage.github.io/">Click to play it now<br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
+<p align="center"><a href="https://arcomage.github.io/"><strong>Click to play it now</strong><br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
 
 <p align="center">
 <a href="https://github.com/arcomage/arcomage-hd/"><img src="https://img.shields.io/github/package-json/v/arcomage/arcomage-hd" alt="version number"></a>
@@ -30,7 +30,7 @@ It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img 
 
 ## Languages (i18n)
 
-5 languages are fully supported, with another 5's translation in progress.
+7 languages are fully supported, with another 3's translation in progress.
 
 ### Complete Translation
 
@@ -85,7 +85,7 @@ Create a pull request if you know how to do it, or just give me the translated t
 
 ## Keyboard Control
 
-The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (<kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
+The game is fully controllable with keyboard. Or use <kbd>Tab</kbd> (<kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
 
 <details><summary><strong>Click to show the detailed keyboard control instruction & additional special "Access Key" usage (e.g. <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences; <kbd>Alt</kbd> + <kbd>1</kbd>: use the 1st card ...)</strong></summary>
 
@@ -124,27 +124,27 @@ It could be other key instead of <kbd>Alt</kbd>
 The stack:
 
 <p align="center">
-<a href="https://www.typescriptlang.org/" title="Typescript"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/typescript-icon.svg" alt="Typescript" width="21px" height="21px"></a>
-<a href="https://reactjs.org/" title="React"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/react.svg" alt="React" width="21px" height="21px"></a>
-<a href="https://redux.js.org/" title="Redux"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/redux.svg" alt="Redux" width="21px" height="21px"></a>
-<a href="https://github.com/redux-observable/redux-observable" title="redux-observable"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/redux-observable.svg" alt="redux-observable" width="21px" height="21px"></a>
-<a href="https://rxjs-dev.firebaseapp.com/" title="RxJS (ReactiveX)"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/reactivex.svg" alt="RxJS (ReactiveX)" width="21px" height="21px"></a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/javascript.svg" alt="JavaScript" width="21px" height="21px"></a>
-<a href="https://tc39.es/ecma262/" title="ECMAScript 6+"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/es6.svg" alt="ECMAScript 6+" width="21px" height="21px"></a>
-<a href="https://sass-lang.com/" title="Sass"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/sass.svg" alt="Sass" width="21px" height="21px"></a>
-<a href="https://tailwindcss.com/" title="Tailwind CSS"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/tailwindcss-icon.svg" alt="Tailwind CSS" width="21px" height="21px"></a>
-<a href="https://webpack.js.org/" title="webpack"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/webpack.svg" alt="webpack" width="21px" height="21px"></a>
-<a href="https://jestjs.io/" title="Jest"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/jest.svg" alt="Jest" width="21px" height="21px"></a>
-<a href="https://cssinjs.org/" title="JSS"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/jss.svg" alt="JSS" width="21px" height="21px"></a>
-<a href="https://prettier.io/" title="Prettier"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/prettier.svg" alt="Prettier" width="21px" height="21px"></a>
-<a href="https://eslint.org/" title="ESLint"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/eslint.svg" alt="ESLint" width="21px" height="21px"></a>
-<a href="https://github.com/postcss/postcss" title="PostCSS"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/postcss.svg" alt="PostCSS" width="21px" height="21px"></a>
-<a href="https://github.com/postcss/autoprefixer" title="Autoprefixer"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/autoprefixer.svg" alt="Autoprefixer" width="21px" height="21px"></a>
-<a href="https://code.visualstudio.com/" title="Visual Studio Code"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/visual-studio-code.svg" alt="Visual Studio Code" width="21px" height="21px"></a>
-<a href="https://yarnpkg.com/" title="yarn v1"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/yarn.svg" alt="yarn v1" width="21px" height="21px"></a>
+<a href="https://www.typescriptlang.org/" title="Typescript"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/typescript-icon.svg" alt="Typescript" width="21px" height="21px"></a>
+<a href="https://reactjs.org/" title="React"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/react.svg" alt="React" width="21px" height="21px"></a>
+<a href="https://redux.js.org/" title="Redux"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/redux.svg" alt="Redux" width="21px" height="21px"></a>
+<a href="https://github.com/redux-observable/redux-observable" title="redux-observable"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/redux-observable.svg" alt="redux-observable" width="21px" height="21px"></a>
+<a href="https://rxjs-dev.firebaseapp.com/" title="RxJS (ReactiveX)"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/reactivex.svg" alt="RxJS (ReactiveX)" width="21px" height="21px"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/javascript.svg" alt="JavaScript" width="21px" height="21px"></a>
+<a href="https://tc39.es/ecma262/" title="ECMAScript 6+"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/es6.svg" alt="ECMAScript 6+" width="21px" height="21px"></a>
+<a href="https://sass-lang.com/" title="Sass"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/sass.svg" alt="Sass" width="21px" height="21px"></a>
+<a href="https://tailwindcss.com/" title="Tailwind CSS"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/tailwindcss-icon.svg" alt="Tailwind CSS" width="21px" height="21px"></a>
+<a href="https://webpack.js.org/" title="webpack"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/webpack.svg" alt="webpack" width="21px" height="21px"></a>
+<a href="https://jestjs.io/" title="Jest"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/jest.svg" alt="Jest" width="21px" height="21px"></a>
+<a href="https://cssinjs.org/" title="JSS"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/jss.svg" alt="JSS" width="21px" height="21px"></a>
+<a href="https://prettier.io/" title="Prettier"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/prettier.svg" alt="Prettier" width="21px" height="21px"></a>
+<a href="https://eslint.org/" title="ESLint"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/eslint.svg" alt="ESLint" width="21px" height="21px"></a>
+<a href="https://github.com/postcss/postcss" title="PostCSS"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/postcss.svg" alt="PostCSS" width="21px" height="21px"></a>
+<a href="https://github.com/postcss/autoprefixer" title="Autoprefixer"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/autoprefixer.svg" alt="Autoprefixer" width="21px" height="21px"></a>
+<a href="https://code.visualstudio.com/" title="Visual Studio Code"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/visual-studio-code.svg" alt="Visual Studio Code" width="21px" height="21px"></a>
+<a href="https://yarnpkg.com/" title="yarn v1"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/yarn.svg" alt="yarn v1" width="21px" height="21px"></a>
 <a href="https://inkscape.org/" title="Inkscape"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Inkscape_Logo.svg" alt="Inkscape" width="21px" height="21px"></a>
-<a href="https://www.adobe.com/products/illustrator.html" title="Adobe Illustrator"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/adobe-illustrator.svg" alt="Adobe Illustrator" width="21px" height="21px"></a>
-<a href="https://www.adobe.com/products/photoshop.html" title="Adobe Photoshop"><img src="https://github.com/tomchen/stack-icons/raw/master/logos/adobe-photoshop.svg" alt="Adobe Photoshop" width="21px" height="21px"></a>
+<a href="https://www.adobe.com/products/illustrator.html" title="Adobe Illustrator"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/adobe-illustrator.svg" alt="Adobe Illustrator" width="21px" height="21px"></a>
+<a href="https://www.adobe.com/products/photoshop.html" title="Adobe Photoshop"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/adobe-photoshop.svg" alt="Adobe Photoshop" width="21px" height="21px"></a>
 </p>
 
 TypeScript + React + Redux + redux-observable, CSS-based animations without \<canvas\>.
