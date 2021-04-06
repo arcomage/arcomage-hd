@@ -85,7 +85,7 @@ Create a pull request if you know how to do it, or just give me the translated t
 
 ## Keyboard Control
 
-The game is fully controllable with keyboard. Or use <kbd>Tab</kbd> (<kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
+The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
 
 <details><summary><strong>Click to show the detailed keyboard control instruction & additional special "Access Key" usage (e.g. <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences; <kbd>Alt</kbd> + <kbd>1</kbd>: use the 1st card ...)</strong></summary>
 
