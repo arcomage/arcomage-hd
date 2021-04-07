@@ -7,13 +7,6 @@ import { registerRoute, setDefaultHandler } from 'workbox-routing'
 import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
 import { CacheableResponsePlugin } from 'workbox-cacheable-response'
 
-skipWaiting()
-clientsClaim()
-
-const WB_MANIFEST = self.__WB_MANIFEST
-
-precacheAndRoute(WB_MANIFEST)
-
 cleanupOutdatedCaches()
 
 registerRoute(
@@ -36,6 +29,7 @@ registerRoute(
   /.*\.(?:mp3|wav|ogg)/i,
   new CacheFirst({
     cacheName: 'audio',
+    matchOptions: { ignoreSearch: true },
     plugins: [
       new CacheableResponsePlugin({ statuses: [200] }),
       new RangeRequestsPlugin(),
@@ -53,3 +47,10 @@ registerRoute(
 )
 
 setDefaultHandler(new StaleWhileRevalidate({}))
+
+skipWaiting()
+clientsClaim()
+
+const WB_MANIFEST = self.__WB_MANIFEST
+
+precacheAndRoute(WB_MANIFEST)
