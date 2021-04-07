@@ -26,7 +26,7 @@ import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import cards from '../data/cards'
 import {
-  cardNextStepTimeout,
+  cardNextStepDelay,
   cardTransitionDuration,
 } from '../constants/visuals'
 
@@ -78,7 +78,7 @@ export const useCardEpic = (
               of<RootActionType>({
                 type: MOVE_CARD_TO_TOP,
                 index,
-              }).pipe(delay(cardTransitionDuration + cardNextStepTimeout)),
+              }).pipe(delay(cardTransitionDuration + cardNextStepDelay)),
               of<RootActionType>({
                 type: SWITCH_LOCK,
                 on: false,
@@ -88,7 +88,7 @@ export const useCardEpic = (
               of<RootActionType>({
                 type: MOVE_CARD_TO_TOP,
                 index,
-              }).pipe(delay(cardTransitionDuration + cardNextStepTimeout)),
+              }).pipe(delay(cardTransitionDuration + cardNextStepDelay)),
               special?.playagain
                 ? concat(
                     of<RootActionType>({

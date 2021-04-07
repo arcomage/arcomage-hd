@@ -6,7 +6,7 @@ import {
   enableWindowUnloadWarning,
   hideOpponentCard,
   useAi,
-  noAiDelay,
+  noAiExtraDelay,
 } from '../../src/constants/devSettings'
 
 const devSettingsAllTrue =
@@ -14,7 +14,7 @@ const devSettingsAllTrue =
   enableWindowUnloadWarning &&
   hideOpponentCard &&
   useAi &&
-  noAiDelay
+  noAiExtraDelay
 
 const cardProbsOk = cards.every((card, i) => card.prob === cardProbs[i])
 

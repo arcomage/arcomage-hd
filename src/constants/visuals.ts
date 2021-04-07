@@ -1,6 +1,8 @@
 export const cardTransitionDuration = 500
 
-export const cardNextStepTimeout = 500
+export const cardNextStepDelay = 350
+
+export const aiDelay = 100
 
 export const unusableCardOpacity = 0.48
 
