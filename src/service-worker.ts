@@ -1,56 +1,34 @@
-declare let self: ServiceWorkerGlobalScope
+declare let self: ServiceWorkerGlobalScope & Window & typeof globalThis
 
 import { skipWaiting, clientsClaim } from 'workbox-core'
-import { RangeRequestsPlugin } from 'workbox-range-requests'
-import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies'
-import { registerRoute, setDefaultHandler } from 'workbox-routing'
-import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
-import { CacheableResponsePlugin } from 'workbox-cacheable-response'
-
-cleanupOutdatedCaches()
-
-registerRoute(
-  '/',
-  new StaleWhileRevalidate({
-    cacheName: 'start-url',
-  }),
-  'GET',
-)
-
-registerRoute(
-  /.*\.(?:jpg|jpeg|gif|png|svg|ico|webp)/i,
-  new CacheFirst({
-    cacheName: 'image',
-  }),
-  'GET',
-)
-
-registerRoute(
-  /.*\.(?:mp3|wav|ogg)/i,
-  new CacheFirst({
-    cacheName: 'audio',
-    matchOptions: { ignoreSearch: true },
-    plugins: [
-      new CacheableResponsePlugin({ statuses: [200] }),
-      new RangeRequestsPlugin(),
-    ],
-  }),
-  'GET',
-)
-
-registerRoute(
-  /.*/i,
-  new StaleWhileRevalidate({
-    cacheName: 'others',
-  }),
-  'GET',
-)
-
-setDefaultHandler(new StaleWhileRevalidate({}))
+import { precacheAndRoute } from 'workbox-precaching'
+import partition from './utils/partition'
 
 skipWaiting()
 clientsClaim()
 
-const WB_MANIFEST = self.__WB_MANIFEST
+type entryType = typeof self.__WB_MANIFEST[0]
 
-precacheAndRoute(WB_MANIFEST)
+const [mp3s, otherFiles]: [entryType[], entryType[]] = partition(
+  self.__WB_MANIFEST,
+  (entry: entryType) => {
+    if (typeof entry !== 'string') {
+      return entry.url.endsWith('.mp3')
+    }
+    return false
+  },
+)
+
+precacheAndRoute(otherFiles)
+
+self.addEventListener('install', (event: any) => {
+  const cacheVideos = async () => {
+    const cache = await caches.open('audio')
+    mp3s.forEach(async (mp3) => {
+      if (typeof mp3 !== 'string') {
+        await cache.add(mp3.url)
+      }
+    })
+  }
+  event.waitUntil(cacheVideos())
+})
