@@ -1,412 +1,483 @@
-import { DataCardsI18nType } from '../types'
+import { DataCardsI18nType } from '../types/dataCard'
 
 export const cardsI18n: DataCardsI18nType = [
   {
-    name: 'Brick Shortage',
-    desc: 'All players lose 8 bricks',
+    name: 'Нехватка Кирпича',
+    desc:
+      "Оба игрока теряют по 8 Кирпичей",
   },
   {
-    name: 'Lucky Cache',
-    desc: '+2 Bricks. +2 Gems. Play again',
+    name: 'Удачная Находка',
+    desc:
+      "+2 Кирпича. +2 Самоцвета. Ходите снова",
   },
   {
-    name: 'Friendly Terrain',
-    desc: '+1 Wall. Play again',
+    name: 'Благодатная Почва',
+    desc:
+      "+1 к Стене. Ходите снова",
   },
   {
-    name: 'Miners',
-    desc: '+1 Quarry',
+    name: 'Горняки',
+    desc: "+1 к Карьеру",
   },
   {
-    name: 'Mother Lode',
-    desc: 'If quarry < enemy quarry, +2 quarry. Else, +1 quarry',
+    name: 'Богатое Месторождение',
+    desc:
+      "Если Карьер < вражеского, то +2 к Карьеру. Иначе +1 к Карьеру",
   },
   {
-    name: 'Dwarven Miners',
-    desc: '+4 Wall. +1 Quarry',
+    name: 'Горные Гномы',
+    desc:
+      "+4 к Стене. +1 к Карьеру",
   },
   {
-    name: 'Work Overtime',
-    desc: '+5 Wall. You lose 6 gems',
+    name: 'Сверхурочные',
+    desc:
+      '+5 к Стене. Вы теряете 6 Самоцветов',
   },
   {
-    name: 'Copping the Tech',
-    desc: 'If quarry < enemy quarry, quarry = enemy quarry',
+    name: 'Шпионаж',
+    desc:
+      "Если Карьер < вражеского, то он становится равного уровня",
   },
   {
-    name: 'Basic Wall',
-    desc: '+3 Wall',
+    name: 'Обычная Стена',
+    desc: '+3 к Стене',
   },
   {
-    name: 'Sturdy Wall',
-    desc: '+4 Wall',
+    name: 'Крепкая Стена',
+    desc: '+4 к Стене',
   },
   {
-    name: 'Innovations',
-    desc: "+1 To all player's quarrys, you gain 4 gems",
+    name: 'Инновации',
+    desc: '+1 к Карьеру у обоих игроков. Вы получаете 4 Самоцвета',
   },
   {
-    name: 'Foundations',
-    desc: 'If wall = 0, +6 wall, else +3 wall',
+    name: 'Фундамент',
+    desc: "Если Стена = 0, то +6 к Стене. Иначе +3 к Стене",
   },
   {
-    name: 'Tremors',
-    desc: 'All walls take 5 damage. Play again',
+    name: 'Землетрясение',
+    desc: "5 ед. урона Стенам обоих игроков. Ходите снова",
   },
   {
-    name: 'Secret Room',
-    desc: '+1 Magic. Play again',
+    name: 'Тайная Комната',
+    desc:
+      "+1 к Магии. Ходите снова",
   },
   {
-    name: 'Earthquake',
-    desc: "-1 To all player's quarrys",
+    name: 'Обрушение',
+    desc:
+      '-1 к Карьеру у обоих игроков',
   },
   {
-    name: 'Big Wall',
-    desc: '+6 Wall',
+    name: 'Высокая Стена',
+    desc: '+6 к Стене',
   },
   {
-    name: 'Collapse!',
-    desc: '-1 Enemy quarry',
+    name: 'Обвал',
+    desc: '-1 к Карьеру врага',
   },
   {
-    name: 'New Equipment',
-    desc: '+2 Quarry',
+    name: 'Новое Оборудование',
+    desc:
+      "+2 к Карьеру",
   },
   {
-    name: 'Strip Mine',
-    desc: '-1 Quarry. +10 Wall. You gain 5 gems',
+    name: 'Опустошение Недр',
+    desc:
+      '-1 к Карьеру. +10 к Стене. +5 Самоцветов',
   },
   {
-    name: 'Reinforced Wall',
-    desc: '+8 Wall',
+    name: 'Укреплённая Стена',
+    desc:
+      '+8 к Стене',
   },
   {
-    name: 'Porticulus',
-    desc: '+5 Wall, +1 dungeon',
+    name: 'Портик',
+    desc:
+      '+5 к Стене. +1 к Подземелью',
   },
   {
-    name: 'Crystal Rocks',
-    desc: '+7 Wall, gain 7 gems',
+    name: 'Кристаллы Кварца',
+    desc:
+      '+7 к Стене. +7 Самоцветов',
   },
   {
-    name: 'Harmonic Ore',
-    desc: '+6 Wall, +3 tower',
+    name: 'Поющая Руда',
+    desc:
+      '+6 к Стене. +3 к Башне',
   },
   {
-    name: 'Mondo Wall',
-    desc: '+12 Wall',
+    name: 'Бастион',
+    desc:
+      "+12 к Стене",
   },
   {
-    name: 'Focused Designs',
-    desc: '+8 Wall, +5 tower',
+    name: 'Инженерное Решение',
+    desc:
+      "+8 к Стене. +5 к Башне",
   },
   {
-    name: 'Great Wall',
-    desc: '+15 Wall',
+    name: 'Великая Стена',
+    desc:
+      "+15 к Стене",
   },
   {
-    name: 'Rock Launcher',
-    desc: '+6 Wall. 10 Damage to enemy',
+    name: 'Катапульта',
+    desc: '+6 к Стене. 10 ед. урона врагу',
   },
   {
-    name: "Dragon's Heart",
-    desc: '+20 Wall. +8 Tower',
+    name: 'Сердце Дракона',
+    desc:
+      "+20 к Стене. +8 к Башне",
   },
   {
-    name: 'Forced Labor',
-    desc: '+9 Wall, lose 5 recruits',
+    name: 'Рабский Труд',
+    desc:
+      '+9 к Стене. Вы теряете 5 Существ',
   },
   {
-    name: 'Rock Garden',
-    desc: '+1 Wall. +1 Tower. +2 Recruits',
+    name: 'Сад Камней',
+    desc: '+1 к Стене. +1 к Башне. +2 Существа',
   },
   {
-    name: 'Flood Water',
-    desc: 'Player(s) w/lowest wall are -1 Dungeon and 2 damage to tower',
+    name: 'Наводнение',
+    desc:
+      "-1 к Подземелью и 2 ед. урона Башне игрока с наименьшей Стеной",
   },
   {
-    name: 'Barracks',
-    desc: '+6 Recruits, +6 wall. If dungeon < enemy dungeon, +1 dungeon',
+    name: 'Казармы',
+    desc: "+6 Существ. +6 к Стене. Если Подземелье < вражеского, то +1 к Подземелью",
   },
   {
-    name: 'Battlements',
-    desc: '+7 Wall, 6 damage to enemy',
+    name: 'Зубчатые Стены',
+    desc:
+      '+7 к Стене. 6 ед. урона врагу',
   },
   {
-    name: 'Shift',
-    desc: 'Switch your wall with enemy wall',
+    name: 'Сдвиг',
+    desc:
+      'Стены игроков меняются местами',
   },
   {
-    name: 'Quartz',
-    desc: '+1 Tower. Play again',
+    name: 'Хрусталь',
+    desc:
+      '+1 к Башне. Ходите снова',
   },
   {
-    name: 'Smoky Quartz',
-    desc: '1 Damage to enemy tower. Play again',
+    name: 'Дымчатый Кварц',
+    desc:
+      "1 ед. урона Башне врага. Ходите снова",
   },
   {
-    name: 'Amethyst',
-    desc: '+3 Tower',
+    name: 'Аметист',
+    desc: "+3 к Башне",
   },
   {
-    name: 'Spell Weavers',
-    desc: '+1 Magic',
+    name: 'Заклинатели',
+    desc:
+      "+1 к Магии",
   },
   {
-    name: 'Prism',
-    desc: 'Draw 1 card. Discard 1 card. Play again',
+    name: 'Призма',
+    desc:
+      "Возьмите 1 карту. Сбросьте 1 карту. Ходите снова",
   },
   {
-    name: 'Lodestone',
-    desc: "+3 Tower. This card can't be discarded without playing it",
+    name: 'Магнит',
+    desc: '+3 к Башне. Эту карту нельзя сбросить',
   },
   {
-    name: 'Solar Flare',
-    desc: '+2 Tower. 2 Damage to enemy tower',
+    name: 'Солнечная Вспышка',
+    desc:
+      "+2 к Башне. 2 ед. урона Башне врага",
   },
   {
-    name: 'Crystal Matrix',
-    desc: '+1 Magic. +3 Tower. +1 Enemy tower',
+    name: 'Матрица',
+    desc:
+      '+1 к Магии. +3 к Башне. +1 к Башне врага',
   },
   {
-    name: 'Gemstone Flaw',
-    desc: '3 Damage to enemy tower',
+    name: 'Треснутый Камень',
+    desc:
+      "3 ед. урона Башне врага",
   },
   {
-    name: 'Ruby',
-    desc: '+5 Tower',
+    name: 'Рубин',
+    desc: '+5 к Башне',
   },
   {
-    name: 'Gem Spear',
-    desc: '5 Damage to enemy tower',
+    name: 'Кристальное Копьё',
+    desc:
+      "5 ед. урона Башне врага",
   },
   {
-    name: 'Power Burn',
-    desc: '5 Damage to your tower. +2 Magic',
+    name: 'Взрыв Силы',
+    desc:
+      "5 ед. урона вашей Башне. +2 к Магии",
   },
   {
-    name: 'Harmonic Vibe',
-    desc: '+1 Magic. +3 Tower. +3 Wall',
+    name: 'Гармония',
+    desc:
+      "+1 к Магии. +3 к Башне. +3 к Стене",
   },
   {
-    name: 'Parity',
-    desc: "All player's magic equals the highest player's magic",
+    name: 'Равенство',
+    desc:
+      'Магия обоих игроков становится равна наибольшей Магии',
   },
   {
-    name: 'Emerald',
-    desc: '+8 Tower',
+    name: 'Изумруд',
+    desc: '+8 к Башне',
   },
   {
-    name: 'Pearl of Wisdom',
-    desc: '+5 Tower. +1 Magic',
+    name: 'Жемчужина Мудрости',
+    desc:
+      '+5 к Башне. +1 к Магии',
   },
   {
-    name: 'Shatterer',
-    desc: '-1 Magic. 9 Damage to enemy tower',
+    name: 'Разрушение',
+    desc:
+      '-1 к Магии. 9 ед. ',
   },
   {
-    name: 'Crumblestone',
-    desc: '+5 Tower. Enemy loses 6 bricks',
+    name: 'Камнедробилка',
+    desc:
+      '+5 к Башне. Враг теряет 6 Кирпичей',
   },
   {
-    name: 'Sapphire',
-    desc: '+11 Tower',
+    name: 'Сапфир',
+    desc: "+11 к Башне",
   },
   {
-    name: 'Discord',
-    desc: '7 Damage to all towers, all players magic -1',
+    name: 'Раздор',
+    desc: '7 ед. урона Башням и -1 к Магии у обоих игроков',
   },
   {
-    name: 'Fire Ruby',
-    desc: '+6 Tower. 4 Damage to enemy tower',
+    name: 'Огненный Рубин',
+    desc:
+      '+6 к Башне. 4 ед. урона Башне врага',
   },
   {
-    name: "Quarry's Help",
-    desc: '+7 Tower. Lose 10 bricks',
+    name: 'Помощь Горняков',
+    desc: "+7 к Башне. Вы теряете 10 Кирпичей",
   },
   {
-    name: 'Crystal Shield',
-    desc: '+8 Tower. +3 Wall',
+    name: 'Кристальный Щит',
+    desc:
+      "+8 к Башне. +3 к Стене",
   },
   {
-    name: 'Empathy Gem',
-    desc: '+8 Tower. +1 Dungeon',
+    name: 'Камень Эмпатии',
+    desc:
+      '+8 к Башне. +1 к Подземелью',
   },
   {
-    name: 'Diamond',
-    desc: '+15 Tower',
+    name: 'Алмаз',
+    desc:
+      "+15 к Башне",
   },
   {
-    name: 'Sanctuary',
-    desc: '+10 Tower. +5 Wall, gain 5 recruits',
+    name: 'Святилище',
+    desc: '+10 к Башне. +5 к Стене. +5 Существ',
   },
   {
-    name: 'Lava Jewel',
-    desc: '+12 Tower. 6 Damage to enemy',
+    name: 'Лавовый Камень',
+    desc:
+      '+12 к Башне. 6 ед. урона врагу',
   },
   {
-    name: "Dragon's Eye",
-    desc: '+20 Tower',
+    name: 'Глаз Дракона',
+    desc:
+      '+20 к Башне',
   },
   {
-    name: 'Crystallize',
-    desc: '+11 Tower. -6 Wall',
+    name: 'Кристаллизация',
+    desc:
+      "+11 к Башне. -6 к Стене",
   },
   {
-    name: 'Bag of Baubles',
-    desc: 'If tower < enemy tower, +2 tower. Else +1 tower',
+    name: 'Бижутерия',
+    desc:
+      "Если Башня < вражеской, то +2 к Башне. Иначе +1 к Башне",
   },
   {
-    name: 'Rainbow',
-    desc: '+1 Tower to all players. You gain 3 gems',
+    name: 'Радуга',
+    desc:
+      "+1 к Башням обоих игроков. Вы получаете 3 Самоцвета",
   },
   {
-    name: 'Apprentice',
-    desc: '+4 Tower, you lose 3 recruits, 2 damage to enemy tower',
+    name: 'Подмастерье',
+    desc: '+4 к Башне. 2 ед. урона Башне врага. Вы теряете 3 Существа',
   },
   {
-    name: 'Lightning Shard',
-    desc: 'If Tower > enemy wall, 8 damage to enemy tower. Else 8 damage',
+    name: 'Молния',
+    desc:
+      "Если Башня > Стены врага, то 8 ед. урона Башне врага. Иначе 8 ед. урона",
   },
   {
-    name: 'Phase Jewel',
-    desc: '+13 Tower. +6 Recruits. +6 Bricks',
+    name: 'Фазовый Камень',
+    desc:
+      "+13 к Башне. +6 Существ. +6 Кирпичей",
   },
   {
-    name: 'Mad Cow Disease',
-    desc: 'All players lose 6 recruits',
+    name: 'Коровье Бешенство',
+    desc:
+      'Оба игрока теряют по 6 Существ',
   },
   {
-    name: 'Faerie',
-    desc: '2 Damage. Play again',
+    name: 'Фея',
+    desc:
+      '2 ед. урона. Ходите снова',
   },
   {
-    name: 'Moody Goblins',
-    desc: '4 Damage. You lose 3 gems',
+    name: 'Жадные Гоблины',
+    desc:
+      "4 ед. урона. Вы теряете 3 Самоцвета",
   },
   {
-    name: 'Minotaur',
-    desc: '+1 Dungeon',
+    name: 'Минотавр',
+    desc: "+1 к Подземелью",
   },
   {
-    name: 'Elven Scout',
-    desc: 'Draw 1 card. Discard 1 card. Play again',
+    name: 'Эльф-разведчик',
+    desc:
+      'Возьмите 1 карту. Сбросьте 1 карту. Ходите снова',
   },
   {
-    name: 'Goblin Mob',
-    desc: '6 Damage. You take 3 damage',
+    name: 'Толпа Гоблинов',
+    desc:
+      "6 ед. урона врагу. 3 ед. урона вам",
   },
   {
-    name: 'Goblin Archers',
-    desc: '3 Damage to enemy tower. You take 1 damage',
+    name: 'Гоблины-лучники',
+    desc:
+      '3 ед. урона Башне врага. 1 ед. урона вам',
   },
   {
-    name: 'Shadow Faerie',
-    desc: '2 Damage to enemy tower. Play again',
+    name: 'Тёмная Фея',
+    desc:
+      "2 ед. урона Башне врага. Ходите снова",
   },
   {
-    name: 'Orc',
-    desc: '5 Damage',
+    name: 'Орк',
+    desc: '5 ед. урона врагу',
   },
   {
-    name: 'Dwarves',
-    desc: '4 Damage. +3 Wall',
+    name: 'Гномы',
+    desc:
+      '4 ед. урона врагу. +3 к Стене',
   },
   {
-    name: 'Little Snakes',
-    desc: '4 Damage to enemy tower',
+    name: 'Змейки',
+    desc: '4 ед. урона Башне врага',
   },
   {
-    name: 'Troll Trainer',
-    desc: '+2 Dungeon',
+    name: 'Тролль-надзиратель',
+    desc: '+2 к Подземелью',
   },
   {
-    name: 'Tower Gremlin',
-    desc: '2 Damage. +4 Tower. +2 Wall',
+    name: 'Гремлины',
+    desc: '2 ед. урона врагу. +4 к Башне. +2 к Стене',
   },
   {
-    name: 'Full Moon',
-    desc: "+1 to all player's dungeon. You gain 3 recruits",
+    name: 'Полнолуние',
+    desc:
+      "+1 к Подземельям обоих игроков. Вы получаете 3 Существа",
   },
   {
-    name: 'Slasher',
-    desc: '6 Damage',
+    name: 'Кромсатель',
+    desc: '6 ед. урона врагу',
   },
   {
-    name: 'Ogre',
-    desc: '7 Damage',
+    name: 'Огр',
+    desc: '7 ед. урона врагу',
   },
   {
-    name: 'Rabid Sheep',
-    desc: '6 Damage. Enemy loses 3 recruits',
+    name: 'Бешеная Овца',
+    desc:
+      "6 ед. урона врагу. Враг теряет 3 Существа",
   },
   {
-    name: 'Imp',
-    desc: '6 Damage. All players lose 5 bricks, gems and recruits',
+    name: 'Бес',
+    desc:
+      "6 ед. урона врагу. Оба игрока теряют по 5 ед. каждого ресурса",
   },
   {
-    name: 'Spizzer',
-    desc: 'If enemy wall = 0, 10 damage, else 6 damage',
+    name: 'Жук-бомбардир',
+    desc:
+      "Если Стена врага = 0, то 10 ед. урона врагу. Иначе 6 ед урона",
   },
   {
-    name: 'Werewolf',
-    desc: '9 Damage',
+    name: 'Оборотень',
+    desc: '9 ед. урона',
   },
   {
-    name: 'Corrosion Cloud',
-    desc: 'If enemy wall > 0, 10 damage, else 7 damage',
+    name: 'Едкое Облако',
+    desc: 'Если Стена врага > 0, то 10 ед. урона врагу. Иначе 7 ед. урона',
   },
   {
-    name: 'Unicorn',
-    desc: 'If magic > enemy magic, 12 damage, else 8 damage',
+    name: 'Единорог',
+    desc:
+      'Если Магия > вражеской, то 12 ед. урона врагу. Иначе 8 ед. урона',
   },
   {
-    name: 'Elven Archers',
-    desc: 'If wall > enemy wall, 6 damage to enemy tower, else 6 damage',
+    name: 'Эльфы-лучники',
+    desc:
+      "Если Стена > вражеской, то 6 ед. урона Башне врага. Иначе 6 ед. урона",
   },
   {
-    name: 'Succubus',
-    desc: '5 Damage to enemy tower, enemy loses 8 recruits',
+    name: 'Суккуб',
+    desc:
+      '5 ед. урона Башне врага. Враг теряет 8 Существ',
   },
   {
-    name: 'Rock Stompers',
-    desc: '8 Damage, -1 enemy quarry',
+    name: 'Камнееды',
+    desc:
+      '8 ед. урона врагу. -1 к Карьеру врага',
   },
   {
-    name: 'Thief',
-    desc: 'Enemy loses 10 gems, 5 bricks, you gain 1/2 amt. round up',
+    name: 'Вор',
+    desc:
+      'Враг теряет 10 Самоцветов и 5 Кирпичей. Вы получаете половину',
   },
   {
-    name: 'Stone Giant',
-    desc: '10 Damage. +4 Wall',
+    name: 'Каменный Великан',
+    desc:
+      '+4 к Стене. 10 ед. урона врагу',
   },
   {
-    name: 'Vampire',
-    desc: '10 Damage. Enemy loses 5 recruits, -1 enemy dungeon',
+    name: 'Вампир',
+    desc:
+      '10 ед. урона врагу. -1 к Подземелью врага. Враг теряет 5 Существ',
   },
   {
-    name: 'Dragon',
-    desc: '20 Damage. Enemy loses 10 gems, -1 enemy dungeon',
+    name: 'Дракон',
+    desc:
+      '20 ед. урона врагу. -1 к Подземелью врага. Враг теряет 10 Самоцветов',
   },
   {
-    name: 'Spearman',
-    desc: 'If wall > enemy wall do 3 damage else do 2 damage',
+    name: 'Копейщик',
+    desc:
+      "Если Стена > вражеской, то 3 ед. урона врагу. Иначе 2 ед. урона",
   },
   {
-    name: 'Gnome',
-    desc: '3 Damage. +1 Gem',
+    name: 'Карлик',
+    desc:
+      "3 ед. урона врагу. +1 Самоцвет",
   },
   {
-    name: 'Berserker',
-    desc: '8 Damage. 3 Damage to your tower',
+    name: 'Берсерк',
+    desc: '8 ед. урона врагу. 3 ед. урона вашей Башне',
   },
   {
-    name: 'Warlord',
-    desc: '13 Damage. You lose 3 gems',
+    name: 'Воитель',
+    desc: "13 ед. урона врагу. Вы теряете 3 Самоцвета",
   },
   {
-    name: 'Pegasus Lancer',
-    desc: '12 Damage to enemy tower',
+    name: 'Всадник на Пегасе',
+    desc:
+      '12 ед. урона Башне врага',
   },
 ]
