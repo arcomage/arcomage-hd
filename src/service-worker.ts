@@ -1,20 +1,55 @@
 declare let self: ServiceWorkerGlobalScope
 
-import { precacheAndRoute } from 'workbox-precaching'
-import { registerRoute } from 'workbox-routing'
-import { CacheFirst } from 'workbox-strategies'
-import { CacheableResponsePlugin } from 'workbox-cacheable-response'
+import { skipWaiting, clientsClaim } from 'workbox-core'
 import { RangeRequestsPlugin } from 'workbox-range-requests'
+import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies'
+import { registerRoute, setDefaultHandler } from 'workbox-routing'
+import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching'
+import { CacheableResponsePlugin } from 'workbox-cacheable-response'
 
-precacheAndRoute(self.__WB_MANIFEST)
+skipWaiting()
+clientsClaim()
+
+const WB_MANIFEST = self.__WB_MANIFEST
+
+precacheAndRoute(WB_MANIFEST)
+
+cleanupOutdatedCaches()
 
 registerRoute(
-  ({ url }) => url.pathname.endsWith('.mp3'),
+  '/',
+  new StaleWhileRevalidate({
+    cacheName: 'start-url',
+  }),
+  'GET',
+)
+
+registerRoute(
+  /.*\.(?:jpg|jpeg|gif|png|svg|ico|webp)\?.*/i,
   new CacheFirst({
-    cacheName: 'audio-cache',
+    cacheName: 'image',
+  }),
+  'GET',
+)
+
+registerRoute(
+  /.*\.(?:mp3|wav|ogg)\?.*/i,
+  new CacheFirst({
+    cacheName: 'audio',
     plugins: [
       new CacheableResponsePlugin({ statuses: [200] }),
       new RangeRequestsPlugin(),
     ],
   }),
+  'GET',
 )
+
+registerRoute(
+  /.*/i,
+  new StaleWhileRevalidate({
+    cacheName: 'others',
+  }),
+  'GET',
+)
+
+setDefaultHandler(new StaleWhileRevalidate({}))
