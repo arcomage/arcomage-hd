@@ -1,6 +1,8 @@
 *.traineddata
 todo.md
 
+*.pem
+
 others
 
 *.css.d.ts

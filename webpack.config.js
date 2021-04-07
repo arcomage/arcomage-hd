@@ -170,8 +170,8 @@ module.exports = (env, argv) => {
         ? []
         : [
             new WorkboxPlugin.GenerateSW({
-              clientsClaim: true,
-              skipWaiting: true,
+              clientsClaim: false,
+              skipWaiting: false,
             }),
           ]),
     ],

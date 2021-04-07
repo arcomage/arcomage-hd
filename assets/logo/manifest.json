@@ -5,8 +5,8 @@
   "lang": "en-US",
   "display": "fullscreen",
   "orientation": "any",
-  "scope": "/",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": ".",
   "background_color": "#000",
   "theme_color": "#000",
   "icons": [
