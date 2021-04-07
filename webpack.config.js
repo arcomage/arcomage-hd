@@ -170,8 +170,9 @@ module.exports = (env, argv) => {
         ? []
         : [
             new WorkboxPlugin.GenerateSW({
-              clientsClaim: false,
-              skipWaiting: false,
+              maximumFileSizeToCacheInBytes: 100000000, // 100 MB
+              clientsClaim: true,
+              skipWaiting: true,
             }),
           ]),
     ],
