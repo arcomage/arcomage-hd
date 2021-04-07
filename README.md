@@ -6,7 +6,7 @@
 
 This not-for-profit fan-remake is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + CSS-based animations (see [§ Development](#development)).
 
-It's available in (**bold**: fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, **Italian**, Russian, Czech, Polish.
+It's available in (**bold**: fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, **Italian**, **Russian**, Czech, Polish.
 
 It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a><!--  <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> --> and other modern browsers (it works best in Chrome and browsers with Chrome's [Blink engine](https://en.wikipedia.org/wiki/Blink_(browser_engine)), and may or may not have performance issues in Safari & Firefox).
 
@@ -30,15 +30,15 @@ It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img 
 
 ## Languages (i18n)
 
-7 languages are fully supported, with another 3's translation in progress.
+8 languages are fully supported, with another 2's translation in progress.
 
 ### Complete Translation
 
-English (`en`), French (`fr`), German (`de`), Simplified Chinese (`zh-Hans`), Traditional Chinese (`zh-Hant`), Spanish (`es`), Italian (`it`)
+English (`en`), French (`fr`), German (`de`), Simplified Chinese (`zh-Hans`), Traditional Chinese (`zh-Hant`), Spanish (`es`), Italian (`it`), Russian (`ru`)
 
 ### Incomplete Translation
 
-Russian (`ru`), Czech (`cs`), Polish (`pl`)
+Czech (`cs`), Polish (`pl`)
 
 ### Help me translate it
 
@@ -48,7 +48,7 @@ Russian (`ru`), Czech (`cs`), Polish (`pl`)
 
 I've [OCR](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr) (optical character recognition)'d the card names & descriptions in the 5 incomplete languages.
 
-If you speak one of Russian (`ru`), Czech (`cs`), Polish (`pl`) and want to help, please:
+If you speak one of Czech (`cs`), Polish (`pl`) and want to help, please:
 
 #### Translate General Strings
 

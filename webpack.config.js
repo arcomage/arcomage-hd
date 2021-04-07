@@ -1,13 +1,14 @@
 const webpack = require('webpack')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const homeUrl = 'https://arcomage.github.io/'
 
 module.exports = (env, argv) => {
   const dev = argv.mode === 'development'
+  const local = env.NODE_ENV2 === 'local'
   process.env.NODE_ENV = argv.mode
 
   const config = {
@@ -18,7 +19,7 @@ module.exports = (env, argv) => {
     output: {
       filename: '[name].[contenthash:6].js',
       chunkFilename: '[name].[contenthash:6].js',
-      publicPath: dev ? '' : homeUrl,
+      publicPath: dev || local ? '' : homeUrl,
     },
     ...(dev ? { devtool: 'eval-cheap-module-source-map' } : {}),
     devServer: {
@@ -146,32 +147,13 @@ module.exports = (env, argv) => {
         filename: './index.html',
         title: 'ArcoMage HD',
         url: homeUrl,
-        pwaManifestJson: dev ? './manifest.json' : `${homeUrl}manifest.json`,
-        faviconSvg: dev ? './favicon.svg' : `${homeUrl}favicon.svg`,
-        faviconIco: dev ? './favicon.ico' : `${homeUrl}favicon.ico`,
-        ogImage: dev ? './ogimage.jpg' : `${homeUrl}ogimage.jpg`,
+        pwaManifestJson:
+          dev || local ? './manifest.json' : `${homeUrl}manifest.json`,
+        faviconSvg: dev || local ? './favicon.svg' : `${homeUrl}favicon.svg`,
+        faviconIco: dev || local ? './favicon.ico' : `${homeUrl}favicon.ico`,
+        ogImage: dev || local ? './ogimage.jpg' : `${homeUrl}ogimage.jpg`,
         description:
           "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
-      }),
-      new PreloadWebpackPlugin({
-        rel: 'preload',
-        include: 'all',
-        fileBlacklist: [/\.(?!(css$|woff$|woff2$|png$|jpe?g$|svg$)).*$/],
-        as(entry) {
-          if (/\.css$/.test(entry)) return 'style'
-          if (/\.(woff|woff2)$/.test(entry)) return 'font'
-          if (/\.(png|jpe?g|svg)$/.test(entry)) return 'image'
-          return 'script'
-        },
-      }),
-      new PreloadWebpackPlugin({
-        rel: 'prefetch',
-        include: 'all',
-        fileBlacklist: [/\.(?!(mp3$)).*$/],
-        as(entry) {
-          if (/\.mp3$/.test(entry)) return 'audio'
-          return 'script'
-        },
       }),
       new CopyPlugin({
         patterns: [
@@ -184,6 +166,14 @@ module.exports = (env, argv) => {
           },
         ],
       }),
+      ...(dev
+        ? []
+        : [
+            new WorkboxPlugin.GenerateSW({
+              clientsClaim: true,
+              skipWaiting: true,
+            }),
+          ]),
     ],
     optimization: {
       splitChunks: {
