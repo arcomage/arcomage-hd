@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin')
+const { InjectManifest } = require('workbox-webpack-plugin')
 
 const homeUrl = 'https://arcomage.github.io/'
 
@@ -169,10 +169,9 @@ module.exports = (env, argv) => {
       ...(dev
         ? []
         : [
-            new WorkboxPlugin.GenerateSW({
+            new InjectManifest({
               maximumFileSizeToCacheInBytes: 100000000, // 100 MB
-              clientsClaim: true,
-              skipWaiting: true,
+              swSrc: './src/service-worker.ts',
             }),
           ]),
     ],
