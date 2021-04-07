@@ -25,7 +25,7 @@ registerRoute(
 )
 
 registerRoute(
-  /.*\.(?:jpg|jpeg|gif|png|svg|ico|webp)\?.*/i,
+  /.*\.(?:jpg|jpeg|gif|png|svg|ico|webp)/i,
   new CacheFirst({
     cacheName: 'image',
   }),
@@ -33,7 +33,7 @@ registerRoute(
 )
 
 registerRoute(
-  /.*\.(?:mp3|wav|ogg)\?.*/i,
+  /.*\.(?:mp3|wav|ogg)/i,
   new CacheFirst({
     cacheName: 'audio',
     plugins: [
