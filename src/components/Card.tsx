@@ -412,7 +412,7 @@ const Card = ({
           <div
             className={cx(
               classes.image,
-              'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-600 font-bold uppercase text-shadow-stroke',
+              'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-500 font-bold uppercase text-shadow-stroke',
             )}
             style={{
               backgroundImage: `url(${

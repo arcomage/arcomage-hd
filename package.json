@@ -15,7 +15,7 @@
     "imgpc": "ts-node --project ./tools/tsconfig.json ./tools/img-processing/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/img-processing/upscale.ts",
     "datapc": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/docards.ts",
     "zhconvert": "ts-node --project ./tools/tsconfig.json ./tools/zhconvert",
-    "favicons": "ts-node --project ./tools/tsconfig.json ./tools/favicons",
+    "manifest": "ts-node --project ./tools/tsconfig.json ./tools/manifest",
     "zhfont": "ts-node --project ./tools/tsconfig.json ./tools/font/zhfont.ts",
     "ocr:pre": "ts-node --project ./tools/tsconfig.json ./tools/ocr/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/ocr/composite.ts",
     "ocr": "ts-node --project ./tools/tsconfig.json ./tools/ocr/ocr.ts",

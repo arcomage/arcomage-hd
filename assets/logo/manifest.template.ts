@@ -6,7 +6,7 @@ export default {
     "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
   lang: 'en-US',
   display: 'fullscreen',
-  orientation: 'any',
+  orientation: 'landscape',
   start_url: './',
   scope: '.',
   background_color: '#000',
