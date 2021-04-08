@@ -10,7 +10,7 @@
     "postinstall": "husky install",
     "start": "webpack serve --mode development",
     "build": "rimraf dist && webpack --mode production",
-    "build:local": "rimraf dist && webpack --env NODE_ENV2=local --mode production && http-server -S -C example.com.pem -K example.com-key.pem dist",
+    "build:local": "rimraf dist && webpack --env NODE_ENV2=local --mode production && http-server dist",
     "test": "jest --coverage",
     "imgpc": "ts-node --project ./tools/tsconfig.json ./tools/img-processing/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/img-processing/upscale.ts",
     "datapc": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/docards.ts",

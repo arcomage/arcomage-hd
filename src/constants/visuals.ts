@@ -17,3 +17,5 @@ export const drawCardPre = 100
 export const endScreenExitableDelay = 750
 
 // export const windowEnterAnimDurationMs = 0.8 // see window.scss
+
+export const cardNameMaxLength = 18

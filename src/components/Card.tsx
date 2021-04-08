@@ -8,6 +8,7 @@ import { CardTotalType, ownerType } from '../types/state'
 import {
   cardGradientSideOpacity,
   cardGradientSideRgb,
+  cardNameMaxLength,
   cardTransitionDuration,
   resbgOpacity,
   unusableCardOpacity,
@@ -55,6 +56,7 @@ const useStyles = createUseStyles<
     type?: number
     unusable: boolean
     zeroOpacity: boolean
+    cardNameLength: number
   }
 >({
   main: {
@@ -65,11 +67,25 @@ const useStyles = createUseStyles<
     left: ({ cardPos, total, position }) =>
       cardPos?.[total === cardPos.total ? 'left' : 'leftM1'][position + 5],
 
+    'font-size': ({ cardPos }) => (cardPos ? cardPos.width * 0.094 : 16),
+
     // 'will-change: opacity' has bug and cannot be set here
     'will-change': 'transform, left, top, box-shadow',
     'transition-property': 'opacity, transform, left, top, box-shadow',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDuration}ms`,
+  },
+  cardname: {
+    'font-size': ({ cardPos, cardNameLength }) => {
+      if (cardNameLength > cardNameMaxLength) {
+        return (
+          ((cardPos ? cardPos.width * 0.094 : 16) * (cardNameMaxLength + 1)) /
+          cardNameLength
+        )
+      } else {
+        return 'auto'
+      }
+    },
   },
   isflipped: {
     transform: 'translateX(-100%) rotateY(-179.99deg)',
@@ -145,11 +161,17 @@ const useStyles = createUseStyles<
   image: {
     // width: calc(100% - 0.25rem * 2),
     height: 'calc((100% / 63 * 47 - 0.5rem) / 22 * 13)',
+    'font-size': '125%',
   },
   text: {
     // width: calc(100% - 0.25rem * 2),
     height:
       'calc(100% - (1.25rem + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
+  },
+  resall: {
+    width: ({ cardPos }) => (cardPos ? cardPos.width : 0) * 0.2,
+    height: ({ cardPos }) => (cardPos ? cardPos.width : 0) * 0.2,
+    'line-height': ({ cardPos }) => `${(cardPos ? cardPos.width : 0) * 0.2}px`,
   },
   resbg: {
     'background-image': ({ type }) =>
@@ -184,6 +206,8 @@ const Card = ({
   zeroOpacity = false,
 }: PropType) => {
   const _ = useContext(I18nContext)
+  const cardName = _.cards(n, 'name')
+  const cardNameLength = cardName.length
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
   const locked = useAppSelector((state) => state.game.locked)
   const discardMode = useAppSelector((state) => state.game.discardMode)
@@ -208,6 +232,7 @@ const Card = ({
       position,
       unusable,
       zeroOpacity,
+      cardNameLength,
     })
     return (
       <button
@@ -236,6 +261,7 @@ const Card = ({
       type,
       unusable,
       zeroOpacity,
+      cardNameLength,
     })
     const color = ['red', 'blue', 'green'][type]
     // Force TailwindCSS to aware of these classes:
@@ -376,16 +402,17 @@ const Card = ({
         >
           <div
             className={cx(
+              classes.cardname,
               'm-1 shadow text-center font-bold leading-5 h-5',
               `bg-${color}-200`,
             )}
           >
-            {_.cards(n, 'name')}
+            {cardName}
           </div>
           <div
             className={cx(
               classes.image,
-              'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-600 text-xl font-bold uppercase text-shadow-stroke',
+              'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-600 font-bold uppercase text-shadow-stroke',
             )}
             style={{
               backgroundImage: `url(${
@@ -404,11 +431,16 @@ const Card = ({
               'm-2 flex flex-wrap content-center justify-center',
             )}
           >
-            <div className="leading-none break-words text-center">
+            <div className="leading-tight break-words text-center">
               {_.cards(n, 'desc')}
             </div>
           </div>
-          <div className="absolute bottom-1 right-1 w-9 h-9 leading-9 text-center font-bold">
+          <div
+            className={cx(
+              classes.resall,
+              'absolute bottom-1 right-1 text-center font-bold',
+            )}
+          >
             <div
               className={cx(
                 classes.resbg,
