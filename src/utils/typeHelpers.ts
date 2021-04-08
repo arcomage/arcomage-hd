@@ -45,7 +45,9 @@ export function hasOwnProperty<X extends {}, Y extends PropertyKey>(
 // export function notEmpty<TValue>(
 //   value: TValue | null | undefined,
 // ): value is TValue {
-//   if (value === null || value === undefined) return false
+//   if (value === null || value === undefined) {
+//     return false
+//   }
 //   const testDummy: TValue = value
 //   return true
 // }

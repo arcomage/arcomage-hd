@@ -1,11 +1,15 @@
 import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import rootReducer from './reducers'
 import { createEpicMiddleware } from 'redux-observable'
 import { RootActionType } from './types/actionObj'
 import { RootStateType } from './types/state'
 
-export const epicMiddleware = createEpicMiddleware<RootActionType, RootActionType, RootStateType>()
+export const epicMiddleware = createEpicMiddleware<
+  RootActionType,
+  RootActionType,
+  RootStateType
+>()
 
 export const store = createStore(
   rootReducer,
