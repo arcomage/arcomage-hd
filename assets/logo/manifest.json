@@ -56,29 +56,29 @@
       "type": "image/png"
     },
     {
-      "src": "logo-384.png",
+      "src": "favicon-384.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "logo-512.png",
+      "src": "favicon_logo-512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "logo.svg",
+      "src": "favicon_logo.svg",
       "sizes": "513x513",
       "type": "image/svg+xml"
     },
     {
       "src": "favicon_maskable.svg",
-      "sizes": "36x36 48x48 57x57 60x60 72x72 76x76 96x96 114x114 120x120 128x128 144x144 152x152 180x180 192x192 256x256",
+      "sizes": "36x36 48x48 57x57 60x60 72x72 76x76 96x96 114x114 120x120 128x128 144x144 152x152 180x180 192x192 256x256 384x384",
       "type": "image/svg+xml",
       "purpose": "maskable"
     },
     {
-      "src": "logo_maskable.svg",
-      "sizes": "384x384 512x512",
+      "src": "favicon_logo_maskable.svg",
+      "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "maskable"
     }
