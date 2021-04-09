@@ -1,3 +1,4 @@
+import { resProds } from '../constants/resourceNames'
 import { DataCardEffectPersonType } from '../types/dataCard'
 
 export const set = (
@@ -5,7 +6,8 @@ export const set = (
   prop: keyof DataCardEffectPersonType,
   to: number,
 ) => {
-  person[prop] = to > 0 ? to : 0
+  const min = resProds.includes(prop) ? 1 : 0
+  person[prop] = to > min ? to : min
 }
 
 export const change = (

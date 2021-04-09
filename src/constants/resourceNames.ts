@@ -1,5 +1,7 @@
 export const resNames = ['bricks', 'gems', 'recruits'] as const
 
+export const resProds = ['brickProd', 'gemProd', 'recruitProd']
+
 export const resProdMap = {
   brickProd: 'bricks',
   gemProd: 'gems',
