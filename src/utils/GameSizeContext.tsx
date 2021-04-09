@@ -1,16 +1,16 @@
-import React, { useState, useLayoutEffect, createContext } from 'react'
-
-export const minWidth = 300
-export const minHeight = 300
+import React, { useState, useEffect, createContext } from 'react'
+import { narrowMobileWinHeightMax } from '../constants/visuals'
 
 export type vType = {
   width: number
   height: number
+  narrowMobile: boolean
 }
 
 const defaultGameSize = {
   width: window.innerWidth,
   height: window.innerHeight,
+  narrowMobile: false,
 }
 
 export const GameSizeContext = createContext<vType>(defaultGameSize)
@@ -20,11 +20,12 @@ type PropType = {
 }
 export const GameSizeProvider = ({ children }: PropType) => {
   const [gameSize, setGameSize] = useState<vType>(defaultGameSize)
-  useLayoutEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setGameSize({
-        width: window.innerWidth > minWidth ? window.innerWidth : minWidth,
-        height: window.innerHeight > minHeight ? window.innerHeight : minHeight,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        narrowMobile: window.innerHeight <= narrowMobileWinHeightMax,
       })
     }
 

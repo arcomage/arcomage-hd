@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useContext } from 'react'
 import Status from './Status'
 import Tower from './Tower'
 import Wall from './Wall'
@@ -9,6 +9,7 @@ import { createUseStyles } from 'react-jss'
 import { useAppSelector } from '../utils/useAppDispatch'
 
 import bg from '../../assets/img/bg.jpg'
+import { GameSizeContext } from '../utils/GameSizeContext'
 
 const useStyles = createUseStyles({
   main: {
@@ -45,10 +46,16 @@ const TableCommon = () => {
   const towerO = useAppSelector((state) => state.status.opponent.tower)
   const wallO = useAppSelector((state) => state.status.opponent.wall)
 
+  const size = useContext(GameSizeContext)
+
   const classes = useStyles()
   return (
     <div
-      className={cx('z-0 h-2/3 flex-auto bg-green-100 relative', classes.main)}
+      className={cx(
+        classes.main,
+        'z-0 flex-auto bg-green-100 relative',
+        size.narrowMobile ? 'h-1/2' : 'h-2/3',
+      )}
     >
       <Status
         playerName={playerName}

@@ -62,4 +62,7 @@ Czerwony kolor oznacza generator kamieni, w którym powstaje surowiec zwany kami
     'Twój przeciwnik poddał się bez użytecznej lub możliwej do odrzucenia karty',
   'With no usable or discardable card, you have surrendered':
     'Nie posiadając żadnej możliwej do użycia lub odrzucenia karty, poddałeś się',
+
+  'Please rotate your device to landscape mode':
+    'Proszę obrócić urządzenie do trybu poziomego',
 }

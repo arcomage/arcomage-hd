@@ -62,4 +62,7 @@ El rojo representa el Generador de Cantera, que produce los recursos de Ladrillo
     'Sin carta utilizable o descartable, tu oponente se ha rendido',
   'With no usable or discardable card, you have surrendered':
     'Sin carta utilizable o descartable, te has rendido',
+
+  'Please rotate your device to landscape mode':
+    'Por favor, gire su dispositivo en modo horizontal',
 }

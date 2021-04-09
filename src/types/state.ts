@@ -93,6 +93,7 @@ export type ScreenStateType = {
   langPref: boolean
   volumePref: boolean
   help: boolean
+  landscape: boolean
   end: EndScreenStateType
 }
 

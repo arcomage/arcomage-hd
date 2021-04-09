@@ -11,11 +11,16 @@ export default {
   scope: '.',
   background_color: '#000',
   theme_color: '#000',
-  pngIconSizes: [36, 72, 96, 120, 128, 144, 152, 180, 192, 384, 512],
-  faviconMaskableSvgSizes: [36, 48, 57, 60, 72, 76, 96, 114, 120, 128, 144, 152, 180, 192, 256, 384, 512],
+  faviconSvgToPngSizes: [36, 72, 96, 120, 128, 144, 152, 180, 192],
+  logoSvgToPngSizes: [384, 512],
+  faviconMaskableSvgSizes: [36, 48, 57, 60, 72, 76, 96, 114, 120, 128, 144, 152, 180, 192, 256],
+  logoMaskableSvgSizes: [384, 512],
   iconNames: {
-    faviconPng: 'favicon-%s.png',
     faviconSvg: 'favicon.svg',
+    faviconPng: 'favicon-%s.png',
     faviconMaskableSvg: 'favicon_maskable.svg',
+    logoSvg: 'logo.svg',
+    logoPng: 'logo-%s.png',
+    logoMaskableSvg: 'logo_maskable.svg',
   }
 }

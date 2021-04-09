@@ -18,4 +18,10 @@ export const endScreenExitableDelay = 750
 
 // export const windowEnterAnimDurationMs = 0.8 // see window.scss
 
-export const cardNameMaxLength = 18
+export const cardNameMaxLength = 15
+
+export const narrowMobileWinHeightMax = 499
+
+export const smallRootFontScreenMax = 689
+
+export const minRootFontSize = 5

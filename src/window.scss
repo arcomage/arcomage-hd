@@ -16,11 +16,11 @@
     }
 
     p {
-      @apply py-2;
+      @apply py-1;
     }
 
     label {
-      @apply flex flex-wrap w-full items-center mb-0.5 md:mb-2;
+      @apply flex flex-wrap w-full items-center mb-0.5;
 
       &.one-colume {
         span {
@@ -35,7 +35,7 @@
     }
 
     span {
-      @apply text-right px-3 py-0.5 md:py-1;
+      @apply text-right px-3 py-0.5;
       .p-0 {
         padding: 0;
       }
@@ -43,7 +43,7 @@
     input[type='number'],
     input[type='text'],
     select {
-      @apply transition-colors duration-500 bg-black bg-opacity-40 hover:bg-opacity-80 focus:bg-opacity-60 py-0.5 md:py-1;
+      @apply transition-colors duration-500 bg-black bg-opacity-40 hover:bg-opacity-80 focus:bg-opacity-60 py-0.5;
     }
 
     input[type='number'] {
@@ -65,7 +65,7 @@
       @apply flex flex-wrap;
 
       label {
-        @apply w-full md:w-1/2;
+        @apply w-1/2;
       }
 
       span {
@@ -101,23 +101,29 @@
       }
     }
 
-    h1 {
-      @apply text-xl md:text-2xl font-bold text-center;
-      span {
-        @apply p-0;
-      }
-    }
+    // h1 {
+    //   @apply text-xl font-bold text-center;
+    //   span {
+    //     @apply p-0;
+    //   }
+    // }
 
     small {
-      @apply text-sm md:text-sm font-light;
+      @apply text-sm font-light;
+    }
+
+    .version {
+      @apply absolute;
+      top: 42px;
+      right: 2.5rem;
     }
 
     h3 {
-      @apply text-xl md:text-2xl font-bold;
+      @apply text-xl font-bold;
     }
 
     h4 {
-      @apply text-lg md:text-xl font-bold mt-3 md:mt-5;
+      @apply text-lg font-bold mt-3;
     }
 
     .description {
@@ -125,11 +131,11 @@
     }
 
     .button-wrapper {
-      @apply flex justify-evenly flex-wrap mt-3 md:mt-5;
+      @apply flex justify-evenly flex-wrap mt-3;
     }
 
     button {
-      @apply transition-colors duration-500 font-bold text-base md:text-lg py-2 px-4 border-b-4 rounded mb-1 bg-gray-500 hover:bg-gray-400 border-gray-700 hover:border-gray-500;
+      @apply transition-colors duration-500 font-bold text-base py-2 px-4 border-b-4 rounded mb-1 bg-gray-500 hover:bg-gray-400 border-gray-700 hover:border-gray-500;
       &.warning {
         @apply bg-red-500 hover:bg-red-400 border-red-700 hover:border-red-500;
       }

@@ -32,19 +32,18 @@ export const calcStatusWidth = (height: number): string =>
 
 const useStyles = createUseStyles<string, number>({
   brick: {
-    background: {
-      image: `url(${brickBg})`,
-    },
+    'background-image': `url(${brickBg})`,
+    'background-position': 'center 15%',
   },
   gem: {
-    background: {
-      image: `url(${gemBg})`,
-    },
+    'background-image': `url(${gemBg})`,
+    'background-position': 'center 21%',
   },
   recruit: {
-    background: {
-      image: `url(${recruitBg})`,
-    },
+    'background-image': `url(${recruitBg})`,
+  },
+  prodcontainer: {
+    'min-height': '1.2rem',
   },
   prod: {
     'font-size': (height) => `${getFontSize(height, 0.05)}px`,
@@ -71,7 +70,7 @@ type PropType = {
 const Resource = ({ type, count, prod }: PropType) => {
   const _ = useContext(I18nContext)
   const size = useContext(GameSizeContext)
-  const height = (size.height / 3) * 2
+  const height = size.height * (size.narrowMobile ? 1 / 2 : 2 / 3)
 
   const classes = useStyles(height)
   const color = { brick: 'red', gem: 'blue', recruit: 'green' }[type]
@@ -89,6 +88,7 @@ const Resource = ({ type, count, prod }: PropType) => {
       <div
         className={cx(
           classes[type],
+          classes.prodcontainer,
           'bg-no-repeat bg-cover bg-center border border-l-darkborder border-t-darkborder border-r-lightborder border-b-lightborder relative',
         )}
         style={{

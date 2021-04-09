@@ -41,13 +41,20 @@ const Help = () => {
 
   return (
     <Window ScreenActionType={SCREEN_HELP}>
-      <h1>
-        <span>{_.i18n('ArcoMage HD')}</span>{' '}
-        <small>v{process.env.APPVERSION}</small>
-      </h1>
-      <p className="description">{_.i18n('DESC')}</p>
+      <small className="version">v{process.env.APPVERSION}</small>
+      <p className="description">
+        {_.i18n('ArcoMage HD') !== 'ArcoMage HD' && (
+          <>
+            <strong>{_.i18n('ArcoMage HD')}</strong>
+            <> - </>
+          </>
+        )}
+        {_.i18n('DESC')}
+      </p>
       {el}
-      <p>{_.i18n('Game rules:')}</p>
+      <p>
+        <strong>{_.i18n('Game rules:')}</strong>
+      </p>
       <div>{<MultilineText>{_.i18n('GAMERULES')}</MultilineText>}</div>
     </Window>
   )

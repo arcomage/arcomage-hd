@@ -62,4 +62,7 @@ Cihly se generují v červeném generátoru těžby, drahokamy v modrém generá
     'Bez použitelné nebo vyřazitelné karty se váš soupeř vzdal',
   'With no usable or discardable card, you have surrendered':
     'Bez použitelné nebo vyřazitelné karty jste se vzdali',
+
+  'Please rotate your device to landscape mode':
+    'Otočte zařízení do režimu na šířku',
 }

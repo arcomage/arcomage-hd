@@ -62,4 +62,7 @@ Rot stellt Euren Ziegel-Generator dar, der Ziegel-Ressourcen erzeugt, blau den M
     'Ohne verwendbare oder ablegbare Karte hat Ihr Gegner kapituliert',
   'With no usable or discardable card, you have surrendered':
     'Ohne verwendbare oder ablegbare Karte haben Sie aufgegeben',
+
+  'Please rotate your device to landscape mode':
+    'Bitte drehen Sie Ihr Gerät in das Querformat',
 }

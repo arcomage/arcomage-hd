@@ -1,4 +1,10 @@
-import React, { useState, useLayoutEffect, createContext } from 'react'
+import React, {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+} from 'react'
+import { GameSizeContext } from './GameSizeContext'
 
 const heightPercToTable = 0.8
 const whRatio = 188 / 252
@@ -14,7 +20,7 @@ const useWidth = (
   total: number,
 ): boolean =>
   tableHeight * heightPercToTable * whRatio * total +
-    (minSpacingXPx * (total - 1) + minSpacingXPx * marginSpacingXRatio) <=
+    (minSpacingXPx * (total - 1) + minSpacingXPx * marginSpacingXRatio * 2) <=
   tableWidth
 
 const getHeight = (
@@ -39,7 +45,8 @@ const getWidth = (
   } else {
     return (
       (tableWidth -
-        (minSpacingXPx * (total - 1) + minSpacingXPx * marginSpacingXRatio)) /
+        (minSpacingXPx * (total - 1) +
+          minSpacingXPx * marginSpacingXRatio * 2)) /
       total
     )
   }
@@ -70,18 +77,25 @@ const positionTopMapFunc = (
   total: number,
   winHeight: number,
   winWidth: number,
+  narrowMobile: boolean,
 ) => (position: number) => {
   const realPosition = position - 5
   if (realPosition >= 0) {
     return (
-      (winHeight / 3) * 2 +
-      (winHeight / 3 - getHeight(winHeight / 3, winWidth, total)) / 2
+      winHeight * (narrowMobile ? 1 / 2 : 2 / 3) +
+      (winHeight * (narrowMobile ? 1 / 2 : 1 / 3) -
+        getHeight(
+          winHeight * (narrowMobile ? 1 / 2 : 1 / 3),
+          winWidth,
+          total,
+        )) /
+        2
     )
   } else if (realPosition === -5) {
     return (
-      (winHeight / 3) * 2 -
-      getHeight(winHeight / 3, winWidth, total) -
-      middleCardMarginBottom
+      winHeight * (narrowMobile ? 1 / 2 : 2 / 3) -
+      getHeight(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) +
+      middleCardMarginBottom * (narrowMobile ? 1 : -1)
     )
   } else {
     return topCardMarginTop
@@ -92,21 +106,30 @@ const positionLeftMapFunc = (
   total: number,
   winHeight: number,
   winWidth: number,
+  narrowMobile: boolean,
 ) => (position: number) => {
   const realPosition = position - 5
   if (realPosition >= 0) {
     return (
-      getMarginX(winWidth, total, winHeight / 3) +
-      (getWidth(winHeight / 3, winWidth, total) +
-        getSpacingX(winWidth, total, winHeight / 3)) *
+      getMarginX(winWidth, total, winHeight * (narrowMobile ? 1 / 2 : 1 / 3)) +
+      (getWidth(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) +
+        getSpacingX(
+          winWidth,
+          total,
+          winHeight * (narrowMobile ? 1 / 2 : 1 / 3),
+        )) *
         realPosition
     )
   } else if (realPosition === -5) {
-    return winWidth / 2 - getWidth(winHeight / 3, winWidth, total) / 2
+    return (
+      winWidth / 2 -
+      getWidth(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) / 2
+    )
   } else {
     return (
       winWidth / 2 -
-      (getWidth(winHeight / 3, winWidth, total) * (realPosition + 3) -
+      (getWidth(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) *
+        (realPosition + 3) -
         (1 / 2 - 3 - realPosition) * topCardSpacingPx)
     )
   }
@@ -149,23 +172,32 @@ export const CardPosProvider = ({
 }: PropType) => {
   const [cardPos, setCardPos] = useState<CardPosType | null>(null)
 
-  useLayoutEffect(() => {
+  const size = useContext(GameSizeContext)
+  const { narrowMobile } = size
+
+  useEffect(() => {
     const total = cardsInHand + 1
     const rangeArr = [...Array(total + 5).keys()]
 
-    const width = getWidth(winHeight / 3, winWidth, total)
+    const tablePHeight = winHeight * (narrowMobile ? 1 / 2 : 1 / 3)
 
-    const height = getHeight(winHeight / 3, winWidth, total)
+    const width = getWidth(tablePHeight, winWidth, total)
+
+    const height = getHeight(tablePHeight, winWidth, total)
 
     // index in the top, topM1, left, leftM1 arrays is not the real position, it needs to add 5
-    const top = rangeArr.map(positionTopMapFunc(total, winHeight, winWidth))
+    const top = rangeArr.map(
+      positionTopMapFunc(total, winHeight, winWidth, narrowMobile),
+    )
     const topM1 = rangeArr.map(
-      positionTopMapFunc(total - 1, winHeight, winWidth),
+      positionTopMapFunc(total - 1, winHeight, winWidth, narrowMobile),
     )
 
-    const left = rangeArr.map(positionLeftMapFunc(total, winHeight, winWidth))
+    const left = rangeArr.map(
+      positionLeftMapFunc(total, winHeight, winWidth, narrowMobile),
+    )
     const leftM1 = rangeArr.map(
-      positionLeftMapFunc(total - 1, winHeight, winWidth),
+      positionLeftMapFunc(total - 1, winHeight, winWidth, narrowMobile),
     )
 
     setCardPos({
@@ -177,7 +209,7 @@ export const CardPosProvider = ({
       topM1,
       leftM1,
     })
-  }, [cardsInHand, winHeight, winWidth])
+  }, [cardsInHand, winHeight, winWidth, narrowMobile])
 
   return (
     <CardPosContext.Provider value={cardPos}>

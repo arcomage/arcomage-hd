@@ -28,3 +28,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 )
+
+// pwacompat.js inserted after it, see webpack.config.js

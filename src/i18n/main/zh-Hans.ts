@@ -60,4 +60,7 @@ export const i18n = {
     '没有任何牌可以使用或丢弃，你的对手被迫投降了',
   'With no usable or discardable card, you have surrendered':
     '没有任何牌可以使用或丢弃，你被迫投降了',
+
+  'Please rotate your device to landscape mode':
+    '请将您的设备旋转到横向模式',
 }

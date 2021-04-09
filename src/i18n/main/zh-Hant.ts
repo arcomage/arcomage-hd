@@ -40,9 +40,9 @@ export const i18n = {
 
   ERATHIAN: '使用埃拉西亞文字 [%s]（只對拉丁字母有效）',
 
-  'ArcoMage HD': '魔幻牌HD',
+  'ArcoMage HD': '圓法師HD',
 
-  DESC: 'Web 瀏覽器版本的 3DO/NWC 2000年卡牌遊戲魔幻牌的開源高畫質克隆',
+  DESC: 'Web 瀏覽器版本的 3DO/NWC 2000年卡牌遊戲圓法師的開源高畫質克隆',
 
   'Please go to %s to view more information, star the repo and follow %s there.':
     '請訪問%s檢視更多資訊，歡迎給其加星並關注%s。',
@@ -60,4 +60,7 @@ export const i18n = {
     '沒有任何牌可以使用或丟棄，你的對手被迫投降了',
   'With no usable or discardable card, you have surrendered':
     '沒有任何牌可以使用或丟棄，你被迫投降了',
+
+  'Please rotate your device to landscape mode':
+    '請將您的裝置旋轉到橫向模式',
 }

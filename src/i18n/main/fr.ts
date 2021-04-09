@@ -62,4 +62,7 @@ En Rouge, votre Carrière qui produit des Briques. En Bleu, votre Magie qui prod
     'Sans carte utilisable ou défaussable, votre adversaire a capitulé',
   'With no usable or discardable card, you have surrendered':
     'Sans carte utilisable ou défaussable, vous avez capitulé',
+
+  'Please rotate your device to landscape mode':
+    'Veuillez faire pivoter votre appareil en mode paysage',
 }

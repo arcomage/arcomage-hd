@@ -86,6 +86,9 @@ const useStyles = createUseStyles<
         return 'auto'
       }
     },
+    height: ({ cardPos }) => (cardPos ? cardPos.width * 0.094 : 16) * 1.1,
+    'line-height': ({ cardPos }) =>
+      `${(cardPos ? cardPos.width * 0.094 : 16) * 1.1}px`,
   },
   isflipped: {
     transform: 'translateX(-100%) rotateY(-179.99deg)',
@@ -165,8 +168,10 @@ const useStyles = createUseStyles<
   },
   text: {
     // width: calc(100% - 0.25rem * 2),
-    height:
-      'calc(100% - (1.25rem + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
+    height: ({ cardPos }) =>
+      `calc(100% - (${
+        (cardPos ? cardPos.width * 0.094 : 16) * 1.1
+      }px + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)`,
   },
   resall: {
     width: ({ cardPos }) => (cardPos ? cardPos.width : 0) * 0.2,
@@ -403,7 +408,7 @@ const Card = ({
           <div
             className={cx(
               classes.cardname,
-              'm-1 shadow text-center font-bold leading-5 h-5',
+              'm-1 shadow text-center font-semibold tracking-tight',
               `bg-${color}-200`,
             )}
           >

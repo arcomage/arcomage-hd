@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
 import explosion from '../../../assets/img/explosion.png'
 import firework from '../../../assets/img/firework.png'
+import { GameSizeContext } from '../../utils/GameSizeContext'
 
 const useStyles = createUseStyles({
   '@keyframes explosion': {
@@ -53,6 +54,7 @@ const NumberChangeVisual = ({ n }: PropType) => {
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)
   const main = useRef<HTMLDivElement | null>(null)
+  const size = useContext(GameSizeContext)
 
   useEffect(() => {
     if (hasMounted.current) {
@@ -62,6 +64,7 @@ const NumberChangeVisual = ({ n }: PropType) => {
         const divEl = document.createElement('div')
         divEl.className = cx(
           'transform -translate-x-1/2 -translate-y-1/2 absolute',
+          size.narrowMobile ? 'scale-50' : 'scale-75',
           classes.main,
           n < prev ? classes.explosion : classes.firework,
         )

@@ -2,6 +2,7 @@ import produce from 'immer'
 import {
   SCREEN_END_MAIN,
   SCREEN_HELP,
+  SCREEN_LANDSCAPE,
   SCREEN_LANG_PREF,
   SCREEN_PREF,
   SCREEN_VOLUME_PREF,
@@ -14,6 +15,7 @@ const defaultScreen: ScreenStateType = {
   langPref: false,
   volumePref: false,
   help: false,
+  landscape: false,
   end: { type: null },
 }
 
@@ -33,6 +35,10 @@ const screen = produce((draft: ScreenStateType, action: RootActionType) => {
     }
     case SCREEN_HELP: {
       draft.help = action.show
+      break
+    }
+    case SCREEN_LANDSCAPE: {
+      draft.landscape = action.show
       break
     }
     case SCREEN_END_MAIN: {

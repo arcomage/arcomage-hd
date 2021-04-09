@@ -5,7 +5,15 @@ import Resource, { calcStatusWidth } from './Resource'
 import { useAppSelector } from '../utils/useAppDispatch'
 import { GameSizeContext } from '../utils/GameSizeContext'
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles<
+  string,
+  { height: number; isOpponent: boolean }
+>({
+  main: {
+    width: ({ height }) => `calc(${calcStatusWidth(height)})`,
+    'min-width': '7.8rem',
+    float: ({ isOpponent }) => (isOpponent ? 'right' : 'left'),
+  },
   username: {
     'transition-property': 'color, border-color',
     'transition-timing-function': 'ease-in-out',
@@ -38,16 +46,10 @@ const Status = ({
   const size = useContext(GameSizeContext)
   const height = (size.height / 3) * 2
 
-  const classes = useStyles()
+  const classes = useStyles({ height, isOpponent })
 
   return (
-    <div
-      className="z-20 p-5 h-full relative"
-      style={{
-        width: `calc(${calcStatusWidth(height)})`,
-        float: isOpponent ? 'right' : 'left',
-      }}
-    >
+    <div className={cx(classes.main, 'z-20 p-5 h-full relative')}>
       <div className="bg-black bg-opacity-50 mb-4 p-1 shadow-lg">
         <div
           className={cx(

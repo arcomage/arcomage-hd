@@ -162,18 +162,18 @@ module.exports = (env, argv) => {
             from: 'assets/logo/**/*',
             to: '[name][ext]',
             globOptions: {
-              ignore: ['**/logo.svg*', '**/manifest.template.ts'],
+              ignore: ['**/manifest.template.ts'],
             },
           },
         ],
       }),
       new PreloadWebpackPlugin({
-        rel: "prefetch",
-        include: "all",
+        rel: 'prefetch',
+        include: 'all',
         fileBlacklist: [/\.(?!(mp3$)).*$/],
         as(entry) {
-          if (/\.mp3$/.test(entry)) return "audio";
-          return "script";
+          if (/\.mp3$/.test(entry)) return 'audio'
+          return 'script'
         },
       }),
       ...(dev

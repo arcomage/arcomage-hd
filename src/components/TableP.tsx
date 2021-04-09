@@ -31,7 +31,13 @@ const TableP = () => {
       winHeight={winHeight}
       winWidth={winWidth}
     >
-      <div className={cx(classes.main, 'h-1/3 flex-auto')}>
+      <div
+        className={cx(
+          classes.main,
+          'flex-auto',
+          size.narrowMobile ? 'h-1/2' : 'h-1/3',
+        )}
+      >
         <Card n={-1} position={-1} unusable={true} />
         {cards.map((card, i) => {
           if (card === null) {
