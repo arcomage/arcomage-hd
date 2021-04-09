@@ -24,6 +24,7 @@
     "i18nextract": "ts-node --project ./tools/tsconfig.json ./tools/i18n-extraction",
     "devsettingscheck": "ts-node --project ./tools/tsconfig.json ./tools/precommitcheck/devSettingsCheck.ts",
     "resizesvg": "ts-node --project ./tools/tsconfig.json ./tools/resize-svg",
+    "linecount": "sloc src",
     "preversion": "git diff-index --quiet HEAD --",
     "postversion": "git push --follow-tags"
   },
@@ -122,6 +123,7 @@
     "opencc-js": "^1.0.3",
     "prettier": "^2.2.1",
     "sharp": "^0.28.1",
+    "sloc": "^0.2.1",
     "tesseract.js": "^2.1.4",
     "xml-js": "^1.6.11"
   },

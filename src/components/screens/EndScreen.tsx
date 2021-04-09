@@ -77,9 +77,10 @@ const useStyles = createUseStyles<string, EndScreenNoCloseStateType>({
   },
 
   notetext: {
+    top: '62%',
+    height: '5em',
     'font-size': '5vh',
     'line-height': '5vh',
-    bottom: '30%',
   },
 
   text: {

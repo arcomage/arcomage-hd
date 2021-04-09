@@ -23,24 +23,9 @@ const useStyles = createUseStyles<
 
 type PropType = {
   playerName: string
-  bricks: number
-  gems: number
-  recruits: number
-  brickProd: number
-  gemProd: number
-  recruitProd: number
   isOpponent?: boolean
 }
-const Status = ({
-  playerName,
-  bricks,
-  gems,
-  recruits,
-  brickProd,
-  gemProd,
-  recruitProd,
-  isOpponent = false,
-}: PropType) => {
+const Status = ({ playerName, isOpponent = false }: PropType) => {
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
 
   const size = useContext(GameSizeContext)
@@ -62,9 +47,9 @@ const Status = ({
         </div>
       </div>
 
-      <Resource type="brick" count={bricks} prod={brickProd} />
-      <Resource type="gem" count={gems} prod={gemProd} />
-      <Resource type="recruit" count={recruits} prod={recruitProd} />
+      <Resource type="brick" isOpponent={isOpponent} />
+      <Resource type="gem" isOpponent={isOpponent} />
+      <Resource type="recruit" isOpponent={isOpponent} />
     </div>
   )
 }

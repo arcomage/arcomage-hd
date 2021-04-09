@@ -20,8 +20,16 @@ export const endScreenExitableDelay = 750
 
 export const cardNameMaxLength = 15
 
+export const unitTextMaxLength = 6
+
 export const narrowMobileWinHeightMax = 499
 
 export const smallRootFontScreenMax = 689
 
-export const minRootFontSize = 5
+export const minRootFontSize = 4
+
+export const animatedNumberDuration = 200
+
+export const numberChangeVisualDuration = 1000 // explosion & firework
+
+export const numberDiffDuration = 1500

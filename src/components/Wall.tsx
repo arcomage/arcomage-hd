@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
 import AnimatedNumber from './effects/AnimatedNumber'
 import NumberDiff from './effects/NumberDiff'
-import NumberChangeEffect from './effects/NumberChangeEffect'
+import NumberChangeVisual from './effects/NumberChangeVisual'
 
 import wall from '../../assets/img/wall.png'
 
@@ -72,7 +72,7 @@ const Wall = ({ current, isOpponent = false }: PropType) => {
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
           <NumberDiff n={current} />
           <AnimatedNumber n={current} />
-          <NumberChangeEffect n={current} />
+          <NumberChangeVisual n={current} />
         </div>
       </div>
     </div>

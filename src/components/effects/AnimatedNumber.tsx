@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { animatedNumberDuration } from '../../constants/visuals'
 
 type PropType = { n: number }
 
@@ -8,8 +9,6 @@ const AnimatedNumber = ({ n }: PropType) => {
   const timer = useRef<NodeJS.Timeout | null>(null)
 
   const [nv, setNv] = useState(n)
-
-  const duration = 0.2
 
   useEffect(() => {
     if (hasMounted.current) {
@@ -30,7 +29,7 @@ const AnimatedNumber = ({ n }: PropType) => {
           }
           return ret
         })
-      }, (duration * 1000) / Math.abs(n - prev))
+      }, (animatedNumberDuration) / Math.abs(n - prev))
     }
     if (!hasMounted.current) {
       hasMounted.current = true

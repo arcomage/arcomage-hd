@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-
-const duration = 1.2
+import { numberDiffDuration } from '../../constants/visuals'
 
 const useStyles = createUseStyles({
   '@keyframes fadeOutUp': {
@@ -22,7 +21,7 @@ const useStyles = createUseStyles({
     opacity: 0,
     'will-change': 'transform, opacity',
     'animation-name': '$fadeOutUp',
-    'animation-duration': `${duration}s`,
+    'animation-duration': `${numberDiffDuration}ms`,
     'animation-timing-function': 'ease-out',
   },
 })

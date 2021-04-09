@@ -16,3 +16,11 @@ export const allStatusNames = [
   'gemProd',
   'recruitProd',
 ] as const
+
+export const resNameAllMap = {
+  brick: ['bricks', 'brickProd'],
+  gem: ['gems', 'gemProd'],
+  recruit: ['recruits', 'recruitProd'],
+} as const
+
+export type ResNameType = 'brick' | 'gem' | 'recruit'

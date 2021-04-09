@@ -3,13 +3,18 @@ import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
 
-import AnimatedNumber from './effects/AnimatedNumber'
-import NumberDiff from './effects/NumberDiff'
+import ResourceNumber from './ResourceNumber'
 
 import brickBg from '../../assets/img/res_1.png'
 import gemBg from '../../assets/img/res_2.png'
 import recruitBg from '../../assets/img/res_3.png'
 import { I18nContext } from '../i18n/I18nContext'
+import { smallRootFontScreenMax, unitTextMaxLength } from '../constants/visuals'
+
+import brick from '../../assets/img/brick.svg'
+import gem from '../../assets/img/gem.svg'
+import recruit from '../../assets/img/recruit.svg'
+import { ResNameType } from '../constants/resourceNames'
 
 const whRatio = 156 / 216
 
@@ -30,7 +35,15 @@ const calcProdHeight = (height: number): string =>
 export const calcStatusWidth = (height: number): string =>
   `${calcProdHeight(height)} / ${whRatio} + 0.25rem * 2 + 1.25rem * 2`
 
-const useStyles = createUseStyles<string, number>({
+const useStyles = createUseStyles<
+  string,
+  {
+    type: ResNameType
+    height: number
+    smallMode: boolean
+    unitTextLength: number
+  }
+>({
   brick: {
     'background-image': `url(${brickBg})`,
     'background-position': 'center 15%',
@@ -43,42 +56,85 @@ const useStyles = createUseStyles<string, number>({
     'background-image': `url(${recruitBg})`,
   },
   prodcontainer: {
-    'min-height': '1.2rem',
+    'min-height': '2em',
   },
   prod: {
-    'font-size': (height) => `${getFontSize(height, 0.05)}px`,
-    'line-height': (height) => `${getLineHeight(height, 0.05)}px`,
+    'font-size': ({ height }) => `${getFontSize(height, 0.05)}px`,
+    'line-height': ({ height }) => `${getLineHeight(height, 0.05)}px`,
     'margin-bottom': '-0.2em',
   },
   count: {
-    'font-size': (height) => `${getFontSize(height, 0.036)}px`,
-    'line-height': (height) => `${getLineHeight(height, 0.036)}px`,
-    height: (height) => `${getLineHeight(height, 0.036)}px`,
+    'font-size': ({ height }) => `${getFontSize(height, 0.036)}px`,
+    'line-height': ({ height }) => `${getLineHeight(height, 0.036)}px`,
+    height: ({ height }) => `${getLineHeight(height, 0.036)}px`,
+    width: '50%',
   },
   unit: {
-    'font-size': (height) => `${getFontSize(height, 0.036)}px`,
-    'line-height': (height) => `${getLineHeight(height, 0.036)}px`,
-    height: (height) => `${getLineHeight(height, 0.036)}px`,
+    'font-size': ({ height, unitTextLength }) => {
+      let fontSize = getFontSize(height, 0.036)
+      if (unitTextLength > unitTextMaxLength) {
+        fontSize = (fontSize / unitTextLength) * (unitTextMaxLength + 1)
+      }
+      return `${fontSize}px`
+    },
+    'line-height': ({ height }) => `${getLineHeight(height, 0.036)}px`,
+    height: ({ height }) => `${getLineHeight(height, 0.036)}px`,
+    width: ({ height, smallMode }) =>
+      smallMode ? `${getLineHeight(height, 0.036)}px` : '50%',
+    'background-image': ({ type, smallMode }) =>
+      smallMode
+        ? `url(${
+            {
+              brick,
+              gem,
+              recruit,
+            }[type]
+          })`
+        : 'none',
+    background: {
+      repeat: 'no-repeat',
+      size: 'cover',
+      position: 'center center',
+    },
+    opacity: ({ smallMode }) => (smallMode ? 0.75 : 1),
+    transform: ({ type, smallMode }) => {
+      if (smallMode) {
+        if (type === 'gem') {
+          return 'translateY(-12%)'
+        } else if (type === 'recruit') {
+          return 'translateY(6%)'
+        }
+      }
+      return 'none'
+    },
   },
 })
 
 type PropType = {
-  type: 'brick' | 'gem' | 'recruit'
-  count: number
-  prod: number
+  type: ResNameType
+  isOpponent: boolean
 }
-const Resource = ({ type, count, prod }: PropType) => {
+const Resource = ({ type, isOpponent }: PropType) => {
   const _ = useContext(I18nContext)
   const size = useContext(GameSizeContext)
-  const height = size.height * (size.narrowMobile ? 1 / 2 : 2 / 3)
-
-  const classes = useStyles(height)
+  const winHeight = size.height
+  const height = winHeight * (size.narrowMobile ? 1 / 2 : 2 / 3)
+  const smallMode = winHeight < smallRootFontScreenMax
   const color = { brick: 'red', gem: 'blue', recruit: 'green' }[type]
   const text = {
     brick: _.i18n('bricks'),
     gem: _.i18n('gems'),
     recruit: _.i18n('recruits'),
   }[type]
+
+  const classes = useStyles({
+    type,
+    height,
+    smallMode,
+    unitTextLength: smallMode
+      ? 0
+      : text.replace(/[ыщ]/g, '  ').replace(/ll/g, 'l').length,
+  })
   // Force TailwindCSS to aware of these classes:
   // bg-red-300
   // bg-blue-300
@@ -102,8 +158,7 @@ const Resource = ({ type, count, prod }: PropType) => {
             classes.prod,
           )}
         >
-          <NumberDiff n={prod} />
-          <AnimatedNumber n={prod} />
+          <ResourceNumber isProd={true} {...{ type, isOpponent }} />
         </div>
       </div>
       <div className="flow-root mt-1">
@@ -114,17 +169,17 @@ const Resource = ({ type, count, prod }: PropType) => {
             classes.count,
           )}
         >
-          <NumberDiff n={count} />
-          <AnimatedNumber n={count} />
+          <ResourceNumber isProd={false} {...{ type, isOpponent }} />
         </div>
         <div
+          {...(smallMode ? { title: text } : {})}
           className={cx(
             'float-right text-black flex-1 text-right',
             'robotocondensed',
             classes.unit,
           )}
         >
-          {text}
+          {smallMode ? '' : text}
         </div>
       </div>
     </div>

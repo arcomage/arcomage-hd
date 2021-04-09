@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
 import AnimatedNumber from './effects/AnimatedNumber'
 import NumberDiff from './effects/NumberDiff'
-import NumberChangeVisual from './effects/NumberChangeEffect'
+import NumberChangeVisual from './effects/NumberChangeVisual'
 
 import tower from '../../assets/img/tower.png'
 import towerRed from '../../assets/img/tower_red.png'

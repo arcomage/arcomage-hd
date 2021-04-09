@@ -83,7 +83,7 @@ const useStyles = createUseStyles<
           cardNameLength
         )
       } else {
-        return 'auto'
+        return 'inherit'
       }
     },
     height: ({ cardPos }) => (cardPos ? cardPos.width * 0.094 : 16) * 1.1,

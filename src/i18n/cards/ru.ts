@@ -204,7 +204,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Разрушение',
-    desc: '-1 к Магии. 9 ед. ',
+    desc: '-1 к Магии. 9 ед. урона Башне врага',
   },
   {
     name: 'Камнедробилка',

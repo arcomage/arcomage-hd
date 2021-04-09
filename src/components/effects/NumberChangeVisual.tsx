@@ -5,6 +5,7 @@ import { createUseStyles } from 'react-jss'
 import explosion from '../../../assets/img/explosion.png'
 import firework from '../../../assets/img/firework.png'
 import { GameSizeContext } from '../../utils/GameSizeContext'
+import { numberChangeVisualDuration } from '../../constants/visuals'
 
 const useStyles = createUseStyles({
   '@keyframes explosion': {
@@ -22,7 +23,7 @@ const useStyles = createUseStyles({
   main: {
     'will-change': 'background-position',
     'background-repeat': 'no-repeat',
-    'animation-duration': '1s',
+    'animation-duration': `${numberChangeVisualDuration}ms`,
     'animation-iteration-count': 1,
   },
 

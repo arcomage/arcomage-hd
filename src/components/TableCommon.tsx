@@ -25,26 +25,14 @@ const useStyles = createUseStyles({
 const TableCommon = () => {
   const playerName = useAppSelector((state) => state.settings.playerName)
   const opponentName = useAppSelector((state) => state.settings.opponentName)
-  const bricksP = useAppSelector((state) => state.status.player.bricks)
-  const gemsP = useAppSelector((state) => state.status.player.gems)
-  const recruitsP = useAppSelector((state) => state.status.player.recruits)
-  const brickProdP = useAppSelector((state) => state.status.player.brickProd)
-  const gemProdP = useAppSelector((state) => state.status.player.gemProd)
-  const recruitProdP = useAppSelector(
-    (state) => state.status.player.recruitProd,
-  )
+
   const towerP = useAppSelector((state) => state.status.player.tower)
   const wallP = useAppSelector((state) => state.status.player.wall)
-  const bricksO = useAppSelector((state) => state.status.opponent.bricks)
-  const gemsO = useAppSelector((state) => state.status.opponent.gems)
-  const recruitsO = useAppSelector((state) => state.status.opponent.recruits)
-  const brickProdO = useAppSelector((state) => state.status.opponent.brickProd)
-  const gemProdO = useAppSelector((state) => state.status.opponent.gemProd)
-  const recruitProdO = useAppSelector(
-    (state) => state.status.opponent.recruitProd,
-  )
+
   const towerO = useAppSelector((state) => state.status.opponent.tower)
   const wallO = useAppSelector((state) => state.status.opponent.wall)
+
+  const winTower = useAppSelector((state) => state.settings.win.tower)
 
   const size = useContext(GameSizeContext)
 
@@ -59,27 +47,15 @@ const TableCommon = () => {
     >
       <Status
         playerName={playerName}
-        bricks={bricksP}
-        gems={gemsP}
-        recruits={recruitsP}
-        brickProd={brickProdP}
-        gemProd={gemProdP}
-        recruitProd={recruitProdP}
       />
-      <Tower goal={100} current={towerP} />
+      <Tower goal={winTower} current={towerP} />
       <Wall current={wallP} />
 
       <Status
         playerName={opponentName}
-        bricks={bricksO}
-        gems={gemsO}
-        recruits={recruitsO}
-        brickProd={brickProdO}
-        gemProd={gemProdO}
-        recruitProd={recruitProdO}
         isOpponent={true}
       />
-      <Tower isOpponent={true} goal={100} current={towerO} />
+      <Tower isOpponent={true} goal={winTower} current={towerO} />
       <Wall isOpponent={true} current={wallO} />
       <Bird />
     </div>
