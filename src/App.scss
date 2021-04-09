@@ -29,17 +29,9 @@ button:disabled {
 // }
 
 a,
-button,
-input[type='checkbox'],
-input[type='radio'],
-input[type='text'],
-input[type='number'],
-select {
-  appearance: none;
-
+button {
   &:focus {
-    outline: none;
-    box-shadow: 0 0 2px 2px #40ffff;
+    outline: 1px solid #fff;
   }
 }
 

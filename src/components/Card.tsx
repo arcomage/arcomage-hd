@@ -70,8 +70,8 @@ const useStyles = createUseStyles<
     'font-size': ({ cardPos }) => (cardPos ? cardPos.width * 0.094 : 16),
 
     // 'will-change: opacity' has bug and cannot be set here
-    'will-change': 'transform, left, top, box-shadow',
-    'transition-property': 'opacity, transform, left, top, box-shadow',
+    'will-change': 'transform, left, top',
+    'transition-property': 'opacity, transform, left, top',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDuration}ms`,
   },
@@ -101,8 +101,8 @@ const useStyles = createUseStyles<
     'background-image': `url(${noise})`,
     'backface-visibility': 'hidden',
     opacity: calcOpacity,
-    'will-change': 'transform, left, top, box-shadow',
-    'transition-property': 'opacity, transform, left, top, box-shadow',
+    'will-change': 'transform, left, top',
+    'transition-property': 'opacity, transform, left, top',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDuration}ms`,
     '&:before': {
@@ -126,8 +126,8 @@ const useStyles = createUseStyles<
       repeat: 'no-repeat',
     },
     opacity: calcOpacity,
-    'will-change': 'transform, left, top, box-shadow',
-    'transition-property': 'opacity, transform, left, top, box-shadow',
+    'will-change': 'transform, left, top',
+    'transition-property': 'opacity, transform, left, top',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDuration}ms`,
     '&:before': {
