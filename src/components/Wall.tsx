@@ -5,23 +5,22 @@ import { GameSizeContext } from '../utils/GameSizeContext'
 import AnimatedNumber from './effects/AnimatedNumber'
 import NumberDiff from './effects/NumberDiff'
 import NumberChangeVisual from './effects/NumberChangeVisual'
+import { maxWallOnScreen } from '../constants/visuals'
 
 import wall from '../../assets/img/wall.png'
-
-const goal = 100
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
 
 const heightByCurrent = (height: number, current: number): string =>
-  `calc(${calcBaseRatio(height)} * 597 * ${current / goal})`
+  `calc(${calcBaseRatio(height)} * 597 * ${current / maxWallOnScreen})`
 
 const useStyles = createUseStyles<string, number>({
   main: {
     width: (height) => `calc(${calcBaseRatio(height)} * 72 + 1rem * 2)`,
   },
   wallwrapper: {
-    height: (height) => heightByCurrent(height, goal),
+    height: (height) => heightByCurrent(height, maxWallOnScreen),
     bottom: 'calc(1.75rem + 0.25rem * 2)',
   },
   wallbody: {

@@ -207,7 +207,7 @@ const Pref = () => {
 
       <div className="two-column half">
         <label>
-          <span>{_.i18n('Your Name:')}</span>
+          <span>{_.i18n('Your Name')}{_.i18n(':')}</span>
           <input
             type="text"
             name="playerName"
@@ -222,7 +222,7 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span>{_.i18n("Opponent's Name:")}</span>
+          <span>{_.i18n("Opponent's Name")}{_.i18n(':')}</span>
           <input
             type="text"
             name="opponentName"
@@ -239,7 +239,7 @@ const Pref = () => {
       </div>
 
       <label className="one-colume">
-        <span>{_.i18n('Choose a Tavern (Preset Preferences):')}</span>
+        <span>{_.i18n('Choose a Tavern (Preset Preferences)')}{_.i18n(':')}</span>
         <select
           name="tavern"
           id="tavern"

@@ -91,7 +91,7 @@ type PropType = {
 }
 const Tower = ({ isOpponent = false, goal, current }: PropType) => {
   const size = useContext(GameSizeContext)
-  const height = (size.height / 3) * 2
+  const height = size.height * (size.narrowMobile ? 1 / 2 : 2 / 3)
 
   const classes = useStyles({ height, current, goal })
 

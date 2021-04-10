@@ -3,13 +3,29 @@ export const i18n = {
   wall: 'Wall',
   resource: 'Ressource',
 
+  brick: 'Ziegel',
   bricks: 'Ziegel',
+  gem: 'Edelstein',
   gems: 'Edelsteine',
+  recruit: 'Rekrut',
   recruits: 'Rekruten',
 
-  quarry: 'Steinbruch', // brick production
-  magic: 'Magie', // gem production
-  dungeon: 'Kerker', // recruit production
+  quarry: 'Steinbruch', // i.e. brick production
+  magic: 'Magie', // i.e. gem production
+  dungeon: 'Kerker', // i.e. recruit production
+
+  'Your %s': 'Ihr(e) %s', // Your quarry/tower
+  "Opponent's %s": "%s des Gegners", // Opponent's quarry/tower
+
+  // %ss = 'brick', %sp = 'bricks'
+  'Your %sp': 'Ihre %sp', // Your bricks
+  "Opponent's %sp": "%sp des Gegners", // Opponent's bricks
+
+  // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
+  '%s (%ss production)': '%s (%ssproduktion)', // quarry (brick production)
+
+  // %ss = 'brick', %sp = 'bricks'
+  'This card costs %s': 'Diese Karte kostet %s', // This card costs 3 bricks
 
   discarded: 'abgelegt',
   'Discard a card': 'Eine Karte ablegen',
@@ -19,10 +35,11 @@ export const i18n = {
   'Tie Game': 'Unentschieden Spiel',
 
   Preferences: 'Voreinstellungen',
-  'Your Name:': 'Ihr Name:',
-  "Opponent's Name:": 'Name des Gegners:',
-  'Choose a Tavern (Preset Preferences):':
-    'Taverne wählen (voreingestellte Einstellungen):',
+  ':': ':',
+  'Your Name': 'Ihr Name',
+  "Opponent's Name": 'Name des Gegners',
+  'Choose a Tavern (Preset Preferences)':
+    'Taverne wählen (voreingestellte Einstellungen)',
   Default: 'Standard',
   Customized: 'Benutzerdefiniert',
   'Starting Conditions': 'Startbedingungen',
@@ -51,7 +68,7 @@ export const i18n = {
 
   'the GitHub project page': 'die GitHub-Projektseite',
 
-  'Game rules:': 'Spielregeln:',
+  'Game rules': 'Spielregeln',
 
   GAMERULES: `Die Siegbedingungen variieren je nach Taverne. Baut Euren Turm, zerstört den Turm des Gegners oder sammelt ausreichend Ressourcen, bevor es Euer Gegner tut.
 Die großen gelben Zahlen in einer Spalte stellen die Generatoren dar. Diese Zahlen geben an, wie viele Einheiten einer bestimmten Ressource Euch in der nächsten Runde zur Verfügung stehen. Die kleinen schwarzen Zahlen in einer Spalte geben die Ressourcen selbst an. Sie zeigen, wie viele Einheiten einer Ressource Ihr in dieser Runde verbrauchen könnt.

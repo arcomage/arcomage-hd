@@ -3,13 +3,29 @@ export const i18n = {
   wall: 'muro',
   resource: 'risorsa',
 
+  brick: 'mattone',
   bricks: 'mattoni',
+  gem: 'gemma',
   gems: 'gemme',
+  recruit: 'recluta',
   recruits: 'reclute',
 
-  quarry: 'cava', // brick production
-  magic: 'magia', // gem production
-  dungeon: 'dungeon', // recruit production
+  quarry: 'cava', // i.e. brick production
+  magic: 'magia', // i.e. gem production
+  dungeon: 'dungeon', // i.e. recruit production
+
+  'Your %s': 'Il tuo/La tua %s', // Your quarry/tower
+  "Opponent's %s": "%s dell'avversario", // Opponent's quarry/tower
+
+  // %ss = 'brick', %sp = 'bricks'
+  'Your %sp': 'I tuoi/Le tue %sp', // Your bricks
+  "Opponent's %sp": "%sp dell'avversario", // Opponent's bricks
+
+  // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
+  '%s (%ss production)': '%s (produzione di %sp)', // quarry (brick production)
+
+  // %ss = 'brick', %sp = 'bricks'
+  'This card costs %s': 'Questa carta costa %s', // This card costs 3 bricks
 
   discarded: 'scartata',
   'Discard a card': 'Scartare una carta',
@@ -19,10 +35,11 @@ export const i18n = {
   'Tie Game': 'Gioco del pareggio',
 
   Preferences: 'Preferenze',
-  'Your Name:': 'Il tuo nome:',
-  "Opponent's Name:": "Nome dell'avversario:",
-  'Choose a Tavern (Preset Preferences):':
-    'Scegli una taverna (Preferenze preimpostate):',
+  ':': ':',
+  'Your Name': 'Il tuo nome',
+  "Opponent's Name": "Nome dell'avversario",
+  'Choose a Tavern (Preset Preferences)':
+    'Scegli una taverna (Preferenze preimpostate)',
   Default: 'Predefinite',
   Customized: 'Personalizzato',
   'Starting Conditions': 'Condizioni di partenza',
@@ -51,7 +68,7 @@ export const i18n = {
 
   'the GitHub project page': 'la pagina del progetto GitHub',
 
-  'Game rules:': 'Regole del gioco:',
+  'Game rules': 'Regole del gioco',
 
   GAMERULES: `Le regole per vincere variano di osteria in osteria. Occorre costruire la propria torre, distruggere la torre dell’avversario, o raccogliere abbastanza risorse prima dell’avversario.
 I grandi numeri gialli incolonnati rappresentano i generatori. Si tratta di quante nuove unità di una risorsa particolare riceverete al prossimo turno. I piccoli numeri neri incolonnati sono le risorse. Si tratta di quante unità avete a disposizione durante il turno in corso.

@@ -3,13 +3,29 @@ export const i18n = {
   wall: 'muro',
   resource: 'recurso',
 
+  brick: 'ladrillo',
   bricks: 'ladrillos',
+  gem: 'gema',
   gems: 'gemas',
+  recruit: 'miembro',
   recruits: 'miembros',
 
-  quarry: 'cantera', // brick production
-  magic: 'magia', // gem production
-  dungeon: 'mazmorra', // recruit production
+  quarry: 'cantera', // i.e. brick production
+  magic: 'magia', // i.e. gem production
+  dungeon: 'mazmorra', // i.e. recruit production
+
+  'Your %s': 'Tu %s', // Your quarry/tower
+  "Opponent's %s": "%s del adversario", // Opponent's quarry/tower
+
+  // %ss = 'brick', %sp = 'bricks'
+  'Your %sp': 'Tus %sp', // Your bricks
+  "Opponent's %sp": "%sp del adversario", // Opponent's bricks
+
+  // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
+  '%s (%ss production)': '%s (producción de %sp)', // quarry (brick production)
+
+  // %ss = 'brick', %sp = 'bricks'
+  'This card costs %s': 'Esta carta cuesta %s', // This card costs 3 bricks
 
   discarded: 'descartado',
   'Discard a card': 'Descartar una carta',
@@ -19,10 +35,11 @@ export const i18n = {
   'Tie Game': 'Juego empatado',
 
   Preferences: 'Preferencias',
-  'Your Name:': 'Tu nombre:',
-  "Opponent's Name:": 'Nombre del oponente:',
-  'Choose a Tavern (Preset Preferences):':
-    'Elige una taberna (Preferencias preestablecidas):',
+  ':': ':',
+  'Your Name': 'Tu nombre',
+  "Opponent's Name": 'Nombre del oponente',
+  'Choose a Tavern (Preset Preferences)':
+    'Elige una taberna (Preferencias preestablecidas)',
   Default: 'Por defecto',
   Customized: 'Personalizado',
   'Starting Conditions': 'Condiciones de inicio',
@@ -51,7 +68,7 @@ export const i18n = {
 
   'the GitHub project page': 'la página del proyecto en GitHub',
 
-  'Game rules:': 'Reglas del juego:',
+  'Game rules': 'Reglas del juego',
 
   GAMERULES: `Las condiciones de victoria varían según la posada. Para ganar hay que construir una torre, destruir la del adversario o reunir recursos suficientes antes que el adversario.
 Los números grandes amarillos de la columna son los generadores. Indican el número de unidades nuevas de un recurso en particular que recibirás en el próximo turno. Los números pequeños negros de la columna son los recursos. Indica el número de unidades que puedes gastar en el turno actual.

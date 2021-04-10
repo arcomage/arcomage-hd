@@ -3,13 +3,29 @@ export const i18n = {
   wall: 'zed',
   resource: 'suroviny',
 
+  brick: 'cihla',
   bricks: 'cihly',
-  gems: 'drahok.',
+  gem: 'drahokam',
+  gems: 'drahokamy',
+  recruit: 'příšera',
   recruits: 'příšery',
 
-  quarry: 'těžba', // brick production
-  magic: 'magic', // gem production
-  dungeon: 'jeskyně', // recruit production
+  quarry: 'těžba', // i.e. brick production
+  magic: 'magic', // i.e. gem production
+  dungeon: 'jeskyně', // i.e. recruit production
+
+  'Your %s': 'Tvůj/Tvoje %s', // Your quarry/tower
+  "Opponent's %s": "%s soupeře", // Opponent's quarry/tower
+
+  // %ss = 'brick', %sp = 'bricks'
+  'Your %sp': 'Váš/Vaše %sp', // Your bricks
+  "Opponent's %sp": "%sp soupeře", // Opponent's bricks
+
+  // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
+  '%s (%ss production)': '%s (výroba %ss)', // quarry (brick production)
+
+  // %ss = 'brick', %sp = 'bricks'
+  'This card costs %s': 'Tato karta stojí %s', // This card costs 3 bricks
 
   discarded: 'odložená',
   'Discard a card': 'Odhoďte kartu',
@@ -19,10 +35,11 @@ export const i18n = {
   'Tie Game': 'Remízová hra',
 
   Preferences: 'Předvolby',
-  'Your Name:': 'Vaše jméno:',
-  "Opponent's Name:": 'Jméno soupeře:',
-  'Choose a Tavern (Preset Preferences):':
-    'Vyberte hospodu (přednastavené předvolby):',
+  ':': ':',
+  'Your Name': 'Vaše jméno',
+  "Opponent's Name": 'Jméno soupeře',
+  'Choose a Tavern (Preset Preferences)':
+    'Vyberte hospodu (přednastavené předvolby)',
   Default: 'Výchozí',
   Customized: 'Přizpůsobené',
   'Starting Conditions': 'Počáteční podmínky',
@@ -51,7 +68,7 @@ export const i18n = {
 
   'the GitHub project page': 'stránka projektu GitHub',
 
-  'Game rules:': 'Pravidla hry:',
+  'Game rules': 'Pravidla hry',
 
   GAMERULES: `Podmínky vítězství jsou v každém hostinci různé. Stavíš svojí věž a snažíš se zničit věž protivníka nebo se snažíš nashromáždit stanovené množství zdrojů dříve, než to udělá tvůj protivník.
 Velká žlutá čísla v sloupcích jsou generátory. Ty určují, kolik nových jednotek jednotlivých zdrojů ti přibude v dalším tahu. Malá černá čísla v sloupcích jsou tvoje zásoby zdrojů. Ty určují, kolik jednotek budeš moci utratit v tomto tahu.

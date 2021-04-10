@@ -3,13 +3,29 @@ export const i18n = {
   wall: 'mur',
   resource: 'zasoby',
 
+  brick: 'kamień',
   bricks: 'kamienie',
+  gem: 'klejnot',
   gems: 'klejnoty',
+  recruit: 'bestia',
   recruits: 'bestie',
 
-  quarry: 'kamieniołom', // brick production
-  magic: 'magia', // gem production
-  dungeon: 'loch', // recruit production
+  quarry: 'kamieniołom', // i.e. brick production
+  magic: 'magia', // i.e. gem production
+  dungeon: 'loch', // i.e. recruit production
+
+  'Your %s': 'Twoja/Twój %s', // Your quarry/tower
+  "Opponent's %s": '%s przeciwnika', // Opponent's quarry/tower
+
+  // %ss = 'brick', %sp = 'bricks'
+  'Your %sp': 'Twoje %sp', // Your bricks
+  "Opponent's %sp": '%sp przeciwnika', // Opponent's bricks
+
+  // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
+  '%s (%ss production)': '%s (produkcja %ss)', // quarry (brick production)
+
+  // %ss = 'brick', %sp = 'bricks'
+  'This card costs %s': 'Ta karta kosztuje %s', // This card costs 3 bricks
 
   discarded: 'odrzucona',
   'Discard a card': 'Odrzuæ kartê',
@@ -19,10 +35,11 @@ export const i18n = {
   'Tie Game': 'Remis',
 
   Preferences: 'Opcje',
-  'Your Name:': 'Twoje imię:',
-  "Opponent's Name:": 'Imię przeciwnika:',
-  'Choose a Tavern (Preset Preferences):':
-    'Wybierz tawernę (Wstępne ustawienia):',
+  ':': ':',
+  'Your Name': 'Twoje imię',
+  "Opponent's Name": 'Imię przeciwnika',
+  'Choose a Tavern (Preset Preferences)':
+    'Wybierz tawernę (Wstępne ustawienia)',
   Default: 'Domyślne',
   Customized: 'Własne',
   'Starting Conditions': 'Warunki rozpoczęcia',
@@ -51,7 +68,7 @@ export const i18n = {
 
   'the GitHub project page': 'strona projektu na GitHubie',
 
-  'Game rules:': 'Zasady gry:',
+  'Game rules': 'Zasady gry',
 
   GAMERULES: `Warunki zwycięstwa są różne w zależności od miejsca, w którym gracie. Trzeba zbudować własną wieżę, zniszczyć wieżę przeciwnika lub zebrać wystarczająco dużo surowców zanim uczyni to twój przeciwnik.
 Duże, żółte liczby w kolumnach to generatory. Od nich zależy ile jednostek danego surowca otrzymasz w następnej kolejce. Małe czarne liczby w kolumnach to surowce. Oznaczają ilość surowca, którą możesz wykorzystać podczas trwającej tury.

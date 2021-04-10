@@ -121,11 +121,13 @@ const Resource = ({ type, isOpponent }: PropType) => {
   const height = winHeight * (size.narrowMobile ? 1 / 2 : 2 / 3)
   const smallMode = winHeight < smallRootFontScreenMax
   const color = { brick: 'red', gem: 'blue', recruit: 'green' }[type]
-  const text = {
-    brick: _.i18n('bricks'),
-    gem: _.i18n('gems'),
-    recruit: _.i18n('recruits'),
-  }[type]
+  const text = _.i18n(
+    {
+      brick: 'bricks',
+      gem: 'gems',
+      recruit: 'recruits',
+    }[type],
+  )
 
   const classes = useStyles({
     type,
@@ -152,6 +154,31 @@ const Resource = ({ type, isOpponent }: PropType) => {
         }}
       >
         <div
+          title={_.i18n(`${isOpponent ? "Opponent's" : 'Your'} %s`).replace(
+            '%s',
+            _.i18n('%s (%ss production)')
+              .replace(
+                '%s',
+                _.i18n(
+                  {
+                    brick: 'quarry',
+                    gem: 'magic',
+                    recruit: 'dungeon',
+                  }[type],
+                ),
+              )
+              .replace('%ss', _.i18n(type))
+              .replace(
+                '%sp',
+                _.i18n(
+                  {
+                    brick: 'bricks',
+                    gem: 'gems',
+                    recruit: 'recruits',
+                  }[type],
+                ),
+              ),
+          )}
           className={cx(
             'text-yellow-400 absolute bottom-1 left-1 text-shadow-md tracking-tighter',
             'fatnumber',
@@ -163,6 +190,18 @@ const Resource = ({ type, isOpponent }: PropType) => {
       </div>
       <div className="flow-root mt-1">
         <div
+          title={_.i18n(`${isOpponent ? "Opponent's" : 'Your'} %sp`)
+            .replace(
+              '%sp',
+              _.i18n(
+                {
+                  brick: 'bricks',
+                  gem: 'gems',
+                  recruit: 'recruits',
+                }[type],
+              ),
+            )
+            .replace('%ss', _.i18n(type))}
           className={cx(
             'float-left text-black flex-1 text-left relative tracking-tighter',
             'fatnumber',

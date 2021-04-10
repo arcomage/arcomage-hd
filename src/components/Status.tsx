@@ -4,6 +4,7 @@ import { createUseStyles } from 'react-jss'
 import Resource, { calcStatusWidth } from './Resource'
 import { useAppSelector } from '../utils/useAppDispatch'
 import { GameSizeContext } from '../utils/GameSizeContext'
+import { I18nContext } from '../i18n/I18nContext'
 
 const useStyles = createUseStyles<
   string,
@@ -26,6 +27,7 @@ type PropType = {
   isOpponent?: boolean
 }
 const Status = ({ playerName, isOpponent = false }: PropType) => {
+  const _ = useContext(I18nContext)
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
 
   const size = useContext(GameSizeContext)
@@ -37,6 +39,7 @@ const Status = ({ playerName, isOpponent = false }: PropType) => {
     <div className={cx(classes.main, 'z-20 p-5 h-full relative')}>
       <div className="bg-black bg-opacity-50 mb-4 p-1 shadow-lg">
         <div
+          title={_.i18n(isOpponent ? "Opponent's Name" : 'Your Name')}
           className={cx(
             'border border-yellow-400 text-yellow-400 text-center h-7 leading-7 font-mono',
             { 'border-opacity-25 text-opacity-25': playersTurn === isOpponent },

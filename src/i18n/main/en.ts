@@ -3,13 +3,29 @@ export const i18n = {
   wall: 'wall',
   resource: 'resource',
 
+  brick: 'brick',
   bricks: 'bricks',
+  gem: 'gem',
   gems: 'gems',
+  recruit: 'recruit',
   recruits: 'recruits',
 
-  quarry: 'quarry', // brick production
-  magic: 'magic', // gem production
-  dungeon: 'dungeon', // recruit production
+  quarry: 'quarry', // i.e. brick production
+  magic: 'magic', // i.e. gem production
+  dungeon: 'dungeon', // i.e. recruit production
+
+  'Your %s': 'Your %s', // Your quarry/tower
+  "Opponent's %s": "Opponent's %s", // Opponent's quarry/tower
+
+  // %ss = 'brick', %sp = 'bricks'
+  'Your %sp': 'Your %sp', // Your bricks
+  "Opponent's %sp": "Opponent's %sp", // Opponent's bricks
+
+  // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
+  '%s (%ss production)': '%s (%ss production)', // quarry (brick production)
+
+  // %ss = 'brick', %sp = 'bricks'
+  'This card costs %s': 'This card costs %s', // This card costs 3 bricks
 
   discarded: 'discarded',
   'Discard a card': 'Discard a card',
@@ -19,10 +35,11 @@ export const i18n = {
   'Tie Game': 'Tie Game',
 
   Preferences: 'Preferences',
-  'Your Name:': 'Your Name:',
-  "Opponent's Name:": "Opponent's Name:",
-  'Choose a Tavern (Preset Preferences):':
-    'Choose a Tavern (Preset Preferences):',
+  ':': ':',
+  'Your Name': 'Your Name',
+  "Opponent's Name": "Opponent's Name",
+  'Choose a Tavern (Preset Preferences)':
+    'Choose a Tavern (Preset Preferences)',
   Default: 'Default',
   Customized: 'Customized',
   'Starting Conditions': 'Starting Conditions',
@@ -51,7 +68,7 @@ export const i18n = {
 
   'the GitHub project page': 'the GitHub project page',
 
-  'Game rules:': 'Game rules:',
+  'Game rules': 'Game rules',
 
   GAMERULES: `Victory conditions vary per tavern. Build your tower, destroy your opponent's tower, or collect enough resources before your opponent does.
 Large yellow numbers in column are the productions. This is how many new units of a particular resource you will receive on your next turn. Small black numbers in column are the resources. This is how many units you have available to spend on your current turn.

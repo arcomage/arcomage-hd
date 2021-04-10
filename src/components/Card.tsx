@@ -452,7 +452,19 @@ const Card = ({
                 'absolute top-0 left-0 w-full h-full',
               )}
             ></div>
-            <div className="absolute top-0 left-0 w-full h-full">{cost}</div>
+            <div
+              title={_.i18n('This card costs %s').replace(
+                '%s',
+                `${cost} ${_.i18n(
+                  cost === 1
+                    ? ['brick', 'gem', 'recruit'][type]
+                    : ['bricks', 'gems', 'recruits'][type],
+                )}`,
+              )}
+              className="absolute top-0 left-0 w-full h-full"
+            >
+              {cost}
+            </div>
           </div>
         </div>
         <div

@@ -3,13 +3,29 @@ export const i18n = {
   wall: '城牆',
   resource: '資源',
 
+  brick: '磚塊',
   bricks: '磚塊',
+  gem: '寶石',
   gems: '寶石',
+  recruit: '魔獸',
   recruits: '魔獸',
 
-  quarry: '磚塊產量', // brick production
-  magic: '寶石產量', // gem production
-  dungeon: '魔獸產量', // recruit production
+  quarry: '磚塊產量', // i.e. brick production
+  magic: '寶石產量', // i.e. gem production
+  dungeon: '魔獸產量', // i.e. recruit production
+
+  'Your %s': '你的%s', // Your quarry/tower
+  "Opponent's %s": "對手的%s", // Opponent's quarry/tower
+
+  // %ss = 'brick', %sp = 'bricks'
+  'Your %sp': '你的%sp', // Your bricks
+  "Opponent's %sp": "對手的%sp", // Opponent's bricks
+
+  // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
+  '%s (%ss production)': '%s', // quarry (brick production)
+
+  // %ss = 'brick', %sp = 'bricks'
+  'This card costs %s': '這張牌需 %s', // This card costs 3 bricks
 
   discarded: '棄牌',
   'Discard a card': '丟棄一張牌',
@@ -19,9 +35,10 @@ export const i18n = {
   'Tie Game': '握手言和',
 
   Preferences: '設定',
-  'Your Name:': '你的名字：',
-  "Opponent's Name:": '對手名字：',
-  'Choose a Tavern (Preset Preferences):': '選擇酒館（預設偏好）：',
+  ':': '：',
+  'Your Name': '你的名字',
+  "Opponent's Name": '對手名字',
+  'Choose a Tavern (Preset Preferences)': '選擇酒館（預設偏好）',
   Default: '預設',
   Customized: '自定義',
   'Starting Conditions': '起始條件',
@@ -49,7 +66,7 @@ export const i18n = {
 
   'the GitHub project page': 'GitHub專案頁面',
 
-  'Game rules:': '以下是遊戲規則：',
+  'Game rules': '以下是遊戲規則',
 
   GAMERULES: `每個旅店玩牌的勝利條件各不相同。反正就是要把自己的城堡造好，摧毀對方的城堡，或者趕在對手之前收集到足夠的資源。
 黃色的大數字是產量計數器，它代表你們下個回合可以得到的資源的數量。黑色的小數字表示現有資源，也就是本回合你們可以使用的資源數量。
@@ -61,6 +78,5 @@ export const i18n = {
   'With no usable or discardable card, you have surrendered':
     '沒有任何牌可以使用或丟棄，你被迫投降了',
 
-  'Please rotate your device to landscape mode':
-    '請將您的裝置旋轉到橫向模式',
+  'Please rotate your device to landscape mode': '請將您的裝置旋轉到橫向模式',
 }

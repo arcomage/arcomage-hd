@@ -3,13 +3,29 @@ export const i18n = {
   wall: 'mur',
   resource: 'ressource',
 
+  brick: 'brique',
   bricks: 'briques',
+  gem: 'gemme',
   gems: 'gemmes',
+  recruit: 'recrue',
   recruits: 'recrues',
 
-  quarry: 'carrière', // brick production
-  magic: 'magie', // gem production
-  dungeon: 'donjon', // recruit production
+  quarry: 'carrière', // i.e. brick production
+  magic: 'magie', // i.e. gem production
+  dungeon: 'donjon', // i.e. recruit production
+
+  'Your %s': 'Votre %s', // Your quarry/tower
+  "Opponent's %s": '%s de l’adversaire', // Opponent's quarry/tower
+
+  // %ss = 'brick', %sp = 'bricks'
+  'Your %sp': 'Vos %sp', // Your bricks
+  "Opponent's %sp": '%sp de l’adversaire', // Opponent's bricks
+
+  // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
+  '%s (%ss production)': '%s (production de %sp)', // quarry (brick production)
+
+  // %ss = 'brick', %sp = 'bricks'
+  'This card costs %s': 'Cette carte coûte %s', // This card costs 3 bricks
 
   discarded: 'se défausser',
   'Discard a card': 'Se défausser',
@@ -19,10 +35,11 @@ export const i18n = {
   'Tie Game': 'Match nul',
 
   Preferences: 'Préférences',
-  'Your Name:': 'Votre nom\u00A0:',
-  "Opponent's Name:": 'Nom de l’adversaire\u00A0:',
-  'Choose a Tavern (Preset Preferences):':
-    'Choisissez une taverne (préférences prédéfinies)\u00A0:',
+  ':': '\u00A0:',
+  'Your Name': 'Votre nom',
+  "Opponent's Name": 'Nom de l’adversaire',
+  'Choose a Tavern (Preset Preferences)':
+    'Choisissez une taverne (préférences prédéfinies)',
   Default: 'Par défaut',
   Customized: 'Personnalisé',
   'Starting Conditions': 'Conditions de départ',
@@ -51,7 +68,7 @@ export const i18n = {
 
   'the GitHub project page': 'la page du projet GitHub',
 
-  'Game rules:': 'Les règles du jeu\u00A0:',
+  'Game rules': 'Les règles du jeu',
 
   GAMERULES: `Les conditions de victoire diffèrent selon les auberges. Pour remporter la partie, vous devez généralement être le premier à construire votre tour, détruire la tour adverse ou amasser plus de ressources que l’adversaire.
 Les chiffres jaunes sont vos productions. Il s’agit du nombre d’unités d’une ressource que vous amassez à chaque tour. Les chiffres noirs sont les ressources elles-mêmes. Il s’agit des unités dont vous disposez et que vous pouvez dépenser.

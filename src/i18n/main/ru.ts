@@ -3,13 +3,29 @@ export const i18n = {
   wall: 'Стена',
   resource: 'Ресурс',
 
+  brick: 'кирпич',
   bricks: 'Кирпичи',
+  gem: 'самоцвет',
   gems: 'Самоцветы',
+  recruit: 'существо',
   recruits: 'Существа',
 
-  quarry: 'Карьер',
-  magic: 'Магия',
-  dungeon: 'Подземелье',
+  quarry: 'Карьер', // i.e. brick production
+  magic: 'Магия', // i.e. gem production
+  dungeon: 'Подземелье', // i.e. recruit production
+
+  'Your %s': 'Твой %s', // Your quarry/tower
+  "Opponent's %s": "карьер %s", // Opponent's quarry/tower
+
+  // %ss = 'brick', %sp = 'bricks'
+  'Your %sp': 'Ваши %sp', // Your bricks
+  "Opponent's %sp": "кирпичи %sp", // Opponent's bricks
+
+  // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
+  '%s (%ss production)': '%s (%ss производство)', // quarry (brick production)
+
+  // %ss = 'brick', %sp = 'bricks'
+  'This card costs %s': 'Эта карта стоит %s', // This card costs 3 bricks
 
   discarded: 'сброшена',
   'Discard a card': 'Сбросить карту',
@@ -19,9 +35,10 @@ export const i18n = {
   'Tie Game': 'Ничья!',
 
   Preferences: 'Настройки',
-  'Your Name:': 'Ваше имя:',
-  "Opponent's Name:": 'Имя противника:',
-  'Choose a Tavern (Preset Preferences):': 'Выберите Таверну (набор настроек):',
+  ':': ':',
+  'Your Name': 'Ваше имя',
+  "Opponent's Name": 'Имя противника',
+  'Choose a Tavern (Preset Preferences)': 'Выберите Таверну (набор настроек)',
   Default: 'По умолчанию',
   Customized: 'Пользовательская',
   'Starting Conditions': 'Стартовые условия',
@@ -50,7 +67,7 @@ export const i18n = {
 
   'the GitHub project page': 'страницу проекта на GitHub',
 
-  'Game rules:': 'Правила игры:',
+  'Game rules': 'Правила игры',
 
   GAMERULES: `Условия победы зависят от выбранной Таверны. Есть три способа - отстроить свою Башню до определенного уровня, накопить определенное количество ресурсов или уничтожить Башню противника.
 Существует три типа ресурсов - Кирпичи, Самоцветы и Существа. Кирпичи обжигают в Карьере, Самоцветы создаются Магией, Существ разводят в Подземелье. На каждом источнике ресурсов есть две цифры. Маленькая черная цифра - то, сколько единиц этого ресурса есть у вас в данный момент. Большая желтая - то, сколько единиц этого ресурса вы получите в начале своего следующего хода.
