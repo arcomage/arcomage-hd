@@ -71,6 +71,8 @@ Copyright 2011 The Alegreya Project Authors (https://github.com/huertatipografic
 * https://www.svgrepo.com/svg/75085/full-screen
 * https://www.svgrepo.com/svg/278790/handshake
 * https://www.svgrepo.com/svg/110620/phone-with-big-screen
+* https://www.svgrepo.com/svg/27492/mouse
+* https://www.svgrepo.com/svg/29760/press-button
 
 The animations of the button icons, brick.svg, gem.svg, recruit.svg, the game ending svgs are developed by Tom Chen and licensed under the [MIT license](#mit-license).
 
