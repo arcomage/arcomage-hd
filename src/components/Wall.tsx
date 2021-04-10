@@ -8,6 +8,7 @@ import NumberChangeVisual from './effects/NumberChangeVisual'
 import { maxWallOnScreen } from '../constants/visuals'
 
 import wall from '../../assets/img/wall.png'
+import { I18nContext } from '../i18n/I18nContext'
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
@@ -44,6 +45,7 @@ type PropType = {
   isOpponent?: boolean
 }
 const Wall = ({ current, isOpponent = false }: PropType) => {
+  const _ = useContext(I18nContext)
   const size = useContext(GameSizeContext)
   const height = (size.height / 3) * 2
 
@@ -55,6 +57,10 @@ const Wall = ({ current, isOpponent = false }: PropType) => {
 
   return (
     <div
+      title={_.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
+        '%s',
+        _.i18n('wall'),
+      )}
       className={cx(
         'h-full mx-2 relative',
         `float-${isOpponent ? 'right' : 'left'}`,

@@ -144,6 +144,31 @@ const Resource = ({ type, isOpponent }: PropType) => {
   return (
     <div className={cx('mb-3 p-1 shadow-lg', `bg-${color}-300`)}>
       <div
+        title={_.i18n(`${isOpponent ? "Opponent's" : 'Your'} %s`).replace(
+          '%s',
+          _.i18n('%s (%ss production)')
+            .replace(
+              '%s',
+              _.i18n(
+                {
+                  brick: 'quarry',
+                  gem: 'magic',
+                  recruit: 'dungeon',
+                }[type],
+              ),
+            )
+            .replace('%ss', _.i18n(type))
+            .replace(
+              '%sp',
+              _.i18n(
+                {
+                  brick: 'bricks',
+                  gem: 'gems',
+                  recruit: 'recruits',
+                }[type],
+              ),
+            ),
+        )}
         className={cx(
           classes[type],
           classes.prodcontainer,
@@ -154,31 +179,6 @@ const Resource = ({ type, isOpponent }: PropType) => {
         }}
       >
         <div
-          title={_.i18n(`${isOpponent ? "Opponent's" : 'Your'} %s`).replace(
-            '%s',
-            _.i18n('%s (%ss production)')
-              .replace(
-                '%s',
-                _.i18n(
-                  {
-                    brick: 'quarry',
-                    gem: 'magic',
-                    recruit: 'dungeon',
-                  }[type],
-                ),
-              )
-              .replace('%ss', _.i18n(type))
-              .replace(
-                '%sp',
-                _.i18n(
-                  {
-                    brick: 'bricks',
-                    gem: 'gems',
-                    recruit: 'recruits',
-                  }[type],
-                ),
-              ),
-          )}
           className={cx(
             'text-yellow-400 absolute bottom-1 left-1 text-shadow-md tracking-tighter',
             'fatnumber',
@@ -188,20 +188,22 @@ const Resource = ({ type, isOpponent }: PropType) => {
           <ResourceNumber isProd={true} {...{ type, isOpponent }} />
         </div>
       </div>
-      <div className="flow-root mt-1">
+      <div
+        title={_.i18n(`${isOpponent ? "Opponent's" : 'Your'} %sp`)
+          .replace(
+            '%sp',
+            _.i18n(
+              {
+                brick: 'bricks',
+                gem: 'gems',
+                recruit: 'recruits',
+              }[type],
+            ),
+          )
+          .replace('%ss', _.i18n(type))}
+        className="flow-root mt-1"
+      >
         <div
-          title={_.i18n(`${isOpponent ? "Opponent's" : 'Your'} %sp`)
-            .replace(
-              '%sp',
-              _.i18n(
-                {
-                  brick: 'bricks',
-                  gem: 'gems',
-                  recruit: 'recruits',
-                }[type],
-              ),
-            )
-            .replace('%ss', _.i18n(type))}
           className={cx(
             'float-left text-black flex-1 text-left relative tracking-tighter',
             'fatnumber',
@@ -211,7 +213,6 @@ const Resource = ({ type, isOpponent }: PropType) => {
           <ResourceNumber isProd={false} {...{ type, isOpponent }} />
         </div>
         <div
-          {...(smallMode ? { title: text } : {})}
           className={cx(
             'float-right text-black flex-1 text-right',
             'robotocondensed',

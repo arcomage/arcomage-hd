@@ -9,6 +9,7 @@ import NumberChangeVisual from './effects/NumberChangeVisual'
 import tower from '../../assets/img/tower.png'
 import towerRed from '../../assets/img/tower_red.png'
 import towerBlue from '../../assets/img/tower_blue.png'
+import { I18nContext } from '../i18n/I18nContext'
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
@@ -90,6 +91,7 @@ type PropType = {
   current: number
 }
 const Tower = ({ isOpponent = false, goal, current }: PropType) => {
+  const _ = useContext(I18nContext)
   const size = useContext(GameSizeContext)
   const height = size.height * (size.narrowMobile ? 1 / 2 : 2 / 3)
 
@@ -101,6 +103,10 @@ const Tower = ({ isOpponent = false, goal, current }: PropType) => {
 
   return (
     <div
+      title={_.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
+        '%s',
+        _.i18n('tower'),
+      )}
       className={cx(
         'h-full mx-1 relative',
         `float-${isOpponent ? 'right' : 'left'}`,
