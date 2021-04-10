@@ -20,7 +20,7 @@ export const endScreenExitableDelay = 750
 
 export const cardNameMaxLength = 15
 
-export const unitTextMaxLength = 6
+export const unitTextMaxLength = 7
 
 export const narrowMobileWinHeightMax = 499
 

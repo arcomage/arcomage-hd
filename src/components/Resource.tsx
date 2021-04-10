@@ -67,7 +67,7 @@ const useStyles = createUseStyles<
     'font-size': ({ height }) => `${getFontSize(height, 0.036)}px`,
     'line-height': ({ height }) => `${getLineHeight(height, 0.036)}px`,
     height: ({ height }) => `${getLineHeight(height, 0.036)}px`,
-    width: '50%',
+    width: '42.5%',
   },
   unit: {
     'font-size': ({ height, unitTextLength }) => {
@@ -80,7 +80,7 @@ const useStyles = createUseStyles<
     'line-height': ({ height }) => `${getLineHeight(height, 0.036)}px`,
     height: ({ height }) => `${getLineHeight(height, 0.036)}px`,
     width: ({ height, smallMode }) =>
-      smallMode ? `${getLineHeight(height, 0.036)}px` : '50%',
+      smallMode ? `${getLineHeight(height, 0.036)}px` : '57.5%',
     'background-image': ({ type, smallMode }) =>
       smallMode
         ? `url(${
