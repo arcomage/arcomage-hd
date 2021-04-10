@@ -1,10 +1,8 @@
-import React, { memo, useContext } from 'react'
+import React, { memo, useContext, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
-import AnimatedNumber from './effects/AnimatedNumber'
-import NumberDiff from './effects/NumberDiff'
-import NumberChangeVisual from './effects/NumberChangeVisual'
+import TowerOrWallNumber from './TowerOrWallNumber'
 
 import tower from '../../assets/img/tower.png'
 import towerRed from '../../assets/img/tower_red.png'
@@ -19,20 +17,17 @@ const calcWidth = (height: number): string => `${calcBaseRatio(height)} * 204`
 const calcPaddingX = (height: number): string =>
   `${calcBaseRatio(height)} * ((204 - 135) / 2)`
 
-const heightByCurrent = (height: number, currentGoalRatio: number): string =>
+const heightByCurrent = (height: number, currentGoalRatio: string): string =>
   `calc((${calcWidth(height)} - ${calcPaddingX(
     height,
   )} * 2) / 135 * 600 * ${currentGoalRatio})`
 
-const useStyles = createUseStyles<
-  string,
-  { height: number; current: number; goal: number }
->({
+const useStyles = createUseStyles<string, { height: number; goal: number }>({
   main: {
     width: ({ height }) => `calc(${calcWidth(height)})`,
   },
   towerwrapper: {
-    height: ({ height }) => heightByCurrent(height, 1),
+    height: ({ height }) => heightByCurrent(height, '1'),
     bottom: 'calc(1.75rem + 0.25rem * 2)',
     'padding-left': ({ height }) => `calc(${calcPaddingX(height)})`,
     'padding-right': ({ height }) => `calc(${calcPaddingX(height)})`,
@@ -45,9 +40,9 @@ const useStyles = createUseStyles<
       position: 'center 0',
     },
     width: ({ height }) => `calc(100% - ${calcPaddingX(height)} * 2)`,
-    height: ({ height, current, goal }) =>
-      heightByCurrent(height, current / goal),
-    'max-height': ({ height }) => heightByCurrent(height, 1),
+    height: ({ height, goal }) =>
+      heightByCurrent(height, `(var(--n) / ${goal})`),
+    'max-height': ({ height }) => heightByCurrent(height, '1'),
     'will-change': 'height',
     'transition-property': 'height',
     'transition-timing-function': 'linear',
@@ -88,14 +83,15 @@ const useStyles = createUseStyles<
 type PropType = {
   isOpponent?: boolean
   goal: number
-  current: number
 }
-const Tower = ({ isOpponent = false, goal, current }: PropType) => {
+const Tower = ({ isOpponent = false, goal }: PropType) => {
   const _ = useContext(I18nContext)
   const size = useContext(GameSizeContext)
   const height = size.height * (size.narrowMobile ? 1 / 2 : 2 / 3)
 
-  const classes = useStyles({ height, current, goal })
+  const towerBody = useRef<HTMLDivElement | null>(null)
+
+  const classes = useStyles({ height, goal })
 
   // Force TailwindCSS to aware of these classes:
   // float-left
@@ -115,6 +111,7 @@ const Tower = ({ isOpponent = false, goal, current }: PropType) => {
     >
       <div className={cx('z-20 w-full absolute', classes.towerwrapper)}>
         <div
+          ref={towerBody}
           className={cx(
             'absolute bottom-0',
             classes.towerbody,
@@ -124,9 +121,11 @@ const Tower = ({ isOpponent = false, goal, current }: PropType) => {
       </div>
       <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
-          <NumberDiff n={current} />
-          <AnimatedNumber n={current} />
-          <NumberChangeVisual n={current} />
+          <TowerOrWallNumber
+            isOpponent={isOpponent}
+            isWall={false}
+            target={towerBody}
+          />
         </div>
       </div>
     </div>

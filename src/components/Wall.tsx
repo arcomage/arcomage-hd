@@ -1,10 +1,8 @@
-import React, { memo, useContext } from 'react'
+import React, { memo, useContext, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
-import AnimatedNumber from './effects/AnimatedNumber'
-import NumberDiff from './effects/NumberDiff'
-import NumberChangeVisual from './effects/NumberChangeVisual'
+import TowerOrWallNumber from './TowerOrWallNumber'
 import { maxWallOnScreen } from '../constants/visuals'
 
 import wall from '../../assets/img/wall.png'
@@ -13,18 +11,20 @@ import { I18nContext } from '../i18n/I18nContext'
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
 
-const heightByCurrent = (height: number, current: number): string =>
-  `calc(${calcBaseRatio(height)} * 597 * ${current / maxWallOnScreen})`
+const heightByCurrent = (height: number, currentGoalRatio: string): string =>
+  `calc(${calcBaseRatio(height)} * 597 * ${currentGoalRatio})`
 
 const useStyles = createUseStyles<string, number>({
   main: {
     width: (height) => `calc(${calcBaseRatio(height)} * 72 + 1rem * 2)`,
   },
   wallwrapper: {
-    height: (height) => heightByCurrent(height, maxWallOnScreen),
+    height: (height) => heightByCurrent(height, '1'),
     bottom: 'calc(1.75rem + 0.25rem * 2)',
   },
   wallbody: {
+    height: (height) =>
+      heightByCurrent(height, `(var(--n) / ${maxWallOnScreen})`),
     background: {
       image: `url(${wall})`,
       repeat: 'repeat-y',
@@ -41,13 +41,14 @@ const useStyles = createUseStyles<string, number>({
 })
 
 type PropType = {
-  current: number
   isOpponent?: boolean
 }
-const Wall = ({ current, isOpponent = false }: PropType) => {
+const Wall = ({ isOpponent = false }: PropType) => {
   const _ = useContext(I18nContext)
   const size = useContext(GameSizeContext)
-  const height = (size.height / 3) * 2
+  const height = size.height * (size.narrowMobile ? 1 / 2 : 2 / 3)
+
+  const wallBody = useRef<HTMLDivElement | null>(null)
 
   const classes = useStyles(height)
 
@@ -69,15 +70,17 @@ const Wall = ({ current, isOpponent = false }: PropType) => {
     >
       <div className={cx('z-20 w-full absolute px-4', classes.wallwrapper)}>
         <div
+          ref={wallBody}
           className={cx('absolute bottom-0', classes.wallbody)}
-          style={{ height: heightByCurrent(height, current) }}
         ></div>
       </div>
       <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
-          <NumberDiff n={current} />
-          <AnimatedNumber n={current} />
-          <NumberChangeVisual n={current} />
+          <TowerOrWallNumber
+            isOpponent={isOpponent}
+            isWall={true}
+            target={wallBody}
+          />
         </div>
       </div>
     </div>

@@ -25,13 +25,6 @@ const useStyles = createUseStyles({
 const TableCommon = () => {
   const playerName = useAppSelector((state) => state.settings.playerName)
   const opponentName = useAppSelector((state) => state.settings.opponentName)
-
-  const towerP = useAppSelector((state) => state.status.player.tower)
-  const wallP = useAppSelector((state) => state.status.player.wall)
-
-  const towerO = useAppSelector((state) => state.status.opponent.tower)
-  const wallO = useAppSelector((state) => state.status.opponent.wall)
-
   const winTower = useAppSelector((state) => state.settings.win.tower)
 
   const size = useContext(GameSizeContext)
@@ -45,18 +38,13 @@ const TableCommon = () => {
         size.narrowMobile ? 'h-1/2' : 'h-2/3',
       )}
     >
-      <Status
-        playerName={playerName}
-      />
-      <Tower goal={winTower} current={towerP} />
-      <Wall current={wallP} />
+      <Status playerName={playerName} />
+      <Tower goal={winTower} />
+      <Wall />
 
-      <Status
-        playerName={opponentName}
-        isOpponent={true}
-      />
-      <Tower isOpponent={true} goal={winTower} current={towerO} />
-      <Wall isOpponent={true} current={wallO} />
+      <Status playerName={opponentName} isOpponent={true} />
+      <Tower isOpponent={true} goal={winTower} />
+      <Wall isOpponent={true} />
       <Bird />
     </div>
   )
