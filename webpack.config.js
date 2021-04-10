@@ -3,6 +3,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { InjectManifest } = require('workbox-webpack-plugin')
+const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin')
 
 const homeUrl = 'https://arcomage.github.io/'
 
@@ -165,6 +166,15 @@ module.exports = (env, argv) => {
             },
           },
         ],
+      }),
+      new PreloadWebpackPlugin({
+        rel: 'prefetch',
+        include: 'all',
+        fileBlacklist: [/\.(?!(mp3$)).*$/],
+        as(entry) {
+          if (/\.mp3$/.test(entry)) return 'audio'
+          return 'script'
+        },
       }),
       ...(dev
         ? []
