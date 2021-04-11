@@ -6,7 +6,7 @@
 
 This not-for-profit fan-remake is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + CSS-based animations (see [§ Development](#development)).
 
-It's available in (**bold**: fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, **Italian**, **Russian**, Czech, Polish.
+It's available in 8 + 2 languages (**bold**: fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, **Italian**, **Russian**, Czech, Polish.
 
 It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and browsers with Chrome's [Blink engine](https://en.wikipedia.org/wiki/Blink_(browser_engine)), and may or may not have performance issues in Safari & Firefox). It supports desktop / tablet / mobile screen 🖥️💻📱. It's a PWA, meaning you can [install](https://support.google.com/chrome/answer/9658361) it and play it offline.
 
@@ -30,17 +30,51 @@ It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img 
 > 
 > Red represents your Quarry Generator which produces your Brick resources, blue represents your Magic Generator which produces Gem resources, green represents your Dungeon generator which produces Recruit resources.
 
+## Play It Offline (PWA)
+
+
+
+## Desktop Version
+
+See [the Desktop Version's README file](electron/README.md).
+
+## Keyboard Control
+
+The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
+
+<details><summary><strong>Click to show the detailed keyboard control instruction & additional special "Access Key" usage (e.g. <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences; <kbd>Alt</kbd> + <kbd>1</kbd>: use the 1st card ...)</strong></summary>
+
+### Top Menu
+
+Use <kbd>Tab</kbd> to select an icon (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari), then <kbd>Enter</kbd> to open it. When the window is open, use <kbd>Esc</kbd> to close it.
+
+Or with access key (only for opening a window):
+
+* <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences
+* <kbd>Alt</kbd> + <kbd>L</kbd>: Language
+* <kbd>Alt</kbd> + <kbd>V</kbd>: Volume
+* <kbd>Alt</kbd> + <kbd>T</kbd>: Toggle Fullscreen
+* <kbd>Alt</kbd> + <kbd>H</kbd>: Help
+* <kbd>Alt</kbd> + <kbd>G</kbd>: GitHub
+
+### Card
+
+Use <kbd>Tab</kbd> to select a card (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari), then <kbd>Enter</kbd> to **use** it, or <kbd>Delete</kbd> / <kbd>Backspace</kbd> to **discard** it.
+
+Or with access key (only for using a card):
+
+* <kbd>Alt</kbd> + <kbd>1</kbd>: Use the 1st card
+* <kbd>Alt</kbd> + <kbd>2</kbd>: Use the 2nd card
+* <kbd>Alt</kbd> + <kbd>3</kbd>: Use the 3rd card
+* <kbd>Alt</kbd> + ...: Use the nth card (n <= 9, you can't use 10th or later card with access key)
+
+It could be other key instead of <kbd>Alt</kbd>
+
+[The way to activate the accesskey depends on the browser and its platform](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey), it's "<kbd>Alt</kbd> + key" in Chrome Windows/Linux.
+
+</details>
+
 ## Languages (i18n)
-
-8 languages are fully supported, with another 2's translation in progress.
-
-### Complete Translation
-
-English (`en`), French (`fr`), German (`de`), Simplified Chinese (`zh-Hans`), Traditional Chinese (`zh-Hant`), Spanish (`es`), Italian (`it`), Russian (`ru`)
-
-### Incomplete Translation
-
-Czech (`cs`), Polish (`pl`)
 
 ### Help me translate it
 
@@ -82,42 +116,6 @@ desc: '<Translated card desciption>',
 #### Send it to me
 
 Create a pull request if you know how to do it, or just give me the translated text on [GitHub](https://github.com/arcomage/arcomage-hd/issues/9), or on [Reddit](https://www.reddit.com/r/MightAndMagic/comments/mhfx30/arcomage_hd_i_made_a_webbased_opensource_clone_of/), or on [celestialheavens forum](https://www.celestialheavens.com/forum/10/17288), or via email.
-
-</details>
-
-## Keyboard Control
-
-The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
-
-<details><summary><strong>Click to show the detailed keyboard control instruction & additional special "Access Key" usage (e.g. <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences; <kbd>Alt</kbd> + <kbd>1</kbd>: use the 1st card ...)</strong></summary>
-
-### Top Menu
-
-Use <kbd>Tab</kbd> to select an icon (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari), then <kbd>Enter</kbd> to open it. When the window is open, use <kbd>Esc</kbd> to close it.
-
-Or with access key (only for opening a window):
-
-* <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences
-* <kbd>Alt</kbd> + <kbd>L</kbd>: Language
-* <kbd>Alt</kbd> + <kbd>V</kbd>: Volume
-* <kbd>Alt</kbd> + <kbd>T</kbd>: Toggle Fullscreen
-* <kbd>Alt</kbd> + <kbd>H</kbd>: Help
-* <kbd>Alt</kbd> + <kbd>G</kbd>: GitHub
-
-### Card
-
-Use <kbd>Tab</kbd> to select a card (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari), then <kbd>Enter</kbd> to **use** it, or <kbd>Delete</kbd> / <kbd>Backspace</kbd> to **discard** it.
-
-Or with access key (only for using a card):
-
-* <kbd>Alt</kbd> + <kbd>1</kbd>: Use the 1st card
-* <kbd>Alt</kbd> + <kbd>2</kbd>: Use the 2nd card
-* <kbd>Alt</kbd> + <kbd>3</kbd>: Use the 3rd card
-* <kbd>Alt</kbd> + ...: Use the nth card (n <= 9, you can't use 10th or later card with access key)
-
-It could be other key instead of <kbd>Alt</kbd>
-
-[The way to activate the accesskey depends on the browser and its platform](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey), it's "<kbd>Alt</kbd> + key" in Chrome Windows/Linux.
 
 </details>
 
