@@ -36,7 +36,7 @@
     "rimraf": "^3.0.2"
   },
   "build": {
-    "productName": "Arcomage HD",
+    "productName": "ArcoMage HD",
     "appId": "com.tomchen.arcomagehd",
     "win": {
       "target": "nsis",
