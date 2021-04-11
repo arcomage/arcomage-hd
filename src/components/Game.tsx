@@ -26,7 +26,7 @@ const Game = () => {
   return (
     <div
       className={cx(
-        'w-screen h-screen flex flex-col bg-black overflow-x-hidden select-none',
+        'w-screen h-screen flex flex-col bg-black overflow-x-hidden select-none outline-none',
         { erathian },
       )}
       tabIndex={-1}
