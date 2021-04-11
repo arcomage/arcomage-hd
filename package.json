@@ -10,9 +10,7 @@
   "scripts": {
     "start": "electron ./main.js",
     "dist": "rimraf dist && electron-builder build --win --publish never",
-    "deploy": "rimraf dist && electron-builder build --win --publish always",
-    "preversion": "git diff-index --quiet HEAD --",
-    "postversion": "git push --follow-tags"
+    "deploy": "rimraf dist && electron-builder build --win --publish always"
   },
   "keywords": [
     "arcomage",
