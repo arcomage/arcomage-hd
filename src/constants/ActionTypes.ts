@@ -1,7 +1,10 @@
 export const UPDATE_LANG = 'UPDATE_LANG' as const
+export const UPDATE_LANG_MAIN = 'UPDATE_LANG_MAIN' as const
 export const UPDATE_ERATHIAN = 'UPDATE_ERATHIAN' as const
+export const UPDATE_ERATHIAN_MAIN = 'UPDATE_ERATHIAN_MAIN' as const
 
 export const UPDATE_VOLUME = 'UPDATE_VOLUME' as const
+export const UPDATE_VOLUME_MAIN = 'UPDATE_VOLUME_MAIN' as const
 
 export const UPDATE_STATUS = 'UPDATE_STATUS' as const
 export const UPDATE_STATUS_MAIN = 'UPDATE_STATUS_MAIN' as const
@@ -22,12 +25,14 @@ export const ADD_DISCARDED_TAG = 'ADD_DISCARDED_TAG' as const
 export const DRAW_CARD = 'DRAW_CARD' as const
 export const DRAW_CARD_PRE = 'DRAW_CARD_PRE' as const
 export const DRAW_CARD_MAIN = 'DRAW_CARD_MAIN' as const
-export const CHANGE_SETTINGS_AND_INIT = 'CHANGE_SETTINGS_AND_INIT' as const
-export const CHANGE_SETTINGS = 'CHANGE_SETTINGS' as const
+export const UPDATE_SETTINGS_AND_INIT = 'UPDATE_SETTINGS_AND_INIT' as const
+export const UPDATE_SETTINGS = 'UPDATE_SETTINGS' as const
+export const UPDATE_SETTINGS_MAIN = 'UPDATE_SETTINGS_MAIN' as const
 export const INIT = 'INIT' as const
 export const INIT_CARD = 'INIT_CARD' as const
 export const INIT_GAME = 'INIT_GAME' as const
 export const INIT_STATUS = 'INIT_STATUS' as const
+export const READLS_UPDATESTORE_INIT = 'READLS_UPDATESTORE_INIT' as const
 
 export const NEXT_ROUND = 'NEXT_ROUND' as const
 export const RESOURCE_PROD = 'RESOURCE_PROD' as const

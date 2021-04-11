@@ -10,7 +10,7 @@ import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
 import Window from './Window'
 
 import {
-  CHANGE_SETTINGS_AND_INIT,
+  UPDATE_SETTINGS_AND_INIT,
   SCREEN_PREF,
 } from '../../constants/ActionTypes'
 import { I18nContext, upper1st } from '../../i18n/I18nContext'
@@ -112,7 +112,7 @@ const Pref = () => {
     })
 
     dispatch({
-      type: CHANGE_SETTINGS_AND_INIT,
+      type: UPDATE_SETTINGS_AND_INIT,
       payload,
     })
   }

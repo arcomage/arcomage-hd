@@ -24,7 +24,7 @@ const App = () => {
 
   useWindowLoad(() => {
     dispatch({
-      type: 'INIT',
+      type: 'READLS_UPDATESTORE_INIT',
     })
   })
 

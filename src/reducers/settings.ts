@@ -1,5 +1,5 @@
 import produce from 'immer'
-import { CHANGE_SETTINGS } from '../constants/ActionTypes'
+import { UPDATE_SETTINGS_MAIN } from '../constants/ActionTypes'
 import { SettingsStateType } from '../types/state'
 import { RootActionType } from '../types/actionObj'
 import {
@@ -19,7 +19,7 @@ const defaults: SettingsStateType = {
 
 const game = produce((draft: SettingsStateType, action: RootActionType) => {
   switch (action.type) {
-    case CHANGE_SETTINGS: {
+    case UPDATE_SETTINGS_MAIN: {
       return action.payload
     }
   }

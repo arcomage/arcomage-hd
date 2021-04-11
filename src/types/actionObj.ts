@@ -1,7 +1,10 @@
 import {
   UPDATE_LANG,
+  UPDATE_LANG_MAIN,
   UPDATE_ERATHIAN,
+  UPDATE_ERATHIAN_MAIN,
   UPDATE_VOLUME,
+  UPDATE_VOLUME_MAIN,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
   EXEC_CARD,
@@ -16,9 +19,11 @@ import {
   REMOVE_CARD,
   DISCARD_CARD,
   ADD_DISCARDED_TAG,
-  CHANGE_SETTINGS,
+  UPDATE_SETTINGS,
+  UPDATE_SETTINGS_MAIN,
   INIT,
-  CHANGE_SETTINGS_AND_INIT,
+  UPDATE_SETTINGS_AND_INIT,
+  READLS_UPDATESTORE_INIT,
   INIT_CARD,
   INIT_GAME,
   INIT_STATUS,
@@ -54,18 +59,33 @@ import {
   SettingsStateType,
 } from '../types/state'
 
-export type LangActionType = {
+export type UpdateLangActionType = {
   type: typeof UPDATE_LANG
   lang: AvailableLangType
 }
 
-export type ErathianActionType = {
+export type UpdateLangMainActionType = {
+  type: typeof UPDATE_LANG_MAIN
+  lang: AvailableLangType
+}
+
+export type UpdateErathianActionType = {
   type: typeof UPDATE_ERATHIAN
   erathian: boolean
 }
 
-export type VolumeActionType = {
+export type UpdateErathianMainActionType = {
+  type: typeof UPDATE_ERATHIAN_MAIN
+  erathian: boolean
+}
+
+export type UpdateVolumeActionType = {
   type: typeof UPDATE_VOLUME
+  volume: number
+}
+
+export type UpdateVolumeMainActionType = {
+  type: typeof UPDATE_VOLUME_MAIN
   volume: number
 }
 
@@ -205,8 +225,13 @@ export type SwitchLockActionType = {
   locknumber?: 0 | 1
 }
 
-export type ChangeSettingsActionType = {
-  type: typeof CHANGE_SETTINGS
+export type UpdateSettingsActionType = {
+  type: typeof UPDATE_SETTINGS
+  payload: SettingsStateType
+}
+
+export type UpdateSettingsMainActionType = {
+  type: typeof UPDATE_SETTINGS_MAIN
   payload: SettingsStateType
 }
 
@@ -229,9 +254,13 @@ export type InitStatusActionType = {
   payload: PersonStatusType
 }
 
-export type ChangeSettingsAndInitActionType = {
-  type: typeof CHANGE_SETTINGS_AND_INIT
+export type UpdateSettingsAndInitActionType = {
+  type: typeof UPDATE_SETTINGS_AND_INIT
   payload: SettingsStateType
+}
+
+export type ReadlsUpdatestoreInitActionType = {
+  type: typeof READLS_UPDATESTORE_INIT
 }
 
 export type SwitchDiscardModeActionType = {
@@ -307,9 +336,12 @@ export type AbortAllActionType = {
 }
 
 export type RootActionType =
-  | LangActionType
-  | ErathianActionType
-  | VolumeActionType
+  | UpdateLangActionType
+  | UpdateLangMainActionType
+  | UpdateErathianActionType
+  | UpdateErathianMainActionType
+  | UpdateVolumeActionType
+  | UpdateVolumeMainActionType
   | UpdateStatusActionType
   | UpdateStatusMainActionType
   | ExecCardActionType
@@ -331,12 +363,14 @@ export type RootActionType =
   | ResourceProdActionType
   | SwitchTurnActionType
   | SwitchLockActionType
-  | ChangeSettingsActionType
+  | UpdateSettingsActionType
+  | UpdateSettingsMainActionType
   | InitActionType
   | InitCardActionType
   | InitGameActionType
   | InitStatusActionType
-  | ChangeSettingsAndInitActionType
+  | UpdateSettingsAndInitActionType
+  | ReadlsUpdatestoreInitActionType
   | SwitchDiscardModeActionType
   | CheckUnusableActionType
   | SetUnusableActionType

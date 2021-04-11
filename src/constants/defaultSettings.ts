@@ -24,3 +24,5 @@ export const defaultPlayerName = '🧝'
 export const defaultOpponentName = '👾'
 
 export const defaultVolume = 10
+
+export const defaultErathian = false

@@ -1,36 +1,34 @@
 import {
-  UPDATE_SETTINGS_AND_INIT,
   UPDATE_SETTINGS,
-  INIT,
+  UPDATE_SETTINGS_MAIN,
   ABORT_ALL,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { filter, concatMap, delay } from 'rxjs/operators'
+import { filter, concatMap, takeUntil } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
+import { lsSet } from '../utils/localstorage'
 
 export const changeSettingsAndInitEpic = (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_SETTINGS_AND_INIT)),
-    concatMap(({ payload }) =>
-      concat(
+    filter(isOfType(UPDATE_SETTINGS)),
+    concatMap((action) => {
+      const { payload } = action
+      lsSet((draft) => {
+        draft.settings = payload
+      })
+      return concat(
         of<RootActionType>({
-          type: ABORT_ALL,
-        }),
-        of<RootActionType>({
-          type: UPDATE_SETTINGS,
+          type: UPDATE_SETTINGS_MAIN,
           payload,
         }),
-        of<RootActionType>({
-          type: INIT,
-        }).pipe(delay(0)),
-      ),
-    ),
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+    }),
   )
 
 export default changeSettingsAndInitEpic
