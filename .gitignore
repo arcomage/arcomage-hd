@@ -9,6 +9,7 @@ others
 *.scss.d.ts
 *.sass.d.ts
 
+build
 
 # MicrosoftOffice.gitignore
 *.tmp

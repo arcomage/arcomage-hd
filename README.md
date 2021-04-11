@@ -8,7 +8,7 @@ This not-for-profit fan-remake is developed by [@tomchen](https://github.com/tom
 
 It's available in 8 + 2 languages (**bold**: fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, **Italian**, **Russian**, Czech, Polish.
 
-It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and browsers with Chrome's [Blink engine](https://en.wikipedia.org/wiki/Blink_(browser_engine)), and may or may not have performance issues in Safari & Firefox). It supports desktop / tablet / mobile screen 🖥️💻📱. It's a PWA, meaning you can [install](https://support.google.com/chrome/answer/9658361) it and play it offline.
+It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and browsers with Chrome's [Blink engine](https://en.wikipedia.org/wiki/Blink_(browser_engine)), and may or may not have performance issues in Safari & Firefox. Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead). It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meaning you can install it and play it offline](#play-it-offline-pwa).
 
 <p align="center"><a href="https://arcomage.github.io/"><strong>Click to play it now</strong><br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
 
@@ -32,11 +32,52 @@ It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img 
 
 ## Play It Offline (PWA)
 
-
+[Google Chrome's article on how to install PWA](https://support.google.com/chrome/answer/9658361).
 
 ## Desktop Version
 
-See [the Desktop Version's README file](electron/README.md).
+**If you don't have performance issues playing ArcoMage HD in your browser, then you don't need to use the Desktop Version.**
+
+Some browsers, such as Firefox and Safari, that are not Chrome's engine based, may (or may not) be a bit slow running ArcoMage HD. In this case, you can use the Desktop Version.
+
+The Desktop Version is **merely a Google Chrome browser-like wrapper** that visits the URL [https://arcomage.github.io/](https://arcomage.github.io/).
+
+[Click to download the Desktop Version (Windows)](https://github.com/arcomage/arcomage-hd/releases/download/v1.0.0-beta.26/ArcoMage.HD.Setup.1.0.0.7z)
+
+<details><summary><strong>Click to show more details on the Desktop Version</strong></summary>
+
+Browsers based on Chrome's engine (Blink or WebKit) and good for ArcoMage HD (as of 2021):
+
+*(\*: I didn't really test these browsers)*
+
+* Google Chromium
+* Google Chrome
+* Brave
+* Edge
+* Opera \*
+* Maxthon \*
+* Vivaldi \*
+* QQ \*
+* Sogou \*
+* Baidu \*
+* Yandex Browser \*
+* UC Browser \*
+* CM Browser \*
+* etc.
+
+Browsers not or partially based on Chrome's engine, and may or may not run ArcoMage HD very well, therefore you can use the Desktop Version:
+
+* Internet Explorer: this old browser, of course, does not work
+* Firefox & Safari: you can play the game with these browsers, but they do not have as good performance as Chrome's engine based browsers therefore may be a bit slow, it depends on your CPU / GPU
+  * Pale Moon \*
+
+The Desktop Version is not expected to be updated. The Desktop Version's version number is different from ArcoMage HD's. Actually the Desktop Version may stays v1.0.0 forever unless there's really something to update.
+
+The first time you run ArcoMage HD Desktop Version, it downloads all the images and sound files silently. You should wait maybe 1 minute (depending on your Internet speed), before you can cut off Internet and play it completely offline.
+
+If you install both Google Chrome and the Desktop Version, the Desktop Version will have independent storage. Clearing your Google Chrome's stored data will not reset the Desktop Version's settings.
+
+</details>
 
 ## Keyboard Control
 
