@@ -121,6 +121,7 @@ const Pref = () => {
 
   useEffect(() => {
     const winTowerMin = formFields.tower + 1
+    // resource victory condition must be 1 higher than any (res + resProd)
     const winResourceMin =
       Math.max(
         formFields.bricks + formFields.brickProd,
@@ -207,7 +208,10 @@ const Pref = () => {
 
       <div className="two-column half">
         <label>
-          <span>{_.i18n('Your Name')}{_.i18n(':')}</span>
+          <span>
+            {_.i18n('Your Name')}
+            {_.i18n(':')}
+          </span>
           <input
             type="text"
             name="playerName"
@@ -222,7 +226,10 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span>{_.i18n("Opponent's Name")}{_.i18n(':')}</span>
+          <span>
+            {_.i18n("Opponent's Name")}
+            {_.i18n(':')}
+          </span>
           <input
             type="text"
             name="opponentName"
@@ -239,7 +246,10 @@ const Pref = () => {
       </div>
 
       <label className="one-colume">
-        <span>{_.i18n('Choose a Tavern (Preset Preferences)')}{_.i18n(':')}</span>
+        <span>
+          {_.i18n('Choose a Tavern (Preset Preferences)')}
+          {_.i18n(':')}
+        </span>
         <select
           name="tavern"
           id="tavern"
@@ -303,7 +313,7 @@ const Pref = () => {
             type="number"
             name="brickProd"
             id="brickProd"
-            min="0"
+            min="1"
             value={formFields.brickProd}
             onChange={handleChange}
           />
@@ -328,7 +338,7 @@ const Pref = () => {
             type="number"
             name="gemProd"
             id="gemProd"
-            min="0"
+            min="1"
             value={formFields.gemProd}
             onChange={handleChange}
           />
@@ -353,7 +363,7 @@ const Pref = () => {
             type="number"
             name="recruitProd"
             id="recruitProd"
-            min="0"
+            min="1"
             value={formFields.recruitProd}
             onChange={handleChange}
           />
