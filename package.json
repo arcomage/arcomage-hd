@@ -1,6 +1,6 @@
 {
   "name": "arcomage-hd-desktop",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0",
   "description": "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
   "main": "main.js",
   "repository": {
