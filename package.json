@@ -1,6 +1,6 @@
 {
   "name": "arcomage-hd-desktop",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha",
   "description": "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
   "main": "main.js",
   "repository": {
@@ -10,7 +10,9 @@
   "scripts": {
     "start": "electron ./main.js",
     "dist": "rimraf dist && electron-builder build --win --publish never",
-    "deploy": "rimraf dist && electron-builder build --win --publish always"
+    "deploy": "rimraf dist && electron-builder build --win --publish always",
+    "preversion": "git diff-index --quiet HEAD --",
+    "postversion": "git push --follow-tags"
   },
   "keywords": [
     "arcomage",
