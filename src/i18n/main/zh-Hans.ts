@@ -15,11 +15,11 @@ export const i18n = {
   dungeon: '怪物产量', // i.e. recruit production
 
   'Your %s': '你的%s', // Your quarry/tower
-  "Opponent's %s": "对手的%s", // Opponent's quarry/tower
+  "Opponent's %s": '对手的%s', // Opponent's quarry/tower
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': '你的%sp', // Your bricks
-  "Opponent's %sp": "对手的%sp", // Opponent's bricks
+  "Opponent's %sp": '对手的%sp', // Opponent's bricks
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s', // quarry (brick production)
@@ -61,10 +61,12 @@ export const i18n = {
 
   DESC: 'Web 浏览器版本的 3DO/NWC 2000年卡牌游戏魔幻牌的开源高清克隆',
 
-  'Please go to %s to view more information, star the repo and follow %s there.':
-    '请访问%s查看更多信息，欢迎给其加星并关注%s。',
+  'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
+    '请访问%s查看更多信息（包括%s1），欢迎给其加星并关注%s2。',
 
   'the GitHub project page': 'GitHub项目页面',
+
+  'an informative tutorial image in English': '游戏界面英文示意图',
 
   'Game rules': '以下是游戏规则',
 

@@ -15,3 +15,5 @@ export const noAiExtraDelay = true
 export const aiExtraDelay = 5000
 
 export const canDiscardUndiscardableWhenDDP = false
+
+export const tutorialImageUrl = 'https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/manual.jpg'

@@ -15,11 +15,11 @@ export const i18n = {
   dungeon: '魔獸產量', // i.e. recruit production
 
   'Your %s': '你的%s', // Your quarry/tower
-  "Opponent's %s": "對手的%s", // Opponent's quarry/tower
+  "Opponent's %s": '對手的%s', // Opponent's quarry/tower
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': '你的%sp', // Your bricks
-  "Opponent's %sp": "對手的%sp", // Opponent's bricks
+  "Opponent's %sp": '對手的%sp', // Opponent's bricks
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s', // quarry (brick production)
@@ -61,10 +61,12 @@ export const i18n = {
 
   DESC: 'Web 瀏覽器版本的 3DO/NWC 2000年卡牌遊戲圓法師的開源高畫質克隆',
 
-  'Please go to %s to view more information, star the repo and follow %s there.':
-    '請訪問%s檢視更多資訊，歡迎給其加星並關注%s。',
+  'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
+    '請訪問%s檢視更多資訊（包括%s1），歡迎給其加星並關注%s2。',
 
   'the GitHub project page': 'GitHub專案頁面',
+
+  'an informative tutorial image in English': '遊戲介面英文示意圖',
 
   'Game rules': '以下是遊戲規則',
 

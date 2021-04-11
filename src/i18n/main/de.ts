@@ -15,11 +15,11 @@ export const i18n = {
   dungeon: 'Kerker', // i.e. recruit production
 
   'Your %s': 'Ihr(e) %s', // Your quarry/tower
-  "Opponent's %s": "%s des Gegners", // Opponent's quarry/tower
+  "Opponent's %s": '%s des Gegners', // Opponent's quarry/tower
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Ihre %sp', // Your bricks
-  "Opponent's %sp": "%sp des Gegners", // Opponent's bricks
+  "Opponent's %sp": '%sp des Gegners', // Opponent's bricks
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (%ssproduktion)', // quarry (brick production)
@@ -63,10 +63,13 @@ export const i18n = {
   DESC:
     'Webbasierter Open-Source HD Klon des 3DO- und NWC-Kartenspiels Arcomage aus dem Jahr 2000',
 
-  'Please go to %s to view more information, star the repo and follow %s there.':
-    'Bitte gehen Sie zu %s, um weitere Informationen zu sehen, markieren Sie das Repo und folgen Sie %s dorthin.',
+  'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
+    'Bitte gehen Sie zu %s, um weitere Informationen (einschließlich %s1) zu sehen, markieren Sie das Repo und folgen Sie %s2 dorthin.',
 
   'the GitHub project page': 'die GitHub-Projektseite',
+
+  'an informative tutorial image in English':
+    'ein informatives Anleitungsbild in Englisch',
 
   'Game rules': 'Spielregeln',
 

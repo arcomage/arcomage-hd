@@ -63,10 +63,13 @@ export const i18n = {
   DESC:
     'Clone HD open source basato sul web del gioco di carte Arcomage del 2000 di 3DO e NWC',
 
-  'Please go to %s to view more information, star the repo and follow %s there.':
-    'Si prega di andare su %s per vedere maggiori informazioni, startare il repo e seguire %s lì.',
+  'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
+    'Si prega di andare su %s per vedere maggiori informazioni (incluso %s1), startare il repo e seguire %s2 lì.',
 
   'the GitHub project page': 'la pagina del progetto GitHub',
+
+  'an informative tutorial image in English':
+    "un'immagine tutorial informativa in inglese",
 
   'Game rules': 'Regole del gioco',
 

@@ -15,11 +15,11 @@ export const i18n = {
   dungeon: 'mazmorra', // i.e. recruit production
 
   'Your %s': 'Tu %s', // Your quarry/tower
-  "Opponent's %s": "%s del adversario", // Opponent's quarry/tower
+  "Opponent's %s": '%s del adversario', // Opponent's quarry/tower
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Tus %sp', // Your bricks
-  "Opponent's %sp": "%sp del adversario", // Opponent's bricks
+  "Opponent's %sp": '%sp del adversario', // Opponent's bricks
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (producción de %sp)', // quarry (brick production)
@@ -63,10 +63,13 @@ export const i18n = {
   DESC:
     'Clon HD de código abierto basado en la web del juego de cartas Arcomage de 3DO y NWC del año 2000',
 
-  'Please go to %s to view more information, star the repo and follow %s there.':
-    'Por favor, vaya a %s para ver más información, inicie el repo y siga a %s allí.',
+  'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
+    'Por favor, vaya a %s para ver más información (incluyendo %s1), inicie el repo y siga a %s2 allí.',
 
   'the GitHub project page': 'la página del proyecto en GitHub',
+
+  'an informative tutorial image in English':
+    'una imagen tutorial informativa en inglés',
 
   'Game rules': 'Reglas del juego',
 

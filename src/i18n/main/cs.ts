@@ -15,11 +15,11 @@ export const i18n = {
   dungeon: 'jeskyně', // i.e. recruit production
 
   'Your %s': 'Tvůj/Tvoje %s', // Your quarry/tower
-  "Opponent's %s": "%s soupeře", // Opponent's quarry/tower
+  "Opponent's %s": '%s soupeře', // Opponent's quarry/tower
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Váš/Vaše %sp', // Your bricks
-  "Opponent's %sp": "%sp soupeře", // Opponent's bricks
+  "Opponent's %sp": '%sp soupeře', // Opponent's bricks
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (výroba %ss)', // quarry (brick production)
@@ -63,10 +63,16 @@ export const i18n = {
   DESC:
     'Webový open source HD klon karetní hry Arcomage pro 3DO a NWC z roku 2000',
 
-  'Please go to %s to view more information, star the repo and follow %s there.':
-    'Pro zobrazení dalších informací přejděte na %s, označte repozitář hvězdičkou a sledujte %s.',
+  'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
+    'Pro zobrazení dalších informací (včetně %s1) přejděte na %s, označte repozitář hvězdičkou a sledujte %s2.',
 
   'the GitHub project page': 'stránka projektu GitHub',
+
+  'an informative tutorial image in English':
+    'informativní výukový obrázek v angličtině',
+
+  'Please go to %s to view more information, star the repo and follow %s there.':
+    'Pro zobrazení dalších informací přejděte na %s, označte repozitář hvězdičkou a sledujte %s.',
 
   'Game rules': 'Pravidla hry',
 

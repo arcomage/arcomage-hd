@@ -63,10 +63,13 @@ export const i18n = {
   DESC:
     'Sieciowy, otwartoźródłowy klon 3DO i gry karcianej Arcomage z 2000 roku firmy NWC',
 
-  'Please go to %s to view more information, star the repo and follow %s there.':
-    'Proszę przejść do %s, aby zobaczyć więcej informacji, uruchomić repo i śledzić %s tam.',
+  'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
+    'Proszę przejść do %s, aby zobaczyć więcej informacji (w tym %s1), uruchomić repo i śledzić %s2 tam.',
 
   'the GitHub project page': 'strona projektu na GitHubie',
+
+  'an informative tutorial image in English':
+    'obrazek instruktażowy w języku angielskim',
 
   'Game rules': 'Zasady gry',
 

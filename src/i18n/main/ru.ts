@@ -15,11 +15,11 @@ export const i18n = {
   dungeon: 'Подземелье', // i.e. recruit production
 
   'Your %s': 'Твой %s', // Your quarry/tower
-  "Opponent's %s": "карьер %s", // Opponent's quarry/tower
+  "Opponent's %s": 'карьер %s', // Opponent's quarry/tower
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Ваши %sp', // Your bricks
-  "Opponent's %sp": "кирпичи %sp", // Opponent's bricks
+  "Opponent's %sp": 'кирпичи %sp', // Opponent's bricks
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (%ss производство)', // quarry (brick production)
@@ -62,10 +62,13 @@ export const i18n = {
   DESC:
     'опенсорсная веб-версия игры Arcomage, выпущенной 3DO и New World Computing в 2000 году',
 
-  'Please go to %s to view more information, star the repo and follow %s there.':
-    'Чтобы узнать больше, посетите %s, добавьте репозиторий в избранное и подпишитесь на %s.',
+  'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
+    'Чтобы узнать больше (включая %s1), посетите %s, добавьте репозиторий в избранное и подпишитесь на %s2.',
 
   'the GitHub project page': 'страницу проекта на GitHub',
+
+  'an informative tutorial image in English':
+    'информативная учебная картинка на английском языке',
 
   'Game rules': 'Правила игры',
 
