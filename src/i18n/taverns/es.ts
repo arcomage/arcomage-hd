@@ -9,10 +9,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'El descanso del Grifo',
     location: 'Erathia',
   },
-  {
-    name: 'Posada Esmeralda',
-    location: 'Bosque Tularean',
-  },
+  // {
+  //   name: 'Posada Esmeralda',
+  //   location: 'Bosque Tularean',
+  // },
   {
     name: 'El goblin estirado',
     location: 'Deyja',
@@ -25,10 +25,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Bebida bendita',
     location: 'Celeste',
   },
-  {
-    name: 'El salón del vampiro',
-    location: 'Averno',
-  },
+  // {
+  //   name: 'El salón del vampiro',
+  //   location: 'Averno',
+  // },
   {
     name: 'El monje que ríe',
     location: 'Isla Evenmorn',
@@ -45,10 +45,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'EL mercenario leal',
     location: 'Tatalia',
   },
-  {
-    name: 'El pixie en la Jarra',
-    location: 'Avlee',
-  },
+  // {
+  //   name: 'El pixie en la Jarra',
+  //   location: 'Avlee',
+  // },
   {
     name: 'El grog de Grogg',
     location: 'Ciudad de Piedra',

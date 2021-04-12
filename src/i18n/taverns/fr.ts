@@ -9,10 +9,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Le Repos du Griffon',
     location: 'Erathia',
   },
-  {
-    name: 'Auberge d’Emeraude',
-    location: 'La Forêt de Tulare',
-  },
+  // {
+  //   name: 'Auberge d’Emeraude',
+  //   location: 'La Forêt de Tulare',
+  // },
   {
     name: 'Le Gobelin Snob',
     location: 'Deyja',
@@ -25,10 +25,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Le Breuvage Béni',
     location: 'Le Labyrinthe',
   },
-  {
-    name: 'La Cave aux Vampires',
-    location: 'La Cité de Pierre',
-  },
+  // {
+  //   name: 'La Cave aux Vampires',
+  //   location: 'La Cité de Pierre',
+  // },
   {
     name: 'Le Moine Rieur',
     location: 'Celeste',
@@ -45,10 +45,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Le Mercenaire Loyal',
     location: 'Les Collines du Sommeil',
   },
-  {
-    name: 'Le Lutin Ludique',
-    location: 'La Terre des Géants',
-  },
+  // {
+  //   name: 'Le Lutin Ludique',
+  //   location: 'La Terre des Géants',
+  // },
   {
     name: 'Le Grog de Grogg',
     location: 'Montagne du Tonnerre',

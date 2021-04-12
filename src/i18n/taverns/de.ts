@@ -9,10 +9,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Greifensruhe',
     location: 'Erathia',
   },
-  {
-    name: 'Smaragdhof',
-    location: 'Tulareanischer Forst',
-  },
+  // {
+  //   name: 'Smaragdhof',
+  //   location: 'Tulareanischer Forst',
+  // },
   {
     name: 'Der eitle Goblin',
     location: 'Deyja',
@@ -25,10 +25,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Zum gesegneten Gebräu',
     location: 'Celeste',
   },
-  {
-    name: 'Die Halle des Vampyr',
-    location: 'Grube',
-  },
+  // {
+  //   name: 'Die Halle des Vampyr',
+  //   location: 'Grube',
+  // },
   {
     name: 'Der lachende Mönch',
     location: 'Evenmorn Insel',
@@ -45,10 +45,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Der treue Söldner',
     location: 'Tatalia',
   },
-  {
-    name: 'Der Koboldkrug',
-    location: 'Avlee',
-  },
+  // {
+  //   name: 'Der Koboldkrug',
+  //   location: 'Avlee',
+  // },
   {
     name: 'Groggs Grog',
     location: 'Steinstadt',

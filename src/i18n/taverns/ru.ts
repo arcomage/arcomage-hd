@@ -9,10 +9,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Покой грифона',
     location: 'Эрафия',
   },
-  {
-    name: 'Изумрудный двор',
-    location: 'Тулареанский лес',
-  },
+  // {
+  //   name: 'Изумрудный двор',
+  //   location: 'Тулареанский лес',
+  // },
   {
     name: 'Снобистский гоблин',
     location: 'Дейя',
@@ -25,10 +25,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Благословенное варево',
     location: 'Небеса',
   },
-  {
-    name: 'Бар Вампира',
-    location: 'Бездна',
-  },
+  // {
+  //   name: 'Бар Вампира',
+  //   location: 'Бездна',
+  // },
   {
     name: 'Смеющийся монах',
     location: 'Остров Эвенморн',
@@ -45,10 +45,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Лояльный наемник',
     location: 'Таталия',
   },
-  {
-    name: 'Пьяные пикси',
-    location: 'АвЛи',
-  },
+  // {
+  //   name: 'Пьяные пикси',
+  //   location: 'АвЛи',
+  // },
   {
     name: 'Грог Грогга',
     location: 'Каменный город',

@@ -9,10 +9,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Il Riposo del Grifone',
     location: 'Erathia',
   },
-  {
-    name: 'Taverna di Smeraldo',
-    location: 'Foresta di Tular',
-  },
+  // {
+  //   name: 'Taverna di Smeraldo',
+  //   location: 'Foresta di Tular',
+  // },
   {
     name: 'Il Goblin Raffinato',
     location: 'Deyja',
@@ -25,10 +25,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Il Boccale Benedetto',
     location: 'Celeste',
   },
-  {
-    name: 'Il Salone del Vampiro',
-    location: 'Il Baratro',
-  },
+  // {
+  //   name: 'Il Salone del Vampiro',
+  //   location: 'Il Baratro',
+  // },
   {
     name: 'Il Monaco Ridente',
     location: 'Arcipelago delle Nebbie',
@@ -45,10 +45,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Il Mercenario Leale',
     location: 'Tatalia',
   },
-  {
-    name: 'Lo Spirito Imbottigliato',
-    location: 'Avlee',
-  },
+  // {
+  //   name: 'Lo Spirito Imbottigliato',
+  //   location: 'Avlee',
+  // },
   {
     name: 'Il Grog di Grogg',
     location: 'Città di Pietra',

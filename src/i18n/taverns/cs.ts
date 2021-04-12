@@ -9,10 +9,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'U Gryfa',
     location: 'Deyja',
   },
-  {
-    name: 'Smaragdová putyka',
-    location: 'Brakadská poušť',
-  },
+  // {
+  //   name: 'Smaragdová putyka',
+  //   location: 'Brakadská poušť',
+  // },
   {
     name: 'U Snobského goblina',
     location: 'Oblačné město',
@@ -25,10 +25,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'U Božského nektaru',
     location: 'Kolonie Zod',
   },
-  {
-    name: 'Upíří salónek',
-    location: 'Cech žoldáků',
-  },
+  // {
+  //   name: 'Upíří salónek',
+  //   location: 'Cech žoldáků',
+  // },
   {
     name: 'Smějící se mnich',
     location: 'Ostrov Evermorn',
@@ -45,10 +45,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'U Věrného žoldáka',
     location: 'Tatalie',
   },
-  {
-    name: 'U Zpumprlíka',
-    location: 'Avlee',
-  },
+  // {
+  //   name: 'U Zpumprlíka',
+  //   location: 'Avlee',
+  // },
   {
     name: 'Groggův grog',
     location: 'Kamenné město',

@@ -242,7 +242,7 @@ const Card = ({
     return (
       <button
         ref={main}
-        disabled={true}
+        disabled
         className={cx(
           classes.main,
           classes.cardbackhard,

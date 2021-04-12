@@ -42,9 +42,9 @@ const TableCommon = () => {
       <Tower goal={winTower} />
       <Wall />
 
-      <Status playerName={opponentName} isOpponent={true} />
-      <Tower isOpponent={true} goal={winTower} />
-      <Wall isOpponent={true} />
+      <Status playerName={opponentName} isOpponent />
+      <Tower isOpponent goal={winTower} />
+      <Wall isOpponent />
       <Bird />
     </div>
   )
