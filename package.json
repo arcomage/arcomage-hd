@@ -23,6 +23,7 @@
     "calcscore": "ts-node --project ./tools/tsconfig.json ./tools/ai-related/calcscore.ts",
     "i18nextract": "ts-node --project ./tools/tsconfig.json ./tools/i18n-extraction",
     "devsettingscheck": "ts-node --project ./tools/tsconfig.json ./tools/precommitcheck/devSettingsCheck.ts",
+    "cardprobsextraction": "ts-node --project ./tools/tsconfig.json ./tools/precommitcheck/cardProbsExtraction.ts",
     "resizesvg": "ts-node --project ./tools/tsconfig.json ./tools/resize-svg",
     "linecount": "sloc src",
     "preversion": "git diff-index --quiet HEAD --",
