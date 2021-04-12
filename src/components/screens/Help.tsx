@@ -75,7 +75,7 @@ const Help = () => {
       <p>
         <strong>
           {_.i18n('Game rules')}
-          {_.i18n(':')}
+          {_.i18n(': ')}
         </strong>
       </p>
       <div>{<MultilineText>{_.i18n('GAMERULES')}</MultilineText>}</div>

@@ -35,7 +35,7 @@ export const i18n = {
   'Tie Game': '握手言和',
 
   Preferences: '設定',
-  ':': '：',
+  ': ': '：',
   'Your Name': '你的名字',
   "Opponent's Name": '對手名字',
   'Choose a Tavern (Preset Preferences)': '選擇酒館（預設偏好）',

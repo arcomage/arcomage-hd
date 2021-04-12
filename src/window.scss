@@ -34,11 +34,62 @@
       }
     }
 
+    .multiplayer {
+      @apply flex w-full;
+      label {
+        @apply inline-block w-auto;
+        span {
+          @apply px-1;
+        }
+      }
+    }
+
+    h4.multiplayer {
+      label {
+        @apply flex-grow-0;
+        span {
+          @apply px-1;
+        }
+      }
+      #multiplayerNotification {
+        @apply font-normal text-yellow-400 px-1 flex-grow text-base;
+      }
+    }
+
+    div.multiplayer {
+      label {
+        @apply flex-grow flex;
+        span {
+          @apply flex-grow-0;
+        }
+        input {
+          @apply flex-grow;
+        }
+      }
+      .copied,
+      button {
+        @apply flex-grow-0 py-1 ml-2;
+      }
+      .copied {
+        @apply px-1 opacity-0;
+        transition: opacity 150ms linear;
+        &.copied-shown {
+          @apply opacity-100;
+        }
+      }
+      button {
+        @apply px-4;
+      }
+      #yourId {
+        @apply cursor-pointer;
+      }
+    }
+
     span {
       @apply text-right px-3 py-0.5;
-      .p-0 {
-        padding: 0;
-      }
+    }
+    span.no-erathian span.erathian {
+      @apply p-0;
     }
     input[type='number'],
     input[type='text'],
@@ -141,6 +192,9 @@
       }
       &.active {
         @apply bg-green-500 hover:bg-green-400 border-green-700 hover:border-green-500 border-b-0;
+      }
+      &.highlight {
+        @apply bg-yellow-600 hover:bg-yellow-500 border-yellow-700 hover:border-yellow-600;
       }
       &.cancel {
         @apply bg-red-500 hover:bg-red-400 border-red-700 hover:border-red-500 absolute w-12 h-12 -top-6 -right-6 bg-no-repeat bg-contain bg-center;

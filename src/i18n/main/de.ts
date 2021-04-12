@@ -35,7 +35,7 @@ export const i18n = {
   'Tie Game': 'Unentschieden Spiel',
 
   Preferences: 'Voreinstellungen',
-  ':': ':',
+  ': ': ': ',
   'Your Name': 'Ihr Name',
   "Opponent's Name": 'Name des Gegners',
   'Choose a Tavern (Preset Preferences)':

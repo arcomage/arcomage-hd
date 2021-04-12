@@ -35,3 +35,5 @@ export const numberChangeVisualDuration = 1000 // explosion & firework
 export const numberDiffDuration = 1500
 
 export const maxWallOnScreen = 100
+
+export const copiedDuration = 3000

@@ -35,7 +35,7 @@ export const i18n = {
   'Tie Game': 'Remízová hra',
 
   Preferences: 'Předvolby',
-  ':': ':',
+  ': ': ': ',
   'Your Name': 'Vaše jméno',
   "Opponent's Name": 'Jméno soupeře',
   'Choose a Tavern (Preset Preferences)':

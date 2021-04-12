@@ -3,9 +3,11 @@ import React, {
   memo,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from 'react'
 import produce from 'immer'
+import copy from 'copy-to-clipboard'
 import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
 import Window from './Window'
 
@@ -21,10 +23,15 @@ import {
   defaultSettings,
 } from '../../constants/defaultSettings'
 import { hasOwnProperty } from '../../utils/typeHelpers'
+import { initPeer } from '../../webrtc/peer'
+import { copiedDuration } from '../../constants/visuals'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
+
+  const copied = useRef<HTMLDivElement | null>(null)
+  const copiedTimer = useRef<NodeJS.Timeout | null>(null)
 
   const [formFields, setFormFields] = useState({
     playerName: useAppSelector((state) => state.settings.playerName),
@@ -43,6 +50,9 @@ const Pref = () => {
     winResource: useAppSelector((state) => state.settings.win.resource),
 
     cardsInHand: useAppSelector((state) => state.settings.cardsInHand),
+
+    multiplayerMode: true,
+    opponentId: '1233d9b8-8e2c-4e4c-8a13-dc284009caf2',
   })
 
   const checkPreset = (o: typeof formFields) => {
@@ -83,6 +93,8 @@ const Pref = () => {
       winTower,
       winResource,
       cardsInHand,
+      multiplayerMode,
+      opponentId,
     } = formFields
 
     const payload = {
@@ -147,30 +159,37 @@ const Pref = () => {
   }, [formFields])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (
-      e.target.value === '' &&
-      e.target.name !== 'playerName' &&
-      e.target.name !== 'opponentName'
-    ) {
-      e.target.value = '0'
+    if (e.target.type === 'number') {
+      if (e.target.value === '') {
+        e.target.value = '0'
+      }
+
+      if (parseInt(e.target.value, 10) < parseInt(e.target.min, 10)) {
+        e.target.value = e.target.min
+      }
+
+      if (parseInt(e.target.value, 10) > parseInt(e.target.max, 10)) {
+        e.target.value = e.target.max
+      }
     }
 
-    if (parseInt(e.target.value, 10) < parseInt(e.target.min, 10)) {
-      e.target.value = e.target.min
-    }
-
-    if (parseInt(e.target.value, 10) > parseInt(e.target.max, 10)) {
-      e.target.value = e.target.max
-    }
-
-    const { name, value } = e.target
+    const { name, value, checked } = e.target
     setFormFields((prev) =>
       produce(prev, (draft) => {
         if (hasOwnProperty(draft, name)) {
-          draft[name] =
-            name === 'playerName' || name === 'opponentName'
-              ? value
-              : parseInt(value, 10)
+          switch (name) {
+            case 'playerName':
+            case 'opponentName':
+            case 'opponentId':
+              draft[name] = value
+              break
+            case 'multiplayerMode':
+              draft[name] = checked
+              break
+            default:
+              draft[name] = parseInt(value, 10)
+              break
+          }
         }
       }),
     )
@@ -210,7 +229,7 @@ const Pref = () => {
         <label>
           <span>
             {_.i18n('Your Name')}
-            {_.i18n(':')}
+            {_.i18n(': ')}
           </span>
           <input
             type="text"
@@ -228,7 +247,7 @@ const Pref = () => {
         <label>
           <span>
             {_.i18n("Opponent's Name")}
-            {_.i18n(':')}
+            {_.i18n(': ')}
           </span>
           <input
             type="text"
@@ -248,7 +267,7 @@ const Pref = () => {
       <label className="one-colume">
         <span>
           {_.i18n('Choose a Tavern (Preset Preferences)')}
-          {_.i18n(':')}
+          {_.i18n(': ')}
         </span>
         <select
           name="tavern"
@@ -423,7 +442,105 @@ const Pref = () => {
           </select>
           </label> */}
 
+      <h4 className="multiplayer">
+        <label>
+          <input
+            type="checkbox"
+            name="multiplayerMode"
+            id="multiplayerMode"
+            checked={formFields.multiplayerMode}
+            onChange={handleChange}
+          />
+          <span>
+            {_.i18n('Multiplayer Mode')}
+            {_.i18n(': ')}
+            {_.i18n('off').toUpperCase()}
+          </span>
+        </label>
+        <span id="multiplayerNotification">
+          {_.i18n('Connecting to ID %s ⌛')}
+        </span>
+        {/* 'Connected to ID %s ✔️' */}
+      </h4>
+      <div className="multiplayer">
+        <label>
+          <span>
+            {_.i18n('Your ID')}
+            {_.i18n(': ')}
+          </span>
+          <input
+            type="text"
+            name="yourId"
+            id="yourId"
+            value="1c63d9b8-8e2c-4e4c-8a13-dc284009caf2"
+            readOnly
+            onClick={(e) => {
+              const target = e.target as HTMLInputElement
+              target.select()
+              copy(target.value)
+              if (copied.current !== null) {
+                copied.current.classList.add('copied-shown')
+                if (copiedTimer.current !== null) {
+                  clearTimeout(copiedTimer.current)
+                }
+                copiedTimer.current = setTimeout(() => {
+                  if (copied.current !== null) {
+                    copied.current.classList.remove('copied-shown')
+                  }
+                }, copiedDuration)
+              }
+            }}
+          />
+          <span ref={copied} className="copied">
+            {_.i18n('Copied 📋✔️')}
+          </span>
+        </label>
+      </div>
+      <div className="multiplayer">
+        <label>
+          <span>
+            {_.i18n("Enter your opponent's ID")}
+            {_.i18n(': ')}
+          </span>
+          <input
+            type="text"
+            name="opponentId"
+            id="opponentId"
+            value={formFields.opponentId}
+            onChange={handleChange}
+          />
+        </label>
+        <button
+          className="highlight"
+          onClick={() => {
+            const peer = initPeer()
+            peer.on('open', (id) => {
+              alert('My peer ID is: ' + id)
+            })
+          }}
+        >
+          {_.i18n('Connect')}
+        </button>
+      </div>
+
       <div className="button-wrapper">
+        <button
+          onClick={() => {
+            const { start, win, cardsInHand } = defaultSettings
+            setFormFields(({ multiplayerMode, opponentId }) => ({
+              playerName: defaultPlayerName,
+              opponentName: defaultOpponentName,
+              ...start,
+              winTower: win.tower,
+              winResource: win.resource,
+              cardsInHand: cardsInHand,
+              multiplayerMode,
+              opponentId,
+            }))
+          }}
+        >
+          {_.i18n('Reset')}
+        </button>
         <button className="warning" onClick={applyAndNewGame}>
           {_.i18n('Apply & New Game')}
         </button>

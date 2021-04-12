@@ -35,7 +35,7 @@ export const i18n = {
   'Tie Game': 'Ничья!',
 
   Preferences: 'Настройки',
-  ':': ':',
+  ': ': ': ',
   'Your Name': 'Ваше имя',
   "Opponent's Name": 'Имя противника',
   'Choose a Tavern (Preset Preferences)': 'Выберите Таверну (набор настроек)',

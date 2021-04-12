@@ -35,7 +35,7 @@ export const i18n = {
   'Tie Game': 'Tie Game',
 
   Preferences: 'Preferences',
-  ':': ':',
+  ': ': ': ',
   'Your Name': 'Your Name',
   "Opponent's Name": "Opponent's Name",
   'Choose a Tavern (Preset Preferences)':
@@ -47,6 +47,17 @@ export const i18n = {
   'Other Preferences': 'Other Preferences',
   'Cards in Hand': 'Cards in Hand',
   'AI Type': 'AI Type',
+  'Multiplayer Mode': 'Multiplayer Mode',
+  off: 'off',
+  on: 'on',
+  'Your ID': 'Your ID',
+  "Enter your opponent's ID": "Enter your opponent's ID",
+  Connect: 'Connect',
+  'Copied 📋✔️': 'Copied 📋✔️',
+  'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
+  'Connected to ID %s ✔️': 'Connected to ID %s ✔️',
+
+  Reset: 'Reset',
   'Apply & New Game': 'Apply & New Game',
   Cancel: 'Cancel',
 
