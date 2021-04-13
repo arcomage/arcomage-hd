@@ -16,7 +16,7 @@ import { RootStateType } from '../types/state'
 import playSound from '../utils/playSound'
 import { concat, of } from 'rxjs'
 
-export const updateStatusEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -66,5 +66,3 @@ export const updateStatusEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default updateStatusEpic

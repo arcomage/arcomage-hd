@@ -7,7 +7,7 @@ import { RootStateType } from '../types/state'
 import { resNames } from '../constants/resourceNames'
 import { EMPTY, of } from 'rxjs'
 
-export const checkVictoryEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -49,5 +49,3 @@ export const checkVictoryEpic = (
       return EMPTY
     }),
   )
-
-export default checkVictoryEpic

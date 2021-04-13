@@ -29,7 +29,7 @@ import {
 } from '../constants/visuals'
 import { aiExtraDelay, noAiExtraDelay, useAi } from '../constants/devSettings'
 
-export const nextRoundEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -84,5 +84,3 @@ export const nextRoundEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default nextRoundEpic

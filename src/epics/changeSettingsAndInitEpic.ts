@@ -11,7 +11,7 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 
-export const changeSettingsAndInitEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -32,5 +32,3 @@ export const changeSettingsAndInitEpic = (
       ),
     ),
   )
-
-export default changeSettingsAndInitEpic

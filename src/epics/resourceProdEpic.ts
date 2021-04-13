@@ -12,7 +12,7 @@ import { entries } from '../utils/typeHelpers'
 import { resProdMap } from '../constants/resourceNames'
 import { of } from 'rxjs'
 
-export const resourceProdEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -35,5 +35,3 @@ export const resourceProdEpic = (
       }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default resourceProdEpic

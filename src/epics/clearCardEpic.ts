@@ -22,7 +22,7 @@ import { cardTransitionDuration } from '../constants/visuals'
 
 const topArr = [-2, -3, -4]
 
-export const clearCardEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -66,5 +66,3 @@ export const clearCardEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default clearCardEpic

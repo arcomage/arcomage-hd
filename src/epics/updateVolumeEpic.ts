@@ -11,7 +11,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { lsSet } from '../utils/localstorage'
 
-export const updateVolumeEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -30,5 +30,3 @@ export const updateVolumeEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default updateVolumeEpic

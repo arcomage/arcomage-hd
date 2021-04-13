@@ -13,7 +13,7 @@ import playSound from '../utils/playSound'
 
 const soundMap = { lose: 'defeat', tie: 'victory', win: 'victory' } as const
 
-export const screenEndEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -36,5 +36,3 @@ export const screenEndEpic = (
       )
     }),
   )
-
-export default screenEndEpic

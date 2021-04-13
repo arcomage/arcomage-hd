@@ -15,7 +15,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { lsGet } from '../utils/localstorage'
 
-export const readlsUpdatestoreInitEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -57,5 +57,3 @@ export const readlsUpdatestoreInitEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default readlsUpdatestoreInitEpic

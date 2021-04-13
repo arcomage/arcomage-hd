@@ -1,8 +1,4 @@
-import {
-  UPDATE_STATUS,
-  EXEC_CARD,
-  ABORT_ALL,
-} from '../constants/ActionTypes'
+import { UPDATE_STATUS, EXEC_CARD, ABORT_ALL } from '../constants/ActionTypes'
 import {
   RootActionType,
   UpdateStatusActionTypeSingle,
@@ -16,7 +12,7 @@ import dataCards from '../data/cards'
 import { resNames } from '../constants/resourceNames'
 import { of } from 'rxjs'
 
-export const execCardEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -79,5 +75,3 @@ export const execCardEpic = (
       }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default execCardEpic

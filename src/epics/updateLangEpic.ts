@@ -12,7 +12,7 @@ import { RootStateType } from '../types/state'
 import { lsSet } from '../utils/localstorage'
 import { defaultErathian } from '../constants/defaultSettings'
 
-export const updateLangEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -35,5 +35,3 @@ export const updateLangEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default updateLangEpic

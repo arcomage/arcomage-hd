@@ -16,7 +16,7 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 
-export const connectToAndSetOpponentIdEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -33,5 +33,3 @@ export const connectToAndSetOpponentIdEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default connectToAndSetOpponentIdEpic

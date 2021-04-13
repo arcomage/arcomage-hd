@@ -12,7 +12,7 @@ import { EMPTY, of } from 'rxjs'
 import { AiCardListItemType } from '../types/ai'
 import checkCardUseDiscard from '../ai/checkCardUseDiscard'
 
-export const checkSurrenderEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -36,5 +36,3 @@ export const checkSurrenderEpic = (
       }
     }),
   )
-
-export default checkSurrenderEpic

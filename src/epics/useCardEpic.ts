@@ -25,12 +25,9 @@ import { RootStateType } from '../types/state'
 import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../utils/playSound'
 import cards from '../data/cards'
-import {
-  cardNextStepDelay,
-  cardTransitionDuration,
-} from '../constants/visuals'
+import { cardNextStepDelay, cardTransitionDuration } from '../constants/visuals'
 
-export const useCardEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -106,5 +103,3 @@ export const useCardEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default useCardEpic

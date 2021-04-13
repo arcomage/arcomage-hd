@@ -13,7 +13,7 @@ import { concat, EMPTY, of } from 'rxjs'
 
 const topArr = [-2, -3, -4]
 
-export const moveCardToTopEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -51,5 +51,3 @@ export const moveCardToTopEpic = (
       return EMPTY
     }),
   )
-
-export default moveCardToTopEpic

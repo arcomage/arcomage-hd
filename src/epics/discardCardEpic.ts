@@ -25,7 +25,7 @@ import { of, concat, EMPTY } from 'rxjs'
 import playSound from '../utils/playSound'
 import { cardTransitionDuration } from '../constants/visuals'
 
-export const discardCardEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -76,5 +76,3 @@ export const discardCardEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default discardCardEpic

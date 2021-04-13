@@ -20,7 +20,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { concat, of } from 'rxjs'
 
-export const nextRoundEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -50,5 +50,3 @@ export const nextRoundEpic = (
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default nextRoundEpic

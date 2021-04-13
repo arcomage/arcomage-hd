@@ -12,7 +12,7 @@ import cards from '../data/cards'
 import { resNames } from '../constants/resourceNames'
 import { of } from 'rxjs'
 
-export const checkUnusableEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -61,5 +61,3 @@ export const checkUnusableEpic = (
       }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
-
-export default checkUnusableEpic

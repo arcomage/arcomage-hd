@@ -14,7 +14,7 @@ import { EMPTY, of } from 'rxjs'
 import { ai } from '../ai'
 import { AiInstructionType } from '../types/ai'
 
-export const aiUseCardEpic = (
+export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -52,5 +52,3 @@ export const aiUseCardEpic = (
       }
     }),
   )
-
-export default aiUseCardEpic
