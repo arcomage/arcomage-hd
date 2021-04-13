@@ -1,34 +1,37 @@
 import {
-  UPDATE_SETTINGS,
-  UPDATE_SETTINGS_MAIN,
+  SWITCH_MULTIPLAYER_MODE,
+  SWITCH_MULTIPLAYER_MODE_MAIN,
   ABORT_ALL,
 } from '../constants/ActionTypes'
 import { RootActionType } from '../types/actionObj'
-import { filter, concatMap, takeUntil } from 'rxjs/operators'
+import {
+  withLatestFrom,
+  filter,
+  concatMap,
+  delay,
+  takeUntil,
+} from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
-import { lsSet } from '../utils/localstorage'
 
-export const updateSettingsEpic = (
+export const switchMultiplayerModeEpic = (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_SETTINGS)),
-    concatMap((action) => {
-      const { payload } = action
-      lsSet((draft) => {
-        draft.settings = payload
-      })
+    filter(isOfType(SWITCH_MULTIPLAYER_MODE)),
+    withLatestFrom(state$),
+    concatMap(([action, state]) => {
+      const { on } = action
       return concat(
         of<RootActionType>({
-          type: UPDATE_SETTINGS_MAIN,
-          payload,
+          type: SWITCH_MULTIPLAYER_MODE_MAIN,
+          on,
         }),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )
 
-export default updateSettingsEpic
+export default switchMultiplayerModeEpic

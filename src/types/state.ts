@@ -102,7 +102,14 @@ export type LangStateType = {
   erathian: boolean
 }
 
+export type MultiplayerStateType = {
+  mode: boolean
+  yourId: string
+  opponentId: string
+}
+
 export type RootStateType = {
+  multiplayer: MultiplayerStateType
   lang: LangStateType
   status: StatusType
   cards: CardStateType

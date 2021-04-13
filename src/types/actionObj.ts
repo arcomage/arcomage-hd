@@ -49,6 +49,12 @@ import {
   AI_USE_CARD,
   CHECK_SURRENDER,
   ABORT_ALL,
+  SWITCH_MULTIPLAYER_MODE,
+  SWITCH_MULTIPLAYER_MODE_MAIN,
+  GET_AND_SET_YOUR_ID,
+  SET_YOUR_ID,
+  CONNECT_TO_AND_SET_OPPONENT_ID,
+  SET_OPPONENT_ID,
 } from '../constants/ActionTypes'
 import { AvailableLangType } from '../i18n/types'
 import {
@@ -335,6 +341,35 @@ export type AbortAllActionType = {
   type: typeof ABORT_ALL
 }
 
+export type SwitchMultiplayerModeActionType = {
+  type: typeof SWITCH_MULTIPLAYER_MODE
+  on: boolean
+}
+
+export type SwitchMultiplayerModeMainActionType = {
+  type: typeof SWITCH_MULTIPLAYER_MODE_MAIN
+  on: boolean
+}
+
+export type GetAndSetYourIdActionType = {
+  type: typeof GET_AND_SET_YOUR_ID
+}
+
+export type SetYourIdActionType = {
+  type: typeof SET_YOUR_ID
+  id: string
+}
+
+export type ConnectToAndSetOpponentIdActionType = {
+  type: typeof CONNECT_TO_AND_SET_OPPONENT_ID
+  id: string
+}
+
+export type SetOpponentIdActionType = {
+  type: typeof SET_OPPONENT_ID
+  id: string
+}
+
 export type RootActionType =
   | UpdateLangActionType
   | UpdateLangMainActionType
@@ -386,3 +421,9 @@ export type RootActionType =
   | AiUseCardActionType
   | CheckSurrenderActionType
   | AbortAllActionType
+  | SwitchMultiplayerModeActionType
+  | SwitchMultiplayerModeMainActionType
+  | GetAndSetYourIdActionType
+  | SetYourIdActionType
+  | ConnectToAndSetOpponentIdActionType
+  | SetOpponentIdActionType

@@ -12,7 +12,7 @@ import { RootStateType } from '../types/state'
 import { lsSet } from '../utils/localstorage'
 import { defaultErathian } from '../constants/defaultSettings'
 
-export const changeSettingsAndInitEpic = (
+export const updateLangEpic = (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -36,4 +36,4 @@ export const changeSettingsAndInitEpic = (
     }),
   )
 
-export default changeSettingsAndInitEpic
+export default updateLangEpic

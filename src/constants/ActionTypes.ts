@@ -59,3 +59,12 @@ export const AI_USE_CARD = 'AI_USE_CARD' as const
 export const CHECK_SURRENDER = 'CHECK_SURRENDER' as const
 
 export const ABORT_ALL = 'ABORT_ALL' as const
+
+export const SWITCH_MULTIPLAYER_MODE = 'SWITCH_MULTIPLAYER_MODE' as const
+export const SWITCH_MULTIPLAYER_MODE_MAIN = 'SWITCH_MULTIPLAYER_MODE_MAIN' as const
+
+export const GET_AND_SET_YOUR_ID = 'GET_AND_SET_YOUR_ID' as const
+export const SET_YOUR_ID = 'SET_YOUR_ID' as const
+
+export const CONNECT_TO_AND_SET_OPPONENT_ID = 'CONNECT_TO_AND_SET_OPPONENT_ID' as const
+export const SET_OPPONENT_ID = 'SET_OPPONENT_ID' as const

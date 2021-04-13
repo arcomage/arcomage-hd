@@ -11,7 +11,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../types/state'
 import { lsSet } from '../utils/localstorage'
 
-export const changeSettingsAndInitEpic = (
+export const updateVolumeEpic = (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -31,4 +31,4 @@ export const changeSettingsAndInitEpic = (
     }),
   )
 
-export default changeSettingsAndInitEpic
+export default updateVolumeEpic

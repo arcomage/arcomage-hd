@@ -51,8 +51,9 @@ const Pref = () => {
 
     cardsInHand: useAppSelector((state) => state.settings.cardsInHand),
 
-    multiplayerMode: true,
-    opponentId: '1233d9b8-8e2c-4e4c-8a13-dc284009caf2',
+    multiplayerMode: useAppSelector((state) => state.multiplayer.mode),
+    yourId: useAppSelector((state) => state.multiplayer.yourId),
+    opponentId: useAppSelector((state) => state.multiplayer.opponentId),
   })
 
   const checkPreset = (o: typeof formFields) => {
@@ -93,8 +94,9 @@ const Pref = () => {
       winTower,
       winResource,
       cardsInHand,
-      multiplayerMode,
-      opponentId,
+      // multiplayerMode,
+      // yourId,
+      // opponentId,
     } = formFields
 
     const payload = {
@@ -156,6 +158,13 @@ const Pref = () => {
     }
 
     setPreset(checkPreset(formFields))
+
+    if (formFields.multiplayerMode) {
+      const peer = initPeer()
+      peer.on('open', (id) => {
+        alert('My peer ID is: ' + id)
+      })
+    }
   }, [formFields])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -472,22 +481,24 @@ const Pref = () => {
             type="text"
             name="yourId"
             id="yourId"
-            value="1c63d9b8-8e2c-4e4c-8a13-dc284009caf2"
+            value={formFields.yourId}
             readOnly
             onClick={(e) => {
               const target = e.target as HTMLInputElement
-              target.select()
-              copy(target.value)
-              if (copied.current !== null) {
-                copied.current.classList.add('copied-shown')
-                if (copiedTimer.current !== null) {
-                  clearTimeout(copiedTimer.current)
-                }
-                copiedTimer.current = setTimeout(() => {
-                  if (copied.current !== null) {
-                    copied.current.classList.remove('copied-shown')
+              if (target.value !== '') {
+                target.select()
+                copy(target.value)
+                if (copied.current !== null) {
+                  copied.current.classList.add('copied-shown')
+                  if (copiedTimer.current !== null) {
+                    clearTimeout(copiedTimer.current)
                   }
-                }, copiedDuration)
+                  copiedTimer.current = setTimeout(() => {
+                    if (copied.current !== null) {
+                      copied.current.classList.remove('copied-shown')
+                    }
+                  }, copiedDuration)
+                }
               }
             }}
           />
@@ -510,15 +521,7 @@ const Pref = () => {
             onChange={handleChange}
           />
         </label>
-        <button
-          className="highlight"
-          onClick={() => {
-            const peer = initPeer()
-            peer.on('open', (id) => {
-              alert('My peer ID is: ' + id)
-            })
-          }}
-        >
+        <button className="highlight" onClick={() => {}}>
           {_.i18n('Connect')}
         </button>
       </div>
@@ -527,7 +530,7 @@ const Pref = () => {
         <button
           onClick={() => {
             const { start, win, cardsInHand } = defaultSettings
-            setFormFields(({ multiplayerMode, opponentId }) => ({
+            setFormFields(({ multiplayerMode, yourId, opponentId }) => ({
               playerName: defaultPlayerName,
               opponentName: defaultOpponentName,
               ...start,
@@ -535,6 +538,7 @@ const Pref = () => {
               winResource: win.resource,
               cardsInHand: cardsInHand,
               multiplayerMode,
+              yourId,
               opponentId,
             }))
           }}

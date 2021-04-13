@@ -25,7 +25,7 @@ import {
 } from '../types/state'
 import { randomWithProbs } from '../utils/randomWithProbs'
 
-export const changeSettingsAndInitEpic = (
+export const initEpic = (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
@@ -78,4 +78,4 @@ export const changeSettingsAndInitEpic = (
     }),
   )
 
-export default changeSettingsAndInitEpic
+export default initEpic

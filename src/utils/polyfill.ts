@@ -154,3 +154,22 @@ if (!Array.prototype.includes) {
     },
   })
 }
+
+// Element.matches() & .closest() polyfill
+if (!Element.prototype.matches) {
+  Element.prototype.matches =
+    // Element.prototype.msMatchesSelector || // not supporting IE
+    Element.prototype.webkitMatchesSelector
+}
+
+if (!Element.prototype.closest) {
+  Element.prototype.closest = function (s: string) {
+    var el: (Node & ParentNode) | null = this
+
+    do {
+      if (Element.prototype.matches.call(el, s)) return el
+      el = el.parentElement || el.parentNode
+    } while (el !== null && el.nodeType === 1)
+    return null
+  }
+}
