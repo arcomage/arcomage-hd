@@ -2,14 +2,14 @@ import {
   UPDATE_VOLUME,
   UPDATE_VOLUME_MAIN,
   ABORT_ALL,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { filter, concatMap, takeUntil } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
-import { lsSet } from '../utils/localstorage'
+import { RootStateType } from '../../types/state'
+import { lsSet } from '../../utils/localstorage'
 
 export default (
   action$: ActionsObservable<RootActionType>,

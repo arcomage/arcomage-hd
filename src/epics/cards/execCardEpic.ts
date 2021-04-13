@@ -1,15 +1,15 @@
-import { UPDATE_STATUS, EXEC_CARD, ABORT_ALL } from '../constants/ActionTypes'
+import { UPDATE_STATUS, EXEC_CARD, ABORT_ALL } from '../../constants/ActionTypes'
 import {
   RootActionType,
   UpdateStatusActionTypeSingle,
-} from '../types/actionObj'
+} from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
-import { entries } from '../utils/typeHelpers'
-import dataCards from '../data/cards'
-import { resNames } from '../constants/resourceNames'
+import { RootStateType } from '../../types/state'
+import { entries } from '../../utils/typeHelpers'
+import dataCards from '../../data/cards'
+import { resNames } from '../../constants/resourceNames'
 import { of } from 'rxjs'
 
 export default (

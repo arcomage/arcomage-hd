@@ -5,8 +5,8 @@ import {
   MOVE_CARD_TO_STACK,
   SWITCH_NEW_TURN,
   SET_ZERO_OPACITY,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import {
   withLatestFrom,
   filter,
@@ -16,9 +16,9 @@ import {
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
+import { RootStateType } from '../../types/state'
 import { merge, Observable, of } from 'rxjs'
-import { cardTransitionDuration } from '../constants/visuals'
+import { cardTransitionDuration } from '../../constants/visuals'
 
 const topArr = [-2, -3, -4]
 

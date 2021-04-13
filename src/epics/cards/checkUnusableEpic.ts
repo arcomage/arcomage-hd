@@ -2,14 +2,14 @@ import {
   CHECK_UNUSABLE,
   ABORT_ALL,
   SET_UNUSABLE,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, takeUntil, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { CardListItemAllType, RootStateType } from '../types/state'
-import cards from '../data/cards'
-import { resNames } from '../constants/resourceNames'
+import { CardListItemAllType, RootStateType } from '../../types/state'
+import cards from '../../data/cards'
+import { resNames } from '../../constants/resourceNames'
 import { of } from 'rxjs'
 
 export default (

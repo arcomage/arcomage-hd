@@ -6,8 +6,8 @@ import {
   DRAW_CARD,
   RESOURCE_PROD,
   ABORT_ALL,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import {
   withLatestFrom,
   filter,
@@ -22,8 +22,8 @@ import {
   CardListItemAllType,
   CardStateType,
   RootStateType,
-} from '../types/state'
-import { randomWithProbs } from '../utils/randomWithProbs'
+} from '../../types/state'
+import { randomWithProbs } from '../../utils/randomWithProbs'
 
 export default (
   action$: ActionsObservable<RootActionType>,

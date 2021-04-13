@@ -9,8 +9,8 @@ import {
   SWITCH_LOCK,
   MOVE_CARD_TO_TOP,
   ABORT_ALL,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import {
   withLatestFrom,
   filter,
@@ -20,10 +20,10 @@ import {
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
+import { RootStateType } from '../../types/state'
 import { of, concat, EMPTY } from 'rxjs'
-import playSound from '../utils/playSound'
-import { cardTransitionDuration } from '../constants/visuals'
+import playSound from '../../utils/playSound'
+import { cardTransitionDuration } from '../../constants/visuals'
 
 export default (
   action$: ActionsObservable<RootActionType>,

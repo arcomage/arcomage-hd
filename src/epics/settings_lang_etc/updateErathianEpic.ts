@@ -1,36 +1,36 @@
 import {
-  UPDATE_LANG,
-  UPDATE_LANG_MAIN,
+  UPDATE_ERATHIAN,
+  UPDATE_ERATHIAN_MAIN,
   ABORT_ALL,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { filter, concatMap, takeUntil } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
-import { lsSet } from '../utils/localstorage'
-import { defaultErathian } from '../constants/defaultSettings'
+import { RootStateType } from '../../types/state'
+import { lsSet } from '../../utils/localstorage'
+import { defaultLang } from '../../i18n/langs'
 
 export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_LANG)),
+    filter(isOfType(UPDATE_ERATHIAN)),
     concatMap((action) => {
-      const { lang } = action
+      const { erathian } = action
       lsSet((draft) => {
         if (draft.lang === undefined) {
-          draft.lang = { code: lang, erathian: defaultErathian }
+          draft.lang = { code: defaultLang, erathian }
         } else {
-          draft.lang.code = lang
+          draft.lang.erathian = erathian
         }
       })
       return concat(
         of<RootActionType>({
-          type: UPDATE_LANG_MAIN,
-          lang,
+          type: UPDATE_ERATHIAN_MAIN,
+          erathian,
         }),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),

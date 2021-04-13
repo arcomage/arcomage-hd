@@ -4,16 +4,16 @@ import {
   ABORT_ALL,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
-} from '../constants/ActionTypes'
+} from '../../constants/ActionTypes'
 import {
   RootActionType,
   UpdateStatusMainActionTypeSingle,
-} from '../types/actionObj'
+} from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
-import playSound from '../utils/playSound'
+import { RootStateType } from '../../types/state'
+import playSound from '../../utils/playSound'
 import { concat, of } from 'rxjs'
 
 export default (

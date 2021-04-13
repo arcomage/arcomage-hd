@@ -7,8 +7,8 @@ import {
   ABORT_ALL,
   CHECK_SURRENDER,
   SWITCH_LOCK,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import {
   withLatestFrom,
   filter,
@@ -18,16 +18,16 @@ import {
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
+import { RootStateType } from '../../types/state'
 import { concat, EMPTY, of } from 'rxjs'
-import playSound from '../utils/playSound'
-import { randomWithProbs } from '../utils/randomWithProbs'
+import playSound from '../../utils/playSound'
+import { randomWithProbs } from '../../utils/randomWithProbs'
 import {
   aiDelay,
   cardTransitionDuration,
   drawCardPre,
-} from '../constants/visuals'
-import { aiExtraDelay, noAiExtraDelay, useAi } from '../constants/devSettings'
+} from '../../constants/visuals'
+import { aiExtraDelay, noAiExtraDelay, useAi } from '../../constants/devSettings'
 
 export default (
   action$: ActionsObservable<RootActionType>,

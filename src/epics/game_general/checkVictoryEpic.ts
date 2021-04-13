@@ -1,10 +1,10 @@
-import { CHECK_VICTORY, ABORT_ALL, SCREEN_END } from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+import { CHECK_VICTORY, ABORT_ALL, SCREEN_END } from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
-import { resNames } from '../constants/resourceNames'
+import { RootStateType } from '../../types/state'
+import { resNames } from '../../constants/resourceNames'
 import { EMPTY, of } from 'rxjs'
 
 export default (

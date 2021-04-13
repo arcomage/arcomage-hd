@@ -2,14 +2,14 @@ import {
   ABORT_ALL,
   SCREEN_END,
   SCREEN_END_MAIN,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { isEndScreenNoCloseState, RootStateType } from '../types/state'
+import { isEndScreenNoCloseState, RootStateType } from '../../types/state'
 import { concat, of } from 'rxjs'
-import playSound from '../utils/playSound'
+import playSound from '../../utils/playSound'
 
 const soundMap = { lose: 'defeat', tie: 'victory', win: 'victory' } as const
 

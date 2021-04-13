@@ -6,14 +6,14 @@ import {
   UPDATE_ERATHIAN_MAIN,
   UPDATE_LANG_MAIN,
   UPDATE_VOLUME_MAIN,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { filter, concatMap, takeUntil } from 'rxjs/operators'
 import { of, concat, EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
-import { lsGet } from '../utils/localstorage'
+import { RootStateType } from '../../types/state'
+import { lsGet } from '../../utils/localstorage'
 
 export default (
   action$: ActionsObservable<RootActionType>,

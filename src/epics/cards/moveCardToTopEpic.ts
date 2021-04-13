@@ -3,12 +3,12 @@ import {
   MOVE_CARD_TO_TOP_MAIN,
   CLEAR_CARD,
   ABORT_ALL,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
+import { RootStateType } from '../../types/state'
 import { concat, EMPTY, of } from 'rxjs'
 
 const topArr = [-2, -3, -4]

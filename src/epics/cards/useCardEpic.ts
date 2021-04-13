@@ -10,8 +10,8 @@ import {
   DRAW_CARD,
   NEXT_ROUND,
   ABORT_ALL,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import {
   filter,
   concatMap,
@@ -21,11 +21,11 @@ import {
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
+import { RootStateType } from '../../types/state'
 import { concat, EMPTY, of } from 'rxjs'
-import playSound from '../utils/playSound'
-import cards from '../data/cards'
-import { cardNextStepDelay, cardTransitionDuration } from '../constants/visuals'
+import playSound from '../../utils/playSound'
+import cards from '../../data/cards'
+import { cardNextStepDelay, cardTransitionDuration } from '../../constants/visuals'
 
 export default (
   action$: ActionsObservable<RootActionType>,

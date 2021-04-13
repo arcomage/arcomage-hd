@@ -1,9 +1,9 @@
 import {
-  SWITCH_MULTIPLAYER_MODE,
-  SWITCH_MULTIPLAYER_MODE_MAIN,
+  CONNECT_TO_AND_SET_OPPONENT_ID,
+  SET_OPPONENT_ID,
   ABORT_ALL,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import {
   withLatestFrom,
   filter,
@@ -14,21 +14,21 @@ import {
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
+import { RootStateType } from '../../types/state'
 
 export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(SWITCH_MULTIPLAYER_MODE)),
+    filter(isOfType(CONNECT_TO_AND_SET_OPPONENT_ID)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
-      const { on } = action
+      const { id } = action
       return concat(
         of<RootActionType>({
-          type: SWITCH_MULTIPLAYER_MODE_MAIN,
-          on,
+          type: SET_OPPONENT_ID,
+          id,
         }),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),

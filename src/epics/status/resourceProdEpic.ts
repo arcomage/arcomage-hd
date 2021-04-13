@@ -2,14 +2,14 @@ import {
   ABORT_ALL,
   RESOURCE_PROD,
   UPDATE_STATUS,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, takeUntil, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
-import { entries } from '../utils/typeHelpers'
-import { resProdMap } from '../constants/resourceNames'
+import { RootStateType } from '../../types/state'
+import { entries } from '../../utils/typeHelpers'
+import { resProdMap } from '../../constants/resourceNames'
 import { of } from 'rxjs'
 
 export default (

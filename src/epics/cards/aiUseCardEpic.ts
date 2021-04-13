@@ -4,15 +4,15 @@ import {
   ABORT_ALL,
   USE_CARD,
   SCREEN_END,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
+import { RootStateType } from '../../types/state'
 import { EMPTY, of } from 'rxjs'
-import { ai } from '../ai'
-import { AiInstructionType } from '../types/ai'
+import { ai } from '../../ai'
+import { AiInstructionType } from '../../types/ai'
 
 export default (
   action$: ActionsObservable<RootActionType>,

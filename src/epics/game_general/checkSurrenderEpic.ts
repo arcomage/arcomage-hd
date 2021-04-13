@@ -2,15 +2,15 @@ import {
   ABORT_ALL,
   SCREEN_END,
   CHECK_SURRENDER,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import { RootStateType } from '../types/state'
+import { RootStateType } from '../../types/state'
 import { EMPTY, of } from 'rxjs'
-import { AiCardListItemType } from '../types/ai'
-import checkCardUseDiscard from '../ai/checkCardUseDiscard'
+import { AiCardListItemType } from '../../types/ai'
+import checkCardUseDiscard from '../../ai/checkCardUseDiscard'
 
 export default (
   action$: ActionsObservable<RootActionType>,
