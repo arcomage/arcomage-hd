@@ -47,6 +47,26 @@ export const i18n = {
   'Other Preferences': 'Další předvolby',
   'Cards in Hand': 'Karty v ruce',
   'AI Type': 'Typ AI',
+
+  Multiplayer: 'Více hráčů',
+  off: 'zakázáno',
+  on: 'povoleno',
+  'Your ID': 'Vaše ID',
+  "Enter your opponent's ID": 'Zadejte ID soupeře',
+  Connect: 'Připojit',
+  'Copied 📋✔️': 'Zkopírováno 📋✔️',
+
+  'Connecting to the network ⌛': 'Connecting to the network ⌛',
+  'Connected to the network ✔️': 'Connected to the network ✔️',
+  'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
+  "Connected to ID %s ✔️ You're the host 🏠":
+    "Connected to ID %s ✔️ You're the host 🏠",
+  "Connected by ID %s ✔️ You're the guest 💼":
+    "Connected by ID %s ✔️ You're the guest 💼",
+  'Connection failed ❌': 'Připojení se nezdařilo ❌',
+  'Disconnected 🔌': 'Odpojeno 🔌',
+
+  Reset: 'Reset',
   'Apply & New Game': 'Použít a nová hra',
   Cancel: 'Zrušit',
 

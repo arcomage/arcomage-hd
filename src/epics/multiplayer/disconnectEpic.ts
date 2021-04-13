@@ -1,34 +1,36 @@
 import {
-  GET_AND_SET_YOUR_ID,
-  SET_YOUR_ID,
+  DISCONNECT,
   ABORT_ALL,
+  SET_YOUR_ID,
+  ABORT_CONNECTION,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import {
-  withLatestFrom,
-  filter,
-  concatMap,
-  delay,
-  takeUntil,
-} from 'rxjs/operators'
+import { filter, concatMap, takeUntil } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
+import { nullifyPeer, peer } from '../../webrtc/peer'
 
 export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(GET_AND_SET_YOUR_ID)),
-    withLatestFrom(state$),
-    concatMap(([action, state]) => {
-      const id = '1'
+    filter(isOfType(DISCONNECT)),
+    concatMap((action) => {
+      if (peer !== null) {
+        peer.disconnect()
+        peer.destroy()
+        nullifyPeer()
+      }
       return concat(
         of<RootActionType>({
+          type: ABORT_CONNECTION,
+        }),
+        of<RootActionType>({
           type: SET_YOUR_ID,
-          id,
+          id: '',
         }),
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),

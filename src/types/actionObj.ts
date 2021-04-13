@@ -49,17 +49,23 @@ import {
   AI_USE_CARD,
   CHECK_SURRENDER,
   ABORT_ALL,
+  ABORT_CONNECTION,
   SWITCH_MULTIPLAYER_MODE,
   SWITCH_MULTIPLAYER_MODE_MAIN,
-  GET_AND_SET_YOUR_ID,
+  CONNECT_TO_NETWORK,
   SET_YOUR_ID,
-  CONNECT_TO_AND_SET_OPPONENT_ID,
+  DISCONNECT,
+  CONNECT_TO_ID,
   SET_OPPONENT_ID,
+  MULTIPLAYER_STATUS,
+  CONNECTION_LISTEN,
+  PEER_LISTEN,
 } from '../constants/ActionTypes'
 import { AvailableLangType } from '../i18n/types'
 import {
   CardStateType,
   EndScreenStateType,
+  MultiplayerStatusType,
   ownerType2,
   PersonStatusType,
   SettingsStateType,
@@ -341,6 +347,10 @@ export type AbortAllActionType = {
   type: typeof ABORT_ALL
 }
 
+export type AbortConnectionActionType = {
+  type: typeof ABORT_CONNECTION
+}
+
 export type SwitchMultiplayerModeActionType = {
   type: typeof SWITCH_MULTIPLAYER_MODE
   on: boolean
@@ -351,8 +361,13 @@ export type SwitchMultiplayerModeMainActionType = {
   on: boolean
 }
 
-export type GetAndSetYourIdActionType = {
-  type: typeof GET_AND_SET_YOUR_ID
+export type ConnectToNetworkActionType = {
+  type: typeof CONNECT_TO_NETWORK
+}
+
+export type ConnectToIdActionType = {
+  type: typeof CONNECT_TO_ID
+  id: string
 }
 
 export type SetYourIdActionType = {
@@ -360,14 +375,27 @@ export type SetYourIdActionType = {
   id: string
 }
 
-export type ConnectToAndSetOpponentIdActionType = {
-  type: typeof CONNECT_TO_AND_SET_OPPONENT_ID
-  id: string
+export type DisconnectActionType = {
+  type: typeof DISCONNECT
 }
 
 export type SetOpponentIdActionType = {
   type: typeof SET_OPPONENT_ID
   id: string
+}
+
+export type SetMultiplayerStatusActionType = {
+  type: typeof MULTIPLAYER_STATUS
+  status: MultiplayerStatusType
+}
+
+export type ConnectionListenActionType = {
+  type: typeof CONNECTION_LISTEN
+  host: boolean
+}
+
+export type PeerListenActionType = {
+  type: typeof PEER_LISTEN
 }
 
 export type RootActionType =
@@ -421,9 +449,14 @@ export type RootActionType =
   | AiUseCardActionType
   | CheckSurrenderActionType
   | AbortAllActionType
+  | AbortConnectionActionType
   | SwitchMultiplayerModeActionType
   | SwitchMultiplayerModeMainActionType
-  | GetAndSetYourIdActionType
+  | ConnectToNetworkActionType
+  | ConnectToIdActionType
   | SetYourIdActionType
-  | ConnectToAndSetOpponentIdActionType
+  | DisconnectActionType
   | SetOpponentIdActionType
+  | SetMultiplayerStatusActionType
+  | ConnectionListenActionType
+  | PeerListenActionType

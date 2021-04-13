@@ -37,3 +37,5 @@ export const numberDiffDuration = 1500
 export const maxWallOnScreen = 100
 
 export const copiedDuration = 3000
+
+export const shorterIdStartEndLength = 5

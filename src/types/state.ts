@@ -102,10 +102,20 @@ export type LangStateType = {
   erathian: boolean
 }
 
+export type MultiplayerStatusType =
+  | 'disconnected'
+  | 'connecting_net'
+  | 'connected_net'
+  | 'connecting_id'
+  | 'connected_id'
+  | 'connected_by'
+  | 'failed'
+
 export type MultiplayerStateType = {
-  mode: boolean
+  on: boolean
   yourId: string
   opponentId: string
+  status: MultiplayerStatusType
 }
 
 export type RootStateType = {

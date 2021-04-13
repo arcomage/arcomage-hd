@@ -46,6 +46,24 @@ export const i18n = {
   'Other Preferences': '其他设置',
   'Cards in Hand': '手中牌数量',
   'AI Type': 'AI类型',
+
+  Multiplayer: '多人游戏',
+  off: '停用',
+  on: '启用',
+  'Your ID': '你的ID',
+  "Enter your opponent's ID": '输入对手ID',
+  Connect: '连接',
+  'Copied 📋✔️': '已复制 📋✔️',
+
+  'Connecting to the network ⌛': '正在连接到网络 ⌛',
+  'Connected to the network ✔️': '已连接到网络 ✔️',
+  'Connecting to ID %s ⌛': '正在连接到ID %s ⌛',
+  "Connected to ID %s ✔️ You're the host 🏠": '已连接到ID %s ✔️ 你是主机 🏠',
+  "Connected by ID %s ✔️ You're the guest 💼": '已连接到ID %s ✔️ 你是客户机 💼',
+  'Connection failed ❌': '连接失败 ❌',
+  'Disconnected 🔌': '连接断开 🔌',
+
+  Reset: '重置',
   'Apply & New Game': '应用设置并新开一局',
   Cancel: '取消',
 

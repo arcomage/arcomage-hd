@@ -24,8 +24,11 @@ import screenEndEpic from './screen/screenEndEpic'
 import aiUseCardEpic from './cards/aiUseCardEpic'
 import checkSurrenderEpic from './game_general/checkSurrenderEpic'
 import switchMultiplayerModeEpic from './multiplayer/switchMultiplayerModeEpic'
-import getAndSetYourIdEpic from './multiplayer/getAndSetYourIdEpic'
-import connectToAndSetOpponentIdEpic from './multiplayer/connectToAndSetOpponentIdEpic'
+import connectToNetworkEpic from './multiplayer/connectToNetworkEpic'
+import disconnectEpic from './multiplayer/disconnectEpic'
+import connectToIdEpic from './multiplayer/connectToIdEpic'
+import connectionListenEpic from './multiplayer/connectionListenEpic'
+import peerListenEpic from './multiplayer/peerListenEpic'
 
 export type MyEpic = Epic<RootActionType, RootActionType, RootStateType>
 
@@ -52,8 +55,11 @@ const rootEpic: MyEpic = combineEpics(
   aiUseCardEpic,
   checkSurrenderEpic,
   switchMultiplayerModeEpic,
-  getAndSetYourIdEpic,
-  connectToAndSetOpponentIdEpic,
+  connectToNetworkEpic,
+  disconnectEpic,
+  connectToIdEpic,
+  connectionListenEpic,
+  peerListenEpic,
 )
 
 export default rootEpic

@@ -38,21 +38,18 @@ export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
             /* webpackChunkName: "i18n" */
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
-            /* webpackPreload: false */
             `./main/${lang}`
           ),
           import(
             /* webpackChunkName: "cardi18n" */
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
-            /* webpackPreload: false */
             `./cards/${lang}`
           ),
           import(
             /* webpackChunkName: "taverni18n" */
             /* webpackMode: "lazy" */
             /* webpackPrefetch: true */
-            /* webpackPreload: false */
             `./taverns/${lang}`
           ),
         ])

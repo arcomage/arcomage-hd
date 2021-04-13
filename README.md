@@ -60,6 +60,7 @@ Browsers based on Chrome's engine (Blink or WebKit) and good for ArcoMage HD (as
 * QQ \*
 * Sogou \*
 * Baidu \*
+* WeChat's browser
 * Yandex Browser \*
 * UC Browser \*
 * CM Browser \*

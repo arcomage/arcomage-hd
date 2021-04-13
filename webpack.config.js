@@ -26,6 +26,9 @@ module.exports = (env, argv) => {
     devServer: {
       port: 8080,
       open: true,
+      stats: {
+        performance: false,
+      },
     },
     resolve: {
       extensions: [
@@ -187,7 +190,8 @@ module.exports = (env, argv) => {
     ],
     optimization: {
       splitChunks: {
-        maxSize: 0,
+        chunks: 'all',
+        maxSize: 20000,
       },
     },
   }

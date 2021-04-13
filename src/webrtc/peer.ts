@@ -11,4 +11,20 @@ const config = {
   ],
 }
 
-export const initPeer = () => new Peer(config)
+export let peer: Peer | null = null
+
+type ConnectionType = {
+  current: Peer.DataConnection | null
+}
+export let connection: ConnectionType = {
+  current: null,
+}
+;(window as any).conn = connection
+
+export const initPeer = () => {
+  peer = new Peer(config)
+}
+
+export const nullifyPeer = () => {
+  peer = null
+}

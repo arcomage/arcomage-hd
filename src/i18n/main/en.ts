@@ -47,15 +47,24 @@ export const i18n = {
   'Other Preferences': 'Other Preferences',
   'Cards in Hand': 'Cards in Hand',
   'AI Type': 'AI Type',
-  'Multiplayer Mode': 'Multiplayer Mode',
+
+  Multiplayer: 'Multiplayer',
   off: 'off',
   on: 'on',
   'Your ID': 'Your ID',
   "Enter your opponent's ID": "Enter your opponent's ID",
   Connect: 'Connect',
   'Copied 📋✔️': 'Copied 📋✔️',
+
+  'Connecting to the network ⌛': 'Connecting to the network ⌛',
+  'Connected to the network ✔️': 'Connected to the network ✔️',
   'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
-  'Connected to ID %s ✔️': 'Connected to ID %s ✔️',
+  "Connected to ID %s ✔️ You're the host 🏠":
+    "Connected to ID %s ✔️ You're the host 🏠",
+  "Connected by ID %s ✔️ You're the guest 💼":
+    "Connected by ID %s ✔️ You're the guest 💼",
+  'Connection failed ❌': 'Connection failed ❌',
+  'Disconnected 🔌': 'Disconnected 🔌',
 
   Reset: 'Reset',
   'Apply & New Game': 'Apply & New Game',

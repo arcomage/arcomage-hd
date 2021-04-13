@@ -21,6 +21,7 @@ const Help = () => {
         case '%s':
           arr1[i] = (
             <a
+              key={item}
               href="https://github.com/arcomage/arcomage-hd"
               target="_blank"
               rel="noopener noreferrer"
@@ -32,6 +33,7 @@ const Help = () => {
         case '%s1':
           arr1[i] = (
             <a
+              key={item}
               href={tutorialImageUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -43,6 +45,7 @@ const Help = () => {
         case '%s2':
           arr1[i] = (
             <a
+              key={item}
               href="https://github.com/tomchen"
               target="_blank"
               rel="noopener noreferrer"

@@ -187,19 +187,28 @@
 
     button {
       @apply transition-colors duration-500 font-bold text-base py-2 px-4 border-b-4 rounded mb-1 bg-gray-500 hover:bg-gray-400 border-gray-700 hover:border-gray-500;
-      &.warning {
+      &:disabled {
+        @apply hover:bg-gray-500 hover:border-gray-700;
+      }
+      &.warning:enabled {
         @apply bg-red-500 hover:bg-red-400 border-red-700 hover:border-red-500;
       }
-      &.active {
+      &.active:enabled {
         @apply bg-green-500 hover:bg-green-400 border-green-700 hover:border-green-500 border-b-0;
       }
-      &.highlight {
+      &.highlight:enabled {
         @apply bg-yellow-600 hover:bg-yellow-500 border-yellow-700 hover:border-yellow-600;
       }
-      &.cancel {
+      &.cancel:enabled {
         @apply bg-red-500 hover:bg-red-400 border-red-700 hover:border-red-500 absolute w-12 h-12 -top-6 -right-6 bg-no-repeat bg-contain bg-center;
         background-image: url('../assets/img/x.svg');
       }
+    }
+
+    input[type='text']:disabled,
+    input[type='number']:disabled,
+    select:disabled {
+      @apply text-gray-500 cursor-auto;
     }
 
     a {
