@@ -19,6 +19,8 @@ type ConnectionType = {
 export let connection: ConnectionType = {
   current: null,
 }
+
+// to delete
 ;(window as any).conn = connection
 
 export const initPeer = () => {

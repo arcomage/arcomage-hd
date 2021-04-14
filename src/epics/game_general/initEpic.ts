@@ -1,28 +1,10 @@
-import {
-  INIT,
-  INIT_CARD,
-  INIT_GAME,
-  INIT_STATUS,
-  DRAW_CARD,
-  RESOURCE_PROD,
-  ABORT_ALL,
-} from '../../constants/ActionTypes'
+import { INIT, INIT_NO_EFFECT, ABORT_ALL } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import {
-  withLatestFrom,
-  filter,
-  concatMap,
-  delay,
-  takeUntil,
-} from 'rxjs/operators'
-import { of, concat } from 'rxjs'
+import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
+import { of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
-import {
-  CardListItemAllType,
-  CardStateType,
-  RootStateType,
-} from '../../types/state'
+import { CardListItemAllType, RootStateType } from '../../types/state'
 import { randomWithProbs } from '../../utils/randomWithProbs'
 
 export default (
@@ -34,13 +16,8 @@ export default (
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       const playersTurn = Math.random() < 0.5
-
+      const cardList: CardListItemAllType[] = []
       const total = state.settings.cardsInHand
-      const obj: CardStateType = {
-        total: { player: total, opponent: total },
-        list: [],
-        nextPos: { player: total, opponent: total },
-      }
       for (let i = 0, l = total * 2; i < l; i++) {
         const card: CardListItemAllType = {
           position: i % total,
@@ -51,29 +28,13 @@ export default (
           zeroOpacity: false,
           owner: i < total ? 'player' : 'opponent',
         }
-        obj.list.push(card)
+        cardList.push(card)
       }
 
-      return concat(
-        of<RootActionType>({
-          type: INIT_CARD,
-          payload: obj,
-        }),
-        of<RootActionType>({
-          type: INIT_GAME,
-          playersTurn,
-        }),
-        of<RootActionType>({
-          type: INIT_STATUS,
-          payload: state.settings.start,
-        }),
-        of<RootActionType>({
-          type: RESOURCE_PROD,
-          owner: playersTurn ? 'player' : 'opponent',
-        }),
-        of<RootActionType>({
-          type: DRAW_CARD,
-        }).pipe(delay(0)),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      return of<RootActionType>({
+        type: INIT_NO_EFFECT,
+        playersTurn,
+        cardList,
+      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

@@ -4,6 +4,7 @@ import {
   ABORT_CONNECTION,
   MULTIPLAYER_STATUS,
   SET_OPPONENT_ID,
+  RECEIVE,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import {
@@ -42,7 +43,10 @@ export default (
             // if (action.host) {
             //   conn.send(`host says hello!`)
             // }
-            return concat(EMPTY)
+            return of<RootActionType>({
+              type: RECEIVE,
+              data,
+            })
           }),
         ),
         fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'open').pipe(
@@ -55,7 +59,7 @@ export default (
                 }),
                 of<RootActionType>({
                   type: MULTIPLAYER_STATUS,
-                  status: 'connected_by',
+                  status: 'connected_by_id',
                 }),
               )
               // conn.send('guest says hello!')

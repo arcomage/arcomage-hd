@@ -22,12 +22,14 @@ import {
   UPDATE_SETTINGS,
   UPDATE_SETTINGS_MAIN,
   INIT,
+  INIT_NO_EFFECT,
   UPDATE_SETTINGS_AND_INIT,
   READLS_UPDATESTORE_INIT,
   INIT_CARD,
   INIT_GAME,
   INIT_STATUS,
   DRAW_CARD,
+  DRAW_CARD_NO_EFFECT,
   SWITCH_TURN,
   DRAW_CARD_MAIN,
   DRAW_CARD_PRE,
@@ -60,9 +62,13 @@ import {
   MULTIPLAYER_STATUS,
   CONNECTION_LISTEN,
   PEER_LISTEN,
+  SEND,
+  SEND_STATE,
+  RECEIVE,
 } from '../constants/ActionTypes'
 import { AvailableLangType } from '../i18n/types'
 import {
+  CardListItemAllType,
   CardStateType,
   EndScreenStateType,
   MultiplayerStatusType,
@@ -152,6 +158,11 @@ export type UseCardActionType = {
 
 export type DrawCardActionType = {
   type: typeof DRAW_CARD
+}
+
+export type DrawCardNoEffectActionType = {
+  type: typeof DRAW_CARD_NO_EFFECT
+  n: number
 }
 
 export type DrawCardPreActionType = {
@@ -249,6 +260,12 @@ export type UpdateSettingsMainActionType = {
 
 export type InitActionType = {
   type: typeof INIT
+}
+
+export type InitNoEffectActionType = {
+  type: typeof INIT_NO_EFFECT
+  playersTurn: boolean
+  cardList: CardListItemAllType[]
 }
 
 export type InitCardActionType = {
@@ -398,6 +415,20 @@ export type PeerListenActionType = {
   type: typeof PEER_LISTEN
 }
 
+export type SendActionType = {
+  type: typeof SEND
+  data: any
+}
+
+export type SendStateActionType = {
+  type: typeof SEND_STATE
+}
+
+export type ReceiveActionType = {
+  type: typeof RECEIVE
+  data: any
+}
+
 export type RootActionType =
   | UpdateLangActionType
   | UpdateLangMainActionType
@@ -410,6 +441,7 @@ export type RootActionType =
   | ExecCardActionType
   | UseCardActionType
   | DrawCardActionType
+  | DrawCardNoEffectActionType
   | DrawCardPreActionType
   | DrawCardMainActionType
   | ClearCardActionType
@@ -429,6 +461,7 @@ export type RootActionType =
   | UpdateSettingsActionType
   | UpdateSettingsMainActionType
   | InitActionType
+  | InitNoEffectActionType
   | InitCardActionType
   | InitGameActionType
   | InitStatusActionType
@@ -460,3 +493,6 @@ export type RootActionType =
   | SetMultiplayerStatusActionType
   | ConnectionListenActionType
   | PeerListenActionType
+  | SendActionType
+  | SendStateActionType
+  | ReceiveActionType

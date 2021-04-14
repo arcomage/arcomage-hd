@@ -38,7 +38,7 @@ export const i18n = {
   ': ': '：',
   'Your Name': '你的名字',
   "Opponent's Name": '对手名字',
-  'Choose a Tavern (Preset Preferences)': '选择酒馆（预设偏好）',
+  'Choose a Tavern (Preset Preferences)': '选择酒馆（预设设置）',
   Default: '默认',
   Customized: '自定义',
   'Starting Conditions': '起始条件',

@@ -23,12 +23,14 @@ export const REMOVE_CARD = 'REMOVE_CARD' as const
 export const DISCARD_CARD = 'DISCARD_CARD' as const
 export const ADD_DISCARDED_TAG = 'ADD_DISCARDED_TAG' as const
 export const DRAW_CARD = 'DRAW_CARD' as const
+export const DRAW_CARD_NO_EFFECT = 'DRAW_CARD_NO_EFFECT' as const
 export const DRAW_CARD_PRE = 'DRAW_CARD_PRE' as const
 export const DRAW_CARD_MAIN = 'DRAW_CARD_MAIN' as const
 export const UPDATE_SETTINGS_AND_INIT = 'UPDATE_SETTINGS_AND_INIT' as const
 export const UPDATE_SETTINGS = 'UPDATE_SETTINGS' as const
 export const UPDATE_SETTINGS_MAIN = 'UPDATE_SETTINGS_MAIN' as const
 export const INIT = 'INIT' as const
+export const INIT_NO_EFFECT = 'INIT_NO_EFFECT' as const
 export const INIT_CARD = 'INIT_CARD' as const
 export const INIT_GAME = 'INIT_GAME' as const
 export const INIT_STATUS = 'INIT_STATUS' as const
@@ -76,3 +78,8 @@ export const MULTIPLAYER_STATUS = 'MULTIPLAYER_STATUS' as const
 
 export const CONNECTION_LISTEN = 'CONNECTION_LISTEN' as const
 export const PEER_LISTEN = 'PEER_LISTEN' as const
+
+export const SEND = 'SEND' as const
+export const SEND_STATE = 'SEND_STATE' as const
+
+export const RECEIVE = 'RECEIVE' as const

@@ -106,9 +106,9 @@ export type MultiplayerStatusType =
   | 'disconnected'
   | 'connecting_net'
   | 'connected_net'
-  | 'connecting_id'
-  | 'connected_id'
-  | 'connected_by'
+  | 'connecting_to_id'
+  | 'connected_to_id'
+  | 'connected_by_id'
   | 'failed'
 
 export type MultiplayerStateType = {
@@ -127,4 +127,11 @@ export type RootStateType = {
   settings: SettingsStateType
   screen: ScreenStateType
   volume: number
+}
+
+export type ExchangeStateType = {
+  status: StatusType
+  cards: CardStateType
+  game: GameStateType
+  settings: SettingsStateType
 }

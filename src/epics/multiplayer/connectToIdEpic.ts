@@ -45,14 +45,14 @@ export default (
       return merge(
         of<RootActionType>({
           type: MULTIPLAYER_STATUS,
-          status: 'connecting_id',
+          status: 'connecting_to_id',
         }),
         from(connectToPeerId).pipe(
           concatMap((conn) =>
             concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
-                status: 'connected_id',
+                status: 'connected_to_id',
               }),
               of<RootActionType>({
                 type: SET_OPPONENT_ID,

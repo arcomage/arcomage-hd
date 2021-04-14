@@ -16,6 +16,7 @@ import {
   SCREEN_PREF,
   SWITCH_MULTIPLAYER_MODE,
   CONNECT_TO_ID,
+  SEND_STATE,
 } from '../../constants/ActionTypes'
 import { I18nContext, upper1st } from '../../i18n/I18nContext'
 import { preSettings } from '../../constants/preSettings'
@@ -136,6 +137,12 @@ const Pref = () => {
       type: UPDATE_SETTINGS_AND_INIT,
       payload,
     })
+
+    if (isHost) {
+      dispatch({
+        type: SEND_STATE,
+      })
+    }
   }
 
   const [preset, setPreset] = useState<number>(-10)
@@ -257,7 +264,7 @@ const Pref = () => {
       notification = _.i18n('Connected to the network ✔️')
       break
 
-    case 'connecting_id': {
+    case 'connecting_to_id': {
       const id = opponentIdInStore
       const shorterId = `${id.substring(
         0,
@@ -267,7 +274,7 @@ const Pref = () => {
       break
     }
 
-    case 'connected_id': {
+    case 'connected_to_id': {
       const id = opponentIdInStore
       const shorterId = `${id.substring(
         0,
@@ -280,7 +287,7 @@ const Pref = () => {
       break
     }
 
-    case 'connected_by': {
+    case 'connected_by_id': {
       const id = opponentIdInStore
       const shorterId = `${id.substring(
         0,
@@ -304,11 +311,15 @@ const Pref = () => {
       break
   }
 
-  const isGuest = isMultiplayer && multiplayerStatus === 'connected_by'
+  const isGuest = isMultiplayer && multiplayerStatus === 'connected_by_id'
+  const isHost = isMultiplayer && multiplayerStatus === 'connected_to_id'
 
   return (
     <Window ScreenActionType={SCREEN_PREF}>
-      <h3>{_.i18n('Preferences')}</h3>
+      <h3>
+        {_.i18n('Preferences')}
+        {_.i18n(': ')}
+      </h3>
 
       <div className="two-column half">
         <label>
@@ -338,7 +349,7 @@ const Pref = () => {
             type="text"
             name="opponentName"
             id="opponentName"
-            disabled={isGuest}
+            disabled={isGuest || isHost}
             value={formFields.opponentName}
             onChange={handleChange}
             onFocus={(e) => {
@@ -374,9 +385,12 @@ const Pref = () => {
         </select>
       </label>
 
-      <h4>{_.i18n('Starting Conditions')}</h4>
+      <h4>
+        {_.i18n('Starting Conditions')}
+        {_.i18n(': ')}
+      </h4>
 
-      <div className="two-column">
+      <div className="four-column">
         <label>
           <span>{upper1st(_.i18n('tower'))}</span>
           <input
@@ -390,21 +404,6 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span>{upper1st(_.i18n('wall'))}</span>
-          <input
-            type="number"
-            name="wall"
-            id="wall"
-            min="0"
-            disabled={isGuest}
-            value={formFields.wall}
-            onChange={handleChange}
-          />
-        </label>
-      </div>
-
-      <div className="two-column">
-        <label>
           <span>{upper1st(_.i18n('bricks'))}</span>
           <input
             type="number"
@@ -413,6 +412,45 @@ const Pref = () => {
             min="0"
             disabled={isGuest}
             value={formFields.bricks}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          <span>{upper1st(_.i18n('gems'))}</span>
+          <input
+            type="number"
+            name="gems"
+            id="gems"
+            min="0"
+            disabled={isGuest}
+            value={formFields.gems}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          <span>{upper1st(_.i18n('recruits'))}</span>
+          <input
+            type="number"
+            name="recruits"
+            id="recruits"
+            min="0"
+            disabled={isGuest}
+            value={formFields.recruits}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+
+      <div className="four-column">
+        <label>
+          <span>{upper1st(_.i18n('wall'))}</span>
+          <input
+            type="number"
+            name="wall"
+            id="wall"
+            min="0"
+            disabled={isGuest}
+            value={formFields.wall}
             onChange={handleChange}
           />
         </label>
@@ -428,21 +466,6 @@ const Pref = () => {
             onChange={handleChange}
           />
         </label>
-      </div>
-
-      <div className="two-column">
-        <label>
-          <span>{upper1st(_.i18n('gems'))}</span>
-          <input
-            type="number"
-            name="gems"
-            id="gems"
-            min="0"
-            disabled={isGuest}
-            value={formFields.gems}
-            onChange={handleChange}
-          />
-        </label>
         <label>
           <span>{upper1st(_.i18n('magic'))}</span>
           <input
@@ -452,21 +475,6 @@ const Pref = () => {
             min="1"
             disabled={isGuest}
             value={formFields.gemProd}
-            onChange={handleChange}
-          />
-        </label>
-      </div>
-
-      <div className="two-column">
-        <label>
-          <span>{upper1st(_.i18n('recruits'))}</span>
-          <input
-            type="number"
-            name="recruits"
-            id="recruits"
-            min="0"
-            disabled={isGuest}
-            value={formFields.recruits}
             onChange={handleChange}
           />
         </label>
@@ -484,7 +492,10 @@ const Pref = () => {
         </label>
       </div>
 
-      <h4>{_.i18n('Victory Conditions')}</h4>
+      <h4>
+        {_.i18n('Victory Conditions')}
+        {_.i18n(': ')}
+      </h4>
       <div className="two-column">
         <label>
           <span>{upper1st(_.i18n('tower'))}</span>
@@ -518,7 +529,10 @@ const Pref = () => {
         </label>
       </div>
 
-      <h4>{_.i18n('Other Preferences')}</h4>
+      <h4>
+        {_.i18n('Other Preferences')}
+        {_.i18n(': ')}
+      </h4>
       <label className="one-colume">
         <span>{_.i18n('Cards in Hand')}</span>
         <input
@@ -608,9 +622,9 @@ const Pref = () => {
             disabled={
               !isMultiplayer ||
               multiplayerStatus === 'connecting_net' ||
-              multiplayerStatus === 'connecting_id' ||
-              multiplayerStatus === 'connected_id' ||
-              multiplayerStatus === 'connected_by'
+              multiplayerStatus === 'connecting_to_id' ||
+              multiplayerStatus === 'connected_to_id' ||
+              multiplayerStatus === 'connected_by_id'
             }
             type="text"
             name="opponentId"
@@ -623,9 +637,9 @@ const Pref = () => {
           disabled={
             !isMultiplayer ||
             multiplayerStatus === 'connecting_net' ||
-            multiplayerStatus === 'connecting_id' ||
-            multiplayerStatus === 'connected_id' ||
-            multiplayerStatus === 'connected_by'
+            multiplayerStatus === 'connecting_to_id' ||
+            multiplayerStatus === 'connected_to_id' ||
+            multiplayerStatus === 'connected_by_id'
           }
           className="highlight"
           onClick={(e) => {
