@@ -12,7 +12,7 @@ import { of, concat, from, merge } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { initPeer, peer } from '../../webrtc/peer'
+import { initPeer, peerAll } from '../../webrtc/peer'
 
 // connect to the network, get your ID, and set your ID in the store
 
@@ -25,6 +25,7 @@ export default (
     concatMap((action) => {
       const getPeerId: Promise<string> = new Promise((resolve, reject) => {
         initPeer()
+        const { peer } = peerAll
         if (peer !== null) {
           peer.on('open', (id) => {
             resolve(id)
@@ -63,10 +64,6 @@ export default (
             }),
           ),
         ),
-      ).pipe(
-        takeUntil(
-          merge(action$.ofType(ABORT_CONNECTION), action$.ofType(ABORT_ALL)),
-        ),
-      )
+      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
     }),
   )

@@ -23,7 +23,7 @@ import {
   UPDATE_SETTINGS_MAIN,
   INIT,
   INIT_NO_EFFECT,
-  UPDATE_SETTINGS_AND_INIT,
+  UPDATE_SETTINGS_INIT,
   READLS_UPDATESTORE_INIT,
   INIT_CARD,
   INIT_GAME,
@@ -60,10 +60,13 @@ import {
   CONNECT_TO_ID,
   SET_OPPONENT_ID,
   MULTIPLAYER_STATUS,
+  SET_TEMP_FORM_FIELDS,
   CONNECTION_LISTEN,
   PEER_LISTEN,
   SEND,
-  SEND_STATE,
+  SEND_SETTINGS,
+  SEND_FORM_FIELDS,
+  ABORT_SEND_FORM_FIELDS,
   RECEIVE,
 } from '../constants/ActionTypes'
 import { AvailableLangType } from '../i18n/types'
@@ -75,7 +78,10 @@ import {
   ownerType2,
   PersonStatusType,
   SettingsStateType,
+  SettingsStateAllPartialType,
 } from '../types/state'
+import { InstructionConnDataType } from './connData'
+import { FormFieldsAllPartialType } from './formFields'
 
 export type UpdateLangActionType = {
   type: typeof UPDATE_LANG
@@ -250,12 +256,12 @@ export type SwitchLockActionType = {
 
 export type UpdateSettingsActionType = {
   type: typeof UPDATE_SETTINGS
-  payload: SettingsStateType
+  payload: SettingsStateAllPartialType
 }
 
 export type UpdateSettingsMainActionType = {
   type: typeof UPDATE_SETTINGS_MAIN
-  payload: SettingsStateType
+  payload: SettingsStateAllPartialType
 }
 
 export type InitActionType = {
@@ -283,8 +289,8 @@ export type InitStatusActionType = {
   payload: PersonStatusType
 }
 
-export type UpdateSettingsAndInitActionType = {
-  type: typeof UPDATE_SETTINGS_AND_INIT
+export type UpdateSettingsInitActionType = {
+  type: typeof UPDATE_SETTINGS_INIT
   payload: SettingsStateType
 }
 
@@ -406,6 +412,11 @@ export type SetMultiplayerStatusActionType = {
   status: MultiplayerStatusType
 }
 
+export type SetTempFormFieldsActionType = {
+  type: typeof SET_TEMP_FORM_FIELDS
+  payload: FormFieldsAllPartialType | null
+}
+
 export type ConnectionListenActionType = {
   type: typeof CONNECTION_LISTEN
   host: boolean
@@ -417,16 +428,25 @@ export type PeerListenActionType = {
 
 export type SendActionType = {
   type: typeof SEND
-  data: any
+} & InstructionConnDataType
+
+export type SendSettingsActionType = {
+  type: typeof SEND_SETTINGS
+  payload: SettingsStateAllPartialType
 }
 
-export type SendStateActionType = {
-  type: typeof SEND_STATE
+export type SendFormFieldsActionType = {
+  type: typeof SEND_FORM_FIELDS
+  payload: FormFieldsAllPartialType
+}
+
+export type AbortSendFormFieldsActionType = {
+  type: typeof ABORT_SEND_FORM_FIELDS
 }
 
 export type ReceiveActionType = {
   type: typeof RECEIVE
-  data: any
+  data: string
 }
 
 export type RootActionType =
@@ -465,7 +485,7 @@ export type RootActionType =
   | InitCardActionType
   | InitGameActionType
   | InitStatusActionType
-  | UpdateSettingsAndInitActionType
+  | UpdateSettingsInitActionType
   | ReadlsUpdatestoreInitActionType
   | SwitchDiscardModeActionType
   | CheckUnusableActionType
@@ -491,8 +511,11 @@ export type RootActionType =
   | DisconnectActionType
   | SetOpponentIdActionType
   | SetMultiplayerStatusActionType
+  | SetTempFormFieldsActionType
   | ConnectionListenActionType
   | PeerListenActionType
   | SendActionType
-  | SendStateActionType
+  | SendSettingsActionType
+  | SendFormFieldsActionType
+  | AbortSendFormFieldsActionType
   | ReceiveActionType

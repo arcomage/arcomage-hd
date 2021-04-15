@@ -11,7 +11,7 @@ import execCardEpic from './cards/execCardEpic'
 import useCardEpic from './cards/useCardEpic'
 import discardCardEpic from './cards/discardCardEpic'
 import moveCardToTopEpic from './cards/moveCardToTopEpic'
-import changeSettingsAndInitEpic from './settings_lang_etc/changeSettingsAndInitEpic'
+import updateSettingsInitEpic from './settings_lang_etc/updateSettingsInitEpic'
 import readlsUpdatestoreInitEpic from './settings_lang_etc/readlsUpdatestoreInitEpic'
 import initEpic from './game_general/initEpic'
 import initNoEffectEpic from './game_general/initNoEffectEpic'
@@ -32,7 +32,8 @@ import connectToIdEpic from './multiplayer/connectToIdEpic'
 import connectionListenEpic from './multiplayer/connectionListenEpic'
 import peerListenEpic from './multiplayer/peerListenEpic'
 import sendEpic from './multiplayer/sendEpic'
-import sendStateEpic from './multiplayer/sendStateEpic'
+import sendSettingsEpic from './multiplayer/sendSettingsEpic'
+import sendFormFieldsEpic from './multiplayer/sendFormFieldsEpic'
 import receiveEpic from './multiplayer/receiveEpic'
 
 export type MyEpic = Epic<RootActionType, RootActionType, RootStateType>
@@ -47,7 +48,7 @@ const rootEpic: MyEpic = combineEpics(
   useCardEpic,
   discardCardEpic,
   moveCardToTopEpic,
-  changeSettingsAndInitEpic,
+  updateSettingsInitEpic,
   readlsUpdatestoreInitEpic,
   initEpic,
   initNoEffectEpic,
@@ -68,7 +69,8 @@ const rootEpic: MyEpic = combineEpics(
   connectionListenEpic,
   peerListenEpic,
   sendEpic,
-  sendStateEpic,
+  sendSettingsEpic,
+  sendFormFieldsEpic,
   receiveEpic,
 )
 

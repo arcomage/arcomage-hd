@@ -1,7 +1,6 @@
 import {
   CONNECT_TO_ID,
   SET_OPPONENT_ID,
-  ABORT_ALL,
   MULTIPLAYER_STATUS,
   CONNECTION_LISTEN,
   ABORT_CONNECTION,
@@ -12,8 +11,9 @@ import { of, concat, merge, from, EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { connection, peer } from '../../webrtc/peer'
+import { peerAll } from '../../webrtc/peer'
 import Peer from 'peerjs'
+import { connBaseRetryTime, connRetryTimes } from '../../constants/visuals'
 
 // connect to opponent ID, and set opponent ID in the store
 
@@ -24,31 +24,55 @@ export default (
   action$.pipe(
     filter(isOfType(CONNECT_TO_ID)),
     concatMap((action) => {
+      const { peer } = peerAll
       if (peer === null) {
         return EMPTY
       }
-      const connectToPeerId: Promise<Peer.DataConnection> = new Promise(
-        (resolve, reject) => {
-          if (peer !== null) {
-            let conn = peer.connect(action.id)
-            connection.current = conn
+      const connectToPeerId: Promise<null> = new Promise((resolve, reject) => {
+        if (peer !== null) {
+          let conn: Peer.DataConnection | null = null
+          let timer: NodeJS.Timeout | null = null
+          let tryTimes = 0
+          const loop = () => {
+            if (tryTimes > connRetryTimes) {
+              if (conn !== null) {
+                conn.close()
+              }
+              reject(false)
+            }
+            tryTimes += 1
+            if (conn === null || (conn !== null && !conn.open)) {
+              if (conn !== null) {
+                conn.close()
+              }
+              conn = peer.connect(action.id)
+              peerAll.conn = conn
+            }
+            timer = setTimeout(loop, connBaseRetryTime * tryTimes)
             conn.on('open', () => {
               // conn.send('hi!')
-              resolve(conn)
-            })
-            peer.on('error', (error) => {
-              reject(error)
+              if (timer !== null) {
+                clearTimeout(timer)
+              }
+              resolve(null)
             })
           }
-        },
-      )
+          loop()
+          peer.on('error', (error) => {
+            if (conn !== null) {
+              conn.close()
+            }
+            reject(error)
+          })
+        }
+      })
       return merge(
         of<RootActionType>({
           type: MULTIPLAYER_STATUS,
           status: 'connecting_to_id',
         }),
         from(connectToPeerId).pipe(
-          concatMap((conn) =>
+          concatMap((_) =>
             concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
@@ -71,10 +95,6 @@ export default (
             }),
           ),
         ),
-      ).pipe(
-        takeUntil(
-          merge(action$.ofType(ABORT_CONNECTION), action$.ofType(ABORT_ALL)),
-        ),
-      )
+      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
     }),
   )

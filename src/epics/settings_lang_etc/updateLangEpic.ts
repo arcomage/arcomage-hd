@@ -27,11 +27,9 @@ export default (
           draft.lang.code = lang
         }
       })
-      return concat(
-        of<RootActionType>({
-          type: UPDATE_LANG_MAIN,
-          lang,
-        }),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      return of<RootActionType>({
+        type: UPDATE_LANG_MAIN,
+        lang,
+      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

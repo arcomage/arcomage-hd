@@ -1,24 +1,17 @@
 import {
   CONNECTION_LISTEN,
-  ABORT_ALL,
   ABORT_CONNECTION,
   MULTIPLAYER_STATUS,
   SET_OPPONENT_ID,
   RECEIVE,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import {
-  filter,
-  concatMap,
-  takeUntil,
-  switchMap,
-  withLatestFrom,
-} from 'rxjs/operators'
+import { filter, concatMap, takeUntil, switchMap } from 'rxjs/operators'
 import { concat, merge, EMPTY, fromEvent, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { connection } from '../../webrtc/peer'
+import { peerAll } from '../../webrtc/peer'
 import { JQueryStyleEventEmitter } from 'rxjs/internal/observable/fromEvent'
 
 export default (
@@ -28,7 +21,7 @@ export default (
   action$.pipe(
     filter(isOfType(CONNECTION_LISTEN)),
     switchMap((action) => {
-      const conn = connection.current
+      const { conn } = peerAll
       const type = action.host ? 'host' : 'guest'
       if (conn === null) {
         return EMPTY
@@ -64,7 +57,7 @@ export default (
               )
               // conn.send('guest says hello!')
             }
-            return concat(EMPTY)
+            return EMPTY
           }),
         ),
         fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'close').pipe(
@@ -77,10 +70,12 @@ export default (
             )
           }),
         ),
-      ).pipe(
-        takeUntil(
-          merge(action$.ofType(ABORT_CONNECTION), action$.ofType(ABORT_ALL)),
+        fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'error').pipe(
+          concatMap(() => {
+            console.log('error')
+            return EMPTY
+          }),
         ),
-      )
+      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
     }),
   )

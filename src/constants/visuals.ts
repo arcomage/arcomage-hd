@@ -39,3 +39,9 @@ export const maxWallOnScreen = 100
 export const copiedDuration = 3000
 
 export const shorterIdStartEndLength = 5
+
+export const connBaseRetryTime = 4000
+
+export const connRetryTimes = 5
+
+export const sendSettingsDebounceTime = 500

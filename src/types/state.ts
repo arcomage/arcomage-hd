@@ -1,4 +1,5 @@
 import { AvailableLangType } from '../i18n/types'
+import { FormFieldsAllPartialType } from './formFields'
 
 export type PersonStatusType = {
   bricks: number
@@ -53,26 +54,29 @@ export type GameStateType = {
 }
 
 export type WinSettingsType = {
-  tower: number
-  resource: number
+  winTower: number
+  winResource: number
 }
 
-export type SettingsBaseType = {
-  start: PersonStatusType
-  win: WinSettingsType
-  cardsInHand: number
-  aiType?: number
-}
+export type SettingsBaseType = PersonStatusType &
+  WinSettingsType & {
+    cardsInHand: number
+    // aiType?: number
+  }
 
 export type SettingsType = SettingsBaseType & {
   tavern?: string
   location?: string
 }
 
-export type SettingsStateType = SettingsBaseType & {
+export type SettingsStateNameType = {
   playerName: string
   opponentName: string
 }
+
+export type SettingsStateType = SettingsBaseType & SettingsStateNameType
+
+export type SettingsStateAllPartialType = Partial<SettingsStateType>
 
 export type EndScreenStateType = {
   type: 'win' | 'tie' | 'lose' | null // null = close screen
@@ -116,6 +120,7 @@ export type MultiplayerStateType = {
   yourId: string
   opponentId: string
   status: MultiplayerStatusType
+  tempFormFields: FormFieldsAllPartialType
 }
 
 export type RootStateType = {
@@ -133,5 +138,5 @@ export type ExchangeStateType = {
   status: StatusType
   cards: CardStateType
   game: GameStateType
-  settings: SettingsStateType
+  settings: SettingsStateAllPartialType
 }

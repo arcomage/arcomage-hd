@@ -2,12 +2,7 @@ import produce from 'immer'
 import { INIT_STATUS, UPDATE_STATUS_MAIN } from '../constants/ActionTypes'
 import { StatusType } from '../types/state'
 import { RootActionType } from '../types/actionObj'
-import { defaultSettings } from '../constants/defaultSettings'
-
-const defaultStatus: StatusType = {
-  player: { ...defaultSettings.start },
-  opponent: { ...defaultSettings.start },
-}
+import { defaultStatus } from '../constants/defaultSettings'
 
 const status = produce((draft: StatusType, action: RootActionType) => {
   switch (action.type) {

@@ -10,7 +10,7 @@ import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { nullifyPeer, peer } from '../../webrtc/peer'
+import { nullifyPeer, peerAll } from '../../webrtc/peer'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -19,6 +19,7 @@ export default (
   action$.pipe(
     filter(isOfType(DISCONNECT)),
     concatMap((action) => {
+      const { peer } = peerAll
       if (peer !== null) {
         peer.disconnect()
         peer.destroy()
@@ -32,6 +33,6 @@ export default (
           type: SET_YOUR_ID,
           id: '',
         }),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      )
     }),
   )

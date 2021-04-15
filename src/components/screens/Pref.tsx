@@ -12,11 +12,11 @@ import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
 import Window from './Window'
 
 import {
-  UPDATE_SETTINGS_AND_INIT,
+  UPDATE_SETTINGS_INIT,
   SCREEN_PREF,
   SWITCH_MULTIPLAYER_MODE,
   CONNECT_TO_ID,
-  SEND_STATE,
+  SEND_FORM_FIELDS,
 } from '../../constants/ActionTypes'
 import { I18nContext, upper1st } from '../../i18n/I18nContext'
 import { preSettings } from '../../constants/preSettings'
@@ -30,6 +30,15 @@ import {
   copiedDuration,
   shorterIdStartEndLength,
 } from '../../constants/visuals'
+import {
+  allStatusNames,
+  otherSettingNames,
+  poNames,
+} from '../../constants/resourceNames'
+import {
+  FormFieldsType,
+  FormFieldsAllPartialType,
+} from '../../types/formFields'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -42,45 +51,47 @@ const Pref = () => {
   const yourId = useAppSelector((state) => state.multiplayer.yourId)
   const multiplayerStatus = useAppSelector((state) => state.multiplayer.status)
 
-  const opponentIdInStore = useAppSelector(
-    (state) => state.multiplayer.opponentId,
+  const tempFormFieldStore = useAppSelector(
+    (state) => state.multiplayer.tempFormFields,
   )
 
-  const [formFields, setFormFields] = useState({
+  const settingStore = {
     playerName: useAppSelector((state) => state.settings.playerName),
     opponentName: useAppSelector((state) => state.settings.opponentName),
 
-    tower: useAppSelector((state) => state.settings.start.tower),
-    wall: useAppSelector((state) => state.settings.start.wall),
-    bricks: useAppSelector((state) => state.settings.start.bricks),
-    gems: useAppSelector((state) => state.settings.start.gems),
-    recruits: useAppSelector((state) => state.settings.start.recruits),
-    brickProd: useAppSelector((state) => state.settings.start.brickProd),
-    gemProd: useAppSelector((state) => state.settings.start.gemProd),
-    recruitProd: useAppSelector((state) => state.settings.start.recruitProd),
+    tower: useAppSelector((state) => state.settings.tower),
+    wall: useAppSelector((state) => state.settings.wall),
+    bricks: useAppSelector((state) => state.settings.bricks),
+    gems: useAppSelector((state) => state.settings.gems),
+    recruits: useAppSelector((state) => state.settings.recruits),
+    brickProd: useAppSelector((state) => state.settings.brickProd),
+    gemProd: useAppSelector((state) => state.settings.gemProd),
+    recruitProd: useAppSelector((state) => state.settings.recruitProd),
 
-    winTower: useAppSelector((state) => state.settings.win.tower),
-    winResource: useAppSelector((state) => state.settings.win.resource),
+    winTower: useAppSelector((state) => state.settings.winTower),
+    winResource: useAppSelector((state) => state.settings.winResource),
 
     cardsInHand: useAppSelector((state) => state.settings.cardsInHand),
 
-    opponentId: opponentIdInStore,
-  })
+    opponentId: useAppSelector((state) => state.multiplayer.opponentId),
+  }
 
-  const checkPreset = (o: typeof formFields) => {
+  const [formFields, setFormFields] = useState<FormFieldsType>(settingStore)
+
+  const checkPreset = (o: FormFieldsType | FormFieldsAllPartialType) => {
     const indexMatched = preSettings.concat(defaultSettings).findIndex(
-      ({ start, win, cardsInHand }) =>
-        o.tower === start.tower &&
-        o.wall === start.wall &&
-        o.brickProd === start.brickProd &&
-        o.gemProd === start.gemProd &&
-        o.recruitProd === start.recruitProd &&
-        o.bricks === start.bricks &&
-        o.gems === start.gems &&
-        o.recruits === start.recruits &&
-        o.winTower === win.tower &&
-        o.winResource === win.resource &&
-        o.cardsInHand === cardsInHand,
+      (settings) =>
+        o.tower === settings.tower &&
+        o.wall === settings.wall &&
+        o.brickProd === settings.brickProd &&
+        o.gemProd === settings.gemProd &&
+        o.recruitProd === settings.recruitProd &&
+        o.bricks === settings.bricks &&
+        o.gems === settings.gems &&
+        o.recruits === settings.recruits &&
+        o.winTower === settings.winTower &&
+        o.winResource === settings.winResource &&
+        o.cardsInHand === settings.cardsInHand,
       // aiType
     )
     if (indexMatched === preSettings.length) {
@@ -91,58 +102,17 @@ const Pref = () => {
   }
 
   const applyAndNewGame = () => {
-    const {
-      playerName,
-      opponentName,
-      tower,
-      wall,
-      brickProd,
-      gemProd,
-      recruitProd,
-      bricks,
-      gems,
-      recruits,
-      winTower,
-      winResource,
-      cardsInHand,
-    } = formFields
-
-    const payload = {
-      playerName,
-      opponentName,
-      start: {
-        bricks,
-        gems,
-        recruits,
-        brickProd,
-        gemProd,
-        recruitProd,
-        tower,
-        wall,
-      },
-      win: {
-        tower: winTower,
-        resource: winResource,
-      },
-      cardsInHand,
-      // aiType,
-    }
-
     dispatch({
       type: SCREEN_PREF,
       show: false,
     })
 
-    dispatch({
-      type: UPDATE_SETTINGS_AND_INIT,
-      payload,
-    })
+    const { opponentId, ...rest } = formFields
 
-    if (isHost) {
-      dispatch({
-        type: SEND_STATE,
-      })
-    }
+    dispatch({
+      type: UPDATE_SETTINGS_INIT,
+      payload: rest,
+    })
   }
 
   const [preset, setPreset] = useState<number>(-10)
@@ -172,6 +142,14 @@ const Pref = () => {
     }
 
     setPreset(checkPreset(formFields))
+
+    if (isHost) {
+      const { playerName, opponentName, opponentId, ...rest } = formFields
+      dispatch({
+        type: SEND_FORM_FIELDS,
+        payload: rest,
+      })
+    }
   }, [
     formFields.tower,
     formFields.wall,
@@ -186,41 +164,98 @@ const Pref = () => {
     formFields.cardsInHand,
   ])
 
+  const [tempPreset, setTempPreset] = useState<number>(-10)
+
+  useEffect(() => {
+    setTempPreset(checkPreset(tempFormFieldStore))
+  }, [
+    tempFormFieldStore.tower,
+    tempFormFieldStore.wall,
+    tempFormFieldStore.bricks,
+    tempFormFieldStore.gems,
+    tempFormFieldStore.recruits,
+    tempFormFieldStore.brickProd,
+    tempFormFieldStore.gemProd,
+    tempFormFieldStore.recruitProd,
+    tempFormFieldStore.winTower,
+    tempFormFieldStore.winResource,
+    tempFormFieldStore.cardsInHand,
+  ])
+
+  useEffect(() => {
+    if (isHost || isGuest) {
+      const { playerName } = formFields
+      dispatch({
+        type: SEND_FORM_FIELDS,
+        payload: { playerName },
+      })
+    }
+  }, [formFields.playerName])
+
+  const prevMultiplayerStatus = useRef('')
+  useEffect(() => {
+    if (
+      (prevMultiplayerStatus.current === 'connecting_to_id' ||
+        prevMultiplayerStatus.current === 'connected_net') &&
+      multiplayerStatus === 'connected_to_id'
+    ) {
+      // just becomes host
+      const { opponentName, opponentId, ...rest } = formFields
+      dispatch({
+        type: SEND_FORM_FIELDS,
+        payload: rest,
+      })
+    } else if (
+      prevMultiplayerStatus.current !== '' &&
+      multiplayerStatus === 'connected_by_id'
+    ) {
+      // just becomes guest
+      const { playerName } = formFields
+      dispatch({
+        type: SEND_FORM_FIELDS,
+        payload: { playerName },
+      })
+    }
+    prevMultiplayerStatus.current = multiplayerStatus
+  }, [multiplayerStatus, settingStore.opponentId])
+
   useEffect(() => {
     setFormFields((prev) =>
       produce(prev, (draft) => {
-        draft.opponentId = opponentIdInStore
+        draft.opponentId = settingStore.opponentId
       }),
     )
-  }, [opponentIdInStore])
+  }, [settingStore.opponentId])
 
+  // only `formFields`-controlled fields use `handleChange`
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.type === 'number') {
-      if (e.target.value === '') {
-        e.target.value = '0'
+    const { name, type, min, max } = e.target
+    let { value } = e.target
+    if (type === 'number') {
+      if (value === '') {
+        value = '0'
       }
 
-      if (parseInt(e.target.value, 10) < parseInt(e.target.min, 10)) {
-        e.target.value = e.target.min
+      if (parseInt(value, 10) < parseInt(min, 10)) {
+        value = min
       }
 
-      if (parseInt(e.target.value, 10) > parseInt(e.target.max, 10)) {
-        e.target.value = e.target.max
+      if (parseInt(e.target.value, 10) > parseInt(max, 10)) {
+        value = max
       }
     }
 
-    const { name, value, checked } = e.target
     setFormFields((prev) =>
       produce(prev, (draft) => {
         if (hasOwnProperty(draft, name)) {
-          switch (name) {
-            case 'playerName':
-            case 'opponentName':
-            case 'opponentId':
+          switch (type) {
+            case 'text':
               draft[name] = value
               break
-            default:
+            case 'number':
               draft[name] = parseInt(value, 10)
+              break
+            default:
               break
           }
         }
@@ -231,88 +266,84 @@ const Pref = () => {
   const usePreset = (index: number) => {
     const _index = index === -2 ? preSettings.length : index
     if (_index >= 0) {
-      const { start, win, cardsInHand } = preSettings.concat(defaultSettings)[
-        _index
-      ]
+      const targetSettings = preSettings.concat(defaultSettings)[_index]
 
-      setFormFields((prev) =>
-        produce(prev, (draft) => {
-          draft.tower = start.tower
-          draft.wall = start.wall
-          draft.brickProd = start.brickProd
-          draft.gemProd = start.gemProd
-          draft.recruitProd = start.recruitProd
-          draft.bricks = start.bricks
-          draft.gems = start.gems
-          draft.recruits = start.recruits
-          draft.winTower = win.tower
-          draft.winResource = win.resource
-          draft.cardsInHand = cardsInHand
-          // aiType
-        }),
-      )
+      setFormFields((prev) => ({ ...prev, ...targetSettings }))
     }
   }
 
-  let notification: string = ''
-  switch (multiplayerStatus) {
-    case 'connecting_net':
-      notification = _.i18n('Connecting to the network ⌛')
-      break
+  const [notification, setNotification] = useState<string>('')
+  const [isGuest, setIsGuest] = useState<boolean>(false)
+  const [isHost, setIsHost] = useState<boolean>(false)
 
-    case 'connected_net':
-      notification = _.i18n('Connected to the network ✔️')
-      break
+  useEffect(() => {
+    console.log(_)
+    switch (multiplayerStatus) {
+      case 'connecting_net':
+        setNotification(_.i18n('Connecting to the network ⌛'))
+        break
 
-    case 'connecting_to_id': {
-      const id = opponentIdInStore
-      const shorterId = `${id.substring(
-        0,
-        shorterIdStartEndLength,
-      )}...${id.substring(id.length - shorterIdStartEndLength)}`
-      notification = _.i18n('Connecting to ID %s ⌛').replace('%s', shorterId)
-      break
+      case 'connected_net':
+        setNotification(_.i18n('Connected to the network ✔️'))
+        break
+
+      case 'connecting_to_id': {
+        const id = formFields.opponentId
+        const shorterId = `${id.substring(
+          0,
+          shorterIdStartEndLength,
+        )}...${id.substring(id.length - shorterIdStartEndLength)}`
+        setNotification(
+          _.i18n('Connecting to ID %s ⌛').replace('%s', shorterId),
+        )
+        break
+      }
+
+      case 'connected_to_id': {
+        const id = formFields.opponentId
+        const shorterId = `${id.substring(
+          0,
+          shorterIdStartEndLength,
+        )}...${id.substring(id.length - shorterIdStartEndLength)}`
+        setNotification(
+          _.i18n("Connected to ID %s ✔️ You're the host 🏠").replace(
+            '%s',
+            shorterId,
+          ),
+        )
+        break
+      }
+
+      case 'connected_by_id': {
+        const id = settingStore.opponentId
+        const shorterId = `${id.substring(
+          0,
+          shorterIdStartEndLength,
+        )}...${id.substring(id.length - shorterIdStartEndLength)}`
+        setNotification(
+          _.i18n("Connected by ID %s ✔️ You're the guest 💼").replace(
+            '%s',
+            shorterId,
+          ),
+        )
+        break
+      }
+
+      case 'failed':
+        setNotification(_.i18n('Connection failed ❌'))
+        break
+
+      case 'disconnected':
+        setNotification(_.i18n('Disconnected 🔌'))
+        break
+
+      default:
+        break
     }
 
-    case 'connected_to_id': {
-      const id = opponentIdInStore
-      const shorterId = `${id.substring(
-        0,
-        shorterIdStartEndLength,
-      )}...${id.substring(id.length - shorterIdStartEndLength)}`
-      notification = _.i18n("Connected to ID %s ✔️ You're the host 🏠").replace(
-        '%s',
-        shorterId,
-      )
-      break
-    }
-
-    case 'connected_by_id': {
-      const id = opponentIdInStore
-      const shorterId = `${id.substring(
-        0,
-        shorterIdStartEndLength,
-      )}...${id.substring(id.length - shorterIdStartEndLength)}`
-      notification = _.i18n(
-        "Connected by ID %s ✔️ You're the guest 💼",
-      ).replace('%s', shorterId)
-      break
-    }
-
-    case 'failed':
-      notification = _.i18n('Connection failed ❌')
-      break
-
-    case 'disconnected':
-      notification = _.i18n('Disconnected 🔌')
-      break
-
-    default:
-      break
-  }
-
-  const isGuest = isMultiplayer && multiplayerStatus === 'connected_by_id'
-  const isHost = isMultiplayer && multiplayerStatus === 'connected_to_id'
+    setIsGuest(isMultiplayer && multiplayerStatus === 'connected_by_id')
+    setIsHost(isMultiplayer && multiplayerStatus === 'connected_to_id')
+  }, [multiplayerStatus, _])
 
   return (
     <Window ScreenActionType={SCREEN_PREF}>
@@ -329,8 +360,8 @@ const Pref = () => {
           </span>
           <input
             type="text"
-            name="playerName"
-            id="playerName"
+            name={poNames[0]}
+            id={poNames[0]}
             value={formFields.playerName}
             onChange={handleChange}
             onFocus={(e) => {
@@ -347,10 +378,14 @@ const Pref = () => {
           </span>
           <input
             type="text"
-            name="opponentName"
-            id="opponentName"
+            name={poNames[1]}
+            id={poNames[1]}
             disabled={isGuest || isHost}
-            value={formFields.opponentName}
+            value={
+              (isGuest || isHost) && tempFormFieldStore !== null
+                ? tempFormFieldStore.opponentName
+                : formFields.opponentName
+            }
             onChange={handleChange}
             onFocus={(e) => {
               if (e.target.value === defaultOpponentName) {
@@ -369,7 +404,7 @@ const Pref = () => {
         <select
           name="tavern"
           id="tavern"
-          value={isGuest ? -2 : preset}
+          value={isGuest ? tempPreset : preset}
           disabled={isGuest}
           onChange={(e) => {
             usePreset(parseInt(e.target.value, 10))
@@ -381,7 +416,9 @@ const Pref = () => {
               {_.taverns(i, 'name')} - {_.taverns(i, 'location')}
             </option>
           ))}
-          {preset === -1 && <option value={-1}>{_.i18n('Customized')}</option>}
+          {(preset === -1 || isGuest) && (
+            <option value={-1}>{_.i18n('Customized')}</option>
+          )}
         </select>
       </label>
 
@@ -395,11 +432,15 @@ const Pref = () => {
           <span>{upper1st(_.i18n('tower'))}</span>
           <input
             type="number"
-            name="tower"
-            id="tower"
+            name={allStatusNames[0]}
+            id={allStatusNames[0]}
             min="1"
             disabled={isGuest}
-            value={formFields.tower}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.tower
+                : formFields.tower
+            }
             onChange={handleChange}
           />
         </label>
@@ -407,11 +448,15 @@ const Pref = () => {
           <span>{upper1st(_.i18n('bricks'))}</span>
           <input
             type="number"
-            name="bricks"
-            id="bricks"
+            name={allStatusNames[2]}
+            id={allStatusNames[2]}
             min="0"
             disabled={isGuest}
-            value={formFields.bricks}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.bricks
+                : formFields.bricks
+            }
             onChange={handleChange}
           />
         </label>
@@ -419,11 +464,15 @@ const Pref = () => {
           <span>{upper1st(_.i18n('gems'))}</span>
           <input
             type="number"
-            name="gems"
-            id="gems"
+            name={allStatusNames[3]}
+            id={allStatusNames[3]}
             min="0"
             disabled={isGuest}
-            value={formFields.gems}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.gems
+                : formFields.gems
+            }
             onChange={handleChange}
           />
         </label>
@@ -431,11 +480,15 @@ const Pref = () => {
           <span>{upper1st(_.i18n('recruits'))}</span>
           <input
             type="number"
-            name="recruits"
-            id="recruits"
+            name={allStatusNames[4]}
+            id={allStatusNames[4]}
             min="0"
             disabled={isGuest}
-            value={formFields.recruits}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.recruits
+                : formFields.recruits
+            }
             onChange={handleChange}
           />
         </label>
@@ -446,11 +499,15 @@ const Pref = () => {
           <span>{upper1st(_.i18n('wall'))}</span>
           <input
             type="number"
-            name="wall"
-            id="wall"
+            name={allStatusNames[1]}
+            id={allStatusNames[1]}
             min="0"
             disabled={isGuest}
-            value={formFields.wall}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.wall
+                : formFields.wall
+            }
             onChange={handleChange}
           />
         </label>
@@ -458,11 +515,15 @@ const Pref = () => {
           <span>{upper1st(_.i18n('quarry'))}</span>
           <input
             type="number"
-            name="brickProd"
-            id="brickProd"
+            name={allStatusNames[5]}
+            id={allStatusNames[5]}
             min="1"
             disabled={isGuest}
-            value={formFields.brickProd}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.brickProd
+                : formFields.brickProd
+            }
             onChange={handleChange}
           />
         </label>
@@ -470,11 +531,15 @@ const Pref = () => {
           <span>{upper1st(_.i18n('magic'))}</span>
           <input
             type="number"
-            name="gemProd"
-            id="gemProd"
+            name={allStatusNames[6]}
+            id={allStatusNames[6]}
             min="1"
             disabled={isGuest}
-            value={formFields.gemProd}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.gemProd
+                : formFields.gemProd
+            }
             onChange={handleChange}
           />
         </label>
@@ -482,11 +547,15 @@ const Pref = () => {
           <span>{upper1st(_.i18n('dungeon'))}</span>
           <input
             type="number"
-            name="recruitProd"
-            id="recruitProd"
+            name={allStatusNames[7]}
+            id={allStatusNames[7]}
             min="1"
             disabled={isGuest}
-            value={formFields.recruitProd}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.recruitProd
+                : formFields.recruitProd
+            }
             onChange={handleChange}
           />
         </label>
@@ -501,11 +570,15 @@ const Pref = () => {
           <span>{upper1st(_.i18n('tower'))}</span>
           <input
             type="number"
-            name="winTower"
-            id="winTower"
+            name={otherSettingNames[0]}
+            id={otherSettingNames[0]}
             min={(formFields.tower + 1).toString(10)}
             disabled={isGuest}
-            value={formFields.winTower}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.winTower
+                : formFields.winTower
+            }
             onChange={handleChange}
           />
         </label>
@@ -513,8 +586,8 @@ const Pref = () => {
           <span>{upper1st(_.i18n('resource'))}</span>
           <input
             type="number"
-            name="winResource"
-            id="winResource"
+            name={otherSettingNames[1]}
+            id={otherSettingNames[1]}
             min={(
               Math.max(
                 formFields.bricks + formFields.brickProd,
@@ -523,7 +596,11 @@ const Pref = () => {
               ) + 1
             ).toString(10)}
             disabled={isGuest}
-            value={formFields.winResource}
+            value={
+              isGuest && tempFormFieldStore !== null
+                ? tempFormFieldStore.winResource
+                : formFields.winResource
+            }
             onChange={handleChange}
           />
         </label>
@@ -537,12 +614,16 @@ const Pref = () => {
         <span>{_.i18n('Cards in Hand')}</span>
         <input
           type="number"
-          name="cardsInHand"
-          id="cardsInHand"
+          name={otherSettingNames[2]}
+          id={otherSettingNames[2]}
           min="0"
           max="15"
           disabled={isGuest}
-          value={formFields.cardsInHand}
+          value={
+            isGuest && tempFormFieldStore !== null
+              ? tempFormFieldStore.cardsInHand
+              : formFields.cardsInHand
+          }
           onChange={handleChange}
         />
       </label>
@@ -657,14 +738,10 @@ const Pref = () => {
         <button
           disabled={isGuest}
           onClick={() => {
-            const { start, win, cardsInHand } = defaultSettings
             setFormFields(({ opponentId }) => ({
               playerName: defaultPlayerName,
               opponentName: defaultOpponentName,
-              ...start,
-              winTower: win.tower,
-              winResource: win.resource,
-              cardsInHand: cardsInHand,
+              ...defaultSettings,
               isMultiplayer, // unchanged
               yourId, // unchanged
               opponentId, // unchanged

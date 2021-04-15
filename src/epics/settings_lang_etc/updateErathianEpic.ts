@@ -27,11 +27,9 @@ export default (
           draft.lang.erathian = erathian
         }
       })
-      return concat(
-        of<RootActionType>({
-          type: UPDATE_ERATHIAN_MAIN,
-          erathian,
-        }),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      return of<RootActionType>({
+        type: UPDATE_ERATHIAN_MAIN,
+        erathian,
+      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

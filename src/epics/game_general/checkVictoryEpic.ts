@@ -1,4 +1,8 @@
-import { CHECK_VICTORY, ABORT_ALL, SCREEN_END } from '../../constants/ActionTypes'
+import {
+  CHECK_VICTORY,
+  ABORT_ALL,
+  SCREEN_END,
+} from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
@@ -6,6 +10,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { resNames } from '../../constants/resourceNames'
 import { EMPTY, of } from 'rxjs'
+import { getWinState } from '../../utils/startWinState'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -15,7 +20,7 @@ export default (
     filter(isOfType(CHECK_VICTORY)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
-      const { tower: winTower, resource: winResource } = state.settings.win
+      const { winTower, winResource } = getWinState(state.settings)
       const { player, opponent } = state.status
 
       const playerWin =

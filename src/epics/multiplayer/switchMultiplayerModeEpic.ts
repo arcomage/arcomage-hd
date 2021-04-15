@@ -33,10 +33,6 @@ export default (
           type: SWITCH_MULTIPLAYER_MODE_MAIN,
           on,
         }),
-      ).pipe(
-        takeUntil(
-          merge(action$.ofType(ABORT_CONNECTION), action$.ofType(ABORT_ALL)),
-        ),
-      )
+      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
     }),
   )

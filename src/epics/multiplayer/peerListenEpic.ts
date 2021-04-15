@@ -1,6 +1,5 @@
 import {
   PEER_LISTEN,
-  ABORT_ALL,
   ABORT_CONNECTION,
   CONNECTION_LISTEN,
   MULTIPLAYER_STATUS,
@@ -11,7 +10,7 @@ import { concat, merge, EMPTY, fromEvent, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { connection, peer } from '../../webrtc/peer'
+import { peerAll } from '../../webrtc/peer'
 import { JQueryStyleEventEmitter } from 'rxjs/internal/observable/fromEvent'
 import Peer from 'peerjs'
 
@@ -22,6 +21,7 @@ export default (
   action$.pipe(
     filter(isOfType(PEER_LISTEN)),
     switchMap((action) => {
+      const { peer } = peerAll
       if (peer === null) {
         return EMPTY
       }
@@ -31,7 +31,7 @@ export default (
           'connection',
         ).pipe(
           concatMap((conn) => {
-            connection.current = conn
+            peerAll.conn = conn
             return concat(
               of<RootActionType>({
                 type: CONNECTION_LISTEN,
@@ -63,10 +63,12 @@ export default (
             )
           }),
         ),
-      ).pipe(
-        takeUntil(
-          merge(action$.ofType(ABORT_CONNECTION), action$.ofType(ABORT_ALL)),
+        fromEvent((peer as unknown) as JQueryStyleEventEmitter, 'error').pipe(
+          concatMap(() => {
+            console.log('error')
+            return EMPTY
+          }),
         ),
-      )
+      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
     }),
   )

@@ -22,11 +22,9 @@ export default (
       lsSet((draft) => {
         draft.volume = volume
       })
-      return concat(
-        of<RootActionType>({
-          type: UPDATE_VOLUME_MAIN,
-          volume,
-        }),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      return of<RootActionType>({
+        type: UPDATE_VOLUME_MAIN,
+        volume,
+      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

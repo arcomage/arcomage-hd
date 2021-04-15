@@ -11,22 +11,33 @@ const config = {
   ],
 }
 
-export let peer: Peer | null = null
-
 type ConnectionType = {
-  current: Peer.DataConnection | null
+  peer: Peer | null
+  conn: Peer.DataConnection | null
 }
-export let connection: ConnectionType = {
-  current: null,
+export const peerAll: ConnectionType = {
+  peer: null,
+  conn: null,
 }
 
 // to delete
-;(window as any).conn = connection
+;(window as any).peerAll = peerAll
+
+export const onUnloadDisconnect = () => {
+  if (peerAll.peer !== null) {
+    peerAll.peer.disconnect()
+  }
+}
+
+export const bindOnUnloadDisconnect = () => {
+  window.addEventListener('beforeunload', onUnloadDisconnect)
+}
 
 export const initPeer = () => {
-  peer = new Peer(config)
+  peerAll.peer = new Peer(config)
+  bindOnUnloadDisconnect()
 }
 
 export const nullifyPeer = () => {
-  peer = null
+  peerAll.peer = null
 }

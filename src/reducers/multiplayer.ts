@@ -4,15 +4,25 @@ import {
   SET_YOUR_ID,
   SET_OPPONENT_ID,
   MULTIPLAYER_STATUS,
+  SET_TEMP_FORM_FIELDS,
 } from '../constants/ActionTypes'
+import { defaultSettings } from '../constants/defaultSettings'
 import { RootActionType } from '../types/actionObj'
+import { FormFieldsAllPartialType } from '../types/formFields'
 import { MultiplayerStateType } from '../types/state'
+
+const tempFormFieldsDefault: FormFieldsAllPartialType = {
+  opponentName: '',
+  ...defaultSettings,
+  cardsInHand: defaultSettings.cardsInHand,
+}
 
 const defaultMultiplayerState: MultiplayerStateType = {
   on: false,
   yourId: '',
   opponentId: '',
   status: 'disconnected',
+  tempFormFields: tempFormFieldsDefault, // guest uses opponentName & all nums; host uses opponentName
 }
 
 const multiplayer = produce(
@@ -32,6 +42,15 @@ const multiplayer = produce(
       }
       case MULTIPLAYER_STATUS: {
         draft.status = action.status
+        break
+      }
+      case SET_TEMP_FORM_FIELDS: {
+        if (action.payload !== null) {
+          draft.tempFormFields = {
+            ...draft.tempFormFields,
+            ...action.payload,
+          }
+        }
         break
       }
     }

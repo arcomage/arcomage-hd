@@ -5,7 +5,8 @@ import { EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { connection } from '../../webrtc/peer'
+import { peerAll } from '../../webrtc/peer'
+import { ConnDataType } from '../../types/connData'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -14,14 +15,20 @@ export default (
   action$.pipe(
     filter(isOfType(SEND)),
     concatMap((action) => {
-      const { data } = action
-      const obj = {
+      const { kind, data } = action
+      const sentData: ConnDataType = {
+        kind,
         data,
-        time: Date.now(),
       }
-      const conn = connection.current
+      const { conn } = peerAll
       if (conn !== null) {
-        conn.send(JSON.stringify(obj))
+        conn.send(
+          JSON.stringify(sentData).replace(
+            /[\u007F-\uFFFF]/g,
+            (chr) =>
+              '\\u' + ('0000' + chr.charCodeAt(0).toString(16)).substr(-4),
+          ),
+        )
       }
       return EMPTY
     }),
