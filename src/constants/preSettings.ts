@@ -2,8 +2,8 @@ import { SettingsType } from '../types/state'
 
 export const preSettings: SettingsType[] = [
   {
-    tavern: 'On The House',
-    location: 'Harmondale',
+    // tavern: 'On The House',
+    // location: 'Harmondale',
     tower: 15,
     wall: 5,
     brickProd: 2,
@@ -18,8 +18,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Random',
   },
   {
-    tavern: "Griffin's Rest",
-    location: 'Erathia',
+    // tavern: "Griffin's Rest",
+    // location: 'Erathia',
     tower: 20,
     wall: 5,
     brickProd: 2,
@@ -34,8 +34,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Defense',
   },
   {
-    tavern: 'Emerald Inn',
-    location: 'Tularean Forest',
+    // tavern: 'Emerald Inn',
+    // location: 'Tularean Forest',
     tower: 20,
     wall: 5,
     brickProd: 2,
@@ -50,8 +50,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    tavern: 'Snobbish Goblin',
-    location: 'Deyja',
+    // tavern: 'Snobbish Goblin',
+    // location: 'Deyja',
     tower: 25,
     wall: 10,
     brickProd: 3,
@@ -66,8 +66,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    tavern: 'Familiar Place',
-    location: 'Bracada Desert',
+    // tavern: 'Familiar Place',
+    // location: 'Bracada Desert',
     tower: 20,
     wall: 10,
     brickProd: 3,
@@ -82,8 +82,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Defense',
   },
   {
-    tavern: 'The Blessed Brew',
-    location: 'Celeste',
+    // tavern: 'The Blessed Brew',
+    // location: 'Celeste',
     tower: 30,
     wall: 15,
     brickProd: 4,
@@ -98,8 +98,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Defense',
   },
   {
-    tavern: 'The Vampyre Lounge',
-    location: 'The Pit',
+    // tavern: 'The Vampyre Lounge',
+    // location: 'The Pit',
     tower: 30,
     wall: 15,
     brickProd: 4,
@@ -114,8 +114,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    tavern: 'The Laughing Monk',
-    location: 'Evermorn Island',
+    // tavern: 'The Laughing Monk',
+    // location: 'Evermorn Island',
     tower: 20,
     wall: 10,
     brickProd: 5,
@@ -130,8 +130,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Random',
   },
   {
-    tavern: "Fortune's Folly",
-    location: 'Nighon',
+    // tavern: "Fortune's Folly",
+    // location: 'Nighon',
     tower: 20,
     wall: 10,
     brickProd: 1,
@@ -146,8 +146,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    tavern: "Miner's Only",
-    location: 'Barrow Downs',
+    // tavern: "Miner's Only",
+    // location: 'Barrow Downs',
     tower: 20,
     wall: 50,
     brickProd: 1,
@@ -162,8 +162,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Random',
   },
   {
-    tavern: 'The Loyal Mercenary',
-    location: 'Tidewater',
+    // tavern: 'The Loyal Mercenary',
+    // location: 'Tidewater',
     tower: 10,
     wall: 20,
     brickProd: 3,
@@ -178,8 +178,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Attack',
   },
   {
-    tavern: 'The Potted Pixie',
-    location: 'Avlee',
+    // tavern: 'The Potted Pixie',
+    // location: 'Avlee',
     tower: 10,
     wall: 20,
     brickProd: 3,
@@ -194,8 +194,8 @@ export const preSettings: SettingsType[] = [
     // aiType: 'Defense',
   },
   {
-    tavern: "Grogg's Grog",
-    location: 'Stone City',
+    // tavern: "Grogg's Grog",
+    // location: 'Stone City',
     tower: 50,
     wall: 50,
     brickProd: 5,

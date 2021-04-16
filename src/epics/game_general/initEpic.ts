@@ -1,11 +1,18 @@
-import { INIT, INIT_NO_EFFECT, ABORT_ALL } from '../../constants/ActionTypes'
+import {
+  INIT,
+  INIT_CORE,
+  ABORT_ALL,
+  SEND,
+} from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
-import { of } from 'rxjs'
+import { concat, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardListItemAllType, RootStateType } from '../../types/state'
 import { randomWithProbs } from '../../utils/randomWithProbs'
+import { INST } from '../../constants/connDataKind'
+import { reverseCardList } from '../../utils/reverseState'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -31,10 +38,21 @@ export default (
         cardList.push(card)
       }
 
-      return of<RootActionType>({
-        type: INIT_NO_EFFECT,
-        playersTurn,
-        cardList,
-      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      return concat(
+        of<RootActionType>({
+          type: INIT_CORE,
+          playersTurn,
+          cardList,
+        }),
+        of<RootActionType>({
+          type: SEND,
+          kind: INST,
+          data: {
+            type: INIT_CORE,
+            playersTurn: !playersTurn,
+            cardList: reverseCardList(cardList),
+          },
+        }),
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

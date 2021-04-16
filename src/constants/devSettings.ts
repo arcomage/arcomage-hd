@@ -20,3 +20,7 @@ export const tutorialImageUrl =
   'https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/manual.jpg'
 
 export const localstorageName = 'arcomagehdls'
+
+export const localstorageVersionName = 'arcomagehdls_ver'
+
+export const localstorageMinVer = '1.0.0-beta.27'

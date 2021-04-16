@@ -1,5 +1,5 @@
 import {
-  INIT_NO_EFFECT,
+  INIT_CORE,
   INIT_CARD,
   INIT_GAME,
   INIT_STATUS,
@@ -26,7 +26,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(INIT_NO_EFFECT)),
+    filter(isOfType(INIT_CORE)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       const { playersTurn, cardList } = action

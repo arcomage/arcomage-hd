@@ -58,23 +58,18 @@ export type WinSettingsType = {
   winResource: number
 }
 
-export type SettingsBaseType = PersonStatusType &
+export type SettingsType = PersonStatusType &
   WinSettingsType & {
     cardsInHand: number
     // aiType?: number
   }
-
-export type SettingsType = SettingsBaseType & {
-  tavern?: string
-  location?: string
-}
 
 export type SettingsStateNameType = {
   playerName: string
   opponentName: string
 }
 
-export type SettingsStateType = SettingsBaseType & SettingsStateNameType
+export type SettingsStateType = SettingsType & SettingsStateNameType
 
 export type SettingsStateAllPartialType = Partial<SettingsStateType>
 

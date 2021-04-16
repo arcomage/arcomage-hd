@@ -1,6 +1,6 @@
 import {
   DRAW_CARD,
-  DRAW_CARD_NO_EFFECT,
+  DRAW_CARD_CORE,
   ABORT_ALL,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -21,7 +21,7 @@ export default (
       const n = randomWithProbs()
 
       return of<RootActionType>({
-        type: DRAW_CARD_NO_EFFECT,
+        type: DRAW_CARD_CORE,
         n,
       }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),

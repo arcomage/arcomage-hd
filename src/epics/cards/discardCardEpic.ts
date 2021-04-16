@@ -1,13 +1,6 @@
 import {
-  CLEAR_CARD,
   DISCARD_CARD,
-  ADD_DISCARDED_TAG,
-  DRAW_CARD,
-  NEXT_ROUND,
-  REMOVE_CARD,
-  SWITCH_DISCARD_MODE,
-  SWITCH_LOCK,
-  MOVE_CARD_TO_TOP,
+  DISCARD_CARD_CORE,
   ABORT_ALL,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -32,47 +25,13 @@ export default (
   action$.pipe(
     filter(isOfType(DISCARD_CARD)),
     withLatestFrom(state$),
-    concatMap(([{ index, position, owner }, state]) => {
-      playSound('deal', state.volume)
-      return concat(
-        state.game.isNewTurn
-          ? of<RootActionType>({
-              type: CLEAR_CARD,
-            })
-          : EMPTY,
-        of<RootActionType>({
-          type: ADD_DISCARDED_TAG,
-          index,
-        }),
-        of<RootActionType>({
-          type: MOVE_CARD_TO_TOP,
-          index,
-        }).pipe(delay(0)),
-        of<RootActionType>({
-          type: REMOVE_CARD,
-          index,
-          position,
-          owner,
-        }),
-        state.game.discardMode
-          ? concat(
-              of<RootActionType>({
-                type: SWITCH_DISCARD_MODE,
-                on: false,
-              }),
-              of<RootActionType>({
-                type: DRAW_CARD,
-              }),
-            ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
-          : concat(
-              of<RootActionType>({
-                type: SWITCH_LOCK,
-                on: true, // will switch back in `NEXT_ROUND`
-              }),
-              of<RootActionType>({
-                type: NEXT_ROUND,
-              }).pipe(delay(cardTransitionDuration)),
-            ).pipe(takeUntil(action$.ofType(ABORT_ALL))),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+    concatMap(([action, state]) => {
+      const { index, position, owner } = action
+      return of<RootActionType>({
+        type: DISCARD_CARD_CORE,
+        index,
+        position,
+        owner,
+      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

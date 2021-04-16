@@ -1,11 +1,28 @@
 import produce from 'immer'
-import { localstorageName } from '../constants/devSettings'
+import {
+  localstorageMinVer,
+  localstorageName,
+  localstorageVersionName,
+} from '../constants/devSettings'
 import { LangStateType, SettingsStateType } from '../types/state'
+import lt from 'semver/functions/lt'
 
 type LocalstorageType = {
   lang?: LangStateType
   settings?: SettingsStateType
   volume?: number
+}
+
+const currentVersion: string = process.env.APPVERSION ?? ''
+
+export const lsVersion = (): void => {
+  const ver = window.localStorage.getItem(localstorageVersionName)
+  if (ver === null || lt(currentVersion, localstorageMinVer)) {
+    window.localStorage.removeItem(localstorageName)
+  }
+  if (ver !== currentVersion) {
+    window.localStorage.setItem(localstorageVersionName, currentVersion)
+  }
 }
 
 export const lsGet = (

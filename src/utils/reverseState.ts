@@ -1,4 +1,7 @@
-import { SettingsStateAllPartialType } from '../types/state'
+import {
+  CardListItemAllType,
+  SettingsStateAllPartialType,
+} from '../types/state'
 import produce from 'immer'
 import { FormFieldsAllPartialType } from '../types/formFields'
 
@@ -68,4 +71,22 @@ export const reverseFormFields = (
     return ret
   }
   return formFields
+}
+
+export const reverseCardList = (
+  cardList: CardListItemAllType[],
+): CardListItemAllType[] => {
+  return cardList.map((card) =>
+    card !== null
+      ? {
+          ...card,
+          owner:
+            card.owner === 'player'
+              ? 'opponent'
+              : card.owner === 'opponent'
+              ? 'player'
+              : card.owner,
+        }
+      : null,
+  )
 }

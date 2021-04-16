@@ -9,6 +9,7 @@ import {
   UPDATE_STATUS_MAIN,
   EXEC_CARD,
   USE_CARD,
+  USE_CARD_CORE,
   MOVE_CARD_TO_CENTER,
   MOVE_CARD_TO_TOP,
   MOVE_CARD_TO_TOP_MAIN,
@@ -18,18 +19,19 @@ import {
   SWITCH_LOCK,
   REMOVE_CARD,
   DISCARD_CARD,
+  DISCARD_CARD_CORE,
   ADD_DISCARDED_TAG,
   UPDATE_SETTINGS,
   UPDATE_SETTINGS_MAIN,
   INIT,
-  INIT_NO_EFFECT,
+  INIT_CORE,
   UPDATE_SETTINGS_INIT,
   READLS_UPDATESTORE_INIT,
   INIT_CARD,
   INIT_GAME,
   INIT_STATUS,
   DRAW_CARD,
-  DRAW_CARD_NO_EFFECT,
+  DRAW_CARD_CORE,
   SWITCH_TURN,
   DRAW_CARD_MAIN,
   DRAW_CARD_PRE,
@@ -162,12 +164,20 @@ export type UseCardActionType = {
   owner: ownerType2
 }
 
+export type UseCardCoreActionType = {
+  type: typeof USE_CARD_CORE
+  n: number
+  index: number
+  position: number
+  owner: ownerType2
+}
+
 export type DrawCardActionType = {
   type: typeof DRAW_CARD
 }
 
-export type DrawCardNoEffectActionType = {
-  type: typeof DRAW_CARD_NO_EFFECT
+export type DrawCardCoreActionType = {
+  type: typeof DRAW_CARD_CORE
   n: number
 }
 
@@ -213,6 +223,13 @@ export type MoveCardToTopMainActionType = {
 
 export type DiscardCardActionType = {
   type: typeof DISCARD_CARD
+  index: number
+  position: number
+  owner: ownerType2
+}
+
+export type DiscardCardCoreActionType = {
+  type: typeof DISCARD_CARD_CORE
   index: number
   position: number
   owner: ownerType2
@@ -268,8 +285,8 @@ export type InitActionType = {
   type: typeof INIT
 }
 
-export type InitNoEffectActionType = {
-  type: typeof INIT_NO_EFFECT
+export type InitCoreActionType = {
+  type: typeof INIT_CORE
   playersTurn: boolean
   cardList: CardListItemAllType[]
 }
@@ -460,8 +477,9 @@ export type RootActionType =
   | UpdateStatusMainActionType
   | ExecCardActionType
   | UseCardActionType
+  | UseCardCoreActionType
   | DrawCardActionType
-  | DrawCardNoEffectActionType
+  | DrawCardCoreActionType
   | DrawCardPreActionType
   | DrawCardMainActionType
   | ClearCardActionType
@@ -471,6 +489,7 @@ export type RootActionType =
   | MoveCardToTopActionType
   | MoveCardToTopMainActionType
   | DiscardCardActionType
+  | DiscardCardCoreActionType
   | AddDiscardedTagActionType
   | RemoveCardActionType
   | DeleteCardInStackActionType
@@ -481,7 +500,7 @@ export type RootActionType =
   | UpdateSettingsActionType
   | UpdateSettingsMainActionType
   | InitActionType
-  | InitNoEffectActionType
+  | InitCoreActionType
   | InitCardActionType
   | InitGameActionType
   | InitStatusActionType

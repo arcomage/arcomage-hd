@@ -1,4 +1,5 @@
 import { SettingsStateType, SettingsType, StatusType } from '../types/state'
+import sample from '../utils/sample'
 import { getStartState } from '../utils/startWinState'
 
 export const defaultSettings: SettingsType = {
@@ -22,8 +23,17 @@ export const defaultStatus: StatusType = {
   opponent: getStartState(defaultSettings),
 }
 
-export const defaultPlayerName = '🧝'
-export const defaultOpponentName = '👾'
+// prettier-ignore
+export const defaultPlayerNameList = [
+  '😎', '🤣', '😃', '😂', '🕵️', '🧐', '🤓', '🧝', '🧙', '🧚', '👶', '💂', '🤴', '👸', '😺', '👨', '👩', '🚶', '🦸',
+]
+// prettier-ignore
+export const defaultOpponentNameList = [
+  '😈', '💀', '☠️', '💩', '🤡', '👹', '👺', '👻', '👽', '👾', '🧛', '🦹', '🤖', '💻', '🖥️', '📱', '🧟', '🧞', '🎃',
+]
+
+export const defaultPlayerName = sample(defaultPlayerNameList)
+export const defaultOpponentName = sample(defaultOpponentNameList)
 
 export const defaultVolume = 10
 

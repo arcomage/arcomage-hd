@@ -1,6 +1,6 @@
 {
   "name": "arcomage-hd",
-  "version": "1.0.0-beta.26",
+  "version": "1.0.0-beta.28",
   "description": "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
   "repository": {
     "type": "git",
@@ -63,6 +63,7 @@
     "redux-observable": "^1.2.0",
     "rxjs": "^6.6.7",
     "screenfull": "^5.1.0",
+    "semver": "^7.3.5",
     "tailwindcss": "^2.1.1",
     "typesafe-actions": "^5.1.0"
   },
@@ -74,6 +75,7 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/react-redux": "^7.1.16",
+    "@types/semver": "^7.3.4",
     "@vue/preload-webpack-plugin": "^2.0.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "autoprefixer": "^10.2.5",
@@ -98,11 +100,11 @@
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "svgo-loader": "^3.0.0",
-    "ts-jest": "^26.5.4",
+    "ts-jest": "^26.5.5",
     "ts-loader": "^8.1.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
-    "webpack": "^5.32.0",
+    "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
     "workbox-webpack-plugin": "^6.1.5"
@@ -113,7 +115,7 @@
     "@types/merge-img": "^2.1.0",
     "@types/sharp": "^0.28.0",
     "convert-excel-to-json": "^1.7.0",
-    "csv-parse": "^4.15.3",
+    "csv-parse": "^4.15.4",
     "eslint": "^7.24.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.2.0",

@@ -1,28 +1,30 @@
 import {
   SET_TEMP_FORM_FIELDS,
   UPDATE_SETTINGS,
-  DRAW_CARD_NO_EFFECT,
-  INIT_NO_EFFECT,
+  DRAW_CARD_CORE,
+  INIT_CORE,
 } from '../constants/ActionTypes'
 import { CHAT, INST } from '../constants/connDataKind'
 import {
   SetTempFormFieldsActionType,
   UpdateSettingsActionType,
-  DrawCardNoEffectActionType,
-  InitNoEffectActionType,
+  DrawCardCoreActionType,
+  InitCoreActionType,
 } from './actionObj'
 
 export type InstructionType =
   | SetTempFormFieldsActionType
   | UpdateSettingsActionType
-  | DrawCardNoEffectActionType
-  | InitNoEffectActionType
+  | DrawCardCoreActionType
+  | InitCoreActionType
 
 export const instructionActionTypes = [
   SET_TEMP_FORM_FIELDS,
   UPDATE_SETTINGS,
-  DRAW_CARD_NO_EFFECT,
-  INIT_NO_EFFECT,
+  DRAW_CARD_CORE,
+  INIT_CORE,
+  // USE_CARD_CORE,
+  // DISCARD_CARD_CORE,
 ] as const
 
 export type InstructionConnDataType = {

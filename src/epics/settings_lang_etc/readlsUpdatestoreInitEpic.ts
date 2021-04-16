@@ -13,7 +13,7 @@ import { of, concat, EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { lsGet } from '../../utils/localstorage'
+import { lsGet, lsVersion } from '../../utils/localstorage'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -22,6 +22,7 @@ export default (
   action$.pipe(
     filter(isOfType(READLS_UPDATESTORE_INIT)),
     concatMap((action) => {
+      lsVersion()
       const lang = lsGet(['lang', 'code'])
       const erathian = lsGet(['lang', 'erathian'])
       const settings = lsGet(['settings'])

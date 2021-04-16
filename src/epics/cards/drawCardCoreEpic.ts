@@ -1,5 +1,5 @@
 import {
-  DRAW_CARD_NO_EFFECT,
+  DRAW_CARD_CORE,
   DRAW_CARD_PRE,
   DRAW_CARD_MAIN,
   CHECK_UNUSABLE,
@@ -37,7 +37,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(DRAW_CARD_NO_EFFECT)),
+    filter(isOfType(DRAW_CARD_CORE)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       const { n } = action
@@ -76,13 +76,12 @@ export default (
                   aiDelay +
                   (noAiExtraDelay ? 0 : aiExtraDelay),
               ),
-              takeUntil(action$.ofType(ABORT_ALL)),
             )
           : EMPTY,
         owner === 'player'
           ? of<RootActionType>({
               type: CHECK_SURRENDER,
-            }).pipe(delay(0), takeUntil(action$.ofType(ABORT_ALL)))
+            }).pipe(delay(0))
           : EMPTY,
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),

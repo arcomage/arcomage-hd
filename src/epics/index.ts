@@ -9,14 +9,16 @@ import updateSettingsEpic from './settings_lang_etc/updateSettingsEpic'
 import updateStatusEpic from './status/updateStatusEpic'
 import execCardEpic from './cards/execCardEpic'
 import useCardEpic from './cards/useCardEpic'
+import useCardCoreEpic from './cards/useCardCoreEpic'
 import discardCardEpic from './cards/discardCardEpic'
+import discardCardCoreEpic from './cards/discardCardCoreEpic'
 import moveCardToTopEpic from './cards/moveCardToTopEpic'
 import updateSettingsInitEpic from './settings_lang_etc/updateSettingsInitEpic'
 import readlsUpdatestoreInitEpic from './settings_lang_etc/readlsUpdatestoreInitEpic'
 import initEpic from './game_general/initEpic'
-import initNoEffectEpic from './game_general/initNoEffectEpic'
+import initCoreEpic from './game_general/initCoreEpic'
 import drawCardEpic from './cards/drawCardEpic'
-import drawCardNoEffectEpic from './cards/drawCardNoEffectEpic'
+import drawCardCoreEpic from './cards/drawCardCoreEpic'
 import nextRoundEpic from './game_general/nextRoundEpic'
 import resourceProdEpic from './status/resourceProdEpic'
 import clearCardEpic from './cards/clearCardEpic'
@@ -46,14 +48,16 @@ const rootEpic: MyEpic = combineEpics(
   updateStatusEpic,
   execCardEpic,
   useCardEpic,
+  useCardCoreEpic,
   discardCardEpic,
+  discardCardCoreEpic,
   moveCardToTopEpic,
   updateSettingsInitEpic,
   readlsUpdatestoreInitEpic,
   initEpic,
-  initNoEffectEpic,
+  initCoreEpic,
   drawCardEpic,
-  drawCardNoEffectEpic,
+  drawCardCoreEpic,
   nextRoundEpic,
   resourceProdEpic,
   clearCardEpic,

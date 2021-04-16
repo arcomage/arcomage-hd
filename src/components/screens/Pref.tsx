@@ -39,6 +39,10 @@ import {
   FormFieldsType,
   FormFieldsAllPartialType,
 } from '../../types/formFields'
+import {
+  allCondAndOtherSettingsEqual,
+  getAllCondAndOtherSettingsArray,
+} from '../../utils/startWinState'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -79,21 +83,9 @@ const Pref = () => {
   const [formFields, setFormFields] = useState<FormFieldsType>(settingStore)
 
   const checkPreset = (o: FormFieldsType | FormFieldsAllPartialType) => {
-    const indexMatched = preSettings.concat(defaultSettings).findIndex(
-      (settings) =>
-        o.tower === settings.tower &&
-        o.wall === settings.wall &&
-        o.brickProd === settings.brickProd &&
-        o.gemProd === settings.gemProd &&
-        o.recruitProd === settings.recruitProd &&
-        o.bricks === settings.bricks &&
-        o.gems === settings.gems &&
-        o.recruits === settings.recruits &&
-        o.winTower === settings.winTower &&
-        o.winResource === settings.winResource &&
-        o.cardsInHand === settings.cardsInHand,
-      // aiType
-    )
+    const indexMatched = preSettings
+      .concat(defaultSettings)
+      .findIndex((settings) => allCondAndOtherSettingsEqual(o, settings))
     if (indexMatched === preSettings.length) {
       return -2
     } else {
@@ -150,37 +142,13 @@ const Pref = () => {
         payload: rest,
       })
     }
-  }, [
-    formFields.tower,
-    formFields.wall,
-    formFields.bricks,
-    formFields.gems,
-    formFields.recruits,
-    formFields.brickProd,
-    formFields.gemProd,
-    formFields.recruitProd,
-    formFields.winTower,
-    formFields.winResource,
-    formFields.cardsInHand,
-  ])
+  }, getAllCondAndOtherSettingsArray(formFields))
 
   const [tempPreset, setTempPreset] = useState<number>(-10)
 
   useEffect(() => {
     setTempPreset(checkPreset(tempFormFieldStore))
-  }, [
-    tempFormFieldStore.tower,
-    tempFormFieldStore.wall,
-    tempFormFieldStore.bricks,
-    tempFormFieldStore.gems,
-    tempFormFieldStore.recruits,
-    tempFormFieldStore.brickProd,
-    tempFormFieldStore.gemProd,
-    tempFormFieldStore.recruitProd,
-    tempFormFieldStore.winTower,
-    tempFormFieldStore.winResource,
-    tempFormFieldStore.cardsInHand,
-  ])
+  }, getAllCondAndOtherSettingsArray(tempFormFieldStore))
 
   useEffect(() => {
     if (isHost || isGuest) {
