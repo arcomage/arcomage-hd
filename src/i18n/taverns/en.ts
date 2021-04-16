@@ -9,10 +9,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: "Griffin's Rest",
     location: 'Erathia',
   },
-  {
-    name: 'Emerald Inn',
-    location: 'The Tularean Forest',
-  },
+  // {
+  //   name: 'Emerald Inn',
+  //   location: 'The Tularean Forest',
+  // },
   {
     name: 'The Snobbish Goblin',
     location: 'Deyja',
@@ -25,10 +25,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'The Blessed Brew',
     location: 'Celeste',
   },
-  {
-    name: 'The Vampyre Lounge',
-    location: 'The Pit',
-  },
+  // {
+  //   name: 'The Vampyre Lounge',
+  //   location: 'The Pit',
+  // },
   {
     name: 'The Laughing Monk',
     location: 'Evenmorn Island',
@@ -45,12 +45,56 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'The Loyal Mercenary',
     location: 'Tatalia',
   },
-  {
-    name: 'The Potted Pixie',
-    location: 'Avlee',
-  },
+  // {
+  //   name: 'The Potted Pixie',
+  //   location: 'Avlee',
+  // },
   {
     name: "Grogg's Grog",
     location: 'Stone City',
   },
+  // {
+  //   name: 'The Grog and Grub',
+  //   location: 'Dagger Wound Island',
+  // },
+  // {
+  //   name: "Kessel's Kantina",
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: 'Profit House',
+  //   location: 'Alvar',
+  // },
+  // {
+  //   name: 'Parched Throat',
+  //   location: 'Ironsand Desert',
+  // },
+  // {
+  //   name: "Dragon's Blood Inn",
+  //   location: 'Garrote Gorge',
+  // },
+  // {
+  //   name: 'Black Company',
+  //   location: 'Shadowspire',
+  // },
+  // {
+  //   name: "Traveler's Rest",
+  //   location: 'Murmurwoods',
+  // },
+  // {
+  //   name: "Bull's Eye Inn",
+  //   location: 'Ravage Roaming',
+  // },
+  // {
+  //   name: "Pirate's Rest",
+  //   location: 'Regna',
+  // },
+  // {
+  //   name: 'The Dancing Ogre',
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: "Miho's Roadhouse",
+  //   location: 'Alvar',
+  // },
 ]

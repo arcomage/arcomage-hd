@@ -52,17 +52,17 @@ export const i18n = {
   off: 'désactivé',
   on: 'activé',
   'Your ID': 'Votre ID',
-  "Enter your opponent's ID": "Entrez l'ID de votre adversaire",
+  "Enter your opponent's ID": 'Entrez l’ID de votre adversaire',
   Connect: 'Connectez',
   'Copied 📋✔️': 'Copié 📋✔️',
 
   'Connecting to the network ⌛': 'Connexion au réseau en cours ⌛',
   'Connected to the network ✔️': 'Connecté au réseau ✔️',
-  'Connecting to ID %s ⌛': "Connexion à l'ID en cours ⌛",
+  'Connecting to ID %s ⌛': 'Connexion à l’ID en cours ⌛',
   "Connected to ID %s ✔️ You're the host 🏠":
-    "Connecté à l'ID %s ✔️ Vous êtes l'hôte 🏠",
+    'Connecté à l’ID %s ✔️ Vous êtes l’hôte 🏠',
   "Connected by ID %s ✔️ You're the guest 💼":
-    "Connecté par ID %s ✔️ Vous êtes l'invité 💼",
+    'Connecté par ID %s ✔️ Vous êtes l’invité 💼',
   'Connection failed ❌': 'La connexion a échoué ❌',
   'Disconnected 🔌': 'Déconnecté 🔌',
 

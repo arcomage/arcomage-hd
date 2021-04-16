@@ -14,6 +14,7 @@
     "test": "jest --coverage",
     "imgpc": "ts-node --project ./tools/tsconfig.json ./tools/img-processing/crop.ts && ts-node --project ./tools/tsconfig.json ./tools/img-processing/upscale.ts",
     "datapc": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/docards.ts",
+    "mm8taverns": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/mm8taverns.ts",
     "zhconvert": "ts-node --project ./tools/tsconfig.json ./tools/zhconvert",
     "geticelist": "ts-node --project ./tools/tsconfig.json ./tools/geticelist",
     "manifest": "ts-node --project ./tools/tsconfig.json ./tools/manifest",

@@ -60,6 +60,12 @@ const getRC = (arr2d: string[][], str: string): [number, number] | null => {
     // zhHans: await createPromise(path.join(root, '7-2devents', 'zh-Hans.txt')),
     // zhHant: await createPromise(path.join(root, '7-2devents', 'zh-Hant.txt')),
 
+    // en: await createPromise(path.join(root, '8-2devents', 'en.txt')),
+    // es: await createPromise(path.join(root, '8-2devents', 'es.txt')),
+    // it: await createPromise(path.join(root, '8-2devents', 'it.txt')),
+    // zhHans: await createPromise(path.join(root, '8-2devents', 'zh-Hans.txt')),
+    // zhHant: await createPromise(path.join(root, '8-2devents', 'zh-Hant.txt')),
+
     en: await createPromise(path.join(root, 'merge-2devents', 'en.txt')),
     fr: await createPromise(path.join(root, 'merge-2devents', 'fr.txt')),
     de: await createPromise(path.join(root, 'merge-2devents', 'de.txt')),
@@ -74,6 +80,12 @@ const getRC = (arr2d: string[][], str: string): [number, number] | null => {
     // it: await createPromise(path.join(root, '7-mapstats', 'it.txt')),
     // zhHans: await createPromise(path.join(root, '7-mapstats', 'zh-Hans.txt')),
     // zhHant: await createPromise(path.join(root, '7-mapstats', 'zh-Hant.txt')),
+
+    // en: await createPromise(path.join(root, '8-mapstats', 'en.txt')),
+    // es: await createPromise(path.join(root, '8-mapstats', 'es.txt')),
+    // it: await createPromise(path.join(root, '8-mapstats', 'it.txt')),
+    // zhHans: await createPromise(path.join(root, '8-mapstats', 'zh-Hans.txt')),
+    // zhHant: await createPromise(path.join(root, '8-mapstats', 'zh-Hant.txt')),
 
     en: await createPromise(path.join(root, 'merge-mapstats', 'en.txt')),
     fr: await createPromise(path.join(root, 'merge-mapstats', 'fr.txt')),
