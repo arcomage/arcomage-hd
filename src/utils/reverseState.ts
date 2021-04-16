@@ -1,45 +1,11 @@
 import {
   CardListItemAllType,
+  ownerType,
+  ownerType2,
   SettingsStateAllPartialType,
 } from '../types/state'
 import produce from 'immer'
 import { FormFieldsAllPartialType } from '../types/formFields'
-
-// type ExchangeStateExtraType = ExchangeStateType & {
-//   formfields: FormFieldsAllPartialType
-// }
-
-// type ExchangeStateExtraRetType = ExchangeStateType & {
-//   formfields: TempFormFieldsExchangeType
-// }
-
-// const reverseState = <K extends keyof ExchangeStateExtraType>(
-//   type: K,
-//   state: ExchangeStateExtraType[K],
-// ): ExchangeStateExtraRetType[K] => {
-//   switch (type) {
-//     case 'status':
-//       return produce(state, (draft: StatusType) => {
-//         const tempStatusPlayer = draft.player
-//         draft.player = draft.opponent
-//         draft.opponent = tempStatusPlayer
-//       })
-//     case 'cards':
-//       return produce(state, (draft: CardStateType) => {
-//         const tempCardsTotalPlayer = draft.total.player
-//         draft.total.player = draft.total.opponent
-//         draft.total.opponent = tempCardsTotalPlayer
-
-//         const tempCardsNextPosPlayer = draft.nextPos.player
-//         draft.nextPos.player = draft.nextPos.opponent
-//         draft.nextPos.opponent = tempCardsNextPosPlayer
-//       })
-//     case 'game':
-//       return produce(state, (draft: GameStateType) => {
-//         draft.playersTurn = !draft.playersTurn
-//       })
-//   }
-// }
 
 export const reverseSettingsState = (
   state: SettingsStateAllPartialType,
@@ -73,6 +39,18 @@ export const reverseFormFields = (
   return formFields
 }
 
+type ObjectType<T> = T extends ownerType2
+  ? ownerType2
+  : T extends ownerType
+  ? ownerType
+  : never
+
+export const isOwnerType2 = (owner: ownerType): owner is ownerType2 =>
+  owner === 'player' || owner === 'opponent'
+
+export const reverseOwnerStr = (owner: ownerType2): ownerType2 =>
+  owner === 'player' ? 'opponent' : 'player'
+
 export const reverseCardList = (
   cardList: CardListItemAllType[],
 ): CardListItemAllType[] => {
@@ -80,12 +58,9 @@ export const reverseCardList = (
     card !== null
       ? {
           ...card,
-          owner:
-            card.owner === 'player'
-              ? 'opponent'
-              : card.owner === 'opponent'
-              ? 'player'
-              : card.owner,
+          owner: isOwnerType2(card.owner)
+            ? reverseOwnerStr(card.owner)
+            : card.owner,
         }
       : null,
   )

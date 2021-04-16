@@ -1,22 +1,17 @@
-import { USE_CARD, USE_CARD_CORE, ABORT_ALL } from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
 import {
-  filter,
-  concatMap,
-  delay,
-  withLatestFrom,
-  takeUntil,
-} from 'rxjs/operators'
+  USE_CARD,
+  USE_CARD_CORE,
+  ABORT_ALL,
+  SEND,
+} from '../../constants/ActionTypes'
+import { RootActionType } from '../../types/actionObj'
+import { filter, concatMap, withLatestFrom, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { concat, EMPTY, of } from 'rxjs'
-import playSound from '../../utils/playSound'
-import cards from '../../data/cards'
-import {
-  cardNextStepDelay,
-  cardTransitionDuration,
-} from '../../constants/visuals'
+import { INST } from '../../constants/connDataKind'
+import { reverseOwnerStr } from '../../utils/reverseState'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -27,12 +22,32 @@ export default (
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       const { n, index, position, owner } = action
-      return of<RootActionType>({
-        type: USE_CARD_CORE,
-        n,
-        index,
-        position,
-        owner,
-      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      const isConnected =
+        state.multiplayer.on &&
+        (state.multiplayer.status === 'connected_to_id' ||
+          state.multiplayer.status === 'connected_by_id')
+
+      return concat(
+        of<RootActionType>({
+          type: USE_CARD_CORE,
+          n,
+          index,
+          position,
+          owner,
+        }),
+        isConnected
+          ? of<RootActionType>({
+              type: SEND,
+              kind: INST,
+              data: {
+                type: USE_CARD_CORE,
+                n,
+                index,
+                position,
+                owner: reverseOwnerStr(owner),
+              },
+            })
+          : EMPTY,
+      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

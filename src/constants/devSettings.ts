@@ -8,6 +8,8 @@ export const useAi = true
 
 export const noAiExtraDelay = true
 
+// in multiplayer connected mode, useAi acts like always false
+
 // if useAi is true, even when opponent cards are shown, they are unclickable
 
 // the above should be all set to `true` for prod version

@@ -42,6 +42,10 @@ export default (
     concatMap(([action, state]) => {
       const { n } = action
       const owner = state.game.playersTurn ? 'player' : 'opponent'
+      const isConnected =
+        state.multiplayer.on &&
+        (state.multiplayer.status === 'connected_to_id' ||
+          state.multiplayer.status === 'connected_by_id')
       playSound('deal', state.volume)
 
       return concat(
@@ -67,7 +71,7 @@ export default (
           on: false,
           locknumber: 1,
         }).pipe(delay(0)),
-        owner === 'opponent' && useAi
+        owner === 'opponent' && useAi && !isConnected
           ? of<RootActionType>({
               type: AI_USE_CARD,
             }).pipe(
