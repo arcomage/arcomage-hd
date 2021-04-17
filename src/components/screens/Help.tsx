@@ -61,7 +61,7 @@ const Help = () => {
   })
 
   return (
-    <Window ScreenActionType={SCREEN_HELP}>
+    <Window screenActionType={SCREEN_HELP}>
       <small className="version">v{process.env.APPVERSION}</small>
       <p className="description">
         {_.i18n('ArcoMage HD') !== 'ArcoMage HD' && (

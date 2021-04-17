@@ -66,7 +66,7 @@ const LandscapeNotice = () => {
   const classes = useStyles()
 
   return (
-    <Window ScreenActionType={SCREEN_LANDSCAPE}>
+    <Window screenActionType={SCREEN_LANDSCAPE}>
       <div
         className={cx(classes.wrapper, 'relative')}
         title={_.i18n('Please rotate your device to landscape mode')}

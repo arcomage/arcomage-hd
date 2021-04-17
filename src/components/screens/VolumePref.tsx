@@ -11,7 +11,7 @@ const VolumePref = () => {
   const dispatch = useAppDispatch()
 
   return (
-    <Window ScreenActionType={SCREEN_VOLUME_PREF}>
+    <Window screenActionType={SCREEN_VOLUME_PREF}>
       <h3 className="text-center">{_.i18n('Volume')}</h3>
       <input
         type="range"

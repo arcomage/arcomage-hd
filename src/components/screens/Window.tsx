@@ -25,28 +25,32 @@ const useStyles = createUseStyles({
 })
 
 type PropType = {
-  ScreenActionType:
+  screenActionType:
     | typeof SCREEN_PREF
     | typeof SCREEN_LANG_PREF
     | typeof SCREEN_VOLUME_PREF
     | typeof SCREEN_HELP
     | typeof SCREEN_LANDSCAPE
   children: React.ReactNode
+  onCancel?: () => void
 }
-const Window = ({ ScreenActionType, children }: PropType) => {
+const Window = ({ screenActionType, children, onCancel }: PropType) => {
   const dispatch = useAppDispatch()
   const _ = useContext(I18nContext)
 
-  const exitFunc = () => {
+  const cancelFunc = () => {
+    if (onCancel !== undefined) {
+      onCancel()
+    }
     dispatch({
-      type: ScreenActionType,
+      type: screenActionType,
       show: false,
     })
   }
 
   const prefRef = useRef(null)
-  useClickOutside(prefRef, exitFunc)
-  useKeyDown('Escape', exitFunc)
+  useClickOutside(prefRef, cancelFunc)
+  useKeyDown('Escape', cancelFunc)
 
   const size = useContext(GameSizeContext)
 
@@ -59,7 +63,7 @@ const Window = ({ ScreenActionType, children }: PropType) => {
             title={_.i18n('ArcoMage HD')}
             className={cx(
               classes.logo,
-              { hidden: size.narrowMobile && ScreenActionType === SCREEN_PREF },
+              { hidden: size.narrowMobile && screenActionType === SCREEN_PREF },
               'm-auto bg-no-repeat bg-center bg-contain',
             )}
           ></div>
@@ -69,7 +73,7 @@ const Window = ({ ScreenActionType, children }: PropType) => {
           <button
             className="cancel"
             title={_.i18n('Cancel')}
-            onClick={exitFunc}
+            onClick={cancelFunc}
           ></button>
         </div>
       </div>

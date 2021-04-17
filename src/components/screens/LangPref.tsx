@@ -35,7 +35,7 @@ const LangPref = () => {
   })()
 
   return (
-    <Window ScreenActionType={SCREEN_LANG_PREF}>
+    <Window screenActionType={SCREEN_LANG_PREF}>
       <div className="my-5 grid grid-cols-4 gap-4 justify-items-center no-erathian">
         {entries(langs)
           .sort(([codeA], [codeB]) => codeA.localeCompare(codeB))

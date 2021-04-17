@@ -315,7 +315,16 @@ const Pref = () => {
   }, [multiplayerStatus, _])
 
   return (
-    <Window ScreenActionType={SCREEN_PREF}>
+    <Window
+      screenActionType={SCREEN_PREF}
+      onCancel={() => {
+        const { opponentName, opponentId, ...rest } = settingStore
+        dispatch({
+          type: SEND_FORM_FIELDS,
+          payload: rest,
+        })
+      }}
+    >
       <h3>
         {_.i18n('Preferences')}
         {_.i18n(': ')}
