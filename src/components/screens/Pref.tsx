@@ -21,8 +21,8 @@ import {
 import { I18nContext, upper1st } from '../../i18n/I18nContext'
 import { preSettings } from '../../constants/preSettings'
 import {
-  defaultOpponentName,
-  defaultPlayerName,
+  defaultPlayerNameList,
+  defaultOpponentNameList,
   defaultSettings,
 } from '../../constants/defaultSettings'
 import { hasOwnProperty } from '../../utils/typeHelpers'
@@ -43,6 +43,8 @@ import {
   allCondAndOtherSettingsEqual,
   getAllCondAndOtherSettingsArray,
 } from '../../utils/startWinState'
+import { sample } from '../../utils/random'
+import isEmoji from '../../utils/isEmoji'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -361,7 +363,7 @@ const Pref = () => {
             value={formFields.playerName}
             onChange={handleChange}
             onFocus={(e) => {
-              if (e.target.value === defaultPlayerName) {
+              if (isEmoji(e.target.value)) {
                 e.target.select()
               }
             }}
@@ -384,7 +386,7 @@ const Pref = () => {
             }
             onChange={handleChange}
             onFocus={(e) => {
-              if (e.target.value === defaultOpponentName) {
+              if (isEmoji(e.target.value)) {
                 e.target.select()
               }
             }}
@@ -735,8 +737,8 @@ const Pref = () => {
           disabled={isGuest}
           onClick={() => {
             setFormFields(({ opponentId }) => ({
-              playerName: defaultPlayerName,
-              opponentName: defaultOpponentName,
+              playerName: sample(defaultPlayerNameList),
+              opponentName: sample(defaultOpponentNameList),
               ...defaultSettings,
               isMultiplayer, // unchanged
               yourId, // unchanged

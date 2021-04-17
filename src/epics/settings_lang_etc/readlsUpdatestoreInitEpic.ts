@@ -14,6 +14,11 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { lsGet, lsVersion } from '../../utils/localstorage'
+import { sample } from '../../utils/random'
+import {
+  defaultOpponentNameList,
+  defaultPlayerNameList,
+} from '../../constants/defaultSettings'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -33,7 +38,13 @@ export default (
               type: UPDATE_SETTINGS_MAIN,
               payload: settings,
             })
-          : EMPTY,
+          : of<RootActionType>({
+              type: UPDATE_SETTINGS_MAIN,
+              payload: {
+                playerName: sample(defaultPlayerNameList),
+                opponentName: sample(defaultOpponentNameList),
+              },
+            }),
         lang !== null
           ? of<RootActionType>({
               type: UPDATE_LANG_MAIN,

@@ -1,5 +1,4 @@
 import { SettingsStateType, SettingsType, StatusType } from '../types/state'
-import { sample } from '../utils/random'
 import { getStartState } from '../utils/startWinState'
 
 export const defaultSettings: SettingsType = {
@@ -32,8 +31,12 @@ export const defaultOpponentNameList = [
   '😈', '💀', '☠️', '💩', '🤡', '👹', '👺', '👻', '👽', '👾', '🧛', '🦹', '🤖', '💻', '🖥️', '📱', '🧟', '🧞', '🎃',
 ]
 
-export const defaultPlayerName = sample(defaultPlayerNameList)
-export const defaultOpponentName = sample(defaultOpponentNameList)
+// Usage:
+// sample(defaultPlayerNameList)
+// sample(defaultOpponentNameList)
+
+const defaultPlayerName = '🧝'
+const defaultOpponentName = '👾'
 
 export const defaultVolume = 10
 

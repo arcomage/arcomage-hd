@@ -21,7 +21,7 @@ const defaultCards: CardStateType = {
   nextPos: { player: 0, opponent: 0 },
 }
 
-const cards = produce((draft: CardStateType, action: RootActionType) => {
+export default produce((draft: CardStateType, action: RootActionType) => {
   switch (action.type) {
     case INIT_CARD: {
       return action.payload
@@ -135,5 +135,3 @@ const cards = produce((draft: CardStateType, action: RootActionType) => {
     }
   }
 }, defaultCards)
-
-export default cards

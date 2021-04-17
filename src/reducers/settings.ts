@@ -4,12 +4,10 @@ import { SettingsStateType } from '../types/state'
 import { RootActionType } from '../types/actionObj'
 import { defaultSettingState } from '../constants/defaultSettings'
 
-const game = produce((draft: SettingsStateType, action: RootActionType) => {
+export default produce((draft: SettingsStateType, action: RootActionType) => {
   switch (action.type) {
     case UPDATE_SETTINGS_MAIN: {
       return { ...draft, ...action.payload }
     }
   }
 }, defaultSettingState)
-
-export default game

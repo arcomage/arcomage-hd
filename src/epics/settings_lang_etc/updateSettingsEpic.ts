@@ -10,7 +10,12 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { lsSet } from '../../utils/localstorage'
-import { defaultSettingState } from '../../constants/defaultSettings'
+import {
+  defaultOpponentNameList,
+  defaultPlayerNameList,
+  defaultSettingState,
+} from '../../constants/defaultSettings'
+import { sample } from '../../utils/random'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -22,7 +27,12 @@ export default (
       const { payload } = action
       lsSet((draft) => {
         if (draft.settings === undefined) {
-          draft.settings = { ...defaultSettingState, ...payload }
+          draft.settings = {
+            ...defaultSettingState,
+            playerName: sample(defaultPlayerNameList),
+            opponentName: sample(defaultOpponentNameList),
+            ...payload,
+          }
         } else {
           draft.settings = { ...draft.settings, ...payload }
         }

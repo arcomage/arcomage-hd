@@ -19,7 +19,7 @@ const defaultScreen: ScreenStateType = {
   end: { type: null },
 }
 
-const screen = produce((draft: ScreenStateType, action: RootActionType) => {
+export default produce((draft: ScreenStateType, action: RootActionType) => {
   switch (action.type) {
     case SCREEN_PREF: {
       draft.pref = action.show
@@ -48,5 +48,3 @@ const screen = produce((draft: ScreenStateType, action: RootActionType) => {
     }
   }
 }, defaultScreen)
-
-export default screen

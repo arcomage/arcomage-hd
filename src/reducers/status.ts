@@ -4,7 +4,7 @@ import { StatusType } from '../types/state'
 import { RootActionType } from '../types/actionObj'
 import { defaultStatus } from '../constants/defaultSettings'
 
-const status = produce((draft: StatusType, action: RootActionType) => {
+export default produce((draft: StatusType, action: RootActionType) => {
   switch (action.type) {
     case INIT_STATUS: {
       return {
@@ -25,5 +25,3 @@ const status = produce((draft: StatusType, action: RootActionType) => {
     }
   }
 }, defaultStatus)
-
-export default status

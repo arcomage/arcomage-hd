@@ -27,7 +27,7 @@ const defaultMultiplayerState: MultiplayerStateType = {
   gameStarted: false,
 }
 
-const multiplayer = produce(
+export default produce(
   (draft: MultiplayerStateType, action: RootActionType) => {
     switch (action.type) {
       case SWITCH_MULTIPLAYER_MODE_MAIN: {
@@ -63,5 +63,3 @@ const multiplayer = produce(
   },
   defaultMultiplayerState,
 )
-
-export default multiplayer
