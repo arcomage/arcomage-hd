@@ -251,7 +251,9 @@ const Pref = () => {
         break
 
       case 'connected_net':
-        setNotification(_.i18n('Connected to the network (but not to anyone) ✔️'))
+        setNotification(
+          _.i18n('Connected to the network (but not to anyone) ✔️'),
+        )
         break
 
       case 'connecting_to_id': {

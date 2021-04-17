@@ -9,6 +9,7 @@ import { ConnDataType, instructionActionTypes } from '../../types/connData'
 import { INST } from '../../constants/connDataKind'
 import { noLatency, testLatency } from '../../constants/devSettings'
 import { randomIntFrom } from '../../utils/random'
+import devLog from '../../utils/devLog'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -18,7 +19,7 @@ export default (
     filter(isOfType(RECEIVE)),
     concatMap((action) => {
       const { data: connDataStr } = action
-      console.log(`received: ${connDataStr}`)
+      devLog(`received: ${connDataStr}`)
       try {
         const connData: ConnDataType = JSON.parse(connDataStr)
         const { kind, data } = connData

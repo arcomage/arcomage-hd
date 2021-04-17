@@ -144,6 +144,7 @@ module.exports = (env, argv) => {
         'process.env.APPVERSION': JSON.stringify(
           process.env.npm_package_version,
         ),
+        'process.env.ISDEV': JSON.stringify(dev),
       }),
       new ForkTsCheckerWebpackPlugin(),
       new HtmlWebpackPlugin({

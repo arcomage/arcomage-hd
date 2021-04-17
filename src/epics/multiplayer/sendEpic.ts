@@ -7,6 +7,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import { ConnDataType } from '../../types/connData'
+import devLog from '../../utils/devLog'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -27,7 +28,7 @@ export default (
           (chr) => '\\u' + ('0000' + chr.charCodeAt(0).toString(16)).substr(-4),
         )
         conn.send(dataStr)
-        console.log(`sent: ${dataStr}`)
+        devLog(`sent: ${dataStr}`)
       }
       return EMPTY
     }),

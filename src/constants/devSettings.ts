@@ -1,20 +1,23 @@
-export const disableContextMenu = true
+const _disableContextMenu = false
+const _enableWindowUnloadWarning = false
+const _hideOpponentCard = false
+const _useAi = true
+const _noAiExtraDelay = true
+const _noLatency = true
 
-export const enableWindowUnloadWarning = true
+const isProd = !process.env.ISDEV
 
-export const hideOpponentCard = true
-
-export const useAi = true
-
-export const noAiExtraDelay = true
-
-export const noLatency = true
+export const disableContextMenu = isProd || _disableContextMenu
+export const enableWindowUnloadWarning = isProd || _enableWindowUnloadWarning
+export const hideOpponentCard = isProd || _hideOpponentCard
+export const useAi = isProd || _useAi
+export const noAiExtraDelay = isProd || _noAiExtraDelay
+export const noLatency = isProd || _noLatency
+// the above should all be `true` for prod version
 
 // in multiplayer connected mode, useAi acts like always false
 
 // if useAi is true, even when opponent cards are shown, they are unclickable
-
-// the above should be all set to `true` for prod version
 
 export const aiExtraDelay = 5000
 
