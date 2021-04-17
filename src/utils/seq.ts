@@ -1,4 +1,5 @@
 import { ConnDataType } from '../types/connData'
+import devLog from './devLog'
 
 // ===== RECEIVE SEQ =====
 
@@ -9,18 +10,22 @@ export const nullifyReceiveSeq = () => {
 }
 
 export const initReceiveSeq = (seq: number) => {
+  console.log(receiveSeq)
   receiveSeq = seq
+  console.log(receiveSeq)
 }
 
-export const incrementReceiveSeq = () => {
+export const incrementReceiveSeq = (n = 1) => {
   if (receiveSeq !== null) {
-    receiveSeq++
+    receiveSeq += n
   }
 }
 
 const receiveQueue: (ConnDataType | null)[] = []
 
-;(window as any).rr = receiveQueue
+// to remove
+;(window as any).rs = () => receiveSeq
+;(window as any).rq = receiveQueue
 
 export const intoReceiveQueue = (connData: ConnDataType) => {
   receiveQueue.push(connData)
@@ -49,6 +54,26 @@ export const getRemoveUsablesInRQueue = (seq: number) => {
   return ret
 }
 
+export const getUsableConnDataList = (
+  connData: ConnDataType,
+): ConnDataType[] | null => {
+  const { seq } = connData
+  if (receiveSeq === null) {
+    initReceiveSeq(seq)
+  } else if (seq === receiveSeq + 1) {
+    incrementReceiveSeq()
+  } else {
+    intoReceiveQueue(connData)
+    devLog(`postponed: ${JSON.stringify(connData)}`)
+    return null
+  }
+  const usableInReceiveQueue: ConnDataType[] = getRemoveUsablesInRQueue(seq)
+  if (receiveSeq !== null) {
+    incrementReceiveSeq(usableInReceiveQueue.length)
+  }
+  return [connData].concat(usableInReceiveQueue)
+}
+
 // ===== SEND SEQ =====
 
 export let sendSeq: number = 0
@@ -57,6 +82,6 @@ export const resetSendSeq = () => {
   sendSeq = 0
 }
 
-export const incrementSendSeq = () => {
-  sendSeq++
+export const incrementSendSeq = (n = 1) => {
+  sendSeq += n
 }

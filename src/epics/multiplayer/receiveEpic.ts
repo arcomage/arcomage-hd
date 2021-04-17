@@ -8,13 +8,7 @@ import { RootStateType } from '../../types/state'
 import { ConnDataType, instructionActionTypes } from '../../types/connData'
 import { INST } from '../../constants/connDataKind'
 import devLog from '../../utils/devLog'
-import {
-  receiveSeq,
-  initReceiveSeq,
-  incrementReceiveSeq,
-  intoReceiveQueue,
-  getRemoveUsablesInRQueue,
-} from '../../utils/seq'
+import { getUsableConnDataList } from '../../utils/seq'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -27,23 +21,13 @@ export default (
       devLog(`received: ${connDataStr}`)
       try {
         const connData: ConnDataType = JSON.parse(connDataStr)
-        const { seq } = connData
-        if (receiveSeq === null) {
-          initReceiveSeq(seq)
-        } else if (seq === receiveSeq + 1) {
-          incrementReceiveSeq()
-        } else {
-          intoReceiveQueue(connData)
-          devLog(`postponed: ${connDataStr}`)
+
+        const usableConnDataList = getUsableConnDataList(connData)
+        if (usableConnDataList === null) {
           return EMPTY
         }
 
-        const usableInReceiveQueue: ConnDataType[] = getRemoveUsablesInRQueue(
-          seq,
-        )
-        usableInReceiveQueue.push(connData)
-
-        const ret = usableInReceiveQueue.map((connData) => {
+        const ret = usableConnDataList.map((connData) => {
           const { kind, data } = connData
           switch (kind) {
             case INST: {
