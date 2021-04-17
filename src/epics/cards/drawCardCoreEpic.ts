@@ -47,11 +47,6 @@ export default (
 
       return concat(
         of<RootActionType>({
-          type: SWITCH_LOCK,
-          on: true,
-          locknumber: 1,
-        }),
-        of<RootActionType>({
           type: DRAW_CARD_PRE,
           n,
         }),

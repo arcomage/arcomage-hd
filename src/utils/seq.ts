@@ -23,9 +23,10 @@ export const incrementReceiveSeq = (n = 1) => {
 
 const receiveQueue: (ConnDataType | null)[] = []
 
-// to remove
-;(window as any).rs = () => receiveSeq
-;(window as any).rq = receiveQueue
+if (process.env.ISDEV) {
+  ;(window as any).rs = () => receiveSeq
+  ;(window as any).rq = receiveQueue
+}
 
 export const intoReceiveQueue = (connData: ConnDataType) => {
   receiveQueue.push(connData)

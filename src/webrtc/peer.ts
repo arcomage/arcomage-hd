@@ -20,8 +20,9 @@ export const peerAll: ConnectionType = {
   conn: null,
 }
 
-// test only
-// ;(window as any).peerAll = peerAll
+if (process.env.ISDEV) {
+  ;(window as any).peerAll = peerAll
+}
 
 export const onUnloadDisconnect = () => {
   if (peerAll.peer !== null) {

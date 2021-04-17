@@ -3,6 +3,7 @@ import {
   DRAW_CARD_CORE,
   ABORT_ALL,
   SEND,
+  SWITCH_LOCK,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, concatMap, takeUntil, withLatestFrom } from 'rxjs/operators'
@@ -28,6 +29,11 @@ export default (
       const n = randomWithProbs()
 
       return concat(
+        of<RootActionType>({
+          type: SWITCH_LOCK,
+          on: true,
+          locknumber: 1,
+        }),
         isMultiGameStarted && isGuest
           ? EMPTY
           : of<RootActionType>({
