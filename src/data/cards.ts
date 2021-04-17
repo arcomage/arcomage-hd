@@ -804,7 +804,7 @@ const cards: DataCardsType = [
     effect: (p, o) => {
       change(p, 'tower', 4)
       change(p, 'recruits', -3)
-      damage(o, 2)
+      change(o, 'tower', -2)
     },
   },
   {
