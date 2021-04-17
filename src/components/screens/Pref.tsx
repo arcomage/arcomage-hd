@@ -59,6 +59,10 @@ const Pref = () => {
     (state) => state.multiplayer.tempFormFields,
   )
 
+  const multiGameStarted = useAppSelector(
+    (state) => state.multiplayer.gameStarted,
+  )
+
   const settingStore = {
     playerName: useAppSelector((state) => state.settings.playerName),
     opponentName: useAppSelector((state) => state.settings.opponentName),
@@ -318,16 +322,30 @@ const Pref = () => {
     <Window
       screenActionType={SCREEN_PREF}
       onCancel={() => {
-        const { opponentName, opponentId, ...rest } = settingStore
-        dispatch({
-          type: SEND_FORM_FIELDS,
-          payload: rest,
-        })
+        if (isHost) {
+          const { opponentName, opponentId, ...rest } = settingStore
+          dispatch({
+            type: SEND_FORM_FIELDS,
+            payload: rest,
+          })
+        }
+        if (isGuest) {
+          const { playerName } = settingStore
+          dispatch({
+            type: SEND_FORM_FIELDS,
+            payload: { playerName },
+          })
+        }
       }}
     >
-      <h3>
+      <h3 className="preferences">
         {_.i18n('Preferences')}
         {_.i18n(': ')}
+        <span id="opponentNotification">
+          {multiGameStarted
+            ? _.i18n('You are playing against human')
+            : _.i18n('You are playing against computer AI')}
+        </span>
       </h3>
 
       <div className="two-column half">

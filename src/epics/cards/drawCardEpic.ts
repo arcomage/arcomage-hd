@@ -21,21 +21,20 @@ export default (
     filter(isOfType(DRAW_CARD)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
-      const isHost =
-        state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
-      const isGuest =
-        state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
+      const isHost = state.multiplayer.status === 'connected_to_id'
+      const isGuest = state.multiplayer.status === 'connected_by_id'
+      const isMultiGameStarted = state.multiplayer.gameStarted
 
       const n = randomWithProbs()
 
       return concat(
-        isGuest
+        isMultiGameStarted && isGuest
           ? EMPTY
           : of<RootActionType>({
               type: DRAW_CARD_CORE,
               n,
             }),
-        isHost
+        isMultiGameStarted && isHost
           ? of<RootActionType>({
               type: SEND,
               kind: INST,

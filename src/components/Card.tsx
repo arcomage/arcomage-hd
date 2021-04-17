@@ -218,13 +218,9 @@ const Card = ({
   const discardMode = useAppSelector((state) => state.game.discardMode)
   const main = useRef<HTMLButtonElement | null>(null)
 
-  const multiplayerOn = useAppSelector((state) => state.multiplayer.on)
-  const multiplayerStatus = useAppSelector((state) => state.multiplayer.status)
-
-  const isConnected =
-    multiplayerOn &&
-    (multiplayerStatus === 'connected_to_id' ||
-      multiplayerStatus === 'connected_by_id')
+  const multiGameStarted = useAppSelector(
+    (state) => state.multiplayer.gameStarted,
+  )
 
   const totalObj: Readonly<CardTotalType> = useAppSelector(
     (state) => state.cards.total,
@@ -315,7 +311,7 @@ const Card = ({
         owner !== 'common' &&
         !locked[0] &&
         !locked[1] &&
-        !(useAi && !isConnected && owner === 'opponent')
+        !(useAi && !multiGameStarted && owner === 'opponent')
       ) {
         if (discardMode) {
           if (canDiscardUndiscardableWhenDDP || !special?.undiscardable) {
@@ -343,7 +339,7 @@ const Card = ({
         !locked[1] &&
         (!special?.undiscardable ||
           (discardMode && canDiscardUndiscardableWhenDDP)) &&
-        !(useAi && !isConnected && owner === 'opponent')
+        !(useAi && !multiGameStarted && owner === 'opponent')
       ) {
         buttonDisabled = false
         return {

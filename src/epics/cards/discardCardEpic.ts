@@ -22,10 +22,7 @@ export default (
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       const { index, position, owner } = action
-      const isConnected =
-        state.multiplayer.on &&
-        (state.multiplayer.status === 'connected_to_id' ||
-          state.multiplayer.status === 'connected_by_id')
+      const multiGameStarted = state.multiplayer.gameStarted
 
       return concat(
         of<RootActionType>({
@@ -34,7 +31,7 @@ export default (
           position,
           owner,
         }),
-        isConnected
+        multiGameStarted
           ? of<RootActionType>({
               type: SEND,
               kind: INST,

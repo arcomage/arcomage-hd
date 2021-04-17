@@ -36,6 +36,7 @@ import peerListenEpic from './multiplayer/peerListenEpic'
 import sendEpic from './multiplayer/sendEpic'
 import sendSettingsEpic from './multiplayer/sendSettingsEpic'
 import sendFormFieldsEpic from './multiplayer/sendFormFieldsEpic'
+import receiveWithLatencyEpic from './multiplayer/receiveWithLatencyEpic'
 import receiveEpic from './multiplayer/receiveEpic'
 
 export type MyEpic = Epic<RootActionType, RootActionType, RootStateType>
@@ -75,6 +76,7 @@ const rootEpic: MyEpic = combineEpics(
   sendEpic,
   sendSettingsEpic,
   sendFormFieldsEpic,
+  receiveWithLatencyEpic,
   receiveEpic,
 )
 

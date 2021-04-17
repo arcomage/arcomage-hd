@@ -5,6 +5,7 @@ import {
   SET_OPPONENT_ID,
   MULTIPLAYER_STATUS,
   SET_TEMP_FORM_FIELDS,
+  SWITCH_MULTI_GAME_STARTED,
 } from '../constants/ActionTypes'
 import { defaultSettings } from '../constants/defaultSettings'
 import { RootActionType } from '../types/actionObj'
@@ -23,6 +24,7 @@ const defaultMultiplayerState: MultiplayerStateType = {
   opponentId: '',
   status: 'disconnected',
   tempFormFields: tempFormFieldsDefault, // guest uses opponentName & all nums; host uses opponentName
+  gameStarted: false,
 }
 
 const multiplayer = produce(
@@ -42,6 +44,10 @@ const multiplayer = produce(
       }
       case MULTIPLAYER_STATUS: {
         draft.status = action.status
+        break
+      }
+      case SWITCH_MULTI_GAME_STARTED: {
+        draft.gameStarted = action.on
         break
       }
       case SET_TEMP_FORM_FIELDS: {

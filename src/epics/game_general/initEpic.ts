@@ -3,10 +3,11 @@ import {
   INIT_CORE,
   ABORT_ALL,
   SEND,
+  SWITCH_MULTI_GAME_STARTED,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
-import { concat, of } from 'rxjs'
+import { concat, EMPTY, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardListItemAllType, RootStateType } from '../../types/state'
@@ -22,6 +23,9 @@ export default (
     filter(isOfType(INIT)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
+      const isHost =
+        state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
+
       const playersTurn = Math.random() < 0.5
       const cardList: CardListItemAllType[] = []
       const total = state.settings.cardsInHand
@@ -44,15 +48,17 @@ export default (
           playersTurn,
           cardList,
         }),
-        of<RootActionType>({
-          type: SEND,
-          kind: INST,
-          data: {
-            type: INIT_CORE,
-            playersTurn: !playersTurn,
-            cardList: reverseCardList(cardList),
-          },
-        }),
+        isHost
+          ? of<RootActionType>({
+              type: SEND,
+              kind: INST,
+              data: {
+                type: INIT_CORE,
+                playersTurn: !playersTurn,
+                cardList: reverseCardList(cardList),
+              },
+            })
+          : EMPTY,
       ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

@@ -43,5 +43,7 @@ export type InstructionConnDataType = {
 //   data: any
 // }
 
-export type ConnDataType = InstructionConnDataType
-//  | ChatConnDataType
+export type ConnDataType = InstructionConnDataType & {
+  seq: number
+}
+// | ChatConnDataType

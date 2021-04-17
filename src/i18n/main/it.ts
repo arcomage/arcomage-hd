@@ -66,6 +66,9 @@ export const i18n = {
     "Connected by ID %s ✔️ You're the guest 💼",
   'Connection failed ❌': 'Connessione fallita ❌',
   'Disconnected 🔌': 'Disconnesso 🔌',
+  'You are playing against computer AI':
+    "Stai giocando contro l'IA del computer",
+  'You are playing against human': 'Stai giocando contro un umano',
 
   'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
     "Il tuo avversario è disconnesso. La partita in corso continuerà e il tuo avversario sarà sostituito dall'IA del computer.",

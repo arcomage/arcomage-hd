@@ -34,6 +34,12 @@
       }
     }
 
+    h3.preferences {
+      #opponentNotification {
+        @apply font-normal text-gray-400 px-1 text-sm float-right;
+      }
+    }
+
     .multiplayer {
       @apply flex w-full;
       label {

@@ -1,9 +1,9 @@
 const _disableContextMenu = false
 const _enableWindowUnloadWarning = false
-const _hideOpponentCard = false
+const _hideOpponentCard = true
 const _useAi = true
 const _noAiExtraDelay = true
-const _noLatency = true
+const _noLatency = false
 
 const isProd = !process.env.ISDEV
 
@@ -23,7 +23,7 @@ export const aiExtraDelay = 5000
 
 export const canDiscardUndiscardableWhenDDP = false
 
-export const testLatency = [500, 3000]
+export const testLatency: [number, number] = [300, 6000]
 
 export const tutorialImageUrl =
   'https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/manual.jpg'

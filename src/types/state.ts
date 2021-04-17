@@ -116,6 +116,7 @@ export type MultiplayerStateType = {
   opponentId: string
   status: MultiplayerStatusType
   tempFormFields: FormFieldsAllPartialType
+  gameStarted: boolean
 }
 
 export type RootStateType = {

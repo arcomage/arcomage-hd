@@ -63,6 +63,8 @@ export const i18n = {
   "Connected by ID %s ✔️ You're the guest 💼": '已连接到ID %s ✔️ 你是客户机 💼',
   'Connection failed ❌': '连接失败 ❌',
   'Disconnected 🔌': '连接断开 🔌',
+  'You are playing against computer AI': '你正在对战电脑AI',
+  'You are playing against human': '你正在对战网友',
 
   'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
     '你的对手已断开连接。当前游戏将继续，你的对手将被换成电脑AI。',

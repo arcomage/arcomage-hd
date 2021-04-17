@@ -6,6 +6,7 @@ import {
   DRAW_CARD,
   RESOURCE_PROD,
   ABORT_ALL,
+  SWITCH_MULTI_GAME_STARTED,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import {
@@ -15,7 +16,7 @@ import {
   delay,
   takeUntil,
 } from 'rxjs/operators'
-import { of, concat } from 'rxjs'
+import { of, concat, EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardStateType, RootStateType } from '../../types/state'
@@ -29,6 +30,11 @@ export default (
     filter(isOfType(INIT_CORE)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
+      const isHost =
+        state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
+      const isGuest =
+        state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
+
       const { playersTurn, cardList } = action
 
       const total = state.settings.cardsInHand
@@ -51,6 +57,12 @@ export default (
           type: INIT_STATUS,
           payload: getStartState(state.settings),
         }),
+        isHost || isGuest
+          ? of<RootActionType>({
+              type: SWITCH_MULTI_GAME_STARTED,
+              on: true,
+            })
+          : EMPTY,
         of<RootActionType>({
           type: RESOURCE_PROD,
           owner: playersTurn ? 'player' : 'opponent',

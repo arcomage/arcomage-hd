@@ -3,6 +3,7 @@ import {
   ABORT_ALL,
   SET_YOUR_ID,
   ABORT_CONNECTION,
+  SWITCH_MULTI_GAME_STARTED,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, concatMap, takeUntil } from 'rxjs/operators'
@@ -32,6 +33,10 @@ export default (
         of<RootActionType>({
           type: SET_YOUR_ID,
           id: '',
+        }),
+        of<RootActionType>({
+          type: SWITCH_MULTI_GAME_STARTED,
+          on: false,
         }),
       )
     }),

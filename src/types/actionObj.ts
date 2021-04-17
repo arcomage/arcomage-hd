@@ -63,12 +63,14 @@ import {
   SET_OPPONENT_ID,
   MULTIPLAYER_STATUS,
   SET_TEMP_FORM_FIELDS,
+  SWITCH_MULTI_GAME_STARTED,
   CONNECTION_LISTEN,
   PEER_LISTEN,
   SEND,
   SEND_SETTINGS,
   SEND_FORM_FIELDS,
   ABORT_SEND_FORM_FIELDS,
+  RECEIVE_WITH_LATENCY,
   RECEIVE,
 } from '../constants/ActionTypes'
 import { AvailableLangType } from '../i18n/types'
@@ -434,6 +436,11 @@ export type SetTempFormFieldsActionType = {
   payload: FormFieldsAllPartialType | null
 }
 
+export type SwitchMultiGameStartedActionType = {
+  type: typeof SWITCH_MULTI_GAME_STARTED
+  on: boolean
+}
+
 export type ConnectionListenActionType = {
   type: typeof CONNECTION_LISTEN
   host: boolean
@@ -459,6 +466,11 @@ export type SendFormFieldsActionType = {
 
 export type AbortSendFormFieldsActionType = {
   type: typeof ABORT_SEND_FORM_FIELDS
+}
+
+export type ReceiveWithLatencyActionType = {
+  type: typeof RECEIVE_WITH_LATENCY
+  data: string
 }
 
 export type ReceiveActionType = {
@@ -531,10 +543,12 @@ export type RootActionType =
   | SetOpponentIdActionType
   | SetMultiplayerStatusActionType
   | SetTempFormFieldsActionType
+  | SwitchMultiGameStartedActionType
   | ConnectionListenActionType
   | PeerListenActionType
   | SendActionType
   | SendSettingsActionType
   | SendFormFieldsActionType
   | AbortSendFormFieldsActionType
+  | ReceiveWithLatencyActionType
   | ReceiveActionType

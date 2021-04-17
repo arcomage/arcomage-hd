@@ -3,9 +3,10 @@ import {
   ABORT_CONNECTION,
   CONNECTION_LISTEN,
   MULTIPLAYER_STATUS,
+  SWITCH_MULTI_GAME_STARTED,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil, switchMap } from 'rxjs/operators'
+import { filter, concatMap, takeUntil, mergeMap } from 'rxjs/operators'
 import { concat, merge, EMPTY, fromEvent, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -20,7 +21,7 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(PEER_LISTEN)),
-    switchMap((action) => {
+    mergeMap((action) => {
       const { peer } = peerAll
       if (peer === null) {
         return EMPTY
@@ -50,6 +51,10 @@ export default (
                 type: MULTIPLAYER_STATUS,
                 status: 'disconnected',
               }),
+              of<RootActionType>({
+                type: SWITCH_MULTI_GAME_STARTED,
+                on: false,
+              }),
             )
           }),
         ),
@@ -59,6 +64,10 @@ export default (
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
                 status: 'disconnected',
+              }),
+              of<RootActionType>({
+                type: SWITCH_MULTI_GAME_STARTED,
+                on: false,
               }),
             )
           }),

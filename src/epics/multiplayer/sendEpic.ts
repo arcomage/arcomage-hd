@@ -1,6 +1,6 @@
 import { SEND } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap } from 'rxjs/operators'
+import { filter, mergeMap } from 'rxjs/operators'
 import { EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -8,6 +8,7 @@ import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import { ConnDataType } from '../../types/connData'
 import devLog from '../../utils/devLog'
+import { incrementSendSeq, sendSeq } from '../../utils/seq'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -15,14 +16,16 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(SEND)),
-    concatMap((action) => {
+    mergeMap((action) => {
       const { kind, data } = action
-      const sentData: ConnDataType = {
-        kind,
-        data,
-      }
       const { conn } = peerAll
       if (conn !== null) {
+        incrementSendSeq()
+        const sentData: ConnDataType = {
+          kind,
+          data,
+          seq: sendSeq,
+        }
         const dataStr = JSON.stringify(sentData).replace(
           /[\u007F-\uFFFF]/g,
           (chr) => '\\u' + ('0000' + chr.charCodeAt(0).toString(16)).substr(-4),

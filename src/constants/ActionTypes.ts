@@ -78,6 +78,7 @@ export const SET_OPPONENT_ID = 'SET_OPPONENT_ID' as const
 
 export const MULTIPLAYER_STATUS = 'MULTIPLAYER_STATUS' as const
 export const SET_TEMP_FORM_FIELDS = 'SET_TEMP_FORM_FIELDS' as const
+export const SWITCH_MULTI_GAME_STARTED = 'SWITCH_MULTI_GAME_STARTED' as const
 
 export const CONNECTION_LISTEN = 'CONNECTION_LISTEN' as const
 export const PEER_LISTEN = 'PEER_LISTEN' as const
@@ -88,3 +89,4 @@ export const SEND_FORM_FIELDS = 'SEND_FORM_FIELDS' as const
 export const ABORT_SEND_FORM_FIELDS = 'ABORT_SEND_FORM_FIELDS' as const
 
 export const RECEIVE = 'RECEIVE' as const
+export const RECEIVE_WITH_LATENCY = 'RECEIVE_WITH_LATENCY' as const
