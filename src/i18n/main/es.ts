@@ -52,12 +52,13 @@ export const i18n = {
   off: 'desactivado',
   on: 'habilitado',
   'Your ID': 'Tu ID',
-  "Enter your opponent's ID": "Introduce el ID de tu oponente",
+  "Enter your opponent's ID": 'Introduce el ID de tu oponente',
   Connect: 'Conectar',
   'Copied 📋✔️': 'Copiado 📋✔️',
 
   'Connecting to the network ⌛': 'Connecting to the network ⌛',
-  'Connected to the network ✔️': 'Connected to the network ✔️',
+  'Connected to the network (but not to anyone) ✔️':
+    'Connected to the network (but not to anyone) ✔️',
   'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
   "Connected to ID %s ✔️ You're the host 🏠":
     "Connected to ID %s ✔️ You're the host 🏠",
@@ -65,6 +66,9 @@ export const i18n = {
     "Connected by ID %s ✔️ You're the guest 💼",
   'Connection failed ❌': 'Conexión fallida ❌',
   'Disconnected 🔌': 'Desconectado 🔌',
+
+  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
+    'Su oponente está desconectado. La partida actual continuará y tu oponente será reemplazado por la IA del ordenador.',
 
   Reset: 'Reiniciar',
   'Apply & New Game': 'Aplicar y Nuevo Juego',

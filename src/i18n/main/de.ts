@@ -57,7 +57,8 @@ export const i18n = {
   'Copied 📋✔️': 'Kopiert 📋✔️',
 
   'Connecting to the network ⌛': 'Verbindung zum Netzwerk herstellen ⌛',
-  'Connected to the network ✔️': 'Verbunden mit dem Netzwerk ✔️',
+  'Connected to the network (but not to anyone) ✔️':
+    'Verbunden mit dem Netzwerk (aber mit niemandem) ✔️',
   'Connecting to ID %s ⌛': 'Verbindung zur ID %s herstellen ⌛',
   "Connected to ID %s ✔️ You're the host 🏠":
     'Verbunden zur ID %s ✔️ Sie sind der Host 🏠',
@@ -65,6 +66,9 @@ export const i18n = {
     'Verbunden durch ID %s ✔️ Sie sind der Gast 💼',
   'Connection failed ❌': 'Verbindung fehlgeschlagen ❌',
   'Disconnected 🔌': 'Getrennt 🔌',
+
+  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
+    'Ihr Gegner ist nicht mehr verbunden. Das aktuelle Spiel wird fortgesetzt und Ihr Gegner wird durch die Computer-KI ersetzt.',
 
   Reset: 'Zurücksetzen',
   'Apply & New Game': 'Anwenden & Neues Spiel',

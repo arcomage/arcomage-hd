@@ -6,13 +6,7 @@ import {
   SET_TEMP_FORM_FIELDS,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import {
-  filter,
-  takeUntil,
-  concatMap,
-  debounceTime,
-  distinctUntilChanged,
-} from 'rxjs/operators'
+import { filter, takeUntil, concatMap, debounceTime } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -28,9 +22,6 @@ export default (
   action$.pipe(
     filter(isOfType(SEND_FORM_FIELDS)),
     debounceTime(sendSettingsDebounceTime),
-    distinctUntilChanged(
-      (actionX, actionY) => JSON.stringify(actionX) === JSON.stringify(actionY),
-    ),
     concatMap((action) => {
       const { payload } = action
       const connSettings = payload !== null ? reverseFormFields(payload) : null
@@ -42,13 +33,14 @@ export default (
               type: SET_TEMP_FORM_FIELDS,
               payload: connSettings,
             },
-          })
+          }).pipe(
+            takeUntil(
+              merge(
+                action$.ofType(ABORT_SEND_FORM_FIELDS),
+                action$.ofType(ABORT_CONNECTION),
+              ),
+            ),
+          )
         : EMPTY
     }),
-    takeUntil(
-      merge(
-        action$.ofType(ABORT_SEND_FORM_FIELDS),
-        action$.ofType(ABORT_CONNECTION),
-      ),
-    ),
   )

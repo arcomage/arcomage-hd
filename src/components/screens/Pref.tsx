@@ -109,6 +109,10 @@ const Pref = () => {
 
   const [preset, setPreset] = useState<number>(-10)
 
+  const [notification, setNotification] = useState<string>('')
+  const [isGuest, setIsGuest] = useState<boolean>(false)
+  const [isHost, setIsHost] = useState<boolean>(false)
+
   useEffect(() => {
     const winTowerMin = formFields.tower + 1
     // resource victory condition must be 1 higher than any (res + resProd)
@@ -240,19 +244,14 @@ const Pref = () => {
     }
   }
 
-  const [notification, setNotification] = useState<string>('')
-  const [isGuest, setIsGuest] = useState<boolean>(false)
-  const [isHost, setIsHost] = useState<boolean>(false)
-
   useEffect(() => {
-    console.log(_)
     switch (multiplayerStatus) {
       case 'connecting_net':
         setNotification(_.i18n('Connecting to the network ⌛'))
         break
 
       case 'connected_net':
-        setNotification(_.i18n('Connected to the network ✔️'))
+        setNotification(_.i18n('Connected to the network (but not to anyone) ✔️'))
         break
 
       case 'connecting_to_id': {

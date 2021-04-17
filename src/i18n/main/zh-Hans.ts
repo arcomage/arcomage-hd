@@ -56,12 +56,16 @@ export const i18n = {
   'Copied 📋✔️': '已复制 📋✔️',
 
   'Connecting to the network ⌛': '正在连接到网络 ⌛',
-  'Connected to the network ✔️': '已连接到网络 ✔️',
+  'Connected to the network (but not to anyone) ✔️':
+    '已连接到网络（但未连接任何人） ✔️',
   'Connecting to ID %s ⌛': '正在连接到ID %s ⌛',
   "Connected to ID %s ✔️ You're the host 🏠": '已连接到ID %s ✔️ 你是主机 🏠',
   "Connected by ID %s ✔️ You're the guest 💼": '已连接到ID %s ✔️ 你是客户机 💼',
   'Connection failed ❌': '连接失败 ❌',
   'Disconnected 🔌': '连接断开 🔌',
+
+  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
+    '你的对手已断开连接。当前游戏将继续，你的对手将被换成电脑AI。',
 
   Reset: '重置',
   'Apply & New Game': '应用设置并新开一局',

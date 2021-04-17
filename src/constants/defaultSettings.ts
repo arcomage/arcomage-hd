@@ -1,5 +1,5 @@
 import { SettingsStateType, SettingsType, StatusType } from '../types/state'
-import sample from '../utils/sample'
+import { sample } from '../utils/random'
 import { getStartState } from '../utils/startWinState'
 
 export const defaultSettings: SettingsType = {

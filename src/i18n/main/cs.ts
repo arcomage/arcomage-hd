@@ -57,7 +57,8 @@ export const i18n = {
   'Copied 📋✔️': 'Zkopírováno 📋✔️',
 
   'Connecting to the network ⌛': 'Connecting to the network ⌛',
-  'Connected to the network ✔️': 'Connected to the network ✔️',
+  'Connected to the network (but not to anyone) ✔️':
+    'Connected to the network (but not to anyone) ✔️',
   'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
   "Connected to ID %s ✔️ You're the host 🏠":
     "Connected to ID %s ✔️ You're the host 🏠",
@@ -65,6 +66,9 @@ export const i18n = {
     "Connected by ID %s ✔️ You're the guest 💼",
   'Connection failed ❌': 'Připojení se nezdařilo ❌',
   'Disconnected 🔌': 'Odpojeno 🔌',
+
+  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
+    'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.',
 
   Reset: 'Reset',
   'Apply & New Game': 'Použít a nová hra',

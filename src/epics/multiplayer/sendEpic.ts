@@ -22,13 +22,12 @@ export default (
       }
       const { conn } = peerAll
       if (conn !== null) {
-        conn.send(
-          JSON.stringify(sentData).replace(
-            /[\u007F-\uFFFF]/g,
-            (chr) =>
-              '\\u' + ('0000' + chr.charCodeAt(0).toString(16)).substr(-4),
-          ),
+        const dataStr = JSON.stringify(sentData).replace(
+          /[\u007F-\uFFFF]/g,
+          (chr) => '\\u' + ('0000' + chr.charCodeAt(0).toString(16)).substr(-4),
         )
+        conn.send(dataStr)
+        console.log(`sent: ${dataStr}`)
       }
       return EMPTY
     }),

@@ -20,8 +20,8 @@ export const peerAll: ConnectionType = {
   conn: null,
 }
 
-// to delete
-;(window as any).peerAll = peerAll
+// test only
+// ;(window as any).peerAll = peerAll
 
 export const onUnloadDisconnect = () => {
   if (peerAll.peer !== null) {
