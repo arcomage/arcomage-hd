@@ -38,7 +38,7 @@ const TableP = () => {
           size.narrowMobile ? 'h-1/2' : 'h-1/3',
         )}
       >
-        <Card n={-1} position={-1} unusable={true} />
+        <Card n={-1} position={-1} unusable />
         {cards.map((card, i) => {
           if (card === null) {
             return null

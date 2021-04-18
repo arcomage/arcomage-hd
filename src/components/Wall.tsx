@@ -84,7 +84,7 @@ const Wall = ({ isOpponent = false }: PropType) => {
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
           <TowerOrWallNumber
             isOpponent={isOpponent}
-            isWall={true}
+            isWall
             target={wallBody}
           />
         </div>

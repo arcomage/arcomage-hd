@@ -186,7 +186,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
             classes.prod,
           )}
         >
-          <ResourceNumber isProd={true} {...{ type, isOpponent }} />
+          <ResourceNumber isProd {...{ type, isOpponent }} />
         </div>
       </div>
       <div
