@@ -41,11 +41,12 @@ export default (
     filter(isOfType(DRAW_CARD_CORE)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
-      devLog("DRAW_CARD_CORE executed!")
       const { n } = action
       const owner = state.game.playersTurn ? 'player' : 'opponent'
       const multiGameStarted = state.multiplayer.gameStarted
       playSound('deal', state.volume)
+
+      devLog(`${owner} draws card ${n}`, 'info')
 
       return concat(
         of<RootActionType>({
@@ -76,6 +77,17 @@ export default (
               ),
             )
           : EMPTY,
+        // owner === 'opponent' && multiGameStarted
+        //   ? of<RootActionType>({
+        //       type: AI_USE_CARD,
+        //     }).pipe(
+        //       delay(
+        //         cardTransitionDuration +
+        //           aiDelay +
+        //           (noAiExtraDelay ? 0 : aiExtraDelay),
+        //       ),
+        //     )
+        //   : EMPTY,
         owner === 'player'
           ? of<RootActionType>({
               type: CHECK_SURRENDER,

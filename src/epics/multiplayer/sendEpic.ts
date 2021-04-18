@@ -31,7 +31,7 @@ export default (
           (chr) => '\\u' + ('0000' + chr.charCodeAt(0).toString(16)).substr(-4),
         )
         conn.send(dataStr)
-        devLog(`sent: ${dataStr}`)
+        devLog(`sent: ${dataStr}`, 'note')
       }
       return EMPTY
     }),

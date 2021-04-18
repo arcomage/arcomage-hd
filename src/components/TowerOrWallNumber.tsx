@@ -1,4 +1,5 @@
 import React, { memo, useEffect } from 'react'
+// import devLog from '../utils/devLog'
 import { useAppSelector } from '../utils/useAppDispatch'
 import AnimatedNumber from './effects/AnimatedNumber'
 import NumberChangeVisual from './effects/NumberChangeVisual'
@@ -22,7 +23,7 @@ const TowerOrWallNumber = ({ isOpponent, isWall, target }: PropType) => {
       target.current.style.setProperty('--n', n.toString(10))
     }
     // else {
-    //   console.log("the tower / wall number component can't get its target!")
+    //   devLog("the tower / wall number component can't get its target!", 'bug')
     // }
   }, [n])
 

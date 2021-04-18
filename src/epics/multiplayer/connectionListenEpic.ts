@@ -37,7 +37,7 @@ export default (
           'data',
         ).pipe(
           concatMap((data) => {
-            devLog(`${type}. received: ${data}`)
+            devLog(`${type}. received: ${data}`, 'note')
             return of<RootActionType>({
               type: !noLatency ? RECEIVE_WITH_LATENCY : RECEIVE,
               data,
@@ -49,7 +49,10 @@ export default (
             if (!action.host) {
               sendSeq.reset()
               receiveSeq.reset()
-              devLog('guest connected by host; sendSeq & receiveSeq reset')
+              devLog(
+                'guest connected by host; sendSeq & receiveSeq reset',
+                'note',
+              )
               // guest connected by host
               return concat(
                 of<RootActionType>({
@@ -81,7 +84,7 @@ export default (
         ),
         fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'error').pipe(
           concatMap(() => {
-            console.log('error')
+            devLog('error emitted by conn', 'error')
             return EMPTY
           }),
         ),

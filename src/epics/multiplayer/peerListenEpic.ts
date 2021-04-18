@@ -14,6 +14,7 @@ import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import { JQueryStyleEventEmitter } from 'rxjs/internal/observable/fromEvent'
 import Peer from 'peerjs'
+import devLog from '../../utils/devLog'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -74,7 +75,7 @@ export default (
         ),
         fromEvent((peer as unknown) as JQueryStyleEventEmitter, 'error').pipe(
           concatMap(() => {
-            console.log('error')
+            devLog('error emitted by peer', 'error')
             return EMPTY
           }),
         ),

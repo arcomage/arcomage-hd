@@ -77,7 +77,10 @@ export default (
           concatMap((_) => {
             sendSeq.reset()
             receiveSeq.reset()
-            devLog('host connected to guest; sendSeq & receiveSeq reset')
+            devLog(
+              'host connected to guest; sendSeq & receiveSeq reset',
+              'note',
+            )
             // host connected to guest
             return concat(
               of<RootActionType>({

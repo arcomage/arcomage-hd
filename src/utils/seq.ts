@@ -54,7 +54,7 @@ class receiveSequence {
       this.add()
     } else {
       this.enqueue(connData)
-      devLog(`postponed: ${JSON.stringify(connData)}`)
+      devLog(`postponed: ${JSON.stringify(connData)}`, 'note')
       return null
     }
     const usableInReceiveQueue: ConnDataType[] = this.getRemoveUsablesInQueue(
@@ -65,6 +65,7 @@ class receiveSequence {
       `pulled (executed): ${JSON.stringify(
         [connData].concat(usableInReceiveQueue),
       )}`,
+      'note',
     )
     return [connData].concat(usableInReceiveQueue)
   }

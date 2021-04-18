@@ -18,7 +18,7 @@ export default (
     filter(isOfType(RECEIVE)),
     concatMap((action) => {
       const { data: connDataStr } = action
-      devLog(`received: ${connDataStr}`)
+      devLog(`received: ${connDataStr}`, 'note')
       try {
         const connData: ConnDataType = JSON.parse(connDataStr)
 
