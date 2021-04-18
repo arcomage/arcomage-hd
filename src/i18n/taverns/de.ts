@@ -53,4 +53,48 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Groggs Grog',
     location: 'Steinstadt',
   },
+  // {
+  //   name: 'Speis und Trank',
+  //   location: 'Dolchwunden -Insel',
+  // },
+  // {
+  //   name: 'Kessels Bar',
+  //   location: 'Rabenbucht',
+  // },
+  // {
+  //   name: 'Haus des Profits',
+  //   location: 'Alvar',
+  // },
+  // {
+  //   name: 'Zur trockenen Kehle',
+  //   location: 'Eisensandwüste',
+  // },
+  // {
+  //   name: 'Gasthof zum Drachenblut',
+  //   location: 'Garottenschlucht',
+  // },
+  // {
+  //   name: 'Schwarze Gesellschaft',
+  //   location: 'Schattensumpf',
+  // },
+  // {
+  //   name: 'Rastplatz für Reisende',
+  //   location: 'Murmelwald',
+  // },
+  // {
+  //   name: 'Zum Bullauge',
+  //   location: 'Felswüstenland',
+  // },
+  // {
+  //   name: 'Zum Piraten',
+  //   location: 'Regna',
+  // },
+  // {
+  //   name: 'Zum tanzenden Oger',
+  //   location: 'Rabenbucht',
+  // },
+  // {
+  //   name: 'Halle der Mitternacht',
+  //   location: 'Alvar',
+  // },
 ]

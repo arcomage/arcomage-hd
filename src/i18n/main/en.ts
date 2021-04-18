@@ -35,7 +35,7 @@ export const i18n = {
   'Tie Game': 'Tie Game',
 
   Preferences: 'Preferences',
-  ':': ':',
+  ': ': ': ',
   'Your Name': 'Your Name',
   "Opponent's Name": "Opponent's Name",
   'Choose a Tavern (Preset Preferences)':
@@ -47,6 +47,35 @@ export const i18n = {
   'Other Preferences': 'Other Preferences',
   'Cards in Hand': 'Cards in Hand',
   'AI Type': 'AI Type',
+
+  Multiplayer: 'Multiplayer',
+  off: 'off',
+  on: 'on',
+  'Your ID': 'Your ID',
+  "Enter your opponent's ID": "Enter your opponent's ID",
+  Connect: 'Connect',
+  'Copied 📋✔️': 'Copied 📋✔️',
+
+  'Connecting to the network ⌛': 'Connecting to the network ⌛',
+  'Connected to the network (but not to anyone) ✔️':
+    'Connected to the network (but not to anyone) ✔️',
+  'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
+  "Connected to ID %s ✔️ You're the host 🏠":
+    "Connected to ID %s ✔️ You're the host 🏠",
+  "Connected by ID %s ✔️ You're the guest 💼":
+    "Connected by ID %s ✔️ You're the guest 💼",
+  'Connection failed ❌': 'Connection failed ❌',
+  'Disconnected 🔌': 'Disconnected 🔌',
+  'You are playing against computer AI': 'You are playing against computer AI',
+  'You are playing against human': 'You are playing against human',
+
+  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
+    'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.',
+
+  'Multiplayer Mode is experimental and unstable':
+    'Multiplayer Mode is experimental and unstable',
+
+  Reset: 'Reset',
   'Apply & New Game': 'Apply & New Game',
   Cancel: 'Cancel',
 

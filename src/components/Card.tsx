@@ -214,9 +214,15 @@ const Card = ({
   const cardName = _.cards(n, 'name')
   const cardNameLength = cardName.length
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
-  const locked = useAppSelector((state) => state.game.locked)
+  const locked = useAppSelector((state) => state.game.locked).some(
+    (l) => l === true,
+  )
   const discardMode = useAppSelector((state) => state.game.discardMode)
   const main = useRef<HTMLButtonElement | null>(null)
+
+  const multiGameStarted = useAppSelector(
+    (state) => state.multiplayer.gameStarted,
+  )
 
   const totalObj: Readonly<CardTotalType> = useAppSelector(
     (state) => state.cards.total,
@@ -305,9 +311,8 @@ const Card = ({
     const onClickFunc = (() => {
       if (
         owner !== 'common' &&
-        !locked[0] &&
-        !locked[1] &&
-        !(useAi && owner === 'opponent')
+        !locked &&
+        !(useAi && !multiGameStarted && owner === 'opponent')
       ) {
         if (discardMode) {
           if (canDiscardUndiscardableWhenDDP || !special?.undiscardable) {
@@ -331,11 +336,10 @@ const Card = ({
     const onContextMenuFunc = (() => {
       if (
         owner !== 'common' &&
-        !locked[0] &&
-        !locked[1] &&
+        !locked &&
         (!special?.undiscardable ||
           (discardMode && canDiscardUndiscardableWhenDDP)) &&
-        !(useAi && owner === 'opponent')
+        !(useAi && !multiGameStarted && owner === 'opponent')
       ) {
         buttonDisabled = false
         return {

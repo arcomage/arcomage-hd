@@ -26,6 +26,9 @@ module.exports = (env, argv) => {
     devServer: {
       port: 8080,
       open: true,
+      stats: {
+        performance: false,
+      },
     },
     resolve: {
       extensions: [
@@ -141,6 +144,7 @@ module.exports = (env, argv) => {
         'process.env.APPVERSION': JSON.stringify(
           process.env.npm_package_version,
         ),
+        'process.env.ISDEV': JSON.stringify(dev),
       }),
       new ForkTsCheckerWebpackPlugin(),
       new HtmlWebpackPlugin({
@@ -187,7 +191,8 @@ module.exports = (env, argv) => {
     ],
     optimization: {
       splitChunks: {
-        maxSize: 0,
+        chunks: 'all',
+        maxSize: 20000,
       },
     },
   }

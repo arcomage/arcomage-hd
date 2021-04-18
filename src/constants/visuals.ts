@@ -2,8 +2,6 @@ export const cardTransitionDuration = 500
 
 export const cardNextStepDelay = 350
 
-export const aiDelay = 100
-
 export const unusableCardOpacity = 0.48
 
 export const cardGradientSideOpacity = 0.24
@@ -35,3 +33,13 @@ export const numberChangeVisualDuration = 1000 // explosion & firework
 export const numberDiffDuration = 1500
 
 export const maxWallOnScreen = 100
+
+export const copiedDuration = 3000
+
+export const shorterIdStartEndLength = 5
+
+export const connBaseRetryTime = 4000
+
+export const connRetryTimes = 5
+
+export const sendSettingsDebounceTime = 500

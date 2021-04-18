@@ -135,7 +135,8 @@ const Resource = ({ type, isOpponent }: PropType) => {
     smallMode,
     unitTextLength: smallMode
       ? 0
-      : text.replace(/[ыщ]/g, '  ').replace(/ll/g, 'l').length,
+      : text.replace(/[ыщ]/g, '  ').replace(/ll/g, 'l').replace(/in/g, 'n')
+          .length,
   })
   // Force TailwindCSS to aware of these classes:
   // bg-red-300

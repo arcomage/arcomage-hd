@@ -53,4 +53,48 @@ export const tavernsI18n: TavernsI18nType = [
     name: '克劳格旅店',
     location: '石头城',
   },
+  // {
+  //   name: '葛卢格和葛卢伯',
+  //   location: '匕伤岛',
+  // },
+  // {
+  //   name: '凯所的凯提纳',
+  //   location: '鸦岸',
+  // },
+  // {
+  //   name: '获利之屋',
+  //   location: '艾尔瓦',
+  // },
+  // {
+  //   name: '干渴的喉咙',
+  //   location: '铁沙漠',
+  // },
+  // {
+  //   name: '龙血旅店',
+  //   location: '盖鲁特峡谷',
+  // },
+  // {
+  //   name: '黑色伙伴',
+  //   location: '阴影塔',
+  // },
+  // {
+  //   name: '旅行者休息站',
+  //   location: '低语森林',
+  // },
+  // {
+  //   name: '牛眼旅店',
+  //   location: '残破镇',
+  // },
+  // {
+  //   name: '海盗休息站',
+  //   location: '雷格那',
+  // },
+  // {
+  //   name: '跳舞食人魔',
+  //   location: '鸦岸',
+  // },
+  // {
+  //   name: '米和的休息站',
+  //   location: '艾尔瓦',
+  // },
 ]

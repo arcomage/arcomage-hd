@@ -8,6 +8,8 @@ export const resProdMap = {
   recruitProd: 'recruits',
 } as const
 
+export const poNames = ['playerName', 'opponentName'] as const
+
 export const allStatusNames = [
   'tower',
   'wall',
@@ -17,6 +19,17 @@ export const allStatusNames = [
   'brickProd',
   'gemProd',
   'recruitProd',
+] as const
+
+export const otherSettingNames = [
+  'winTower',
+  'winResource',
+  'cardsInHand',
+] as const
+
+export const nonNameSettingNames = [
+  ...allStatusNames,
+  ...otherSettingNames,
 ] as const
 
 export const resNameAllMap = {

@@ -7,7 +7,7 @@ import loseImg from '../../../assets/img/end_lose.svg'
 import tieImg from '../../../assets/img/end_tie.svg'
 import firework from '../../../assets/img/firework.png'
 import { I18nContext } from '../../i18n/I18nContext'
-import { useAppDispatch } from '../../utils/useAppDispatch'
+import { useAppDispatch, useAppSelector } from '../../utils/useAppDispatch'
 import { INIT, SCREEN_END } from '../../constants/ActionTypes'
 import useKeyDown from '../../utils/useKeyDown'
 import { endScreenExitableDelay } from '../../constants/visuals'
@@ -110,6 +110,12 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
   const _ = useContext(I18nContext)
   const classes = useStyles(endScreenState)
 
+  const multiplayerStatus = useAppSelector((state) => state.multiplayer.status)
+  const multiGameStarted = useAppSelector(
+    (state) => state.multiplayer.gameStarted,
+  )
+  const isGuest = multiplayerStatus === 'connected_by_id' && multiGameStarted
+
   const { type, surrender } = endScreenState
 
   const text = _.i18n(textMap[type])
@@ -157,9 +163,11 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
       type: SCREEN_END,
       payload: { type: null },
     })
-    dispatch({
-      type: INIT,
-    })
+    if (!isGuest) {
+      dispatch({
+        type: INIT,
+      })
+    }
   }
 
   useKeyDown(null, onActionFunc, endScreenExitableDelay)

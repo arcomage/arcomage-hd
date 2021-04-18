@@ -21,6 +21,7 @@ const Help = () => {
         case '%s':
           arr1[i] = (
             <a
+              key={item}
               href="https://github.com/arcomage/arcomage-hd"
               target="_blank"
               rel="noopener noreferrer"
@@ -32,6 +33,7 @@ const Help = () => {
         case '%s1':
           arr1[i] = (
             <a
+              key={item}
               href={tutorialImageUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -43,6 +45,7 @@ const Help = () => {
         case '%s2':
           arr1[i] = (
             <a
+              key={item}
               href="https://github.com/tomchen"
               target="_blank"
               rel="noopener noreferrer"
@@ -58,7 +61,7 @@ const Help = () => {
   })
 
   return (
-    <Window ScreenActionType={SCREEN_HELP}>
+    <Window screenActionType={SCREEN_HELP}>
       <small className="version">v{process.env.APPVERSION}</small>
       <p className="description">
         {_.i18n('ArcoMage HD') !== 'ArcoMage HD' && (
@@ -75,7 +78,7 @@ const Help = () => {
       <p>
         <strong>
           {_.i18n('Game rules')}
-          {_.i18n(':')}
+          {_.i18n(': ')}
         </strong>
       </p>
       <div>{<MultilineText>{_.i18n('GAMERULES')}</MultilineText>}</div>

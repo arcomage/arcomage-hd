@@ -16,7 +16,7 @@ const defaultGame: GameStateType = {
   isNewTurn: true,
 }
 
-const game = produce((draft: GameStateType, action: RootActionType) => {
+export default produce((draft: GameStateType, action: RootActionType) => {
   switch (action.type) {
     case INIT_GAME: {
       return {
@@ -43,5 +43,3 @@ const game = produce((draft: GameStateType, action: RootActionType) => {
     }
   }
 }, defaultGame)
-
-export default game

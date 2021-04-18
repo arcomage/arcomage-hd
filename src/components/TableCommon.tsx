@@ -25,7 +25,7 @@ const useStyles = createUseStyles({
 const TableCommon = () => {
   const playerName = useAppSelector((state) => state.settings.playerName)
   const opponentName = useAppSelector((state) => state.settings.opponentName)
-  const winTower = useAppSelector((state) => state.settings.win.tower)
+  const winTower = useAppSelector((state) => state.settings.winTower)
 
   const size = useContext(GameSizeContext)
 

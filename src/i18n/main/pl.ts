@@ -35,7 +35,7 @@ export const i18n = {
   'Tie Game': 'Remis',
 
   Preferences: 'Opcje',
-  ':': ':',
+  ': ': ': ',
   'Your Name': 'Twoje imię',
   "Opponent's Name": 'Imię przeciwnika',
   'Choose a Tavern (Preset Preferences)':
@@ -47,6 +47,35 @@ export const i18n = {
   'Other Preferences': 'Inne opcje',
   'Cards in Hand': 'Karty w ręce',
   'AI Type': 'Typ komputera',
+
+  Multiplayer: 'Wieloosobowa',
+  off: 'wyłączony',
+  on: 'włączony',
+  'Your ID': 'Twoje ID',
+  "Enter your opponent's ID": 'Wpisz ID przeciwnika',
+  Connect: 'Połącz',
+  'Copied 📋✔️': 'Skopiowane 📋✔️',
+
+  'Connecting to the network ⌛': 'Connecting to the network ⌛',
+  'Connected to the network (but not to anyone) ✔️':
+    'Connected to the network (but not to anyone) ✔️',
+  'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
+  "Connected to ID %s ✔️ You're the host 🏠":
+    "Connected to ID %s ✔️ You're the host 🏠",
+  "Connected by ID %s ✔️ You're the guest 💼":
+    "Connected by ID %s ✔️ You're the guest 💼",
+  'Connection failed ❌': 'Połączenie nie powiodło się ❌',
+  'Disconnected 🔌': 'Rozłączono 🔌',
+  'You are playing against computer AI': 'Grasz przeciwko komputerowi AI',
+  'You are playing against human': 'Grasz przeciwko człowiekowi',
+
+  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
+    'Twój przeciwnik jest rozłączony. Obecna gra będzie kontynuowana, a Twój przeciwnik zostanie zastąpiony przez komputerową sztuczną inteligencję.',
+
+  'Multiplayer Mode is experimental and unstable':
+    'Tryb multiplayer jest eksperymentalny i niestabilny',
+
+  Reset: 'Resetuj',
   'Apply & New Game': 'Akceptuj i zacznij grę',
   Cancel: 'Zakończ',
 

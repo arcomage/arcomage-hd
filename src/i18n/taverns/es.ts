@@ -53,4 +53,48 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'El grog de Grogg',
     location: 'Ciudad de Piedra',
   },
+  // {
+  //   name: 'Grog y ragut',
+  //   location: 'Islas de Herida de Daga',
+  // },
+  // {
+  //   name: 'Cantina de Kessel',
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: 'Casa lucrativa',
+  //   location: 'Alvar',
+  // },
+  // {
+  //   name: 'Garganta seca',
+  //   location: 'Desierto de Arena de Hierro',
+  // },
+  // {
+  //   name: 'La Sangre del Dragón',
+  //   location: 'Garrote Gorge',
+  // },
+  // {
+  //   name: 'La Compañía Negra',
+  //   location: 'Shadowspire',
+  // },
+  // {
+  //   name: 'El Descanso del viajero',
+  //   location: 'Murmurwoods',
+  // },
+  // {
+  //   name: 'El Ojo de toro',
+  //   location: 'Ronda Siniestra',
+  // },
+  // {
+  //   name: 'El Descanso del pirata',
+  //   location: 'Regna',
+  // },
+  // {
+  //   name: 'El Ogro bailarín',
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: 'Posada de Miho',
+  //   location: 'Alvar',
+  // },
 ]

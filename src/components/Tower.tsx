@@ -99,10 +99,6 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
 
   return (
     <div
-      title={_.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
-        '%s',
-        _.i18n('tower'),
-      )}
       className={cx(
         'h-full mx-1 relative',
         `float-${isOpponent ? 'right' : 'left'}`,
@@ -112,6 +108,10 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
       <div className={cx('z-20 w-full absolute', classes.towerwrapper)}>
         <div
           ref={towerBody}
+          title={_.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
+            '%s',
+            _.i18n('tower'),
+          )}
           className={cx(
             'absolute bottom-0',
             classes.towerbody,
@@ -119,7 +119,13 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
           )}
         ></div>
       </div>
-      <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
+      <div
+        title={_.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
+          '%s',
+          _.i18n('tower'),
+        )}
+        className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0"
+      >
         <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
           <TowerOrWallNumber
             isOpponent={isOpponent}

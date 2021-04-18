@@ -53,4 +53,48 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Groggův grog',
     location: 'Kamenné město',
   },
+  // {
+  //   name: 'U Grogu a žrádla',
+  //   location: 'Alvar',
+  // },
+  // {
+  //   name: 'Kesselova kantýna',
+  //   location: 'Poušť Železných písků',
+  // },
+  // {
+  //   name: 'U Vydřiducha',
+  //   location: 'Garrotova rokle',
+  // },
+  // {
+  //   name: 'U Vyprahlého hrdla',
+  //   location: 'Země stínů',
+  // },
+  // {
+  //   name: 'U Dračí krve',
+  //   location: 'Šeptající lesy',
+  // },
+  // {
+  //   name: 'Černá společnost',
+  //   location: 'Bludná pláň',
+  // },
+  // {
+  //   name: 'U Unaveného poutníka',
+  //   location: 'Rovina vzduchu',
+  // },
+  // {
+  //   name: 'U Buvolího oka',
+  //   location: 'Rovina země',
+  // },
+  // {
+  //   name: 'U Ospalého piráta',
+  //   location: 'Výuka',
+  // },
+  // {
+  //   name: 'U Tančícího zlobra',
+  //   location: 'Poušť Železných písků',
+  // },
+  // {
+  //   name: 'Mihův zájezdní hostinec',
+  //   location: 'Garrotova rokle',
+  // },
 ]

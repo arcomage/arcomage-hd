@@ -53,4 +53,48 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Le Grog de Grogg',
     location: 'Montagne du Tonnerre',
   },
+  // {
+  //   name: 'Grog et ragoût',
+  //   location: 'Ile de la Plaie de la Dague',
+  // },
+  // {
+  //   name: 'Cantine de Kessel',
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: 'L’appât du gain',
+  //   location: 'Alvar',
+  // },
+  // {
+  //   name: 'La Gorge sèche',
+  //   location: 'Désert du sable de fer',
+  // },
+  // {
+  //   name: 'Au sang du dragon',
+  //   location: 'Garrote Gorge',
+  // },
+  // {
+  //   name: 'Au culte des arts',
+  //   location: 'Shadowspire',
+  // },
+  // {
+  //   name: 'Au repos du voyageur',
+  //   location: 'Murmurwoods',
+  // },
+  // {
+  //   name: 'En plein dans le mille',
+  //   location: 'Ravagabondage',
+  // },
+  // {
+  //   name: 'Au repos du pirate',
+  //   location: 'Regna',
+  // },
+  // {
+  //   name: 'La guinguette des ogres',
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: 'Relais de Miho',
+  //   location: 'Alvar',
+  // },
 ]

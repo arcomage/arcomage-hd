@@ -35,7 +35,7 @@ export const i18n = {
   'Tie Game': 'Remízová hra',
 
   Preferences: 'Předvolby',
-  ':': ':',
+  ': ': ': ',
   'Your Name': 'Vaše jméno',
   "Opponent's Name": 'Jméno soupeře',
   'Choose a Tavern (Preset Preferences)':
@@ -47,6 +47,35 @@ export const i18n = {
   'Other Preferences': 'Další předvolby',
   'Cards in Hand': 'Karty v ruce',
   'AI Type': 'Typ AI',
+
+  Multiplayer: 'Více hráčů',
+  off: 'zakázáno',
+  on: 'povoleno',
+  'Your ID': 'Vaše ID',
+  "Enter your opponent's ID": 'Zadejte ID soupeře',
+  Connect: 'Připojit',
+  'Copied 📋✔️': 'Zkopírováno 📋✔️',
+
+  'Connecting to the network ⌛': 'Connecting to the network ⌛',
+  'Connected to the network (but not to anyone) ✔️':
+    'Connected to the network (but not to anyone) ✔️',
+  'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
+  "Connected to ID %s ✔️ You're the host 🏠":
+    "Connected to ID %s ✔️ You're the host 🏠",
+  "Connected by ID %s ✔️ You're the guest 💼":
+    "Connected by ID %s ✔️ You're the guest 💼",
+  'Connection failed ❌': 'Připojení se nezdařilo ❌',
+  'Disconnected 🔌': 'Odpojeno 🔌',
+  'You are playing against computer AI': 'Hrajete proti počítačové AI',
+  'You are playing against human': 'Hrajete proti člověku',
+
+  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
+    'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.',
+
+  'Multiplayer Mode is experimental and unstable':
+    'Režim pro více hráčů je experimentální a nestabilní',
+
+  Reset: 'Reset',
   'Apply & New Game': 'Použít a nová hra',
   Cancel: 'Zrušit',
 

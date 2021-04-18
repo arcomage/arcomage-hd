@@ -11,6 +11,9 @@ export const UPDATE_STATUS_MAIN = 'UPDATE_STATUS_MAIN' as const
 
 export const EXEC_CARD = 'EXEC_CARD' as const
 export const USE_CARD = 'USE_CARD' as const
+export const PLAY_CARD_TO_QUEUE = 'PLAY_CARD_TO_QUEUE' as const
+export const PLAY_CARD_FROM_QUEUE = 'PLAY_CARD_FROM_QUEUE' as const
+export const USE_CARD_CORE = 'USE_CARD_CORE' as const
 
 export const CLEAR_CARD = 'CLEAR_CARD' as const
 export const MOVE_CARD_TO_STACK = 'MOVE_CARD_TO_STACK' as const
@@ -21,14 +24,19 @@ export const MOVE_CARD_TO_TOP_MAIN = 'MOVE_CARD_TO_TOP_MAIN' as const
 export const DELETE_CARD = 'DELETE_CARD' as const
 export const REMOVE_CARD = 'REMOVE_CARD' as const
 export const DISCARD_CARD = 'DISCARD_CARD' as const
+export const DISCARD_CARD_CORE = 'DISCARD_CARD_CORE' as const
 export const ADD_DISCARDED_TAG = 'ADD_DISCARDED_TAG' as const
 export const DRAW_CARD = 'DRAW_CARD' as const
+export const DRAW_CARD_TO_QUEUE = 'DRAW_CARD_TO_QUEUE' as const
+export const DRAW_CARD_FROM_QUEUE = 'DRAW_CARD_FROM_QUEUE' as const
+export const DRAW_CARD_CORE = 'DRAW_CARD_CORE' as const
 export const DRAW_CARD_PRE = 'DRAW_CARD_PRE' as const
 export const DRAW_CARD_MAIN = 'DRAW_CARD_MAIN' as const
-export const UPDATE_SETTINGS_AND_INIT = 'UPDATE_SETTINGS_AND_INIT' as const
+export const UPDATE_SETTINGS_INIT = 'UPDATE_SETTINGS_INIT' as const
 export const UPDATE_SETTINGS = 'UPDATE_SETTINGS' as const
 export const UPDATE_SETTINGS_MAIN = 'UPDATE_SETTINGS_MAIN' as const
 export const INIT = 'INIT' as const
+export const INIT_CORE = 'INIT_CORE' as const
 export const INIT_CARD = 'INIT_CARD' as const
 export const INIT_GAME = 'INIT_GAME' as const
 export const INIT_STATUS = 'INIT_STATUS' as const
@@ -54,8 +62,35 @@ export const SCREEN_LANDSCAPE = 'SCREEN_LANDSCAPE' as const
 export const SCREEN_END = 'SCREEN_END' as const
 export const SCREEN_END_MAIN = 'SCREEN_END_MAIN' as const
 
-export const AI_USE_CARD = 'AI_USE_CARD' as const
+export const AI_PLAY_CARD = 'AI_PLAY_CARD' as const
 
 export const CHECK_SURRENDER = 'CHECK_SURRENDER' as const
 
 export const ABORT_ALL = 'ABORT_ALL' as const
+
+export const ABORT_CONNECTION = 'ABORT_CONNECTION' as const
+
+export const SWITCH_MULTIPLAYER_MODE = 'SWITCH_MULTIPLAYER_MODE' as const
+export const SWITCH_MULTIPLAYER_MODE_MAIN = 'SWITCH_MULTIPLAYER_MODE_MAIN' as const
+
+export const CONNECT_TO_NETWORK = 'CONNECT_TO_NETWORK' as const
+export const SET_YOUR_ID = 'SET_YOUR_ID' as const
+export const DISCONNECT = 'DISCONNECT' as const
+
+export const CONNECT_TO_ID = 'CONNECT_TO_ID' as const
+export const SET_OPPONENT_ID = 'SET_OPPONENT_ID' as const
+
+export const MULTIPLAYER_STATUS = 'MULTIPLAYER_STATUS' as const
+export const SET_TEMP_FORM_FIELDS = 'SET_TEMP_FORM_FIELDS' as const
+export const SWITCH_MULTI_GAME_STARTED = 'SWITCH_MULTI_GAME_STARTED' as const
+
+export const CONNECTION_LISTEN = 'CONNECTION_LISTEN' as const
+export const PEER_LISTEN = 'PEER_LISTEN' as const
+
+export const SEND = 'SEND' as const
+export const SEND_SETTINGS = 'SEND_SETTINGS' as const
+export const SEND_FORM_FIELDS = 'SEND_FORM_FIELDS' as const
+export const ABORT_SEND_FORM_FIELDS = 'ABORT_SEND_FORM_FIELDS' as const
+
+export const RECEIVE = 'RECEIVE' as const
+export const RECEIVE_WITH_LATENCY = 'RECEIVE_WITH_LATENCY' as const

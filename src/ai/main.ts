@@ -23,7 +23,7 @@ export const aiDecision = (
     const { index, n, canuse } = card
     const dataCard = cards[n]
     const { type, cost, special, effect } = dataCard
-    const { tower: winTower, resource: winResource } = winSettings
+    const { winTower, winResource } = winSettings
     const pAfter: PersonStatusType = { ...pBefore }
     const oAfter: PersonStatusType = { ...oBefore }
     effect(oAfter, pAfter)

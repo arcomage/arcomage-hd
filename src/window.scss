@@ -2,6 +2,10 @@
   .window-bg {
     @apply absolute w-full h-full top-0 left-0 z-100 text-shadow flex justify-center items-center pointer-events-none;
 
+    &.darkerbg {
+      @apply bg-black bg-opacity-80
+    }
+
     .window-outerwrapper {
       @apply max-w-screen-md p-6;
     }
@@ -34,11 +38,68 @@
       }
     }
 
+    h3.preferences {
+      #opponentNotification {
+        @apply font-normal text-gray-400 px-1 text-sm float-right;
+      }
+    }
+
+    .multiplayer {
+      @apply flex w-full;
+      label {
+        @apply inline-block w-auto;
+        span {
+          @apply px-1;
+        }
+      }
+    }
+
+    h4.multiplayer {
+      label {
+        @apply flex-grow-0;
+        span {
+          @apply px-1;
+        }
+      }
+      #multiplayerNotification {
+        @apply font-normal text-yellow-400 px-1 flex-grow text-base;
+      }
+    }
+
+    div.multiplayer {
+      label {
+        @apply flex-grow flex;
+        span {
+          @apply flex-grow-0;
+        }
+        input {
+          @apply flex-grow;
+        }
+      }
+      .copied,
+      button {
+        @apply flex-grow-0 py-1 ml-2;
+      }
+      .copied {
+        @apply px-1 opacity-0;
+        transition: opacity 150ms linear;
+        &.copied-shown {
+          @apply opacity-100;
+        }
+      }
+      button {
+        @apply px-4;
+      }
+      #yourId {
+        @apply cursor-pointer;
+      }
+    }
+
     span {
       @apply text-right px-3 py-0.5;
-      .p-0 {
-        padding: 0;
-      }
+    }
+    span.no-erathian span.erathian {
+      @apply p-0;
     }
     input[type='number'],
     input[type='text'],
@@ -61,15 +122,18 @@
       appearance: slider-vertical;
     }
 
-    .two-column {
-      @apply flex flex-wrap;
+    .two-column,
+    .four-column {
+      @apply flex flex-nowrap;
+    }
 
+    .two-column {
       label {
         @apply w-1/2;
       }
 
       span {
-        @apply w-2/3;
+        @apply w-2/3 overflow-hidden;
       }
       input[type='number'],
       input[type='text'],
@@ -79,13 +143,28 @@
 
       &.half {
         span {
-          @apply w-1/2;
+          @apply w-1/2 overflow-hidden;
         }
         input[type='number'],
         input[type='text'],
         select {
           @apply w-1/2;
         }
+      }
+    }
+
+    .four-column {
+      label {
+        @apply w-1/4;
+      }
+
+      span {
+        @apply w-2/3 pr-1 overflow-hidden;
+      }
+      input[type='number'],
+      input[type='text'],
+      select {
+        @apply w-1/3;
       }
     }
 
@@ -119,11 +198,11 @@
     }
 
     h3 {
-      @apply text-xl font-bold;
+      @apply text-base md:text-lg font-bold;
     }
 
     h4 {
-      @apply text-lg font-bold mt-3;
+      @apply text-base md:text-lg font-bold mt-2;
     }
 
     .description {
@@ -136,16 +215,28 @@
 
     button {
       @apply transition-colors duration-500 font-bold text-base py-2 px-4 border-b-4 rounded mb-1 bg-gray-500 hover:bg-gray-400 border-gray-700 hover:border-gray-500;
-      &.warning {
+      &:disabled {
+        @apply hover:bg-gray-500 hover:border-gray-700;
+      }
+      &.warning:enabled {
         @apply bg-red-500 hover:bg-red-400 border-red-700 hover:border-red-500;
       }
-      &.active {
+      &.active:enabled {
         @apply bg-green-500 hover:bg-green-400 border-green-700 hover:border-green-500 border-b-0;
       }
-      &.cancel {
+      &.highlight:enabled {
+        @apply bg-yellow-600 hover:bg-yellow-500 border-yellow-700 hover:border-yellow-600;
+      }
+      &.cancel:enabled {
         @apply bg-red-500 hover:bg-red-400 border-red-700 hover:border-red-500 absolute w-12 h-12 -top-6 -right-6 bg-no-repeat bg-contain bg-center;
         background-image: url('../assets/img/x.svg');
       }
+    }
+
+    input[type='text']:disabled,
+    input[type='number']:disabled,
+    select:disabled {
+      @apply text-gray-500 cursor-auto;
     }
 
     a {

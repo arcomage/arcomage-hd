@@ -53,4 +53,48 @@ export const tavernsI18n: TavernsI18nType = [
     name: "Grogg's Grog",
     location: 'Stone City',
   },
+  // {
+  //   name: 'The Grog and Grub',
+  //   location: 'Dagger Wound Island',
+  // },
+  // {
+  //   name: "Kessel's Kantina",
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: 'Profit House',
+  //   location: 'Alvar',
+  // },
+  // {
+  //   name: 'Parched Throat',
+  //   location: 'Ironsand Desert',
+  // },
+  // {
+  //   name: "Dragon's Blood Inn",
+  //   location: 'Garrote Gorge',
+  // },
+  // {
+  //   name: 'Black Company',
+  //   location: 'Shadowspire',
+  // },
+  // {
+  //   name: "Traveler's Rest",
+  //   location: 'Murmurwoods',
+  // },
+  // {
+  //   name: "Bull's Eye Inn",
+  //   location: 'Ravage Roaming',
+  // },
+  // {
+  //   name: "Pirate's Rest",
+  //   location: 'Regna',
+  // },
+  // {
+  //   name: 'The Dancing Ogre',
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: "Miho's Roadhouse",
+  //   location: 'Alvar',
+  // },
 ]

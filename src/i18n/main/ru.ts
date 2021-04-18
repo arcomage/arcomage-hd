@@ -35,7 +35,7 @@ export const i18n = {
   'Tie Game': 'Ничья!',
 
   Preferences: 'Настройки',
-  ':': ':',
+  ': ': ': ',
   'Your Name': 'Ваше имя',
   "Opponent's Name": 'Имя противника',
   'Choose a Tavern (Preset Preferences)': 'Выберите Таверну (набор настроек)',
@@ -46,6 +46,35 @@ export const i18n = {
   'Other Preferences': 'Другие настройки',
   'Cards in Hand': 'Карт в руке',
   'AI Type': 'Тип ИИ',
+
+  Multiplayer: 'Мультиплеер',
+  off: 'off',
+  on: 'on',
+  'Your ID': 'Your ID',
+  "Enter your opponent's ID": "Enter your opponent's ID",
+  Connect: 'Connect',
+  'Copied 📋✔️': 'Copied 📋✔️',
+
+  'Connecting to the network ⌛': 'Connecting to the network ⌛',
+  'Connected to the network (but not to anyone) ✔️':
+    'Connected to the network (but not to anyone) ✔️',
+  'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
+  "Connected to ID %s ✔️ You're the host 🏠":
+    "Connected to ID %s ✔️ You're the host 🏠",
+  "Connected by ID %s ✔️ You're the guest 💼":
+    "Connected by ID %s ✔️ You're the guest 💼",
+  'Connection failed ❌': 'Connection failed ❌',
+  'Disconnected 🔌': 'Disconnected 🔌',
+  'You are playing against computer AI': 'Вы играете против компьютерного ИИ',
+  'You are playing against human': 'Ты играешь против человека',
+
+  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
+    'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.',
+
+  'Multiplayer Mode is experimental and unstable':
+    'Многопользовательский режим является экспериментальным и нестабильным',
+
+  Reset: 'Сброс',
   'Apply & New Game': 'Применить и начать игру', // or "Начать игру!"
   Cancel: 'Отмена',
 

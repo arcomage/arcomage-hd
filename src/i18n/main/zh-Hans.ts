@@ -35,10 +35,10 @@ export const i18n = {
   'Tie Game': '握手言和',
 
   Preferences: '设置',
-  ':': '：',
+  ': ': '：',
   'Your Name': '你的名字',
   "Opponent's Name": '对手名字',
-  'Choose a Tavern (Preset Preferences)': '选择酒馆（预设偏好）',
+  'Choose a Tavern (Preset Preferences)': '选择酒馆（预设设置）',
   Default: '默认',
   Customized: '自定义',
   'Starting Conditions': '起始条件',
@@ -46,6 +46,33 @@ export const i18n = {
   'Other Preferences': '其他设置',
   'Cards in Hand': '手中牌数量',
   'AI Type': 'AI类型',
+
+  Multiplayer: '多人游戏',
+  off: '停用',
+  on: '启用',
+  'Your ID': '你的ID',
+  "Enter your opponent's ID": '输入对手ID',
+  Connect: '连接',
+  'Copied 📋✔️': '已复制 📋✔️',
+
+  'Connecting to the network ⌛': '正在连接到网络 ⌛',
+  'Connected to the network (but not to anyone) ✔️':
+    '已连接到网络（但未连接任何人） ✔️',
+  'Connecting to ID %s ⌛': '正在连接到ID %s ⌛',
+  "Connected to ID %s ✔️ You're the host 🏠": '已连接到ID %s ✔️ 你是主机 🏠',
+  "Connected by ID %s ✔️ You're the guest 💼": '已连接到ID %s ✔️ 你是客户机 💼',
+  'Connection failed ❌': '连接失败 ❌',
+  'Disconnected 🔌': '连接断开 🔌',
+  'You are playing against computer AI': '你正在对战电脑AI',
+  'You are playing against human': '你正在对战网友',
+
+  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
+    '你的对手已断开连接。当前游戏将继续，你的对手将被换成电脑AI。',
+
+  'Multiplayer Mode is experimental and unstable':
+    '二人对战模式目前是测试版，不稳定',
+
+  Reset: '重置',
   'Apply & New Game': '应用设置并新开一局',
   Cancel: '取消',
 

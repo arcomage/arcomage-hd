@@ -53,4 +53,48 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Grog Grogga',
     location: 'Góra Grzmiącej Pięści',
   },
+  // {
+  //   name: 'Żarcie i Grog',
+  //   location: 'Wyspa Krwawego Sztyletu',
+  // },
+  // {
+  //   name: 'Kantyna Kessela',
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: 'Kuchnia domowa',
+  //   location: 'Alvar',
+  // },
+  // {
+  //   name: 'Zaschnięte Gardło',
+  //   location: 'Pustynia Ironsand',
+  // },
+  // {
+  //   name: 'Smocza Krew',
+  //   location: 'Wąwóz Garoty',
+  // },
+  // {
+  //   name: 'Czarna Kompania',
+  //   location: 'Shadowspire',
+  // },
+  // {
+  //   name: 'Wytchnienie Wędrowca',
+  //   location: 'Murmurwoods',
+  // },
+  // {
+  //   name: 'Zajazd pod Byczym Okiem',
+  //   location: 'Splądrowane Pustkowia',
+  // },
+  // {
+  //   name: 'Ukojenie Pirata',
+  //   location: 'Regna',
+  // },
+  // {
+  //   name: 'Tańczący Ogr',
+  //   location: 'Ravenshore',
+  // },
+  // {
+  //   name: 'Komnata Północy',
+  //   location: 'Alvar',
+  // },
 ]

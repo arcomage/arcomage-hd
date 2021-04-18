@@ -1,4 +1,5 @@
 import { AvailableLangType } from '../i18n/types'
+import { FormFieldsAllPartialType } from './formFields'
 
 export type PersonStatusType = {
   bricks: number
@@ -53,26 +54,24 @@ export type GameStateType = {
 }
 
 export type WinSettingsType = {
-  tower: number
-  resource: number
+  winTower: number
+  winResource: number
 }
 
-export type SettingsBaseType = {
-  start: PersonStatusType
-  win: WinSettingsType
-  cardsInHand: number
-  aiType?: number
-}
+export type SettingsType = PersonStatusType &
+  WinSettingsType & {
+    cardsInHand: number
+    // aiType?: number
+  }
 
-export type SettingsType = SettingsBaseType & {
-  tavern?: string
-  location?: string
-}
-
-export type SettingsStateType = SettingsBaseType & {
+export type SettingsStateNameType = {
   playerName: string
   opponentName: string
 }
+
+export type SettingsStateType = SettingsType & SettingsStateNameType
+
+export type SettingsStateAllPartialType = Partial<SettingsStateType>
 
 export type EndScreenStateType = {
   type: 'win' | 'tie' | 'lose' | null // null = close screen
@@ -102,7 +101,26 @@ export type LangStateType = {
   erathian: boolean
 }
 
+export type MultiplayerStatusType =
+  | 'disconnected'
+  | 'connecting_net'
+  | 'connected_net'
+  | 'connecting_to_id'
+  | 'connected_to_id'
+  | 'connected_by_id'
+  | 'failed'
+
+export type MultiplayerStateType = {
+  on: boolean
+  yourId: string
+  opponentId: string
+  status: MultiplayerStatusType
+  tempFormFields: FormFieldsAllPartialType
+  gameStarted: boolean
+}
+
 export type RootStateType = {
+  multiplayer: MultiplayerStateType
   lang: LangStateType
   status: StatusType
   cards: CardStateType
@@ -110,4 +128,11 @@ export type RootStateType = {
   settings: SettingsStateType
   screen: ScreenStateType
   volume: number
+}
+
+export type ExchangeStateType = {
+  status: StatusType
+  cards: CardStateType
+  game: GameStateType
+  settings: SettingsStateAllPartialType
 }

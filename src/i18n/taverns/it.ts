@@ -53,4 +53,48 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Il Grog di Grogg',
     location: 'Città di Pietra',
   },
+  // {
+  //   name: 'Dolce Grog',
+  //   location: 'Isola dei Pugnali',
+  // },
+  // {
+  //   name: 'La Cantina di Kessel',
+  //   location: 'Lido dei Corvi',
+  // },
+  // {
+  //   name: 'La Fonte del Guadagno',
+  //   location: 'Alvar',
+  // },
+  // {
+  //   name: 'La Gola Secca',
+  //   location: 'Deserto Ferroso',
+  // },
+  // {
+  //   name: 'Al Sangue di drago',
+  //   location: 'Gola della Garrotta',
+  // },
+  // {
+  //   name: 'La Compagnia Nera',
+  //   location: 'Punta Tenebrosa',
+  // },
+  // {
+  //   name: 'Il Riposo del Viandante',
+  //   location: 'Bosco dei Mormorii',
+  // },
+  // {
+  //   name: "All'Occhio di Bue",
+  //   location: 'Landa della Razzia',
+  // },
+  // {
+  //   name: "L'Alcova del Pirata",
+  //   location: 'Regna',
+  // },
+  // {
+  //   name: "L'Orco Danzante",
+  //   location: 'Lido dei Corvi',
+  // },
+  // {
+  //   name: 'Il Ristoro di Miho',
+  //   location: 'Alvar',
+  // },
 ]

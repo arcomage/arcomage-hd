@@ -9,6 +9,9 @@ import {
   UPDATE_STATUS_MAIN,
   EXEC_CARD,
   USE_CARD,
+  PLAY_CARD_TO_QUEUE,
+  PLAY_CARD_FROM_QUEUE,
+  USE_CARD_CORE,
   MOVE_CARD_TO_CENTER,
   MOVE_CARD_TO_TOP,
   MOVE_CARD_TO_TOP_MAIN,
@@ -18,16 +21,21 @@ import {
   SWITCH_LOCK,
   REMOVE_CARD,
   DISCARD_CARD,
+  DISCARD_CARD_CORE,
   ADD_DISCARDED_TAG,
   UPDATE_SETTINGS,
   UPDATE_SETTINGS_MAIN,
   INIT,
-  UPDATE_SETTINGS_AND_INIT,
+  INIT_CORE,
+  UPDATE_SETTINGS_INIT,
   READLS_UPDATESTORE_INIT,
   INIT_CARD,
   INIT_GAME,
   INIT_STATUS,
   DRAW_CARD,
+  DRAW_CARD_TO_QUEUE,
+  DRAW_CARD_FROM_QUEUE,
+  DRAW_CARD_CORE,
   SWITCH_TURN,
   DRAW_CARD_MAIN,
   DRAW_CARD_PRE,
@@ -46,18 +54,42 @@ import {
   SCREEN_HELP,
   SCREEN_LANDSCAPE,
   CHECK_VICTORY,
-  AI_USE_CARD,
+  AI_PLAY_CARD,
   CHECK_SURRENDER,
   ABORT_ALL,
+  ABORT_CONNECTION,
+  SWITCH_MULTIPLAYER_MODE,
+  SWITCH_MULTIPLAYER_MODE_MAIN,
+  CONNECT_TO_NETWORK,
+  SET_YOUR_ID,
+  DISCONNECT,
+  CONNECT_TO_ID,
+  SET_OPPONENT_ID,
+  MULTIPLAYER_STATUS,
+  SET_TEMP_FORM_FIELDS,
+  SWITCH_MULTI_GAME_STARTED,
+  CONNECTION_LISTEN,
+  PEER_LISTEN,
+  SEND,
+  SEND_SETTINGS,
+  SEND_FORM_FIELDS,
+  ABORT_SEND_FORM_FIELDS,
+  RECEIVE_WITH_LATENCY,
+  RECEIVE,
 } from '../constants/ActionTypes'
 import { AvailableLangType } from '../i18n/types'
 import {
+  CardListItemAllType,
   CardStateType,
   EndScreenStateType,
+  MultiplayerStatusType,
   ownerType2,
   PersonStatusType,
   SettingsStateType,
+  SettingsStateAllPartialType,
 } from '../types/state'
+import { InstructionConnDataType } from './connData'
+import { FormFieldsAllPartialType } from './formFields'
 
 export type UpdateLangActionType = {
   type: typeof UPDATE_LANG
@@ -138,8 +170,39 @@ export type UseCardActionType = {
   owner: ownerType2
 }
 
+export type PlayCardToQueueActionType = {
+  type: typeof PLAY_CARD_TO_QUEUE
+  payload: UseCardCoreActionType | DiscardCardCoreActionType
+}
+
+export type PlayCardFromQueueActionType = {
+  type: typeof PLAY_CARD_FROM_QUEUE
+}
+
+export type UseCardCoreActionType = {
+  type: typeof USE_CARD_CORE
+  n: number
+  index: number
+  position: number
+  owner: ownerType2
+}
+
 export type DrawCardActionType = {
   type: typeof DRAW_CARD
+}
+
+export type DrawCardToQueueActionType = {
+  type: typeof DRAW_CARD_TO_QUEUE
+  n: number
+}
+
+export type DrawCardFromQueueActionType = {
+  type: typeof DRAW_CARD_FROM_QUEUE
+}
+
+export type DrawCardCoreActionType = {
+  type: typeof DRAW_CARD_CORE
+  n: number
 }
 
 export type DrawCardPreActionType = {
@@ -189,6 +252,13 @@ export type DiscardCardActionType = {
   owner: ownerType2
 }
 
+export type DiscardCardCoreActionType = {
+  type: typeof DISCARD_CARD_CORE
+  index: number
+  position: number
+  owner: ownerType2
+}
+
 export type AddDiscardedTagActionType = {
   type: typeof ADD_DISCARDED_TAG
   index: number
@@ -227,16 +297,22 @@ export type SwitchLockActionType = {
 
 export type UpdateSettingsActionType = {
   type: typeof UPDATE_SETTINGS
-  payload: SettingsStateType
+  payload: SettingsStateAllPartialType
 }
 
 export type UpdateSettingsMainActionType = {
   type: typeof UPDATE_SETTINGS_MAIN
-  payload: SettingsStateType
+  payload: SettingsStateAllPartialType
 }
 
 export type InitActionType = {
   type: typeof INIT
+}
+
+export type InitCoreActionType = {
+  type: typeof INIT_CORE
+  playersTurn: boolean
+  cardList: CardListItemAllType[]
 }
 
 export type InitCardActionType = {
@@ -254,8 +330,8 @@ export type InitStatusActionType = {
   payload: PersonStatusType
 }
 
-export type UpdateSettingsAndInitActionType = {
-  type: typeof UPDATE_SETTINGS_AND_INIT
+export type UpdateSettingsInitActionType = {
+  type: typeof UPDATE_SETTINGS_INIT
   payload: SettingsStateType
 }
 
@@ -323,8 +399,8 @@ export type ScreenEndMainActionType = {
   payload: EndScreenStateType
 }
 
-export type AiUseCardActionType = {
-  type: typeof AI_USE_CARD
+export type AiPlayCardActionType = {
+  type: typeof AI_PLAY_CARD
 }
 
 export type CheckSurrenderActionType = {
@@ -333,6 +409,95 @@ export type CheckSurrenderActionType = {
 
 export type AbortAllActionType = {
   type: typeof ABORT_ALL
+}
+
+export type AbortConnectionActionType = {
+  type: typeof ABORT_CONNECTION
+}
+
+export type SwitchMultiplayerModeActionType = {
+  type: typeof SWITCH_MULTIPLAYER_MODE
+  on: boolean
+}
+
+export type SwitchMultiplayerModeMainActionType = {
+  type: typeof SWITCH_MULTIPLAYER_MODE_MAIN
+  on: boolean
+}
+
+export type ConnectToNetworkActionType = {
+  type: typeof CONNECT_TO_NETWORK
+}
+
+export type ConnectToIdActionType = {
+  type: typeof CONNECT_TO_ID
+  id: string
+}
+
+export type SetYourIdActionType = {
+  type: typeof SET_YOUR_ID
+  id: string
+}
+
+export type DisconnectActionType = {
+  type: typeof DISCONNECT
+}
+
+export type SetOpponentIdActionType = {
+  type: typeof SET_OPPONENT_ID
+  id: string
+}
+
+export type SetMultiplayerStatusActionType = {
+  type: typeof MULTIPLAYER_STATUS
+  status: MultiplayerStatusType
+}
+
+export type SetTempFormFieldsActionType = {
+  type: typeof SET_TEMP_FORM_FIELDS
+  payload: FormFieldsAllPartialType | null
+}
+
+export type SwitchMultiGameStartedActionType = {
+  type: typeof SWITCH_MULTI_GAME_STARTED
+  on: boolean
+}
+
+export type ConnectionListenActionType = {
+  type: typeof CONNECTION_LISTEN
+  host: boolean
+}
+
+export type PeerListenActionType = {
+  type: typeof PEER_LISTEN
+}
+
+export type SendActionType = {
+  type: typeof SEND
+} & InstructionConnDataType
+
+export type SendSettingsActionType = {
+  type: typeof SEND_SETTINGS
+  payload: SettingsStateAllPartialType
+}
+
+export type SendFormFieldsActionType = {
+  type: typeof SEND_FORM_FIELDS
+  payload: FormFieldsAllPartialType
+}
+
+export type AbortSendFormFieldsActionType = {
+  type: typeof ABORT_SEND_FORM_FIELDS
+}
+
+export type ReceiveWithLatencyActionType = {
+  type: typeof RECEIVE_WITH_LATENCY
+  data: string
+}
+
+export type ReceiveActionType = {
+  type: typeof RECEIVE
+  data: string
 }
 
 export type RootActionType =
@@ -346,7 +511,13 @@ export type RootActionType =
   | UpdateStatusMainActionType
   | ExecCardActionType
   | UseCardActionType
+  | PlayCardToQueueActionType
+  | PlayCardFromQueueActionType
+  | UseCardCoreActionType
   | DrawCardActionType
+  | DrawCardToQueueActionType
+  | DrawCardFromQueueActionType
+  | DrawCardCoreActionType
   | DrawCardPreActionType
   | DrawCardMainActionType
   | ClearCardActionType
@@ -356,6 +527,7 @@ export type RootActionType =
   | MoveCardToTopActionType
   | MoveCardToTopMainActionType
   | DiscardCardActionType
+  | DiscardCardCoreActionType
   | AddDiscardedTagActionType
   | RemoveCardActionType
   | DeleteCardInStackActionType
@@ -366,10 +538,11 @@ export type RootActionType =
   | UpdateSettingsActionType
   | UpdateSettingsMainActionType
   | InitActionType
+  | InitCoreActionType
   | InitCardActionType
   | InitGameActionType
   | InitStatusActionType
-  | UpdateSettingsAndInitActionType
+  | UpdateSettingsInitActionType
   | ReadlsUpdatestoreInitActionType
   | SwitchDiscardModeActionType
   | CheckUnusableActionType
@@ -383,6 +556,25 @@ export type RootActionType =
   | ScreenLandscapeActionType
   | ScreenEndActionType
   | ScreenEndMainActionType
-  | AiUseCardActionType
+  | AiPlayCardActionType
   | CheckSurrenderActionType
   | AbortAllActionType
+  | AbortConnectionActionType
+  | SwitchMultiplayerModeActionType
+  | SwitchMultiplayerModeMainActionType
+  | ConnectToNetworkActionType
+  | ConnectToIdActionType
+  | SetYourIdActionType
+  | DisconnectActionType
+  | SetOpponentIdActionType
+  | SetMultiplayerStatusActionType
+  | SetTempFormFieldsActionType
+  | SwitchMultiGameStartedActionType
+  | ConnectionListenActionType
+  | PeerListenActionType
+  | SendActionType
+  | SendSettingsActionType
+  | SendFormFieldsActionType
+  | AbortSendFormFieldsActionType
+  | ReceiveWithLatencyActionType
+  | ReceiveActionType

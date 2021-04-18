@@ -13,7 +13,7 @@ const defaultLangState: LangStateType = {
   erathian: defaultErathian,
 }
 
-const lang = produce((draft: LangStateType, action: RootActionType) => {
+export default produce((draft: LangStateType, action: RootActionType) => {
   switch (action.type) {
     case UPDATE_LANG_MAIN: {
       draft.code = action.lang
@@ -25,5 +25,3 @@ const lang = produce((draft: LangStateType, action: RootActionType) => {
     }
   }
 }, defaultLangState)
-
-export default lang
