@@ -1,6 +1,7 @@
 import {
   USE_CARD,
   USE_CARD_CORE,
+  PLAY_CARD_TO_QUEUE,
   ABORT_ALL,
   SEND,
 } from '../../constants/ActionTypes'
@@ -37,11 +38,14 @@ export default (
               type: SEND,
               kind: INST,
               data: {
-                type: USE_CARD_CORE,
-                n,
-                index,
-                position,
-                owner: reverseOwnerStr(owner),
+                type: PLAY_CARD_TO_QUEUE,
+                payload: {
+                  type: USE_CARD_CORE,
+                  n,
+                  index,
+                  position,
+                  owner: reverseOwnerStr(owner),
+                },
               },
             })
           : EMPTY,

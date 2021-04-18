@@ -651,6 +651,11 @@ const Pref = () => {
           />
           <span>
             {_.i18n('Multiplayer')}
+            <span
+              title={_.i18n('Multiplayer Mode is experimental and unstable')}
+            >
+              🧪
+            </span>
             {_.i18n(': ')}
             {(isMultiplayer ? _.i18n('on') : _.i18n('off')).toUpperCase()}
           </span>

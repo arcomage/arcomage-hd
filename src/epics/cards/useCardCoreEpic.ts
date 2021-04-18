@@ -44,7 +44,7 @@ export default (
       if (process.env.ISDEV) {
         const locked = state.game.locked.some((l) => l === true)
         if (locked) {
-          devLog(` ${owner} uses card ${n} during the lock`, 'bug')
+          devLog(`${owner} uses card ${n} during the lock`, 'bug')
         }
       }
 

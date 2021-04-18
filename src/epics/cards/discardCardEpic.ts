@@ -3,6 +3,7 @@ import {
   DISCARD_CARD_CORE,
   ABORT_ALL,
   SEND,
+  PLAY_CARD_TO_QUEUE,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
@@ -36,10 +37,13 @@ export default (
               type: SEND,
               kind: INST,
               data: {
-                type: DISCARD_CARD_CORE,
-                index,
-                position,
-                owner: reverseOwnerStr(owner),
+                type: PLAY_CARD_TO_QUEUE,
+                payload: {
+                  type: DISCARD_CARD_CORE,
+                  index,
+                  position,
+                  owner: reverseOwnerStr(owner),
+                },
               },
             })
           : EMPTY,

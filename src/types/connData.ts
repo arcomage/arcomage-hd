@@ -2,6 +2,7 @@ import {
   SET_TEMP_FORM_FIELDS,
   UPDATE_SETTINGS,
   DRAW_CARD_TO_QUEUE,
+  PLAY_CARD_TO_QUEUE,
   USE_CARD_CORE,
   DISCARD_CARD_CORE,
   INIT_CORE,
@@ -11,6 +12,7 @@ import {
   SetTempFormFieldsActionType,
   UpdateSettingsActionType,
   DrawCardToQueueActionType,
+  PlayCardToQueueActionType,
   UseCardCoreActionType,
   DiscardCardCoreActionType,
   InitCoreActionType,
@@ -20,6 +22,7 @@ export type InstructionType =
   | SetTempFormFieldsActionType
   | UpdateSettingsActionType
   | DrawCardToQueueActionType
+  | PlayCardToQueueActionType
   | UseCardCoreActionType
   | DiscardCardCoreActionType
   | InitCoreActionType
@@ -28,6 +31,7 @@ export const instructionActionTypes = [
   SET_TEMP_FORM_FIELDS,
   UPDATE_SETTINGS,
   DRAW_CARD_TO_QUEUE,
+  PLAY_CARD_TO_QUEUE,
   USE_CARD_CORE,
   DISCARD_CARD_CORE,
   INIT_CORE,

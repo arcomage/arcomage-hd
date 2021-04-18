@@ -9,6 +9,8 @@ import {
   UPDATE_STATUS_MAIN,
   EXEC_CARD,
   USE_CARD,
+  PLAY_CARD_TO_QUEUE,
+  PLAY_CARD_FROM_QUEUE,
   USE_CARD_CORE,
   MOVE_CARD_TO_CENTER,
   MOVE_CARD_TO_TOP,
@@ -52,7 +54,7 @@ import {
   SCREEN_HELP,
   SCREEN_LANDSCAPE,
   CHECK_VICTORY,
-  AI_USE_CARD,
+  AI_PLAY_CARD,
   CHECK_SURRENDER,
   ABORT_ALL,
   ABORT_CONNECTION,
@@ -166,6 +168,15 @@ export type UseCardActionType = {
   index: number
   position: number
   owner: ownerType2
+}
+
+export type PlayCardToQueueActionType = {
+  type: typeof PLAY_CARD_TO_QUEUE
+  payload: UseCardCoreActionType | DiscardCardCoreActionType
+}
+
+export type PlayCardFromQueueActionType = {
+  type: typeof PLAY_CARD_FROM_QUEUE
 }
 
 export type UseCardCoreActionType = {
@@ -388,8 +399,8 @@ export type ScreenEndMainActionType = {
   payload: EndScreenStateType
 }
 
-export type AiUseCardActionType = {
-  type: typeof AI_USE_CARD
+export type AiPlayCardActionType = {
+  type: typeof AI_PLAY_CARD
 }
 
 export type CheckSurrenderActionType = {
@@ -500,6 +511,8 @@ export type RootActionType =
   | UpdateStatusMainActionType
   | ExecCardActionType
   | UseCardActionType
+  | PlayCardToQueueActionType
+  | PlayCardFromQueueActionType
   | UseCardCoreActionType
   | DrawCardActionType
   | DrawCardToQueueActionType
@@ -543,7 +556,7 @@ export type RootActionType =
   | ScreenLandscapeActionType
   | ScreenEndActionType
   | ScreenEndMainActionType
-  | AiUseCardActionType
+  | AiPlayCardActionType
   | CheckSurrenderActionType
   | AbortAllActionType
   | AbortConnectionActionType

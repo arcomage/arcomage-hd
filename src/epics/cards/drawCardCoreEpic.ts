@@ -3,7 +3,8 @@ import {
   DRAW_CARD_PRE,
   DRAW_CARD_MAIN,
   CHECK_UNUSABLE,
-  AI_USE_CARD,
+  AI_PLAY_CARD,
+  PLAY_CARD_FROM_QUEUE,
   ABORT_ALL,
   CHECK_SURRENDER,
   SWITCH_LOCK,
@@ -22,7 +23,7 @@ import { RootStateType } from '../../types/state'
 import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../../utils/playSound'
 import {
-  aiDelay,
+  cardNextStepDelay,
   cardTransitionDuration,
   drawCardPre,
 } from '../../constants/visuals'
@@ -68,26 +69,20 @@ export default (
         }).pipe(delay(0)),
         owner === 'opponent' && useAi && !multiGameStarted
           ? of<RootActionType>({
-              type: AI_USE_CARD,
+              type: AI_PLAY_CARD,
             }).pipe(
               delay(
                 cardTransitionDuration +
-                  aiDelay +
+                  cardNextStepDelay +
                   (noAiExtraDelay ? 0 : aiExtraDelay),
               ),
             )
           : EMPTY,
-        // owner === 'opponent' && multiGameStarted
-        //   ? of<RootActionType>({
-        //       type: AI_USE_CARD,
-        //     }).pipe(
-        //       delay(
-        //         cardTransitionDuration +
-        //           aiDelay +
-        //           (noAiExtraDelay ? 0 : aiExtraDelay),
-        //       ),
-        //     )
-        //   : EMPTY,
+        owner === 'opponent' && multiGameStarted
+          ? of<RootActionType>({
+              type: PLAY_CARD_FROM_QUEUE,
+            }).pipe(delay(cardTransitionDuration + cardNextStepDelay))
+          : EMPTY,
         owner === 'player'
           ? of<RootActionType>({
               type: CHECK_SURRENDER,

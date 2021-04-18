@@ -69,6 +69,9 @@ export const i18n = {
   'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
     '你的对手已断开连接。当前游戏将继续，你的对手将被换成电脑AI。',
 
+  'Multiplayer Mode is experimental and unstable':
+    '二人对战模式目前是测试版，不稳定',
+
   Reset: '重置',
   'Apply & New Game': '应用设置并新开一局',
   Cancel: '取消',

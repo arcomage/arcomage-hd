@@ -11,6 +11,8 @@ export const UPDATE_STATUS_MAIN = 'UPDATE_STATUS_MAIN' as const
 
 export const EXEC_CARD = 'EXEC_CARD' as const
 export const USE_CARD = 'USE_CARD' as const
+export const PLAY_CARD_TO_QUEUE = 'PLAY_CARD_TO_QUEUE' as const
+export const PLAY_CARD_FROM_QUEUE = 'PLAY_CARD_FROM_QUEUE' as const
 export const USE_CARD_CORE = 'USE_CARD_CORE' as const
 
 export const CLEAR_CARD = 'CLEAR_CARD' as const
@@ -60,7 +62,7 @@ export const SCREEN_LANDSCAPE = 'SCREEN_LANDSCAPE' as const
 export const SCREEN_END = 'SCREEN_END' as const
 export const SCREEN_END_MAIN = 'SCREEN_END_MAIN' as const
 
-export const AI_USE_CARD = 'AI_USE_CARD' as const
+export const AI_PLAY_CARD = 'AI_PLAY_CARD' as const
 
 export const CHECK_SURRENDER = 'CHECK_SURRENDER' as const
 

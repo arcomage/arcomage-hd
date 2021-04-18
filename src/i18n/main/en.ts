@@ -72,6 +72,9 @@ export const i18n = {
   'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
     'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.',
 
+  'Multiplayer Mode is experimental and unstable':
+    'Multiplayer Mode is experimental and unstable',
+
   Reset: 'Reset',
   'Apply & New Game': 'Apply & New Game',
   Cancel: 'Cancel',

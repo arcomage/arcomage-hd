@@ -1,6 +1,5 @@
 import {
-  DRAW_CARD_FROM_QUEUE,
-  DRAW_CARD_CORE,
+  PLAY_CARD_FROM_QUEUE,
   ABORT_CONNECTION,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -9,23 +8,20 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { from, of } from 'rxjs'
-import { drawCardQueue as q } from '../../utils/queues'
+import { useCardQueue as q } from '../../utils/queues'
 
 export default (
   action$: ActionsObservable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(DRAW_CARD_FROM_QUEUE)),
+    filter(isOfType(PLAY_CARD_FROM_QUEUE)),
     concatMap((action) => {
-      const nPromise = q.dequeueAsync()
-      return from(nPromise).pipe(
-        concatMap((n) => {
+      const playCardActionPromise = q.dequeueAsync()
+      return from(playCardActionPromise).pipe(
+        concatMap((playCardAction) => {
           // would always wait
-          return of<RootActionType>({
-            type: DRAW_CARD_CORE,
-            n,
-          })
+          return of<RootActionType>(playCardAction)
         }),
         takeUntil(action$.ofType(ABORT_CONNECTION)),
       )

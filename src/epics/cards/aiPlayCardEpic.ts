@@ -1,5 +1,5 @@
 import {
-  AI_USE_CARD,
+  AI_PLAY_CARD,
   DISCARD_CARD,
   ABORT_ALL,
   USE_CARD,
@@ -19,7 +19,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(AI_USE_CARD)),
+    filter(isOfType(AI_PLAY_CARD)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       const aiInstruction: AiInstructionType | null = ai(state)

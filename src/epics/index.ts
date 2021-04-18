@@ -9,6 +9,8 @@ import updateSettingsEpic from './settings_lang_etc/updateSettingsEpic'
 import updateStatusEpic from './status/updateStatusEpic'
 import execCardEpic from './cards/execCardEpic'
 import useCardEpic from './cards/useCardEpic'
+import playCardToQueueEpic from './cards/playCardToQueueEpic'
+import playCardFromQueueEpic from './cards/playCardFromQueueEpic'
 import useCardCoreEpic from './cards/useCardCoreEpic'
 import discardCardEpic from './cards/discardCardEpic'
 import discardCardCoreEpic from './cards/discardCardCoreEpic'
@@ -27,7 +29,7 @@ import clearCardEpic from './cards/clearCardEpic'
 import checkUnusableEpic from './cards/checkUnusableEpic'
 import checkVictoryEpic from './game_general/checkVictoryEpic'
 import screenEndEpic from './screen/screenEndEpic'
-import aiUseCardEpic from './cards/aiUseCardEpic'
+import aiPlayCardEpic from './cards/aiPlayCardEpic'
 import checkSurrenderEpic from './game_general/checkSurrenderEpic'
 import switchMultiplayerModeEpic from './multiplayer/switchMultiplayerModeEpic'
 import connectToNetworkEpic from './multiplayer/connectToNetworkEpic'
@@ -51,6 +53,8 @@ const rootEpic: MyEpic = combineEpics(
   updateStatusEpic,
   execCardEpic,
   useCardEpic,
+  playCardToQueueEpic,
+  playCardFromQueueEpic,
   useCardCoreEpic,
   discardCardEpic,
   discardCardCoreEpic,
@@ -69,7 +73,7 @@ const rootEpic: MyEpic = combineEpics(
   checkUnusableEpic,
   checkVictoryEpic,
   screenEndEpic,
-  aiUseCardEpic,
+  aiPlayCardEpic,
   checkSurrenderEpic,
   switchMultiplayerModeEpic,
   connectToNetworkEpic,
