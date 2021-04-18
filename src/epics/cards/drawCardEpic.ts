@@ -41,14 +41,6 @@ export default (
             type: DRAW_CARD_CORE,
             n,
           }),
-          // of<RootActionType>({
-          //   type: SEND,
-          //   kind: INST,
-          //   data: {
-          //     type: DRAW_CARD_CORE,
-          //     n,
-          //   },
-          // }),
           of<RootActionType>({
             type: SEND,
             kind: INST,
@@ -60,7 +52,6 @@ export default (
         )
       } else {
         // isGuest
-        // temp$ = EMPTY
         temp$ = of<RootActionType>({
           type: DRAW_CARD_FROM_QUEUE,
         })

@@ -1,11 +1,10 @@
 import { ConnDataType } from '../types/connData'
 import devLog from './devLog'
 
-// ===== RECEIVE SEQ =====
-
-class receiveSeqCls {
+class receiveSequence {
   private _v: number = 0
   private _queue: (ConnDataType | null)[] = []
+
   get v() {
     return this._v
   }
@@ -18,11 +17,11 @@ class receiveSeqCls {
     this._v += n
   }
 
-  queuePush(connData: ConnDataType) {
+  private enqueue(connData: ConnDataType) {
     this._queue.push(connData)
   }
 
-  getRemoveUsablesInQueue(seq: number) {
+  private getRemoveUsablesInQueue(seq: number) {
     const ret: ConnDataType[] = []
     let _seq = seq
     if (this._queue.length !== 0) {
@@ -54,7 +53,7 @@ class receiveSeqCls {
     if (seq === this._v + 1) {
       this.add()
     } else {
-      this.queuePush(connData)
+      this.enqueue(connData)
       devLog(`postponed: ${JSON.stringify(connData)}`)
       return null
     }
@@ -71,11 +70,9 @@ class receiveSeqCls {
   }
 }
 
-export const receiveSeq = new receiveSeqCls()
+export const receiveSeq = new receiveSequence()
 
-// ===== SEND SEQ =====
-
-class sendSeqCls {
+class sendSequence {
   private _v: number = 0
 
   get v() {
@@ -91,7 +88,7 @@ class sendSeqCls {
   }
 }
 
-export const sendSeq = new sendSeqCls()
+export const sendSeq = new sendSequence()
 
 if (process.env.ISDEV) {
   ;(window as any).sq = sendSeq

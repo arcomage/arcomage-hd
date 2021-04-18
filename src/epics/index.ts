@@ -18,6 +18,8 @@ import readlsUpdatestoreInitEpic from './settings_lang_etc/readlsUpdatestoreInit
 import initEpic from './game_general/initEpic'
 import initCoreEpic from './game_general/initCoreEpic'
 import drawCardEpic from './cards/drawCardEpic'
+import drawCardToQueueEpic from './cards/drawCardToQueueEpic'
+import drawCardFromQueueEpic from './cards/drawCardFromQueueEpic'
 import drawCardCoreEpic from './cards/drawCardCoreEpic'
 import nextRoundEpic from './game_general/nextRoundEpic'
 import resourceProdEpic from './status/resourceProdEpic'
@@ -58,6 +60,8 @@ const rootEpic: MyEpic = combineEpics(
   initEpic,
   initCoreEpic,
   drawCardEpic,
+  drawCardToQueueEpic,
+  drawCardFromQueueEpic,
   drawCardCoreEpic,
   nextRoundEpic,
   resourceProdEpic,
