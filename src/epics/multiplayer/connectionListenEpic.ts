@@ -15,7 +15,7 @@ import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import { JQueryStyleEventEmitter } from 'rxjs/internal/observable/fromEvent'
-import { nullifyReceiveSeq } from '../../utils/seq'
+import { receiveSeq, sendSeq } from '../../utils/seq'
 import devLog from '../../utils/devLog'
 import { noLatency } from '../../constants/devSettings'
 
@@ -38,9 +38,6 @@ export default (
         ).pipe(
           concatMap((data) => {
             devLog(`${type}. received: ${data}`)
-            // if (action.host) {
-            //   conn.send(`host says hello!`)
-            // }
             return of<RootActionType>({
               type: !noLatency ? RECEIVE_WITH_LATENCY : RECEIVE,
               data,
@@ -50,7 +47,10 @@ export default (
         fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'open').pipe(
           concatMap(() => {
             if (!action.host) {
-              nullifyReceiveSeq()
+              sendSeq.reset()
+              receiveSeq.reset()
+              devLog('guest connected by host; sendSeq & receiveSeq reset')
+              // guest connected by host
               return concat(
                 of<RootActionType>({
                   type: SET_OPPONENT_ID,
@@ -61,7 +61,6 @@ export default (
                   status: 'connected_by_id',
                 }),
               )
-              // conn.send('guest says hello!')
             }
             return EMPTY
           }),

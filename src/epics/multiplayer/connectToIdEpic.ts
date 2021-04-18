@@ -14,6 +14,8 @@ import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import Peer from 'peerjs'
 import { connBaseRetryTime, connRetryTimes } from '../../constants/visuals'
+import { receiveSeq, sendSeq } from '../../utils/seq'
+import devLog from '../../utils/devLog'
 
 // connect to opponent ID, and set opponent ID in the store
 
@@ -72,8 +74,12 @@ export default (
           status: 'connecting_to_id',
         }),
         from(connectToPeerId).pipe(
-          concatMap((_) =>
-            concat(
+          concatMap((_) => {
+            sendSeq.reset()
+            receiveSeq.reset()
+            devLog('host connected to guest; sendSeq & receiveSeq reset')
+            // host connected to guest
+            return concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
                 status: 'connected_to_id',
@@ -86,8 +92,8 @@ export default (
                 type: CONNECTION_LISTEN,
                 host: true,
               }),
-            ),
-          ),
+            )
+          }),
           catchError((error) =>
             of<RootActionType>({
               type: MULTIPLAYER_STATUS,

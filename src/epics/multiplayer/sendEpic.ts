@@ -8,7 +8,7 @@ import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import { ConnDataType } from '../../types/connData'
 import devLog from '../../utils/devLog'
-import { incrementSendSeq, sendSeq } from '../../utils/seq'
+import { sendSeq } from '../../utils/seq'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -20,11 +20,11 @@ export default (
       const { kind, data } = action
       const { conn } = peerAll
       if (conn !== null) {
-        incrementSendSeq()
+        sendSeq.add()
         const sentData: ConnDataType = {
           kind,
           data,
-          seq: sendSeq,
+          seq: sendSeq.v,
         }
         const dataStr = JSON.stringify(sentData).replace(
           /[\u007F-\uFFFF]/g,

@@ -1,5 +1,7 @@
+import { noDevLog } from '../constants/devSettings'
+
 const devLog = (str: string) => {
-  if (process.env.ISDEV) {
+  if (!noDevLog) {
     console.log(str)
   }
 }

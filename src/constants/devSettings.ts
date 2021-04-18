@@ -4,6 +4,7 @@ const _hideOpponentCard = true
 const _useAi = true
 const _noAiExtraDelay = true
 const _noLatency = false
+const _noDevLog = false
 
 const isProd = !process.env.ISDEV
 
@@ -13,6 +14,7 @@ export const hideOpponentCard = isProd || _hideOpponentCard
 export const useAi = isProd || _useAi
 export const noAiExtraDelay = isProd || _noAiExtraDelay
 export const noLatency = isProd || _noLatency
+export const noDevLog = isProd || _noDevLog
 // the above should all be `true` for prod version
 
 // in multiplayer connected mode, useAi acts like always false

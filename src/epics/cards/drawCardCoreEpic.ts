@@ -31,6 +31,7 @@ import {
   noAiExtraDelay,
   useAi,
 } from '../../constants/devSettings'
+import devLog from '../../utils/devLog'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -40,6 +41,7 @@ export default (
     filter(isOfType(DRAW_CARD_CORE)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
+      devLog("DRAW_CARD_CORE executed!")
       const { n } = action
       const owner = state.game.playersTurn ? 'player' : 'opponent'
       const multiGameStarted = state.multiplayer.gameStarted

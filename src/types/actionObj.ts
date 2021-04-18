@@ -31,6 +31,8 @@ import {
   INIT_GAME,
   INIT_STATUS,
   DRAW_CARD,
+  DRAW_CARD_TO_QUEUE,
+  DRAW_CARD_FROM_QUEUE,
   DRAW_CARD_CORE,
   SWITCH_TURN,
   DRAW_CARD_MAIN,
@@ -176,6 +178,15 @@ export type UseCardCoreActionType = {
 
 export type DrawCardActionType = {
   type: typeof DRAW_CARD
+}
+
+export type DrawCardToQueueActionType = {
+  type: typeof DRAW_CARD_TO_QUEUE
+  n: number
+}
+
+export type DrawCardFromQueueActionType = {
+  type: typeof DRAW_CARD_FROM_QUEUE
 }
 
 export type DrawCardCoreActionType = {
@@ -491,6 +502,8 @@ export type RootActionType =
   | UseCardActionType
   | UseCardCoreActionType
   | DrawCardActionType
+  | DrawCardToQueueActionType
+  | DrawCardFromQueueActionType
   | DrawCardCoreActionType
   | DrawCardPreActionType
   | DrawCardMainActionType

@@ -264,10 +264,12 @@ const Pref = () => {
 
       case 'connecting_to_id': {
         const id = formFields.opponentId
-        const shorterId = `${id.substring(
-          0,
-          shorterIdStartEndLength,
-        )}...${id.substring(id.length - shorterIdStartEndLength)}`
+        const shorterId =
+          id.length > 10
+            ? `${id.substring(0, shorterIdStartEndLength)}...${id.substring(
+                id.length - shorterIdStartEndLength,
+              )}`
+            : id
         setNotification(
           _.i18n('Connecting to ID %s ⌛').replace('%s', shorterId),
         )

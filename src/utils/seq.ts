@@ -3,86 +3,97 @@ import devLog from './devLog'
 
 // ===== RECEIVE SEQ =====
 
-export let receiveSeq: number | null = null
-
-export const nullifyReceiveSeq = () => {
-  receiveSeq = null
-}
-
-export const initReceiveSeq = (seq: number) => {
-  console.log(receiveSeq)
-  receiveSeq = seq
-  console.log(receiveSeq)
-}
-
-export const incrementReceiveSeq = (n = 1) => {
-  if (receiveSeq !== null) {
-    receiveSeq += n
+class receiveSeqCls {
+  private _v: number = 0
+  private _queue: (ConnDataType | null)[] = []
+  get v() {
+    return this._v
   }
-}
 
-const receiveQueue: (ConnDataType | null)[] = []
+  reset() {
+    this._v = 0
+  }
 
-if (process.env.ISDEV) {
-  ;(window as any).rs = () => receiveSeq
-  ;(window as any).rq = receiveQueue
-}
+  add(n = 1) {
+    this._v += n
+  }
 
-export const intoReceiveQueue = (connData: ConnDataType) => {
-  receiveQueue.push(connData)
-}
+  queuePush(connData: ConnDataType) {
+    this._queue.push(connData)
+  }
 
-export const getRemoveUsablesInRQueue = (seq: number) => {
-  const ret: ConnDataType[] = []
-  let _seq = seq
-  if (receiveQueue.length !== 0) {
-    do {
-      _seq++
-      const i = receiveQueue.findIndex(
-        (connData) => connData !== null && connData.seq === _seq,
-      )
-      if (i === -1) {
-        break
+  getRemoveUsablesInQueue(seq: number) {
+    const ret: ConnDataType[] = []
+    let _seq = seq
+    if (this._queue.length !== 0) {
+      while (true) {
+        _seq++
+        const i = this._queue.findIndex(
+          (connData) => connData !== null && connData.seq === _seq,
+        )
+        if (i === -1) {
+          break
+        }
+        const target = this._queue[i]
+        if (target !== null) {
+          // for ts check
+          ret.push(target)
+        }
+        this._queue[i] = null
+        if (this._queue.every((connData) => connData === null)) {
+          this._queue = []
+          break
+        }
       }
-      const target = receiveQueue[i]
-      if (target !== null) {
-        // for ts check
-        ret.push(target)
-      }
-      receiveQueue[i] = null
-    } while (!receiveQueue.every((connData) => connData === null))
+    }
+    return ret
   }
-  return ret
+
+  getUsableConnDataList(connData: ConnDataType): ConnDataType[] | null {
+    const { seq } = connData
+    if (seq === this._v + 1) {
+      this.add()
+    } else {
+      this.queuePush(connData)
+      devLog(`postponed: ${JSON.stringify(connData)}`)
+      return null
+    }
+    const usableInReceiveQueue: ConnDataType[] = this.getRemoveUsablesInQueue(
+      seq,
+    )
+    this.add(usableInReceiveQueue.length)
+    devLog(
+      `pulled (executed): ${JSON.stringify(
+        [connData].concat(usableInReceiveQueue),
+      )}`,
+    )
+    return [connData].concat(usableInReceiveQueue)
+  }
 }
 
-export const getUsableConnDataList = (
-  connData: ConnDataType,
-): ConnDataType[] | null => {
-  const { seq } = connData
-  if (receiveSeq === null) {
-    initReceiveSeq(seq)
-  } else if (seq === receiveSeq + 1) {
-    incrementReceiveSeq()
-  } else {
-    intoReceiveQueue(connData)
-    devLog(`postponed: ${JSON.stringify(connData)}`)
-    return null
-  }
-  const usableInReceiveQueue: ConnDataType[] = getRemoveUsablesInRQueue(seq)
-  if (receiveSeq !== null) {
-    incrementReceiveSeq(usableInReceiveQueue.length)
-  }
-  return [connData].concat(usableInReceiveQueue)
-}
+export const receiveSeq = new receiveSeqCls()
 
 // ===== SEND SEQ =====
 
-export let sendSeq: number = 0
+class sendSeqCls {
+  private _v: number = 0
 
-export const resetSendSeq = () => {
-  sendSeq = 0
+  get v() {
+    return this._v
+  }
+
+  add(n = 1) {
+    this._v += n
+  }
+
+  reset() {
+    this._v = 0
+  }
 }
 
-export const incrementSendSeq = (n = 1) => {
-  sendSeq += n
+export const sendSeq = new sendSeqCls()
+
+if (process.env.ISDEV) {
+  ;(window as any).sq = sendSeq
+  ;(window as any).rq = receiveSeq
 }

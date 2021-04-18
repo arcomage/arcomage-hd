@@ -1,7 +1,7 @@
 import {
   SET_TEMP_FORM_FIELDS,
   UPDATE_SETTINGS,
-  DRAW_CARD_CORE,
+  DRAW_CARD_TO_QUEUE,
   USE_CARD_CORE,
   DISCARD_CARD_CORE,
   INIT_CORE,
@@ -10,7 +10,7 @@ import { CHAT, INST } from '../constants/connDataKind'
 import {
   SetTempFormFieldsActionType,
   UpdateSettingsActionType,
-  DrawCardCoreActionType,
+  DrawCardToQueueActionType,
   UseCardCoreActionType,
   DiscardCardCoreActionType,
   InitCoreActionType,
@@ -19,7 +19,7 @@ import {
 export type InstructionType =
   | SetTempFormFieldsActionType
   | UpdateSettingsActionType
-  | DrawCardCoreActionType
+  | DrawCardToQueueActionType
   | UseCardCoreActionType
   | DiscardCardCoreActionType
   | InitCoreActionType
@@ -27,7 +27,7 @@ export type InstructionType =
 export const instructionActionTypes = [
   SET_TEMP_FORM_FIELDS,
   UPDATE_SETTINGS,
-  DRAW_CARD_CORE,
+  DRAW_CARD_TO_QUEUE,
   USE_CARD_CORE,
   DISCARD_CARD_CORE,
   INIT_CORE,

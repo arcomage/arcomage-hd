@@ -8,7 +8,7 @@ import { RootStateType } from '../../types/state'
 import { ConnDataType, instructionActionTypes } from '../../types/connData'
 import { INST } from '../../constants/connDataKind'
 import devLog from '../../utils/devLog'
-import { getUsableConnDataList } from '../../utils/seq'
+import { receiveSeq } from '../../utils/seq'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -22,7 +22,7 @@ export default (
       try {
         const connData: ConnDataType = JSON.parse(connDataStr)
 
-        const usableConnDataList = getUsableConnDataList(connData)
+        const usableConnDataList = receiveSeq.getUsableConnDataList(connData)
         if (usableConnDataList === null) {
           return EMPTY
         }
