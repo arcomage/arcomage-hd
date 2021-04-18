@@ -33,8 +33,14 @@ type PropType = {
     | typeof SCREEN_LANDSCAPE
   children: React.ReactNode
   onCancel?: () => void
+  darkerBg?: boolean
 }
-const Window = ({ screenActionType, children, onCancel }: PropType) => {
+const Window = ({
+  screenActionType,
+  children,
+  onCancel,
+  darkerBg = false,
+}: PropType) => {
   const dispatch = useAppDispatch()
   const _ = useContext(I18nContext)
 
@@ -56,7 +62,7 @@ const Window = ({ screenActionType, children, onCancel }: PropType) => {
 
   const classes = useStyles()
   return (
-    <div className={cx('window-bg')}>
+    <div className={cx('window-bg', { darkerbg: darkerBg })}>
       <div className={cx('window-outerwrapper')}>
         <div ref={prefRef} className={cx('window-wrapper')}>
           <div
