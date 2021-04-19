@@ -8,7 +8,7 @@ This not-for-profit fan-remake is developed by [@tomchen](https://github.com/tom
 
 It's available in 8 + 2 languages (**bold**: fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, **Italian**, **Russian**, Czech, Polish.
 
-The default single player mode (against computer AI 🤖) is stable. I recently added [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which may be unstable🧪. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
+The default single player mode (against computer AI 🤖) is stable✔️. I recently added [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which may be unstable🧪. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
 
 It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and browsers with Chrome's Blink engine, and may or may not have performance issues in Safari & Firefox. Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead).
 
@@ -26,17 +26,21 @@ It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meani
 
 <p align="center"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/manual.jpg" alt="ArcoMage HD Manual Image"></a></p>
 
+<details><summary><strong>Click to show game rules in text form</strong></summary>
+
 > Victory conditions vary per tavern. Build your tower, destroy your opponent's tower, or collect enough resources before your opponent does.
 > 
 > Large yellow numbers in column are the productions. This is how many new units of a particular resource you will receive on your next turn. Small black numbers in column are the resources. This is how many units you have available to spend on your current turn.
 > 
 > Cards: Each have their own cost to play, indicated in a small circle in the lower right corner of the card. The cost will be deducted from your resources according to the color of the card. Left click on a card plays the card. Right click on a card to discard without playing.
 > 
-> Red represents your Quarry Generator which produces your Brick resources, blue represents your Magic Generator which produces Gem resources, green represents your Dungeon generator which produces Recruit resources.
+> Red represents your Quarry Generator which produces your Brick 🧱 resources, blue represents your Magic Generator which produces Gem 💎 resources, green represents your Dungeon (aka. Zoo) generator which produces Recruit (aka. Beast) 🐲 resources.
+
+</details>
 
 ## Play It Offline (PWA)
 
-The image and sound files, as well as the card and language settings, are automatically stored in your browser. In addition, you can install this "progressive web app" on your computer or smartphone. [Google Chrome's article on how to install PWA](https://support.google.com/chrome/answer/9658361).
+The image and sound files, as well as the card and language settings, are automatically stored in your browser. In addition, you can install this "Progressive Web App" (PWA) on your computer or smartphone. [Google Chrome's article on how to install PWA](https://support.google.com/chrome/answer/9658361).
 
 Depending on your browser, sometimes you may need to press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache files & reload arcomage.github.io webpage to have the latest version of the game.
 
@@ -126,9 +130,9 @@ It could be other key instead of <kbd>Alt</kbd>
 
 *(Some newly added Multiplayer Mode-related strings may be untranslated in some previously fully translated language versions)*
 
-### Help me translate it
-
 <details><summary><strong>Click to show the detailed instruction on how to help me translate it</strong></summary>
+
+### Help me translate it
 
 [Tavern names and location names](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns) have already been translated by extracting from the original M&M game.
 
@@ -180,11 +184,21 @@ Create a pull request if you know how to do it, or just give me the translated t
 * User A 👧 (the guest 💼) can now choose a name. User B 🧝 (the host 🏠) can choose a name and change other settings such as Starting & Victory Conditions.
 * User B 🧝 then clicks "**Apply & New Game**" button to start the game.
 
+*(Multiplayer Mode is experimental🧪 and maybe unstable)*
+
+<details><summary><strong>Click to show technical details</strong></summary>
+
 ### Technical
 
-In Multiplayer Mode, you are connected directly to your opponent (Peer to Peer) without server. However, we still need a free public relay server. Once we use the ID assigned by the relay server to connect to each other, we are connected directly and don't need the server any more.
+In Multiplayer Mode, you are connected directly to your opponent (Peer to Peer, P2P) without server. However, we still need a free public relay server. Once we use the ID assigned by the relay server to connect to each other, we are connected directly and don't need the server any more.
 
 The game operates no servers at all, therefore it does not have a server that stores a "list of players online" so you can choose your opponent more easily. You have to instead give your ID to your opponent via Discord or other platforms.
+
+The relay servers used here are free STUN servers set up by Google and others.
+
+[WebRTC (Web Real-Time Communication)](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) is used for the Peer to Peer communication.
+
+</details>
 
 ## Development
 
