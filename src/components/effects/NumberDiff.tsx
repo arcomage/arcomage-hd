@@ -47,8 +47,8 @@ const NumberDiff = ({ n }: PropType) => {
         divEl.className = cx(
           classes.main,
           `absolute font-mono text-2xl text-${
-            diff >= 0 ? 'green-500' : 'red-700'
-          } text-shadow-md`,
+            diff >= 0 ? 'green' : 'red'
+          }-500 text-shadow-md`,
         )
         divEl.appendChild(textNode)
         mainEl.appendChild(divEl)
@@ -63,7 +63,7 @@ const NumberDiff = ({ n }: PropType) => {
 
   // Force TailwindCSS to aware of these classes:
   // text-green-500
-  // text-red-700
+  // text-red-500
 
   return <div ref={main} className="z-50 absolute w-full h-full"></div>
 }

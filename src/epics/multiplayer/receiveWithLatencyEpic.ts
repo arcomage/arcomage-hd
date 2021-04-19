@@ -20,7 +20,7 @@ export default (
         ? 0
         : randomIntFrom(testLatency[0], testLatency[1])
       devLog(`received before latency: ${action.data}`, 'note')
-      devLog(`latency: ${latency}`, 'note')
+      devLog(`latency simulated: ${latency}`, 'note')
       const { type, ...rest } = action
       return of<RootActionType>({
         type: RECEIVE,

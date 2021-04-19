@@ -21,7 +21,6 @@ export default (
       const nPromise = q.dequeueAsync()
       return from(nPromise).pipe(
         concatMap((n) => {
-          // would always wait
           return of<RootActionType>({
             type: DRAW_CARD_CORE,
             n,

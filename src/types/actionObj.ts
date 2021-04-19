@@ -11,6 +11,7 @@ import {
   USE_CARD,
   PLAY_CARD_TO_QUEUE,
   PLAY_CARD_FROM_QUEUE,
+  PLAY_CARD_CORE_GUARDED,
   USE_CARD_CORE,
   MOVE_CARD_TO_CENTER,
   MOVE_CARD_TO_TOP,
@@ -178,6 +179,11 @@ export type PlayCardToQueueActionType = {
 
 export type PlayCardFromQueueActionType = {
   type: typeof PLAY_CARD_FROM_QUEUE
+}
+
+export type PlayCardCoreGuardedActionType = {
+  type: typeof PLAY_CARD_CORE_GUARDED
+  payload: UseCardCoreActionType | DiscardCardCoreActionType
 }
 
 export type UseCardCoreActionType = {
@@ -519,6 +525,7 @@ export type RootActionType =
   | UseCardActionType
   | PlayCardToQueueActionType
   | PlayCardFromQueueActionType
+  | PlayCardCoreGuardedActionType
   | UseCardCoreActionType
   | DrawCardActionType
   | DrawCardToQueueActionType

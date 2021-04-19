@@ -1,13 +1,14 @@
 import {
   PLAY_CARD_FROM_QUEUE,
   ABORT_CONNECTION,
+  PLAY_CARD_CORE_GUARDED,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil } from 'rxjs/operators'
+import { filter, concatMap, takeUntil, map } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { from, of } from 'rxjs'
+import { from } from 'rxjs'
 import { useCardQueue as q } from '../../utils/queues'
 
 export default (
@@ -19,9 +20,11 @@ export default (
     concatMap((action) => {
       const playCardActionPromise = q.dequeueAsync()
       return from(playCardActionPromise).pipe(
-        concatMap((playCardAction) => {
-          // would always wait
-          return of<RootActionType>(playCardAction)
+        map((playCardAction) => {
+          return {
+            type: PLAY_CARD_CORE_GUARDED,
+            payload: playCardAction,
+          }
         }),
         takeUntil(action$.ofType(ABORT_CONNECTION)),
       )

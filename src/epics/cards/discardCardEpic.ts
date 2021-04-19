@@ -4,6 +4,7 @@ import {
   ABORT_ALL,
   SEND,
   PLAY_CARD_TO_QUEUE,
+  PLAY_CARD_CORE_GUARDED,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
@@ -27,10 +28,13 @@ export default (
 
       return concat(
         of<RootActionType>({
-          type: DISCARD_CARD_CORE,
-          index,
-          position,
-          owner,
+          type: PLAY_CARD_CORE_GUARDED,
+          payload: {
+            type: DISCARD_CARD_CORE,
+            index,
+            position,
+            owner,
+          },
         }),
         multiGameStarted
           ? of<RootActionType>({

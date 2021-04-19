@@ -13,6 +13,7 @@ export const EXEC_CARD = 'EXEC_CARD' as const
 export const USE_CARD = 'USE_CARD' as const
 export const PLAY_CARD_TO_QUEUE = 'PLAY_CARD_TO_QUEUE' as const
 export const PLAY_CARD_FROM_QUEUE = 'PLAY_CARD_FROM_QUEUE' as const
+export const PLAY_CARD_CORE_GUARDED = 'PLAY_CARD_CORE_GUARDED' as const
 export const USE_CARD_CORE = 'USE_CARD_CORE' as const
 
 export const CLEAR_CARD = 'CLEAR_CARD' as const

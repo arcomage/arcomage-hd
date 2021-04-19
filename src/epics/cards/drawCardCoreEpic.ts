@@ -23,9 +23,10 @@ import { RootStateType } from '../../types/state'
 import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../../utils/playSound'
 import {
-  cardNextStepDelay,
-  cardTransitionDuration,
   drawCardPre,
+  cardTransitionDuration,
+  aiDelay,
+  humanDelay,
 } from '../../constants/visuals'
 import {
   aiExtraDelay,
@@ -73,7 +74,7 @@ export default (
             }).pipe(
               delay(
                 cardTransitionDuration +
-                  cardNextStepDelay +
+                  aiDelay +
                   (noAiExtraDelay ? 0 : aiExtraDelay),
               ),
             )
@@ -81,7 +82,7 @@ export default (
         owner === 'opponent' && multiGameStarted
           ? of<RootActionType>({
               type: PLAY_CARD_FROM_QUEUE,
-            }).pipe(delay(cardTransitionDuration + cardNextStepDelay))
+            }).pipe(delay(cardTransitionDuration + humanDelay))
           : EMPTY,
         owner === 'player'
           ? of<RootActionType>({

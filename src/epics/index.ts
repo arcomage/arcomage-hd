@@ -11,6 +11,7 @@ import execCardEpic from './cards/execCardEpic'
 import useCardEpic from './cards/useCardEpic'
 import playCardToQueueEpic from './cards/playCardToQueueEpic'
 import playCardFromQueueEpic from './cards/playCardFromQueueEpic'
+import playCardCoreGuardedEpic from './cards/playCardCoreGuardedEpic'
 import useCardCoreEpic from './cards/useCardCoreEpic'
 import discardCardEpic from './cards/discardCardEpic'
 import discardCardCoreEpic from './cards/discardCardCoreEpic'
@@ -55,6 +56,7 @@ const rootEpic: MyEpic = combineEpics(
   useCardEpic,
   playCardToQueueEpic,
   playCardFromQueueEpic,
+  playCardCoreGuardedEpic,
   useCardCoreEpic,
   discardCardEpic,
   discardCardCoreEpic,

@@ -29,7 +29,6 @@ import {
   cardNextStepDelay,
   cardTransitionDuration,
 } from '../../constants/visuals'
-import devLog from '../../utils/devLog'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -40,14 +39,6 @@ export default (
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       const { n, index, position, owner } = action
-
-      if (process.env.ISDEV) {
-        const locked = state.game.locked.some((l) => l === true)
-        if (locked) {
-          devLog(`${owner} uses card ${n} during the lock`, 'bug')
-        }
-      }
-
       const special = cards[n].special
       playSound('deal', state.volume)
       return concat(
