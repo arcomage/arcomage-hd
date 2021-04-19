@@ -12,8 +12,8 @@ const settings = defaultSettings
 // const settings = preSettings[5]
 
 const status: StatusType = {
-  player: settings.start,
-  opponent: settings.start,
+  player: settings,
+  opponent: settings,
 }
 
 const { player: pBefore, opponent: oBefore } = status
