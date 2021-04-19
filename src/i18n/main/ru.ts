@@ -50,29 +50,29 @@ export const i18n = {
   Multiplayer: 'Мультиплеер',
   off: 'off',
   on: 'on',
-  'Your ID': 'Your ID',
-  "Enter your opponent's ID": "Enter your opponent's ID",
-  Connect: 'Connect',
-  'Copied 📋✔️': 'Copied 📋✔️',
+  'Your ID': 'Ваш ID',
+  "Enter your opponent's ID": 'Введите ID оппонента',
+  Connect: 'Соединение',
+  'Copied 📋✔️': 'Скопировано 📋✔️',
 
-  'Connecting to the network ⌛': 'Connecting to the network ⌛',
+  'Connecting to the network ⌛': 'Соединение с сетью ⌛',
   'Connected to the network (but not to anyone) ✔️':
-    'Connected to the network (but not to anyone) ✔️',
-  'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
+    'Соединено с сетью (но не с комнатой) ✔️',
+  'Connecting to ID %s ⌛': 'Соединение с ID %s ⌛',
   "Connected to ID %s ✔️ You're the host 🏠":
-    "Connected to ID %s ✔️ You're the host 🏠",
+    'Соединено с ID %s ✔️ Вы хост 🏠',
   "Connected by ID %s ✔️ You're the guest 💼":
-    "Connected by ID %s ✔️ You're the guest 💼",
-  'Connection failed ❌': 'Connection failed ❌',
-  'Disconnected 🔌': 'Disconnected 🔌',
-  'You are playing against computer AI': 'Вы играете против компьютерного ИИ',
-  'You are playing against human': 'Ты играешь против человека',
+    'Соединено с ID %s ✔️ Вы гость 💼',
+  'Connection failed ❌': 'Соединение не удалось ❌',
+  'Disconnected 🔌': 'Соединение разорвано 🔌',
+  'You are playing against computer AI': 'Вы играете против ИИ',
+  'You are playing against human': 'Вы играете против человека',
 
   'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
-    'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.',
+    'Ваш оппонент покинул игру. Игра продолжается, его заменит ИИ.',
 
   'Multiplayer Mode is experimental and unstable':
-    'Многопользовательский режим является экспериментальным и нестабильным',
+    'Многопользовательский режим является экспериментальным и нестабилен',
 
   Reset: 'Сброс',
   'Apply & New Game': 'Применить и начать игру', // or "Начать игру!"
