@@ -1,4 +1,4 @@
-<p align="center"><a href="https://arcomage.github.io/"><img width="250" src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/logo/logo.svg" alt="ArcoMage HD logo"></a></p>
+<p align="center"><a href="https://arcomage.github.io/"><img width="250" src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/logo/logo.svg" alt="ArcoMage HD logo"><br><br><strong>arcomage.github.io</strong></a></p>
 
 <h1 align="center">ArcoMage HD - Open Source Arcomage Clone</h1>
 
@@ -8,7 +8,7 @@ This not-for-profit fan-remake is developed by [@tomchen](https://github.com/tom
 
 It's available in 8 + 2 languages (**bold**: fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, **Italian**, **Russian**, Czech, Polish.
 
-The default single player mode (against computer AI 🤖) is stable. I recently added Multiplayer Mode 🧑‍🤝‍🧑 which may be unstable🧪. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
+The default single player mode (against computer AI 🤖) is stable. I recently added [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which may be unstable🧪. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
 
 It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and browsers with Chrome's Blink engine, and may or may not have performance issues in Safari & Firefox. Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead).
 
@@ -169,6 +169,23 @@ Create a pull request if you know how to do it, or just give me the translated t
 
 </details>
 
+## Multiplayer Mode
+
+### How To Use the Multiplayer Mode
+
+* User A 👧 clicks **gear ⚙️ icon** to open the "**Preferences**" window. Then (s)he **enables the "Multiplayer" Mode**, (s)he will get an **ID 🆔**, and the game shows "**Connected to the network (but not to anyone) ✔️**".
+* Meanwhile, User B 🧝 also **enables the "Multiplayer" Mode** and the game shows "**Connected to the network (but not to anyone) ✔️**".
+* User A 👧 then **gives the ID 🆔 to User B 🧝 via Discord or other platforms or forums**.
+* User B 🧝 enters User A 👧's ID 🆔 and clicks "**Connect**" button to connect to User A 👧. If the connection is successful, User B 🧝 will see "**Connected to ID ... ✔️ You're the host 🏠**" and User A 👧 will see "**Connected by ID ... ✔️ You're the guest 💼**".
+* User A 👧 (the guest 💼) can now choose a name. User B 🧝 (the host 🏠) can choose a name and change other settings such as Starting & Victory Conditions.
+* User B 🧝 then clicks "**Apply & New Game**" button to start the game.
+
+### Technical
+
+In Multiplayer Mode, you are connected directly to your opponent (Peer to Peer) without server. However, we still need a free public relay server. Once we use the ID assigned by the relay server to connect to each other, we are connected directly and don't need the server any more.
+
+The game operates no servers at all, therefore it does not have a server that stores a "list of players online" so you can choose your opponent more easily. You have to instead give your ID to your opponent via Discord or other platforms.
+
 ## Development
 
 The stack:
@@ -197,7 +214,7 @@ The stack:
 <a href="https://www.adobe.com/products/photoshop.html" title="Adobe Photoshop"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/adobe-photoshop.svg" alt="Adobe Photoshop" width="21px" height="21px"></a>
 </p>
 
-TypeScript + React + Redux + redux-observable, CSS-based animations without \<canvas\>. PWA.
+TypeScript + React + Redux + redux-observable (RxJS), CSS-based animations without \<canvas\>. PWA. P2P Multiplayer Mode without server (only uses STUN servers as relay) with WebRTC (PeerJS).
 
 ## To Do
 
