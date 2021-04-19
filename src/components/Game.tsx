@@ -12,6 +12,7 @@ import VolumePref from './screens/VolumePref'
 import Help from './screens/Help'
 import LandscapeNotice from './screens/LandscapeNotice'
 import { isEndScreenNoCloseState } from '../types/state'
+import OpDisconnectNotice from './screens/OpDisconnectNotice'
 
 const Game = () => {
   const pref = useAppSelector((state) => state.screen.pref)
@@ -20,6 +21,7 @@ const Game = () => {
   const end = useAppSelector((state) => state.screen.end)
   const help = useAppSelector((state) => state.screen.help)
   const landscape = useAppSelector((state) => state.screen.landscape)
+  const opdisconnect = useAppSelector((state) => state.screen.opdisconnect)
 
   const erathian: boolean = useAppSelector((state) => state.lang.erathian)
 
@@ -39,6 +41,7 @@ const Game = () => {
       {volumePref && <VolumePref />}
       {help && <Help />}
       {landscape && <LandscapeNotice />}
+      {opdisconnect && <OpDisconnectNotice />}
       <ButtonBar />
     </div>
   )

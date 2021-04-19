@@ -6,9 +6,16 @@ import {
   RECEIVE_WITH_LATENCY,
   RECEIVE,
   SWITCH_MULTI_GAME_STARTED,
+  SCREEN_OP_DISCONNECT,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil, mergeMap } from 'rxjs/operators'
+import {
+  filter,
+  concatMap,
+  takeUntil,
+  mergeMap,
+  withLatestFrom,
+} from 'rxjs/operators'
 import { concat, merge, EMPTY, fromEvent, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -69,12 +76,20 @@ export default (
           }),
         ),
         fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'close').pipe(
-          concatMap(() => {
+          withLatestFrom(state$),
+          concatMap(([_, state]) => {
+            const multiGameStarted = state.multiplayer.gameStarted
             return concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
                 status: 'connected_net',
               }),
+              multiGameStarted && !action.host
+                ? of<RootActionType>({
+                    type: SCREEN_OP_DISCONNECT,
+                    show: true,
+                  })
+                : EMPTY,
               of<RootActionType>({
                 type: SWITCH_MULTI_GAME_STARTED,
                 on: false,

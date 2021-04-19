@@ -3,6 +3,7 @@ import {
   SCREEN_END_MAIN,
   SCREEN_HELP,
   SCREEN_LANDSCAPE,
+  SCREEN_OP_DISCONNECT,
   SCREEN_LANG_PREF,
   SCREEN_PREF,
   SCREEN_VOLUME_PREF,
@@ -16,6 +17,7 @@ const defaultScreen: ScreenStateType = {
   volumePref: false,
   help: false,
   landscape: false,
+  opdisconnect: false,
   end: { type: null },
 }
 
@@ -39,6 +41,10 @@ export default produce((draft: ScreenStateType, action: RootActionType) => {
     }
     case SCREEN_LANDSCAPE: {
       draft.landscape = action.show
+      break
+    }
+    case SCREEN_OP_DISCONNECT: {
+      draft.opdisconnect = action.show
       break
     }
     case SCREEN_END_MAIN: {

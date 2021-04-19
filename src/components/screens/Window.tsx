@@ -14,6 +14,7 @@ import {
   SCREEN_VOLUME_PREF,
   SCREEN_HELP,
   SCREEN_LANDSCAPE,
+  SCREEN_OP_DISCONNECT,
 } from '../../constants/ActionTypes'
 
 const useStyles = createUseStyles({
@@ -31,6 +32,7 @@ type PropType = {
     | typeof SCREEN_VOLUME_PREF
     | typeof SCREEN_HELP
     | typeof SCREEN_LANDSCAPE
+    | typeof SCREEN_OP_DISCONNECT
   children: React.ReactNode
   onCancel?: () => void
   darkerBg?: boolean

@@ -53,6 +53,7 @@ import {
   SCREEN_END_MAIN,
   SCREEN_HELP,
   SCREEN_LANDSCAPE,
+  SCREEN_OP_DISCONNECT,
   CHECK_VICTORY,
   AI_PLAY_CARD,
   CHECK_SURRENDER,
@@ -389,6 +390,11 @@ export type ScreenLandscapeActionType = {
   show: boolean
 }
 
+export type ScreenOpDisconnectActionType = {
+  type: typeof SCREEN_OP_DISCONNECT
+  show: boolean
+}
+
 export type ScreenEndActionType = {
   type: typeof SCREEN_END
   payload: EndScreenStateType
@@ -554,6 +560,7 @@ export type RootActionType =
   | ScreenVolumePrefActionType
   | ScreenHelpActionType
   | ScreenLandscapeActionType
+  | ScreenOpDisconnectActionType
   | ScreenEndActionType
   | ScreenEndMainActionType
   | AiPlayCardActionType

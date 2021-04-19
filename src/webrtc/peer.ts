@@ -25,8 +25,8 @@ if (process.env.ISDEV) {
 }
 
 export const onUnloadDisconnect = () => {
-  if (peerAll.peer !== null) {
-    peerAll.peer.disconnect()
+  if (peerAll.peer !== null && !peerAll.peer.destroyed) {
+    peerAll.peer.destroy()
   }
 }
 
