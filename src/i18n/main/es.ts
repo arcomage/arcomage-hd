@@ -21,6 +21,8 @@ export const i18n = {
   'Your %sp': 'Tus %sp', // Your bricks
   "Opponent's %sp": '%sp del adversario', // Opponent's bricks
 
+  '%s1. Reach %s2 to win': '%s1. Llega a %s2 para ganar', // Your tower/bricks/gems/recruits. Reach 100 to win
+
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (producción de %sp)', // quarry (brick production)
 

@@ -21,6 +21,8 @@ export const i18n = {
   'Your %sp': 'Ваши %sp', // Your bricks
   "Opponent's %sp": 'кирпичи %sp', // Opponent's bricks
 
+  '%s1. Reach %s2 to win': '%s1. Достань %s2, чтобы выиграть', // Your tower/bricks/gems/recruits. Reach 100 to win
+
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (%ss производство)', // quarry (brick production)
 
@@ -59,8 +61,7 @@ export const i18n = {
   'Connected to the network (but not to anyone) ✔️':
     'Соединено с сетью (но не с комнатой) ✔️',
   'Connecting to ID %s ⌛': 'Соединение с ID %s ⌛',
-  "Connected to ID %s ✔️ You're the host 🏠":
-    'Соединено с ID %s ✔️ Вы хост 🏠',
+  "Connected to ID %s ✔️ You're the host 🏠": 'Соединено с ID %s ✔️ Вы хост 🏠',
   "Connected by ID %s ✔️ You're the guest 💼":
     'Соединено с ID %s ✔️ Вы гость 💼',
   'Connection failed ❌': 'Соединение не удалось ❌',

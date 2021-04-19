@@ -15,6 +15,7 @@ import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'
 import recruit from '../../assets/img/recruit.svg'
 import { ResNameType } from '../constants/resourceNames'
+import { useAppSelector } from '../utils/useAppDispatch'
 
 const whRatio = 156 / 216
 
@@ -142,34 +143,56 @@ const Resource = ({ type, isOpponent }: PropType) => {
   // bg-red-300
   // bg-blue-300
   // bg-green-300
+
+  const resProdTitle = _.i18n(
+    `${isOpponent ? "Opponent's" : 'Your'} %s`,
+  ).replace(
+    '%s',
+    _.i18n('%s (%ss production)')
+      .replace(
+        '%s',
+        _.i18n(
+          {
+            brick: 'quarry',
+            gem: 'magic',
+            recruit: 'dungeon',
+          }[type],
+        ),
+      )
+      .replace('%ss', _.i18n(type))
+      .replace(
+        '%sp',
+        _.i18n(
+          {
+            brick: 'bricks',
+            gem: 'gems',
+            recruit: 'recruits',
+          }[type],
+        ),
+      ),
+  )
+
+  const winResource = useAppSelector((state) => state.settings.winResource)
+  let resTitle = _.i18n(`${isOpponent ? "Opponent's" : 'Your'} %sp`)
+    .replace(
+      '%sp',
+      _.i18n(
+        {
+          brick: 'bricks',
+          gem: 'gems',
+          recruit: 'recruits',
+        }[type],
+      ),
+    )
+    .replace('%ss', _.i18n(type))
+  resTitle = _.i18n('%s1. Reach %s2 to win')
+    .replace('%s1', resTitle)
+    .replace('%s2', winResource.toString(10))
+
   return (
     <div className={cx('mb-3 p-1 shadow-lg', `bg-${color}-300`)}>
       <div
-        title={_.i18n(`${isOpponent ? "Opponent's" : 'Your'} %s`).replace(
-          '%s',
-          _.i18n('%s (%ss production)')
-            .replace(
-              '%s',
-              _.i18n(
-                {
-                  brick: 'quarry',
-                  gem: 'magic',
-                  recruit: 'dungeon',
-                }[type],
-              ),
-            )
-            .replace('%ss', _.i18n(type))
-            .replace(
-              '%sp',
-              _.i18n(
-                {
-                  brick: 'bricks',
-                  gem: 'gems',
-                  recruit: 'recruits',
-                }[type],
-              ),
-            ),
-        )}
+        title={resProdTitle}
         className={cx(
           classes[type],
           classes.prodcontainer,
@@ -189,21 +212,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
           <ResourceNumber isProd {...{ type, isOpponent }} />
         </div>
       </div>
-      <div
-        title={_.i18n(`${isOpponent ? "Opponent's" : 'Your'} %sp`)
-          .replace(
-            '%sp',
-            _.i18n(
-              {
-                brick: 'bricks',
-                gem: 'gems',
-                recruit: 'recruits',
-              }[type],
-            ),
-          )
-          .replace('%ss', _.i18n(type))}
-        className="flow-root mt-1"
-      >
+      <div title={resTitle} className="flow-root mt-1">
         <div
           className={cx(
             'float-left text-black flex-1 text-left relative tracking-tighter',
