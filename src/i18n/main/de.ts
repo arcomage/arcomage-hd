@@ -71,8 +71,8 @@ export const i18n = {
   'You are playing against computer AI': 'Sie spielen gegen eine Computer-KI',
   'You are playing against human': 'Sie spielen gegen einen Menschen',
 
-  'Your opponent is disconnected. Please go to "Preferences" and start a new game.':
-    'Ihr Gegner ist nicht mehr verbunden. Bitte gehen Sie zu "Voreinstellungen" und starten Sie ein neues Spiel.',
+  'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
+    'Sie und Ihr Gegner sind nicht verbunden. Bitte gehen Sie zu "Voreinstellungen" und starten Sie ein neues Spiel.',
 
   'Multiplayer Mode is experimental and unstable':
     'Multiplayer-Modus ist experimentell und instabil',

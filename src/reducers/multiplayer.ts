@@ -9,13 +9,10 @@ import {
 } from '../constants/ActionTypes'
 import { defaultSettings } from '../constants/defaultSettings'
 import { RootActionType } from '../types/actionObj'
-import { FormFieldsAllPartialType } from '../types/formFields'
-import { MultiplayerStateType } from '../types/state'
+import { MultiplayerStateType, SettingsType } from '../types/state'
 
-const tempSettingsDefault: FormFieldsAllPartialType = {
-  opponentName: '',
+const tempSettingsDefault: SettingsType = {
   ...defaultSettings,
-  cardsInHand: defaultSettings.cardsInHand,
 }
 
 const defaultMultiplayerState: MultiplayerStateType = {
@@ -23,7 +20,9 @@ const defaultMultiplayerState: MultiplayerStateType = {
   yourId: '',
   opponentId: '',
   status: 'disconnected',
-  tempSettings: tempSettingsDefault, // guest uses opponentName & all nums; host uses opponentName
+  tempSettings: tempSettingsDefault,
+  tempPlayerName: '',
+  tempOpponentName: '',
   gameNumber: -1,
 }
 
@@ -52,10 +51,7 @@ export default produce(
       }
       case SET_TEMP_SETTINGS: {
         if (action.payload !== null) {
-          draft.tempSettings = {
-            ...draft.tempSettings,
-            ...action.payload,
-          }
+          draft.tempSettings = action.payload
         }
         break
       }

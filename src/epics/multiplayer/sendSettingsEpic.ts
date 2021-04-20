@@ -1,6 +1,6 @@
 import {
   ABORT_CONNECTION,
-  ABORT_SEND_FORM_FIELDS,
+  ABORT_SEND_TEMP_SETTINGS,
   SEND,
   SEND_SETTINGS,
   SET_TEMP_SETTINGS,
@@ -11,7 +11,6 @@ import { filter, takeUntil, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { reverseSettingsState } from '../../utils/reverseState'
 import { INST } from '../../constants/connDataKind'
 import { concat, EMPTY, of } from 'rxjs'
 
@@ -23,18 +22,18 @@ export default (
     filter(isOfType(SEND_SETTINGS)),
     concatMap((action) => {
       const { payload } = action
-      const connSettings = reverseSettingsState(payload)
-      return connSettings
+      const settings = payload
+      return settings
         ? concat(
             of<RootActionType>({
-              type: ABORT_SEND_FORM_FIELDS,
+              type: ABORT_SEND_TEMP_SETTINGS,
             }),
             of<RootActionType>({
               type: SEND,
               kind: INST,
               data: {
                 type: SET_TEMP_SETTINGS,
-                payload: connSettings,
+                payload: settings,
               },
             }),
             of<RootActionType>({
@@ -42,7 +41,7 @@ export default (
               kind: INST,
               data: {
                 type: UPDATE_SETTINGS,
-                payload: connSettings,
+                payload: settings,
               },
             }).pipe(takeUntil(action$.ofType(ABORT_CONNECTION))),
           )

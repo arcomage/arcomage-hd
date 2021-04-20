@@ -68,8 +68,8 @@ export const i18n = {
   'You are playing against computer AI': '你正在對戰電腦AI',
   'You are playing against human': '你正在對戰網友',
 
-  'Your opponent is disconnected. Please go to "Preferences" and start a new game.':
-    '你的對手已斷開連線。請進入“設定”視窗並開始新遊戲。',
+  'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
+    '你和對手已斷開連線。請進入“設定”視窗並開始新遊戲。',
 
   'Multiplayer Mode is experimental and unstable':
     '二人對戰模式目前是測試版，不穩定',

@@ -7,37 +7,37 @@ import {
 import produce from 'immer'
 import { FormFieldsAllPartialType } from '../types/formFields'
 
-export const reverseSettingsState = (
-  state: SettingsStateAllPartialType,
-): SettingsStateAllPartialType => {
-  return produce(state, (draft: SettingsStateAllPartialType) => {
-    if ('playerName' in draft && 'opponentName' in draft) {
-      const tempSettingsPlayerName = draft.playerName
-      draft.playerName = draft.opponentName
-      draft.opponentName = tempSettingsPlayerName
-    }
-    if ('playerName' in draft && !('opponentName' in draft)) {
-      draft.opponentName = draft.playerName
-    }
-    if (!('playerName' in draft) && 'opponentName' in draft) {
-      draft.playerName = draft.opponentName
-    }
-  })
-}
+// export const reverseSettingsState = (
+//   state: SettingsType,
+// ): SettingsType => {
+//   return produce(state, (draft: SettingsStateAllPartialType) => {
+//     if ('playerName' in draft && 'opponentName' in draft) {
+//       const tempSettingsPlayerName = draft.playerName
+//       draft.playerName = draft.opponentName
+//       draft.opponentName = tempSettingsPlayerName
+//     }
+//     if ('playerName' in draft && !('opponentName' in draft)) {
+//       draft.opponentName = draft.playerName
+//     }
+//     if (!('playerName' in draft) && 'opponentName' in draft) {
+//       draft.playerName = draft.opponentName
+//     }
+//   })
+// }
 
-export const reverseFormFields = (
-  formFields: FormFieldsAllPartialType,
-): FormFieldsAllPartialType => {
-  if (formFields.playerName !== undefined) {
-    const { playerName, ...rest } = formFields
-    const ret: FormFieldsAllPartialType = {
-      opponentName: playerName,
-      ...rest,
-    }
-    return ret
-  }
-  return formFields
-}
+// export const reverseFormFields = (
+//   formFields: FormFieldsAllPartialType,
+// ): FormFieldsAllPartialType => {
+//   if (formFields.playerName !== undefined) {
+//     const { playerName, ...rest } = formFields
+//     const ret: FormFieldsAllPartialType = {
+//       opponentName: playerName,
+//       ...rest,
+//     }
+//     return ret
+//   }
+//   return formFields
+// }
 
 type ObjectType<T> = T extends ownerType2
   ? ownerType2

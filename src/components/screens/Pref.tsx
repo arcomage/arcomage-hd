@@ -16,7 +16,7 @@ import {
   SCREEN_PREF,
   SWITCH_MULTIPLAYER_MODE,
   CONNECT_TO_ID,
-  SEND_FORM_FIELDS,
+  SEND_TEMP_SETTINGS,
 } from '../../constants/ActionTypes'
 import { I18nContext, upper1st } from '../../i18n/I18nContext'
 import { preSettings } from '../../constants/preSettings'
@@ -60,6 +60,12 @@ const Pref = () => {
   const tempSettingsStore = useAppSelector(
     (state) => state.multiplayer.tempSettings,
   )
+  const tempPlayerName = useAppSelector(
+    (state) => state.multiplayer.tempPlayerName,
+  )
+  const tempOpponentName = useAppSelector(
+    (state) => state.multiplayer.tempOpponentName,
+  )
 
   const multiGameNumber = useAppSelector(
     (state) => state.multiplayer.gameNumber,
@@ -88,17 +94,6 @@ const Pref = () => {
 
   const [formFields, setFormFields] = useState<FormFieldsType>(settingStore)
 
-  const checkPreset = (o: FormFieldsType | FormFieldsAllPartialType) => {
-    const indexMatched = preSettings
-      .concat(defaultSettings)
-      .findIndex((settings) => allCondAndOtherSettingsEqual(o, settings))
-    if (indexMatched === preSettings.length) {
-      return -2
-    } else {
-      return indexMatched
-    }
-  }
-
   const applyAndNewGame = () => {
     dispatch({
       type: SCREEN_PREF,
@@ -113,6 +108,16 @@ const Pref = () => {
     })
   }
 
+  const checkPreset = (o: FormFieldsType | FormFieldsAllPartialType) => {
+    const indexMatched = preSettings
+      .concat(defaultSettings)
+      .findIndex((settings) => allCondAndOtherSettingsEqual(o, settings))
+    if (indexMatched === preSettings.length) {
+      return -2
+    } else {
+      return indexMatched
+    }
+  }
   const [preset, setPreset] = useState<number>(-10)
 
   const [notification, setNotification] = useState<string>('')
@@ -148,7 +153,7 @@ const Pref = () => {
     if (isHost) {
       const { playerName, opponentName, opponentId, ...rest } = formFields
       dispatch({
-        type: SEND_FORM_FIELDS,
+        type: SEND_TEMP_SETTINGS,
         payload: rest,
       })
     }
@@ -160,15 +165,15 @@ const Pref = () => {
     setTempPreset(checkPreset(tempSettingsStore))
   }, getAllCondAndOtherSettingsArray(tempSettingsStore))
 
-  useEffect(() => {
-    if (isHost || isGuest) {
-      const { playerName } = formFields
-      dispatch({
-        type: SEND_FORM_FIELDS,
-        payload: { playerName },
-      })
-    }
-  }, [formFields.playerName])
+  // useEffect(() => {//TODO
+  //   if (isHost || isGuest) {
+  //     const { playerName } = formFields
+  //     dispatch({
+  //       type: SEND_TEMP_SETTINGS,
+  //       payload: { playerName },
+  //     })
+  //   }
+  // }, [formFields.playerName])
 
   const prevMultiplayerStatus = useRef('')
   useEffect(() => {
@@ -180,19 +185,20 @@ const Pref = () => {
       // just becomes host
       const { opponentName, opponentId, ...rest } = formFields
       dispatch({
-        type: SEND_FORM_FIELDS,
+        type: SEND_TEMP_SETTINGS,
         payload: rest,
       })
     } else if (
       prevMultiplayerStatus.current !== '' &&
       multiplayerStatus === 'connected_by_id'
     ) {
+      //TODO
       // just becomes guest
-      const { playerName } = formFields
-      dispatch({
-        type: SEND_FORM_FIELDS,
-        payload: { playerName },
-      })
+      // const { playerName } = formFields
+      // dispatch({
+      //   type: SEND_TEMP_SETTINGS,
+      //   payload: { playerName },
+      // })
     }
     prevMultiplayerStatus.current = multiplayerStatus
   }, [multiplayerStatus, settingStore.opponentId])
@@ -317,10 +323,12 @@ const Pref = () => {
       default:
         break
     }
+  }, [multiplayerStatus, _])
 
+  useEffect(() => {
     setIsGuest(isMultiplayer && multiplayerStatus === 'connected_by_id')
     setIsHost(isMultiplayer && multiplayerStatus === 'connected_to_id')
-  }, [multiplayerStatus, _])
+  }, [multiplayerStatus])
 
   return (
     <Window
@@ -329,17 +337,18 @@ const Pref = () => {
         if (isHost) {
           const { opponentName, opponentId, ...rest } = settingStore
           dispatch({
-            type: SEND_FORM_FIELDS,
+            type: SEND_TEMP_SETTINGS,
             payload: rest,
           })
         }
-        if (isGuest) {
-          const { playerName } = settingStore
-          dispatch({
-            type: SEND_FORM_FIELDS,
-            payload: { playerName },
-          })
-        }
+        //TODO
+        // if (isGuest) {
+        //   const { playerName } = settingStore
+        //   dispatch({
+        //     type: SEND_TEMP_SETTINGS,
+        //     payload: { playerName },
+        //   })
+        // }
       }}
     >
       <h3 className="preferences">
@@ -362,7 +371,7 @@ const Pref = () => {
             type="text"
             name={poNames[0]}
             id={poNames[0]}
-            value={formFields.playerName}
+            value={isGuest || isHost ? tempPlayerName : formFields.playerName}
             onChange={handleChange}
             onFocus={(e) => {
               if (isEmoji(e.target.value)) {
@@ -382,9 +391,7 @@ const Pref = () => {
             id={poNames[1]}
             disabled={isGuest || isHost}
             value={
-              (isGuest || isHost) && tempSettingsStore !== null
-                ? tempSettingsStore.opponentName
-                : formFields.opponentName
+              isGuest || isHost ? tempOpponentName : formFields.opponentName
             }
             onChange={handleChange}
             onFocus={(e) => {

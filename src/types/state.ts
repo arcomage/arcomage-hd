@@ -116,7 +116,9 @@ export type MultiplayerStateType = {
   yourId: string
   opponentId: string
   status: MultiplayerStatusType
-  tempSettings: FormFieldsAllPartialType
+  tempSettings: SettingsType
+  tempPlayerName: string
+  tempOpponentName: string
   gameNumber: number
 }
 

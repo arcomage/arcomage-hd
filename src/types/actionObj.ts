@@ -74,8 +74,8 @@ import {
   PEER_LISTEN,
   SEND,
   SEND_SETTINGS,
-  SEND_FORM_FIELDS,
-  ABORT_SEND_FORM_FIELDS,
+  SEND_TEMP_SETTINGS,
+  ABORT_SEND_TEMP_SETTINGS,
   RECEIVE_WITH_LATENCY,
   RECEIVE,
 } from '../constants/ActionTypes'
@@ -89,9 +89,10 @@ import {
   PersonStatusType,
   SettingsStateType,
   SettingsStateAllPartialType,
+  SettingsType,
 } from '../types/state'
 import { InstructionConnDataType } from './connData'
-import { FormFieldsAllPartialType } from './formFields'
+import { FormFieldsAllPartialType, FormFieldsType } from './formFields'
 
 export type UpdateLangActionType = {
   type: typeof UPDATE_LANG
@@ -467,7 +468,7 @@ export type SetMultiplayerStatusActionType = {
 
 export type SetTempSettingsActionType = {
   type: typeof SET_TEMP_SETTINGS
-  payload: FormFieldsAllPartialType | null
+  payload: SettingsType
 }
 
 export type SetMultiGameNumberActionType = {
@@ -490,16 +491,16 @@ export type SendActionType = {
 
 export type SendSettingsActionType = {
   type: typeof SEND_SETTINGS
-  payload: SettingsStateAllPartialType
+  payload: SettingsType
 }
 
-export type SendFormFieldsActionType = {
-  type: typeof SEND_FORM_FIELDS
-  payload: FormFieldsAllPartialType
+export type SendTempSettingsActionType = {
+  type: typeof SEND_TEMP_SETTINGS
+  payload: SettingsType
 }
 
-export type AbortSendFormFieldsActionType = {
-  type: typeof ABORT_SEND_FORM_FIELDS
+export type AbortSendTempSettingsActionType = {
+  type: typeof ABORT_SEND_TEMP_SETTINGS
 }
 
 export type ReceiveWithLatencyActionType = {
@@ -588,7 +589,7 @@ export type RootActionType =
   | PeerListenActionType
   | SendActionType
   | SendSettingsActionType
-  | SendFormFieldsActionType
-  | AbortSendFormFieldsActionType
+  | SendTempSettingsActionType
+  | AbortSendTempSettingsActionType
   | ReceiveWithLatencyActionType
   | ReceiveActionType

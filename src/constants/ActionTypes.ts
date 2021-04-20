@@ -91,8 +91,8 @@ export const PEER_LISTEN = 'PEER_LISTEN' as const
 
 export const SEND = 'SEND' as const
 export const SEND_SETTINGS = 'SEND_SETTINGS' as const
-export const SEND_FORM_FIELDS = 'SEND_FORM_FIELDS' as const
-export const ABORT_SEND_FORM_FIELDS = 'ABORT_SEND_FORM_FIELDS' as const
+export const SEND_TEMP_SETTINGS = 'SEND_TEMP_SETTINGS' as const
+export const ABORT_SEND_TEMP_SETTINGS = 'ABORT_SEND_TEMP_SETTINGS' as const
 
 export const RECEIVE = 'RECEIVE' as const
 export const RECEIVE_WITH_LATENCY = 'RECEIVE_WITH_LATENCY' as const

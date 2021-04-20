@@ -1,8 +1,8 @@
 import {
   ABORT_CONNECTION,
-  ABORT_SEND_FORM_FIELDS,
+  ABORT_SEND_TEMP_SETTINGS,
   SEND,
-  SEND_FORM_FIELDS,
+  SEND_TEMP_SETTINGS,
   SET_TEMP_SETTINGS,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -10,9 +10,8 @@ import { filter, takeUntil, concatMap, debounceTime } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { reverseFormFields } from '../../utils/reverseState'
 import { INST } from '../../constants/connDataKind'
-import { EMPTY, merge, of } from 'rxjs'
+import { merge, of } from 'rxjs'
 import { sendSettingsDebounceTime } from '../../constants/visuals'
 
 export default (
@@ -20,27 +19,24 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(SEND_FORM_FIELDS)),
+    filter(isOfType(SEND_TEMP_SETTINGS)),
     debounceTime(sendSettingsDebounceTime),
     concatMap((action) => {
       const { payload } = action
-      const connSettings = payload !== null ? reverseFormFields(payload) : null
-      return connSettings
-        ? of<RootActionType>({
-            type: SEND,
-            kind: INST,
-            data: {
-              type: SET_TEMP_SETTINGS,
-              payload: connSettings,
-            },
-          }).pipe(
-            takeUntil(
-              merge(
-                action$.ofType(ABORT_SEND_FORM_FIELDS),
-                action$.ofType(ABORT_CONNECTION),
-              ),
-            ),
-          )
-        : EMPTY
+      return of<RootActionType>({
+        type: SEND,
+        kind: INST,
+        data: {
+          type: SET_TEMP_SETTINGS,
+          payload,
+        },
+      }).pipe(
+        takeUntil(
+          merge(
+            action$.ofType(ABORT_SEND_TEMP_SETTINGS),
+            action$.ofType(ABORT_CONNECTION),
+          ),
+        ),
+      )
     }),
   )

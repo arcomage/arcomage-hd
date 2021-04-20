@@ -10,7 +10,7 @@ const OpDisconnectNotice = () => {
   return (
     <Window screenActionType={SCREEN_OP_DISCONNECT}>
       {_.i18n(
-        'Your opponent is disconnected. Please go to "Preferences" and start a new game.',
+        'You and your opponent are disconnected. Please go to "Preferences" and start a new game.',
       )}
     </Window>
   )
