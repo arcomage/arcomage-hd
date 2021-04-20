@@ -84,11 +84,13 @@ export default (
                 type: MULTIPLAYER_STATUS,
                 status: 'connected_net',
               }),
-              multiGameStarted && !action.host
-                ? of<RootActionType>({
-                    type: SCREEN_OP_DISCONNECT,
-                    show: true,
-                  })
+              multiGameStarted
+                ? concat(
+                    of<RootActionType>({
+                      type: SCREEN_OP_DISCONNECT,
+                      show: true,
+                    }),
+                  )
                 : EMPTY,
               of<RootActionType>({
                 type: SWITCH_MULTI_GAME_STARTED,

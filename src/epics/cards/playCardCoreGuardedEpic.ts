@@ -48,5 +48,4 @@ export default (
         return of<RootActionType>(playCardAction)
       }
     }),
-    takeUntil(action$.ofType(ABORT_CONNECTION)),
   )

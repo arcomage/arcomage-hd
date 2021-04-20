@@ -97,12 +97,13 @@ export default (
               }),
             )
           }),
-          catchError((error) =>
-            of<RootActionType>({
+          catchError((error) => {
+            devLog(`${error}`, 'error')
+            return of<RootActionType>({
               type: MULTIPLAYER_STATUS,
               status: 'failed',
-            }),
-          ),
+            })
+          }),
         ),
       ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
     }),

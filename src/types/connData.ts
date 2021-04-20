@@ -3,8 +3,6 @@ import {
   UPDATE_SETTINGS,
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
-  USE_CARD_CORE,
-  DISCARD_CARD_CORE,
   INIT_CORE,
 } from '../constants/ActionTypes'
 import { CHAT, INST } from '../constants/connDataKind'
@@ -13,8 +11,6 @@ import {
   UpdateSettingsActionType,
   DrawCardToQueueActionType,
   PlayCardToQueueActionType,
-  UseCardCoreActionType,
-  DiscardCardCoreActionType,
   InitCoreActionType,
 } from './actionObj'
 
@@ -23,8 +19,6 @@ export type InstructionType =
   | UpdateSettingsActionType
   | DrawCardToQueueActionType
   | PlayCardToQueueActionType
-  | UseCardCoreActionType
-  | DiscardCardCoreActionType
   | InitCoreActionType
 
 export const instructionActionTypes = [
@@ -32,8 +26,6 @@ export const instructionActionTypes = [
   UPDATE_SETTINGS,
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
-  USE_CARD_CORE,
-  DISCARD_CARD_CORE,
   INIT_CORE,
 ] as const
 

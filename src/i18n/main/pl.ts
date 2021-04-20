@@ -36,7 +36,7 @@ export const i18n = {
   'You Lose!': 'Przegrałeś',
   'Tie Game': 'Remis',
 
-  Preferences: 'Opcje',
+  Preferences: 'Preferencje',
   ': ': ': ',
   'Your Name': 'Twoje imię',
   "Opponent's Name": 'Imię przeciwnika',
@@ -71,8 +71,8 @@ export const i18n = {
   'You are playing against computer AI': 'Grasz przeciwko komputerowi AI',
   'You are playing against human': 'Grasz przeciwko człowiekowi',
 
-  'Your opponent is disconnected. The current game will continue and your opponent will be replaced by computer AI.':
-    'Twój przeciwnik jest rozłączony. Obecna gra będzie kontynuowana, a Twój przeciwnik zostanie zastąpiony przez komputerową sztuczną inteligencję.',
+  'Your opponent is disconnected. Please go to "Preferences" and start a new game.':
+    'Twój przeciwnik jest rozłączony. Przejdź do "Preferencje" i rozpocznij nową grę.',
 
   'Multiplayer Mode is experimental and unstable':
     'Tryb multiplayer jest eksperymentalny i niestabilny',

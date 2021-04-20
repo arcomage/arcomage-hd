@@ -1,7 +1,6 @@
 import {
   CONNECT_TO_NETWORK,
   SET_YOUR_ID,
-  ABORT_ALL,
   MULTIPLAYER_STATUS,
   PEER_LISTEN,
   ABORT_CONNECTION,
@@ -13,6 +12,7 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { initPeer, peerAll } from '../../webrtc/peer'
+import devLog from '../../utils/devLog'
 
 // connect to the network, get your ID, and set your ID in the store
 
@@ -57,12 +57,13 @@ export default (
               }),
             ),
           ),
-          catchError((error) =>
-            of<RootActionType>({
+          catchError((error) => {
+            devLog(`${error}`, 'error')
+            return of<RootActionType>({
               type: MULTIPLAYER_STATUS,
               status: 'failed',
-            }),
-          ),
+            })
+          }),
         ),
       ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
     }),

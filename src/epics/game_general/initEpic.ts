@@ -1,10 +1,4 @@
-import {
-  INIT,
-  INIT_CORE,
-  ABORT_ALL,
-  SEND,
-  SWITCH_MULTI_GAME_STARTED,
-} from '../../constants/ActionTypes'
+import { INIT, INIT_CORE, ABORT_ALL, SEND } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
 import { concat, EMPTY, of } from 'rxjs'
