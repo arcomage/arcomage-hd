@@ -1,5 +1,5 @@
 import {
-  SET_TEMP_FORM_FIELDS,
+  SET_TEMP_SETTINGS,
   UPDATE_SETTINGS,
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
@@ -7,7 +7,7 @@ import {
 } from '../constants/ActionTypes'
 import { CHAT, INST } from '../constants/connDataKind'
 import {
-  SetTempFormFieldsActionType,
+  SetTempSettingsActionType,
   UpdateSettingsActionType,
   DrawCardToQueueActionType,
   PlayCardToQueueActionType,
@@ -15,14 +15,14 @@ import {
 } from './actionObj'
 
 export type InstructionType =
-  | SetTempFormFieldsActionType
+  | SetTempSettingsActionType
   | UpdateSettingsActionType
   | DrawCardToQueueActionType
   | PlayCardToQueueActionType
   | InitCoreActionType
 
 export const instructionActionTypes = [
-  SET_TEMP_FORM_FIELDS,
+  SET_TEMP_SETTINGS,
   UPDATE_SETTINGS,
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,

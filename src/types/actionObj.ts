@@ -68,8 +68,8 @@ import {
   CONNECT_TO_ID,
   SET_OPPONENT_ID,
   MULTIPLAYER_STATUS,
-  SET_TEMP_FORM_FIELDS,
-  SWITCH_MULTI_GAME_STARTED,
+  SET_TEMP_SETTINGS,
+  SET_MULTI_GAME_NUMBER,
   CONNECTION_LISTEN,
   PEER_LISTEN,
   SEND,
@@ -465,14 +465,14 @@ export type SetMultiplayerStatusActionType = {
   status: MultiplayerStatusType
 }
 
-export type SetTempFormFieldsActionType = {
-  type: typeof SET_TEMP_FORM_FIELDS
+export type SetTempSettingsActionType = {
+  type: typeof SET_TEMP_SETTINGS
   payload: FormFieldsAllPartialType | null
 }
 
-export type SwitchMultiGameStartedActionType = {
-  type: typeof SWITCH_MULTI_GAME_STARTED
-  on: boolean
+export type SetMultiGameNumberActionType = {
+  type: typeof SET_MULTI_GAME_NUMBER
+  n: number
 }
 
 export type ConnectionListenActionType = {
@@ -582,8 +582,8 @@ export type RootActionType =
   | DisconnectActionType
   | SetOpponentIdActionType
   | SetMultiplayerStatusActionType
-  | SetTempFormFieldsActionType
-  | SwitchMultiGameStartedActionType
+  | SetTempSettingsActionType
+  | SetMultiGameNumberActionType
   | ConnectionListenActionType
   | PeerListenActionType
   | SendActionType

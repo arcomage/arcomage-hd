@@ -6,7 +6,7 @@ import {
   DRAW_CARD,
   RESOURCE_PROD,
   ABORT_ALL,
-  SWITCH_MULTI_GAME_STARTED,
+  SET_MULTI_GAME_NUMBER,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import {
@@ -59,8 +59,8 @@ export default (
         }),
         isHost || isGuest
           ? of<RootActionType>({
-              type: SWITCH_MULTI_GAME_STARTED,
-              on: true,
+              type: SET_MULTI_GAME_NUMBER,
+              n: 1,
             })
           : EMPTY,
         of<RootActionType>({

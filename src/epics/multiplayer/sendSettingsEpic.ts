@@ -3,7 +3,7 @@ import {
   ABORT_SEND_FORM_FIELDS,
   SEND,
   SEND_SETTINGS,
-  SET_TEMP_FORM_FIELDS,
+  SET_TEMP_SETTINGS,
   UPDATE_SETTINGS,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -33,7 +33,7 @@ export default (
               type: SEND,
               kind: INST,
               data: {
-                type: SET_TEMP_FORM_FIELDS,
+                type: SET_TEMP_SETTINGS,
                 payload: connSettings,
               },
             }),

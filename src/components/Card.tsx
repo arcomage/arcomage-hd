@@ -220,8 +220,8 @@ const Card = ({
   const discardMode = useAppSelector((state) => state.game.discardMode)
   const main = useRef<HTMLButtonElement | null>(null)
 
-  const multiGameStarted = useAppSelector(
-    (state) => state.multiplayer.gameStarted,
+  const multiGameNumber = useAppSelector(
+    (state) => state.multiplayer.gameNumber,
   )
 
   const totalObj: Readonly<CardTotalType> = useAppSelector(
@@ -312,7 +312,7 @@ const Card = ({
       if (
         owner !== 'common' &&
         !locked &&
-        !(useAi && !multiGameStarted && owner === 'opponent')
+        !(useAi && multiGameNumber === -1 && owner === 'opponent')
       ) {
         if (discardMode) {
           if (canDiscardUndiscardableWhenDDP || !special?.undiscardable) {
@@ -339,7 +339,7 @@ const Card = ({
         !locked &&
         (!special?.undiscardable ||
           (discardMode && canDiscardUndiscardableWhenDDP)) &&
-        !(useAi && !multiGameStarted && owner === 'opponent')
+        !(useAi && multiGameNumber === -1 && owner === 'opponent')
       ) {
         buttonDisabled = false
         return {

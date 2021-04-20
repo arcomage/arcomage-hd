@@ -26,10 +26,10 @@ export default (
     concatMap(([action, state]) => {
       const isHost = state.multiplayer.status === 'connected_to_id'
       // const isGuest = state.multiplayer.status === 'connected_by_id'
-      const isMultiGameStarted = state.multiplayer.gameStarted
+      const multiGameNumber = state.multiplayer.gameNumber
 
       let temp$: Observable<RootActionType>
-      if (!isMultiGameStarted) {
+      if (multiGameNumber === -1) {
         temp$ = of<RootActionType>({
           type: DRAW_CARD_CORE,
           n: randomWithProbs(),

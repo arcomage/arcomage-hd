@@ -45,7 +45,7 @@ export default (
     concatMap(([action, state]) => {
       const { n } = action
       const owner = state.game.playersTurn ? 'player' : 'opponent'
-      const multiGameStarted = state.multiplayer.gameStarted
+      const multiGameNumber = state.multiplayer.gameNumber
       playSound('deal', state.volume)
 
       devLog(`${owner} draws card ${n}`, 'info')
@@ -68,7 +68,7 @@ export default (
           on: false,
           locknumber: 1,
         }).pipe(delay(0)),
-        owner === 'opponent' && useAi && !multiGameStarted
+        owner === 'opponent' && useAi && multiGameNumber === -1
           ? of<RootActionType>({
               type: AI_PLAY_CARD,
             }).pipe(
@@ -79,7 +79,7 @@ export default (
               ),
             )
           : EMPTY,
-        owner === 'opponent' && multiGameStarted
+        owner === 'opponent' && multiGameNumber === 1
           ? of<RootActionType>({
               type: PLAY_CARD_FROM_QUEUE,
             }).pipe(delay(cardTransitionDuration + humanDelay))

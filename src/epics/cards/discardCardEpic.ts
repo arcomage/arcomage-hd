@@ -24,7 +24,7 @@ export default (
     withLatestFrom(state$),
     concatMap(([action, state]) => {
       const { index, position, owner } = action
-      const multiGameStarted = state.multiplayer.gameStarted
+      const multiGameNumber = state.multiplayer.gameNumber
 
       return concat(
         of<RootActionType>({
@@ -36,7 +36,7 @@ export default (
             owner,
           },
         }),
-        multiGameStarted
+        multiGameNumber === 1
           ? of<RootActionType>({
               type: SEND,
               kind: INST,

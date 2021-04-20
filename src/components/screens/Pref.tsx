@@ -57,12 +57,12 @@ const Pref = () => {
   const yourId = useAppSelector((state) => state.multiplayer.yourId)
   const multiplayerStatus = useAppSelector((state) => state.multiplayer.status)
 
-  const tempFormFieldStore = useAppSelector(
-    (state) => state.multiplayer.tempFormFields,
+  const tempSettingsStore = useAppSelector(
+    (state) => state.multiplayer.tempSettings,
   )
 
-  const multiGameStarted = useAppSelector(
-    (state) => state.multiplayer.gameStarted,
+  const multiGameNumber = useAppSelector(
+    (state) => state.multiplayer.gameNumber,
   )
 
   const settingStore = {
@@ -157,8 +157,8 @@ const Pref = () => {
   const [tempPreset, setTempPreset] = useState<number>(-10)
 
   useEffect(() => {
-    setTempPreset(checkPreset(tempFormFieldStore))
-  }, getAllCondAndOtherSettingsArray(tempFormFieldStore))
+    setTempPreset(checkPreset(tempSettingsStore))
+  }, getAllCondAndOtherSettingsArray(tempSettingsStore))
 
   useEffect(() => {
     if (isHost || isGuest) {
@@ -346,7 +346,7 @@ const Pref = () => {
         {_.i18n('Preferences')}
         {_.i18n(': ')}
         <span id="opponentNotification">
-          {multiGameStarted
+          {multiGameNumber === 1
             ? _.i18n('You are playing against human')
             : _.i18n('You are playing against computer AI')}
         </span>
@@ -382,8 +382,8 @@ const Pref = () => {
             id={poNames[1]}
             disabled={isGuest || isHost}
             value={
-              (isGuest || isHost) && tempFormFieldStore !== null
-                ? tempFormFieldStore.opponentName
+              (isGuest || isHost) && tempSettingsStore !== null
+                ? tempSettingsStore.opponentName
                 : formFields.opponentName
             }
             onChange={handleChange}
@@ -437,8 +437,8 @@ const Pref = () => {
             min="1"
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.tower
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.tower
                 : formFields.tower
             }
             onChange={handleChange}
@@ -453,8 +453,8 @@ const Pref = () => {
             min="0"
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.bricks
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.bricks
                 : formFields.bricks
             }
             onChange={handleChange}
@@ -469,8 +469,8 @@ const Pref = () => {
             min="0"
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.gems
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.gems
                 : formFields.gems
             }
             onChange={handleChange}
@@ -485,8 +485,8 @@ const Pref = () => {
             min="0"
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.recruits
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.recruits
                 : formFields.recruits
             }
             onChange={handleChange}
@@ -504,8 +504,8 @@ const Pref = () => {
             min="0"
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.wall
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.wall
                 : formFields.wall
             }
             onChange={handleChange}
@@ -520,8 +520,8 @@ const Pref = () => {
             min="1"
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.brickProd
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.brickProd
                 : formFields.brickProd
             }
             onChange={handleChange}
@@ -536,8 +536,8 @@ const Pref = () => {
             min="1"
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.gemProd
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.gemProd
                 : formFields.gemProd
             }
             onChange={handleChange}
@@ -552,8 +552,8 @@ const Pref = () => {
             min="1"
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.recruitProd
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.recruitProd
                 : formFields.recruitProd
             }
             onChange={handleChange}
@@ -575,8 +575,8 @@ const Pref = () => {
             min={(formFields.tower + 1).toString(10)}
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.winTower
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.winTower
                 : formFields.winTower
             }
             onChange={handleChange}
@@ -597,8 +597,8 @@ const Pref = () => {
             ).toString(10)}
             disabled={isGuest}
             value={
-              isGuest && tempFormFieldStore !== null
-                ? tempFormFieldStore.winResource
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.winResource
                 : formFields.winResource
             }
             onChange={handleChange}
@@ -620,8 +620,8 @@ const Pref = () => {
           max="15"
           disabled={isGuest}
           value={
-            isGuest && tempFormFieldStore !== null
-              ? tempFormFieldStore.cardsInHand
+            isGuest && tempSettingsStore !== null
+              ? tempSettingsStore.cardsInHand
               : formFields.cardsInHand
           }
           onChange={handleChange}

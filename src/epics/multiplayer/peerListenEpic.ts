@@ -3,7 +3,7 @@ import {
   ABORT_CONNECTION,
   CONNECTION_LISTEN,
   MULTIPLAYER_STATUS,
-  SWITCH_MULTI_GAME_STARTED,
+  SET_MULTI_GAME_NUMBER,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, concatMap, takeUntil, mergeMap } from 'rxjs/operators'
@@ -53,8 +53,8 @@ export default (
                 status: 'disconnected',
               }),
               of<RootActionType>({
-                type: SWITCH_MULTI_GAME_STARTED,
-                on: false,
+                type: SET_MULTI_GAME_NUMBER,
+                n: -1,
               }),
             )
           }),
@@ -67,8 +67,8 @@ export default (
                 status: 'disconnected',
               }),
               of<RootActionType>({
-                type: SWITCH_MULTI_GAME_STARTED,
-                on: false,
+                type: SET_MULTI_GAME_NUMBER,
+                n: -1,
               }),
             )
           }),

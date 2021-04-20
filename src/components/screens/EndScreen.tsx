@@ -129,10 +129,11 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
   const classes = useStyles(endScreenState)
 
   const multiplayerStatus = useAppSelector((state) => state.multiplayer.status)
-  const multiGameStarted = useAppSelector(
-    (state) => state.multiplayer.gameStarted,
+  const multiGameNumber = useAppSelector(
+    (state) => state.multiplayer.gameNumber,
   )
-  const isGuest = multiplayerStatus === 'connected_by_id' && multiGameStarted
+  const isGuest =
+    multiplayerStatus === 'connected_by_id' && multiGameNumber === 1
 
   const { type, surrender } = endScreenState
 

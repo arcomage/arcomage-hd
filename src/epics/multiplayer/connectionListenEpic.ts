@@ -5,7 +5,7 @@ import {
   SET_OPPONENT_ID,
   RECEIVE_WITH_LATENCY,
   RECEIVE,
-  SWITCH_MULTI_GAME_STARTED,
+  SET_MULTI_GAME_NUMBER,
   SCREEN_OP_DISCONNECT,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -78,13 +78,13 @@ export default (
         fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'close').pipe(
           withLatestFrom(state$),
           concatMap(([_, state]) => {
-            const multiGameStarted = state.multiplayer.gameStarted
+            const multiGameNumber = state.multiplayer.gameNumber
             return concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
                 status: 'connected_net',
               }),
-              multiGameStarted
+              multiGameNumber === 1
                 ? concat(
                     of<RootActionType>({
                       type: SCREEN_OP_DISCONNECT,
@@ -93,8 +93,8 @@ export default (
                   )
                 : EMPTY,
               of<RootActionType>({
-                type: SWITCH_MULTI_GAME_STARTED,
-                on: false,
+                type: SET_MULTI_GAME_NUMBER,
+                n: -1,
               }),
             )
           }),

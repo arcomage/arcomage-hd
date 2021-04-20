@@ -3,7 +3,7 @@ import {
   ABORT_SEND_FORM_FIELDS,
   SEND,
   SEND_FORM_FIELDS,
-  SET_TEMP_FORM_FIELDS,
+  SET_TEMP_SETTINGS,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, takeUntil, concatMap, debounceTime } from 'rxjs/operators'
@@ -30,7 +30,7 @@ export default (
             type: SEND,
             kind: INST,
             data: {
-              type: SET_TEMP_FORM_FIELDS,
+              type: SET_TEMP_SETTINGS,
               payload: connSettings,
             },
           }).pipe(
