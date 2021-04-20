@@ -39,6 +39,7 @@ import connectToIdEpic from './multiplayer/connectToIdEpic'
 import connectionListenEpic from './multiplayer/connectionListenEpic'
 import peerListenEpic from './multiplayer/peerListenEpic'
 import sendEpic from './multiplayer/sendEpic'
+import sendNameEpic from './multiplayer/sendNameEpic'
 import sendSettingsEpic from './multiplayer/sendSettingsEpic'
 import sendTempSettingsEpic from './multiplayer/sendTempSettingsEpic'
 import receiveWithLatencyEpic from './multiplayer/receiveWithLatencyEpic'
@@ -84,6 +85,7 @@ const rootEpic: MyEpic = combineEpics(
   connectionListenEpic,
   peerListenEpic,
   sendEpic,
+  sendNameEpic,
   sendSettingsEpic,
   sendTempSettingsEpic,
   receiveWithLatencyEpic,

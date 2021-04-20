@@ -35,8 +35,8 @@ export const defaultOpponentNameList = [
 // sample(defaultPlayerNameList)
 // sample(defaultOpponentNameList)
 
-const defaultPlayerName = '🧝'
-const defaultOpponentName = '👾'
+const defaultPlayerName = ''
+const defaultOpponentName = ''
 
 export const defaultVolume = 10
 

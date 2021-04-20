@@ -3,7 +3,7 @@
     @apply absolute w-full h-full top-0 left-0 z-100 text-shadow flex justify-center items-center pointer-events-none;
 
     &.darkerbg {
-      @apply bg-black bg-opacity-80
+      @apply bg-black bg-opacity-80;
     }
 
     .window-outerwrapper {
@@ -108,6 +108,7 @@
     }
 
     input[type='number'] {
+      -moz-appearance: textfield;
       &::-webkit-inner-spin-button {
         position: absolute;
         top: 0;

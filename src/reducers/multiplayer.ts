@@ -6,6 +6,8 @@ import {
   MULTIPLAYER_STATUS,
   SET_TEMP_SETTINGS,
   SET_MULTI_GAME_NUMBER,
+  SET_TEMP_OPPONENT_NAME,
+  SET_TEMP_PLAYER_NAME,
 } from '../constants/ActionTypes'
 import { defaultSettings } from '../constants/defaultSettings'
 import { RootActionType } from '../types/actionObj'
@@ -53,6 +55,14 @@ export default produce(
         if (action.payload !== null) {
           draft.tempSettings = action.payload
         }
+        break
+      }
+      case SET_TEMP_PLAYER_NAME: {
+        draft.tempPlayerName = action.name
+        break
+      }
+      case SET_TEMP_OPPONENT_NAME: {
+        draft.tempOpponentName = action.name
         break
       }
     }

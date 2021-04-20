@@ -27,6 +27,21 @@ const TableCommon = () => {
   const opponentName = useAppSelector((state) => state.settings.opponentName)
   const winTower = useAppSelector((state) => state.settings.winTower)
 
+  const isMultiplayer = useAppSelector((state) => state.multiplayer.on)
+  const multiplayerStatus = useAppSelector((state) => state.multiplayer.status)
+
+  const isIdConnected =
+    isMultiplayer &&
+    (multiplayerStatus === 'connected_by_id' ||
+      multiplayerStatus === 'connected_to_id')
+
+  const tempPlayerName = useAppSelector(
+    (state) => state.multiplayer.tempPlayerName,
+  )
+  const tempOpponentName = useAppSelector(
+    (state) => state.multiplayer.tempOpponentName,
+  )
+
   const size = useContext(GameSizeContext)
 
   const classes = useStyles()
@@ -38,11 +53,14 @@ const TableCommon = () => {
         size.narrowMobile ? 'h-1/2' : 'h-2/3',
       )}
     >
-      <Status playerName={playerName} />
+      <Status playerName={isIdConnected ? tempPlayerName : playerName} />
       <Tower goal={winTower} />
       <Wall />
 
-      <Status playerName={opponentName} isOpponent />
+      <Status
+        playerName={isIdConnected ? tempOpponentName : opponentName}
+        isOpponent
+      />
       <Tower isOpponent goal={winTower} />
       <Wall isOpponent />
       <Bird />

@@ -69,11 +69,14 @@ import {
   SET_OPPONENT_ID,
   MULTIPLAYER_STATUS,
   SET_TEMP_SETTINGS,
+  SET_TEMP_PLAYER_NAME,
+  SET_TEMP_OPPONENT_NAME,
   SET_MULTI_GAME_NUMBER,
   CONNECTION_LISTEN,
   PEER_LISTEN,
   SEND,
   SEND_SETTINGS,
+  SEND_NAME,
   SEND_TEMP_SETTINGS,
   ABORT_SEND_TEMP_SETTINGS,
   RECEIVE_WITH_LATENCY,
@@ -471,6 +474,16 @@ export type SetTempSettingsActionType = {
   payload: SettingsType
 }
 
+export type SetTempPlayerNameActionType = {
+  type: typeof SET_TEMP_PLAYER_NAME
+  name: string
+}
+
+export type SetTempOpponentNameActionType = {
+  type: typeof SET_TEMP_OPPONENT_NAME
+  name: string
+}
+
 export type SetMultiGameNumberActionType = {
   type: typeof SET_MULTI_GAME_NUMBER
   n: number
@@ -492,6 +505,11 @@ export type SendActionType = {
 export type SendSettingsActionType = {
   type: typeof SEND_SETTINGS
   payload: SettingsType
+}
+
+export type SendNameActionType = {
+  type: typeof SEND_NAME
+  name: string
 }
 
 export type SendTempSettingsActionType = {
@@ -584,11 +602,14 @@ export type RootActionType =
   | SetOpponentIdActionType
   | SetMultiplayerStatusActionType
   | SetTempSettingsActionType
+  | SetTempPlayerNameActionType
+  | SetTempOpponentNameActionType
   | SetMultiGameNumberActionType
   | ConnectionListenActionType
   | PeerListenActionType
   | SendActionType
   | SendSettingsActionType
+  | SendNameActionType
   | SendTempSettingsActionType
   | AbortSendTempSettingsActionType
   | ReceiveWithLatencyActionType

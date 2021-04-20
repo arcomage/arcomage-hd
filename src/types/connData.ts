@@ -1,5 +1,6 @@
 import {
   SET_TEMP_SETTINGS,
+  SET_TEMP_OPPONENT_NAME,
   UPDATE_SETTINGS,
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
@@ -8,6 +9,7 @@ import {
 import { CHAT, INST } from '../constants/connDataKind'
 import {
   SetTempSettingsActionType,
+  SetTempOpponentNameActionType,
   UpdateSettingsActionType,
   DrawCardToQueueActionType,
   PlayCardToQueueActionType,
@@ -16,6 +18,7 @@ import {
 
 export type InstructionType =
   | SetTempSettingsActionType
+  | SetTempOpponentNameActionType
   | UpdateSettingsActionType
   | DrawCardToQueueActionType
   | PlayCardToQueueActionType
@@ -23,6 +26,7 @@ export type InstructionType =
 
 export const instructionActionTypes = [
   SET_TEMP_SETTINGS,
+  SET_TEMP_OPPONENT_NAME,
   UPDATE_SETTINGS,
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
