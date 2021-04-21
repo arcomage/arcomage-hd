@@ -22,89 +22,173 @@ it('receive seq is OK', () => {
 
   list = receiveSeq.getUsableConnDataList({
     kind: 'INST',
-    data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+    data: {
+      type: 'INIT_CORE',
+      playersTurn: true,
+      cardList: [],
+      gameNumber: null,
+    },
     seq: 6,
+    gameNumber: null,
   })
   expect(list).toStrictEqual([
     {
       kind: 'INST',
-      data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+      data: {
+        type: 'INIT_CORE',
+        playersTurn: true,
+        cardList: [],
+        gameNumber: null,
+      },
       seq: 6,
+      gameNumber: null,
     },
   ])
 
   list = receiveSeq.getUsableConnDataList({
     kind: 'INST',
-    data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+    data: {
+      type: 'INIT_CORE',
+      playersTurn: true,
+      cardList: [],
+      gameNumber: null,
+    },
     seq: 9,
+    gameNumber: null,
   })
   expect(list).toBeNull()
 
   list = receiveSeq.getUsableConnDataList({
     kind: 'INST',
-    data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+    data: {
+      type: 'INIT_CORE',
+      playersTurn: true,
+      cardList: [],
+      gameNumber: null,
+    },
     seq: 12,
+    gameNumber: null,
   })
   expect(list).toBeNull()
 
   list = receiveSeq.getUsableConnDataList({
     kind: 'INST',
-    data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+    data: {
+      type: 'INIT_CORE',
+      playersTurn: true,
+      cardList: [],
+      gameNumber: null,
+    },
     seq: 8,
+    gameNumber: null,
   })
   expect(list).toBeNull()
 
   list = receiveSeq.getUsableConnDataList({
     kind: 'INST',
-    data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+    data: {
+      type: 'INIT_CORE',
+      playersTurn: true,
+      cardList: [],
+      gameNumber: null,
+    },
     seq: 7,
+    gameNumber: null,
   })
   expect(list).toStrictEqual([
     {
       kind: 'INST',
-      data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+      data: {
+        type: 'INIT_CORE',
+        playersTurn: true,
+        cardList: [],
+        gameNumber: null,
+      },
       seq: 7,
+      gameNumber: null,
     },
     {
       kind: 'INST',
-      data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+      data: {
+        type: 'INIT_CORE',
+        playersTurn: true,
+        cardList: [],
+        gameNumber: null,
+      },
       seq: 8,
+      gameNumber: null,
     },
     {
       kind: 'INST',
-      data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+      data: {
+        type: 'INIT_CORE',
+        playersTurn: true,
+        cardList: [],
+        gameNumber: null,
+      },
       seq: 9,
+      gameNumber: null,
     },
   ])
 
   list = receiveSeq.getUsableConnDataList({
     kind: 'INST',
-    data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+    data: {
+      type: 'INIT_CORE',
+      playersTurn: true,
+      cardList: [],
+      gameNumber: null,
+    },
     seq: 10,
+    gameNumber: null,
   })
   expect(list).toStrictEqual([
     {
       kind: 'INST',
-      data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+      data: {
+        type: 'INIT_CORE',
+        playersTurn: true,
+        cardList: [],
+        gameNumber: null,
+      },
       seq: 10,
+      gameNumber: null,
     },
   ])
 
   list = receiveSeq.getUsableConnDataList({
     kind: 'INST',
-    data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+    data: {
+      type: 'INIT_CORE',
+      playersTurn: true,
+      cardList: [],
+      gameNumber: null,
+    },
     seq: 11,
+    gameNumber: null,
   })
   expect(list).toStrictEqual([
     {
       kind: 'INST',
-      data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+      data: {
+        type: 'INIT_CORE',
+        playersTurn: true,
+        cardList: [],
+        gameNumber: null,
+      },
       seq: 11,
+      gameNumber: null,
     },
     {
       kind: 'INST',
-      data: { type: 'INIT_CORE', playersTurn: true, cardList: [] },
+      data: {
+        type: 'INIT_CORE',
+        playersTurn: true,
+        cardList: [],
+        gameNumber: null,
+      },
       seq: 12,
+      gameNumber: null,
     },
   ])
 

@@ -15,12 +15,11 @@ class Queue<T> {
   }
 
   enqueue(n: T): void {
-    if (this._resolves.length === 0) {
+    const firstResolve = this._resolves.shift()
+    if (firstResolve === undefined) {
       this._queue.push(n)
     } else {
-      const resolve = this._resolves[0]
-      resolve(n)
-      this._resolves.shift()
+      firstResolve(n)
     }
   }
 

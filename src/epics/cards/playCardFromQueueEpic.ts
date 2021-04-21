@@ -9,7 +9,7 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { from } from 'rxjs'
-import { useCardQueue as q } from '../../utils/queues'
+import { playCardQueue as q } from '../../utils/queues'
 
 export default (
   action$: ActionsObservable<RootActionType>,
