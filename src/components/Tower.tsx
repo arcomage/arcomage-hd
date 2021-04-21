@@ -9,6 +9,7 @@ import towerRed from '../../assets/img/tower_red.png'
 import towerBlue from '../../assets/img/tower_blue.png'
 import { I18nContext } from '../i18n/I18nContext'
 import { useAppSelector } from '../utils/useAppDispatch'
+import TooltipAll from './special/TooltipAll'
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
@@ -115,29 +116,29 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
         classes.main,
       )}
     >
-      <div className={cx('z-20 w-full absolute', classes.towerwrapper)}>
-        <div
-          ref={towerBody}
-          title={towerTitle}
-          className={cx(
-            'absolute bottom-0',
-            classes.towerbody,
-            classes[isOpponent ? 'towerbodyblue' : 'towerbodyred'],
-          )}
-        ></div>
-      </div>
-      <div
-        title={towerTitle}
-        className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0"
-      >
-        <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
-          <TowerOrWallNumber
-            isOpponent={isOpponent}
-            isWall={false}
-            target={towerBody}
-          />
+      <TooltipAll title={towerTitle} placement="bottom">
+        <div className="w-full h-full">
+          <div className={cx('z-20 w-full absolute', classes.towerwrapper)}>
+            <div
+              ref={towerBody}
+              className={cx(
+                'absolute bottom-0',
+                classes.towerbody,
+                classes[isOpponent ? 'towerbodyblue' : 'towerbodyred'],
+              )}
+            ></div>
+          </div>
+          <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
+            <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
+              <TowerOrWallNumber
+                isOpponent={isOpponent}
+                isWall={false}
+                target={towerBody}
+              />
+            </div>
+          </div>
         </div>
-      </div>
+      </TooltipAll>
     </div>
   )
 }

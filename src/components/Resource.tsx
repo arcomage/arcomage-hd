@@ -16,6 +16,7 @@ import gem from '../../assets/img/gem.svg'
 import recruit from '../../assets/img/recruit.svg'
 import { ResNameType } from '../constants/resourceNames'
 import { useAppSelector } from '../utils/useAppDispatch'
+import TooltipAll from './special/TooltipAll'
 
 const whRatio = 156 / 216
 
@@ -191,47 +192,53 @@ const Resource = ({ type, isOpponent }: PropType) => {
 
   return (
     <div className={cx('mb-3 p-1 shadow-lg', `bg-${color}-300`)}>
-      <div
+      <TooltipAll
         title={resProdTitle}
-        className={cx(
-          classes[type],
-          classes.prodcontainer,
-          'bg-no-repeat bg-cover bg-center border border-l-darkborder border-t-darkborder border-r-lightborder border-b-lightborder relative',
-        )}
-        style={{
-          height: `calc(${calcProdHeight(height)})`,
-        }}
+        placement={isOpponent ? 'left' : 'right'}
       >
         <div
           className={cx(
-            'text-yellow-400 absolute bottom-1 left-1 text-shadow-md tracking-tighter',
-            'fatnumber',
-            classes.prod,
+            classes[type],
+            classes.prodcontainer,
+            'bg-no-repeat bg-cover bg-center border border-l-darkborder border-t-darkborder border-r-lightborder border-b-lightborder relative',
           )}
+          style={{
+            height: `calc(${calcProdHeight(height)})`,
+          }}
         >
-          <ResourceNumber isProd {...{ type, isOpponent }} />
+          <div
+            className={cx(
+              'text-yellow-400 absolute bottom-1 left-1 text-shadow-md tracking-tighter',
+              'fatnumber',
+              classes.prod,
+            )}
+          >
+            <ResourceNumber isProd {...{ type, isOpponent }} />
+          </div>
         </div>
-      </div>
-      <div title={resTitle} className="flow-root mt-1">
-        <div
-          className={cx(
-            'float-left text-black flex-1 text-left relative tracking-tighter',
-            'fatnumber',
-            classes.count,
-          )}
-        >
-          <ResourceNumber isProd={false} {...{ type, isOpponent }} />
+      </TooltipAll>
+      <TooltipAll title={resTitle} placement={isOpponent ? 'left' : 'right'}>
+        <div className="flow-root mt-1">
+          <div
+            className={cx(
+              'float-left text-black flex-1 text-left relative tracking-tighter',
+              'fatnumber',
+              classes.count,
+            )}
+          >
+            <ResourceNumber isProd={false} {...{ type, isOpponent }} />
+          </div>
+          <div
+            className={cx(
+              'float-right text-black flex-1 text-right',
+              'robotocondensed',
+              classes.unit,
+            )}
+          >
+            {smallMode ? '' : text}
+          </div>
         </div>
-        <div
-          className={cx(
-            'float-right text-black flex-1 text-right',
-            'robotocondensed',
-            classes.unit,
-          )}
-        >
-          {smallMode ? '' : text}
-        </div>
-      </div>
+      </TooltipAll>
     </div>
   )
 }

@@ -23,3 +23,5 @@ export const shorterIdStartEndLength = 5
 export const connBaseRetryTime = 4000
 export const connRetryTimes = 5
 export const sendSettingsDebounceTime = 500
+export const tooltipEnterDelay = 40
+export const tooltipLeaveDelay = 40

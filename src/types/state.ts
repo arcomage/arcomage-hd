@@ -93,7 +93,7 @@ export type ScreenStateType = {
   volumePref: boolean
   help: boolean
   landscape: boolean
-  opdisconnect: boolean
+  disconnectNotice: boolean
   end: EndScreenStateType
 }
 

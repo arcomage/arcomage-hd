@@ -47,6 +47,7 @@ import {
 } from '../../utils/startWinState'
 import { sample } from '../../utils/random'
 import isEmoji from '../../utils/isEmoji'
+import TooltipAll from '../special/TooltipAll'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -670,11 +671,12 @@ const Pref = () => {
           />
           <span>
             {_.i18n('Multiplayer')}
-            <span
+            <TooltipAll
               title={_.i18n('Multiplayer Mode is experimental and unstable')}
+              placement="top"
             >
-              🧪
-            </span>
+              <span>🧪</span>
+            </TooltipAll>
             {_.i18n(': ')}
             {(isMultiplayer ? _.i18n('on') : _.i18n('off')).toUpperCase()}
           </span>

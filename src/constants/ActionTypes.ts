@@ -59,7 +59,7 @@ export const SCREEN_LANG_PREF = 'SCREEN_LANG_PREF' as const
 export const SCREEN_VOLUME_PREF = 'SCREEN_VOLUME_PREF' as const
 export const SCREEN_HELP = 'SCREEN_HELP' as const
 export const SCREEN_LANDSCAPE = 'SCREEN_LANDSCAPE' as const
-export const SCREEN_OP_DISCONNECT = 'SCREEN_OP_DISCONNECT' as const
+export const SCREEN_DISCONNECT_NOTICE = 'SCREEN_DISCONNECT_NOTICE' as const
 
 export const SCREEN_END = 'SCREEN_END' as const
 export const SCREEN_END_MAIN = 'SCREEN_END_MAIN' as const

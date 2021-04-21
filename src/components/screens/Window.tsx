@@ -14,8 +14,9 @@ import {
   SCREEN_VOLUME_PREF,
   SCREEN_HELP,
   SCREEN_LANDSCAPE,
-  SCREEN_OP_DISCONNECT,
+  SCREEN_DISCONNECT_NOTICE,
 } from '../../constants/ActionTypes'
+import TooltipAll from '../special/TooltipAll'
 
 const useStyles = createUseStyles({
   logo: {
@@ -32,7 +33,7 @@ type PropType = {
     | typeof SCREEN_VOLUME_PREF
     | typeof SCREEN_HELP
     | typeof SCREEN_LANDSCAPE
-    | typeof SCREEN_OP_DISCONNECT
+    | typeof SCREEN_DISCONNECT_NOTICE
   children: React.ReactNode
   onCancel?: () => void
   darkerBg?: boolean
@@ -67,22 +68,23 @@ const Window = ({
     <div className={cx('window-bg', { darkerbg: darkerBg })}>
       <div className={cx('window-outerwrapper')}>
         <div ref={prefRef} className={cx('window-wrapper')}>
-          <div
-            title={_.i18n('ArcoMage HD')}
-            className={cx(
-              classes.logo,
-              { hidden: size.narrowMobile && screenActionType === SCREEN_PREF },
-              'm-auto bg-no-repeat bg-center bg-contain',
-            )}
-          ></div>
+          <TooltipAll title={_.i18n('ArcoMage HD')}>
+            <div
+              className={cx(
+                classes.logo,
+                {
+                  hidden: size.narrowMobile && screenActionType === SCREEN_PREF,
+                },
+                'm-auto bg-no-repeat bg-center bg-contain',
+              )}
+            ></div>
+          </TooltipAll>
 
           {children}
 
-          <button
-            className="cancel"
-            title={_.i18n('Cancel')}
-            onClick={cancelFunc}
-          ></button>
+          <TooltipAll title={_.i18n('Cancel')}>
+            <button className="cancel" onClick={cancelFunc}></button>
+          </TooltipAll>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import {
   RECEIVE_WITH_LATENCY,
   RECEIVE,
   SET_MULTI_GAME_NUMBER,
-  SCREEN_OP_DISCONNECT,
+  SCREEN_DISCONNECT_NOTICE,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import {
@@ -87,7 +87,7 @@ export default (
               multiGameNumber === 1
                 ? concat(
                     of<RootActionType>({
-                      type: SCREEN_OP_DISCONNECT,
+                      type: SCREEN_DISCONNECT_NOTICE,
                       show: true,
                     }),
                   )

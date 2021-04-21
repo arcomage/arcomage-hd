@@ -1,4 +1,4 @@
-import React, { useState, useContext, memo, MouseEvent, useRef } from 'react'
+import React, { useContext, memo, MouseEvent, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
@@ -30,6 +30,7 @@ import {
   useAi,
 } from '../constants/devSettings'
 import { CardPosContext, CardPosType } from '../utils/CardPosContext'
+import TooltipAll from './special/TooltipAll'
 
 const calcOpacity = ({
   unusable,
@@ -359,6 +360,15 @@ const Card = ({
       buttonDisabled = true
     }
 
+    const cardTitle = _.i18n('This card costs %s').replace(
+      '%s',
+      `${cost} ${_.i18n(
+        cost === 1
+          ? ['brick', 'gem', 'recruit'][type]
+          : ['bricks', 'gems', 'recruits'][type],
+      )}`,
+    )
+
     return (
       <button
         ref={main}
@@ -456,19 +466,9 @@ const Card = ({
                 'absolute top-0 left-0 w-full h-full',
               )}
             ></div>
-            <div
-              title={_.i18n('This card costs %s').replace(
-                '%s',
-                `${cost} ${_.i18n(
-                  cost === 1
-                    ? ['brick', 'gem', 'recruit'][type]
-                    : ['bricks', 'gems', 'recruits'][type],
-                )}`,
-              )}
-              className="absolute top-0 left-0 w-full h-full"
-            >
-              {cost}
-            </div>
+            <TooltipAll title={cardTitle} placement="top">
+              <div className="absolute top-0 left-0 w-full h-full">{cost}</div>
+            </TooltipAll>
           </div>
         </div>
         <div
