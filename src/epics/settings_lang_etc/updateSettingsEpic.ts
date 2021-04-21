@@ -4,7 +4,7 @@ import {
   ABORT_ALL,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap } from 'rxjs/operators'
+import { filter, concatMap, takeUntil } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -37,14 +37,9 @@ export default (
           draft.settings = { ...draft.settings, ...payload }
         }
       })
-      return concat(
-        of<RootActionType>({
-          type: ABORT_ALL,
-        }),
-        of<RootActionType>({
-          type: UPDATE_SETTINGS_MAIN,
-          payload,
-        }),
-      )
+      return of<RootActionType>({
+        type: UPDATE_SETTINGS_MAIN,
+        payload,
+      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

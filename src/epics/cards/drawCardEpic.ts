@@ -8,7 +8,13 @@ import {
   DRAW_CARD_FROM_QUEUE,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil, withLatestFrom } from 'rxjs/operators'
+import {
+  filter,
+  concatMap,
+  takeUntil,
+  withLatestFrom,
+  delay,
+} from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -33,14 +39,14 @@ export default (
         temp$ = of<RootActionType>({
           type: DRAW_CARD_CORE,
           n: randomWithProbs(),
-        })
+        }).pipe(delay(0))
       } else if (isHost) {
         const n = randomWithProbs()
         temp$ = concat(
           of<RootActionType>({
             type: DRAW_CARD_CORE,
             n,
-          }),
+          }).pipe(delay(0)),
           of<RootActionType>({
             type: SEND,
             kind: INST,
@@ -54,7 +60,7 @@ export default (
         // isGuest
         temp$ = of<RootActionType>({
           type: DRAW_CARD_FROM_QUEUE,
-        })
+        }).pipe(delay(0))
       }
 
       return concat(

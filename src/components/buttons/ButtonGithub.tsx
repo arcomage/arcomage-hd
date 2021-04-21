@@ -1,8 +1,6 @@
 import React, { memo } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { tooltipEnterDelay, tooltipLeaveDelay } from '../../constants/visuals'
-import Tooltip from '@material-ui/core/Tooltip'
 import TooltipAll from '../special/TooltipAll'
 
 const useStyles = createUseStyles<string>({

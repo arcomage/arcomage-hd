@@ -1,6 +1,6 @@
 import { SEND } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap } from 'rxjs/operators'
+import { filter, mergeMap, withLatestFrom } from 'rxjs/operators'
 import { EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -16,7 +16,9 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(SEND)),
-    mergeMap((action) => {
+    withLatestFrom(state$),
+    mergeMap(([action, state]) => {
+      const { gameNumber } = state.multiplayer
       const { kind, data } = action
       const { conn } = peerAll
       if (conn !== null) {
@@ -25,6 +27,7 @@ export default (
           kind,
           data,
           seq: sendSeq.v,
+          gameNumber,
         }
         const dataStr = JSON.stringify(sentData).replace(
           /[\u007F-\uFFFF]/g,

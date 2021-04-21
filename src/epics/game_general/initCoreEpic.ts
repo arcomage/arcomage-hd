@@ -35,7 +35,7 @@ export default (
       const isGuest =
         state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
 
-      const { playersTurn, cardList } = action
+      const { playersTurn, cardList, gameNumber } = action
 
       const total = state.settings.cardsInHand
       const cardStates: CardStateType = {
@@ -57,10 +57,10 @@ export default (
           type: INIT_STATUS,
           payload: getStartState(state.settings),
         }),
-        isHost || isGuest
+        gameNumber !== null
           ? of<RootActionType>({
               type: SET_MULTI_GAME_NUMBER,
-              n: 1,
+              n: gameNumber,
             })
           : EMPTY,
         of<RootActionType>({

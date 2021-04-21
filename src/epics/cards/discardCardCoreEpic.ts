@@ -63,7 +63,7 @@ export default (
               }),
               of<RootActionType>({
                 type: DRAW_CARD,
-              }),
+              }).pipe(delay(0)),
             )
           : concat(
               of<RootActionType>({

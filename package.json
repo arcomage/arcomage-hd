@@ -49,7 +49,9 @@
   "author": "Tom Chen <tomchen.org@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
+    "@material-ui/core": "^5.0.0-alpha.31",
     "@tailwindcss/forms": "^0.3.2",
     "classnames": "^2.3.1",
     "copy-to-clipboard": "^3.3.1",

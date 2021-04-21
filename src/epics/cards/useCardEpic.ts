@@ -37,7 +37,7 @@ export default (
             owner,
           },
         }),
-        multiGameNumber === 1
+        multiGameNumber > 0
           ? of<RootActionType>({
               type: SEND,
               kind: INST,

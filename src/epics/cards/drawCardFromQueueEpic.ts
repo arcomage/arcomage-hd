@@ -4,7 +4,7 @@ import {
   ABORT_CONNECTION,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil } from 'rxjs/operators'
+import { filter, concatMap, takeUntil, delay } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -24,7 +24,7 @@ export default (
           return of<RootActionType>({
             type: DRAW_CARD_CORE,
             n,
-          })
+          }).pipe(delay(0))
         }),
         takeUntil(action$.ofType(ABORT_CONNECTION)),
       )

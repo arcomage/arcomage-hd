@@ -19,6 +19,10 @@ export default (
     concatMap(([action, state]) => {
       const isHost =
         state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
+      const isGuest =
+        state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
+
+      const gameNumber = isHost ? new Date().getTime() : null // gameNumber is Host's game start UTC timestamp
 
       const playersTurn = Math.random() < 0.5
       const cardList: CardListItemAllType[] = []
@@ -38,21 +42,35 @@ export default (
 
       return concat(
         of<RootActionType>({
+          type: ABORT_ALL,
+        }),
+        of<RootActionType>({
           type: INIT_CORE,
           playersTurn,
           cardList,
+          gameNumber,
         }),
         isHost
-          ? of<RootActionType>({
-              type: SEND,
-              kind: INST,
-              data: {
-                type: INIT_CORE,
-                playersTurn: !playersTurn,
-                cardList: reverseCardList(cardList),
-              },
-            })
+          ? concat(
+              of<RootActionType>({
+                type: SEND,
+                kind: INST,
+                data: {
+                  type: ABORT_ALL,
+                },
+              }),
+              of<RootActionType>({
+                type: SEND,
+                kind: INST,
+                data: {
+                  type: INIT_CORE,
+                  playersTurn: !playersTurn,
+                  cardList: reverseCardList(cardList),
+                  gameNumber,
+                },
+              }),
+            )
           : EMPTY,
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      )
     }),
   )

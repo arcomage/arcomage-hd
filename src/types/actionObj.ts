@@ -324,6 +324,7 @@ export type InitCoreActionType = {
   type: typeof INIT_CORE
   playersTurn: boolean
   cardList: CardListItemAllType[]
+  gameNumber: number | null
 }
 
 export type InitCardActionType = {

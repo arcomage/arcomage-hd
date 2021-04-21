@@ -84,7 +84,7 @@ export default (
                 type: MULTIPLAYER_STATUS,
                 status: 'connected_net',
               }),
-              multiGameNumber === 1
+              multiGameNumber > 0
                 ? concat(
                     of<RootActionType>({
                       type: SCREEN_DISCONNECT_NOTICE,

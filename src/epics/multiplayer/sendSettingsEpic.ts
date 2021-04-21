@@ -1,4 +1,5 @@
 import {
+  ABORT_ALL,
   ABORT_CONNECTION,
   ABORT_SEND_TEMP_SETTINGS,
   SEND,
@@ -43,8 +44,8 @@ export default (
                 type: UPDATE_SETTINGS,
                 payload: settings,
               },
-            }).pipe(takeUntil(action$.ofType(ABORT_CONNECTION))),
-          )
+            }),
+          ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
         : EMPTY
     }),
   )

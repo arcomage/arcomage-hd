@@ -79,7 +79,7 @@ export default (
               ),
             )
           : EMPTY,
-        owner === 'opponent' && multiGameNumber === 1
+        owner === 'opponent' && multiGameNumber > 0
           ? of<RootActionType>({
               type: PLAY_CARD_FROM_QUEUE,
             }).pipe(delay(cardTransitionDuration + humanDelay))

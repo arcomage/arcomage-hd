@@ -133,7 +133,7 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
     (state) => state.multiplayer.gameNumber,
   )
   const isGuest =
-    multiplayerStatus === 'connected_by_id' && multiGameNumber === 1
+    multiplayerStatus === 'connected_by_id' && multiGameNumber > 0
 
   const { type, surrender } = endScreenState
 
