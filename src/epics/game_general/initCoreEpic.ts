@@ -21,6 +21,8 @@ import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardStateType, RootStateType } from '../../types/state'
 import { getStartState } from '../../utils/startWinState'
+import { drawCardQueue, playCardQueue } from '../../utils/queues'
+import devLog from '../../utils/devLog'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -34,6 +36,19 @@ export default (
         state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
       const isGuest =
         state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
+
+      if (isHost || isGuest) {
+        devLog(
+          `drawCardQueue before init: ${JSON.stringify(drawCardQueue)}`,
+          'info',
+        )
+        devLog(
+          `playCardQueue before init: ${JSON.stringify(playCardQueue)}`,
+          'info',
+        )
+        drawCardQueue.init(2)
+        playCardQueue.init(2)
+      }
 
       const { playersTurn, cardList, gameNumber } = action
 

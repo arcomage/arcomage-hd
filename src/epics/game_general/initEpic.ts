@@ -19,8 +19,8 @@ export default (
     concatMap(([action, state]) => {
       const isHost =
         state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
-      const isGuest =
-        state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
+      // const isGuest =
+      //   state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
 
       const gameNumber = isHost ? new Date().getTime() : null // gameNumber is Host's game start UTC timestamp
 

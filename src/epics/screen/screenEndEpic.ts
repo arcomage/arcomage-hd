@@ -8,7 +8,7 @@ import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { isEndScreenNoCloseState, RootStateType } from '../../types/state'
-import { concat, of } from 'rxjs'
+import { concat, EMPTY, of } from 'rxjs'
 import playSound from '../../utils/playSound'
 
 const soundMap = { lose: 'defeat', tie: 'victory', win: 'victory' } as const
@@ -21,14 +21,18 @@ export default (
     filter(isOfType(SCREEN_END)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
+      const isGuest =
+        state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
       const { payload } = action
       if (isEndScreenNoCloseState(payload)) {
         playSound(soundMap[payload.type], state.volume)
       }
       return concat(
-        of<RootActionType>({
-          type: ABORT_ALL,
-        }),
+        isGuest
+          ? EMPTY
+          : of<RootActionType>({
+              type: ABORT_ALL,
+            }),
         of<RootActionType>({
           type: SCREEN_END_MAIN,
           payload,

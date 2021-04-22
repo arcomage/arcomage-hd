@@ -9,9 +9,17 @@ class Queue<T> {
     return this._queue.length
   }
 
-  init() {
-    this._queue = []
-    this._resolves = []
+  /**
+   * Init
+   * @param n 0 (default): init queue & resolves; 1: init queue; 2: init resolves
+   */
+  init(n: number = 0) {
+    if (n === 0 || n === 1) {
+      this._queue = []
+    }
+    if (n === 0 || n === 2) {
+      this._resolves = []
+    }
   }
 
   enqueue(n: T): void {
