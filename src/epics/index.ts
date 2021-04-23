@@ -30,6 +30,7 @@ import clearCardEpic from './cards/clearCardEpic'
 import checkUnusableEpic from './cards/checkUnusableEpic'
 import checkVictoryEpic from './game_general/checkVictoryEpic'
 import screenEndEpic from './screen/screenEndEpic'
+import closeScreenEndInitEpic from './screen/closeScreenEndInitEpic'
 import aiPlayCardEpic from './cards/aiPlayCardEpic'
 import checkSurrenderEpic from './game_general/checkSurrenderEpic'
 import switchMultiplayerModeEpic from './multiplayer/switchMultiplayerModeEpic'
@@ -76,6 +77,7 @@ const rootEpic: MyEpic = combineEpics(
   checkUnusableEpic,
   checkVictoryEpic,
   screenEndEpic,
+  closeScreenEndInitEpic,
   aiPlayCardEpic,
   checkSurrenderEpic,
   switchMultiplayerModeEpic,

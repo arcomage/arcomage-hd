@@ -52,6 +52,7 @@ import {
   SCREEN_VOLUME_PREF,
   SCREEN_END,
   SCREEN_END_MAIN,
+  CLOSE_SCREEN_END_INIT,
   SCREEN_HELP,
   SCREEN_LANDSCAPE,
   SCREEN_DISCONNECT_NOTICE,
@@ -416,6 +417,10 @@ export type ScreenEndMainActionType = {
   payload: EndScreenStateType
 }
 
+export type CloseScreenEndInitMainActionType = {
+  type: typeof CLOSE_SCREEN_END_INIT
+}
+
 export type AiPlayCardActionType = {
   type: typeof AI_PLAY_CARD
 }
@@ -590,6 +595,7 @@ export type RootActionType =
   | ScreenDisconnectNoticeActionType
   | ScreenEndActionType
   | ScreenEndMainActionType
+  | CloseScreenEndInitMainActionType
   | AiPlayCardActionType
   | CheckSurrenderActionType
   | AbortAllActionType

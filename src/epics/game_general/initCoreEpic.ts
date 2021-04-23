@@ -30,10 +30,10 @@ export default (
     filter(isOfType(INIT_CORE)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
-      const isHost =
-        state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
-      const isGuest =
-        state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
+      // const isHost =
+      //   state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
+      // const isGuest =
+      //   state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
 
       const { playersTurn, cardList, gameNumber } = action
 
@@ -45,6 +45,9 @@ export default (
       }
 
       return concat(
+        of<RootActionType>({
+          type: ABORT_ALL,
+        }),
         of<RootActionType>({
           type: INIT_CARD,
           payload: cardStates,
@@ -70,6 +73,6 @@ export default (
         of<RootActionType>({
           type: DRAW_CARD,
         }).pipe(delay(0)),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      )
     }),
   )

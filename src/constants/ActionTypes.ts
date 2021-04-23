@@ -63,6 +63,7 @@ export const SCREEN_DISCONNECT_NOTICE = 'SCREEN_DISCONNECT_NOTICE' as const
 
 export const SCREEN_END = 'SCREEN_END' as const
 export const SCREEN_END_MAIN = 'SCREEN_END_MAIN' as const
+export const CLOSE_SCREEN_END_INIT = 'CLOSE_SCREEN_END_INIT' as const
 
 export const AI_PLAY_CARD = 'AI_PLAY_CARD' as const
 
