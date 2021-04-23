@@ -177,14 +177,9 @@ Create a pull request if you know how to do it, or just give me the translated t
 
 ### How To Use the Multiplayer Mode
 
-* User A 👧 clicks **gear ⚙️ icon** to open the "**Preferences**" window. Then (s)he **enables the "Multiplayer" Mode**, (s)he will get an **ID 🆔**, and the game shows "**Connected to the network (but not to anyone) ✔️**".
-* Meanwhile, User B 🧝 also **enables the "Multiplayer" Mode** and the game shows "**Connected to the network (but not to anyone) ✔️**".
-* User A 👧 then **gives the ID 🆔 to User B 🧝 via Discord or other platforms or forums**.
-* User B 🧝 enters User A 👧's ID 🆔 and clicks "**Connect**" button to connect to User A 👧. If the connection is successful, User B 🧝 will see "**Connected to ID ... ✔️ You're the host 🏠**" and User A 👧 will see "**Connected by ID ... ✔️ You're the guest 💼**".
-* User A 👧 (the guest 💼) can now choose a name. User B 🧝 (the host 🏠) can choose a name and change other settings such as Starting & Victory Conditions.
-* User B 🧝 then clicks "**Apply & New Game**" button to start the game.
-
 *(Multiplayer Mode is experimental🧪 and maybe unstable)*
+
+https://user-images.githubusercontent.com/529949/115864733-941cbd00-a437-11eb-955d-f6a341c8ea64.mp4
 
 <details><summary><strong>Click to show technical details</strong></summary>
 
