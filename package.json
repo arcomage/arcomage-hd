@@ -30,6 +30,7 @@
     "preversion": "git diff-index --quiet HEAD --",
     "postversion": "git push --follow-tags"
   },
+  "homepage": "https://arcomage.github.io/",
   "keywords": [
     "arcomage",
     "card",

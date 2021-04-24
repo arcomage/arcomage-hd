@@ -56,7 +56,11 @@ The Desktop Version is **merely a Google Chrome browser-like wrapper** that visi
 
 <details><summary><strong>Click to show more details on the Desktop Version</strong></summary>
 
-Browsers based on Chrome's engine (Blink or WebKit) and good for ArcoMage HD (as of 2021):
+### Do I Need Desktop Version? (browser list)
+
+If you are using "fully supported" browser, then it's likely you don't need the Desktop Version.
+
+Browsers based on Chrome's engine (Blink or WebKit) are fully supported by ArcoMage HD (as of 2021):
 
 *(\*: I didn't really test these browsers)*
 
@@ -81,6 +85,8 @@ Browsers not or partially based on Chrome's engine, and may or may not run ArcoM
 * Internet Explorer: this old browser, of course, does not work
 * Firefox & Safari: you can play the game with these browsers, but they do not have as good performance as Chrome's engine based browsers therefore may be a bit slow, it depends on your CPU / GPU
   * Pale Moon \*
+
+### Other Remarks
 
 The Desktop Version is not expected to be updated. The Desktop Version's version number is different from ArcoMage HD's. Actually the Desktop Version may stays v1.0.0 forever unless there's really something to update.
 
@@ -175,11 +181,13 @@ Create a pull request if you know how to do it, or just give me the translated t
 
 ## Multiplayer Mode
 
-### How To Use the Multiplayer Mode
-
 *(Multiplayer Mode is experimental🧪 and maybe unstable)*
 
+### How To Use the Multiplayer Mode
+
 https://user-images.githubusercontent.com/529949/115864733-941cbd00-a437-11eb-955d-f6a341c8ea64.mp4
+
+Both players enables the "Multiplayer" Mode. Bob 🧝 must copy and **give his ID to Alice 👧 via Discord or other platforms or forums**. Alice 👧 then enters Bob 🧝's ID and connect to Bob 🧝. Alice 👧 becomes host 🏠 (i.e. technically it's her computer that deals cards) and Bob 🧝 is the guest 💼.
 
 <details><summary><strong>Click to show technical details</strong></summary>
 
