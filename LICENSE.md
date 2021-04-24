@@ -64,15 +64,15 @@ Copyright 2011 The Alegreya Project Authors (https://github.com/huertatipografic
 
 * https://pixabay.com/vectors/laurel-wreath-wreath-accolade-150577/ Pixabay License
 * https://pixabay.com/vectors/trophy-achievement-award-cup-merit-153395/ Pixabay License
-* https://www.svgrepo.com/svg/211751/maps-and-flags-surrender CC0
-* https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg
-* https://www.materialui.co/icon/configuration
-* https://commons.wikimedia.org/wiki/File:VisualEditor_-_Icon_-_Help.svg
-* https://www.svgrepo.com/svg/75085/full-screen
-* https://www.svgrepo.com/svg/278790/handshake
-* https://www.svgrepo.com/svg/110620/phone-with-big-screen
-* https://www.svgrepo.com/svg/27492/mouse
-* https://www.svgrepo.com/svg/29760/press-button
+* https://www.svgrepo.com/svg/211751/maps-and-flags-surrender CC0 Public Domain
+* https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg Public Domain
+* https://github.com/mui-org/material-ui/blob/master/packages/material-ui-icons/src/Settings.js MIT License
+* https://commons.wikimedia.org/wiki/File:VisualEditor_-_Icon_-_Help.svg MIT License
+* https://www.svgrepo.com/svg/75085/full-screen CC0 Public Domain
+* https://www.svgrepo.com/svg/278790/handshake CC0 Public Domain
+* https://www.svgrepo.com/svg/110620/phone-with-big-screen CC0 Public Domain
+* https://www.svgrepo.com/svg/27492/mouse CC0 Public Domain
+* https://www.svgrepo.com/svg/29760/press-button CC0 Public Domain
 
 The animations of the button icons, brick.svg, gem.svg, recruit.svg, the game ending svgs are developed by Tom Chen and licensed under the [MIT license](#mit-license).
 
@@ -95,5 +95,5 @@ Copyright (c) 2008-2020 Tom CHEN (tomchen.org)
 ### Unknown Original Author and/or Unknown License, Fair-use
 
 * explosion.png
+* firework.png
 * Fat Number font
-* Magic the Gathering by Stick Fonts - first seen in 1998
