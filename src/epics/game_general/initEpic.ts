@@ -1,6 +1,6 @@
 import { INIT, INIT_CORE, ABORT_ALL, SEND } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
+import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
 import { concat, EMPTY, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -19,8 +19,8 @@ export default (
     concatMap(([action, state]) => {
       const isHost =
         state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
-      const isGuest =
-        state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
+      // const isGuest =
+      //   state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
 
       const gameNumber = isHost ? new Date().getTime() : null // gameNumber is Host's game start UTC timestamp
 
@@ -42,9 +42,6 @@ export default (
 
       return concat(
         of<RootActionType>({
-          type: ABORT_ALL,
-        }),
-        of<RootActionType>({
           type: INIT_CORE,
           playersTurn,
           cardList,
@@ -52,13 +49,6 @@ export default (
         }),
         isHost
           ? concat(
-              of<RootActionType>({
-                type: SEND,
-                kind: INST,
-                data: {
-                  type: ABORT_ALL,
-                },
-              }),
               of<RootActionType>({
                 type: SEND,
                 kind: INST,
