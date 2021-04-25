@@ -8,6 +8,7 @@ import {
   INIT_TO_QUEUE,
 } from '../constants/ActionTypes'
 import { CHAT, INST } from '../constants/connDataKind'
+import { isInArray } from '../utils/typeHelpers'
 import {
   SetTempSettingsActionType,
   SetTempOpponentNameActionType,
@@ -27,6 +28,10 @@ export type InstructionType =
   | InitCoreActionType
   | InitToQueueActionType
 
+export type VerifyGameNumberInstType =
+  | DrawCardToQueueActionType
+  | PlayCardToQueueActionType
+
 export const instructionActionTypes = [
   SET_TEMP_SETTINGS,
   SET_TEMP_OPPONENT_NAME,
@@ -41,6 +46,11 @@ export const verifyGameNumberInstActionTypes = [
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
 ] as const
+
+export const isVerifyGameNumberInst = (
+  inst: InstructionType,
+): inst is VerifyGameNumberInstType =>
+  isInArray(inst.type, verifyGameNumberInstActionTypes)
 
 export type InstructionConnDataType = {
   kind: typeof INST

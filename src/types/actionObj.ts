@@ -182,6 +182,7 @@ export type UseCardActionType = {
 export type PlayCardToQueueActionType = {
   type: typeof PLAY_CARD_TO_QUEUE
   payload: UseCardCoreActionType | DiscardCardCoreActionType
+  gameNumber?: number
 }
 
 export type PlayCardFromQueueActionType = {
@@ -208,6 +209,7 @@ export type DrawCardActionType = {
 export type DrawCardToQueueActionType = {
   type: typeof DRAW_CARD_TO_QUEUE
   n: number
+  gameNumber?: number
 }
 
 export type DrawCardFromQueueActionType = {

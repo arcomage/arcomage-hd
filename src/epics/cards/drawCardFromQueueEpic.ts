@@ -4,12 +4,19 @@ import {
   ABORT_CONNECTION,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil, delay } from 'rxjs/operators'
+import {
+  filter,
+  concatMap,
+  takeUntil,
+  delay,
+  withLatestFrom,
+} from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { from, of } from 'rxjs'
-import { drawCardQueue as q } from '../../utils/queues'
+import { drawCardQueues } from '../../utils/queues'
+import Queue from '../../utils/Queue'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -17,8 +24,17 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(DRAW_CARD_FROM_QUEUE)),
-    concatMap((action) => {
-      const nPromise = q.dequeueAsync()
+    withLatestFrom(state$),
+    concatMap(([action, state]) => {
+      const { gameNumber } = state.multiplayer
+
+      let drawCardQueue = drawCardQueues.get(gameNumber)
+      if (drawCardQueue === undefined) {
+        drawCardQueue = new Queue<number>()
+        drawCardQueues.set(gameNumber, drawCardQueue)
+      }
+
+      const nPromise = drawCardQueue.dequeueAsync()
       return from(nPromise).pipe(
         concatMap((n) => {
           return of<RootActionType>({

@@ -5,10 +5,11 @@ import {
 } from '../types/actionObj'
 import Queue from './Queue'
 
-export const drawCardQueue = new Queue<number>()
+export const drawCardQueues = new Map<number, Queue<number>>()
 
-export const playCardQueue = new Queue<
-  UseCardCoreActionType | DiscardCardCoreActionType
+export const playCardQueues = new Map<
+  number,
+  Queue<UseCardCoreActionType | DiscardCardCoreActionType>
 >()
 
 export const initQueue = new Queue<Omit<InitToQueueActionType, 'type'>>()
@@ -20,7 +21,7 @@ export const initQueue = new Queue<Omit<InitToQueueActionType, 'type'>>()
 // }
 
 if (process.env.ISDEV) {
-  ;(window as any).dcq = drawCardQueue
-  ;(window as any).pcq = playCardQueue
-  ;(window as any).icq = initQueue
+  ;(window as any).dq = drawCardQueues
+  ;(window as any).pq = playCardQueues
+  ;(window as any).iq = initQueue
 }
