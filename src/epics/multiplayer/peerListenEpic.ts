@@ -6,7 +6,7 @@ import {
   SET_MULTI_GAME_NUMBER,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil, mergeMap } from 'rxjs/operators'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { concat, merge, EMPTY, fromEvent, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -32,7 +32,7 @@ export default (
           (peer as unknown) as JQueryStyleEventEmitter,
           'connection',
         ).pipe(
-          concatMap((conn) => {
+          mergeMap((conn) => {
             peerAll.conn = conn
             return concat(
               of<RootActionType>({
@@ -46,7 +46,7 @@ export default (
           (peer as unknown) as JQueryStyleEventEmitter,
           'disconnected',
         ).pipe(
-          concatMap(() => {
+          mergeMap(() => {
             return concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
@@ -60,7 +60,7 @@ export default (
           }),
         ),
         fromEvent((peer as unknown) as JQueryStyleEventEmitter, 'close').pipe(
-          concatMap(() => {
+          mergeMap(() => {
             return concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
@@ -74,7 +74,7 @@ export default (
           }),
         ),
         fromEvent((peer as unknown) as JQueryStyleEventEmitter, 'error').pipe(
-          concatMap(() => {
+          mergeMap(() => {
             devLog('error emitted by peer', 'error')
             return EMPTY
           }),

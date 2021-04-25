@@ -6,7 +6,7 @@ import {
   SET_MULTI_GAME_NUMBER,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil } from 'rxjs/operators'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -19,7 +19,7 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(DISCONNECT)),
-    concatMap((action) => {
+    mergeMap((action) => {
       const { peer } = peerAll
       if (peer !== null) {
         peer.disconnect()

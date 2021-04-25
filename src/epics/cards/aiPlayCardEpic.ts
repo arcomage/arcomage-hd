@@ -6,7 +6,7 @@ import {
   SCREEN_END,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -21,7 +21,7 @@ export default (
   action$.pipe(
     filter(isOfType(AI_PLAY_CARD)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const aiInstruction: AiInstructionType | null = ai(state)
       if (aiInstruction === null) {
         return of<RootActionType>({

@@ -6,7 +6,7 @@ import {
   ABORT_CONNECTION,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil } from 'rxjs/operators'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { of, concat, merge } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -18,7 +18,7 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(SWITCH_MULTIPLAYER_MODE)),
-    concatMap((action) => {
+    mergeMap((action) => {
       const { on } = action
       return concat(
         on

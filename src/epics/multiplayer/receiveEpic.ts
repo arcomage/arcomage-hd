@@ -1,6 +1,6 @@
 import { INIT_TO_QUEUE, RECEIVE } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, delay } from 'rxjs/operators'
+import { filter, mergeMap, delay } from 'rxjs/operators'
 import { concat, EMPTY, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -20,7 +20,7 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(RECEIVE)),
-    concatMap((action) => {
+    mergeMap((action) => {
       const { data: connDataStr } = action
       devLog(`received: ${connDataStr}`, 'note')
       try {

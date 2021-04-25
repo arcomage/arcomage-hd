@@ -9,13 +9,7 @@ import {
   SCREEN_DISCONNECT_NOTICE,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import {
-  filter,
-  concatMap,
-  takeUntil,
-  mergeMap,
-  withLatestFrom,
-} from 'rxjs/operators'
+import { filter, mergeMap, takeUntil, withLatestFrom } from 'rxjs/operators'
 import { concat, merge, EMPTY, fromEvent, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -43,7 +37,7 @@ export default (
           (conn as unknown) as JQueryStyleEventEmitter,
           'data',
         ).pipe(
-          concatMap((data) => {
+          mergeMap((data) => {
             devLog(`${type}. received: ${data}`, 'note')
             return of<RootActionType>({
               type: !noLatency ? RECEIVE_WITH_LATENCY : RECEIVE,
@@ -52,7 +46,7 @@ export default (
           }),
         ),
         fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'open').pipe(
-          concatMap(() => {
+          mergeMap(() => {
             if (!action.host) {
               sendSeq.reset()
               receiveSeq.reset()
@@ -77,7 +71,7 @@ export default (
         ),
         fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'close').pipe(
           withLatestFrom(state$),
-          concatMap(([_, state]) => {
+          mergeMap(([_, state]) => {
             const multiGameNumber = state.multiplayer.gameNumber
             return concat(
               of<RootActionType>({
@@ -100,7 +94,7 @@ export default (
           }),
         ),
         fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'error').pipe(
-          concatMap(() => {
+          mergeMap(() => {
             devLog('error emitted by conn', 'error')
             return EMPTY
           }),

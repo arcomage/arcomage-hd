@@ -3,7 +3,7 @@ import {
   RootActionType,
   UpdateStatusActionTypeSingle,
 } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -19,7 +19,7 @@ export default (
   action$.pipe(
     filter(isOfType(EXEC_CARD)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const pOriginal = state.status.player
       const oOriginal = state.status.opponent
       const p = { ...pOriginal }

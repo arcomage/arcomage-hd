@@ -6,11 +6,10 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import {
   filter,
-  concatMap,
+  mergeMap,
   takeUntil,
   delay,
   withLatestFrom,
-  mergeMap,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -40,7 +39,7 @@ export default (
       const nPromise = drawCardQueue.dequeueAsync()
       return from(nPromise).pipe(
         withLatestFrom(state$),
-        concatMap(([n, state]) => {
+        mergeMap(([n, state]) => {
           const currentGameNumber = state.multiplayer.gameNumber
           return currentGameNumber === gameNumber
             ? of<RootActionType>({

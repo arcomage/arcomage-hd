@@ -5,7 +5,7 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import {
   filter,
-  concatMap,
+  mergeMap,
   withLatestFrom,
   map,
   take,
@@ -24,7 +24,7 @@ export default (
   action$.pipe(
     filter(isOfType(PLAY_CARD_CORE_GUARDED)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const { payload: playCardAction } = action
       const locked = state.game.locked.some((l) => l === true)
       if (locked) {

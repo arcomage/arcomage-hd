@@ -9,7 +9,7 @@ import {
   RootActionType,
   UpdateStatusMainActionTypeSingle,
 } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -23,7 +23,7 @@ export default (
   action$.pipe(
     filter(isOfType(UPDATE_STATUS)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       // note that it doesn't perform any negative check,
       // the negative check must be done at the upper stream:
       // data/cards.ts & epics/execCardEpic.ts

@@ -7,7 +7,7 @@ import {
   PLAY_CARD_CORE_GUARDED,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -22,7 +22,7 @@ export default (
   action$.pipe(
     filter(isOfType(DISCARD_CARD)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const { index, position, owner } = action
       const multiGameNumber = state.multiplayer.gameNumber
 

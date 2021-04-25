@@ -6,7 +6,7 @@ import {
   SET_TEMP_SETTINGS,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, takeUntil, concatMap, debounceTime } from 'rxjs/operators'
+import { filter, takeUntil, mergeMap, debounceTime } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -21,7 +21,7 @@ export default (
   action$.pipe(
     filter(isOfType(SEND_TEMP_SETTINGS)),
     debounceTime(sendSettingsDebounceTime),
-    concatMap((action) => {
+    mergeMap((action) => {
       const { payload } = action
       return of<RootActionType>({
         type: SEND,

@@ -5,7 +5,7 @@ import {
   SCREEN_END,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -18,7 +18,7 @@ export default (
   action$.pipe(
     filter(isOfType(CLOSE_SCREEN_END_INIT)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const isGuestInGame =
         state.multiplayer.gameNumber > 0 &&
         state.multiplayer.status === 'connected_by_id'

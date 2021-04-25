@@ -4,7 +4,7 @@ import {
   ABORT_ALL,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil } from 'rxjs/operators'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -23,7 +23,7 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(UPDATE_SETTINGS)),
-    concatMap((action) => {
+    mergeMap((action) => {
       const { payload } = action
       lsSet((draft) => {
         if (draft.settings === undefined) {

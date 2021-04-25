@@ -5,7 +5,7 @@ import {
   SEND_SETTINGS,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, delay, withLatestFrom } from 'rxjs/operators'
+import { filter, mergeMap, delay, withLatestFrom } from 'rxjs/operators'
 import { of, concat, EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -18,7 +18,7 @@ export default (
   action$.pipe(
     filter(isOfType(UPDATE_SETTINGS_INIT)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const { payload } = action
       const isHost =
         state.multiplayer.on && state.multiplayer.status === 'connected_to_id'

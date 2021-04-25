@@ -11,7 +11,7 @@ import { RootActionType } from '../../types/actionObj'
 import {
   withLatestFrom,
   filter,
-  concatMap,
+  mergeMap,
   delay,
   takeUntil,
 } from 'rxjs/operators'
@@ -27,7 +27,7 @@ export default (
   action$.pipe(
     filter(isOfType(NEXT_ROUND)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       return concat(
         of<RootActionType>({
           type: SWITCH_TURN,

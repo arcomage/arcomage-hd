@@ -10,7 +10,7 @@ import {
   SCREEN_END,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
 import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -24,7 +24,7 @@ export default (
   action$.pipe(
     filter(isOfType(INIT_CORE)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       // const isHost =
       //   state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
       // const isGuest =

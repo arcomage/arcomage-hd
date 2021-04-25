@@ -8,7 +8,7 @@ import {
   UPDATE_VOLUME_MAIN,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil } from 'rxjs/operators'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { of, concat, EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -26,7 +26,7 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(READLS_UPDATESTORE_INIT)),
-    concatMap((action) => {
+    mergeMap((action) => {
       lsVersion()
       const lang = lsGet(['lang', 'code'])
       const erathian = lsGet(['lang', 'erathian'])
