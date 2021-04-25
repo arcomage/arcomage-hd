@@ -28,6 +28,8 @@ import {
   UPDATE_SETTINGS_MAIN,
   INIT,
   INIT_CORE,
+  INIT_TO_QUEUE,
+  INIT_FROM_QUEUE,
   UPDATE_SETTINGS_INIT,
   READLS_UPDATESTORE_INIT,
   INIT_CARD,
@@ -319,6 +321,7 @@ export type UpdateSettingsMainActionType = {
 
 export type InitActionType = {
   type: typeof INIT
+  forceGuestInit?: boolean
 }
 
 export type InitCoreActionType = {
@@ -326,6 +329,17 @@ export type InitCoreActionType = {
   playersTurn: boolean
   cardList: CardListItemAllType[]
   gameNumber: number | null
+}
+
+export type InitToQueueActionType = {
+  type: typeof INIT_TO_QUEUE
+  playersTurn: boolean
+  cardList: CardListItemAllType[]
+  gameNumber: number | null
+}
+
+export type InitFromQueueActionType = {
+  type: typeof INIT_FROM_QUEUE
 }
 
 export type InitCardActionType = {
@@ -577,6 +591,8 @@ export type RootActionType =
   | UpdateSettingsMainActionType
   | InitActionType
   | InitCoreActionType
+  | InitToQueueActionType
+  | InitFromQueueActionType
   | InitCardActionType
   | InitGameActionType
   | InitStatusActionType

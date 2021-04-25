@@ -1,6 +1,7 @@
 import {
   CLOSE_SCREEN_END_INIT,
   INIT,
+  INIT_FROM_QUEUE,
   SCREEN_END,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -8,7 +9,7 @@ import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { concat, EMPTY, of } from 'rxjs'
+import { concat, of } from 'rxjs'
 
 export default (
   action$: ActionsObservable<RootActionType>,
@@ -25,9 +26,12 @@ export default (
           payload: { type: null },
         }),
         isGuest
-          ? EMPTY
+          ? of<RootActionType>({
+              type: INIT_FROM_QUEUE,
+            })
           : of<RootActionType>({
               type: INIT,
+              forceGuestInit: true,
             }),
       )
     }),
