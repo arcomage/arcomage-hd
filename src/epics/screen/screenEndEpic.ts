@@ -4,7 +4,7 @@ import {
   SCREEN_END_MAIN,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { isEndScreenNoCloseState, RootStateType } from '../../types/state'
@@ -20,7 +20,7 @@ export default (
   action$.pipe(
     filter(isOfType(SCREEN_END)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const { payload } = action
       if (isEndScreenNoCloseState(payload)) {
         playSound(soundMap[payload.type], state.volume)

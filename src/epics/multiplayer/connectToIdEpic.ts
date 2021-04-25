@@ -6,7 +6,7 @@ import {
   ABORT_CONNECTION,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil, catchError } from 'rxjs/operators'
+import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
 import { of, concat, merge, from, EMPTY } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -25,7 +25,7 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(CONNECT_TO_ID)),
-    concatMap((action) => {
+    mergeMap((action) => {
       const { peer } = peerAll
       if (peer === null) {
         return EMPTY
@@ -74,7 +74,7 @@ export default (
           status: 'connecting_to_id',
         }),
         from(connectToPeerId).pipe(
-          concatMap((_) => {
+          mergeMap((_) => {
             sendSeq.reset()
             receiveSeq.reset()
             devLog(

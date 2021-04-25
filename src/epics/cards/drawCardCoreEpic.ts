@@ -13,7 +13,7 @@ import { RootActionType } from '../../types/actionObj'
 import {
   withLatestFrom,
   filter,
-  concatMap,
+  mergeMap,
   delay,
   takeUntil,
 } from 'rxjs/operators'
@@ -42,7 +42,7 @@ export default (
   action$.pipe(
     filter(isOfType(DRAW_CARD_CORE)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const { n } = action
       const owner = state.game.playersTurn ? 'player' : 'opponent'
       const multiGameNumber = state.multiplayer.gameNumber

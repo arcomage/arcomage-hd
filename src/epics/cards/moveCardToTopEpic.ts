@@ -5,7 +5,7 @@ import {
   ABORT_ALL,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -20,7 +20,7 @@ export default (
   action$.pipe(
     filter(isOfType(MOVE_CARD_TO_TOP)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const l = state.cards.list
       const c = l[action.index]
 

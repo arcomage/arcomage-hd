@@ -8,7 +8,7 @@ import {
   UPDATE_SETTINGS,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, takeUntil, concatMap } from 'rxjs/operators'
+import { filter, takeUntil, mergeMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -21,7 +21,7 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(SEND_SETTINGS)),
-    concatMap((action) => {
+    mergeMap((action) => {
       const { payload } = action
       const settings = payload
       return settings

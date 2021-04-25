@@ -10,7 +10,7 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import {
   filter,
-  concatMap,
+  mergeMap,
   takeUntil,
   withLatestFrom,
   delay,
@@ -29,7 +29,7 @@ export default (
   action$.pipe(
     filter(isOfType(DRAW_CARD)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const isHost = state.multiplayer.status === 'connected_to_id'
       // const isGuest = state.multiplayer.status === 'connected_by_id'
       const multiGameNumber = state.multiplayer.gameNumber

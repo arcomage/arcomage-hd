@@ -14,7 +14,7 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import {
   filter,
-  concatMap,
+  mergeMap,
   delay,
   withLatestFrom,
   takeUntil,
@@ -37,7 +37,7 @@ export default (
   action$.pipe(
     filter(isOfType(USE_CARD_CORE)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const { n, index, position, owner } = action
       const special = cards[n].special
       playSound('deal', state.volume)

@@ -14,7 +14,7 @@ import { RootActionType } from '../../types/actionObj'
 import {
   withLatestFrom,
   filter,
-  concatMap,
+  mergeMap,
   delay,
   takeUntil,
 } from 'rxjs/operators'
@@ -32,7 +32,7 @@ export default (
   action$.pipe(
     filter(isOfType(DISCARD_CARD_CORE)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const { index, position, owner } = action
       playSound('deal', state.volume)
       return concat(

@@ -4,7 +4,7 @@ import {
   UPDATE_STATUS,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, takeUntil, concatMap } from 'rxjs/operators'
+import { withLatestFrom, filter, takeUntil, mergeMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -19,7 +19,7 @@ export default (
   action$.pipe(
     filter(isOfType(RESOURCE_PROD)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const currentStatus = state.status[action.owner]
 
       const payload = entries(resProdMap).map(([prod, res]) => ({

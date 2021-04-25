@@ -6,7 +6,7 @@ import {
   ABORT_CONNECTION,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { filter, concatMap, takeUntil, catchError } from 'rxjs/operators'
+import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
 import { of, concat, from, merge } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
@@ -22,7 +22,7 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(CONNECT_TO_NETWORK)),
-    concatMap((action) => {
+    mergeMap((action) => {
       const getPeerId: Promise<string> = new Promise((resolve, reject) => {
         initPeer()
         const { peer } = peerAll
@@ -42,7 +42,7 @@ export default (
           status: 'connecting_net',
         }),
         from(getPeerId).pipe(
-          concatMap((id) =>
+          mergeMap((id) =>
             concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,

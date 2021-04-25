@@ -4,7 +4,7 @@ import {
   SET_UNUSABLE,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, takeUntil, concatMap } from 'rxjs/operators'
+import { withLatestFrom, filter, takeUntil, mergeMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardListItemAllType, RootStateType } from '../../types/state'
@@ -19,7 +19,7 @@ export default (
   action$.pipe(
     filter(isOfType(CHECK_UNUSABLE)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       const unusables: number[] = []
       const usables: number[] = []
 

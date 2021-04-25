@@ -4,7 +4,7 @@ import {
   CHECK_SURRENDER,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, concatMap, takeUntil } from 'rxjs/operators'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
@@ -19,7 +19,7 @@ export default (
   action$.pipe(
     filter(isOfType(CHECK_SURRENDER)),
     withLatestFrom(state$),
-    concatMap(([action, state]) => {
+    mergeMap(([action, state]) => {
       // it borrows `checkCardUseDiscard` function and relavant types in ai/ folder
       const cardList: AiCardListItemType[] = checkCardUseDiscard(
         state,
