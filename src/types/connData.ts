@@ -31,6 +31,7 @@ export type InstructionType =
 export type VerifyGameNumberInstType =
   | DrawCardToQueueActionType
   | PlayCardToQueueActionType
+  | InitToQueueActionType
 
 export const instructionActionTypes = [
   SET_TEMP_SETTINGS,
@@ -38,13 +39,14 @@ export const instructionActionTypes = [
   UPDATE_SETTINGS,
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
-  INIT_CORE,
   INIT_TO_QUEUE,
+  INIT_CORE,
 ] as const
 
 export const verifyGameNumberInstActionTypes = [
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
+  INIT_TO_QUEUE,
 ] as const
 
 export const isVerifyGameNumberInst = (

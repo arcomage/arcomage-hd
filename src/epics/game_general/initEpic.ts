@@ -22,13 +22,17 @@ export default (
     filter(isOfType(INIT)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
-      const { forceGuestInit = false } = action
+      const { fromScreenEnd = false } = action
       const isHost =
         state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
       // const isGuest =
       //   state.multiplayer.on && state.multiplayer.status === 'connected_by_id'
+      const currentMultiGameNumber = state.multiplayer.gameNumber
 
-      const gameNumber = isHost ? new Date().getTime() : null // gameNumber is Host's game start UTC timestamp
+      const gameNumber =
+        isHost && !(fromScreenEnd && currentMultiGameNumber === -1)
+          ? new Date().getTime()
+          : -1 // gameNumber is Host's game start UTC timestamp
 
       const playersTurn = Math.random() < 0.5
       const cardList: CardListItemAllType[] = []
@@ -58,7 +62,7 @@ export default (
               type: SEND,
               kind: INST,
               data: {
-                type: forceGuestInit ? INIT_TO_QUEUE : INIT_CORE,
+                type: fromScreenEnd ? INIT_TO_QUEUE : INIT_CORE,
                 playersTurn: !playersTurn,
                 cardList: reverseCardList(cardList),
                 gameNumber,

@@ -12,7 +12,10 @@ export const playCardQueues = new Map<
   Queue<UseCardCoreActionType | DiscardCardCoreActionType>
 >()
 
-export const initQueue = new Queue<Omit<InitToQueueActionType, 'type'>>()
+export const initQueues = new Map<
+  number,
+  Queue<Omit<InitToQueueActionType, 'type'>>
+>()
 // Omit<InitToQueueActionType, 'type'> is:
 // {
 //   playersTurn: boolean
@@ -23,5 +26,5 @@ export const initQueue = new Queue<Omit<InitToQueueActionType, 'type'>>()
 if (process.env.ISDEV) {
   ;(window as any).dq = drawCardQueues
   ;(window as any).pq = playCardQueues
-  ;(window as any).iq = initQueue
+  ;(window as any).iq = initQueues
 }

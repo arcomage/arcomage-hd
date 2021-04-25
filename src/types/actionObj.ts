@@ -98,7 +98,6 @@ import {
   SettingsType,
 } from '../types/state'
 import { InstructionConnDataType } from './connData'
-import { FormFieldsAllPartialType, FormFieldsType } from './formFields'
 
 export type UpdateLangActionType = {
   type: typeof UPDATE_LANG
@@ -323,21 +322,22 @@ export type UpdateSettingsMainActionType = {
 
 export type InitActionType = {
   type: typeof INIT
-  forceGuestInit?: boolean
+  fromScreenEnd?: boolean
 }
 
 export type InitCoreActionType = {
   type: typeof INIT_CORE
   playersTurn: boolean
   cardList: CardListItemAllType[]
-  gameNumber: number | null
+  gameNumber: number
 }
 
 export type InitToQueueActionType = {
   type: typeof INIT_TO_QUEUE
   playersTurn: boolean
   cardList: CardListItemAllType[]
-  gameNumber: number | null
+  gameNumber: number
+  prevGameNumber?: number
 }
 
 export type InitFromQueueActionType = {

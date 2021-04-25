@@ -4,11 +4,10 @@ import {
   RootActionType,
   UseCardCoreActionType,
 } from '../../types/actionObj'
-import { filter, concatMap } from 'rxjs/operators'
+import { filter, tap, ignoreElements } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { EMPTY } from 'rxjs'
 import { playCardQueues } from '../../utils/queues'
 import devLog from '../../utils/devLog'
 import Queue from '../../utils/Queue'
@@ -19,11 +18,11 @@ export default (
 ) =>
   action$.pipe(
     filter(isOfType(PLAY_CARD_TO_QUEUE)),
-    concatMap((action) => {
+    tap((action) => {
       const { payload, gameNumber } = action
       if (gameNumber === undefined) {
         devLog(`gameNumber is undefined in ${JSON.stringify(action)}`, 'error')
-        return EMPTY
+        return
       }
 
       let playCardQueue = playCardQueues.get(gameNumber)
@@ -35,6 +34,7 @@ export default (
       }
 
       playCardQueue.enqueue(payload)
-      return EMPTY
+      return
     }),
+    ignoreElements(),
   )

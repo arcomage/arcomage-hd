@@ -19,19 +19,21 @@ export default (
     filter(isOfType(CLOSE_SCREEN_END_INIT)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
-      const isGuest = state.multiplayer.status === 'connected_by_id'
+      const isGuestInGame =
+        state.multiplayer.gameNumber > 0 &&
+        state.multiplayer.status === 'connected_by_id'
       return concat(
         of<RootActionType>({
           type: SCREEN_END,
           payload: { type: null },
         }),
-        isGuest
+        isGuestInGame
           ? of<RootActionType>({
               type: INIT_FROM_QUEUE,
             })
           : of<RootActionType>({
               type: INIT,
-              forceGuestInit: true,
+              fromScreenEnd: true,
             }),
       )
     }),
