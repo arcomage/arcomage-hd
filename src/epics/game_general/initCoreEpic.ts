@@ -7,10 +7,11 @@ import {
   RESOURCE_PROD,
   ABORT_ALL,
   SET_MULTI_GAME_NUMBER,
+  SCREEN_END,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap, delay } from 'rxjs/operators'
-import { of, concat, EMPTY } from 'rxjs'
+import { of, concat } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ActionsObservable, StateObservable } from 'redux-observable'
 import { CardStateType, RootStateType } from '../../types/state'
@@ -40,6 +41,10 @@ export default (
 
       return concat(
         of<RootActionType>({
+          type: SCREEN_END,
+          payload: { type: null },
+        }),
+        of<RootActionType>({
           type: ABORT_ALL,
         }),
         of<RootActionType>({
@@ -54,12 +59,10 @@ export default (
           type: INIT_STATUS,
           payload: getStartState(state.settings),
         }),
-        gameNumber !== null
-          ? of<RootActionType>({
-              type: SET_MULTI_GAME_NUMBER,
-              n: gameNumber,
-            })
-          : EMPTY,
+        of<RootActionType>({
+          type: SET_MULTI_GAME_NUMBER,
+          n: gameNumber,
+        }),
         of<RootActionType>({
           type: RESOURCE_PROD,
           owner: playersTurn ? 'player' : 'opponent',
