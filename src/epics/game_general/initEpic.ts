@@ -1,4 +1,9 @@
-import { INIT, INIT_CORE, ABORT_ALL, SEND } from '../../constants/ActionTypes'
+import {
+  INIT,
+  INIT_CORE,
+  SEND,
+  INIT_TO_QUEUE,
+} from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, concatMap } from 'rxjs/operators'
 import { concat, EMPTY, of } from 'rxjs'
@@ -17,6 +22,7 @@ export default (
     filter(isOfType(INIT)),
     withLatestFrom(state$),
     concatMap(([action, state]) => {
+      const { forceGuestInit = false } = action
       const isHost =
         state.multiplayer.on && state.multiplayer.status === 'connected_to_id'
       // const isGuest =
@@ -48,18 +54,16 @@ export default (
           gameNumber,
         }),
         isHost
-          ? concat(
-              of<RootActionType>({
-                type: SEND,
-                kind: INST,
-                data: {
-                  type: INIT_CORE,
-                  playersTurn: !playersTurn,
-                  cardList: reverseCardList(cardList),
-                  gameNumber,
-                },
-              }),
-            )
+          ? of<RootActionType>({
+              type: SEND,
+              kind: INST,
+              data: {
+                type: forceGuestInit ? INIT_TO_QUEUE : INIT_CORE,
+                playersTurn: !playersTurn,
+                cardList: reverseCardList(cardList),
+                gameNumber,
+              },
+            })
           : EMPTY,
       )
     }),

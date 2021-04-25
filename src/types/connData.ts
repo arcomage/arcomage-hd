@@ -5,7 +5,7 @@ import {
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
   INIT_CORE,
-  ABORT_ALL,
+  INIT_TO_QUEUE,
 } from '../constants/ActionTypes'
 import { CHAT, INST } from '../constants/connDataKind'
 import {
@@ -15,7 +15,7 @@ import {
   DrawCardToQueueActionType,
   PlayCardToQueueActionType,
   InitCoreActionType,
-  AbortAllActionType,
+  InitToQueueActionType,
 } from './actionObj'
 
 export type InstructionType =
@@ -25,7 +25,7 @@ export type InstructionType =
   | DrawCardToQueueActionType
   | PlayCardToQueueActionType
   | InitCoreActionType
-  | AbortAllActionType
+  | InitToQueueActionType
 
 export const instructionActionTypes = [
   SET_TEMP_SETTINGS,
@@ -34,7 +34,7 @@ export const instructionActionTypes = [
   DRAW_CARD_TO_QUEUE,
   PLAY_CARD_TO_QUEUE,
   INIT_CORE,
-  ABORT_ALL,
+  INIT_TO_QUEUE,
 ] as const
 
 export const verifyGameNumberInstActionTypes = [
