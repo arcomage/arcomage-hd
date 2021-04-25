@@ -1,4 +1,4 @@
-import React, { memo, useContext, useRef } from 'react'
+import React, { memo, useContext, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { useAppDispatch } from '../../utils/useAppDispatch'
@@ -37,24 +37,42 @@ type PropType = {
   children: React.ReactNode
   onCancel?: () => void
   darkerBg?: boolean
+  exitableDelay?: number
 }
 const Window = ({
   screenActionType,
   children,
   onCancel,
   darkerBg = false,
+  exitableDelay = 0,
 }: PropType) => {
   const dispatch = useAppDispatch()
   const _ = useContext(I18nContext)
 
-  const cancelFunc = () => {
-    if (onCancel !== undefined) {
-      onCancel()
+  const [exitable, setExitable] = useState(false)
+  useEffect(() => {
+    setExitable(false)
+    const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
+      setExitable(true)
+    }, exitableDelay)
+
+    return () => {
+      clearTimeout(timer)
     }
-    dispatch({
-      type: screenActionType,
-      show: false,
-    })
+  }, [])
+  const exitableRef = useRef<boolean>()
+  exitableRef.current = exitable
+
+  const cancelFunc = () => {
+    if (exitableRef.current) {
+      if (onCancel !== undefined) {
+        onCancel()
+      }
+      dispatch({
+        type: screenActionType,
+        show: false,
+      })
+    }
   }
 
   const prefRef = useRef(null)
@@ -64,6 +82,7 @@ const Window = ({
   const size = useContext(GameSizeContext)
 
   const classes = useStyles()
+
   return (
     <div className={cx('window-bg', { darkerbg: darkerBg })}>
       <div className={cx('window-outerwrapper')}>

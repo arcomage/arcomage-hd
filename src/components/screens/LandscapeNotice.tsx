@@ -6,6 +6,7 @@ import Window from './Window'
 import { SCREEN_LANDSCAPE } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import TooltipAll from '../special/TooltipAll'
+import { LandscapeNoticeExitableDelay } from '../../constants/visuals'
 
 const useStyles = createUseStyles<string>({
   '@keyframes all': {
@@ -67,7 +68,11 @@ const LandscapeNotice = () => {
   const classes = useStyles()
 
   return (
-    <Window screenActionType={SCREEN_LANDSCAPE} darkerBg>
+    <Window
+      screenActionType={SCREEN_LANDSCAPE}
+      darkerBg
+      exitableDelay={LandscapeNoticeExitableDelay}
+    >
       <TooltipAll title={_.i18n('Please rotate your device to landscape mode')}>
         <div className={cx(classes.wrapper, 'relative')}>
           <svg
