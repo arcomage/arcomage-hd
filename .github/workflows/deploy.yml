@@ -25,7 +25,7 @@ jobs:
           yarn build
 
       - name: Deploy to GitHub Pages (in another repo)
-        uses: cpina/github-action-push-to-another-repository@master
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
