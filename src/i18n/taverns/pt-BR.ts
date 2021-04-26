@@ -2,11 +2,11 @@ import { TavernsI18nType } from '../types'
 
 export const tavernsI18n: TavernsI18nType = [
   {
-    name: 'On The House',
+    name: 'Na Conta da Casa',
     location: 'Harmondale',
   },
   {
-    name: "Griffin's Rest",
+    name: "Descanso do Grifo",
     location: 'Erathia',
   },
   // {
@@ -14,15 +14,15 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'The Tularean Forest',
   // },
   {
-    name: 'The Snobbish Goblin',
+    name: 'O Goblin Esnobe',
     location: 'Deyja',
   },
   {
-    name: 'Familiar Place',
-    location: 'The Bracada Desert',
+    name: 'O Lugar Familiar',
+    location: 'O Deserto Bracada',
   },
   {
-    name: 'The Blessed Brew',
+    name: 'A Cerveja Abençoada',
     location: 'Celeste',
   },
   // {
@@ -30,19 +30,19 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'The Pit',
   // },
   {
-    name: 'The Laughing Monk',
-    location: 'Evenmorn Island',
+    name: 'O Monge Risonho',
+    location: 'Ilha Evenmorn',
   },
   {
-    name: "Fortune's Folly",
-    location: 'Mount Nighon',
+    name: "A Loucura da Fortuna",
+    location: 'Monte Nighon',
   },
   {
-    name: "Miner's Only",
-    location: 'The Barrow Downs',
+    name: "A Única do Minerador",
+    location: 'As Catacumbas',
   },
   {
-    name: 'The Loyal Mercenary',
+    name: 'O Mercenário Fiel',
     location: 'Tatalia',
   },
   // {
@@ -50,8 +50,8 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'Avlee',
   // },
   {
-    name: "Grogg's Grog",
-    location: 'Stone City',
+    name: "Ceva do Grogg",
+    location: 'Cidade de Pedra',
   },
   // {
   //   name: 'The Grog and Grub',
