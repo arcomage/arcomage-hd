@@ -9,6 +9,7 @@ export const langs = {
   es: 'Español',
   it: 'Italiano',
   cs: 'Čeština',
+  'pt-BR': 'Português (Brasil)'
 }
 
 export const defaultLang = 'en' as const
