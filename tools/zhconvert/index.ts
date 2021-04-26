@@ -29,5 +29,3 @@ folders.forEach(async (folder) => {
   )
   console.log(`File "${folder}/zh-Hant.json" has been saved!`)
 })
-
-specialStrings.forEach

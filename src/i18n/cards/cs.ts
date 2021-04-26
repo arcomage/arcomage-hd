@@ -127,7 +127,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Kasárna',
-    desc: '+6 Přišery +6Zeď Když jeskyně < jeho jeskyně tak +1 Jeskyně',
+    desc: '+6 Přišery +6 Zeď Když jeskyně < jeho jeskyně tak +1 Jeskyně',
   },
   {
     name: 'Opevnění',
@@ -155,7 +155,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Hranol',
-    desc: 'Odložení jedné karty, přijmutí nové, Hraješ znovu',
+    desc: 'Odložení jedné karty, přijmutí nové, hraješ znovu',
   },
   {
     name: 'Magnetovec',
@@ -171,7 +171,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Poškozený diamant',
-    desc: '3 Pooškození soupeřovi Věže',
+    desc: '3 Poškození soupeřovi Věže',
   },
   {
     name: 'Rubín',
@@ -279,7 +279,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Víla',
-    desc: '2 Poškožéní Hraješ znovu',
+    desc: '2 Poškození Hraješ znovu',
   },
   {
     name: 'Mrzutí Goblini',
@@ -291,11 +291,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Elfí průzkumník',
-    desc: 'Odložení jedné karty, přijmutí nové, Hraješ znovu',
+    desc: 'Odložení jedné karty, přijmutí nové, hraješ znovu',
   },
   {
     name: 'Dav Goblinů',
-    desc: '-6 Poškození, 3 Poškození tobě',
+    desc: '6 Poškození, 3 Poškození tobě',
   },
   {
     name: 'Gobliní lukostřelci',
@@ -347,7 +347,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Divoký čmelák',
-    desc: 'Když soupeřova zeď = 0, tak 10 poščkození jinak 6 poškození',
+    desc: 'Když soupeřova zeď = 0, tak 10 poškození jinak 6 poškození',
   },
   {
     name: 'Vlkodlak',

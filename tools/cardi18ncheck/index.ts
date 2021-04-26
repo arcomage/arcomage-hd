@@ -49,7 +49,7 @@ const arraysEqual = (a: any[] | null, b: any[] | null) => {
       const foundCur = descCur.match(regex)
       if (!arraysEqual(found, foundCur)) {
         console.log(
-          `${langEntries[i][1]} ${index} desc "${descCur}" 's numbers do not match ${langEntries[0][1]} ${index} desc "${desc}" 's`,
+          `${langEntries[i][1]} ${index} desc "${descCur}" 's numbers do not match the numbers in ${langEntries[0][1]} ${index} desc "${desc}"`,
         )
       }
     })

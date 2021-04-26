@@ -23,6 +23,7 @@ export const noDevLog = isProd || _noDevLog
 
 export const aiExtraDelay = 5000
 
+// can discard "undiscardable" cards during the discard mode triggered by "draw discard playagain" cards
 export const canDiscardUndiscardableWhenDDP = false
 
 export const testLatency: [number, number] = [300, 6000]
