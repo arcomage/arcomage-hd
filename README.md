@@ -6,7 +6,7 @@
 
 This not-for-profit fan-remake of the tower defense, resource management fantasy game is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + RxJS + CSS-based animations + WebRTC (see [§ Development](#development)). Please star the repo / follow me to support me.
 
-It's available in 8 + 2 languages (**bold**: fully translated): **English**, **French**, **German**, **Simplified Chinese**, **Traditional Chinese**, **Spanish**, **Italian**, **Russian**, Czech, Polish.
+It's available in 10 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish.
 
 The default single player mode (against computer AI 🤖) is stable✔️. I recently added [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which is generally good but may need more tests🧪. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
 
@@ -132,53 +132,6 @@ It could be other key instead of <kbd>Alt</kbd>
 
 </details>
 
-## Languages (i18n)
-
-*(Some newly added Multiplayer Mode-related strings may be untranslated in some previously fully translated language versions)*
-
-<details><summary><strong>Click to show the detailed instruction on how to help me translate it</strong></summary>
-
-### Help me translate it
-
-[Tavern names and location names](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns) have already been translated by extracting from the original M&M game.
-
-I've [OCR](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr) (optical character recognition)'d the card names & descriptions in the 5 incomplete languages.
-
-If you speak one of Czech (`cs`), Polish (`pl`) and want to help, please:
-
-#### Translate General Strings
-
-In [src/i18n/main/](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main) folder, go to "**\<LANGCODE\>.ts**" file, click <kbd>Raw</kbd> button, then <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the file.
-
-Look at src/i18n/main/[en.ts](https://github.com/arcomage/arcomage-hd/blob/main/src/i18n/main/en.ts) file for the strings in English.
-
-Translate the untranslated lines in "[src/i18n/main/](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main)**\<LANGCODE\>.ts**" file, by changing the string on the right. For example, change `'Your Name': 'Your Name',` to `'Your Name': 'Votre nom',`
-
-#### Translate Card Names & Descriptions
-
-In [src/i18n/cards/](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards) folder, go to "**\<LANGCODE\>.ts**" file, click <kbd>Raw</kbd> button, then <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the file.
-
-Look at src/i18n/cards/[en.ts](https://github.com/arcomage/arcomage-hd/blob/main/src/i18n/cards/en.ts) file for the strings in English.
-
-Please also refer to:
-
-* [main_en_fixed.png](https://github.com/arcomage/arcomage-hd/blob/main/tools/img-processing/original/main_en_fixed.png) which is an image that includes all cards with text in English
-* The same image but of your language in [tools/ocr/original](https://github.com/arcomage/arcomage-hd/tree/main/tools/ocr/original) folder
-* [tools/i18n-temp](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-temp)/**cards.\<LANGCODE\>.ts** files are filled with the text I got with OCR (optical character recognition), which could have poor quality, please retranslate it if it's nonsense, or verify and modify it if it's readable
-
-Check and/or translate "[src/i18n/cards/](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards)**<LANGCODE\>.ts**" file:
-
-```
-name: '<Translated card name>',
-desc: '<Translated card desciption>',
-```
-
-#### Send it to me
-
-Create a pull request if you know how to do it, or just give me the translated text on [GitHub](https://github.com/arcomage/arcomage-hd/issues/9), or on [Reddit](https://www.reddit.com/r/MightAndMagic/comments/mhfx30/arcomage_hd_i_made_a_webbased_opensource_clone_of/), or on [celestialheavens forum](https://www.celestialheavens.com/forum/10/17288), or via email.
-
-</details>
-
 ## Multiplayer Mode
 
 *(Multiplayer Mode is experimental🧪 and may be unstable)*
@@ -187,7 +140,7 @@ Create a pull request if you know how to do it, or just give me the translated t
 
 https://user-images.githubusercontent.com/529949/115864733-941cbd00-a437-11eb-955d-f6a341c8ea64.mp4
 
-Both players enables the "Multiplayer" Mode. Bob 🧝 must copy and **give his ID to Alice 👧 via Discord or other platforms or forums**. Alice 👧 then enters Bob 🧝's ID and connect to Bob 🧝. Alice 👧 becomes host 🏠 (i.e. technically it's her computer that deals cards) and Bob 🧝 is the guest 💼.
+Both players enable the "Multiplayer" Mode. Bob 🧝 must copy and **give his ID to Alice 👧 via Discord or other platforms or forums**. Alice 👧 then enters Bob 🧝's ID and connect to Bob 🧝. Alice 👧 becomes the host 🏠 (i.e. technically it's her computer that deals cards) and Bob 🧝 is the guest 💼.
 
 <details><summary><strong>Click to show technical details</strong></summary>
 
@@ -251,3 +204,5 @@ The code of the ArcoMage HD game: MIT License (c) 2021 [Tom Chen](https://github
 The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company.
 
 See [LICENSE.md file](LICENSE.md) for a detailed presentation of the copyright status of the game's components.
+
+See [Issue #9](https://github.com/arcomage/arcomage-hd/issues/9) for translation credits.

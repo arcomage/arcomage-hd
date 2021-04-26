@@ -3,7 +3,7 @@ import fs from 'fs'
 
 const sourceFile = './tools/data-processing/data.xlsx'
 const cardSheetName = 'cards'
-const cardSheetI18n = ['en', 'zh-Hans']
+const cardSheetI18n = ['en', 'zh-Hans', 'pl']
 
 const cardSheets = cardSheetI18n.map((locale) => `${cardSheetName}.${locale}`)
 cardSheets.unshift(cardSheetName)
