@@ -13,6 +13,8 @@ const _extractedDir = path.join(__dirname, extractedDir)
  * card crop & combine start
  */
 
+const cardCountPerType = 34
+
 const doFiles = (
   file: string,
   outFolder: string,
@@ -39,9 +41,11 @@ const doFiles = (
         xTemp = xInit + i * xInterval
         mainSharp
           .extract({ left: xTemp, top: yTemp, width: w, height: h })
-          .toFile(path.join(outFolder, `${type}_${count}.png`)),
+          .toFile(
+            path.join(outFolder, `${type * cardCountPerType + count}.png`),
+          ),
           count++
-        if (count === 34) {
+        if (count === cardCountPerType) {
           return
         }
       }

@@ -13,7 +13,6 @@ import {
   resbgOpacity,
   unusableCardOpacity,
 } from '../constants/visuals'
-import { cardCountPerType } from '../data/cardCountPerType'
 
 import dataCards from '../../src/data/cards'
 
@@ -435,10 +434,7 @@ const Card = ({
             )}
             style={{
               backgroundImage: `url(${
-                require(`../../assets/img/cards/${dataCards[
-                  n
-                ].type.toString()}_${(n % cardCountPerType).toString()}.png`)
-                  .default
+                require(`../../assets/img/cards/${n}.png`).default
               })`,
             }}
           >
