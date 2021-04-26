@@ -193,6 +193,26 @@ TypeScript + React + Redux + redux-observable + RxJS, CSS-based animations witho
 
 [To-do list](https://github.com/arcomage/arcomage-hd/projects/1)
 
+## Translation Credits
+
+<details><summary><strong>Click to show the translation credits</strong></summary>
+
+* [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards) & many other strings: from *Might and Magic VIII & VI* original game. Extracted (or retranslated) by:
+  * English (`en`): [Black Rabite on GameFAQs](https://gamefaqs.gamespot.com/pc/929601-arcomage/faqs/44131)
+  * Russian (`ru`) (retranslated): [rayburn](https://github.com/TombOfVARN)
+  * Simplified Chinese (`zh-Hans`): [xyz53235](https://blog.csdn.net/xyz53235/article/details/113663313)
+  * Polish (`pl`) (retranslated?): [acidcave](https://www.arcomage.acidcave.net/czerwone_karty.html)
+  * Czech (`cs`): Yym
+  * All others: [Tom Chen](https://github.com/tomchen) with OCR tool [tesseract.js](https://tesseract.projectnaptha.com/) & [other scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools)
+* [Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main):
+  * Russian (`ru`): [rayburn](https://github.com/TombOfVARN)
+  * Polish (`pl`) (partially): Plamcia
+  * All others: [Tom Chen](https://github.com/tomchen) by himself and/or with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
+
+See also [Issue #9](https://github.com/arcomage/arcomage-hd/issues/9)
+
+</details>
+
 ## Arcomage original game
 
 Arcomage was initially developed by Stickman Games and later sold to The 3DO Company (3DO). The game appeared as a mini-game in *Might and Magic VII: For Blood and Honor* (MM7) and *Might and Magic VIII: Day of the Destroyer* (MM8), the seventh and eighth games in New World Computing (NWC)'s *Might and Magic* (MM) series. (It's like *Gwent* in *The Witcher*) NWC and its parent company, 3DO, also released a stand-alone version in 2000, which can be played in single player or multi player mode. The original stand-alone Arcomage has a resolution of 800 x 600 pixels and is usable in 16-bit color mode in Windows 10, but the graphics is unstable.
@@ -204,5 +224,3 @@ The code of the ArcoMage HD game: MIT License (c) 2021 [Tom Chen](https://github
 The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company.
 
 See [LICENSE.md file](LICENSE.md) for a detailed presentation of the copyright status of the game's components.
-
-See [Issue #9](https://github.com/arcomage/arcomage-hd/issues/9) for translation credits.
