@@ -8,7 +8,7 @@ This not-for-profit fan-remake of the tower defense, resource management fantasy
 
 It's available in 11 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese.
 
-The default single player mode (against computer AI 🤖) is stable✔️. I recently added [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which is generally good (for users not behind symetric NAT) but may need more tests🧪. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
+The default single player mode (against computer AI 🤖) is stable✔️. I recently added [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which is generally good (for users NOT behind symmetric NAT ([test if you're behind "bad", symmetric NAT](https://tomchen.github.io/symmetric-nat-test/))) but may need more tests🧪. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
 
 It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and browsers with Chrome's Blink engine, and may or may not have performance issues in Safari & Firefox. Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead).
 
@@ -134,7 +134,7 @@ It could be other key instead of <kbd>Alt</kbd>
 
 ## Multiplayer Mode
 
-*(Multiplayer Mode is experimental🧪 and may be unstable. Also note that currently it can't connect two users who are both behind symetric NAT)*
+*(Multiplayer Mode is experimental🧪 and may be unstable. Also note that currently it can't connect two users who are both behind symmetric NAT ([test if you're behind symmetric NAT](https://tomchen.github.io/symmetric-nat-test/)))*
 
 ### How To Use the Multiplayer Mode
 
@@ -146,15 +146,13 @@ Both players enable the "Multiplayer" Mode. Bob 🧝 must copy and **give his ID
 
 ### Technical
 
-In Multiplayer Mode, you are connected directly to your opponent (Peer to Peer, P2P) without server. However, we still need a free public relay server. Once we use the ID assigned by the relay server to connect to each other, we are connected directly and don't need the server any more.
+In Multiplayer Mode, you are connected directly to your opponent (Peer to Peer, P2P) without server. However, we still need free public [STUN](https://en.wikipedia.org/wiki/STUN) servers (set up by Google and others) for the discovery of other peers. Once we use the ID assigned by the server to connect to each other, we are connected directly and don't need the server any more.
 
 The game operates no servers at all, therefore it does not have a server that stores a "list of players online" so you can choose your opponent more easily. You have to instead give your ID to your opponent via Discord or other platforms.
 
 See also [WebRTC (Web Real-Time Communication)](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) and [PeerJS library](https://peerjs.com/).
 
-The relay servers used here are free STUN servers set up by Google and others.
-
-Because currently the game operates and uses no TURN server, it can't connect two users who are both behind symetric NAT. I'll maybe set up and use TURN server in the future.
+Because currently the game operates and uses no [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server, it can't connect two users who are both behind symmetric NAT (which is a rare case). I'll maybe set up and use a TURN server in the future.
 
 </details>
 
@@ -189,7 +187,7 @@ The stack:
 <a href="https://www.adobe.com/products/photoshop.html" title="Adobe Photoshop"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/adobe-photoshop.svg" alt="Adobe Photoshop" width="21px" height="21px"></a>
 </p>
 
-[TypeScript](https://www.typescriptlang.org/) + [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [redux-observable](https://redux-observable.js.org/) + [RxJS](https://rxjs.dev/), CSS-based animations without \<canvas\>. [PWA](https://web.dev/progressive-web-apps/) (using [Workbox](https://developers.google.com/web/tools/workbox)). P2P Multiplayer Mode without server (only uses [STUN](https://en.wikipedia.org/wiki/STUN) servers as relay) with [WebRTC](https://webrtc.org/) (using [PeerJS](https://peerjs.com/)).
+[TypeScript](https://www.typescriptlang.org/) + [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [redux-observable](https://redux-observable.js.org/) + [RxJS](https://rxjs.dev/), CSS-based animations without \<canvas\>. [PWA](https://web.dev/progressive-web-apps/) (using [Workbox](https://developers.google.com/web/tools/workbox)). P2P Multiplayer Mode without server (only uses [STUN](https://en.wikipedia.org/wiki/STUN) servers for the discovery of other peers) with [WebRTC](https://webrtc.org/) (using [PeerJS](https://peerjs.com/)).
 
 ## To Do
 
