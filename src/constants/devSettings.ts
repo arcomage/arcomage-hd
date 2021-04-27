@@ -21,7 +21,7 @@ export const noDevLog = isProd || _noDevLog
 
 // if useAi is true, even when opponent cards are shown, they are unclickable
 
-export const aiExtraDelay = 5000
+export const aiExtraDelay = 4000
 
 // can discard "undiscardable" cards during the discard mode triggered by "draw discard playagain" cards
 export const canDiscardUndiscardableWhenDDP = false

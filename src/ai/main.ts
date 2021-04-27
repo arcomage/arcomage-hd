@@ -3,7 +3,21 @@ import cards from '../data/cards'
 import { AiCardListItemType, AiInstructionType } from '../types/ai'
 import { PersonStatusType, StatusType, WinSettingsType } from '../types/state'
 import { entries, fromEntries } from '../utils/typeHelpers'
-import coefs from './coefs'
+import { coefs } from './coefs'
+
+const statusCoefs = (() => {
+  const { bricks, gems, recruits, prod, tower, wall } = coefs
+  return {
+    bricks,
+    gems,
+    recruits,
+    brickProd: bricks * prod,
+    gemProd: gems * prod,
+    recruitProd: recruits * prod,
+    tower,
+    wall,
+  }
+})()
 
 // cardList is a list of all opponent card state objects,
 // each card state object includes two additional properties: canUse and canDiscard
@@ -13,13 +27,14 @@ export const aiDecision = (
   status: StatusType,
   winSettings: WinSettingsType,
 ): AiInstructionType | null => {
-  // cardList is not frozen
+  // you can edit the elements inside cardList
 
   const { player: pBefore, opponent: oBefore } = status
   // p and o are readonly
 
   for (const card of cardList) {
     card.score = 0
+
     const { index, n, canuse } = card
     const dataCard = cards[n]
     const { type, cost, special, effect } = dataCard
@@ -27,6 +42,7 @@ export const aiDecision = (
     const pAfter: PersonStatusType = { ...pBefore }
     const oAfter: PersonStatusType = { ...oBefore }
     effect(oAfter, pAfter)
+
     /**
      * win immediately (but not tie)
      */
@@ -48,12 +64,7 @@ export const aiDecision = (
       return { index, use: true }
     }
 
-    /**
-     * tie immediately
-     */
-    if (canuse && winImm && loseImm) {
-      return { index, use: true }
-    }
+    // =============================
 
     const oDiff = fromEntries<PersonStatusType>(
       entries(oBefore).map(([key, value]) => [key, oAfter[key] - value]),
@@ -65,12 +76,15 @@ export const aiDecision = (
     oDiff[resNames[type]] -= cost
 
     const oScore = allStatusNames
-      .map((statusName) => oDiff[statusName] * coefs[statusName])
+      .map((statusName) => oDiff[statusName] * statusCoefs[statusName])
       .reduce((a, b) => a + b, 0)
 
     // pScore here is positive
     const pScore = allStatusNames
-      .map((statusName) => pDiff[statusName] * coefs[statusName] * coefs.enemy)
+      .map(
+        (statusName) =>
+          pDiff[statusName] * statusCoefs[statusName] * coefs.attack,
+      )
       .reduce((a, b) => a + b, 0)
 
     card.score += oScore - pScore
@@ -87,8 +101,12 @@ export const aiDecision = (
       card.score += coefs.undiscardable
     }
 
-    if (loseImm) {
-      card.score -= coefs.loseDeduction
+    if (winImm && loseImm) {
+      card.score += coefs.tieBonus
+    }
+
+    if (!winImm && loseImm) {
+      card.score -= coefs.losePenalty
     }
   }
 
