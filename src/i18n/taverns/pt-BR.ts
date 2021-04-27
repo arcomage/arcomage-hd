@@ -10,8 +10,8 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Erathia',
   },
   // {
-  //   name: 'Emerald Inn',
-  //   location: 'The Tularean Forest',
+  //   name: 'Estalagem Esmeralda',
+  //   location: 'A Floresta Tularean',
   // },
   {
     name: 'O Goblin Esnobe',
@@ -26,8 +26,8 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Celeste',
   },
   // {
-  //   name: 'The Vampyre Lounge',
-  //   location: 'The Pit',
+  //   name: 'Salão do Vampyro',
+  //   location: 'O Fosso',
   // },
   {
     name: 'O Monge Risonho',
@@ -46,7 +46,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Tatalia',
   },
   // {
-  //   name: 'The Potted Pixie',
+  //   name: 'A Fada no Pote',
   //   location: 'Avlee',
   // },
   {
@@ -54,47 +54,47 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Cidade de Pedra',
   },
   // {
-  //   name: 'The Grog and Grub',
-  //   location: 'Dagger Wound Island',
+  //   name: 'O Grog e Grub',
+  //   location: 'Ilha Dagger Wound',
   // },
   // {
-  //   name: "Kessel's Kantina",
+  //   name: "Kantina de Kessel",
   //   location: 'Ravenshore',
   // },
   // {
-  //   name: 'Profit House',
+  //   name: 'Casa do Lucro',
   //   location: 'Alvar',
   // },
   // {
-  //   name: 'Parched Throat',
-  //   location: 'Ironsand Desert',
+  //   name: 'Garganta Ressecada',
+  //   location: 'Deserto Ironsand',
   // },
   // {
-  //   name: "Dragon's Blood Inn",
-  //   location: 'Garrote Gorge',
+  //   name: "Estalagem Sangue do Dragão",
+  //   location: 'Desfiladeiro Garrote',
   // },
   // {
-  //   name: 'Black Company',
+  //   name: 'Companhia Negra',
   //   location: 'Shadowspire',
   // },
   // {
-  //   name: "Traveler's Rest",
+  //   name: "Descanso do Viajante",
   //   location: 'Murmurwoods',
   // },
   // {
-  //   name: "Bull's Eye Inn",
+  //   name: "Estalagem do Olho do Boi",
   //   location: 'Ravage Roaming',
   // },
   // {
-  //   name: "Pirate's Rest",
+  //   name: "Descanso do Pirata",
   //   location: 'Regna',
   // },
   // {
-  //   name: 'The Dancing Ogre',
+  //   name: 'O Ogro Dançante',
   //   location: 'Ravenshore',
   // },
   // {
-  //   name: "Miho's Roadhouse",
+  //   name: "Estalagem do Miho",
   //   location: 'Alvar',
   // },
 ]
