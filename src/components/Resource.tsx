@@ -8,7 +8,7 @@ import ResourceNumber from './ResourceNumber'
 import brickBg from '../../assets/img/res_1.png'
 import gemBg from '../../assets/img/res_2.png'
 import recruitBg from '../../assets/img/res_3.png'
-import { I18nContext } from '../i18n/I18nContext'
+import { I18nContext, upper1st } from '../i18n/I18nContext'
 import { smallRootFontScreenMax, unitTextMaxLength } from '../constants/visuals'
 
 import brick from '../../assets/img/brick.svg'
@@ -145,9 +145,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
   // bg-blue-300
   // bg-green-300
 
-  const resProdTitle = _.i18n(
-    `${isOpponent ? "Opponent's" : 'Your'} %s`,
-  ).replace(
+  let resProdTitle = _.i18n(`${isOpponent ? "Opponent's" : 'Your'} %s`).replace(
     '%s',
     _.i18n('%s (%ss production)')
       .replace(
@@ -172,6 +170,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
         ),
       ),
   )
+  resProdTitle = upper1st(resProdTitle)
 
   const winResource = useAppSelector((state) => state.settings.winResource)
   let resTitle = _.i18n(`${isOpponent ? "Opponent's" : 'Your'} %sp`)
@@ -189,6 +188,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
   resTitle = _.i18n('%s1. Reach %s2 to win')
     .replace('%s1', resTitle)
     .replace('%s2', winResource.toString(10))
+  resTitle = upper1st(resTitle)
 
   return (
     <div className={cx('mb-3 p-1 shadow-lg', `bg-${color}-300`)}>
