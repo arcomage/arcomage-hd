@@ -6,8 +6,9 @@ const config = {
   port: 443,
   iceServers: [
     {
-      urls: icelist,
+      urls: icelist.map((stunUrl) => ({ url: `stun:${stunUrl}` })),
     },
+    // still needs some TURN servers to connect two users behind symetric NAT
   ],
 }
 
