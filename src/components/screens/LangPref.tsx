@@ -36,14 +36,14 @@ const LangPref = () => {
 
   return (
     <Window screenActionType={SCREEN_LANG_PREF}>
-      <div className="my-5 grid grid-cols-4 gap-4 justify-items-center no-erathian">
+      <div className="my-5 flex flex-wrap justify-center no-erathian">
         {entries(langs)
           .sort(([codeA], [codeB]) => codeA.localeCompare(codeB))
           .map(([code, name]) => (
             <button
               key={code}
               lang={code}
-              className={cx({ active: code === lang })}
+              className={cx('m-2', { active: code === lang })}
               onClick={() => {
                 dispatch({
                   type: UPDATE_LANG,

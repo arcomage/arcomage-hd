@@ -1,5 +1,4 @@
 import { AvailableLangType } from '../i18n/types'
-import { FormFieldsAllPartialType } from './formFields'
 
 export type PersonStatusType = {
   bricks: number
