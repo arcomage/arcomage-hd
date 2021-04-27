@@ -1,4 +1,8 @@
-import { UPDATE_STATUS, EXEC_CARD, ABORT_ALL } from '../../constants/ActionTypes'
+import {
+  UPDATE_STATUS,
+  EXEC_CARD,
+  ABORT_ALL,
+} from '../../constants/ActionTypes'
 import {
   RootActionType,
   UpdateStatusActionTypeSingle,
@@ -49,9 +53,7 @@ export default (
           noSound:
             action.owner === 'player' &&
             key === resName &&
-            value === resAfterCost
-              ? true
-              : false,
+            value === resAfterCost,
         }))
         .concat(
           entries(o)
@@ -63,9 +65,7 @@ export default (
               noSound:
                 action.owner === 'opponent' &&
                 key === resName &&
-                value === resAfterCost
-                  ? true
-                  : false,
+                value === resAfterCost,
             })),
         )
 

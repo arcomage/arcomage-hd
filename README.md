@@ -197,7 +197,7 @@ TypeScript + React + Redux + redux-observable + RxJS, CSS-based animations witho
 
 <details><summary><strong>Click to show the translation credits</strong></summary>
 
-* [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards) & many other strings: from *Might and Magic VIII* & *VI* original game. Extracted (or retranslated) by:
+* [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards) & many other strings: from *Might and Magic VIII* & *VI* original games. Extracted (or retranslated) by:
   * English (`en`): [Black Rabite on GameFAQs](https://gamefaqs.gamespot.com/pc/929601-arcomage/faqs/44131)
   * Russian (`ru`) (retranslated): [rayburn](https://github.com/TombOfVARN)
   * Simplified Chinese (`zh-Hans`): [xyz53235](https://blog.csdn.net/xyz53235/article/details/113663313)
@@ -210,7 +210,7 @@ TypeScript + React + Redux + redux-observable + RxJS, CSS-based animations witho
   * Polish (`pl`) (partially): Plamcia
   * All others: [Tom Chen](https://github.com/tomchen) by himself and/or with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
   * Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
-* [Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns): from *Might and Magic VIII* & *VI* original game. Extracted by [Tom Chen](https://github.com/tomchen) with [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction)
+* [Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns): from *Might and Magic VIII* & *VI* original games. Extracted by [Tom Chen](https://github.com/tomchen) with [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction)
 
 See also [Issue #9](https://github.com/arcomage/arcomage-hd/issues/9)
 

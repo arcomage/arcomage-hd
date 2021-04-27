@@ -2,12 +2,12 @@ import Queue from '../src/utils/Queue'
 
 const ns = [57, 68, 34, 9, 365]
 
-describe('drawCardQueueCls is OK', () => {
+describe('Queue is OK', () => {
   beforeAll(async () => {
     jest.setTimeout(10000)
   })
 
-  it('drawCardQueueCls sync functions are OK', () => {
+  it('Queue sync functions are OK', () => {
     const q = new Queue<number>()
     expect(q.size).toBe(0)
     q.enqueue(ns[0])
@@ -36,7 +36,7 @@ describe('drawCardQueueCls is OK', () => {
     expect(q.size).toBe(0)
   })
 
-  it('drawCardQueueCls dequeueAsync function is OK', async () => {
+  it('Queue dequeueAsync function is OK', async () => {
     expect.assertions(5)
     const q = new Queue<number>()
     expect(q.size).toBe(0)
