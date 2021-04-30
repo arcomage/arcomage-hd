@@ -8,7 +8,7 @@ This not-for-profit fan-remake of the tower defense, resource management fantasy
 
 It's available in 11 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese.
 
-The default single player mode (against computer AI 🤖) is stable✔️. I recently added [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which is generally good (for users NOT behind symmetric NAT ([test if you're behind "bad", symmetric NAT](https://tomchen.github.io/symmetric-nat-test/))) but may need more tests🧪. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
+The default single player mode (against computer AI 🤖) is stable✔️. I recently added [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which is generally good (unless both players are behind "bad", symmetric NAT ([detect your NAT type](https://tomchen.github.io/symmetric-nat-test/))) but may need more tests🧪. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
 
 It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and browsers with Chrome's Blink engine, and may or may not have performance issues in Safari & Firefox. Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead).
 
@@ -134,13 +134,13 @@ It could be other key instead of <kbd>Alt</kbd>
 
 ## Multiplayer Mode
 
-*(Multiplayer Mode is experimental🧪 and may be unstable. Also note that currently it can't connect two users who are both behind symmetric NAT ([test if you're behind symmetric NAT](https://tomchen.github.io/symmetric-nat-test/)))*
+*(Multiplayer Mode is experimental🧪 and may be unstable. Also note that currently it **can't connect two users who are both behind symmetric NAT** ([test if you're behind "bad", symmetric NAT](https://tomchen.github.io/symmetric-nat-test/)))*
 
 ### How To Use the Multiplayer Mode
 
 https://user-images.githubusercontent.com/529949/115864733-941cbd00-a437-11eb-955d-f6a341c8ea64.mp4
 
-Both players enable the "Multiplayer" Mode. Bob 🧝 must copy and **give his ID to Alice 👧 via Discord or other platforms or forums**. Alice 👧 then enters Bob 🧝's ID and connect to Bob 🧝. Alice 👧 becomes the host 🏠 (i.e. technically it's her computer that deals cards) and Bob 🧝 is the guest 💼.
+Both players enable the "Multiplayer" Mode. Bob 🧝 must copy and **give his ID to Alice 👧 via Discord, forums, etc.**. Alice 👧 then enters Bob 🧝's ID and connect to Bob 🧝. Alice 👧 becomes the host 🏠 (i.e. technically it's her computer that deals cards) and Bob 🧝 is the guest 💼.
 
 <details><summary><strong>Click to show technical details</strong></summary>
 
@@ -165,7 +165,7 @@ The stack:
 <a href="https://reactjs.org/" title="React"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/react.svg" alt="React" width="21px" height="21px"></a>
 <a href="https://redux.js.org/" title="Redux"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/redux.svg" alt="Redux" width="21px" height="21px"></a>
 <a href="https://github.com/redux-observable/redux-observable" title="redux-observable"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/redux-observable.svg" alt="redux-observable" width="21px" height="21px"></a>
-<a href="https://rxjs-dev.firebaseapp.com/" title="RxJS (ReactiveX)"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/reactivex.svg" alt="RxJS (ReactiveX)" width="21px" height="21px"></a>
+<a href="https://rxjs.dev/" title="RxJS (ReactiveX)"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/reactivex.svg" alt="RxJS (ReactiveX)" width="21px" height="21px"></a>
 <a href="https://webrtc.org/" title="WebRTC"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/webrtc.svg" alt="WebRTC" width="21px" height="21px"></a>
 <a href="https://developers.google.com/web/tools/workbox" title="Workbox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/workbox-icon.svg" alt="Workbox" width="21px" height="21px"></a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/javascript.svg" alt="JavaScript" width="21px" height="21px"></a>
@@ -187,23 +187,17 @@ The stack:
 <a href="https://www.adobe.com/products/photoshop.html" title="Adobe Photoshop"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/adobe-photoshop.svg" alt="Adobe Photoshop" width="21px" height="21px"></a>
 </p>
 
-[TypeScript](https://www.typescriptlang.org/) + [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [redux-observable](https://redux-observable.js.org/) + [RxJS](https://rxjs.dev/), CSS-based animations without \<canvas\>. [PWA](https://web.dev/progressive-web-apps/) (using [Workbox](https://developers.google.com/web/tools/workbox)). P2P Multiplayer Mode without server (only uses [STUN](https://en.wikipedia.org/wiki/STUN) servers for the discovery of other peers) with [WebRTC](https://webrtc.org/) (using [PeerJS](https://peerjs.com/)).
+[TypeScript](https://www.typescriptlang.org/) + [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [redux-observable](https://redux-observable.js.org/) + [RxJS](https://rxjs.dev/), CSS-based animations (without [rAF](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) or \<canvas\>). [PWA](https://web.dev/progressive-web-apps/) (using [Workbox](https://developers.google.com/web/tools/workbox)).
+
+P2P Multiplayer Mode without server (only uses [STUN](https://en.wikipedia.org/wiki/STUN) servers for the discovery of other peers) with [WebRTC](https://webrtc.org/) (using [PeerJS](https://peerjs.com/)).
+
+Images upscaled with the library [waifu2x](https://github.com/nagadomi/waifu2x) / [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe). Card text extracted with the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
+
+Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arcomage-hd/tree/main/tools). See also `scripts` section in [`package.json`](https://github.com/arcomage/arcomage-hd/blob/main/package.json). [yarn](https://yarnpkg.com/) v1 is the preferred package manager.
 
 ## To Do
 
 [To-do list](https://github.com/arcomage/arcomage-hd/projects/1)
-
-## Arcomage original game
-
-Arcomage was initially developed by Stickman Games and later sold to The 3DO Company (3DO). The game appeared as a mini-game in *Might and Magic VII: For Blood and Honor* (MM7) and *Might and Magic VIII: Day of the Destroyer* (MM8), the seventh and eighth games in New World Computing (NWC)'s *Might and Magic* (MM) series. (It's like *Gwent* in *The Witcher*) NWC and its parent company, 3DO, also released a stand-alone version in 2000, which can be played in single player or multi player mode. The original stand-alone Arcomage has a resolution of 800 x 600 pixels and is usable in 16-bit color mode in Windows 10, but the graphics is unstable.
-
-## Copyright
-
-The code of the ArcoMage HD game: MIT License (c) 2021 [Tom Chen](https://github.com/tomchen).
-
-The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company.
-
-See [LICENSE.md file](LICENSE.md) for a detailed presentation of the copyright status of the game's components.
 
 ## Translation Credits
 
@@ -225,4 +219,16 @@ See [LICENSE.md file](LICENSE.md) for a detailed presentation of the copyright s
 * [Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns): from *Might and Magic VIII* & *VI* original games. Extracted by [Tom Chen](https://github.com/tomchen) with [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction). Except for:
   * Brazilian Portuguese (`pt-BR`): [mateuscv](https://github.com/mateuscv)
 
-*See also [Issue #9](https://github.com/arcomage/arcomage-hd/issues/9)*
+*See also [I18N Issue Page](https://github.com/arcomage/arcomage-hd/issues/9)*
+
+## Arcomage original game
+
+Arcomage was initially developed by Stickman Games and later sold to The 3DO Company (3DO). The game appeared as a mini-game in *Might and Magic VII: For Blood and Honor* (MM7) and *Might and Magic VIII: Day of the Destroyer* (MM8), the seventh and eighth games in New World Computing (NWC)'s *Might and Magic* (MM) series. (It's like *Gwent* in *The Witcher*) NWC and its parent company, 3DO, also released a stand-alone version in 2000, which can be played in single player or multi player mode. The original stand-alone Arcomage has a resolution of 800 x 600 pixels and is usable in 16-bit color mode in Windows 10, but the graphics is unstable.
+
+## Copyright
+
+The code of the ArcoMage HD game: MIT License (c) 2021 [Tom Chen](https://github.com/tomchen).
+
+The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company.
+
+See [LICENSE.md file](LICENSE.md) for a detailed presentation of the copyright status of the game's components.
