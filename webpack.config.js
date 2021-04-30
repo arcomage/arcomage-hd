@@ -52,12 +52,6 @@ module.exports = (env, argv) => {
           },
         },
         {
-          test: /\.html$/,
-          use: {
-            loader: 'html-loader',
-          },
-        },
-        {
           test: /\.(s?c|sa)ss$/i,
           use: [
             'style-loader',
