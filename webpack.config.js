@@ -21,6 +21,7 @@ module.exports = (env, argv) => {
       filename: '[name].[contenthash:6].js',
       chunkFilename: '[name].[contenthash:6].js',
       publicPath: dev || local ? '' : homeUrl,
+      assetModuleFilename: 'assets/img/[hash].[ext]',
     },
     ...(dev ? { devtool: 'eval-cheap-module-source-map' } : {}),
     devServer: {
@@ -86,50 +87,26 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.svg$/i,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: 'assets/img/[hash].[ext]',
-              },
-            },
-            {
-              loader: 'svgo-loader',
-            },
-          ],
+          type: 'asset/resource',
+          use: 'svgo-loader',
         },
         {
           test: /\.(png|jpe?g|gif|ico)$/i,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: 'assets/img/[hash].[ext]',
-              },
-            },
-          ],
+          type: 'asset/resource',
         },
         {
           test: /\.(woff|woff2|otf|eot|ttf)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: 'assets/font/[hash].[ext]',
-              },
-            },
-          ],
+          type: 'asset/resource',
+          generator: {
+            filename: 'assets/font/[hash].[ext]',
+          },
         },
         {
           test: /\.(wav|mp3)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: 'assets/sfx/[hash].[ext]',
-              },
-            },
-          ],
+          type: 'asset/resource',
+          generator: {
+            filename: 'assets/sfx/[hash].[ext]',
+          },
         },
       ],
     },

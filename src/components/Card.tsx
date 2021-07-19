@@ -433,9 +433,7 @@ const Card = ({
               'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-500 font-bold uppercase text-shadow-stroke',
             )}
             style={{
-              backgroundImage: `url(${
-                require(`../../assets/img/cards/${n}.png`).default
-              })`,
+              backgroundImage: `url(${require(`../../assets/img/cards/${n}.png`)})`,
             }}
           >
             {discarded && _.i18n('discarded')}
