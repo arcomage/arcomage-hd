@@ -49,7 +49,7 @@ export const i18n = {
   'Cards in Hand': '手中牌数量',
   'AI Type': 'AI类型',
 
-  Multiplayer: '多人游戏',
+  Multiplayer: '二人对战模式',
   off: '停用',
   on: '启用',
   'Your ID': '你的ID',
@@ -71,8 +71,8 @@ export const i18n = {
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
     '你和对手已断开连接。请进入“设置”窗口并开始新游戏。',
 
-  'Multiplayer Mode is experimental and unstable':
-    '二人对战模式目前是测试版，不稳定',
+  'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
+    '二人对战模式是测试版，只对非对称NAT用户有效',
 
   Reset: '重置',
   'Apply & New Game': '应用设置并新开一局',

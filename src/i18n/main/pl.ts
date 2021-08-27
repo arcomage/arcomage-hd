@@ -74,8 +74,8 @@ export const i18n = {
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
     'Ty i twój przeciwnik jesteście rozłączeni. Przejdź do "Preferencje" i rozpocznij nową grę.',
 
-  'Multiplayer Mode is experimental and unstable':
-    'Tryb multiplayer jest eksperymentalny i niestabilny',
+  'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
+    'Tryb multiplayer jest eksperymentalny i działa tylko dla użytkowników za niesymetrycznym NAT',
 
   Reset: 'Resetuj',
   'Apply & New Game': 'Akceptuj i zacznij grę',
@@ -91,8 +91,7 @@ export const i18n = {
 
   'ArcoMage HD': 'ArcoMage HD',
 
-  DESC:
-    'Sieciowy, otwartoźródłowy klon 3DO i gry karcianej Arcomage z 2000 roku firmy NWC',
+  DESC: 'Sieciowy, otwartoźródłowy klon 3DO i gry karcianej Arcomage z 2000 roku firmy NWC',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     'Proszę przejść do %s, aby zobaczyć więcej informacji (w tym %s1), uruchomić repo i śledzić %s2 tam.',

@@ -15,11 +15,11 @@ export const i18n = {
   dungeon: 'masmorra', // i.e. recruit production
 
   'Your %s': 'Sua %s', // Your quarry/tower
-  "Opponent's %s": "%s do oponente", // Opponent's quarry/tower
+  "Opponent's %s": '%s do oponente', // Opponent's quarry/tower
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Seus %sp', // Your bricks
-  "Opponent's %sp": "%sp do oponente", // Opponent's bricks
+  "Opponent's %sp": '%sp do oponente', // Opponent's bricks
 
   '%s1. Reach %s2 to win': '%s1. Chegue a %s2 para vencer', // Your tower/bricks/gems/recruits. Reach 100 to win
 
@@ -39,7 +39,7 @@ export const i18n = {
   Preferences: 'Preferências',
   ': ': ': ',
   'Your Name': 'Seu Nome',
-  "Opponent's Name": "Nome do Oponente",
+  "Opponent's Name": 'Nome do Oponente',
   'Choose a Tavern (Preset Preferences)':
     'Escolha uma Taverna (Preferências Predefinidas)',
   Default: 'Padrão',
@@ -54,7 +54,7 @@ export const i18n = {
   off: 'desligado',
   on: 'ligado',
   'Your ID': 'Seu ID',
-  "Enter your opponent's ID": "Insira o ID de seu oponente",
+  "Enter your opponent's ID": 'Insira o ID de seu oponente',
   Connect: 'Conectar',
   'Copied 📋✔️': 'Copiado 📋✔️',
 
@@ -63,19 +63,20 @@ export const i18n = {
     'Conectado à rede (mas não à alguém) ✔️',
   'Connecting to ID %s ⌛': 'Conectando ao ID %s ⌛',
   "Connected to ID %s ✔️ You're the host 🏠":
-    "Conectado ao ID %s ✔️ Você é o host 🏠",
+    'Conectado ao ID %s ✔️ Você é o host 🏠',
   "Connected by ID %s ✔️ You're the guest 💼":
-    "Conectado pelo ID %s ✔️ Você é o convidado 💼",
+    'Conectado pelo ID %s ✔️ Você é o convidado 💼',
   'Connection failed ❌': 'Conexão falhou ❌',
   'Disconnected 🔌': 'Desconectado 🔌',
-  'You are playing against computer AI': 'Você está jogando contra a IA do computador',
+  'You are playing against computer AI':
+    'Você está jogando contra a IA do computador',
   'You are playing against human': 'Você está jogando contra um humano',
 
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
     'Você e seu oponente estão desconectados. Por favor, vá até "Preferências" e inicie um novo jogo.',
 
-  'Multiplayer Mode is experimental and unstable':
-    'O Modo Multijogador é experimental e instável',
+  'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
+    'O modo Multiplayer é experimental e funciona apenas para usuários por trás de NAT não simétrico',
 
   Reset: 'Redefinir',
   'Apply & New Game': 'Aplicar & Novo Jogo',
@@ -91,8 +92,7 @@ export const i18n = {
 
   'ArcoMage HD': 'ArcoMage HD',
 
-  DESC:
-    "Clone HD, baseado em web e de código aberto do jogo de cartas Arcomage, da 3DO e NWC, lançado em 2000.",
+  DESC: 'Clone HD, baseado em web e de código aberto do jogo de cartas Arcomage, da 3DO e NWC, lançado em 2000.',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     'Por favor, acesse a %s para ver mais informações (incluindo %s1), marcar o repositório com estrela e seguir %s2.',

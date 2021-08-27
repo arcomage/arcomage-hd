@@ -672,7 +672,9 @@ const Pref = () => {
           <span>
             {_.i18n('Multiplayer')}
             <TooltipAll
-              title={_.i18n('Multiplayer Mode is experimental and unstable')}
+              title={_.i18n(
+                'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT',
+              )}
               placement="top"
             >
               <span>🧪</span>
