@@ -46,7 +46,7 @@ Depending on your browser, sometimes you may need to press <kbd>Ctrl</kbd> + <kb
 
 ## Desktop Version
 
-**If you don't have performance issues playing ArcoMage HD in your browser, then you don't need to use the Desktop Version.**
+**If you don't have performance issues playing ArcoMage HD in your browser, then you don't need the Desktop Version.**
 
 Some browsers, such as Firefox and Safari, that are not Chrome's engine based, may (or may not) be a bit slow running ArcoMage HD. In this case, you can use the Desktop Version.
 
