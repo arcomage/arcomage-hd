@@ -93,13 +93,23 @@ const Bird = () => {
   return (
     <>
       <div
-        className={cx('z-10', classes.birdcontainer, classes.birdcontainer1)}
+        className={cx(
+          'z-10',
+          classes.birdcontainer,
+          classes.birdcontainer1,
+          'motion-reduce:hidden',
+        )}
       >
         <div className={cx(classes.bird, classes.bird1)}></div>
       </div>
 
       <div
-        className={cx('z-10', classes.birdcontainer, classes.birdcontainer2)}
+        className={cx(
+          'z-10',
+          classes.birdcontainer,
+          classes.birdcontainer2,
+          'motion-reduce:hidden',
+        )}
       >
         <div className={cx(classes.bird, classes.bird2)}></div>
       </div>

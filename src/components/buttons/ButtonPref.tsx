@@ -18,9 +18,11 @@ const useStyles = createUseStyles<string>({
   },
   prefButton: {
     left: '60%',
-    '&:hover, &.windowactive': {
-      '& svg': {
-        animation: '$rotate 2s linear infinite',
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      '&:hover, &.windowactive': {
+        '& svg': {
+          animation: '$rotate 2s linear infinite',
+        },
       },
     },
   },

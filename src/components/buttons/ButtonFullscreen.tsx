@@ -29,19 +29,21 @@ const useStyles = createUseStyles<string>({
 
   fullscreenButton: {
     left: 'calc(60% + 9rem)',
-    '&:hover': {
-      '& svg': {
-        '& .el-0': {
-          animation: '$moveto-tl 0.6s linear infinite',
-        },
-        '& .el-1': {
-          animation: '$moveto-tr 0.6s linear infinite',
-        },
-        '& .el-2': {
-          animation: '$moveto-bl 0.6s linear infinite',
-        },
-        '& .el-3': {
-          animation: '$moveto-br 0.6s linear infinite',
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      '&:hover': {
+        '& svg': {
+          '& .el-0': {
+            animation: '$moveto-tl 0.6s linear infinite',
+          },
+          '& .el-1': {
+            animation: '$moveto-tr 0.6s linear infinite',
+          },
+          '& .el-2': {
+            animation: '$moveto-bl 0.6s linear infinite',
+          },
+          '& .el-3': {
+            animation: '$moveto-br 0.6s linear infinite',
+          },
         },
       },
     },

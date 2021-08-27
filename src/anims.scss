@@ -53,3 +53,10 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}

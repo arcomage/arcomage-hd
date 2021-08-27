@@ -19,10 +19,12 @@ const useStyles = createUseStyles({
     top: '-0.5em',
     left: '0.4em',
     opacity: 0,
-    'will-change': 'transform, opacity',
-    'animation-name': '$fadeOutUp',
-    'animation-duration': `${numberDiffDuration}ms`,
-    'animation-timing-function': 'ease-out',
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      'will-change': 'transform, opacity',
+      'animation-name': '$fadeOutUp',
+      'animation-duration': `${numberDiffDuration}ms`,
+      'animation-timing-function': 'ease-out',
+    },
   },
 })
 
@@ -46,9 +48,9 @@ const NumberDiff = ({ n }: PropType) => {
         )
         divEl.className = cx(
           classes.main,
-          `absolute font-mono text-2xl text-${
-            diff >= 0 ? 'green' : 'red'
-          }-500 text-shadow-md`,
+          'absolute font-mono text-2xl',
+          `text-${diff >= 0 ? 'green' : 'red'}-500`,
+          'text-shadow-md',
         )
         divEl.appendChild(textNode)
         mainEl.appendChild(divEl)

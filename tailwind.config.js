@@ -1,6 +1,6 @@
 const colors = require('tailwindcss/colors')
-const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette')
-  .default
+const flattenColorPalette =
+  require('tailwindcss/lib/util/flattenColorPalette').default
 const forms = require('@tailwindcss/forms')
 
 module.exports = {
@@ -37,12 +37,9 @@ module.exports = {
     boxShadow: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.25)',
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.3)',
-      md:
-        '0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3)',
-      lg:
-        '0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.25)',
-      xl:
-        '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
+      md: '0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3)',
+      lg: '0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.25)',
+      xl: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
       '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.9)',
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.30)',
@@ -68,7 +65,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      display: ['motion-reduce'],
+    },
   },
 
   plugins: [

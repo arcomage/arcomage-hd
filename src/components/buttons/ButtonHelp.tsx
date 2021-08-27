@@ -21,9 +21,11 @@ const useStyles = createUseStyles<string>({
   },
   helpButton: {
     left: 'calc(60% + 12rem)',
-    '&:hover, &.windowactive': {
-      '& svg': {
-        animation: '$rotate2 2s linear infinite',
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      '&:hover, &.windowactive': {
+        '& svg': {
+          animation: '$rotate2 2s linear infinite',
+        },
       },
     },
   },

@@ -34,19 +34,21 @@ const useStyles = createUseStyles<string>({
   },
   volumePrefButton: {
     left: 'calc(60% + 6rem)',
-    '&:hover, &.windowactive': {
-      '& svg': {
-        '& .el-1': {
-          visibility: 'hidden',
-          animation: '$visible-1-3 2s linear infinite',
-        },
-        '& .el-2': {
-          visibility: 'hidden',
-          animation: '$visible-2-3 2s linear infinite',
-        },
-        '& .el-3': {
-          visibility: 'hidden',
-          animation: '$visible-3-3 2s linear infinite',
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      '&:hover, &.windowactive': {
+        '& svg': {
+          '& .el-1': {
+            visibility: 'hidden',
+            animation: '$visible-1-3 2s linear infinite',
+          },
+          '& .el-2': {
+            visibility: 'hidden',
+            animation: '$visible-2-3 2s linear infinite',
+          },
+          '& .el-3': {
+            visibility: 'hidden',
+            animation: '$visible-3-3 2s linear infinite',
+          },
         },
       },
     },

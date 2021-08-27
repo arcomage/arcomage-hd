@@ -8,7 +8,7 @@ This not-for-profit fan-remake of the tower defense, resource management fantasy
 
 It's available in 11 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese.
 
-By default, you play against computer AI 🤖 in the Single Player Mode. You can also switch to [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which is nearly stable in the latest version. Note that if both players are behind "bad", symmetric NAT ([detect your NAT type](https://tomchen.github.io/symmetric-nat-test/)), the Multiplayer Mode won't work. Click gear ⚙️ icon in the game to open the "Preferences" window so you can change settings and/or switch to Multiplayer Mode.
+By default, you play against computer AI 🤖 in the Single Player Mode. You can also switch to [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which is nearly stable in the latest version. Note that if both players are behind "bad", symmetric NAT ([detect your NAT type](https://tomchen.github.io/symmetric-nat-test/)), the Multiplayer Mode won't work. Click gear ⚙️ icon in the game to open the "Preferences" window so you can switch to Multiplayer Mode or change other settings.
 
 It supports <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and browsers with Chrome's Blink engine, and may or may not have performance issues in Safari & Firefox. Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead).
 
@@ -96,7 +96,7 @@ If you install both Google Chrome and the Desktop Version, the Desktop Version w
 
 </details>
 
-## Keyboard Control
+## Keyboard Control & Accessibility
 
 The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
 
@@ -131,6 +131,8 @@ It could be other key instead of <kbd>Alt</kbd>
 [The way to activate the accesskey depends on the browser and its platform](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey), it's "<kbd>Alt</kbd> + key" in Chrome Windows/Linux.
 
 </details>
+
+The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compatible. It also supports [Reduce Motion (aka. "Show / Turn off animations")](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences) preference of operating systems and browsers.
 
 ## Multiplayer Mode
 

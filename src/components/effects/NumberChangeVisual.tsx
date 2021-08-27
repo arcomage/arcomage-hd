@@ -21,10 +21,12 @@ const useStyles = createUseStyles({
   },
 
   main: {
-    'will-change': 'background-position',
     'background-repeat': 'no-repeat',
-    'animation-duration': `${numberChangeVisualDuration}ms`,
-    'animation-iteration-count': 1,
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      'will-change': 'background-position',
+      'animation-duration': `${numberChangeVisualDuration}ms`,
+      'animation-iteration-count': 1,
+    },
   },
 
   explosion: {
@@ -33,8 +35,10 @@ const useStyles = createUseStyles({
     top: 0,
     left: 0,
     'background-image': `url(${explosion})`,
-    'animation-name': '$explosion',
-    'animation-timing-function': 'steps(21)',
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      'animation-name': '$explosion',
+      'animation-timing-function': 'steps(21)',
+    },
   },
 
   firework: {
@@ -43,8 +47,10 @@ const useStyles = createUseStyles({
     top: '-300%',
     left: '1rem',
     'background-image': `url(${firework})`,
-    'animation-name': '$firework',
-    'animation-timing-function': 'steps(31)',
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      'animation-name': '$firework',
+      'animation-timing-function': 'steps(31)',
+    },
   },
 })
 

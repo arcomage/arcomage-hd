@@ -44,19 +44,21 @@ const useStyles = createUseStyles<string>({
         visibility: 'hidden',
       },
     },
-    '&:hover': {
-      '& svg': {
-        '& .el-0': {
-          visibility: 'hidden',
-          animation: '$visible1by1-2-3 0.4s linear infinite',
-        },
-        '& .el-1': {
-          visibility: 'visible',
-          animation: '$visible1by1-1-3 0.4s linear infinite',
-        },
-        '& .el-2': {
-          visibility: 'hidden',
-          animation: '$visible1by1-3-3 0.4s linear infinite',
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      '&:hover': {
+        '& svg': {
+          '& .el-0': {
+            visibility: 'hidden',
+            animation: '$visible1by1-2-3 0.4s linear infinite',
+          },
+          '& .el-1': {
+            visibility: 'visible',
+            animation: '$visible1by1-1-3 0.4s linear infinite',
+          },
+          '& .el-2': {
+            visibility: 'hidden',
+            animation: '$visible1by1-3-3 0.4s linear infinite',
+          },
         },
       },
     },

@@ -187,117 +187,119 @@ const useStyles = createUseStyles<string>({
   },
   langPrefButton: {
     left: 'calc(60% + 3rem)',
-    '&:hover, &.windowactive': {
-      '& svg': {
-        '& .el-1': {
-          'stroke-dasharray': 10.843,
-          'stroke-dashoffset': 10.843,
-          animation: '$draw-1-8 2s linear infinite',
-        },
-        '& .el-2': {
-          'stroke-dasharray': 9.055,
-          'stroke-dashoffset': 9.055,
-          animation: '$draw-2-8 2s linear infinite',
-        },
-        '& .el-3': {
-          'stroke-dasharray': 9.165,
-          'stroke-dashoffset': 9.165,
-          animation: '$draw-3-8 2s linear infinite',
-        },
-        '& .el-4': {
-          'stroke-dasharray': 2.936,
-          'stroke-dashoffset': 2.936,
-          animation: '$draw-4-8 2s linear infinite',
-        },
-        '& .el-5': {
-          'stroke-dasharray': 7.892,
-          'stroke-dashoffset': 7.892,
-          animation: '$draw-5-8 2s linear infinite',
-        },
-        '& .el-6': {
-          'stroke-dasharray': 8.372,
-          'stroke-dashoffset': 8.372,
-          animation: '$draw-6-8 2s linear infinite',
-        },
-        '& .el-7': {
-          'stroke-dasharray': 7.861,
-          'stroke-dashoffset': 7.861,
-          animation: '$draw-7-8 2s linear infinite',
-        },
-        '& .el-8': {
-          'stroke-dasharray': 18.073,
-          'stroke-dashoffset': 18.073,
-          animation: '$draw-8-8 2s linear infinite',
-        },
-        '& .el-9': {
-          'stroke-dasharray': 2.411,
-          'stroke-dashoffset': 2.411,
-          animation: '$draw-1-14 2s linear infinite',
-        },
-        '& .el-10': {
-          'stroke-dasharray': 5.672,
-          'stroke-dashoffset': 5.672,
-          animation: '$draw-2-14 2s linear infinite',
-        },
-        '& .el-11': {
-          'stroke-dasharray': 4.485,
-          'stroke-dashoffset': 4.485,
-          animation: '$draw-3-14 2s linear infinite',
-        },
-        '& .el-12': {
-          'stroke-dasharray': 4.501,
-          'stroke-dashoffset': 4.501,
-          animation: '$draw-4-14 2s linear infinite',
-        },
-        '& .el-13': {
-          'stroke-dasharray': 5.141,
-          'stroke-dashoffset': 5.141,
-          animation: '$draw-5-14 2s linear infinite',
-        },
-        '& .el-14': {
-          'stroke-dasharray': 7.75,
-          'stroke-dashoffset': 7.75,
-          animation: '$draw-6-14 2s linear infinite',
-        },
-        '& .el-15': {
-          'stroke-dasharray': 3.298,
-          'stroke-dashoffset': 3.298,
-          animation: '$draw-7-14 2s linear infinite',
-        },
-        '& .el-16': {
-          'stroke-dasharray': 7.782,
-          'stroke-dashoffset': 7.782,
-          animation: '$draw-8-14 2s linear infinite',
-        },
-        '& .el-17': {
-          'stroke-dasharray': 4.915,
-          'stroke-dashoffset': 4.915,
-          animation: '$draw-9-14 2s linear infinite',
-        },
-        '& .el-18': {
-          'stroke-dasharray': 8.359,
-          'stroke-dashoffset': 8.359,
-          animation: '$draw-10-14 2s linear infinite',
-        },
-        '& .el-19': {
-          'stroke-dasharray': 8.391,
-          'stroke-dashoffset': 8.391,
-          animation: '$draw-11-14 2s linear infinite',
-        },
-        '& .el-20': {
-          'stroke-dasharray': 5.531,
-          'stroke-dashoffset': 5.531,
-          animation: '$draw-12-14 2s linear infinite',
-        },
-        '& .el-21': {
-          'stroke-dasharray': 10.172,
-          'stroke-dashoffset': 10.172,
-          animation: '$draw-13-14 2s linear infinite',
-        },
-        '& .el-22': {
-          'stroke-dasharray': 5.36,
-          'stroke-dashoffset': 5.36,
-          animation: '$draw-14-14 2s linear infinite',
+    '@media screen and (prefers-reduced-motion: no-preference)': {
+      '&:hover, &.windowactive': {
+        '& svg': {
+          '& .el-1': {
+            'stroke-dasharray': 10.843,
+            'stroke-dashoffset': 10.843,
+            animation: '$draw-1-8 2s linear infinite',
+          },
+          '& .el-2': {
+            'stroke-dasharray': 9.055,
+            'stroke-dashoffset': 9.055,
+            animation: '$draw-2-8 2s linear infinite',
+          },
+          '& .el-3': {
+            'stroke-dasharray': 9.165,
+            'stroke-dashoffset': 9.165,
+            animation: '$draw-3-8 2s linear infinite',
+          },
+          '& .el-4': {
+            'stroke-dasharray': 2.936,
+            'stroke-dashoffset': 2.936,
+            animation: '$draw-4-8 2s linear infinite',
+          },
+          '& .el-5': {
+            'stroke-dasharray': 7.892,
+            'stroke-dashoffset': 7.892,
+            animation: '$draw-5-8 2s linear infinite',
+          },
+          '& .el-6': {
+            'stroke-dasharray': 8.372,
+            'stroke-dashoffset': 8.372,
+            animation: '$draw-6-8 2s linear infinite',
+          },
+          '& .el-7': {
+            'stroke-dasharray': 7.861,
+            'stroke-dashoffset': 7.861,
+            animation: '$draw-7-8 2s linear infinite',
+          },
+          '& .el-8': {
+            'stroke-dasharray': 18.073,
+            'stroke-dashoffset': 18.073,
+            animation: '$draw-8-8 2s linear infinite',
+          },
+          '& .el-9': {
+            'stroke-dasharray': 2.411,
+            'stroke-dashoffset': 2.411,
+            animation: '$draw-1-14 2s linear infinite',
+          },
+          '& .el-10': {
+            'stroke-dasharray': 5.672,
+            'stroke-dashoffset': 5.672,
+            animation: '$draw-2-14 2s linear infinite',
+          },
+          '& .el-11': {
+            'stroke-dasharray': 4.485,
+            'stroke-dashoffset': 4.485,
+            animation: '$draw-3-14 2s linear infinite',
+          },
+          '& .el-12': {
+            'stroke-dasharray': 4.501,
+            'stroke-dashoffset': 4.501,
+            animation: '$draw-4-14 2s linear infinite',
+          },
+          '& .el-13': {
+            'stroke-dasharray': 5.141,
+            'stroke-dashoffset': 5.141,
+            animation: '$draw-5-14 2s linear infinite',
+          },
+          '& .el-14': {
+            'stroke-dasharray': 7.75,
+            'stroke-dashoffset': 7.75,
+            animation: '$draw-6-14 2s linear infinite',
+          },
+          '& .el-15': {
+            'stroke-dasharray': 3.298,
+            'stroke-dashoffset': 3.298,
+            animation: '$draw-7-14 2s linear infinite',
+          },
+          '& .el-16': {
+            'stroke-dasharray': 7.782,
+            'stroke-dashoffset': 7.782,
+            animation: '$draw-8-14 2s linear infinite',
+          },
+          '& .el-17': {
+            'stroke-dasharray': 4.915,
+            'stroke-dashoffset': 4.915,
+            animation: '$draw-9-14 2s linear infinite',
+          },
+          '& .el-18': {
+            'stroke-dasharray': 8.359,
+            'stroke-dashoffset': 8.359,
+            animation: '$draw-10-14 2s linear infinite',
+          },
+          '& .el-19': {
+            'stroke-dasharray': 8.391,
+            'stroke-dashoffset': 8.391,
+            animation: '$draw-11-14 2s linear infinite',
+          },
+          '& .el-20': {
+            'stroke-dasharray': 5.531,
+            'stroke-dashoffset': 5.531,
+            animation: '$draw-12-14 2s linear infinite',
+          },
+          '& .el-21': {
+            'stroke-dasharray': 10.172,
+            'stroke-dashoffset': 10.172,
+            animation: '$draw-13-14 2s linear infinite',
+          },
+          '& .el-22': {
+            'stroke-dasharray': 5.36,
+            'stroke-dashoffset': 5.36,
+            animation: '$draw-14-14 2s linear infinite',
+          },
         },
       },
     },
