@@ -27,9 +27,19 @@ module.exports = (env, argv) => {
     devServer: {
       port: 8080,
       open: true,
-      stats: {
-        performance: false,
+      client: {
+        overlay: {
+          errors: true,
+          warnings: false,
+        },
       },
+      // devMiddleware: {
+      //   stats: {
+      //     errors: true,
+      //     warnings: false,
+      //     errorDetails: true,
+      //   },
+      // },
     },
     resolve: {
       extensions: [
