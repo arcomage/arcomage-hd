@@ -11,7 +11,7 @@ export const i18n = {
   recruits: 'příšery',
 
   quarry: 'těžba', // i.e. brick production
-  magic: 'magic', // i.e. gem production
+  magic: 'magie', // i.e. gem production
   dungeon: 'jeskyně', // i.e. recruit production
 
   'Your %s': 'Tvůj/Tvoje %s', // Your quarry/tower
@@ -58,26 +58,26 @@ export const i18n = {
   Connect: 'Připojit',
   'Copied 📋✔️': 'Zkopírováno 📋✔️',
 
-  'Connecting to the network ⌛': 'Connecting to the network ⌛',
+  'Connecting to the network ⌛': 'Připojení k síti ⌛',
   'Connected to the network (but not to anyone) ✔️':
-    'Connected to the network (but not to anyone) ✔️',
-  'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
+    'Připojeno k síti (ale ne k nikomu) ✔️',
+  'Connecting to ID %s ⌛': 'Připojení k ID %s ⌛',
   "Connected to ID %s ✔️ You're the host 🏠":
-    "Connected to ID %s ✔️ You're the host 🏠",
+    'Připojeno k ID %s ✔️ Jste hostitel 🏠',
   "Connected by ID %s ✔️ You're the guest 💼":
-    "Connected by ID %s ✔️ You're the guest 💼",
+    'Připojeno pomocí ID %s ✔️ Jste host 💼',
   'Connection failed ❌': 'Připojení se nezdařilo ❌',
   'Disconnected 🔌': 'Odpojeno 🔌',
   'You are playing against computer AI': 'Hrajete proti počítačové AI',
   'You are playing against human': 'Hrajete proti člověku',
 
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
-    'You and your opponent are disconnected. Please go to "Preferences" and start a new game.',
+    'Vy a váš soupeř jste odpojeni. Přejděte prosím do "Předvoleb" a začněte novou hru.',
 
   'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
     'Režim pro více hráčů je experimentální a funguje pouze pro uživatele za nesymetrickou sítí NAT',
 
-  Reset: 'Reset',
+  Reset: 'Resetovat',
   'Apply & New Game': 'Použít a nová hra',
   Cancel: 'Zrušit',
 
@@ -100,9 +100,6 @@ export const i18n = {
 
   'an informative tutorial image in English':
     'informativní výukový obrázek v angličtině',
-
-  'Please go to %s to view more information, star the repo and follow %s there.':
-    'Pro zobrazení dalších informací přejděte na %s, označte repozitář hvězdičkou a sledujte %s.',
 
   'Game rules': 'Pravidla hry',
 

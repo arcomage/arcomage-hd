@@ -58,14 +58,14 @@ export const i18n = {
   Connect: 'Collega',
   'Copied 📋✔️': 'Copiato 📋✔️',
 
-  'Connecting to the network ⌛': 'Connecting to the network ⌛',
+  'Connecting to the network ⌛': 'Connettendo alla rete ⌛',
   'Connected to the network (but not to anyone) ✔️':
-    'Connected to the network (but not to anyone) ✔️',
-  'Connecting to ID %s ⌛': 'Connecting to ID %s ⌛',
+    'Connesso alla rete (ma non a nessuno) ✔️',
+  'Connecting to ID %s ⌛': 'Connettendo a ID %s ⌛',
   "Connected to ID %s ✔️ You're the host 🏠":
-    "Connected to ID %s ✔️ You're the host 🏠",
+    'Connesso a ID %s ✔️ Tu sei il padrone 🏠',
   "Connected by ID %s ✔️ You're the guest 💼":
-    "Connected by ID %s ✔️ You're the guest 💼",
+    "Connesso da ID %s ✔️ Tu sei l'ospite 💼",
   'Connection failed ❌': 'Connessione fallita ❌',
   'Disconnected 🔌': 'Disconnesso 🔌',
   'You are playing against computer AI':

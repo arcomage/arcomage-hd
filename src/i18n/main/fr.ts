@@ -86,7 +86,7 @@ export const i18n = {
   Volume: 'Volume',
   Mute: 'Sourdine',
   Help: 'Aide',
-  'Toggle Full Screen': 'Toggle Full Screen',
+  'Toggle Full Screen': 'Basculer en plein écran',
 
   ERATHIAN: 'Utiliser Erathian [%s] (pour les lettres latines uniquement)',
 
