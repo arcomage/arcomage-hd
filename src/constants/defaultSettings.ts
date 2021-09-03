@@ -38,7 +38,7 @@ export const defaultOpponentNameList = [
 const defaultPlayerName = ''
 const defaultOpponentName = ''
 
-export const defaultVolume = 10
+export const defaultVolume = 5
 
 export const defaultErathian = false
 
