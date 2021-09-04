@@ -136,7 +136,7 @@ The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compati
 
 ## Multiplayer Mode
 
-*(Note that currently it **can't connect two users who are both behind symmetric NAT** ([test if you're behind "bad", symmetric NAT](https://tomchen.github.io/symmetric-nat-test/)))*
+*(Currently it **can't connect two users who are both behind symmetric NAT** ([test if you're behind "bad", symmetric NAT](https://tomchen.github.io/symmetric-nat-test/)))*
 
 ### How To Use the Multiplayer Mode
 
