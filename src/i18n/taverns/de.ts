@@ -94,7 +94,7 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'Rabenbucht',
   // },
   // {
-  //   name: 'Halle der Mitternacht',
+  //   name: 'Mihos Rasthaus',
   //   location: 'Alvar',
   // },
 ]

@@ -3,31 +3,31 @@ import { TavernsI18nType } from '../types'
 export const tavernsI18n: TavernsI18nType = [
   {
     name: 'Na účet podniku',
-    location: 'Tulareanský les',
+    location: 'Harmondale',
   },
   {
     name: 'U Gryfa',
-    location: 'Deyja',
+    location: 'Erathie',
   },
   // {
   //   name: 'Smaragdová putyka',
-  //   location: 'Brakadská poušť',
+  //   location: 'Tulareanský les',
   // },
   {
     name: 'U Snobského goblina',
-    location: 'Oblačné město',
+    location: 'Deyja',
   },
   {
     name: 'Přátelské místo',
-    location: 'Jáma',
+    location: 'Brakadská poušť',
   },
   {
     name: 'U Božského nektaru',
-    location: 'Kolonie Zod',
+    location: 'Oblačné město',
   },
   // {
   //   name: 'Upíří salónek',
-  //   location: 'Cech žoldáků',
+  //   location: 'Jáma',
   // },
   {
     name: 'Smějící se mnich',
@@ -55,46 +55,46 @@ export const tavernsI18n: TavernsI18nType = [
   },
   // {
   //   name: 'U Grogu a žrádla',
-  //   location: 'Alvar',
+  //   location: 'Souostroví Dýky',
   // },
   // {
   //   name: 'Kesselova kantýna',
-  //   location: 'Poušť Železných písků',
+  //   location: 'Havraní pobřeží',
   // },
   // {
   //   name: 'U Vydřiducha',
-  //   location: 'Garrotova rokle',
+  //   location: 'Alvar',
   // },
   // {
   //   name: 'U Vyprahlého hrdla',
-  //   location: 'Země stínů',
-  // },
-  // {
-  //   name: 'U Dračí krve',
-  //   location: 'Šeptající lesy',
-  // },
-  // {
-  //   name: 'Černá společnost',
-  //   location: 'Bludná pláň',
-  // },
-  // {
-  //   name: 'U Unaveného poutníka',
-  //   location: 'Rovina vzduchu',
-  // },
-  // {
-  //   name: 'U Buvolího oka',
-  //   location: 'Rovina země',
-  // },
-  // {
-  //   name: 'U Ospalého piráta',
-  //   location: 'Výuka',
-  // },
-  // {
-  //   name: 'U Tančícího zlobra',
   //   location: 'Poušť Železných písků',
   // },
   // {
-  //   name: 'Mihův zájezdní hostinec',
+  //   name: 'U Dračí krve',
   //   location: 'Garrotova rokle',
+  // },
+  // {
+  //   name: 'Černá společnost',
+  //   location: 'Země stínů',
+  // },
+  // {
+  //   name: 'U Unaveného poutníka',
+  //   location: 'Šeptající lesy',
+  // },
+  // {
+  //   name: 'U Buvolího oka',
+  //   location: 'Bludná pláň',
+  // },
+  // {
+  //   name: 'U Ospalého piráta',
+  //   location: 'Regna',
+  // },
+  // {
+  //   name: 'U Tančícího zlobra',
+  //   location: 'Havraní pobřeží',
+  // },
+  // {
+  //   name: 'Mihův zájezdní hostinec',
+  //   location: 'Alvar',
   // },
 ]

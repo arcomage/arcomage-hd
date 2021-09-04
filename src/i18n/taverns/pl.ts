@@ -23,46 +23,46 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: 'Przepyszna Nalewka',
-    location: 'Labirynt',
+    location: 'Celeste',
   },
   // {
   //   name: 'Wampirza komnata',
-  //   location: 'Kamienne Miasto',
+  //   location: 'Czeluść',
   // },
   {
     name: 'Roześmiany Mnich',
-    location: 'Celeste',
-  },
-  {
-    name: 'Igraszki Fortuny',
-    location: 'Czeluść',
-  },
-  {
-    name: 'Kopalniana Gospoda',
     location: 'Wyspa Evenmorn',
   },
   {
-    name: 'Lojalny Najemnik',
+    name: 'Igraszki Fortuny',
+    location: 'Góra Nighon',
+  },
+  {
+    name: 'Kopalniana Gospoda',
     location: 'Dolina Kurhanów',
+  },
+  {
+    name: 'Lojalny Najemnik',
+    location: 'Tatalia',
   },
   // {
   //   name: 'Pijany Chochlik',
-  //   location: 'Kraina Olbrzymów',
+  //   location: 'Avlee',
   // },
   {
     name: 'Grog Grogga',
-    location: 'Góra Grzmiącej Pięści',
+    location: 'Kamienne Miasto',
   },
   // {
   //   name: 'Żarcie i Grog',
-  //   location: 'Wyspa Krwawego Sztyletu',
+  //   location: 'Wyspy Krwawego Sztyletu',
   // },
   // {
   //   name: 'Kantyna Kessela',
   //   location: 'Ravenshore',
   // },
   // {
-  //   name: 'Kuchnia domowa',
+  //   name: 'Kuchnia Domowa',
   //   location: 'Alvar',
   // },
   // {
@@ -94,7 +94,7 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'Ravenshore',
   // },
   // {
-  //   name: 'Komnata Północy',
+  //   name: 'Karczma Miho',
   //   location: 'Alvar',
   // },
 ]

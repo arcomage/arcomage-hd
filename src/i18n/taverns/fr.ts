@@ -23,35 +23,35 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: 'Le Breuvage Béni',
-    location: 'Le Labyrinthe',
+    location: 'Celeste',
   },
   // {
   //   name: 'La Cave aux Vampires',
-  //   location: 'La Cité de Pierre',
+  //   location: 'La Fosse',
   // },
   {
     name: 'Le Moine Rieur',
-    location: 'Celeste',
-  },
-  {
-    name: 'Le Bienheureux',
-    location: 'La Fosse',
-  },
-  {
-    name: 'La Maison des Mineurs',
     location: 'Ile d’Evenmorn',
   },
   {
-    name: 'Le Mercenaire Loyal',
+    name: 'Le Bienheureux',
+    location: 'Mont Nighon',
+  },
+  {
+    name: 'La Maison des Mineurs',
     location: 'Les Collines du Sommeil',
+  },
+  {
+    name: 'Le Mercenaire Loyal',
+    location: 'Tatalia',
   },
   // {
   //   name: 'Le Lutin Ludique',
-  //   location: 'La Terre des Géants',
+  //   location: 'Avlee',
   // },
   {
     name: 'Le Grog de Grogg',
-    location: 'Montagne du Tonnerre',
+    location: 'La Cité de Pierre',
   },
   // {
   //   name: 'Grog et ragoût',
