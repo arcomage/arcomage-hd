@@ -40,9 +40,11 @@ It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meani
 
 ## Play It Offline (PWA)
 
-The image and sound files, as well as the card and language settings, are automatically stored in your browser. In addition, you can install this "Progressive Web App" (PWA) on your computer or smartphone. [Google Chrome's article on how to install a PWA](https://support.google.com/chrome/answer/9658361).
+The image and sound files, as well as the card and language settings, are automatically stored in your browser. In addition, you can install this "Progressive Web App" (PWA) on your computer or smartphone. [Google Chrome's article on how to install a PWA](https://support.google.com/chrome/answer/9658361) and [Mozilla's article](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing).
 
 Depending on your browser, sometimes you may need to press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache files & reload arcomage.github.io webpage to have the latest version of the game.
+
+PWA or not, some mobile browsers do not remove top and bottom bars in fullscreen mode but it is usually configurable.
 
 ## Desktop Version
 
