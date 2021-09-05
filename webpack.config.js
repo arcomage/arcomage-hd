@@ -167,6 +167,7 @@ module.exports = (env, argv) => {
             new InjectManifest({
               maximumFileSizeToCacheInBytes: 100000000, // 100 MB
               swSrc: './src/service-worker.ts',
+              swDest: './service-worker.js', // should also change `.register()` in `src/utils/swreg.ts`
             }),
           ]),
     ],
