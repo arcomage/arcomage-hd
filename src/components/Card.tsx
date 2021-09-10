@@ -249,6 +249,7 @@ const Card = ({
       <button
         ref={main}
         disabled
+        aria-hidden="true"
         className={cx(
           classes.main,
           classes.cardbackhard,
@@ -391,6 +392,7 @@ const Card = ({
         }
         tabIndex={!buttonDisabled ? position + 1 : -1}
         disabled={buttonDisabled}
+        {...(buttonDisabled ? { 'aria-hidden': 'true' } : [])}
         {...onClickFunc}
         {...onContextMenuFunc}
         onKeyDown={(event) => {
