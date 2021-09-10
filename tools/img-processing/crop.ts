@@ -166,7 +166,9 @@ const combine = (
         })
         .toFile(path.join(_extractedDir, fileName))
     } catch (e) {
-      handleRejectedAny(e)
+      if (e instanceof Error) {
+        handleRejectedAny(e)
+      }
     }
   })()
 }
