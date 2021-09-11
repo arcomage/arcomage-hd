@@ -1,5 +1,10 @@
 declare module '*.scss'
 
+declare module '*.webp' {
+  const value: any
+  export = value
+}
+
 declare module '*.png' {
   const value: any
   export = value
@@ -11,6 +16,11 @@ declare module '*.jpg' {
 }
 
 declare module '*.svg' {
+  const value: any
+  export = value
+}
+
+declare module '*.gif' {
   const value: any
   export = value
 }

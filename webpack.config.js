@@ -101,7 +101,7 @@ module.exports = (env, argv) => {
           use: 'svgo-loader',
         },
         {
-          test: /\.(png|jpe?g|gif|ico)$/i,
+          test: /\.(webp|png|jpe?g|gif|ico)$/i,
           type: 'asset/resource',
         },
         {

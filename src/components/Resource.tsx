@@ -5,9 +5,9 @@ import { GameSizeContext } from '../utils/GameSizeContext'
 
 import ResourceNumber from './ResourceNumber'
 
-import brickBg from '../../assets/img/res_1.png'
-import gemBg from '../../assets/img/res_2.png'
-import recruitBg from '../../assets/img/res_3.png'
+import brickBg from '../../assets/img/res_1.webp'
+import gemBg from '../../assets/img/res_2.webp'
+import recruitBg from '../../assets/img/res_3.webp'
 import { I18nContext, upper1st } from '../i18n/I18nContext'
 import { smallRootFontScreenMax, unitTextMaxLength } from '../constants/visuals'
 

@@ -16,8 +16,8 @@ import {
 
 import dataCards from '../../src/data/cards'
 
-import noise from '../../assets/img/noise.png'
-import cardbackbg from '../../assets/img/cardback.png'
+import noise from '../../assets/img/noise.webp'
+import cardbackbg from '../../assets/img/cardback.webp'
 import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'
 import recruit from '../../assets/img/recruit.svg'
@@ -435,7 +435,7 @@ const Card = ({
               'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-500 font-bold uppercase text-shadow-stroke',
             )}
             style={{
-              backgroundImage: `url(${require(`../../assets/img/cards/${n}.png`)})`,
+              backgroundImage: `url(${require(`../../assets/img/cards/${n}.webp`)})`,
             }}
           >
             {discarded && _.i18n('discarded')}

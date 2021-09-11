@@ -5,7 +5,7 @@ import { GameSizeContext } from '../utils/GameSizeContext'
 import TowerOrWallNumber from './TowerOrWallNumber'
 import { maxWallOnScreen } from '../constants/visuals'
 
-import wall from '../../assets/img/wall.png'
+import wall from '../../assets/img/wall.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import TooltipAll from './special/TooltipAll'
 

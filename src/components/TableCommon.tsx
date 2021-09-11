@@ -8,7 +8,7 @@ import { createUseStyles } from 'react-jss'
 
 import { useAppSelector } from '../utils/useAppDispatch'
 
-import bg from '../../assets/img/bg.jpg'
+import bg from '../../assets/img/bg.webp'
 import { GameSizeContext } from '../utils/GameSizeContext'
 
 const useStyles = createUseStyles({
