@@ -16,7 +16,7 @@ jobs:
         os:
           - ubuntu-latest
           - windows-latest
-        node: [12.x, 14.x]
+        node: [12.x, 14.x, 16.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -28,3 +28,6 @@ jobs:
         run: yarn --ignore-optional
       - name: Run tests
         run: yarn test
+      - name: Codecov Upload
+        if: ${{ success() && matrix.os == 'ubuntu-latest' && matrix.node == '14.x'}}
+        uses: codecov/codecov-action@v2
