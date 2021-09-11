@@ -14,3 +14,22 @@
 * If a new version is decided to be released, do these:
   * Commit all changes
   * `yarn version`, enter new version number. It'll automatically add a new version and tag, push, and deploy
+
+## Tools
+
+* `yarn tool:zhconvert`: zh-Hans to zh-Hant conversion
+* `yarn tool:imgpc`: extract (crop) images from the big image of the original game
+* `yarn tool:imgmin`: minify images (*./img-min/original* stores minified PNG images before their conversion to .webp)
+* `yarn tool:datapc`: get card data from the Excel file
+* `yarn tool:mm8taverns`: get mm8 tavern data from the Excel file
+* `yarn tool:geticelist`: get free STUN server list
+* `yarn tool:manifest`: generate manifest.json and icons
+* `yarn tool:ocr:pre`: prepare ocr
+* `yarn tool:ocr`: get card text in different languages
+* `yarn tool:i18ncheck:card`: check card i18n
+* `yarn tool:i18ncheck:main`: check main i18n
+* `yarn tool:calcscore`: get all card scores (for AI)
+* `yarn tool:i18nextract`: extract tavern translations
+* `yarn tool:cardsbk`: backup card data to *./\_\_test\_\_/cardsbk.ts*
+* `yarn tool:resizesvg`: resize SVG images in *./misc/readme_images/*
+* `yarn tool:linecount`: get total line count
