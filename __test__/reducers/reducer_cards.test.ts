@@ -1,5 +1,5 @@
-import { DRAW_CARD_MAIN } from '../src/constants/ActionTypes'
-import reducer from '../src/reducers/cards'
+import { DRAW_CARD_MAIN } from '../../src/constants/ActionTypes'
+import reducer from '../../src/reducers/cards'
 
 describe('cards reducer', () => {
   it('should return the initial state', () => {

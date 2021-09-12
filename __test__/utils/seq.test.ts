@@ -1,4 +1,4 @@
-import { receiveSeq, sendSeq } from '../src/utils/seq'
+import { receiveSeq, sendSeq } from '../../src/utils/seq'
 
 it('send seq is OK', () => {
   expect(sendSeq.v).toBe(0)

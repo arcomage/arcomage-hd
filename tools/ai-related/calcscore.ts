@@ -2,11 +2,25 @@ import { allStatusNames, resNames } from '../../src/constants/resourceNames'
 import { PersonStatusType, StatusType } from '../../src/types/state'
 import cards from '../../src/data/cards'
 import { defaultSettings } from '../../src/constants/defaultSettings'
-import { preSettings } from '../../src/constants/preSettings'
+// import { preSettings } from '../../src/constants/preSettings'
 import { entries, fromEntries } from '../../src/utils/typeHelpers'
-import coefs from '../../src/ai/coefs'
+import { coefs } from '../../src/ai/coefs'
 import { cardsI18n } from '../../src/i18n/cards/en'
 import fs from 'fs'
+
+const statusCoefs = (() => {
+  const { bricks, gems, recruits, prod, tower, wall } = coefs
+  return {
+    bricks,
+    gems,
+    recruits,
+    brickProd: bricks * prod,
+    gemProd: gems * prod,
+    recruitProd: recruits * prod,
+    tower,
+    wall,
+  }
+})()
 
 const settings = defaultSettings
 // const settings = preSettings[5]
@@ -36,12 +50,15 @@ const result = cards.map((card, i) => {
   oDiff[resNames[type]] -= cost
 
   const oScore = allStatusNames
-    .map((statusName) => oDiff[statusName] * coefs[statusName])
+    .map((statusName) => oDiff[statusName] * statusCoefs[statusName])
     .reduce((a, b) => a + b, 0)
 
   // pScore here is positive
   const pScore = allStatusNames
-    .map((statusName) => pDiff[statusName] * coefs[statusName] * coefs.enemy)
+    .map(
+      (statusName) =>
+        pDiff[statusName] * statusCoefs[statusName] * coefs.attack,
+    )
     .reduce((a, b) => a + b, 0)
 
   let score = 0

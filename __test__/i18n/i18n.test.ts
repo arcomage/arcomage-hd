@@ -1,7 +1,7 @@
-import { defaultLang } from '../src/i18n/langs'
-import { availableLangs } from '../src/i18n/types'
-import cards from '../src/data/cards'
-import { preSettings } from '../src/constants/preSettings'
+import { defaultLang } from '../../src/i18n/langs'
+import { availableLangs } from '../../src/i18n/types'
+import cards from '../../src/data/cards'
+import { preSettings } from '../../src/constants/preSettings'
 import path from 'path'
 
 const mainBasePath = '../src/i18n/main'

@@ -1,4 +1,4 @@
-import Queue from '../src/utils/Queue'
+import Queue from '../../src/utils/Queue'
 
 const ns = [57, 68, 34, 9, 365]
 
