@@ -4,9 +4,9 @@ import cards from '../../src/data/cards'
 import { preSettings } from '../../src/constants/preSettings'
 import path from 'path'
 
-const mainBasePath = '../src/i18n/main'
-const cardsBasePath = '../src/i18n/cards'
-const tavernsBasePath = '../src/i18n/taverns'
+const mainBasePath = '../../src/i18n/main'
+const cardsBasePath = '../../src/i18n/cards'
+const tavernsBasePath = '../../src/i18n/taverns'
 
 describe('i18n all good', () => {
   let defaultI18n
