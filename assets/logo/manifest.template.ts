@@ -3,7 +3,7 @@ export default {
   name: 'ArcoMage HD',
   short_name: 'ArcoMage HD',
   description:
-    "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
+    "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage. Desktop or mobile Android iOS. Online or offline PWA. Multiplayer mode available",
   lang: 'en-US',
   display: 'standalone',
   orientation: 'landscape',

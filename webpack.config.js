@@ -139,7 +139,7 @@ module.exports = (env, argv) => {
         faviconIco: dev || local ? './favicon.ico' : `${homeUrl}favicon.ico`,
         ogImage: dev || local ? './ogimage.jpg' : `${homeUrl}ogimage.jpg`,
         description:
-          "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
+          "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage. Desktop or mobile Android iOS. Online or offline PWA. Multiplayer mode available",
       }),
       new CopyPlugin({
         patterns: [
