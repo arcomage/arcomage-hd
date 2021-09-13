@@ -3,6 +3,7 @@
   src: url('../assets/font/FatNumber.woff2') format('woff2'),
     url('../assets/font/FatNumber.woff') format('woff');
   font-weight: bold;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,12 +11,14 @@
   src: url('../assets/font/RobotoCondensed-Bold.woff2') format('woff2'),
     url('../assets/font/RobotoCondensed-Bold.woff') format('woff');
   font-weight: bold;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Erathian';
   src: url('../assets/font/Erathian-min.woff2') format('woff2'),
     url('../assets/font/Erathian-min.woff') format('woff');
+  font-display: swap;
 }
 
 .fatnumber {
