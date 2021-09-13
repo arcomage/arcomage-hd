@@ -32,4 +32,5 @@
 * `yarn tool:i18nextract`: extract tavern translations
 * `yarn tool:cardsbk`: backup card data to *./\_\_test\_\_/cardsbk.ts*
 * `yarn tool:resizesvg`: resize SVG images in *./misc/readme_images/*
+* `yarn tool:reduxreducers`: Redux DevTools auto-generated reducer test remove duplicate
 * `yarn tool:linecount`: get total line count

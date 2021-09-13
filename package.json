@@ -27,6 +27,7 @@
     "tool:i18nextract": "ts-node --project ./tools/tsconfig.json ./tools/i18n-extraction",
     "tool:cardsbk": "ts-node --project ./tools/tsconfig.json ./tools/cardsbk",
     "tool:resizesvg": "ts-node --project ./tools/tsconfig.json ./tools/resize-svg",
+    "tool:reduxreducers": "ts-node --project ./tools/tsconfig.json ./tools/redux-reducers",
     "tool:linecount": "sloc src tools __test__",
     "preversion": "git diff-index --quiet HEAD --",
     "postversion": "git push --follow-tags"
@@ -76,6 +77,8 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@testing-library/react": "^12.1.0",
+    "@testing-library/react-hooks": "^7.0.2",
     "@types/jest": "^27.0.1",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",

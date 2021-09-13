@@ -2,13 +2,13 @@ import '../../__mocks__/matchMediaMock'
 import React from 'react'
 import { mount } from 'enzyme'
 import App from '../../src/App'
-import { HelmetProvider } from 'react-helmet-async'
-import { GameSizeProvider } from '../../src/utils/GameSizeContext'
 import { I18nProvider } from '../../src/i18n/I18nContext'
 import { Provider } from 'react-redux'
+import { HelmetProvider } from 'react-helmet-async'
+import { GameSizeProvider } from '../../src/utils/GameSizeContext'
 import { store } from '../../src/store'
 
-it('renders App and has clickable button(s)', () => {
+it('click langPrefButton', async () => {
   const wrapper = mount(
     <Provider store={store}>
       <I18nProvider>
@@ -20,16 +20,8 @@ it('renders App and has clickable button(s)', () => {
       </I18nProvider>
     </Provider>,
   )
-  const buttons = wrapper.find('button')
-  expect(buttons.length > 0).toBeTruthy()
-  buttons.forEach((button) => {
-    button.simulate('click')
-  })
-  const inputs = wrapper.find('input')
-  expect(inputs.length > 0).toBeTruthy()
-  inputs.forEach((input) => {
-    input.simulate('click')
-  })
+  const langButton = wrapper.find('.topbutton').at(1)
+  langButton.simulate('click')
+  const frButton = wrapper.find("button[lang='fr']")
+  frButton.simulate('click')
 })
-
-// console.log(wrapper.debug())
