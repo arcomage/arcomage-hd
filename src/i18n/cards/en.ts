@@ -123,7 +123,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Flood Water',
-    desc: 'Player(s) w/lowest wall are -1 Dungeon and 2 damage to tower',
+    desc: 'Player(s) w/ lowest wall are -1 Dungeon and 2 damage to tower',
   },
   {
     name: 'Barracks',

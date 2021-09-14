@@ -27,6 +27,7 @@ const TooltipAll = ({ title, children, placement }: PropType) => (
     enterDelay={tooltipEnterDelay}
     leaveDelay={tooltipLeaveDelay}
     placement={placement}
+    disableInteractive
   >
     {children}
   </Tooltip>

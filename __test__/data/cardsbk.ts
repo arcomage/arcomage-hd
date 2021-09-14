@@ -364,7 +364,7 @@ const cards: DataCardsType = [
   {
     // 30
     // name: 'Flood Water',
-    // desc: 'Player(s) w/lowest wall are -1 Dungeon and 2 damage to tower',
+    // desc: 'Player(s) w/ lowest wall are -1 Dungeon and 2 damage to tower',
     type: 0,
     cost: 6,
     prob: 2,

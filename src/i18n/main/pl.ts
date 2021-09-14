@@ -17,6 +17,15 @@ export const i18n = {
   'Your %s': 'Twoja/Twój %s', // Your quarry/tower
   "Opponent's %s": '%s przeciwnika', // Opponent's quarry/tower
 
+  '1 brick': '1 kamień',
+  '%s bricks': '%s kamienie', // 3 bricks
+  '1 gem': '1 klejnot',
+  '%s gems': '%s klejnoty', // 3 gems
+  '1 recruit': '1 bestia',
+  '%s recruits': '%s bestie', // 3 recruits
+
+  'This card costs %s': 'Ta karta kosztuje %s', // This card costs 3 bricks
+
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Twoje %sp', // Your bricks
   "Opponent's %sp": '%sp przeciwnika', // Opponent's bricks
@@ -25,9 +34,6 @@ export const i18n = {
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (produkcja %ss)', // quarry (brick production)
-
-  // %ss = 'brick', %sp = 'bricks'
-  'This card costs %s': 'Ta karta kosztuje %s', // This card costs 3 bricks
 
   discarded: 'odrzucona',
   'Discard a card': 'Odrzuæ kartê',

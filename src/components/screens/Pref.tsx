@@ -20,7 +20,8 @@ import {
   SEND_NAME,
   SET_TEMP_PLAYER_NAME,
 } from '../../constants/ActionTypes'
-import { I18nContext, upper1st } from '../../i18n/I18nContext'
+import { I18nContext } from '../../i18n/I18nContext'
+import { upper1st } from '../../utils/upper1st'
 import { preSettings } from '../../constants/preSettings'
 import {
   defaultPlayerNameList,

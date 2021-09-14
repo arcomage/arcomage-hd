@@ -1,5 +1,4 @@
 import React, { memo } from 'react'
-import cx from 'classnames'
 import { useAppSelector } from '../utils/useAppDispatch'
 import TableCommon from './TableCommon'
 import TableP from './TableP'
@@ -21,16 +20,13 @@ const Game = () => {
   const end = useAppSelector((state) => state.screen.end)
   const help = useAppSelector((state) => state.screen.help)
   const landscape = useAppSelector((state) => state.screen.landscape)
-  const disconnectNotice = useAppSelector((state) => state.screen.disconnectNotice)
-
-  const erathian: boolean = useAppSelector((state) => state.lang.erathian)
+  const disconnectNotice = useAppSelector(
+    (state) => state.screen.disconnectNotice,
+  )
 
   return (
     <div
-      className={cx(
-        'w-screen h-screen flex flex-col bg-black overflow-x-hidden select-none outline-none',
-        { erathian },
-      )}
+      className="w-screen h-screen flex flex-col bg-black overflow-x-hidden select-none outline-none"
       tabIndex={-1}
     >
       <TableCommon />

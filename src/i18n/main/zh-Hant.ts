@@ -17,6 +17,15 @@ export const i18n = {
   'Your %s': '你的%s', // Your quarry/tower
   "Opponent's %s": '對手的%s', // Opponent's quarry/tower
 
+  '1 brick': '1塊磚塊',
+  '%s bricks': '%s塊磚塊', // 3 bricks
+  '1 gem': '1顆寶石',
+  '%s gems': '%s顆寶石', // 3 gems
+  '1 recruit': '1頭魔獸',
+  '%s recruits': '%s頭魔獸', // 3 recruits
+
+  'This card costs %s': '打這張牌將消耗%s', // This card costs 3 bricks
+
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': '你的%sp', // Your bricks
   "Opponent's %sp": '對手的%sp', // Opponent's bricks
@@ -25,9 +34,6 @@ export const i18n = {
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s', // quarry (brick production)
-
-  // %ss = 'brick', %sp = 'bricks'
-  'This card costs %s': '這張牌需 %s', // This card costs 3 bricks
 
   discarded: '棄牌',
   'Discard a card': '丟棄一張牌',

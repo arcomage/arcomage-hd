@@ -19,6 +19,7 @@ import { minRootFontSize, smallRootFontScreenMax } from './constants/visuals'
 const App = () => {
   const dispatch = useAppDispatch()
   const lang = useAppSelector((state) => state.lang.code)
+  const erathian: boolean = useAppSelector((state) => state.lang.erathian)
   const _ = useContext(I18nContext)
   const { width, height } = useContext(GameSizeContext)
 
@@ -67,7 +68,7 @@ const App = () => {
   return (
     <>
       <Helmet>
-        <html lang={lang} />
+        <html lang={lang} data-erathian={erathian.toString()} />
         <title>{_.i18n('ArcoMage HD')}</title>
         <meta property="og:title" content={_.i18n('ArcoMage HD')} />
         <meta name="description" content={_.i18n('DESC')} />

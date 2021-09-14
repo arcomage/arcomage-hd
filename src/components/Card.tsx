@@ -362,11 +362,12 @@ const Card = ({
 
     const cardTitle = _.i18n('This card costs %s').replace(
       '%s',
-      `${cost} ${_.i18n(
-        cost === 1
-          ? ['brick', 'gem', 'recruit'][type]
-          : ['bricks', 'gems', 'recruits'][type],
-      )}`,
+      cost === 1
+        ? _.i18n(['1 brick', '1 gem', '1 recruit'][type])
+        : _.i18n(['%s bricks', '%s gems', '%s recruits'][type]).replace(
+            '%s',
+            cost.toString(10),
+          ),
     )
 
     return (

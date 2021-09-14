@@ -31,11 +31,14 @@
   font-weight: bold;
 }
 
-.erathian {
+html[data-erathian='true'] {
   &,
   & * {
     font-family: 'Erathian';
     font-weight: bold;
+  }
+  .MuiTooltip-tooltip span {
+    font-weight: normal;
   }
   .no-erathian,
   .no-erathian * {
@@ -44,6 +47,11 @@
       font-family: 'Erathian';
     }
   }
+}
+
+.erathian {
+  font-family: 'Erathian';
+  font-weight: bold;
 }
 
 .erathian-normal {

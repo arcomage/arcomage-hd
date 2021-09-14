@@ -1,0 +1,22 @@
+import { upper1st } from '../../src/utils/upper1st'
+
+it('upper1st is good', () => {
+  let res = upper1st('hello')
+  expect(res).toBe('Hello')
+  res = upper1st('Dog')
+  expect(res).toBe('Dog')
+  res = upper1st('的a')
+  expect(res).toBe('的a')
+  res = upper1st('существа')
+  expect(res).toBe('Существа')
+  res = upper1st('кирпич')
+  expect(res).toBe('Кирпич')
+  res = upper1st('θξ')
+  expect(res).toBe('Θξ')
+  res = upper1st('řu')
+  expect(res).toBe('Řu')
+  res = upper1st('ło')
+  expect(res).toBe('Ło')
+  res = upper1st('العربية')
+  expect(res).toBe('العربية')
+})

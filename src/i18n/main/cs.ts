@@ -17,6 +17,15 @@ export const i18n = {
   'Your %s': 'Tvůj/Tvoje %s', // Your quarry/tower
   "Opponent's %s": '%s soupeře', // Opponent's quarry/tower
 
+  '1 brick': '1 cihla',
+  '%s bricks': '%s cihly', // 3 bricks
+  '1 gem': '1 drahokam',
+  '%s gems': '%s drahokamy', // 3 gems
+  '1 recruit': '1 příšera',
+  '%s recruits': '%s příšery', // 3 recruits
+
+  'This card costs %s': 'Tato karta stojí %s', // This card costs 3 bricks
+
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Váš/Vaše %sp', // Your bricks
   "Opponent's %sp": '%sp soupeře', // Opponent's bricks
@@ -25,9 +34,6 @@ export const i18n = {
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (výroba %ss)', // quarry (brick production)
-
-  // %ss = 'brick', %sp = 'bricks'
-  'This card costs %s': 'Tato karta stojí %s', // This card costs 3 bricks
 
   discarded: 'odložená',
   'Discard a card': 'Odhoďte kartu',

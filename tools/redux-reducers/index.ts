@@ -4,7 +4,7 @@ import readline from 'readline'
 
 const reg = /type:'(.+?)'/
 
-async function processLineByLine() {
+;(async () => {
   const fileStream = fs.createReadStream(path.join(__dirname, 'redux.js'))
 
   const rl = readline.createInterface({
@@ -51,6 +51,4 @@ async function processLineByLine() {
       }
     },
   )
-}
-
-processLineByLine()
+})()

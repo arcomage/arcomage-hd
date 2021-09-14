@@ -7,7 +7,7 @@ import specialStrings from './specialStrings'
 
 const convert = Converter({ from: 'cn', to: 'twp' })
 
-const folders = ['cards', 'main'] // do not convert 'taverns.'
+const folders = ['cards', 'main'] // do not convert 'taverns'
 
 folders.forEach(async (folder) => {
   const data = await fs.promises.readFile(

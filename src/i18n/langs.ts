@@ -9,7 +9,21 @@ export const langs = {
   es: 'Español',
   it: 'Italiano',
   cs: 'Čeština',
-  'pt-BR': 'Português (Brasil)'
+  'pt-BR': 'Português (Brasil)',
+}
+
+export const langEnglishNames = {
+  en: 'English',
+  fr: 'French',
+  de: 'German',
+  'zh-Hans': 'Simplified Chinese',
+  'zh-Hant': 'Traditional Chinese',
+  ru: 'Russian',
+  pl: 'Polish',
+  es: 'Spanish',
+  it: 'Italian',
+  cs: 'Czech',
+  'pt-BR': 'Brazilian Portuguese',
 }
 
 export const defaultLang = 'en' as const

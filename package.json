@@ -25,6 +25,8 @@
     "tool:i18ncheck:main": "ts-node --project ./tools/tsconfig.json ./tools/i18ncheck/main",
     "tool:calcscore": "ts-node --project ./tools/tsconfig.json ./tools/ai-related/calcscore",
     "tool:i18nextract": "ts-node --project ./tools/tsconfig.json ./tools/i18n-extraction",
+    "tool:i18njs2text": "ts-node --project ./tools/tsconfig.json ./tools/i18n-js2text/js2text",
+    "tool:i18ntext2js": "ts-node --project ./tools/tsconfig.json ./tools/i18n-js2text/text2js",
     "tool:cardsbk": "ts-node --project ./tools/tsconfig.json ./tools/cardsbk",
     "tool:resizesvg": "ts-node --project ./tools/tsconfig.json ./tools/resize-svg",
     "tool:reduxreducers": "ts-node --project ./tools/tsconfig.json ./tools/redux-reducers",

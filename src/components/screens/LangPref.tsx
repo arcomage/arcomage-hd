@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
 import Window from './Window'
 
-import { langs } from '../../i18n/langs'
+import { langEnglishNames, langs } from '../../i18n/langs'
 import { entries } from '../../utils/typeHelpers'
 import { AvailableLangType } from '../../i18n/types'
 import {
@@ -12,6 +12,7 @@ import {
   UPDATE_LANG,
 } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
+import TooltipAll from '../special/TooltipAll'
 
 const LangPref = () => {
   const lang: AvailableLangType = useAppSelector((state) => state.lang.code)
@@ -40,19 +41,21 @@ const LangPref = () => {
         {entries(langs)
           .sort(([codeA], [codeB]) => codeA.localeCompare(codeB))
           .map(([code, name]) => (
-            <button
-              key={code}
-              lang={code}
-              className={cx('m-2', { active: code === lang })}
-              onClick={() => {
-                dispatch({
-                  type: UPDATE_LANG,
-                  lang: code,
-                })
-              }}
-            >
-              {name}
-            </button>
+            <TooltipAll title={langEnglishNames[code]}>
+              <button
+                key={code}
+                lang={code}
+                className={cx('m-2', { active: code === lang })}
+                onClick={() => {
+                  dispatch({
+                    type: UPDATE_LANG,
+                    lang: code,
+                  })
+                }}
+              >
+                {name}
+              </button>
+            </TooltipAll>
           ))}
       </div>
       <label className="justify-center">

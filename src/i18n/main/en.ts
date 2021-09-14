@@ -17,6 +17,15 @@ export const i18n = {
   'Your %s': 'Your %s', // Your quarry/tower
   "Opponent's %s": "Opponent's %s", // Opponent's quarry/tower
 
+  '1 brick': '1 brick',
+  '%s bricks': '%s bricks', // 3 bricks
+  '1 gem': '1 gem',
+  '%s gems': '%s gems', // 3 gems
+  '1 recruit': '1 recruit',
+  '%s recruits': '%s recruits', // 3 recruits
+
+  'This card costs %s': 'This card costs %s', // This card costs 3 bricks
+
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Your %sp', // Your bricks
   "Opponent's %sp": "Opponent's %sp", // Opponent's bricks
@@ -25,9 +34,6 @@ export const i18n = {
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (%ss production)', // quarry (brick production)
-
-  // %ss = 'brick', %sp = 'bricks'
-  'This card costs %s': 'This card costs %s', // This card costs 3 bricks
 
   discarded: 'discarded',
   'Discard a card': 'Discard a card',

@@ -214,23 +214,23 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
 
 ## Translation Credits
 
-* [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards) & many other strings: from *Might and Magic VIII* & *VI* original games. Extracted (or retranslated) by:
+* [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards): extracted from *Might and Magic VIII* & *VI* original games (or translated/retranslated) by:
   * English (`en`): [Black Rabite on GameFAQs](https://gamefaqs.gamespot.com/pc/929601-arcomage/faqs/44131)
   * Russian (`ru`) (retranslated): [rayburn](https://github.com/TombOfVARN)
   * Simplified Chinese (`zh-Hans`): [xyz53235](https://blog.csdn.net/xyz53235/article/details/113663313)
   * Polish (`pl`) (retranslated?): [acidcave](https://www.arcomage.acidcave.net/czerwone_karty.html)
   * Czech (`cs`): Yym
-  * Brazilian Portuguese (`pt-BR`): [mateuscv](https://github.com/mateuscv)
+  * Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
   * All others: [Tom Chen](https://github.com/tomchen) with OCR tool [tesseract.js](https://tesseract.projectnaptha.com/) & [other scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools)
   * Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
-* [Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main):
+* [Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main) string translators (some are from the original games):
   * Russian (`ru`): [rayburn](https://github.com/TombOfVARN)
-  * Polish (`pl`) (partially): Plamcia
+  * Polish (`pl`): (partially by) Plamcia
   * Brazilian Portuguese (`pt-BR`): [mateuscv](https://github.com/mateuscv)
   * All others: [Tom Chen](https://github.com/tomchen) by himself and/or with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
   * Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
-* [Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns): from *Might and Magic VIII* & *VI* original games. Extracted by [Tom Chen](https://github.com/tomchen) with [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction). Except for:
-  * Brazilian Portuguese (`pt-BR`): [mateuscv](https://github.com/mateuscv)
+* [Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns): extracted from *Might and Magic VIII* & *VI* original games by [Tom Chen](https://github.com/tomchen) with [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction). Except for:
+  * Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
 
 *See also [I18N Issue Page](https://github.com/arcomage/arcomage-hd/issues/9)*
 
