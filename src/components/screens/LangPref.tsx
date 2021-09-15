@@ -41,7 +41,7 @@ const LangPref = () => {
         {entries(langs)
           .sort(([codeA], [codeB]) => codeA.localeCompare(codeB))
           .map(([code, name]) => (
-            <TooltipAll title={langEnglishNames[code]}>
+            <TooltipAll key={code} title={langEnglishNames[code]}>
               <button
                 key={code}
                 lang={code}
