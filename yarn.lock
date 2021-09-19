@@ -1804,6 +1804,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/imagemin-jpegtran@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@types/imagemin-jpegtran/-/imagemin-jpegtran-5.0.1.tgz#798b2a66cd49b7ec6550fb733c05a5b8755f211f"
+  integrity sha512-Ps8kbm+DUFte/Eln/tUdEvpMWHKFCsQKlV8n+RN50zqWqL/7QhfLxR0ymitP9wa90P6+rkbJlintBNPkVR+B/Q==
+  dependencies:
+    "@types/imagemin" "*"
+
 "@types/imagemin-optipng@^5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@types/imagemin-optipng/-/imagemin-optipng-5.2.1.tgz#6ef033f3b15d281009de4e0bd2cadf6cbd2e741a"
@@ -6406,6 +6413,15 @@ ignore@^5.1.4, ignore@^5.1.8:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
   integrity sha512-BMpfD7PpiETpBl/A6S498BaIJ6Y/ABT93ETbby2fP00v4EbvPBXWEoaR1UBPKs3iR53pJY7EtZk5KACI57i1Uw==
 
+imagemin-jpegtran@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/imagemin-jpegtran/-/imagemin-jpegtran-7.0.0.tgz#7728f84876362d489b9a1656e0cc8e2009406e6f"
+  integrity sha512-MJoyTCW8YjMJf56NorFE41SR/WkaGA3IYk4JgvMlRwguJEEd3PnP9UxA8Y2UWjquz8d+On3Ds/03ZfiiLS8xTQ==
+  dependencies:
+    exec-buffer "^3.0.0"
+    is-jpg "^2.0.0"
+    jpegtran-bin "^5.0.0"
+
 imagemin-optipng@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/imagemin-optipng/-/imagemin-optipng-8.0.0.tgz#b88e5cf6da25cc8479e07cdf38c3ae0479df7ef2"
@@ -6873,6 +6889,11 @@ is-ip@^3.1.0:
   integrity sha512-35vd5necO7IitFPjd/YBeqwWnyDWbuLH9ZXQdMfDA8TEo7pv5X8yfrvVO3xbJbLUlERCMvf6X0hTUamQxCYJ9Q==
   dependencies:
     ip-regex "^4.0.0"
+
+is-jpg@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/is-jpg/-/is-jpg-2.0.0.tgz#2e1997fa6e9166eaac0242daae443403e4ef1d97"
+  integrity sha1-LhmX+m6RZuqsAkLarkQ0A+TvHZc=
 
 is-lambda@^1.0.1:
   version "1.0.1"
@@ -7647,6 +7668,15 @@ jpeg-js@^0.4.2:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/jpeg-js/-/jpeg-js-0.4.3.tgz#6158e09f1983ad773813704be80680550eff977b"
   integrity sha512-ru1HWKek8octvUHFHvE5ZzQ1yAsJmIvRdGWvSoKV52XKyuyYA437QWDttXT8eZXDSbuMpHlLzPDZUPd6idIz+Q==
+
+jpegtran-bin@^5.0.0:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/jpegtran-bin/-/jpegtran-bin-5.0.2.tgz#5870fd7e68317bd203a1c94572bd06ae7732cac3"
+  integrity sha512-4FSmgIcr8d5+V6T1+dHbPZjaFH0ogVyP4UVsE+zri7S9YLO4qAT2our4IN3sW3STVgNTbqPermdIgt2XuAJ4EA==
+  dependencies:
+    bin-build "^3.0.0"
+    bin-wrapper "^4.0.0"
+    logalot "^2.0.0"
 
 js-base64@^2.1.8:
   version "2.6.4"

@@ -42,6 +42,11 @@ export const defaultVolume = 5
 
 export const defaultErathian = false
 
+export const defaultPixelated = 0
+export const defaultEnabledPixelated = 4
+
+export const defaultAi = 0
+
 export const defaultSettingState: SettingsStateType = {
   playerName: defaultPlayerName,
   opponentName: defaultOpponentName,

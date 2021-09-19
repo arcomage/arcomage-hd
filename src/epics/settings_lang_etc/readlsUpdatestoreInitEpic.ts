@@ -6,6 +6,7 @@ import {
   UPDATE_ERATHIAN_MAIN,
   UPDATE_LANG_MAIN,
   UPDATE_VOLUME_MAIN,
+  UPDATE_PIXELATED_MAIN,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil } from 'rxjs/operators'
@@ -32,6 +33,7 @@ export default (
       const erathian = lsGet(['lang', 'erathian'])
       const settings = lsGet(['settings'])
       const volume = lsGet(['volume'])
+      const pixelated = lsGet(['visual', 'pixelated'])
       return concat(
         settings !== null
           ? of<RootActionType>({
@@ -61,6 +63,12 @@ export default (
           ? of<RootActionType>({
               type: UPDATE_VOLUME_MAIN,
               volume,
+            })
+          : EMPTY,
+        pixelated !== null
+          ? of<RootActionType>({
+              type: UPDATE_PIXELATED_MAIN,
+              pixelated,
             })
           : EMPTY,
         of<RootActionType>({

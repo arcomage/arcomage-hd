@@ -122,6 +122,7 @@
   "optionalDependencies": {
     "@types/convert-excel-to-json": "^1.7.1",
     "@types/imagemin": "^7.0.1",
+    "@types/imagemin-jpegtran": "^5.0.1",
     "@types/imagemin-optipng": "^5.2.1",
     "@types/imagemin-webp": "^5.1.2",
     "@types/sharp": "^0.29.1",
@@ -137,6 +138,7 @@
     "fontmin": "^0.9.9",
     "http-server": "^13.0.1",
     "imagemin": "^8.0.1",
+    "imagemin-jpegtran": "^7.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-webp": "^6.0.0",
     "join-images": "^1.0.0",

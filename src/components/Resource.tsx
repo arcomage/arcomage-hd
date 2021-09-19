@@ -18,6 +18,7 @@ import recruit from '../../assets/img/recruit.svg'
 import { ResNameType } from '../constants/resourceNames'
 import { useAppSelector } from '../utils/useAppDispatch'
 import TooltipAll from './special/TooltipAll'
+import Pixelated from './effects/Pixelated'
 
 const whRatio = 156 / 216
 
@@ -191,6 +192,8 @@ const Resource = ({ type, isOpponent }: PropType) => {
     .replace('%s2', winResource.toString(10))
   resTitle = upper1st(resTitle)
 
+  const pixelatedLevel = useAppSelector((state) => state.visual.pixelated)
+
   return (
     <div className={cx('mb-3 p-1 shadow-lg', `bg-${color}-300`)}>
       <TooltipAll
@@ -207,6 +210,18 @@ const Resource = ({ type, isOpponent }: PropType) => {
             height: `calc(${calcProdHeight(height)})`,
           }}
         >
+          {pixelatedLevel !== 0 && (
+            <Pixelated
+              src={
+                {
+                  brick: brickBg,
+                  gem: gemBg,
+                  recruit: recruitBg,
+                }[type]
+              }
+              level={pixelatedLevel}
+            />
+          )}
           <div
             className={cx(
               'text-yellow-400 absolute bottom-1 left-1 text-shadow-md tracking-tighter',

@@ -88,8 +88,14 @@ export const i18n = {
   Cancel: 'Zrušit',
 
   Language: 'Jazyk',
+
+  'Volume & Visual': 'Hlasitost & Vizuál',
   Volume: 'Hlasitost',
   Mute: 'Ztlumit',
+
+  Pixelation: 'Pixelation',
+  Disable: 'Zakázat',
+
   Help: 'Nápověda',
   'Toggle Full Screen': 'Přepnout na celou obrazovku',
 

@@ -85,8 +85,14 @@ export const i18n = {
   Cancel: '取消',
 
   Language: '语言',
+
+  'Volume & Visual': '音量与视觉',
   Volume: '音量',
   Mute: '静音',
+
+  Pixelation: '像素化',
+  Disable: '停用',
+
   Help: '帮助',
   'Toggle Full Screen': '切换全屏模式',
 

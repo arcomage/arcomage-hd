@@ -89,8 +89,14 @@ export const i18n = {
   Cancel: 'Cancelar',
 
   Language: 'Idioma',
+
+  'Volume & Visual': 'Volume & Visual',
   Volume: 'Volume',
   Mute: 'Mudo',
+
+  Pixelation: 'Pixelação',
+  Disable: 'Desativar',
+
   Help: 'Ajuda',
   'Toggle Full Screen': 'Tela Cheia',
 

@@ -6,6 +6,7 @@ import game from './game'
 import settings from './settings'
 import screen from './screen'
 import volume from './volume'
+import visual from './visual'
 import multiplayer from './multiplayer'
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   settings,
   screen,
   volume,
+  visual,
   multiplayer,
 })
 

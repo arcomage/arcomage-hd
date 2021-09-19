@@ -10,6 +10,7 @@ import { useAppSelector } from '../utils/useAppDispatch'
 
 import bg from '../../assets/img/bg.webp'
 import { GameSizeContext } from '../utils/GameSizeContext'
+import Pixelated from './effects/Pixelated'
 
 const useStyles = createUseStyles({
   main: {
@@ -45,6 +46,9 @@ const TableCommon = () => {
   const size = useContext(GameSizeContext)
 
   const classes = useStyles()
+
+  const pixelatedLevel = useAppSelector((state) => state.visual.pixelated)
+
   return (
     <div
       className={cx(
@@ -53,17 +57,23 @@ const TableCommon = () => {
         size.narrowMobile ? 'h-1/2' : 'h-2/3',
       )}
     >
-      <Status playerName={isIdConnected ? tempPlayerName : playerName} />
-      <Tower goal={winTower} />
-      <Wall />
+      {pixelatedLevel !== 0 && (
+        <Pixelated src={bg} level={pixelatedLevel} fit="cover" offsetY={0.3} />
+      )}
 
-      <Status
-        playerName={isIdConnected ? tempOpponentName : opponentName}
-        isOpponent
-      />
-      <Tower isOpponent goal={winTower} />
-      <Wall isOpponent />
-      <Bird />
+      <div className="absolute top-0 left-0 w-full h-full">
+        <Status playerName={isIdConnected ? tempPlayerName : playerName} />
+        <Tower goal={winTower} />
+        <Wall />
+
+        <Status
+          playerName={isIdConnected ? tempOpponentName : opponentName}
+          isOpponent
+        />
+        <Tower isOpponent goal={winTower} />
+        <Wall isOpponent />
+        <Bird />
+      </div>
     </div>
   )
 }

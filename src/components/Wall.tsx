@@ -8,6 +8,8 @@ import { maxWallOnScreen } from '../constants/visuals'
 import wall from '../../assets/img/wall.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import TooltipAll from './special/TooltipAll'
+import Pixelated from './effects/Pixelated'
+import { useAppSelector } from '../utils/useAppDispatch'
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
@@ -62,6 +64,8 @@ const Wall = ({ isOpponent = false }: PropType) => {
     _.i18n('wall'),
   )
 
+  const pixelatedLevel = useAppSelector((state) => state.visual.pixelated)
+
   return (
     <div
       className={cx(
@@ -76,7 +80,11 @@ const Wall = ({ isOpponent = false }: PropType) => {
             <div
               ref={wallBody}
               className={cx('absolute bottom-0', classes.wallbody)}
-            ></div>
+            >
+              {pixelatedLevel !== 0 && (
+                <Pixelated src={wall} level={pixelatedLevel} />
+              )}
+            </div>
           </div>
           <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
             <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">

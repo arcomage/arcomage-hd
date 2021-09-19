@@ -6,6 +6,9 @@ export const UPDATE_ERATHIAN_MAIN = 'UPDATE_ERATHIAN_MAIN' as const
 export const UPDATE_VOLUME = 'UPDATE_VOLUME' as const
 export const UPDATE_VOLUME_MAIN = 'UPDATE_VOLUME_MAIN' as const
 
+export const UPDATE_PIXELATED = 'UPDATE_PIXELATED' as const
+export const UPDATE_PIXELATED_MAIN = 'UPDATE_PIXELATED_MAIN' as const
+
 export const UPDATE_STATUS = 'UPDATE_STATUS' as const
 export const UPDATE_STATUS_MAIN = 'UPDATE_STATUS_MAIN' as const
 
@@ -76,7 +79,8 @@ export const ABORT_ALL = 'ABORT_ALL' as const
 export const ABORT_CONNECTION = 'ABORT_CONNECTION' as const
 
 export const SWITCH_MULTIPLAYER_MODE = 'SWITCH_MULTIPLAYER_MODE' as const
-export const SWITCH_MULTIPLAYER_MODE_MAIN = 'SWITCH_MULTIPLAYER_MODE_MAIN' as const
+export const SWITCH_MULTIPLAYER_MODE_MAIN =
+  'SWITCH_MULTIPLAYER_MODE_MAIN' as const
 
 export const CONNECT_TO_NETWORK = 'CONNECT_TO_NETWORK' as const
 export const SET_YOUR_ID = 'SET_YOUR_ID' as const

@@ -5,6 +5,8 @@ import {
   UPDATE_ERATHIAN_MAIN,
   UPDATE_VOLUME,
   UPDATE_VOLUME_MAIN,
+  UPDATE_PIXELATED,
+  UPDATE_PIXELATED_MAIN,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
   EXEC_CARD,
@@ -127,6 +129,16 @@ export type UpdateVolumeActionType = {
 export type UpdateVolumeMainActionType = {
   type: typeof UPDATE_VOLUME_MAIN
   volume: number
+}
+
+export type UpdatePixelatedActionType = {
+  type: typeof UPDATE_PIXELATED
+  pixelated: number
+}
+
+export type UpdatePixelatedMainActionType = {
+  type: typeof UPDATE_PIXELATED_MAIN
+  pixelated: number
 }
 
 export type UpdateStatusActionTypeSingle = {
@@ -560,6 +572,8 @@ export type RootActionType =
   | UpdateErathianMainActionType
   | UpdateVolumeActionType
   | UpdateVolumeMainActionType
+  | UpdatePixelatedActionType
+  | UpdatePixelatedMainActionType
   | UpdateStatusActionType
   | UpdateStatusMainActionType
   | ExecCardActionType

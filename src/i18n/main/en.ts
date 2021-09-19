@@ -88,8 +88,14 @@ export const i18n = {
   Cancel: 'Cancel',
 
   Language: 'Language',
+
+  'Volume & Visual': 'Volume & Visual',
   Volume: 'Volume',
   Mute: 'Mute',
+
+  Pixelation: 'Pixelation',
+  Disable: 'Disable',
+
   Help: 'Help',
   'Toggle Full Screen': 'Toggle Full Screen',
 

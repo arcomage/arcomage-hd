@@ -101,6 +101,10 @@ export type LangStateType = {
   erathian: boolean
 }
 
+export type VisualStateType = {
+  pixelated: number
+}
+
 export type MultiplayerStatusType =
   | 'disconnected'
   | 'connecting_net'
@@ -130,6 +134,7 @@ export type RootStateType = {
   settings: SettingsStateType
   screen: ScreenStateType
   volume: number
+  visual: VisualStateType
 }
 
 export type ExchangeStateType = {

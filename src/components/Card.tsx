@@ -30,6 +30,7 @@ import {
 } from '../constants/devSettings'
 import { CardPosContext, CardPosType } from '../utils/CardPosContext'
 import TooltipAll from './special/TooltipAll'
+import Pixelated from './effects/Pixelated'
 
 const calcOpacity = ({
   unusable,
@@ -164,6 +165,8 @@ const useStyles = createUseStyles<
   image: {
     // width: calc(100% - 0.25rem * 2),
     height: 'calc((100% / 63 * 47 - 0.5rem) / 22 * 13)',
+  },
+  discarded: {
     'font-size': '125%',
   },
   text: {
@@ -231,6 +234,8 @@ const Card = ({
   const dispatch = useAppDispatch()
   const cardPos = useContext(CardPosContext)
 
+  const pixelatedLevel = useAppSelector((state) => state.visual.pixelated)
+
   const total =
     owner === 'common'
       ? totalObj[playersTurn ? 'player' : 'opponent']
@@ -261,7 +266,11 @@ const Card = ({
             [classes.unusableopacity]: n === -1,
           },
         )}
-      ></button>
+      >
+        {pixelatedLevel !== 0 && (
+          <Pixelated src={cardbackbg} level={pixelatedLevel} />
+        )}
+      </button>
     )
   } else {
     const { type, cost, special } = dataCards[n]
@@ -433,13 +442,28 @@ const Card = ({
           <div
             className={cx(
               classes.image,
-              'm-1 shadow bg-no-repeat bg-cover bg-center flex justify-center items-center text-red-500 font-bold uppercase text-shadow-stroke',
+              'relative m-1 shadow bg-no-repeat bg-cover bg-center',
             )}
             style={{
               backgroundImage: `url(${require(`../../assets/img/cards/${n}.webp`)})`,
             }}
           >
-            {discarded && _.i18n('discarded')}
+            {pixelatedLevel !== 0 && (
+              <Pixelated
+                src={require(`../../assets/img/cards/${n}.webp`)}
+                level={pixelatedLevel}
+              />
+            )}
+            {discarded && (
+              <div
+                className={cx(
+                  classes.discarded,
+                  'absolute top-0 left-0 w-full h-full flex justify-center items-center text-red-500 font-bold uppercase text-shadow-stroke',
+                )}
+              >
+                {_.i18n('discarded')}
+              </div>
+            )}
           </div>
           <div
             className={cx(
@@ -474,7 +498,11 @@ const Card = ({
             classes.cardbackeffect,
             'absolute top-0 bottom-0 left-0 right-0 rounded',
           )}
-        ></div>
+        >
+          {pixelatedLevel !== 0 && (
+            <Pixelated src={cardbackbg} level={pixelatedLevel} />
+          )}
+        </div>
       </button>
     )
   }

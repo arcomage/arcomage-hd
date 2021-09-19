@@ -86,8 +86,14 @@ export const i18n = {
   Cancel: 'Отмена',
 
   Language: 'Язык',
+
+  'Volume & Visual': 'Громкость и визуальный',
   Volume: 'Громкость',
   Mute: 'Заглушить',
+
+  Pixelation: 'Пикселизация',
+  Disable: 'Отключить',
+
   Help: 'Помощь',
   'Toggle Full Screen': 'Полноэкранный режим',
 

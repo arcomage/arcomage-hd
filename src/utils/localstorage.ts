@@ -4,13 +4,18 @@ import {
   localstorageName,
   localstorageVersionName,
 } from '../constants/devSettings'
-import { LangStateType, SettingsStateType } from '../types/state'
+import {
+  LangStateType,
+  SettingsStateType,
+  VisualStateType,
+} from '../types/state'
 import lt from 'semver/functions/lt'
 
 type LocalstorageType = {
   lang?: LangStateType
   settings?: SettingsStateType
   volume?: number
+  visual?: VisualStateType
 }
 
 const currentVersion: string = process.env.APPVERSION ?? ''
