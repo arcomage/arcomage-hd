@@ -49,6 +49,7 @@ import {
 import { sample } from '../../utils/random'
 import isEmoji from '../../utils/isEmoji'
 import TooltipAll from '../special/TooltipAll'
+import { maxCardsInHand, minGeneratorIsOne } from '../../constants/ranges'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -538,7 +539,7 @@ const Pref = () => {
             type="number"
             name={allStatusNames[5]}
             id={allStatusNames[5]}
-            min="1"
+            min={minGeneratorIsOne ? 1 : 0}
             disabled={isGuest}
             value={
               isGuest && tempSettingsStore !== null
@@ -554,7 +555,7 @@ const Pref = () => {
             type="number"
             name={allStatusNames[6]}
             id={allStatusNames[6]}
-            min="1"
+            min={minGeneratorIsOne ? 1 : 0}
             disabled={isGuest}
             value={
               isGuest && tempSettingsStore !== null
@@ -570,7 +571,7 @@ const Pref = () => {
             type="number"
             name={allStatusNames[7]}
             id={allStatusNames[7]}
-            min="1"
+            min={minGeneratorIsOne ? 1 : 0}
             disabled={isGuest}
             value={
               isGuest && tempSettingsStore !== null

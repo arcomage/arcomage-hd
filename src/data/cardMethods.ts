@@ -1,13 +1,18 @@
 import { resProds } from '../constants/resourceNames'
 import { DataCardEffectPersonType } from '../types/dataCard'
+import { minGeneratorIsOne } from '../constants/ranges'
 
 export const set = (
   person: DataCardEffectPersonType,
   prop: keyof DataCardEffectPersonType,
   to: number,
 ) => {
-  const min = resProds.includes(prop) ? 1 : 0
-  person[prop] = to > min ? to : min
+  if (minGeneratorIsOne) {
+    const min = resProds.includes(prop) ? 1 : 0
+    person[prop] = to > min ? to : min
+  } else {
+    person[prop] = to > 0 ? to : 0
+  }
 }
 
 export const change = (

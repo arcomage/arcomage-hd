@@ -12,6 +12,14 @@ import {
   defaultVolume,
   defaultEnabledPixelated,
 } from '../../constants/defaultSettings'
+import {
+  minVolume,
+  maxVolume,
+  stepVolume,
+  minPixelated,
+  maxPixelated,
+  stepPixelated,
+} from '../../constants/ranges'
 
 const VolumePref = () => {
   const volume: number = useAppSelector((state) => state.volume)
@@ -26,8 +34,9 @@ const VolumePref = () => {
           <h3 className="text-center">{_.i18n('Volume')}</h3>
           <input
             type="range"
-            min="0"
-            max="10"
+            min={minVolume}
+            max={maxVolume}
+            step={stepVolume}
             value={volume.toString(10)}
             className="mt-3"
             onChange={(e) => {
@@ -55,9 +64,9 @@ const VolumePref = () => {
           <h3 className="text-center">{_.i18n('Pixelation')}</h3>
           <input
             type="range"
-            min="0"
-            max="16"
-            step="2"
+            min={minPixelated}
+            max={maxPixelated}
+            step={stepPixelated}
             value={pixelated.toString(10)}
             className="mt-3"
             onChange={(e) => {
