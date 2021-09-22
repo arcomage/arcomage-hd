@@ -53,7 +53,13 @@ export const i18n = {
   'Victory Conditions': '勝利條件',
   'Other Preferences': '其他設定',
   'Cards in Hand': '手中牌數量',
+
   'AI Type': 'AI型別',
+  Genius: '天才',
+  Smart: '聰明',
+  Mediocre: '一般',
+  Stupid: '糊塗',
+  Idiotic: '愚蠢',
 
   Multiplayer: '二人對戰模式',
   off: '停用',

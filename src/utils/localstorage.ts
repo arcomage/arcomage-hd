@@ -8,6 +8,7 @@ import {
   LangStateType,
   SettingsStateType,
   VisualStateType,
+  AiStateType,
 } from '../types/state'
 import lt from 'semver/functions/lt'
 
@@ -16,6 +17,7 @@ type LocalstorageType = {
   settings?: SettingsStateType
   volume?: number
   visual?: VisualStateType
+  ai?: AiStateType
 }
 
 const currentVersion: string = process.env.APPVERSION ?? ''

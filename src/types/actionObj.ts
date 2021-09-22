@@ -7,6 +7,8 @@ import {
   UPDATE_VOLUME_MAIN,
   UPDATE_PIXELATED,
   UPDATE_PIXELATED_MAIN,
+  UPDATE_AITYPE,
+  UPDATE_AITYPE_MAIN,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
   EXEC_CARD,
@@ -139,6 +141,16 @@ export type UpdatePixelatedActionType = {
 export type UpdatePixelatedMainActionType = {
   type: typeof UPDATE_PIXELATED_MAIN
   pixelated: number
+}
+
+export type UpdateAiTypeActionType = {
+  type: typeof UPDATE_AITYPE
+  aiType: number
+}
+
+export type UpdateAiTypeMainActionType = {
+  type: typeof UPDATE_AITYPE_MAIN
+  aiType: number
 }
 
 export type UpdateStatusActionTypeSingle = {
@@ -574,6 +586,8 @@ export type RootActionType =
   | UpdateVolumeMainActionType
   | UpdatePixelatedActionType
   | UpdatePixelatedMainActionType
+  | UpdateAiTypeActionType
+  | UpdateAiTypeMainActionType
   | UpdateStatusActionType
   | UpdateStatusMainActionType
   | ExecCardActionType

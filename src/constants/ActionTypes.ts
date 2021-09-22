@@ -9,6 +9,9 @@ export const UPDATE_VOLUME_MAIN = 'UPDATE_VOLUME_MAIN' as const
 export const UPDATE_PIXELATED = 'UPDATE_PIXELATED' as const
 export const UPDATE_PIXELATED_MAIN = 'UPDATE_PIXELATED_MAIN' as const
 
+export const UPDATE_AITYPE = 'UPDATE_AITYPE' as const
+export const UPDATE_AITYPE_MAIN = 'UPDATE_AITYPE_MAIN' as const
+
 export const UPDATE_STATUS = 'UPDATE_STATUS' as const
 export const UPDATE_STATUS_MAIN = 'UPDATE_STATUS_MAIN' as const
 

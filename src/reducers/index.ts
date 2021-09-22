@@ -7,6 +7,7 @@ import settings from './settings'
 import screen from './screen'
 import volume from './volume'
 import visual from './visual'
+import ai from './ai'
 import multiplayer from './multiplayer'
 
 const rootReducer = combineReducers({
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   screen,
   volume,
   visual,
+  ai,
   multiplayer,
 })
 

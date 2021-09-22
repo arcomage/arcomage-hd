@@ -25,6 +25,7 @@ export const otherSettingNames = [
   'winTower',
   'winResource',
   'cardsInHand',
+  'aiType',
 ] as const
 
 export const nonNameSettingNames = [

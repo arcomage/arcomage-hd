@@ -7,6 +7,7 @@ import {
   UPDATE_LANG_MAIN,
   UPDATE_VOLUME_MAIN,
   UPDATE_PIXELATED_MAIN,
+  UPDATE_AITYPE_MAIN,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil } from 'rxjs/operators'
@@ -34,6 +35,7 @@ export default (
       const settings = lsGet(['settings'])
       const volume = lsGet(['volume'])
       const pixelated = lsGet(['visual', 'pixelated'])
+      const aiType = lsGet(['ai', 'aiType'])
       return concat(
         settings !== null
           ? of<RootActionType>({
@@ -69,6 +71,12 @@ export default (
           ? of<RootActionType>({
               type: UPDATE_PIXELATED_MAIN,
               pixelated,
+            })
+          : EMPTY,
+        aiType !== null
+          ? of<RootActionType>({
+              type: UPDATE_AITYPE_MAIN,
+              aiType,
             })
           : EMPTY,
         of<RootActionType>({

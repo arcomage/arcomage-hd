@@ -135,11 +135,17 @@
 
       span {
         @apply w-2/3 overflow-hidden;
+        &.onethird {
+          @apply w-1/3;
+        }
       }
       input[type='number'],
       input[type='text'],
       select {
         @apply w-1/3;
+        &.twothird {
+          @apply w-2/3;
+        }
       }
 
       &.half {

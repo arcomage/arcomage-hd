@@ -6,6 +6,7 @@ import updateLangEpic from './settings_lang_etc/updateLangEpic'
 import updateErathianEpic from './settings_lang_etc/updateErathianEpic'
 import updateVolumeEpic from './settings_lang_etc/updateVolumeEpic'
 import updateVisualEpic from './settings_lang_etc/updateVisualEpic'
+import updateAiEpic from './settings_lang_etc/updateAiEpic'
 import updateSettingsEpic from './settings_lang_etc/updateSettingsEpic'
 import updateStatusEpic from './status/updateStatusEpic'
 import execCardEpic from './cards/execCardEpic'
@@ -56,6 +57,7 @@ const rootEpic: MyEpic = combineEpics(
   updateErathianEpic,
   updateVolumeEpic,
   updateVisualEpic,
+  updateAiEpic,
   updateSettingsEpic,
   updateStatusEpic,
   execCardEpic,

@@ -19,6 +19,7 @@ import {
   SEND_TEMP_SETTINGS,
   SEND_NAME,
   SET_TEMP_PLAYER_NAME,
+  UPDATE_AITYPE,
 } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import { upper1st } from '../../utils/upper1st'
@@ -27,6 +28,7 @@ import {
   defaultPlayerNameList,
   defaultOpponentNameList,
   defaultSettings,
+  defaultAiType,
 } from '../../constants/defaultSettings'
 import { hasOwnProperty } from '../../utils/typeHelpers'
 import {
@@ -76,6 +78,8 @@ const Pref = () => {
     (state) => state.multiplayer.gameNumber,
   )
 
+  const aiType = useAppSelector((state) => state.ai.aiType)
+
   const settingStore = {
     playerName: useAppSelector((state) => state.settings.playerName),
     opponentName: useAppSelector((state) => state.settings.opponentName),
@@ -99,10 +103,17 @@ const Pref = () => {
 
   const [formFields, setFormFields] = useState<FormFieldsType>(settingStore)
 
+  const [aiTypeFormField, setAiTypeFormField] = useState<number>(aiType)
+
   const applyAndNewGame = () => {
     dispatch({
       type: SCREEN_PREF,
       show: false,
+    })
+
+    dispatch({
+      type: UPDATE_AITYPE,
+      aiType: aiTypeFormField,
     })
 
     const { opponentId, ...rest } = formFields
@@ -632,30 +643,45 @@ const Pref = () => {
         {_.i18n('Other Preferences')}
         {_.i18n(': ')}
       </h4>
-      <label className="one-colume">
-        <span>{_.i18n('Cards in Hand')}</span>
-        <input
-          type="number"
-          name={otherSettingNames[2]}
-          id={otherSettingNames[2]}
-          min="0"
-          max="15"
-          disabled={isGuest}
-          value={
-            isGuest && tempSettingsStore !== null
-              ? tempSettingsStore.cardsInHand
-              : formFields.cardsInHand
-          }
-          onChange={handleChange}
-        />
-      </label>
-      {/* <label className="one-colume">
-          <span>{_.i18n('AI Type')}</span>
-          <select name="aiType" id="aiType">
-            <option value={0}>111</option>
-            <option value={1}>222</option>
+
+      <div className="two-column">
+        <label>
+          <span>{_.i18n('Cards in Hand')}</span>
+          <input
+            type="number"
+            name={otherSettingNames[2]}
+            id={otherSettingNames[2]}
+            min="0"
+            max={maxCardsInHand}
+            disabled={isGuest}
+            value={
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.cardsInHand
+                : formFields.cardsInHand
+            }
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          <span className="onethird">{_.i18n('AI Type')}</span>
+          <select
+            name={otherSettingNames[3]}
+            id={otherSettingNames[3]}
+            className="twothird"
+            value={aiTypeFormField}
+            disabled={multiGameNumber > 0}
+            onChange={(e) => {
+              setAiTypeFormField(parseInt(e.target.value, 10))
+            }}
+          >
+            <option value={0}>{_.i18n('Genius')}</option>
+            <option value={1}>{_.i18n('Smart')}</option>
+            <option value={2}>{_.i18n('Mediocre')}</option>
+            <option value={3}>{_.i18n('Stupid')}</option>
+            <option value={4}>{_.i18n('Idiotic')}</option>
           </select>
-          </label> */}
+        </label>
+      </div>
 
       <h4 className="multiplayer">
         <label>
@@ -776,6 +802,9 @@ const Pref = () => {
               yourId, // unchanged
               opponentId, // unchanged
             }))
+            if (multiGameNumber <= 0) {
+              setAiTypeFormField(defaultAiType)
+            }
           }}
         >
           {_.i18n('Reset')}

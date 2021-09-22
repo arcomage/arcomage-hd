@@ -54,7 +54,13 @@ export const i18n = {
   'Victory Conditions': 'Warunki zwycięstwa',
   'Other Preferences': 'Inne opcje',
   'Cards in Hand': 'Karty w ręce',
+
   'AI Type': 'Typ komputera',
+  Genius: 'Geniuszem',
+  Smart: 'Inteligentny',
+  Mediocre: 'Przeciętny',
+  Stupid: 'Głupi',
+  Idiotic: 'Idiotyczny',
 
   Multiplayer: 'Wieloosobowa',
   off: 'wyłączony',

@@ -53,7 +53,13 @@ export const i18n = {
   'Victory Conditions': 'Условия победы',
   'Other Preferences': 'Другие настройки',
   'Cards in Hand': 'Карт в руке',
+
   'AI Type': 'Тип ИИ',
+  Genius: 'Гений',
+  Smart: 'Умный',
+  Mediocre: 'Посредственный',
+  Stupid: 'Тупой',
+  Idiotic: 'Идиотский',
 
   Multiplayer: 'Мультиплеер',
   off: 'off',

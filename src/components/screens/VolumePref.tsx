@@ -22,8 +22,8 @@ import {
 } from '../../constants/ranges'
 
 const VolumePref = () => {
-  const volume: number = useAppSelector((state) => state.volume)
-  const pixelated: number = useAppSelector((state) => state.visual.pixelated)
+  const volume = useAppSelector((state) => state.volume)
+  const pixelated = useAppSelector((state) => state.visual.pixelated)
   const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
 

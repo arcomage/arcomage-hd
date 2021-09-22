@@ -45,7 +45,7 @@ export const defaultErathian = false
 export const defaultPixelated = 0
 export const defaultEnabledPixelated = 4
 
-export const defaultAi = 0
+export const defaultAiType = 0
 
 export const defaultSettingState: SettingsStateType = {
   playerName: defaultPlayerName,

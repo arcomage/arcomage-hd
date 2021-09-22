@@ -105,6 +105,10 @@ export type VisualStateType = {
   pixelated: number
 }
 
+export type AiStateType = {
+  aiType: number // 0 - 4
+}
+
 export type MultiplayerStatusType =
   | 'disconnected'
   | 'connecting_net'
@@ -135,6 +139,7 @@ export type RootStateType = {
   screen: ScreenStateType
   volume: number
   visual: VisualStateType
+  ai: AiStateType
 }
 
 export type ExchangeStateType = {

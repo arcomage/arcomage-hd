@@ -53,7 +53,13 @@ export const i18n = {
   'Victory Conditions': '勝利条件',
   'Other Preferences': 'その他の設定',
   'Cards in Hand': '手札のカード数',
+
   'AI Type': 'AIタイプ',
+  Genius: '天才',
+  Smart: '賢い',
+  Mediocre: '平凡',
+  Stupid: 'バカ',
+  Idiotic: '白痴',
 
   Multiplayer: '対戦モード',
   off: '無効',

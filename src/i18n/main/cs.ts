@@ -54,7 +54,13 @@ export const i18n = {
   'Victory Conditions': 'Podmínky vítězství',
   'Other Preferences': 'Další předvolby',
   'Cards in Hand': 'Karty v ruce',
+
   'AI Type': 'Typ AI',
+  Genius: 'Geniální',
+  Smart: 'Chytrý',
+  Mediocre: 'Průměrný',
+  Stupid: 'Hloupý',
+  Idiotic: 'Idiotský',
 
   Multiplayer: 'Více hráčů',
   off: 'zakázáno',

@@ -54,7 +54,13 @@ export const i18n = {
   'Victory Conditions': 'Siegbedingungen',
   'Other Preferences': 'Andere Voreinstellungen',
   'Cards in Hand': 'Karten auf der Hand',
+
   'AI Type': 'AI-Typ',
+  Genius: 'Genial',
+  Smart: 'Klug',
+  Mediocre: 'Mittelmäßig',
+  Stupid: 'Dumm',
+  Idiotic: 'Idiotisch',
 
   Multiplayer: 'Mehrspieler',
   off: 'deaktiviert',
