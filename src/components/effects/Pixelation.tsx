@@ -15,7 +15,7 @@ type CanvasRenderingContext2DCompatible = CanvasRenderingContext2D & {
   msImageSmoothingEnabled: boolean
 }
 
-const Pixelated = ({
+const Pixelation = ({
   src,
   level,
   fit,
@@ -120,4 +120,4 @@ const Pixelated = ({
   return <canvas ref={main} />
 }
 
-export default memo(Pixelated)
+export default memo(Pixelation)

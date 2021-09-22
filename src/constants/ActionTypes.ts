@@ -6,8 +6,8 @@ export const UPDATE_ERATHIAN_MAIN = 'UPDATE_ERATHIAN_MAIN' as const
 export const UPDATE_VOLUME = 'UPDATE_VOLUME' as const
 export const UPDATE_VOLUME_MAIN = 'UPDATE_VOLUME_MAIN' as const
 
-export const UPDATE_PIXELATED = 'UPDATE_PIXELATED' as const
-export const UPDATE_PIXELATED_MAIN = 'UPDATE_PIXELATED_MAIN' as const
+export const UPDATE_PIXELATION = 'UPDATE_PIXELATION' as const
+export const UPDATE_PIXELATION_MAIN = 'UPDATE_PIXELATION_MAIN' as const
 
 export const UPDATE_AITYPE = 'UPDATE_AITYPE' as const
 export const UPDATE_AITYPE_MAIN = 'UPDATE_AITYPE_MAIN' as const

@@ -6,7 +6,7 @@ import {
   UPDATE_ERATHIAN_MAIN,
   UPDATE_LANG_MAIN,
   UPDATE_VOLUME_MAIN,
-  UPDATE_PIXELATED_MAIN,
+  UPDATE_PIXELATION_MAIN,
   UPDATE_AITYPE_MAIN,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -34,7 +34,7 @@ export default (
       const erathian = lsGet(['lang', 'erathian'])
       const settings = lsGet(['settings'])
       const volume = lsGet(['volume'])
-      const pixelated = lsGet(['visual', 'pixelated'])
+      const pixelation = lsGet(['visual', 'pixelation'])
       const aiType = lsGet(['ai', 'aiType'])
       return concat(
         settings !== null
@@ -67,10 +67,10 @@ export default (
               volume,
             })
           : EMPTY,
-        pixelated !== null
+        pixelation !== null
           ? of<RootActionType>({
-              type: UPDATE_PIXELATED_MAIN,
-              pixelated,
+              type: UPDATE_PIXELATION_MAIN,
+              pixelation,
             })
           : EMPTY,
         aiType !== null

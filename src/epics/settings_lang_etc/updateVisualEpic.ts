@@ -1,6 +1,6 @@
 import {
-  UPDATE_PIXELATED,
-  UPDATE_PIXELATED_MAIN,
+  UPDATE_PIXELATION,
+  UPDATE_PIXELATION_MAIN,
   ABORT_ALL,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -16,19 +16,19 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_PIXELATED)),
+    filter(isOfType(UPDATE_PIXELATION)),
     mergeMap((action) => {
-      const { pixelated } = action
+      const { pixelation } = action
       lsSet((draft) => {
         if (draft.visual === undefined) {
-          draft.visual = { pixelated }
+          draft.visual = { pixelation }
         } else {
-          draft.visual.pixelated = pixelated
+          draft.visual.pixelation = pixelation
         }
       })
       return of<RootActionType>({
-        type: UPDATE_PIXELATED_MAIN,
-        pixelated,
+        type: UPDATE_PIXELATION_MAIN,
+        pixelation,
       }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

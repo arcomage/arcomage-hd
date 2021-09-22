@@ -10,7 +10,7 @@ import { useAppSelector } from '../utils/useAppDispatch'
 
 import bg from '../../assets/img/bg.webp'
 import { GameSizeContext } from '../utils/GameSizeContext'
-import Pixelated from './effects/Pixelated'
+import Pixelation from './effects/Pixelation'
 
 const useStyles = createUseStyles({
   main: {
@@ -47,7 +47,7 @@ const TableCommon = () => {
 
   const classes = useStyles()
 
-  const pixelatedLevel = useAppSelector((state) => state.visual.pixelated)
+  const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
 
   return (
     <div
@@ -57,8 +57,8 @@ const TableCommon = () => {
         size.narrowMobile ? 'h-1/2' : 'h-2/3',
       )}
     >
-      {pixelatedLevel !== 0 && (
-        <Pixelated src={bg} level={pixelatedLevel} fit="cover" offsetY={0.3} />
+      {pixelationLevel !== 0 && (
+        <Pixelation src={bg} level={pixelationLevel} fit="cover" offsetY={0.3} />
       )}
 
       <div className="absolute top-0 left-0 w-full h-full">

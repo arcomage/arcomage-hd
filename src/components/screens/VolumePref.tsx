@@ -5,25 +5,25 @@ import Window from './Window'
 import {
   SCREEN_VOLUME_PREF,
   UPDATE_VOLUME,
-  UPDATE_PIXELATED,
+  UPDATE_PIXELATION,
 } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import {
   defaultVolume,
-  defaultEnabledPixelated,
+  defaultEnabledPixelation,
 } from '../../constants/defaultSettings'
 import {
   minVolume,
   maxVolume,
   stepVolume,
-  minPixelated,
-  maxPixelated,
-  stepPixelated,
+  minPixelation,
+  maxPixelation,
+  stepPixelation,
 } from '../../constants/ranges'
 
 const VolumePref = () => {
   const volume = useAppSelector((state) => state.volume)
-  const pixelated = useAppSelector((state) => state.visual.pixelated)
+  const pixelation = useAppSelector((state) => state.visual.pixelation)
   const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
 
@@ -64,26 +64,26 @@ const VolumePref = () => {
           <h3 className="text-center">{_.i18n('Pixelation')}</h3>
           <input
             type="range"
-            min={minPixelated}
-            max={maxPixelated}
-            step={stepPixelated}
-            value={pixelated.toString(10)}
+            min={minPixelation}
+            max={maxPixelation}
+            step={stepPixelation}
+            value={pixelation.toString(10)}
             className="mt-3"
             onChange={(e) => {
               dispatch({
-                type: UPDATE_PIXELATED,
-                pixelated: parseInt(e.target.value, 10),
+                type: UPDATE_PIXELATION,
+                pixelation: parseInt(e.target.value, 10),
               })
             }}
           />
           <label className="justify-center">
             <input
               type="checkbox"
-              checked={pixelated === 0}
+              checked={pixelation === 0}
               onChange={(e) => {
                 dispatch({
-                  type: UPDATE_PIXELATED,
-                  pixelated: e.target.checked ? 0 : defaultEnabledPixelated,
+                  type: UPDATE_PIXELATION,
+                  pixelation: e.target.checked ? 0 : defaultEnabledPixelation,
                 })
               }}
             />

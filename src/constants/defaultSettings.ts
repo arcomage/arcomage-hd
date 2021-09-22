@@ -42,8 +42,8 @@ export const defaultVolume = 5
 
 export const defaultErathian = false
 
-export const defaultPixelated = 0
-export const defaultEnabledPixelated = 4
+export const defaultPixelation = 0
+export const defaultEnabledPixelation = 4
 
 export const defaultAiType = 0
 

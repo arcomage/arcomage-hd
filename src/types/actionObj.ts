@@ -5,8 +5,8 @@ import {
   UPDATE_ERATHIAN_MAIN,
   UPDATE_VOLUME,
   UPDATE_VOLUME_MAIN,
-  UPDATE_PIXELATED,
-  UPDATE_PIXELATED_MAIN,
+  UPDATE_PIXELATION,
+  UPDATE_PIXELATION_MAIN,
   UPDATE_AITYPE,
   UPDATE_AITYPE_MAIN,
   UPDATE_STATUS,
@@ -133,14 +133,14 @@ export type UpdateVolumeMainActionType = {
   volume: number
 }
 
-export type UpdatePixelatedActionType = {
-  type: typeof UPDATE_PIXELATED
-  pixelated: number
+export type UpdatePixelationActionType = {
+  type: typeof UPDATE_PIXELATION
+  pixelation: number
 }
 
-export type UpdatePixelatedMainActionType = {
-  type: typeof UPDATE_PIXELATED_MAIN
-  pixelated: number
+export type UpdatePixelationMainActionType = {
+  type: typeof UPDATE_PIXELATION_MAIN
+  pixelation: number
 }
 
 export type UpdateAiTypeActionType = {
@@ -584,8 +584,8 @@ export type RootActionType =
   | UpdateErathianMainActionType
   | UpdateVolumeActionType
   | UpdateVolumeMainActionType
-  | UpdatePixelatedActionType
-  | UpdatePixelatedMainActionType
+  | UpdatePixelationActionType
+  | UpdatePixelationMainActionType
   | UpdateAiTypeActionType
   | UpdateAiTypeMainActionType
   | UpdateStatusActionType

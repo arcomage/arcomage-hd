@@ -102,7 +102,7 @@ export type LangStateType = {
 }
 
 export type VisualStateType = {
-  pixelated: number
+  pixelation: number
 }
 
 export type AiStateType = {

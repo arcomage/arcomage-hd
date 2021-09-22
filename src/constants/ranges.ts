@@ -10,7 +10,7 @@ export const maxVolume = 10
 export const stepVolume = 1
 // see also defaultVolume
 
-export const minPixelated = 0
-export const maxPixelated = 10
-export const stepPixelated = 2
-// see also defaultPixelated, defaultEnabledPixelated
+export const minPixelation = 0
+export const maxPixelation = 10
+export const stepPixelation = 2
+// see also defaultPixelation, defaultEnabledPixelation

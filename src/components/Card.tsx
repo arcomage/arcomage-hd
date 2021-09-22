@@ -30,7 +30,7 @@ import {
 } from '../constants/devSettings'
 import { CardPosContext, CardPosType } from '../utils/CardPosContext'
 import TooltipAll from './special/TooltipAll'
-import Pixelated from './effects/Pixelated'
+import Pixelation from './effects/Pixelation'
 
 const calcOpacity = ({
   unusable,
@@ -234,7 +234,7 @@ const Card = ({
   const dispatch = useAppDispatch()
   const cardPos = useContext(CardPosContext)
 
-  const pixelatedLevel = useAppSelector((state) => state.visual.pixelated)
+  const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
 
   const total =
     owner === 'common'
@@ -267,8 +267,8 @@ const Card = ({
           },
         )}
       >
-        {pixelatedLevel !== 0 && (
-          <Pixelated src={cardbackbg} level={pixelatedLevel} />
+        {pixelationLevel !== 0 && (
+          <Pixelation src={cardbackbg} level={pixelationLevel} />
         )}
       </button>
     )
@@ -448,10 +448,10 @@ const Card = ({
               backgroundImage: `url(${require(`../../assets/img/cards/${n}.webp`)})`,
             }}
           >
-            {pixelatedLevel !== 0 && (
-              <Pixelated
+            {pixelationLevel !== 0 && (
+              <Pixelation
                 src={require(`../../assets/img/cards/${n}.webp`)}
-                level={pixelatedLevel}
+                level={pixelationLevel}
               />
             )}
             {discarded && (
@@ -499,8 +499,8 @@ const Card = ({
             'absolute top-0 bottom-0 left-0 right-0 rounded',
           )}
         >
-          {pixelatedLevel !== 0 && (
-            <Pixelated src={cardbackbg} level={pixelatedLevel} />
+          {pixelationLevel !== 0 && (
+            <Pixelation src={cardbackbg} level={pixelationLevel} />
           )}
         </div>
       </button>
