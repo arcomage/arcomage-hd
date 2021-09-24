@@ -10,6 +10,7 @@ import {
 import { I18nContext } from '../../i18n/I18nContext'
 import {
   defaultVolume,
+  defaultPixelation,
   defaultEnabledPixelation,
 } from '../../constants/defaultSettings'
 import {
@@ -37,7 +38,7 @@ const VolumePref = () => {
             min={minVolume}
             max={maxVolume}
             step={stepVolume}
-            value={volume.toString(10)}
+            value={volume}
             className="mt-3"
             onChange={(e) => {
               dispatch({
@@ -67,7 +68,7 @@ const VolumePref = () => {
             min={minPixelation}
             max={maxPixelation}
             step={stepPixelation}
-            value={pixelation.toString(10)}
+            value={pixelation}
             className="mt-3"
             onChange={(e) => {
               dispatch({
@@ -90,6 +91,22 @@ const VolumePref = () => {
             <span>{_.i18n('Disable')}</span>
           </label>
         </div>
+      </div>
+      <div className="button-wrapper">
+        <button
+          onClick={(e) => {
+            dispatch({
+              type: UPDATE_VOLUME,
+              volume: defaultVolume,
+            })
+            dispatch({
+              type: UPDATE_PIXELATION,
+              pixelation: defaultPixelation,
+            })
+          }}
+        >
+          {_.i18n('Reset')}
+        </button>
       </div>
     </Window>
   )

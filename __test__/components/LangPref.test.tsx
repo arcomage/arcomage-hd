@@ -8,7 +8,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { GameSizeProvider } from '../../src/utils/GameSizeContext'
 import { store } from '../../src/store'
 
-it('click langPrefButton', async () => {
+it('click langPrefButton', () => {
   const wrapper = mount(
     <Provider store={store}>
       <I18nProvider>
@@ -24,4 +24,10 @@ it('click langPrefButton', async () => {
   langButton.simulate('click')
   const frButton = wrapper.find("button[lang='fr']")
   frButton.simulate('click')
+  const erathianCheckbox = wrapper.find(
+    '.window-wrapper input[type="checkbox"]',
+  )
+  erathianCheckbox.simulate('change', { target: { checked: true } })
+  const cancelButton = wrapper.find('button.cancel')
+  cancelButton.simulate('click')
 })

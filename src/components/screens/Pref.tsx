@@ -605,7 +605,7 @@ const Pref = () => {
             type="number"
             name={otherSettingNames[0]}
             id={otherSettingNames[0]}
-            min={(formFields.tower + 1).toString(10)}
+            min={formFields.tower + 1}
             disabled={isGuest}
             value={
               isGuest && tempSettingsStore !== null
@@ -621,13 +621,13 @@ const Pref = () => {
             type="number"
             name={otherSettingNames[1]}
             id={otherSettingNames[1]}
-            min={(
+            min={
               Math.max(
                 formFields.bricks + formFields.brickProd,
                 formFields.gems + formFields.gemProd,
                 formFields.recruits + formFields.recruitProd,
               ) + 1
-            ).toString(10)}
+            }
             disabled={isGuest}
             value={
               isGuest && tempSettingsStore !== null
@@ -793,7 +793,7 @@ const Pref = () => {
       <div className="button-wrapper">
         <button
           disabled={isGuest}
-          onClick={() => {
+          onClick={(e) => {
             setFormFields(({ opponentId }) => ({
               playerName: sample(defaultPlayerNameList),
               opponentName: sample(defaultOpponentNameList),
