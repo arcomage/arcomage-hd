@@ -1,9 +1,14 @@
 import { allStatusNames, resNames } from '../constants/resourceNames'
 import cards from '../data/cards'
-import { AiCardListItemType, AiInstructionType } from '../types/ai'
+import {
+  AiCardListItemType,
+  AiInstructionType,
+  ScoreObjType,
+} from '../types/ai'
 import { PersonStatusType, StatusType, WinSettingsType } from '../types/state'
 import { entries, fromEntries } from '../utils/typeHelpers'
 import { coefs } from './coefs'
+import { getMaxScore } from './getMaxScore'
 
 const statusCoefs = (() => {
   const { bricks, gems, recruits, prod, tower, wall } = coefs
@@ -26,6 +31,7 @@ export const aiDecision = (
   cardList: AiCardListItemType[],
   status: StatusType,
   winSettings: WinSettingsType,
+  aiType: number,
 ): AiInstructionType | null => {
   // you can edit the elements inside cardList
 
@@ -122,7 +128,7 @@ export const aiDecision = (
     scoreAll: (card.score / coefs.useDiscardRatio) * -1,
   }))
 
-  const allScores = scores
+  const allScores: ScoreObjType[] = scores
     .concat(discardScores)
     .filter((c) => (c.use && c.card.canuse) || (!c.use && c.card.candiscard))
 
@@ -131,9 +137,7 @@ export const aiDecision = (
     return null
   }
 
-  const max = allScores.reduce((prev, current) =>
-    prev.scoreAll > current.scoreAll ? prev : current,
-  )
+  const max = getMaxScore(allScores, aiType)
 
   return { index: max.card.index, use: max.use }
 }

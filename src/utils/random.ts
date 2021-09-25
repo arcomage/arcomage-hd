@@ -7,7 +7,7 @@ export const weightedRandom = (max: number, dice: number): number => {
   return num
 }
 
-export const sample = (arr: any[]) =>
+export const sample = <T>(arr: T[]): T =>
   arr[Math.floor(Math.random() * arr.length)]
 
 // min and max included

@@ -7,5 +7,10 @@ import { aiDecision } from './main'
 // `null` return value is a 'surrender' instruction
 export const ai = (state: RootStateType): AiInstructionType | null => {
   const cardList: AiCardListItemType[] = checkCardUseDiscard(state, 'opponent')
-  return aiDecision(cardList, state.status, getWinState(state.settings))
+  return aiDecision(
+    cardList,
+    state.status,
+    getWinState(state.settings),
+    state.ai.aiType,
+  )
 }

@@ -7,3 +7,9 @@ export type AiCardListItemType = {
   canuse: boolean
   candiscard: boolean
 }
+
+export type ScoreObjType = {
+  card: AiCardListItemType
+  use: boolean
+  scoreAll: number
+}
