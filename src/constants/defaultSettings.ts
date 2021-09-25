@@ -14,7 +14,6 @@ export const defaultSettings: SettingsType = {
   winTower: 50,
   winResource: 100,
   cardsInHand: 5,
-  // aiType: 'Random',
 }
 
 export const defaultStatus: StatusType = {
@@ -45,12 +44,11 @@ export const defaultErathian = false
 export const defaultPixelation = 0
 export const defaultEnabledPixelation = 4
 
-export const defaultAiType = 0
+export const defaultAiLevel = 0
 
 export const defaultSettingState: SettingsStateType = {
   playerName: defaultPlayerName,
   opponentName: defaultOpponentName,
   ...defaultSettings,
   cardsInHand: defaultSettings.cardsInHand,
-  // aiType: defaultSettings.aiType,
 }

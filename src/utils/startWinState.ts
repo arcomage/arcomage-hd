@@ -75,4 +75,3 @@ export const allCondAndOtherSettingsEqual = (
   settings1.winTower === settings2.winTower &&
   settings1.winResource === settings2.winResource &&
   settings1.cardsInHand === settings2.cardsInHand
-// aiType

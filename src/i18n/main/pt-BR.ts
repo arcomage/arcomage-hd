@@ -55,7 +55,7 @@ export const i18n = {
   'Other Preferences': 'Outras Preferências',
   'Cards in Hand': 'Cartas na Mão',
 
-  'AI Type': 'Tipo de IA',
+  'AI Level': 'Nível de IA',
   Genius: 'Genial',
   Smart: 'Inteligente',
   Mediocre: 'Medíocre',

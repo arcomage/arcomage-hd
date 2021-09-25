@@ -7,8 +7,8 @@ import {
   UPDATE_VOLUME_MAIN,
   UPDATE_PIXELATION,
   UPDATE_PIXELATION_MAIN,
-  UPDATE_AITYPE,
-  UPDATE_AITYPE_MAIN,
+  UPDATE_AILEVEL,
+  UPDATE_AILEVEL_MAIN,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
   EXEC_CARD,
@@ -143,14 +143,14 @@ export type UpdatePixelationMainActionType = {
   pixelation: number
 }
 
-export type UpdateAiTypeActionType = {
-  type: typeof UPDATE_AITYPE
-  aiType: number
+export type UpdateAiLevelActionType = {
+  type: typeof UPDATE_AILEVEL
+  aiLevel: number
 }
 
-export type UpdateAiTypeMainActionType = {
-  type: typeof UPDATE_AITYPE_MAIN
-  aiType: number
+export type UpdateAiLevelMainActionType = {
+  type: typeof UPDATE_AILEVEL_MAIN
+  aiLevel: number
 }
 
 export type UpdateStatusActionTypeSingle = {
@@ -586,8 +586,8 @@ export type RootActionType =
   | UpdateVolumeMainActionType
   | UpdatePixelationActionType
   | UpdatePixelationMainActionType
-  | UpdateAiTypeActionType
-  | UpdateAiTypeMainActionType
+  | UpdateAiLevelActionType
+  | UpdateAiLevelMainActionType
   | UpdateStatusActionType
   | UpdateStatusMainActionType
   | ExecCardActionType

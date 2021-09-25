@@ -31,7 +31,7 @@ export const aiDecision = (
   cardList: AiCardListItemType[],
   status: StatusType,
   winSettings: WinSettingsType,
-  aiType: number,
+  aiLevel: number,
 ): AiInstructionType | null => {
   // you can edit the elements inside cardList
 
@@ -137,7 +137,7 @@ export const aiDecision = (
     return null
   }
 
-  const max = getMaxScore(allScores, aiType)
+  const max = getMaxScore(allScores, aiLevel)
 
   return { index: max.card.index, use: max.use }
 }

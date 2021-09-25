@@ -54,7 +54,7 @@ export const i18n = {
   'Other Preferences': '其他設定',
   'Cards in Hand': '手中牌數量',
 
-  'AI Type': 'AI型別',
+  'AI Level': 'AI難度',
   Genius: '天才',
   Smart: '聰明',
   Mediocre: '一般',

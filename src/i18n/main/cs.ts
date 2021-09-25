@@ -55,7 +55,7 @@ export const i18n = {
   'Other Preferences': 'Další předvolby',
   'Cards in Hand': 'Karty v ruce',
 
-  'AI Type': 'Typ AI',
+  'AI Level': 'Úroveň AI',
   Genius: 'Geniální',
   Smart: 'Chytrý',
   Mediocre: 'Průměrný',

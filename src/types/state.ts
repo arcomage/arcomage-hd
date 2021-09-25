@@ -60,7 +60,6 @@ export type WinSettingsType = {
 export type SettingsType = PersonStatusType &
   WinSettingsType & {
     cardsInHand: number
-    // aiType?: number
   }
 
 export type SettingsStateNameType = {
@@ -106,7 +105,7 @@ export type VisualStateType = {
 }
 
 export type AiStateType = {
-  aiType: number // 0 - 4
+  aiLevel: number // 0 - 4
 }
 
 export type MultiplayerStatusType =

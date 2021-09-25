@@ -1,6 +1,6 @@
 import {
-  UPDATE_AITYPE,
-  UPDATE_AITYPE_MAIN,
+  UPDATE_AILEVEL,
+  UPDATE_AILEVEL_MAIN,
   ABORT_ALL,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -16,19 +16,19 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_AITYPE)),
+    filter(isOfType(UPDATE_AILEVEL)),
     mergeMap((action) => {
-      const { aiType } = action
+      const { aiLevel } = action
       lsSet((draft) => {
         if (draft.ai === undefined) {
-          draft.ai = { aiType }
+          draft.ai = { aiLevel }
         } else {
-          draft.ai.aiType = aiType
+          draft.ai.aiLevel = aiLevel
         }
       })
       return of<RootActionType>({
-        type: UPDATE_AITYPE_MAIN,
-        aiType,
+        type: UPDATE_AILEVEL_MAIN,
+        aiLevel,
       }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
     }),
   )

@@ -54,7 +54,7 @@ export const i18n = {
   'Other Preferences': 'Другие настройки',
   'Cards in Hand': 'Карт в руке',
 
-  'AI Type': 'Тип ИИ',
+  'AI Level': 'Уровень ИИ',
   Genius: 'Гений',
   Smart: 'Умный',
   Mediocre: 'Посредственный',

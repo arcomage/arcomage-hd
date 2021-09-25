@@ -7,7 +7,7 @@ import {
   UPDATE_LANG_MAIN,
   UPDATE_VOLUME_MAIN,
   UPDATE_PIXELATION_MAIN,
-  UPDATE_AITYPE_MAIN,
+  UPDATE_AILEVEL_MAIN,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil } from 'rxjs/operators'
@@ -35,7 +35,7 @@ export default (
       const settings = lsGet(['settings'])
       const volume = lsGet(['volume'])
       const pixelation = lsGet(['visual', 'pixelation'])
-      const aiType = lsGet(['ai', 'aiType'])
+      const aiLevel = lsGet(['ai', 'aiLevel'])
       return concat(
         settings !== null
           ? of<RootActionType>({
@@ -73,10 +73,10 @@ export default (
               pixelation,
             })
           : EMPTY,
-        aiType !== null
+        aiLevel !== null
           ? of<RootActionType>({
-              type: UPDATE_AITYPE_MAIN,
-              aiType,
+              type: UPDATE_AILEVEL_MAIN,
+              aiLevel,
             })
           : EMPTY,
         of<RootActionType>({

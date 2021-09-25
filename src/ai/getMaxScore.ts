@@ -3,10 +3,10 @@ import { weightedRandom, sample } from '../utils/random'
 
 export const getMaxScore = (
   allScores: ScoreObjType[],
-  aiType: number, // 0 | 1 | 2 | 3 | 4
+  aiLevel: number, // 0 | 1 | 2 | 3 | 4
 ): ScoreObjType => {
   let result: ScoreObjType
-  switch (aiType) {
+  switch (aiLevel) {
     case 1: {
       const allScoresTemp = allScores.map(
         ({ scoreAll }) => (scoreAll * weightedRandom(100, 8)) / 50,

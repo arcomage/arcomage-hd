@@ -11,6 +11,6 @@ export const ai = (state: RootStateType): AiInstructionType | null => {
     cardList,
     state.status,
     getWinState(state.settings),
-    state.ai.aiType,
+    state.ai.aiLevel,
   )
 }

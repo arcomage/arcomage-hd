@@ -19,7 +19,7 @@ import {
   SEND_TEMP_SETTINGS,
   SEND_NAME,
   SET_TEMP_PLAYER_NAME,
-  UPDATE_AITYPE,
+  UPDATE_AILEVEL,
 } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import { upper1st } from '../../utils/upper1st'
@@ -28,7 +28,7 @@ import {
   defaultPlayerNameList,
   defaultOpponentNameList,
   defaultSettings,
-  defaultAiType,
+  defaultAiLevel,
 } from '../../constants/defaultSettings'
 import { hasOwnProperty } from '../../utils/typeHelpers'
 import {
@@ -78,7 +78,7 @@ const Pref = () => {
     (state) => state.multiplayer.gameNumber,
   )
 
-  const aiType = useAppSelector((state) => state.ai.aiType)
+  const aiLevel = useAppSelector((state) => state.ai.aiLevel)
 
   const settingStore = {
     playerName: useAppSelector((state) => state.settings.playerName),
@@ -103,7 +103,7 @@ const Pref = () => {
 
   const [formFields, setFormFields] = useState<FormFieldsType>(settingStore)
 
-  const [aiTypeFormField, setAiTypeFormField] = useState<number>(aiType)
+  const [aiLevelFormField, setAiLevelFormField] = useState<number>(aiLevel)
 
   const applyAndNewGame = () => {
     dispatch({
@@ -112,8 +112,8 @@ const Pref = () => {
     })
 
     dispatch({
-      type: UPDATE_AITYPE,
-      aiType: aiTypeFormField,
+      type: UPDATE_AILEVEL,
+      aiLevel: aiLevelFormField,
     })
 
     const { opponentId, ...rest } = formFields
@@ -668,10 +668,10 @@ const Pref = () => {
             name={otherSettingNames[3]}
             id={otherSettingNames[3]}
             className="twothird"
-            value={aiTypeFormField}
+            value={aiLevelFormField}
             disabled={multiGameNumber > 0}
             onChange={(e) => {
-              setAiTypeFormField(parseInt(e.target.value, 10))
+              setAiLevelFormField(parseInt(e.target.value, 10))
             }}
           >
             <option value={0}>{_.i18n('Genius')}</option>
@@ -803,7 +803,7 @@ const Pref = () => {
               opponentId, // unchanged
             }))
             if (multiGameNumber <= 0) {
-              setAiTypeFormField(defaultAiType)
+              setAiLevelFormField(defaultAiLevel)
             }
           }}
         >
