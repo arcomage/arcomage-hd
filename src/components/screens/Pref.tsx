@@ -663,7 +663,7 @@ const Pref = () => {
           />
         </label>
         <label>
-          <span className="onethird">{_.i18n('AI Type')}</span>
+          <span className="onethird">{_.i18n('AI Level')}</span>
           <select
             name={otherSettingNames[3]}
             id={otherSettingNames[3]}
