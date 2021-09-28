@@ -1,5 +1,6 @@
 declare let self: ServiceWorkerGlobalScope & Window & typeof globalThis
 
+/* eslint-disable import/no-extraneous-dependencies */
 import { skipWaiting, clientsClaim, cacheNames } from 'workbox-core'
 import { precacheAndRoute, getCacheKeyForURL } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'

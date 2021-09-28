@@ -19,8 +19,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Wielki Ładunek',
-    desc:
-      'Jeżeli Warsztat < Warsztat przeciwnika, to Warsztat +2, inaczej Warsztat +1',
+    desc: 'Jeżeli Warsztat < Warsztat przeciwnika, to Warsztat +2, inaczej Warsztat +1',
   },
   {
     name: 'Krasnoludzcy Górnicy',
@@ -32,8 +31,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Kopiowanie Planów',
-    desc:
-      'Jeżeli Warsztat < Warsztat przeciwnika, to Warsztat = Warsztat przeciwnika',
+    desc: 'Jeżeli Warsztat < Warsztat przeciwnika, to Warsztat = Warsztat przeciwnika',
   },
   {
     name: 'Podstawowy Mur',
@@ -193,8 +191,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Równowaga',
-    desc:
-      'Magia wszystkich graczy staje się równa Magii temu, który ma jej najwięcej',
+    desc: 'Magia wszystkich graczy staje się równa Magii temu, który ma jej najwięcej',
   },
   {
     name: 'Szmaragd',
@@ -270,8 +267,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Błyskawica',
-    desc:
-      'Jeżeli Wieża > Wieża przeciwnika to 8 obrażeń Wieży przeciwnika, inaczej 8 obrażeń przeciwnikowi',
+    desc: 'Jeżeli Wieża > Wieża przeciwnika to 8 obrażeń Wieży przeciwnika, inaczej 8 obrażeń przeciwnikowi',
   },
   {
     name: 'Fazowy Klejnot',
@@ -367,8 +363,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Elficcy Łucznicy',
-    desc:
-      'Jeżeli Mur > Mur przeciwnika to 6 obrażeń Wieży przeciwnika, inaczej 6 obrażeń',
+    desc: 'Jeżeli Mur > Mur przeciwnika to 6 obrażeń Wieży przeciwnika, inaczej 6 obrażeń',
   },
   {
     name: 'Sukub',
@@ -380,8 +375,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Złodziej',
-    desc:
-      'Wróg traci 10 klejnotów i 5 kamieni. ty zyskujesz połowę z tego (liczby zaokrąglone w górę)',
+    desc: 'Wróg traci 10 klejnotów i 5 kamieni. ty zyskujesz połowę z tego (liczby zaokrąglone w górę)',
   },
   {
     name: 'Skalny Kolos',

@@ -5,7 +5,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   globals: {
     'ts-jest': {
-      tsconfig: 'tsconfig.json',
+      tsconfig: '<rootDir>/__test__/tsconfig.json',
       isolatedModules: true,
       diagnostics: {
         warnOnly: true,

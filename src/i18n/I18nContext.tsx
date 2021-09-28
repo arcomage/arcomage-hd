@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { i18n as defaultTrans } from './main/en'
-import { cardsI18n } from '../../src/i18n/cards/en'
-import { tavernsI18n } from '../../src/i18n/taverns/en'
+import { cardsI18n as defaultCardsI18n } from '../../src/i18n/cards/en'
+import { tavernsI18n as defaultTavernsI18n } from '../../src/i18n/taverns/en'
 import { defaultLang } from './langs'
 import {
   AvailableLangType,
@@ -12,8 +12,8 @@ import { useAppSelector } from '../utils/useAppDispatch'
 
 const allDefault = {
   i18n: defaultTrans,
-  cards: cardsI18n,
-  taverns: tavernsI18n,
+  cards: defaultCardsI18n,
+  taverns: defaultTavernsI18n,
 }
 
 const transObjDefault = { i18n: () => '', cards: () => '', taverns: () => '' }
@@ -25,9 +25,8 @@ const translationDefault: TranslationFullType = {
 }
 
 export const I18nProvider = ({ children }: { children: React.ReactNode }) => {
-  const [translation, setTranslation] = useState<TranslationFullType>(
-    translationDefault,
-  )
+  const [translation, setTranslation] =
+    useState<TranslationFullType>(translationDefault)
   const lang = useAppSelector((state): AvailableLangType => state.lang.code)
   useEffect(() => {
     if (!translation[lang]) {

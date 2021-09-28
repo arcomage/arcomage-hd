@@ -1,4 +1,3 @@
-import '../../__mocks__/matchMediaMock'
 import React from 'react'
 import { mount } from 'enzyme'
 import { I18nProvider } from '../../src/i18n/I18nContext'
@@ -17,6 +16,7 @@ it('renders DisconnectNotice', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(screen.length).toBe(1)
 })
 
 it('renders Help', () => {
@@ -27,6 +27,7 @@ it('renders Help', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(screen.length).toBe(1)
 })
 
 it('renders LandscapeNotice', () => {
@@ -37,6 +38,7 @@ it('renders LandscapeNotice', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(screen.length).toBe(1)
 })
 
 it('renders VolumePref', () => {
@@ -47,4 +49,5 @@ it('renders VolumePref', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(screen.length).toBe(1)
 })

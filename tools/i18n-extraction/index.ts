@@ -41,8 +41,8 @@ const createPromise = (p: string): Promise<string[][]> =>
 
 const getRC = (arr2d: string[][], str: string): [number, number] | null => {
   let column = -1
-  const row = arr2d.findIndex((row) => {
-    column = row.findIndex((el) => el.toLowerCase() === str.toLowerCase())
+  const row = arr2d.findIndex((row0) => {
+    column = row0.findIndex((el) => el.toLowerCase() === str.toLowerCase())
     return column !== -1
   })
   if (row !== -1 && column !== -1) {

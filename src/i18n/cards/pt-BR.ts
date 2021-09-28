@@ -43,7 +43,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Inovações',
-    desc: "+1 Para as pedreiras de todos os jogadores, você ganha 4 gemas",
+    desc: '+1 Para as pedreiras de todos os jogadores, você ganha 4 gemas',
   },
   {
     name: 'Construindo a Base',
@@ -59,7 +59,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Terremoto',
-    desc: "-1 Para as pedreiras de todos os jogadores",
+    desc: '-1 Para as pedreiras de todos os jogadores',
   },
   {
     name: 'Grande Muralha',
@@ -110,7 +110,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '+6 Muralhas. 10 Dano ao inimigo',
   },
   {
-    name: "Coração de Dragão",
+    name: 'Coração de Dragão',
     desc: '+20 Muralha. +8 Torre',
   },
   {
@@ -159,7 +159,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Magnetita',
-    desc: "+3 Torre. Essa carta não pode ser descartada sem jogá-la",
+    desc: '+3 Torre. Essa carta não pode ser descartada sem jogá-la',
   },
   {
     name: 'Explosão Solar',
@@ -191,7 +191,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Paridade',
-    desc: "A magia de todos os jogadores se iguala à magia do maior jogador",
+    desc: 'A magia de todos os jogadores se iguala à magia do maior jogador',
   },
   {
     name: 'Esmeralda',
@@ -222,7 +222,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '+6 Torre. 4 Dano à torre inimiga',
   },
   {
-    name: "Ajuda da Pedreira",
+    name: 'Ajuda da Pedreira',
     desc: '+7 Torre. Perca 10 tijolos',
   },
   {
@@ -246,7 +246,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '+12 Torre. 6 Dano ao inimigo',
   },
   {
-    name: "Olho de Dragão",
+    name: 'Olho de Dragão',
     desc: '+20 Torre',
   },
   {
@@ -327,7 +327,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Lua Cheia',
-    desc: "+1 masmorra para todos os jogadores. Você ganha 3 recrutas",
+    desc: '+1 masmorra para todos os jogadores. Você ganha 3 recrutas',
   },
   {
     name: 'Assassino',

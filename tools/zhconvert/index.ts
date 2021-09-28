@@ -16,10 +16,12 @@ folders.forEach(async (folder) => {
   )
   await fs.promises.writeFile(
     `./src/i18n/${folder}/zh-Hant.ts`,
-    (await convert)(
+    (
+      await convert
+    )(
       Object.entries(specialStrings).reduce(
-        (data, [from, to]) =>
-          data.replace(
+        (data0, [from, to]) =>
+          data0.replace(
             new RegExp(from.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'),
             to,
           ),

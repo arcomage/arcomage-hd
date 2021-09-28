@@ -1,4 +1,4 @@
-import '../../__mocks__/matchMediaMock'
+import './matchMediaMock'
 import React from 'react'
 import { mount } from 'enzyme'
 import App from '../../src/App'

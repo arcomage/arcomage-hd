@@ -19,8 +19,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Muttererigang',
-    desc:
-      'Falls Steinbruch < Feindsteinbruch, +2 Steinbruch, sonst +1 Steinbruch',
+    desc: 'Falls Steinbruch < Feindsteinbruch, +2 Steinbruch, sonst +1 Steinbruch',
   },
   {
     name: 'Zwergenmineure',
@@ -192,8 +191,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Gleichheit',
-    desc:
-      'Die Magie aller Spieler wird an die des Spielers mit der höchsten Magie angeglichen',
+    desc: 'Die Magie aller Spieler wird an die des Spielers mit der höchsten Magie angeglichen',
   },
   {
     name: 'Smaragd',
@@ -377,8 +375,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Dieb',
-    desc:
-      'Feind verliert 10 Edelsteine, 5 Steine. Du gewinnst die Hälfte (aufgerundet)',
+    desc: 'Feind verliert 10 Edelsteine, 5 Steine. Du gewinnst die Hälfte (aufgerundet)',
   },
   {
     name: 'Steinriese',

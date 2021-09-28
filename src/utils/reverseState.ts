@@ -1,10 +1,10 @@
 import { CardListItemAllType, ownerType, ownerType2 } from '../types/state'
 
-type ObjectType<T> = T extends ownerType2
-  ? ownerType2
-  : T extends ownerType
-  ? ownerType
-  : never
+// type ObjectType<T> = T extends ownerType2
+//   ? ownerType2
+//   : T extends ownerType
+//   ? ownerType
+//   : never
 
 export const isOwnerType2 = (owner: ownerType): owner is ownerType2 =>
   owner === 'player' || owner === 'opponent'

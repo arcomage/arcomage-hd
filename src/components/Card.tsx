@@ -241,15 +241,22 @@ const Card = ({
       ? totalObj[playersTurn ? 'player' : 'opponent']
       : totalObj[owner]
 
-  if (n === -1 || (hideOpponentCard && owner === 'opponent')) {
-    const classes = useStyles({
-      cardPos,
-      total,
-      position,
-      unusable,
-      zeroOpacity,
-      cardNameLength,
-    })
+  const isCardback = n === -1 || (hideOpponentCard && owner === 'opponent')
+
+  const type = isCardback ? undefined : dataCards[n].type
+
+  const classes = useStyles({
+    cardPos,
+    total,
+    position,
+    type,
+    unusable,
+    zeroOpacity,
+    cardNameLength,
+  })
+
+  if (type === undefined) {
+    // `type === undefined` is equivalent to `isCardback`
     return (
       <button
         ref={main}
@@ -273,17 +280,8 @@ const Card = ({
       </button>
     )
   } else {
-    const { type, cost, special } = dataCards[n]
+    const { cost, special } = dataCards[n]
 
-    const classes = useStyles({
-      cardPos,
-      total,
-      position,
-      type,
-      unusable,
-      zeroOpacity,
-      cardNameLength,
-    })
     const color = ['red', 'blue', 'green'][type]
     // Force TailwindCSS to aware of these classes:
     // bg-red-200

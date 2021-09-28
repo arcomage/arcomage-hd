@@ -3,6 +3,7 @@ import devLog from './devLog'
 
 class receiveSequence {
   private _v: number = 0
+
   private _queue: (ConnDataType | null)[] = []
 
   get v() {
@@ -57,9 +58,8 @@ class receiveSequence {
       devLog(`postponed: ${JSON.stringify(connData)}`, 'note')
       return null
     }
-    const usableInReceiveQueue: ConnDataType[] = this.getRemoveUsablesInQueue(
-      seq,
-    )
+    const usableInReceiveQueue: ConnDataType[] =
+      this.getRemoveUsablesInQueue(seq)
     this.add(usableInReceiveQueue.length)
     devLog(
       `pulled (executed): ${JSON.stringify(

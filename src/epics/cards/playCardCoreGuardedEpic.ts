@@ -38,8 +38,8 @@ export default (
           'warning',
         )
         return state$.pipe(
-          map((state) => state.game.locked),
-          filter((locked) => !locked.some((l) => l === true)),
+          map((state0) => state0.game.locked),
+          filter((locked0) => !locked0.some((l) => l === true)),
           take(1),
           map(() => playCardAction),
           takeUntil(action$.ofType(ABORT_CONNECTION)),

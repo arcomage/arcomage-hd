@@ -9,7 +9,7 @@ const cardsBasePath = '../../src/i18n/cards'
 const tavernsBasePath = '../../src/i18n/taverns'
 
 describe('i18n all good', () => {
-  let defaultI18n
+  let defaultI18n: Record<string, string>
   let cardLength = cards.length
   let tavernLength = preSettings.length
   beforeEach(async () => {
@@ -33,7 +33,7 @@ describe('i18n all good', () => {
       expect(cardsI18n.length).toBe(cardLength)
       expect(
         cardsI18n.every(
-          ({ name, desc }) =>
+          ({ name, desc }: { name: string; desc: string }) =>
             name !== undefined &&
             name !== '' &&
             desc !== undefined &&
@@ -47,7 +47,7 @@ describe('i18n all good', () => {
       expect(tavernsI18n.length).toBe(tavernLength)
       expect(
         tavernsI18n.every(
-          ({ name, location }) =>
+          ({ name, location }: { name: string; location: string }) =>
             name !== undefined &&
             name !== '' &&
             location !== undefined &&

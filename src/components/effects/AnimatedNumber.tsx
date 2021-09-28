@@ -27,8 +27,8 @@ const AnimatedNumber = ({ n }: PropType) => {
         // meaning if it increases from 0 to 1000, it'll look slower than animatedNumberDuration
         // but for now I just leave it alone
         timer.current = setInterval(() => {
-          setNv((nv) => {
-            const ret = nv + (n > prev ? 1 : -1)
+          setNv((nv0) => {
+            const ret = nv0 + (n > prev ? 1 : -1)
             if (ret === n) {
               if (timer.current !== null) {
                 clearInterval(timer.current)

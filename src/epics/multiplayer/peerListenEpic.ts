@@ -29,7 +29,7 @@ export default (
       }
       return merge(
         fromEvent<Peer.DataConnection>(
-          (peer as unknown) as JQueryStyleEventEmitter,
+          peer as unknown as JQueryStyleEventEmitter,
           'connection',
         ).pipe(
           mergeMap((conn) => {
@@ -43,7 +43,7 @@ export default (
           }),
         ),
         fromEvent(
-          (peer as unknown) as JQueryStyleEventEmitter,
+          peer as unknown as JQueryStyleEventEmitter,
           'disconnected',
         ).pipe(
           mergeMap(() => {
@@ -59,7 +59,7 @@ export default (
             )
           }),
         ),
-        fromEvent((peer as unknown) as JQueryStyleEventEmitter, 'close').pipe(
+        fromEvent(peer as unknown as JQueryStyleEventEmitter, 'close').pipe(
           mergeMap(() => {
             return concat(
               of<RootActionType>({
@@ -73,7 +73,7 @@ export default (
             )
           }),
         ),
-        fromEvent((peer as unknown) as JQueryStyleEventEmitter, 'error').pipe(
+        fromEvent(peer as unknown as JQueryStyleEventEmitter, 'error').pipe(
           mergeMap(() => {
             devLog('error emitted by peer', 'error')
             return EMPTY

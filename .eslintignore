@@ -1,5 +1,5 @@
 node_modules
 dist
 coverage
-logs
-electron
+__mocks__
+*.js

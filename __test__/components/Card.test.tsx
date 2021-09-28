@@ -1,4 +1,3 @@
-import '../../__mocks__/matchMediaMock'
 import React from 'react'
 import { mount } from 'enzyme'
 import { GameSizeProvider } from '../../src/utils/GameSizeContext'
@@ -35,6 +34,7 @@ it('renders Card 1 that is clickable', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(card.length).toBe(1)
   card.simulate('click')
 })
 
@@ -64,6 +64,7 @@ it('renders Card 1 that is right-clickable', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(card.length).toBe(1)
   card.simulate('contextmenu')
 })
 
@@ -93,5 +94,6 @@ it('renders Card 2', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(card.length).toBe(1)
   card.simulate('click')
 })

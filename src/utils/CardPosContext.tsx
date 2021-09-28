@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-} from 'react'
+import React, { useState, useEffect, createContext, useContext } from 'react'
 import { GameSizeContext } from './GameSizeContext'
 
 const heightPercToTable = 0.8
@@ -14,7 +9,7 @@ const topCardSpacingPx = 10
 const topCardMarginTop = 16 // '1rem' in px
 const middleCardMarginBottom = 16 // '1rem' in px
 
-const useWidth = (
+const shouldUseWidth = (
   tableHeight: number,
   tableWidth: number,
   total: number,
@@ -28,9 +23,10 @@ const getHeight = (
   tableWidth: number,
   total: number,
 ): number => {
-  if (useWidth(tableHeight, tableWidth, total)) {
+  if (shouldUseWidth(tableHeight, tableWidth, total)) {
     return tableHeight * heightPercToTable
   } else {
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     return getWidth(tableHeight, tableWidth, total) / whRatio
   }
 }
@@ -40,7 +36,7 @@ const getWidth = (
   tableWidth: number,
   total: number,
 ): number => {
-  if (useWidth(tableHeight, tableWidth, total)) {
+  if (shouldUseWidth(tableHeight, tableWidth, total)) {
     return getHeight(tableHeight, tableWidth, total) * whRatio
   } else {
     return (
@@ -57,7 +53,7 @@ const getSpacingX = (
   total: number,
   tableHeight: number,
 ): number => {
-  if (useWidth(tableHeight, winWidth, total)) {
+  if (shouldUseWidth(tableHeight, winWidth, total)) {
     return (
       (winWidth - getWidth(tableHeight, winWidth, total) * total) /
       (total - 1 + 2 * marginSpacingXRatio)
@@ -73,67 +69,66 @@ const getMarginX = (
   tableHeight: number,
 ): number => getSpacingX(winWidth, total, tableHeight) * marginSpacingXRatio
 
-const positionTopMapFunc = (
-  total: number,
-  winHeight: number,
-  winWidth: number,
-  narrowMobile: boolean,
-) => (position: number) => {
-  const realPosition = position - 5
-  if (realPosition >= 0) {
-    return (
-      winHeight * (narrowMobile ? 1 / 2 : 2 / 3) +
-      (winHeight * (narrowMobile ? 1 / 2 : 1 / 3) -
-        getHeight(
-          winHeight * (narrowMobile ? 1 / 2 : 1 / 3),
-          winWidth,
-          total,
-        )) /
-        2
-    )
-  } else if (realPosition === -5) {
-    return (
-      winHeight * (narrowMobile ? 1 / 2 : 2 / 3) -
-      getHeight(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) +
-      middleCardMarginBottom * (narrowMobile ? 1 : -1)
-    )
-  } else {
-    return topCardMarginTop
+const positionTopMapFunc =
+  (total: number, winHeight: number, winWidth: number, narrowMobile: boolean) =>
+  (position: number) => {
+    const realPosition = position - 5
+    if (realPosition >= 0) {
+      return (
+        winHeight * (narrowMobile ? 1 / 2 : 2 / 3) +
+        (winHeight * (narrowMobile ? 1 / 2 : 1 / 3) -
+          getHeight(
+            winHeight * (narrowMobile ? 1 / 2 : 1 / 3),
+            winWidth,
+            total,
+          )) /
+          2
+      )
+    } else if (realPosition === -5) {
+      return (
+        winHeight * (narrowMobile ? 1 / 2 : 2 / 3) -
+        getHeight(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) +
+        middleCardMarginBottom * (narrowMobile ? 1 : -1)
+      )
+    } else {
+      return topCardMarginTop
+    }
   }
-}
 
-const positionLeftMapFunc = (
-  total: number,
-  winHeight: number,
-  winWidth: number,
-  narrowMobile: boolean,
-) => (position: number) => {
-  const realPosition = position - 5
-  if (realPosition >= 0) {
-    return (
-      getMarginX(winWidth, total, winHeight * (narrowMobile ? 1 / 2 : 1 / 3)) +
-      (getWidth(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) +
-        getSpacingX(
+const positionLeftMapFunc =
+  (total: number, winHeight: number, winWidth: number, narrowMobile: boolean) =>
+  (position: number) => {
+    const realPosition = position - 5
+    if (realPosition >= 0) {
+      return (
+        getMarginX(
           winWidth,
           total,
           winHeight * (narrowMobile ? 1 / 2 : 1 / 3),
-        )) *
-        realPosition
-    )
-  } else if (realPosition === -5) {
-    return (
-      winWidth / 2 -
-      getWidth(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) / 2
-    )
-  } else {
-    return (
-      winWidth / 2 -
-      (getWidth(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) *
-        (realPosition + 3) -
-        (1 / 2 - 3 - realPosition) * topCardSpacingPx)
-    )
+        ) +
+        (getWidth(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) +
+          getSpacingX(
+            winWidth,
+            total,
+            winHeight * (narrowMobile ? 1 / 2 : 1 / 3),
+          )) *
+          realPosition
+      )
+    } else if (realPosition === -5) {
+      return (
+        winWidth / 2 -
+        getWidth(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) /
+          2
+      )
+    } else {
+      return (
+        winWidth / 2 -
+        (getWidth(winHeight * (narrowMobile ? 1 / 2 : 1 / 3), winWidth, total) *
+          (realPosition + 3) -
+          (1 / 2 - 3 - realPosition) * topCardSpacingPx)
+      )
+    }
   }
-}
 
 // in px
 export type CardPosType = {

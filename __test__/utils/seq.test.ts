@@ -26,10 +26,10 @@ it('receive seq is OK', () => {
       type: 'INIT_CORE',
       playersTurn: true,
       cardList: [],
-      gameNumber: null,
+      gameNumber: -1,
     },
     seq: 6,
-    gameNumber: null,
+    gameNumber: -1,
   })
   expect(list).toStrictEqual([
     {
@@ -38,10 +38,10 @@ it('receive seq is OK', () => {
         type: 'INIT_CORE',
         playersTurn: true,
         cardList: [],
-        gameNumber: null,
+        gameNumber: -1,
       },
       seq: 6,
-      gameNumber: null,
+      gameNumber: -1,
     },
   ])
 
@@ -51,10 +51,10 @@ it('receive seq is OK', () => {
       type: 'INIT_CORE',
       playersTurn: true,
       cardList: [],
-      gameNumber: null,
+      gameNumber: -1,
     },
     seq: 9,
-    gameNumber: null,
+    gameNumber: -1,
   })
   expect(list).toBeNull()
 
@@ -64,10 +64,10 @@ it('receive seq is OK', () => {
       type: 'INIT_CORE',
       playersTurn: true,
       cardList: [],
-      gameNumber: null,
+      gameNumber: -1,
     },
     seq: 12,
-    gameNumber: null,
+    gameNumber: -1,
   })
   expect(list).toBeNull()
 
@@ -77,10 +77,10 @@ it('receive seq is OK', () => {
       type: 'INIT_CORE',
       playersTurn: true,
       cardList: [],
-      gameNumber: null,
+      gameNumber: -1,
     },
     seq: 8,
-    gameNumber: null,
+    gameNumber: -1,
   })
   expect(list).toBeNull()
 
@@ -90,10 +90,10 @@ it('receive seq is OK', () => {
       type: 'INIT_CORE',
       playersTurn: true,
       cardList: [],
-      gameNumber: null,
+      gameNumber: -1,
     },
     seq: 7,
-    gameNumber: null,
+    gameNumber: -1,
   })
   expect(list).toStrictEqual([
     {
@@ -102,10 +102,10 @@ it('receive seq is OK', () => {
         type: 'INIT_CORE',
         playersTurn: true,
         cardList: [],
-        gameNumber: null,
+        gameNumber: -1,
       },
       seq: 7,
-      gameNumber: null,
+      gameNumber: -1,
     },
     {
       kind: 'INST',
@@ -113,10 +113,10 @@ it('receive seq is OK', () => {
         type: 'INIT_CORE',
         playersTurn: true,
         cardList: [],
-        gameNumber: null,
+        gameNumber: -1,
       },
       seq: 8,
-      gameNumber: null,
+      gameNumber: -1,
     },
     {
       kind: 'INST',
@@ -124,10 +124,10 @@ it('receive seq is OK', () => {
         type: 'INIT_CORE',
         playersTurn: true,
         cardList: [],
-        gameNumber: null,
+        gameNumber: -1,
       },
       seq: 9,
-      gameNumber: null,
+      gameNumber: -1,
     },
   ])
 
@@ -137,10 +137,10 @@ it('receive seq is OK', () => {
       type: 'INIT_CORE',
       playersTurn: true,
       cardList: [],
-      gameNumber: null,
+      gameNumber: -1,
     },
     seq: 10,
-    gameNumber: null,
+    gameNumber: -1,
   })
   expect(list).toStrictEqual([
     {
@@ -149,10 +149,10 @@ it('receive seq is OK', () => {
         type: 'INIT_CORE',
         playersTurn: true,
         cardList: [],
-        gameNumber: null,
+        gameNumber: -1,
       },
       seq: 10,
-      gameNumber: null,
+      gameNumber: -1,
     },
   ])
 
@@ -162,10 +162,10 @@ it('receive seq is OK', () => {
       type: 'INIT_CORE',
       playersTurn: true,
       cardList: [],
-      gameNumber: null,
+      gameNumber: -1,
     },
     seq: 11,
-    gameNumber: null,
+    gameNumber: -1,
   })
   expect(list).toStrictEqual([
     {
@@ -174,10 +174,10 @@ it('receive seq is OK', () => {
         type: 'INIT_CORE',
         playersTurn: true,
         cardList: [],
-        gameNumber: null,
+        gameNumber: -1,
       },
       seq: 11,
-      gameNumber: null,
+      gameNumber: -1,
     },
     {
       kind: 'INST',
@@ -185,10 +185,10 @@ it('receive seq is OK', () => {
         type: 'INIT_CORE',
         playersTurn: true,
         cardList: [],
-        gameNumber: null,
+        gameNumber: -1,
       },
       seq: 12,
-      gameNumber: null,
+      gameNumber: -1,
     },
   ])
 

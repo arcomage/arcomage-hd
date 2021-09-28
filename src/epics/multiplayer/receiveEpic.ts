@@ -31,8 +31,8 @@ export default (
           return EMPTY
         }
 
-        const ret = usableConnDataList.map((connData) => {
-          const { kind, data, gameNumber } = connData
+        const ret = usableConnDataList.map((connData0) => {
+          const { kind, data, gameNumber } = connData0
           switch (kind) {
             case INST: {
               if (instructionActionTypes.includes(data.type)) {
@@ -51,7 +51,7 @@ export default (
                 return of<RootActionType>(data).pipe(delay(0))
               }
               devLog(
-                `received non-instruction action: ${JSON.stringify(connData)}`,
+                `received non-instruction action: ${JSON.stringify(connData0)}`,
                 'error',
               )
               break

@@ -363,8 +363,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Elfí lukostřelci',
-    desc:
-      'Když zeď > jeho zeď tak 6 poškození soupeřovy věže, jinak 6 poškození',
+    desc: 'Když zeď > jeho zeď tak 6 poškození soupeřovy věže, jinak 6 poškození',
   },
   {
     name: 'Sukuba',

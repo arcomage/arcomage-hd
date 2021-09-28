@@ -34,7 +34,7 @@ export default (
       }
       return merge(
         fromEvent<string>(
-          (conn as unknown) as JQueryStyleEventEmitter,
+          conn as unknown as JQueryStyleEventEmitter,
           'data',
         ).pipe(
           mergeMap((data) => {
@@ -45,7 +45,7 @@ export default (
             })
           }),
         ),
-        fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'open').pipe(
+        fromEvent(conn as unknown as JQueryStyleEventEmitter, 'open').pipe(
           mergeMap(() => {
             if (!action.host) {
               sendSeq.reset()
@@ -69,7 +69,7 @@ export default (
             return EMPTY
           }),
         ),
-        fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'close').pipe(
+        fromEvent(conn as unknown as JQueryStyleEventEmitter, 'close').pipe(
           withLatestFrom(state$),
           mergeMap(([_, state]) => {
             const multiGameNumber = state.multiplayer.gameNumber
@@ -93,7 +93,7 @@ export default (
             )
           }),
         ),
-        fromEvent((conn as unknown) as JQueryStyleEventEmitter, 'error').pipe(
+        fromEvent(conn as unknown as JQueryStyleEventEmitter, 'error').pipe(
           mergeMap(() => {
             devLog('error emitted by conn', 'error')
             return EMPTY

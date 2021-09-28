@@ -45,8 +45,8 @@ export default (
       const playCardActionPromise = playCardQueue.dequeueAsync()
       return from(playCardActionPromise).pipe(
         withLatestFrom(state$),
-        mergeMap(([playCardAction, state]) => {
-          const currentGameNumber = state.multiplayer.gameNumber
+        mergeMap(([playCardAction, state0]) => {
+          const currentGameNumber = state0.multiplayer.gameNumber
           return currentGameNumber === gameNumber
             ? of<RootActionType>({
                 type: PLAY_CARD_CORE_GUARDED,

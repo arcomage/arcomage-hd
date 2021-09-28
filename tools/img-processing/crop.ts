@@ -43,8 +43,8 @@ const doFiles = (
           .extract({ left: xTemp, top: yTemp, width: w, height: h })
           .toFile(
             path.join(outFolder, `${type * cardCountPerType + count}.png`),
-          ),
-          count++
+          )
+        count++
         if (count === cardCountPerType) {
           return
         }
@@ -150,7 +150,7 @@ const combine = (
   ;(async () => {
     try {
       const joinedImage = await joinImages(
-        await Promise.all(sharpList.map((sharp) => sharp.toBuffer())),
+        await Promise.all(sharpList.map((sharp0) => sharp0.toBuffer())),
         { direction: 'horizontal', color: { alpha: 0, r: 0, g: 0, b: 0 } },
       )
 

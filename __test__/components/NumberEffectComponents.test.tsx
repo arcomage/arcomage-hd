@@ -1,4 +1,4 @@
-import '../../__mocks__/matchMediaMock'
+import './matchMediaMock'
 import React from 'react'
 import { mount } from 'enzyme'
 import NumberDiff from '../../src/components/effects/NumberDiff'
@@ -19,6 +19,7 @@ it('AnimatedNumber render correctly', () => {
     jest.runAllTimers()
     wrapper.setProps({ n: 0 })
     jest.runAllTimers()
+    expect(wrapper.length).toBe(1)
   })
 })
 
@@ -28,6 +29,7 @@ it('NumberDiff render correctly', () => {
   wrapper.setProps({ n: 7 })
   wrapper.setProps({ n: -4 })
   wrapper.setProps({ n: 0 })
+  expect(wrapper.length).toBe(1)
 })
 
 it('NumberChangeVisual render correctly', () => {
@@ -36,4 +38,5 @@ it('NumberChangeVisual render correctly', () => {
   wrapper.setProps({ n: 7 })
   wrapper.setProps({ n: -4 })
   wrapper.setProps({ n: 0 })
+  expect(wrapper.length).toBe(1)
 })

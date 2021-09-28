@@ -1,0 +1,5 @@
+# Only ./{src,__test__,__mocks__,tools}/**/*.{ts,tsx}
+*.css.d.ts
+*.scss.d.ts
+*.sass.d.ts
+reducer_auto_all.test.ts

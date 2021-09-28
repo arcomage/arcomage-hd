@@ -39,8 +39,8 @@ export default (
       const initObjPromise = initQueue.dequeueAsync()
       return from(initObjPromise).pipe(
         withLatestFrom(state$),
-        mergeMap(([initObj, state]) => {
-          const currentGameNumber = state.multiplayer.gameNumber
+        mergeMap(([initObj, state0]) => {
+          const currentGameNumber = state0.multiplayer.gameNumber
           return currentGameNumber === gameNumber
             ? of<RootActionType>({
                 type: INIT_CORE,

@@ -35,8 +35,8 @@ const doFiles = (
         xTemp = xInit + i * xInterval
         mainSharp
           .extract({ left: xTemp, top: yTemp, width: w, height: h })
-          .toFile(path.join(outFolder, `${type}_${count}.png`)),
-          count++
+          .toFile(path.join(outFolder, `${type}_${count}.png`))
+        count++
         if (count === 34) {
           return
         }

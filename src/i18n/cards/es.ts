@@ -191,8 +191,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Igualdad',
-    desc:
-      'La magia de todos los jugadores se iguala a la del jugador de magia superior',
+    desc: 'La magia de todos los jugadores se iguala a la del jugador de magia superior',
   },
   {
     name: 'Esmeralda',

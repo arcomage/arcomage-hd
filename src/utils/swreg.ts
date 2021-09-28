@@ -6,7 +6,10 @@ if ('serviceWorker' in navigator) {
         console.log('Service worker (PWA) registered: ', registration)
       })
       .catch((registrationError) => {
-        console.log('Service worker (PWA) registration failed: ', registrationError)
+        console.log(
+          'Service worker (PWA) registration failed: ',
+          registrationError,
+        )
       })
   })
 }

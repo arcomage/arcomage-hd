@@ -281,7 +281,7 @@ const Pref = () => {
     //}
   }
 
-  const usePreset = (index: number) => {
+  const setFFPreset = (index: number) => {
     const _index = index === -2 ? preSettings.length : index
     if (_index >= 0) {
       const targetSettings = preSettings.concat(defaultSettings)[_index]
@@ -440,7 +440,7 @@ const Pref = () => {
           value={isGuest ? tempPreset : preset}
           disabled={isGuest}
           onChange={(e) => {
-            usePreset(parseInt(e.target.value, 10))
+            setFFPreset(parseInt(e.target.value, 10))
           }}
         >
           <option value={-2}>{_.i18n('Default')}</option>
@@ -674,11 +674,11 @@ const Pref = () => {
               setAiLevelFormField(parseInt(e.target.value, 10))
             }}
           >
-            <option value={0}>{_.i18n('Genius')}</option>
-            <option value={1}>{_.i18n('Smart')}</option>
-            <option value={2}>{_.i18n('Mediocre')}</option>
-            <option value={3}>{_.i18n('Stupid')}</option>
-            <option value={4}>{_.i18n('Idiotic')}</option>
+            <option value={0}>{_.i18n('Genius')} 💡</option>
+            <option value={1}>{_.i18n('Smart')} 📚</option>
+            <option value={2}>{_.i18n('Mediocre')} 😐</option>
+            <option value={3}>{_.i18n('Stupid')} 👹</option>
+            <option value={4}>{_.i18n('Idiotic')} 🤡</option>
           </select>
         </label>
       </div>

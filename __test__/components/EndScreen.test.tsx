@@ -1,4 +1,3 @@
-import '../../__mocks__/matchMediaMock'
 import React from 'react'
 import { mount } from 'enzyme'
 import { I18nProvider } from '../../src/i18n/I18nContext'
@@ -14,6 +13,7 @@ it('renders EndScreen (win)', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(screen.length).toBe(1)
   screen.simulate('click')
 })
 
@@ -25,6 +25,7 @@ it('renders EndScreen (lose)', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(screen.length).toBe(1)
   screen.simulate('click')
 })
 
@@ -36,6 +37,7 @@ it('renders EndScreen (tie)', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(screen.length).toBe(1)
   screen.simulate('click')
 })
 
@@ -47,6 +49,7 @@ it('renders EndScreen (win surrender)', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(screen.length).toBe(1)
   screen.simulate('click')
 })
 
@@ -58,5 +61,6 @@ it('renders EndScreen (lose surrender)', () => {
       </I18nProvider>
     </Provider>,
   )
+  expect(screen.length).toBe(1)
   screen.simulate('click')
 })

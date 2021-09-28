@@ -267,8 +267,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Saetta',
-    desc:
-      'Se Torre > Muro del nemico, 8 danni alla Torre del nemico, altrimenti 8 danni',
+    desc: 'Se Torre > Muro del nemico, 8 danni alla Torre del nemico, altrimenti 8 danni',
   },
   {
     name: 'Gioiello della Fase',
@@ -364,8 +363,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Arcieri Elfi',
-    desc:
-      'Se Muro > Muro del nemico,6 danni alla torre del nemico: Altrimenti 6 danni',
+    desc: 'Se Muro > Muro del nemico,6 danni alla torre del nemico: Altrimenti 6 danni',
   },
   {
     name: 'Succubus',

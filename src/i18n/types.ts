@@ -1,6 +1,5 @@
 import { ArrayElement, keys, RequiredBy } from '../utils/typeHelpers'
-import { langs } from './langs'
-import { defaultLang } from './langs'
+import { langs, defaultLang } from './langs'
 
 export const availableLangs = keys(langs)
 

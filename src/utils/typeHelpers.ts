@@ -2,8 +2,8 @@ export const entries = Object.entries as <T>(
   o: T,
 ) => [Extract<keyof T, string>, T[keyof T]][]
 
-export const fromEntries = <T>(entries: [keyof T, T[keyof T]][]): T =>
-  entries.reduce((acc, [key, value]) => ({ ...acc, [key]: value }), <T>{})
+export const fromEntries = <T>(entr: [keyof T, T[keyof T]][]): T =>
+  entr.reduce((acc, [key, value]) => ({ ...acc, [key]: value }), <T>{})
 
 export const keys = Object.keys as <T extends object>(obj: T) => Array<keyof T>
 
@@ -13,9 +13,8 @@ export const cloneNode = <T extends Node>(node: T) => {
 
 export type DeepReadonly<T> = { readonly [P in keyof T]: DeepReadonly<T[P]> }
 
-export type ArrayElement<
-  ArrayType extends readonly unknown[]
-> = ArrayType extends readonly (infer ElementType)[] ? ElementType : never
+export type ArrayElement<ArrayType extends readonly unknown[]> =
+  ArrayType extends readonly (infer ElementType)[] ? ElementType : never
 
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 

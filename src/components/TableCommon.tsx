@@ -58,7 +58,12 @@ const TableCommon = () => {
       )}
     >
       {pixelationLevel !== 0 && (
-        <Pixelation src={bg} level={pixelationLevel} fit="cover" offsetY={0.3} />
+        <Pixelation
+          src={bg}
+          level={pixelationLevel}
+          fit="cover"
+          offsetY={0.3}
+        />
       )}
 
       <div className="absolute top-0 left-0 w-full h-full">

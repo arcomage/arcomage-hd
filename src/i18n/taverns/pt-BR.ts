@@ -6,7 +6,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Harmondale',
   },
   {
-    name: "Descanso do Grifo",
+    name: 'Descanso do Grifo',
     location: 'Erathia',
   },
   // {
@@ -34,11 +34,11 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Ilha Evenmorn',
   },
   {
-    name: "A Loucura da Fortuna",
+    name: 'A Loucura da Fortuna',
     location: 'Monte Nighon',
   },
   {
-    name: "A Única do Minerador",
+    name: 'A Única do Minerador',
     location: 'As Catacumbas',
   },
   {
@@ -50,7 +50,7 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'Avlee',
   // },
   {
-    name: "Ceva do Grogg",
+    name: 'Ceva do Grogg',
     location: 'Cidade de Pedra',
   },
   // {

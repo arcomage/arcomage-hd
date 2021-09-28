@@ -39,8 +39,8 @@ export default (
       const nPromise = drawCardQueue.dequeueAsync()
       return from(nPromise).pipe(
         withLatestFrom(state$),
-        mergeMap(([n, state]) => {
-          const currentGameNumber = state.multiplayer.gameNumber
+        mergeMap(([n, state0]) => {
+          const currentGameNumber = state0.multiplayer.gameNumber
           return currentGameNumber === gameNumber
             ? of<RootActionType>({
                 type: DRAW_CARD_CORE,

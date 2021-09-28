@@ -116,13 +116,13 @@ export const aiDecision = (
     }
   }
 
-  const scores = cardList.map((card, i) => ({
+  const scores = cardList.map((card) => ({
     card,
     use: true,
     scoreAll: card.score,
   }))
 
-  const discardScores = cardList.map((card, i) => ({
+  const discardScores = cardList.map((card) => ({
     card,
     use: false,
     scoreAll: (card.score / coefs.useDiscardRatio) * -1,

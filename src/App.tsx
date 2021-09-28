@@ -1,10 +1,6 @@
 import React, { memo, useContext, useEffect } from 'react'
 import './App.scss'
 import Game from './components/Game'
-import {
-  disableContextMenu,
-  enableWindowUnloadWarning,
-} from './constants/devSettings'
 import { useAppDispatch, useAppSelector } from './utils/useAppDispatch'
 
 import { Helmet } from 'react-helmet-async'
@@ -29,38 +25,37 @@ const App = () => {
     })
   })
 
-  disableContextMenu && useDisableContextMenu()
-
-  enableWindowUnloadWarning && useBeforeWindowUnloadWarning()
-
-  const checkAndShowLandscapeNotice = () => {
-    const isPortrait = window.matchMedia('(orientation:portrait)').matches
-    if (isPortrait) {
-      dispatch({
-        type: 'SCREEN_LANDSCAPE',
-        show: true,
-      })
-    } else {
-      dispatch({
-        type: 'SCREEN_LANDSCAPE',
-        show: false,
-      })
-    }
-  }
-
-  const checkAndSetRootFontSize = (winWidth: number, winHeight: number) => {
-    const screenLength = Math.min(winWidth, winHeight)
-    if (screenLength < smallRootFontScreenMax) {
-      const fontSize =
-        ((16 - minRootFontSize) / smallRootFontScreenMax) * screenLength +
-        minRootFontSize
-      document.documentElement.style.fontSize = `${fontSize}px`
-    } else {
-      document.documentElement.style.fontSize = ''
-    }
-  }
+  useDisableContextMenu()
+  useBeforeWindowUnloadWarning()
 
   useEffect(() => {
+    const checkAndShowLandscapeNotice = () => {
+      const isPortrait = window.matchMedia('(orientation:portrait)').matches
+      if (isPortrait) {
+        dispatch({
+          type: 'SCREEN_LANDSCAPE',
+          show: true,
+        })
+      } else {
+        dispatch({
+          type: 'SCREEN_LANDSCAPE',
+          show: false,
+        })
+      }
+    }
+
+    const checkAndSetRootFontSize = (winWidth: number, winHeight: number) => {
+      const screenLength = Math.min(winWidth, winHeight)
+      if (screenLength < smallRootFontScreenMax) {
+        const fontSize =
+          ((16 - minRootFontSize) / smallRootFontScreenMax) * screenLength +
+          minRootFontSize
+        document.documentElement.style.fontSize = `${fontSize}px`
+      } else {
+        document.documentElement.style.fontSize = ''
+      }
+    }
+
     checkAndShowLandscapeNotice()
     checkAndSetRootFontSize(width, height)
   }, [width, height])
