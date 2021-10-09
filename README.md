@@ -6,7 +6,7 @@
 
 This not-for-profit fan-remake of the tower defense, resource management fantasy game is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + RxJS + CSS-based animations + WebRTC (see [§ Development](#development)). Please star the repo / follow me to support me.
 
-It's available in 12 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian.
+It's available in 13 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian.
 
 By default, you play against computer AI 🤖 in the Single Player Mode. You can also switch to [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode) which is nearly stable in the latest version. Note that if both players are behind "bad", symmetric NAT ([detect your NAT type](https://tomchen.github.io/symmetric-nat-test/)), the Multiplayer Mode won't work. Click gear ⚙️ icon in the game to open the "Preferences" window so you can switch to Multiplayer Mode or change other settings.
 
