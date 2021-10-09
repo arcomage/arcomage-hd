@@ -11,6 +11,7 @@ export const langs = {
   cs: 'Čeština',
   'pt-BR': 'Português (Brasil)',
   ja: '日本語',
+  uk: 'Українська',
 }
 
 export const langEnglishNames = {
@@ -26,6 +27,7 @@ export const langEnglishNames = {
   cs: 'Czech',
   'pt-BR': 'Brazilian Portuguese',
   ja: 'Japanese',
+  uk: 'Ukrainian',
 }
 
 export const defaultLang = 'en' as const
