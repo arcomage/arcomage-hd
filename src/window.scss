@@ -119,8 +119,11 @@
     }
 
     input[type='range'] {
-      @apply cursor-pointer block mx-auto;
-      appearance: slider-vertical;
+      @apply cursor-pointer block mx-auto my-1;
+      // appearance: slider-vertical;
+      width: 129px; // = 100%
+      height: 129px; // = width
+      transform: rotate(270deg);
     }
 
     .two-column,

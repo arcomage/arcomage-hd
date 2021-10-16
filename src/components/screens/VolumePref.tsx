@@ -39,7 +39,6 @@ const VolumePref = () => {
             max={maxVolume}
             step={stepVolume}
             value={volume}
-            className="mt-3"
             onChange={(e) => {
               dispatch({
                 type: UPDATE_VOLUME,
@@ -69,7 +68,6 @@ const VolumePref = () => {
             max={maxPixelation}
             step={stepPixelation}
             value={pixelation}
-            className="mt-3"
             onChange={(e) => {
               dispatch({
                 type: UPDATE_PIXELATION,
