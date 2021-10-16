@@ -51,7 +51,7 @@ export const tavernsI18n: TavernsI18nType = [
   // },
   {
     name: 'Грог Грогга',
-    location: 'Кам\'яне місто',
+    location: "Кам'яне місто",
   },
   // {
   //   name: 'Грог і Закусь',

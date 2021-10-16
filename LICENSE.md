@@ -1,6 +1,6 @@
 # ArcoMage HD's Licenses
 
-The code of **ArcoMage HD**: MIT License (c) 2021 Tom Chen. See [§ MIT License](#mit-license).
+The code of **ArcoMage HD**: MIT License (c) 2021 [Tom Chen](https://tomchen.org/). See [§ MIT License](#mit-license).
 
 The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company. See [§ 3DO Copyright Notice](#3do-copyright-notice).
 
@@ -8,7 +8,7 @@ Logos and trademarks of "Arcomage": The 3DO Company in the U.S. and other countr
 
 The original [Arcomage](https://en.wikipedia.org/wiki/Arcomage) game's assets, text and appearance are copyrighted, the logos and trademarks are held today by either Ubisoft or the defunct 3DO: [Ubisoft](https://en.wikipedia.org/wiki/Ubisoft) purchased [*Might and Magic*](https://en.wikipedia.org/wiki/Might_and_Magic) game series' copyright and trademarks from [The 3DO Company](https://en.wikipedia.org/wiki/The_3DO_Company) when 3DO went bankrupt in 2003, but Ubisoft didn't purchased Arcomage. The 2000 stand-alone game Arcomage is now an [abandonware](https://en.wikipedia.org/wiki/Abandonware), but is still copyrighted. Arcomage did appear as a mini-game in *Might and Magic VII: For Blood and Honor* and *Might and Magic VIII: Day of the Destroyer*, which are owned by Ubisoft and are still sold actively.
 
-The assets, text and appearance of the game are protected by copyright law, but the gameplay design [may or may not be protected](https://en.wikipedia.org/wiki/Video_game_clone#Legal_aspects).
+The assets, text and appearance of the game are protected by copyright law, but the gameplay design [may or may not be protected](https://en.wikipedia.org/wiki/Intellectual_property_protection_of_video_games).
 
 **ArcoMage HD** is not-for-profit. The assets, text, appearance and other copyrightable elements from the original Arcomage game are used within scope of the "[fair use](https://en.wikipedia.org/wiki/Fair_use)" doctrine.
 
@@ -90,7 +90,7 @@ Copyright (c) 2008-2020 Tom CHEN (tomchen.org)
 
 ### GitHub Logos
 
-[GitHub Logo Usage](https://github.com/logos)
+GitHub Logo Usage: https://github.com/logos
 
 ### Unknown Original Author and/or Unknown License, Fair-use
 
