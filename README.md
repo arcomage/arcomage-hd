@@ -134,7 +134,7 @@ It could be other key instead of <kbd>Alt</kbd>
 
 </details>
 
-The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compatible. It also supports [Reduce Motion (aka. "Show / Turn off animations")](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences) preference of operating systems and browsers.
+The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compatible. It also supports [Reduce Motion (aka. "Show / Turn off animations")](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences) preference available in most operating systems and browsers.
 
 ## Multiplayer Mode
 
