@@ -2,6 +2,7 @@ const specialStrings: Record<string, string> = {
   魔幻牌: '圆法师',
   砖头: '砖块',
   怪物: '魔兽',
+  城堡: '塔楼',
 }
 
 export default specialStrings

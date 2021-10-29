@@ -144,7 +144,7 @@ The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compati
 
 https://user-images.githubusercontent.com/529949/115864733-941cbd00-a437-11eb-955d-f6a341c8ea64.mp4
 
-Both players enable the "Multiplayer" Mode. Bob 🧝 must copy and **give his ID to Alice 👧 via Discord, forums, etc.**. Alice 👧 then enters Bob 🧝's ID and connect to Bob 🧝. Alice 👧 becomes the host 🏠 (i.e. technically it's her computer that deals cards) and Bob 🧝 is the guest 💼.
+Both players enable the "Multiplayer" Mode. Bob 🧝 must copy and **give his ID to Alice 👧 via Discord, forums, etc.**. Alice 👧 then enters Bob 🧝's ID and connects to Bob 🧝. Alice 👧 becomes the host 🏠 (i.e. technically it's her computer that deals cards) and Bob 🧝 is the guest 💼.
 
 <details><summary><strong>Click to show technical details</strong></summary>
 

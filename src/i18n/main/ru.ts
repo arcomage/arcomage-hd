@@ -14,8 +14,8 @@ export const i18n = {
   magic: 'Магия', // i.e. gem production
   dungeon: 'Подземелье', // i.e. recruit production
 
-  'Your %s': 'Твой %s', // Your quarry/tower
-  "Opponent's %s": 'карьер %s', // Opponent's quarry/tower
+  'Your %s': 'Ваша %s', // Your quarry/tower
+  "Opponent's %s": '%s противника', // Opponent's quarry/tower
 
   '1 brick': '1 кирпич',
   '%s bricks': '%s кирпичи', // 3 bricks
@@ -28,7 +28,7 @@ export const i18n = {
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Ваши %sp', // Your bricks
-  "Opponent's %sp": 'кирпичи %sp', // Opponent's bricks
+  "Opponent's %sp": '%sp противника', // Opponent's bricks
 
   '%s1. Reach %s2 to win': '%s1. Достань %s2, чтобы выиграть', // Your tower/bricks/gems/recruits. Reach 100 to win
 
@@ -71,7 +71,7 @@ export const i18n = {
 
   'Connecting to the network ⌛': 'Соединение с сетью ⌛',
   'Connected to the network (but not to anyone) ✔️':
-    'Соединено с сетью (но не с комнатой) ✔️',
+    'Соединено с сетью (но ни к кому) ✔️',
   'Connecting to ID %s ⌛': 'Соединение с ID %s ⌛',
   "Connected to ID %s ✔️ You're the host 🏠": 'Соединено с ID %s ✔️ Вы хост 🏠',
   "Connected by ID %s ✔️ You're the guest 💼":
