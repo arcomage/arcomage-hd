@@ -30,7 +30,7 @@ export const i18n = {
   'Your %sp': '你的%sp', // Your bricks
   "Opponent's %sp": '对手的%sp', // Opponent's bricks
 
-  '%s1. Reach %s2 to win': '%s1。达到%s2即可胜利', // Your tower/bricks/gems/recruits. Reach 100 to win
+  '%s1. Reach %s2 to win': '%s1。达到%s2即可获胜', // Your tower/bricks/gems/recruits. Reach 100 to win
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s', // quarry (brick production)
@@ -58,8 +58,8 @@ export const i18n = {
   Genius: '天才',
   Smart: '聪明',
   Mediocre: '一般',
-  Stupid: '糊涂',
-  Idiotic: '愚蠢',
+  Stupid: '愚笨',
+  Idiotic: '白痴',
 
   Multiplayer: '二人对战模式',
   off: '停用',
@@ -127,5 +127,5 @@ export const i18n = {
   'With no usable or discardable card, you have surrendered':
     '没有任何牌可以使用或丢弃，你被迫投降了',
 
-  'Please rotate your device to landscape mode': '请将您的设备旋转到横向模式',
+  'Please rotate your device to landscape mode': '请将设备旋转到横向模式',
 }

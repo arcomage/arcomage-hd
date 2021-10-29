@@ -1,10 +1,16 @@
-const specialStrings: Record<string, string> = {
+export const specialStrings: Record<string, string> = {
   魔幻牌: '圆法师',
   砖头: '砖块',
   怪物: '魔兽',
   城堡: '塔楼',
 }
 
-export default specialStrings
+// zh hans to hant customized conversion. Proceeded before opencc conversion
+// <hans>: <hans or hant>
 
-//zh hans to hant. hant string could be written in hans here
+export const specialStringsAfter: Record<string, string> = {
+  裝置: '設備',
+}
+
+// zh hans to hant customized conversion. Proceeded after opencc conversion
+// <hant>: <hant>
