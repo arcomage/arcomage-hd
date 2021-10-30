@@ -44,7 +44,7 @@ export const defaultErathian = false
 export const defaultPixelation = 0
 export const defaultEnabledPixelation = 4
 
-export const defaultAiLevel = 0
+export const defaultAiLevel = 0 // 0 to 4; 0 is the smartest, 4 is the easiest
 
 export const defaultSettingState: SettingsStateType = {
   playerName: defaultPlayerName,

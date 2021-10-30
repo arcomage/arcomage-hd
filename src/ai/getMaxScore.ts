@@ -3,7 +3,7 @@ import { weightedRandom, sample } from '../utils/random'
 
 export const getMaxScore = (
   allScores: ScoreObjType[],
-  aiLevel: number, // 0 | 1 | 2 | 3 | 4
+  aiLevel: number, // 0 to 4; 0 is the smartest, 4 is the easiest
 ): ScoreObjType => {
   let result: ScoreObjType
   switch (aiLevel) {

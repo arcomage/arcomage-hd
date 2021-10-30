@@ -58,7 +58,7 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'Ilha Dagger Wound',
   // },
   // {
-  //   name: "Kantina de Kessel",
+  //   name: 'Kantina de Kessel',
   //   location: 'Ravenshore',
   // },
   // {
@@ -70,7 +70,7 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'Deserto Ironsand',
   // },
   // {
-  //   name: "Estalagem Sangue do Dragão",
+  //   name: 'Estalagem Sangue do Dragão',
   //   location: 'Desfiladeiro Garrote',
   // },
   // {
@@ -78,15 +78,15 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'Shadowspire',
   // },
   // {
-  //   name: "Descanso do Viajante",
+  //   name: 'Descanso do Viajante',
   //   location: 'Murmurwoods',
   // },
   // {
-  //   name: "Estalagem do Olho do Boi",
+  //   name: 'Estalagem do Olho do Boi',
   //   location: 'Ravage Roaming',
   // },
   // {
-  //   name: "Descanso do Pirata",
+  //   name: 'Descanso do Pirata',
   //   location: 'Regna',
   // },
   // {
@@ -94,7 +94,7 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'Ravenshore',
   // },
   // {
-  //   name: "Estalagem do Miho",
+  //   name: 'Estalagem do Miho',
   //   location: 'Alvar',
   // },
 ]

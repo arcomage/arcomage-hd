@@ -46,7 +46,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Таталія',
   },
   // {
-  //   name: 'П\'яні піксі',
+  //   name: "П'яні піксі",
   //   location: 'АвЛі',
   // },
   {
@@ -58,7 +58,7 @@ export const tavernsI18n: TavernsI18nType = [
   //   location: 'Острів Кинджального поранення',
   // },
   // {
-  //   name: 'Кав\'ярня Кесселя',
+  //   name: "Кав'ярня Кесселя",
   //   location: 'Воронячий Берег',
   // },
   // {
