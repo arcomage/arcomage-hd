@@ -38,8 +38,8 @@ export const i18n = {
   discarded: '廃棄',
   'Discard a card': 'カードを捨てる',
 
-  'You Win!': 'あなたが勝ちます！',
-  'You Lose!': 'あなたは負けます！',
+  'You Win!': '勝利！',
+  'You Lose!': '負け！',
   'Tie Game': '引き分け',
 
   Preferences: '設定',
