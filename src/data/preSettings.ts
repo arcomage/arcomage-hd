@@ -1,3 +1,9 @@
+/**
+ * Pre-settings, i.e. taverns
+ * (including 6 castles in Enroth that are
+ *  not in the original game but added here for fun)
+ */
+
 import { ContinentsType, SettingsType } from '../types/state'
 
 export const preSettings: SettingsType[] = [

@@ -23,7 +23,7 @@ import {
 } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import { upper1st } from '../../utils/upper1st'
-import { preSettings, continents } from '../../constants/preSettings'
+import { preSettings, continents } from '../../data/preSettings'
 import {
   defaultPlayerNameList,
   defaultOpponentNameList,
