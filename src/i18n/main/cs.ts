@@ -46,10 +46,15 @@ export const i18n = {
   ': ': ': ',
   'Your Name': 'Vaše jméno',
   "Opponent's Name": 'Jméno soupeře',
+
   'Choose a Tavern (Preset Preferences)':
     'Vyberte hospodu (přednastavené předvolby)',
+  'Castle in Enroth': 'Zámek v Enrothu',
+  Antagarich: 'Antagarich',
+  Jadame: 'Jadame',
   Default: 'Výchozí',
   Customized: 'Přizpůsobené',
+
   'Starting Conditions': 'Počáteční podmínky',
   'Victory Conditions': 'Podmínky vítězství',
   'Other Preferences': 'Další předvolby',
@@ -99,7 +104,7 @@ export const i18n = {
   Volume: 'Hlasitost',
   Mute: 'Ztlumit',
 
-  Pixelation: 'Pixelation',
+  Pixelation: 'Pixelace',
   Disable: 'Zakázat',
 
   Help: 'Nápověda',

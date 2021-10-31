@@ -9,10 +9,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: '獅鷲獸休息處',
     location: '伊拉西亞',
   },
-  // {
-  //   name: '翡翠旅店',
-  //   location: '土拉立安森林',
-  // },
+  {
+    name: '翡翠旅店',
+    location: '土拉立安森林',
+  },
   {
     name: '趨炎附勢的地精',
     location: '戴加',
@@ -25,10 +25,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: '被祝福的酒釀',
     location: '賽勒斯提',
   },
-  // {
-  //   name: '吸血鬼會館',
-  //   location: '深坑',
-  // },
+  {
+    name: '吸血鬼會館',
+    location: '深坑',
+  },
   {
     name: '大笑僧侶',
     location: '晨昏島',
@@ -45,56 +45,80 @@ export const tavernsI18n: TavernsI18nType = [
     name: '忠心的傭兵',
     location: '塔塔力雅',
   },
-  // {
-  //   name: '喝醉的妖精',
-  //   location: '愛佛黎',
-  // },
+  {
+    name: '喝醉的妖精',
+    location: '愛佛黎',
+  },
   {
     name: '葛羅格的烈酒',
     location: '石頭城',
   },
-  // {
-  //   name: '葛盧格和葛盧伯旅店',
-  //   location: '匕傷群島',
-  // },
-  // {
-  //   name: '凱所的凱提納旅店',
-  //   location: '渡鴉海濱',
-  // },
-  // {
-  //   name: '獲利之屋旅店',
-  //   location: '阿爾瓦',
-  // },
-  // {
-  //   name: '乾渴喉嚨休息站',
-  //   location: '鐵砂荒漠',
-  // },
-  // {
-  //   name: '龍血旅店旅店',
-  //   location: '絞刑峽谷',
-  // },
-  // {
-  //   name: '黑暗伙伴旅店',
-  //   location: '影旋山脈',
-  // },
-  // {
-  //   name: '旅行者休息站',
-  //   location: '低語之森',
-  // },
-  // {
-  //   name: '牛眼旅店',
-  //   location: '荒湮迴廊',
-  // },
-  // {
-  //   name: '海盜休息站',
-  //   location: '雷格那',
-  // },
-  // {
-  //   name: '跳舞食人魔旅店',
-  //   location: '渡鴉海濱',
-  // },
-  // {
-  //   name: '迷吼休息站',
-  //   location: '阿爾瓦',
-  // },
+  {
+    name: '葛盧格和葛盧伯旅店',
+    location: '匕傷群島',
+  },
+  {
+    name: '凱所的凱提納旅店',
+    location: '渡鴉海濱',
+  },
+  {
+    name: '獲利之屋旅店',
+    location: '阿爾瓦',
+  },
+  {
+    name: '乾渴喉嚨休息站',
+    location: '鐵砂荒漠',
+  },
+  {
+    name: '龍血旅店旅店',
+    location: '絞刑峽谷',
+  },
+  {
+    name: '黑暗伙伴旅店',
+    location: '影旋山脈',
+  },
+  {
+    name: '旅行者休息站',
+    location: '低語之森',
+  },
+  {
+    name: '牛眼旅店',
+    location: '荒湮迴廊',
+  },
+  {
+    name: '海盜休息站',
+    location: '雷格那',
+  },
+  {
+    name: '跳舞食人魔旅店',
+    location: '渡鴉海濱',
+  },
+  {
+    name: '迷吼休息站',
+    location: '阿爾瓦',
+  },
+  {
+    name: '奧司力克·譚普爵士',
+    location: '自由港',
+  },
+  {
+    name: '安東尼·史東爵士',
+    location: '冰凍高原',
+  },
+  {
+    name: '艾力克·凡·史川加爵士',
+    location: '冰凍高原',
+  },
+  {
+    name: '羅利塔·芙萊茲夫人',
+    location: '銀灣',
+  },
+  {
+    name: '亞伯·牛頓爵士',
+    location: '迷霧之島',
+  },
+  {
+    name: '尼可拉·鐵拳王子',
+    location: '鐵拳城堡',
+  },
 ]

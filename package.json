@@ -16,7 +16,7 @@
     "tool:imgpc": "ts-node --project ./tools/tsconfig.json ./tools/img-processing/crop && ts-node --project ./tools/tsconfig.json ./tools/img-processing/upscale",
     "tool:imgmin": "node --loader ts-node/esm ./tools/img-min/index.ts",
     "tool:datapc": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/docards",
-    "tool:mm8taverns": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/mm8taverns",
+    "tool:taverns": "ts-node --project ./tools/tsconfig.json ./tools/data-processing/taverns",
     "tool:geticelist": "ts-node --project ./tools/tsconfig.json ./tools/geticelist",
     "tool:manifest": "ts-node --project ./tools/tsconfig.json ./tools/manifest",
     "tool:ocr:pre": "ts-node --project ./tools/tsconfig.json ./tools/ocr/crop && ts-node --project ./tools/tsconfig.json ./tools/ocr/composite",

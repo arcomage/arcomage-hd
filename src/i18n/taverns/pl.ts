@@ -9,10 +9,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Odpoczynek Gryfa',
     location: 'Erathia',
   },
-  // {
-  //   name: 'Szmaragdowa Gospoda',
-  //   location: 'Las Tulareański',
-  // },
+  {
+    name: 'Szmaragdowa Gospoda',
+    location: 'Las Tulareański',
+  },
   {
     name: 'Samolubny Goblin',
     location: 'Deyia',
@@ -25,10 +25,10 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Przepyszna Nalewka',
     location: 'Celeste',
   },
-  // {
-  //   name: 'Wampirza komnata',
-  //   location: 'Czeluść',
-  // },
+  {
+    name: 'Wampirza komnata',
+    location: 'Czeluść',
+  },
   {
     name: 'Roześmiany Mnich',
     location: 'Wyspa Evenmorn',
@@ -45,56 +45,80 @@ export const tavernsI18n: TavernsI18nType = [
     name: 'Lojalny Najemnik',
     location: 'Tatalia',
   },
-  // {
-  //   name: 'Pijany Chochlik',
-  //   location: 'Avlee',
-  // },
+  {
+    name: 'Pijany Chochlik',
+    location: 'Avlee',
+  },
   {
     name: 'Grog Grogga',
     location: 'Kamienne Miasto',
   },
-  // {
-  //   name: 'Żarcie i Grog',
-  //   location: 'Wyspy Krwawego Sztyletu',
-  // },
-  // {
-  //   name: 'Kantyna Kessela',
-  //   location: 'Ravenshore',
-  // },
-  // {
-  //   name: 'Kuchnia Domowa',
-  //   location: 'Alvar',
-  // },
-  // {
-  //   name: 'Zaschnięte Gardło',
-  //   location: 'Pustynia Ironsand',
-  // },
-  // {
-  //   name: 'Smocza Krew',
-  //   location: 'Wąwóz Garoty',
-  // },
-  // {
-  //   name: 'Czarna Kompania',
-  //   location: 'Shadowspire',
-  // },
-  // {
-  //   name: 'Wytchnienie Wędrowca',
-  //   location: 'Murmurwoods',
-  // },
-  // {
-  //   name: 'Zajazd pod Byczym Okiem',
-  //   location: 'Splądrowane Pustkowia',
-  // },
-  // {
-  //   name: 'Ukojenie Pirata',
-  //   location: 'Regna',
-  // },
-  // {
-  //   name: 'Tańczący Ogr',
-  //   location: 'Ravenshore',
-  // },
-  // {
-  //   name: 'Karczma Miho',
-  //   location: 'Alvar',
-  // },
+  {
+    name: 'Żarcie i Grog',
+    location: 'Wyspy Krwawego Sztyletu',
+  },
+  {
+    name: 'Kantyna Kessela',
+    location: 'Ravenshore',
+  },
+  {
+    name: 'Kuchnia Domowa',
+    location: 'Alvar',
+  },
+  {
+    name: 'Zaschnięte Gardło',
+    location: 'Pustynia Ironsand',
+  },
+  {
+    name: 'Smocza Krew',
+    location: 'Wąwóz Garoty',
+  },
+  {
+    name: 'Czarna Kompania',
+    location: 'Shadowspire',
+  },
+  {
+    name: 'Wytchnienie Wędrowca',
+    location: 'Murmurwoods',
+  },
+  {
+    name: 'Zajazd pod Byczym Okiem',
+    location: 'Splądrowane Pustkowia',
+  },
+  {
+    name: 'Ukojenie Pirata',
+    location: 'Regna',
+  },
+  {
+    name: 'Tańczący Ogr',
+    location: 'Ravenshore',
+  },
+  {
+    name: 'Karczma Miho',
+    location: 'Alvar',
+  },
+  {
+    name: 'Lord Osric Temper',
+    location: 'Bezpieczna Przystań',
+  },
+  {
+    name: 'Lord Anthony Stone',
+    location: 'Mroźne Wyżyny',
+  },
+  {
+    name: 'Lord Eric von Stromgard',
+    location: 'Mroźne Wyżyny',
+  },
+  {
+    name: 'Lady Loretta Fleise',
+    location: 'Srebrzysta Zatoczka',
+  },
+  {
+    name: 'Lord Albert Newton',
+    location: 'Mgliste Wyspy',
+  },
+  {
+    name: 'Książę Nicolai Ironfist',
+    location: 'Zamek Ironfist',
+  },
 ]

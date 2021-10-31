@@ -2,7 +2,6 @@
 
 ## Dependency Update
 
-* `@material-ui/core` uses the latest `5.0.0-beta.x`, instead of `4.x`
 * `rxjs` uses the latest `6.x`, instead of `7.x`
   * `redux-observable` uses the latest `1.x`, instead of `2.x`
 
@@ -21,7 +20,7 @@
 * `yarn tool:imgpc`: extract (crop) images from the big image of the original game
 * `yarn tool:imgmin`: minify images (*./img-min/original* stores minified PNG images before their conversion to .webp)
 * `yarn tool:datapc`: get card data from the Excel file
-* `yarn tool:mm8taverns`: get mm8 tavern data from the Excel file
+* `yarn tool:taverns`: get tavern data from the Excel file
 * `yarn tool:geticelist`: get free STUN server list
 * `yarn tool:manifest`: generate manifest.json and icons
 * `yarn tool:ocr:pre`: prepare ocr
@@ -35,4 +34,6 @@
 * `yarn tool:cardsbk`: backup card data to *./\_\_test\_\_/cardsbk.ts*
 * `yarn tool:resizesvg`: resize SVG images in *./misc/readme_images/*
 * `yarn tool:reduxreducers`: Redux DevTools auto-generated reducer test remove duplicate
+* `yarn tool:prettier`: check with prettier 
+* `yarn tool:eslint`: check with eslint 
 * `yarn tool:linecount`: get total line count

@@ -46,10 +46,15 @@ export const i18n = {
   ': ': ': ',
   'Your Name': 'Tu nombre',
   "Opponent's Name": 'Nombre del oponente',
+
   'Choose a Tavern (Preset Preferences)':
     'Elige una taberna (Preferencias preestablecidas)',
+  'Castle in Enroth': 'Castillo en Enroth',
+  Antagarich: 'Antagarich',
+  Jadame: 'Jadame',
   Default: 'Por defecto',
   Customized: 'Personalizado',
+
   'Starting Conditions': 'Condiciones de inicio',
   'Victory Conditions': 'Condiciones de victoria',
   'Other Preferences': 'Otras Preferencias',

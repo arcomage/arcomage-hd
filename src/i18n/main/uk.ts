@@ -46,9 +46,14 @@ export const i18n = {
   ': ': ': ',
   'Your Name': "Ваше ім'я",
   "Opponent's Name": "Ім'я опонента",
+
   'Choose a Tavern (Preset Preferences)': 'Оберіть таверну (набір налаштувань)',
+  'Castle in Enroth': 'Замок в Енроті',
+  Antagarich: 'Антагарич',
+  Jadame: 'Джадам',
   Default: 'Типово',
   Customized: 'Користувацькі',
+
   'Starting Conditions': 'Стартові умови',
   'Victory Conditions': 'Умови перемоги',
   'Other Preferences': 'Інші налаштування',

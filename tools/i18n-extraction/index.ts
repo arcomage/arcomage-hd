@@ -1,3 +1,6 @@
+// 6-2devents
+// 6-npcdata
+// 6-trans
 // 7-2devents
 // 7-mapstats
 // 8-2devents
@@ -54,6 +57,17 @@ const getRC = (arr2d: string[][], str: string): [number, number] | null => {
 
 ;(async () => {
   const twodEvents = {
+    // en: await createPromise(path.join(root, '6-npcdata', 'en.txt')),
+    // fr: await createPromise(path.join(root, '6-npcdata', 'fr.txt')),
+    // de: await createPromise(path.join(root, '6-npcdata', 'de.txt')),
+    // es: await createPromise(path.join(root, '6-npcdata', 'es.txt')),
+    // it: await createPromise(path.join(root, '6-npcdata', 'it.txt')),
+    // ru: await createPromise(path.join(root, '6-npcdata', 'ru.txt')),
+    // cs: await createPromise(path.join(root, '6-npcdata', 'cs.txt')),
+    // pl: await createPromise(path.join(root, '6-npcdata', 'pl.txt')),
+    // zhHans: await createPromise(path.join(root, '6-npcdata', 'zh-Hans.txt')),
+    // zhHant: await createPromise(path.join(root, '6-npcdata', 'zh-Hant.txt')),
+
     en: await createPromise(path.join(root, '7-2devents', 'en.txt')),
     fr: await createPromise(path.join(root, '7-2devents', 'fr.txt')),
     de: await createPromise(path.join(root, '7-2devents', 'de.txt')),
@@ -80,6 +94,17 @@ const getRC = (arr2d: string[][], str: string): [number, number] | null => {
   }
 
   const mapstats = {
+    // en: await createPromise(path.join(root, '6-mapstats', 'en.txt')),
+    // fr: await createPromise(path.join(root, '6-mapstats', 'fr.txt')),
+    // de: await createPromise(path.join(root, '6-mapstats', 'de.txt')),
+    // es: await createPromise(path.join(root, '6-mapstats', 'es.txt')),
+    // it: await createPromise(path.join(root, '6-mapstats', 'it.txt')),
+    // ru: await createPromise(path.join(root, '6-mapstats', 'ru.txt')),
+    // cs: await createPromise(path.join(root, '6-mapstats', 'cs.txt')),
+    // pl: await createPromise(path.join(root, '6-mapstats', 'pl.txt')),
+    // zhHans: await createPromise(path.join(root, '6-mapstats', 'zh-Hans.txt')),
+    // zhHant: await createPromise(path.join(root, '6-mapstats', 'zh-Hant.txt')),
+
     en: await createPromise(path.join(root, '7-mapstats', 'en.txt')),
     fr: await createPromise(path.join(root, '7-mapstats', 'fr.txt')),
     de: await createPromise(path.join(root, '7-mapstats', 'de.txt')),

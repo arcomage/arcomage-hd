@@ -46,9 +46,14 @@ export const i18n = {
   ': ': '：',
   'Your Name': '你的名字',
   "Opponent's Name": '对手名字',
+
   'Choose a Tavern (Preset Preferences)': '选择酒馆（预设设置）',
+  'Castle in Enroth': '恩洛斯的城堡',
+  Antagarich: '恩塔格瑞',
+  Jadame: '贾丹姆',
   Default: '默认',
   Customized: '自定义',
+
   'Starting Conditions': '起始条件',
   'Victory Conditions': '胜利条件',
   'Other Preferences': '其他设置',

@@ -46,9 +46,14 @@ export const i18n = {
   ': ': '：',
   'Your Name': 'あなたの名前',
   "Opponent's Name": '相手の名前',
+
   'Choose a Tavern (Preset Preferences)': '居酒屋を選ぶ（プリセット設定）',
+  'Castle in Enroth': 'エンロスの城',
+  Antagarich: 'アンタガリッチ',
+  Jadame: 'ジャダメ',
   Default: 'ディフォルト',
   Customized: 'カスタマイズ',
+
   'Starting Conditions': '開始条件',
   'Victory Conditions': '勝利条件',
   'Other Preferences': 'その他の設定',

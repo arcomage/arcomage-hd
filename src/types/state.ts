@@ -62,6 +62,11 @@ export type SettingsType = PersonStatusType &
     cardsInHand: number
   }
 
+export type ContinentsType = {
+  c: 6 | 7 | 8
+  count: number
+}[]
+
 export type SettingsStateNameType = {
   playerName: string
   opponentName: string

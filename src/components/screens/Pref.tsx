@@ -23,7 +23,7 @@ import {
 } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import { upper1st } from '../../utils/upper1st'
-import { preSettings } from '../../constants/preSettings'
+import { preSettings, continents } from '../../constants/preSettings'
 import {
   defaultPlayerNameList,
   defaultOpponentNameList,
@@ -52,6 +52,8 @@ import { sample } from '../../utils/random'
 import isEmoji from '../../utils/isEmoji'
 import TooltipAll from '../special/TooltipAll'
 import { maxCardsInHand, minGeneratorIsOne } from '../../constants/ranges'
+import { SettingsType } from '../../types/state'
+import { variousLengthChunk } from '../../utils/variousLengthChunk'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -444,10 +446,24 @@ const Pref = () => {
           }}
         >
           <option value={-2}>{_.i18n('Default')}</option>
-          {preSettings.map((s, i) => (
-            <option value={i} key={i}>
-              {_.taverns(i, 'name')} - {_.taverns(i, 'location')}
-            </option>
+          {continents.map((part, ci) => (
+            <optgroup
+              label={`${_.i18n(
+                ['Castle in Enroth', 'Antagarich', 'Jadame'][part.c - 6],
+              )} ${['🏰', '🍺', '🍺'][part.c - 6]}`}
+              key={ci}
+            >
+              {
+                variousLengthChunk<JSX.Element>(
+                  preSettings.map((s, i) => (
+                    <option value={i} key={i}>
+                      {_.taverns(i, 'name')} - {_.taverns(i, 'location')}
+                    </option>
+                  )),
+                  continents.map((c) => c.count),
+                )[ci]
+              }
+            </optgroup>
           ))}
           {(preset === -1 || isGuest) && (
             <option value={-1}>{_.i18n('Customized')}</option>
