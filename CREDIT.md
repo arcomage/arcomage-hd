@@ -1,4 +1,4 @@
-# ArcoMage HD's Licenses
+# ArcoMage HD's Copyright, Licenses & Credit
 
 The code of **ArcoMage HD**: MIT License (c) 2021 [Tom Chen](https://tomchen.org/). See [§ MIT License](#mit-license).
 
