@@ -252,4 +252,4 @@ The code of the ArcoMage HD game: MIT License (c) 2021 [Tom Chen](https://tomche
 
 The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company.
 
-See [LICENSE.md file](LICENSE.md) for a detailed presentation of the copyright status of the game's components.
+See [CREDIT.md file](CREDIT.md) for a detailed presentation of the copyright status, licenses and credit of the game's components.
