@@ -2,7 +2,12 @@ import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { I18nContext } from '../../i18n/I18nContext'
-import screenfull from 'screenfull'
+import {
+  isEnabled,
+  isFullscreen,
+  requestFs,
+  exitFs,
+} from '../../utils/fullscreen'
 import TooltipAll from '../special/TooltipAll'
 
 const useStyles = createUseStyles<string>({
@@ -60,8 +65,12 @@ const ButtonFullscreen = () => {
         accessKey="t"
         className={cx('topbutton', classes.fullscreenButton)}
         onClick={() => {
-          if (screenfull.isEnabled) {
-            screenfull.toggle()
+          if (isEnabled) {
+            if (isFullscreen()) {
+              exitFs()
+            } else {
+              requestFs()
+            }
           }
         }}
       >

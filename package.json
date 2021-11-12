@@ -74,7 +74,6 @@
     "redux": "^4.1.2",
     "redux-observable": "^1.2.0",
     "rxjs": "^6.6.7",
-    "screenfull": "^5.2.0",
     "semver": "^7.3.5",
     "tailwindcss": "^2.2.19",
     "typesafe-actions": "^5.1.0"
