@@ -7,7 +7,7 @@ const useDisableContextMenu = () => {
       const onContextMenu = (e: MouseEvent): void => {
         if (
           e.target !== null &&
-          e.target instanceof HTMLElement &&
+          e.target instanceof Element &&
           e.target.closest('.window-wrapper') === null
         ) {
           e.preventDefault()
