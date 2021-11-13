@@ -4,7 +4,11 @@ import MultilineText from '../special/MultilineText'
 
 import { SCREEN_HELP } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
-import { tutorialImageUrl } from '../../constants/devSettings'
+import {
+  authorUrl,
+  githubUrl,
+  tutorialImageUrl,
+} from '../../constants/devSettings'
 
 const Help = () => {
   const _ = useContext(I18nContext)
@@ -22,7 +26,7 @@ const Help = () => {
           arr1[i] = (
             <a
               key={item}
-              href="https://github.com/arcomage/arcomage-hd"
+              href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -46,7 +50,7 @@ const Help = () => {
           arr1[i] = (
             <a
               key={item}
-              href="https://github.com/tomchen"
+              href={authorUrl}
               target="_blank"
               rel="noopener noreferrer"
             >

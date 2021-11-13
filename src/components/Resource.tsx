@@ -224,9 +224,10 @@ const Resource = ({ type, isOpponent }: PropType) => {
           )}
           <div
             className={cx(
+              classes.prod,
               'text-yellow-400 absolute bottom-1 left-1 text-shadow-md tracking-tighter',
               'fatnumber',
-              classes.prod,
+              'el-number',
             )}
           >
             <ResourceNumber isProd {...{ type, isOpponent }} />
@@ -237,18 +238,20 @@ const Resource = ({ type, isOpponent }: PropType) => {
         <div className="flow-root mt-1">
           <div
             className={cx(
+              classes.count,
               'float-left text-black flex-1 text-left relative tracking-tighter',
               'fatnumber',
-              classes.count,
+              'el-number',
             )}
           >
             <ResourceNumber isProd={false} {...{ type, isOpponent }} />
           </div>
           <div
             className={cx(
+              classes.unit,
               'float-right text-black flex-1 text-right',
               'robotocondensed',
-              classes.unit,
+              'el-text',
             )}
           >
             {smallMode ? '' : text}

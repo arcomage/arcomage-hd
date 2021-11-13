@@ -32,20 +32,13 @@
 }
 
 html[data-erathian='true'] {
-  &,
-  & * {
+  .el-text,
+  .window-wrapper:not(.screen-lang-pref) {
     font-family: 'Erathian';
     font-weight: bold;
   }
   .MuiTooltip-tooltip span {
-    font-weight: normal;
-  }
-  .no-erathian,
-  .no-erathian * {
-    @apply font-sans;
-    .erathian {
-      font-family: 'Erathian';
-    }
+    font-family: 'Erathian';
   }
 }
 

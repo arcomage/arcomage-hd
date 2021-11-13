@@ -50,6 +50,7 @@ const Status = ({ playerName, isOpponent = false }: PropType) => {
                 'border-opacity-25 text-opacity-25': playersTurn === isOpponent,
               },
               classes.username,
+              'el-text',
             )}
           >
             {playerName}

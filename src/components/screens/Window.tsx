@@ -86,8 +86,14 @@ const Window = ({
 
   return (
     <div className={cx('window-bg', { darkerbg: darkerBg })}>
-      <div className={cx('window-outerwrapper')}>
-        <div ref={prefRef} className={cx('window-wrapper')}>
+      <div className={'window-outerwrapper'}>
+        <div
+          ref={prefRef}
+          className={cx(
+            'window-wrapper',
+            screenActionType.toLowerCase().replace(/_/g, '-'),
+          )}
+        >
           <TooltipAll title={_.i18n('ArcoMage HD')}>
             <div
               className={cx(

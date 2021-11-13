@@ -433,6 +433,7 @@ const Card = ({
               classes.cardname,
               'm-1 shadow text-center font-semibold tracking-tight',
               `bg-${color}-200`,
+              'el-text',
             )}
           >
             {cardName}
@@ -457,6 +458,7 @@ const Card = ({
                 className={cx(
                   classes.discarded,
                   'absolute top-0 left-0 w-full h-full flex justify-center items-center text-red-500 font-bold uppercase text-shadow-stroke',
+                  'el-text',
                 )}
               >
                 {_.i18n('discarded')}
@@ -469,7 +471,9 @@ const Card = ({
               'm-2 flex flex-wrap content-center justify-center',
             )}
           >
-            <div className="leading-tight break-words text-center">
+            <div
+              className={cx('leading-tight break-words text-center', 'el-text')}
+            >
               {_.cards(n, 'desc')}
             </div>
           </div>
@@ -486,7 +490,14 @@ const Card = ({
               )}
             ></div>
             <TooltipAll title={cardTitle} placement="top">
-              <div className="absolute top-0 left-0 w-full h-full">{cost}</div>
+              <div
+                className={cx(
+                  'absolute top-0 left-0 w-full h-full',
+                  'el-number',
+                )}
+              >
+                {cost}
+              </div>
             </TooltipAll>
           </div>
         </div>

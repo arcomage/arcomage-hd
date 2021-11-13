@@ -48,9 +48,9 @@ const NumberDiff = ({ n }: PropType) => {
         )
         divEl.className = cx(
           classes.main,
-          'absolute font-mono text-2xl',
+          'absolute font-mono text-2xl text-shadow-md',
           `text-${diff >= 0 ? 'green' : 'red'}-500`,
-          'text-shadow-md',
+          'el-number',
         )
         divEl.appendChild(textNode)
         mainEl.appendChild(divEl)

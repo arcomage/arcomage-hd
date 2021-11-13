@@ -26,7 +26,7 @@ const LangPref = () => {
       const arr = er.split('%s')
       return [
         <Fragment key={0}>{arr[0]}</Fragment>,
-        <span key={1} className="erathian text-2xl p-0">
+        <span key={1} className={cx('text-2xl p-0', 'erathian')}>
           Erathian
         </span>,
         <Fragment key={2}>{arr[1]}</Fragment>,
@@ -37,7 +37,7 @@ const LangPref = () => {
 
   return (
     <Window screenActionType={SCREEN_LANG_PREF}>
-      <div className="my-5 flex flex-wrap justify-center no-erathian">
+      <div className="my-5 flex flex-wrap justify-center">
         {entries(langs)
           .sort(([codeA], [codeB]) => codeA.localeCompare(codeB))
           .map(([code, name]) => (
@@ -69,7 +69,7 @@ const LangPref = () => {
             })
           }}
         />
-        <span className="no-erathian">{erathianLabel}</span>
+        <span>{erathianLabel}</span>
       </label>
     </Window>
   )

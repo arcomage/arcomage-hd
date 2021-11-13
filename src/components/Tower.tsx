@@ -174,7 +174,12 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
             </div>
           </div>
           <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
-            <div className="border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono">
+            <div
+              className={cx(
+                'border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono',
+                'el-number',
+              )}
+            >
               <TowerOrWallNumber
                 isOpponent={isOpponent}
                 isWall={false}

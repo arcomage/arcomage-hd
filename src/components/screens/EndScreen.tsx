@@ -202,7 +202,9 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
           <div
             className={cx(
               classes.notetext,
-              'absolute w-full font-bold text-white text-center robotocondensed text-shadow-stroke',
+              'absolute w-full font-bold text-white text-center text-shadow-stroke',
+              'robotocondensed',
+              'el-text',
             )}
           >
             {noteText}
@@ -211,7 +213,9 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
         <div
           className={cx(
             classes.text,
-            'absolute w-full font-bold text-white text-center robotocondensed',
+            'absolute w-full font-bold text-white text-center',
+            'robotocondensed',
+            'el-text',
           )}
         >
           {text}
@@ -219,7 +223,8 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
         <div
           className={cx(
             classes.erathiantext,
-            'absolute w-full tracking-tighter text-white text-center erathian-normal',
+            'absolute w-full tracking-tighter text-white text-center',
+            'erathian-normal',
           )}
         >
           {erathianTextContainer}
