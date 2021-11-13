@@ -6,7 +6,7 @@ The assets, text, appearance and other copyrightable elements of the game: (c) 2
 
 Logos and trademarks of "Arcomage": The 3DO Company in the U.S. and other countries.
 
-The original [Arcomage](https://en.wikipedia.org/wiki/Arcomage) game's assets, text and appearance are copyrighted, the logos and trademarks are held today by either Ubisoft or the defunct 3DO: [Ubisoft](https://en.wikipedia.org/wiki/Ubisoft) purchased [*Might and Magic*](https://en.wikipedia.org/wiki/Might_and_Magic) game series' copyright and trademarks from [The 3DO Company](https://en.wikipedia.org/wiki/The_3DO_Company) when 3DO went bankrupt in 2003, but Ubisoft didn't purchased Arcomage. The 2000 stand-alone game Arcomage is now an [abandonware](https://en.wikipedia.org/wiki/Abandonware), but is still copyrighted. Arcomage did appear as a mini-game in *Might and Magic VII: For Blood and Honor* and *Might and Magic VIII: Day of the Destroyer*, which are owned by Ubisoft and are still sold actively.
+The original [Arcomage](https://en.wikipedia.org/wiki/Arcomage) game's assets, text and appearance are copyrighted, the logos and trademarks are held today by either Ubisoft or the defunct 3DO: [Ubisoft](https://en.wikipedia.org/wiki/Ubisoft) purchased [_Might and Magic_](https://en.wikipedia.org/wiki/Might_and_Magic) game series' copyright and trademarks from [The 3DO Company](https://en.wikipedia.org/wiki/The_3DO_Company) when 3DO went bankrupt in 2003, but Ubisoft didn't purchased Arcomage. The 2000 stand-alone game Arcomage is now an [abandonware](https://en.wikipedia.org/wiki/Abandonware), but is still copyrighted. Arcomage did appear as a mini-game in _Might and Magic VII: For Blood and Honor_ and _Might and Magic VIII: Day of the Destroyer_, which are owned by Ubisoft and are still sold actively.
 
 The assets, text and appearance of the game are protected by copyright law, but the gameplay design [may or may not be protected](https://en.wikipedia.org/wiki/Intellectual_property_protection_of_video_games).
 
@@ -62,17 +62,17 @@ Copyright 2011 The Alegreya Project Authors (https://github.com/huertatipografic
 
 ### Other Free License Images
 
-* https://pixabay.com/vectors/laurel-wreath-wreath-accolade-150577/ Pixabay License
-* https://pixabay.com/vectors/trophy-achievement-award-cup-merit-153395/ Pixabay License
-* https://www.svgrepo.com/svg/211751/maps-and-flags-surrender CC0 Public Domain
-* https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg Public Domain
-* https://github.com/mui-org/material-ui/blob/master/packages/mui-icons-material/material-icons/settings_24px.svg MIT License
-* https://commons.wikimedia.org/wiki/File:VisualEditor_-_Icon_-_Help.svg MIT License
-* https://www.svgrepo.com/svg/75085/full-screen CC0 Public Domain
-* https://www.svgrepo.com/svg/278790/handshake CC0 Public Domain
-* https://www.svgrepo.com/svg/110620/phone-with-big-screen CC0 Public Domain
-* https://www.svgrepo.com/svg/27492/mouse CC0 Public Domain
-* https://www.svgrepo.com/svg/29760/press-button CC0 Public Domain
+- https://pixabay.com/vectors/laurel-wreath-wreath-accolade-150577/ Pixabay License
+- https://pixabay.com/vectors/trophy-achievement-award-cup-merit-153395/ Pixabay License
+- https://www.svgrepo.com/svg/211751/maps-and-flags-surrender CC0 Public Domain
+- https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg Public Domain
+- https://github.com/mui-org/material-ui/blob/master/packages/mui-icons-material/material-icons/settings_24px.svg MIT License
+- https://commons.wikimedia.org/wiki/File:VisualEditor_-_Icon_-_Help.svg MIT License
+- https://www.svgrepo.com/svg/75085/full-screen CC0 Public Domain
+- https://www.svgrepo.com/svg/278790/handshake CC0 Public Domain
+- https://www.svgrepo.com/svg/110620/phone-with-big-screen CC0 Public Domain
+- https://www.svgrepo.com/svg/27492/mouse CC0 Public Domain
+- https://www.svgrepo.com/svg/29760/press-button CC0 Public Domain
 
 The animations of the button icons, brick.svg, gem.svg, recruit.svg, the game ending svgs are developed by Tom Chen and licensed under the [MIT license](#mit-license).
 
@@ -94,6 +94,6 @@ GitHub Logo Usage: https://github.com/logos
 
 ### Unknown Original Author and/or Unknown License, Fair-use
 
-* explosion.png
-* firework.png
-* Fat Number font
+- explosion.png
+- firework.png
+- Fat Number font

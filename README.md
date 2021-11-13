@@ -2,7 +2,7 @@
 
 <h1 align="center">ArcoMage HD - Open Source Card Game</h1>
 
-**ArcoMage HD** is a web-based, open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the *Might and Magic* RPG game series.
+**ArcoMage HD** is a web-based, open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the _Might and Magic_ RPG game series.
 
 This not-for-profit fan-remake of the tower defense, resource management fantasy game is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + RxJS + CSS-based animations + WebRTC (see [§ Development](#development)). Please star the repo / follow me to support me.
 
@@ -29,11 +29,11 @@ It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meani
 <details><summary><strong>Click to show game rules in text form</strong></summary>
 
 > Victory conditions vary per tavern. Build your tower, destroy your opponent's tower, or collect enough resources before your opponent does.
-> 
+>
 > Large yellow numbers in column are the productions. This is how many new units of a particular resource you will receive on your next turn. Small black numbers in column are the resources. This is how many units you have available to spend on your current turn.
-> 
+>
 > Cards: Each have their own cost to play, indicated in a small circle in the lower right corner of the card. The cost will be deducted from your resources according to the color of the card. Left click on a card plays the card. Right click on a card to discard without playing.
-> 
+>
 > Red represents your Quarry Generator which produces your Brick 🧱 resources, blue represents your Magic Generator which produces Gem 💎 resources, green represents your Dungeon (aka. Zoo) generator which produces Recruit (aka. Beast) 🐲 resources.
 
 </details>
@@ -64,29 +64,29 @@ If you are using "fully supported" browser, then it's likely you don't need the 
 
 Browsers based on Chrome's engine (Blink or WebKit) are fully supported by ArcoMage HD (as of 2021):
 
-*(\*: I didn't really test these browsers)*
+_(\*: I didn't really test these browsers)_
 
-* Google Chromium
-* Google Chrome
-* Brave
-* Edge
-* Opera \*
-* Maxthon \*
-* Vivaldi \*
-* QQ \*
-* Sogou \*
-* Baidu \*
-* WeChat's browser
-* Yandex Browser \*
-* UC Browser \*
-* CM Browser \*
-* etc.
+- Google Chromium
+- Google Chrome
+- Brave
+- Edge
+- Opera \*
+- Maxthon \*
+- Vivaldi \*
+- QQ \*
+- Sogou \*
+- Baidu \*
+- WeChat's browser
+- Yandex Browser \*
+- UC Browser \*
+- CM Browser \*
+- etc.
 
 Browsers not or partially based on Chrome's engine, and may or may not run ArcoMage HD very well, therefore you can use the Desktop Version:
 
-* Internet Explorer: this old browser, of course, does not work
-* Firefox & Safari: you can play the game with these browsers, but they do not have as good performance as Chrome's engine based browsers therefore may be a bit slow, it depends on your CPU / GPU
-  * Pale Moon \*
+- Internet Explorer: this old browser, of course, does not work
+- Firefox & Safari: you can play the game with these browsers, but they do not have as good performance as Chrome's engine based browsers therefore may be a bit slow, it depends on your CPU / GPU
+  - Pale Moon \*
 
 ### Other Remarks
 
@@ -110,12 +110,12 @@ Use <kbd>Tab</kbd> to select an icon (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</k
 
 Or with access key (only for opening a window):
 
-* <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences
-* <kbd>Alt</kbd> + <kbd>L</kbd>: Language
-* <kbd>Alt</kbd> + <kbd>V</kbd>: Volume
-* <kbd>Alt</kbd> + <kbd>T</kbd>: Toggle Fullscreen
-* <kbd>Alt</kbd> + <kbd>H</kbd>: Help
-* <kbd>Alt</kbd> + <kbd>G</kbd>: GitHub
+- <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences
+- <kbd>Alt</kbd> + <kbd>L</kbd>: Language
+- <kbd>Alt</kbd> + <kbd>V</kbd>: Volume
+- <kbd>Alt</kbd> + <kbd>T</kbd>: Toggle Fullscreen
+- <kbd>Alt</kbd> + <kbd>H</kbd>: Help
+- <kbd>Alt</kbd> + <kbd>G</kbd>: GitHub
 
 ### Card
 
@@ -123,10 +123,10 @@ Use <kbd>Tab</kbd> to select a card (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kb
 
 Or with access key (only for using a card):
 
-* <kbd>Alt</kbd> + <kbd>1</kbd>: Use the 1st card
-* <kbd>Alt</kbd> + <kbd>2</kbd>: Use the 2nd card
-* <kbd>Alt</kbd> + <kbd>3</kbd>: Use the 3rd card
-* <kbd>Alt</kbd> + ...: Use the nth card (n <= 9, you can't use 10th or later card with access key)
+- <kbd>Alt</kbd> + <kbd>1</kbd>: Use the 1st card
+- <kbd>Alt</kbd> + <kbd>2</kbd>: Use the 2nd card
+- <kbd>Alt</kbd> + <kbd>3</kbd>: Use the 3rd card
+- <kbd>Alt</kbd> + ...: Use the nth card (n <= 9, you can't use 10th or later card with access key)
 
 It could be other key instead of <kbd>Alt</kbd>
 
@@ -138,7 +138,7 @@ The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compati
 
 ## Multiplayer Mode
 
-*(Currently it **can't connect two users who are both behind symmetric NAT** ([test if you're behind "bad", symmetric NAT](https://tomchen.github.io/symmetric-nat-test/)))*
+_(Currently it **can't connect two users who are both behind symmetric NAT** ([test if you're behind "bad", symmetric NAT](https://tomchen.github.io/symmetric-nat-test/)))_
 
 ### How To Use the Multiplayer Mode
 
@@ -217,34 +217,34 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
 
 ## Translation Credits
 
-* [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards): extracted from *Might and Magic VIII* & *VI* original games (or translated/retranslated) by:
-  * English (`en`): [Black Rabite on GameFAQs](https://gamefaqs.gamespot.com/pc/929601-arcomage/faqs/44131)
-  * Russian (`ru`) (retranslated): [rayburn](https://github.com/TombOfVARN)
-  * Simplified Chinese (`zh-Hans`): [xyz53235](https://blog.csdn.net/xyz53235/article/details/113663313)
-  * Polish (`pl`) (retranslated?): [acidcave](https://www.arcomage.acidcave.net/czerwone_karty.html)
-  * Czech (`cs`): Yym
-  * Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
-  * Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
-  * Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
-  * All others: [Tom Chen](https://github.com/tomchen) with OCR tool [tesseract.js](https://tesseract.projectnaptha.com/) & [other scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools)
-  * Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
-* [Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main) string translators (some are from the original games):
-  * Russian (`ru`): [rayburn](https://github.com/TombOfVARN)
-  * Polish (`pl`): (partially by) Plamcia
-  * Brazilian Portuguese (`pt-BR`): [mateuscv](https://github.com/mateuscv)
-  * Ukrainian (`uk`): [troyane](https://github.com/troyane)
-  * All others: [Tom Chen](https://github.com/tomchen) by himself and/or with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
-  * Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
-* [Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns): extracted from *Might and Magic VIII* & *VI* original games by [Tom Chen](https://github.com/tomchen) with [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction). Except for:
-  * Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
-  * Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
-  * Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
+- [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards): extracted from _Might and Magic VIII_ & _VI_ original games (or translated/retranslated) by:
+  - English (`en`): [Black Rabite on GameFAQs](https://gamefaqs.gamespot.com/pc/929601-arcomage/faqs/44131)
+  - Russian (`ru`) (retranslated): [rayburn](https://github.com/TombOfVARN)
+  - Simplified Chinese (`zh-Hans`): [xyz53235](https://blog.csdn.net/xyz53235/article/details/113663313)
+  - Polish (`pl`) (retranslated?): [acidcave](https://www.arcomage.acidcave.net/czerwone_karty.html)
+  - Czech (`cs`): Yym
+  - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
+  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
+  - Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
+  - All others: [Tom Chen](https://github.com/tomchen) with OCR tool [tesseract.js](https://tesseract.projectnaptha.com/) & [other scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools)
+  - Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
+- [Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main) string translators (some are from the original games):
+  - Russian (`ru`): [rayburn](https://github.com/TombOfVARN)
+  - Polish (`pl`): (partially by) Plamcia
+  - Brazilian Portuguese (`pt-BR`): [mateuscv](https://github.com/mateuscv)
+  - Ukrainian (`uk`): [troyane](https://github.com/troyane)
+  - All others: [Tom Chen](https://github.com/tomchen) by himself and/or with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
+  - Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
+- [Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns): extracted from _Might and Magic VIII_ & _VI_ original games by [Tom Chen](https://github.com/tomchen) with [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction). Except for:
+  - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
+  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
+  - Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
 
-*See also [I18N Issue Page](https://github.com/arcomage/arcomage-hd/issues/9)*
+_See also [I18N Issue Page](https://github.com/arcomage/arcomage-hd/issues/9)_
 
 ## Arcomage original game
 
-Arcomage was initially developed by Stickman Games and later sold to The 3DO Company (3DO). The game appeared as a mini-game in *Might and Magic VII: For Blood and Honor* (MM7) and *Might and Magic VIII: Day of the Destroyer* (MM8), the seventh and eighth games in New World Computing (NWC)'s *Might and Magic* (MM) series. (It's like *Gwent* in *The Witcher*) NWC and its parent company, 3DO, also released a stand-alone version in 2000, which can be played in single player or multi player mode. The original stand-alone Arcomage has a resolution of 800 x 600 pixels and is usable in 16-bit color mode in Windows 10, but the graphics is unstable.
+Arcomage was initially developed by Stickman Games and later sold to The 3DO Company (3DO). The game appeared as a mini-game in _Might and Magic VII: For Blood and Honor_ (MM7) and _Might and Magic VIII: Day of the Destroyer_ (MM8), the seventh and eighth games in New World Computing (NWC)'s _Might and Magic_ (MM) series. (It's like _Gwent_ in _The Witcher_) NWC and its parent company, 3DO, also released a stand-alone version in 2000, which can be played in single player or multi player mode. The original stand-alone Arcomage has a resolution of 800 x 600 pixels and is usable in 16-bit color mode in Windows 10, but the graphics is unstable.
 
 ## Copyright
 
