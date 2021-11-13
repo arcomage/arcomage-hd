@@ -9,20 +9,22 @@ jobs:
   gh-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
       - name: Build App
         run: |
           if [ -e yarn.lock ]; then
           yarn install --ignore-optional --frozen-lockfile
+          yarn build
           elif [ -e package-lock.json ]; then
           npm ci --no-optional
+          npm run build
           else
           npm i --no-optional
+          npm run build
           fi
-          yarn build
 
       - name: Deploy to GitHub Pages (in another repo)
         uses: cpina/github-action-push-to-another-repository@main
