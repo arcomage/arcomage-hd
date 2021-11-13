@@ -10,13 +10,13 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import { filter, takeUntil, mergeMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { INST } from '../../constants/connDataKind'
-import { concat, EMPTY, of } from 'rxjs'
+import { concat, EMPTY, Observable, of } from 'rxjs'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -45,7 +45,7 @@ export default (
                 payload: settings,
               },
             }),
-          ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
+          ).pipe(takeUntil(action$.pipe(ofType(ABORT_CONNECTION))))
         : EMPTY
     }),
   )

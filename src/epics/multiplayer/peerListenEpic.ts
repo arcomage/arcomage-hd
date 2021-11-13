@@ -7,17 +7,16 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { concat, merge, EMPTY, fromEvent, of } from 'rxjs'
+import { concat, merge, EMPTY, fromEvent, of, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
-import { JQueryStyleEventEmitter } from 'rxjs/internal/observable/fromEvent'
 import Peer from 'peerjs'
 import devLog from '../../utils/devLog'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -28,10 +27,7 @@ export default (
         return EMPTY
       }
       return merge(
-        fromEvent<Peer.DataConnection>(
-          peer as unknown as JQueryStyleEventEmitter,
-          'connection',
-        ).pipe(
+        fromEvent<Peer.DataConnection>(peer, 'connection').pipe(
           mergeMap((conn) => {
             peerAll.conn = conn
             return concat(
@@ -42,10 +38,7 @@ export default (
             )
           }),
         ),
-        fromEvent(
-          peer as unknown as JQueryStyleEventEmitter,
-          'disconnected',
-        ).pipe(
+        fromEvent(peer, 'disconnected').pipe(
           mergeMap(() => {
             return concat(
               of<RootActionType>({
@@ -59,7 +52,7 @@ export default (
             )
           }),
         ),
-        fromEvent(peer as unknown as JQueryStyleEventEmitter, 'close').pipe(
+        fromEvent(peer, 'close').pipe(
           mergeMap(() => {
             return concat(
               of<RootActionType>({
@@ -73,12 +66,12 @@ export default (
             )
           }),
         ),
-        fromEvent(peer as unknown as JQueryStyleEventEmitter, 'error').pipe(
+        fromEvent(peer, 'error').pipe(
           mergeMap(() => {
             devLog('error emitted by peer', 'error')
             return EMPTY
           }),
         ),
-      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_CONNECTION))))
     }),
   )

@@ -18,9 +18,9 @@ import {
   takeUntil,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { concat, EMPTY, of } from 'rxjs'
+import { concat, EMPTY, Observable, of } from 'rxjs'
 import playSound from '../../utils/playSound'
 import {
   drawCardPre,
@@ -36,7 +36,7 @@ import {
 import devLog from '../../utils/devLog'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -89,6 +89,6 @@ export default (
               type: CHECK_SURRENDER,
             }).pipe(delay(0))
           : EMPTY,
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

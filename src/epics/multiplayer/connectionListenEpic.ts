@@ -10,18 +10,17 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil, withLatestFrom } from 'rxjs/operators'
-import { concat, merge, EMPTY, fromEvent, of } from 'rxjs'
+import { concat, merge, EMPTY, fromEvent, of, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
-import { JQueryStyleEventEmitter } from 'rxjs/internal/observable/fromEvent'
 import { receiveSeq, sendSeq } from '../../utils/seq'
 import devLog from '../../utils/devLog'
 import { noLatency } from '../../constants/devSettings'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -33,10 +32,7 @@ export default (
         return EMPTY
       }
       return merge(
-        fromEvent<string>(
-          conn as unknown as JQueryStyleEventEmitter,
-          'data',
-        ).pipe(
+        fromEvent<string>(conn, 'data').pipe(
           mergeMap((data) => {
             devLog(`${type}. received: ${data}`, 'note')
             return of<RootActionType>({
@@ -45,7 +41,7 @@ export default (
             })
           }),
         ),
-        fromEvent(conn as unknown as JQueryStyleEventEmitter, 'open').pipe(
+        fromEvent(conn, 'open').pipe(
           mergeMap(() => {
             if (!action.host) {
               sendSeq.reset()
@@ -69,7 +65,7 @@ export default (
             return EMPTY
           }),
         ),
-        fromEvent(conn as unknown as JQueryStyleEventEmitter, 'close').pipe(
+        fromEvent(conn, 'close').pipe(
           withLatestFrom(state$),
           mergeMap(([_, state]) => {
             const multiGameNumber = state.multiplayer.gameNumber
@@ -93,12 +89,12 @@ export default (
             )
           }),
         ),
-        fromEvent(conn as unknown as JQueryStyleEventEmitter, 'error').pipe(
+        fromEvent(conn, 'error').pipe(
           mergeMap(() => {
             devLog('error emitted by conn', 'error')
             return EMPTY
           }),
         ),
-      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_CONNECTION))))
     }),
   )

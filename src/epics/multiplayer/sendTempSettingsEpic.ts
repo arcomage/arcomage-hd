@@ -8,14 +8,14 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import { filter, takeUntil, mergeMap, debounceTime } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { INST } from '../../constants/connDataKind'
-import { merge, of } from 'rxjs'
+import { merge, Observable, of } from 'rxjs'
 import { sendSettingsDebounceTime } from '../../constants/visuals'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -33,8 +33,8 @@ export default (
       }).pipe(
         takeUntil(
           merge(
-            action$.ofType(ABORT_SEND_TEMP_SETTINGS),
-            action$.ofType(ABORT_CONNECTION),
+            action$.pipe(ofType(ABORT_SEND_TEMP_SETTINGS)),
+            action$.pipe(ofType(ABORT_CONNECTION)),
           ),
         ),
       )

@@ -7,9 +7,9 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
-import { of, concat, merge, from, EMPTY } from 'rxjs'
+import { of, concat, merge, from, EMPTY, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import Peer from 'peerjs'
@@ -20,7 +20,7 @@ import devLog from '../../utils/devLog'
 // connect to opponent ID, and set opponent ID in the store
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -105,6 +105,6 @@ export default (
             })
           }),
         ),
-      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_CONNECTION))))
     }),
   )

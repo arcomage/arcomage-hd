@@ -6,14 +6,14 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, takeUntil, mergeMap } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { CardListItemAllType, RootStateType } from '../../types/state'
 import cards from '../../data/cards'
 import { resNames } from '../../constants/resourceNames'
-import { of } from 'rxjs'
+import { Observable, of } from 'rxjs'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -58,6 +58,6 @@ export default (
         type: SET_UNUSABLE,
         unusables,
         usables,
-      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

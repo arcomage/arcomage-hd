@@ -5,9 +5,9 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { of } from 'rxjs'
+import { Observable, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { lsSet } from '../../utils/localstorage'
 import {
@@ -18,7 +18,7 @@ import {
 import { sample } from '../../utils/random'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -40,6 +40,6 @@ export default (
       return of<RootActionType>({
         type: UPDATE_SETTINGS_MAIN,
         payload,
-      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

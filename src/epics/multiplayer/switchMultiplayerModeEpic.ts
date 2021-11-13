@@ -7,13 +7,13 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { of, concat, merge } from 'rxjs'
+import { of, concat, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -32,6 +32,6 @@ export default (
           type: SWITCH_MULTIPLAYER_MODE_MAIN,
           on,
         }),
-      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_CONNECTION))))
     }),
   )

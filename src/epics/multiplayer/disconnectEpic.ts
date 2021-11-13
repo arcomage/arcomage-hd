@@ -7,14 +7,14 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { of, concat } from 'rxjs'
+import { of, concat, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { nullifyPeer, peerAll } from '../../webrtc/peer'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(

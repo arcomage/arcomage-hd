@@ -6,16 +6,16 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
-import { concat, EMPTY, of } from 'rxjs'
+import { concat, EMPTY, Observable, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { CardListItemAllType, RootStateType } from '../../types/state'
 import { randomWithProbs } from '../../utils/randomWithProbs'
 import { INST } from '../../constants/connDataKind'
 import { reverseCardList } from '../../utils/reverseState'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(

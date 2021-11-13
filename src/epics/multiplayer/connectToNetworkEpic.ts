@@ -7,9 +7,9 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
-import { of, concat, from, merge } from 'rxjs'
+import { of, concat, from, merge, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { initPeer, peerAll } from '../../webrtc/peer'
 import devLog from '../../utils/devLog'
@@ -17,7 +17,7 @@ import devLog from '../../utils/devLog'
 // connect to the network, get your ID, and set your ID in the store
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -65,6 +65,6 @@ export default (
             })
           }),
         ),
-      ).pipe(takeUntil(action$.ofType(ABORT_CONNECTION)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_CONNECTION))))
     }),
   )

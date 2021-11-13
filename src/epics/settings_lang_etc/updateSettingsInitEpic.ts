@@ -6,13 +6,13 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, delay, withLatestFrom } from 'rxjs/operators'
-import { of, concat, EMPTY } from 'rxjs'
+import { of, concat, EMPTY, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(

@@ -12,13 +12,13 @@ import {
   takeUntil,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { of } from 'rxjs'
+import { Observable, of } from 'rxjs'
 import devLog from '../../utils/devLog'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -42,7 +42,7 @@ export default (
           filter((locked0) => !locked0.some((l) => l === true)),
           take(1),
           map(() => playCardAction),
-          takeUntil(action$.ofType(ABORT_CONNECTION)),
+          takeUntil(action$.pipe(ofType(ABORT_CONNECTION))),
         )
       } else {
         return of<RootActionType>(playCardAction)

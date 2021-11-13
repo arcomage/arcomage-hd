@@ -19,14 +19,14 @@ import {
   takeUntil,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { of, concat, EMPTY } from 'rxjs'
+import { of, concat, EMPTY, Observable } from 'rxjs'
 import playSound from '../../utils/playSound'
 import { cardTransitionDuration } from '../../constants/visuals'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -74,6 +74,6 @@ export default (
                 type: NEXT_ROUND,
               }).pipe(delay(cardTransitionDuration)),
             ),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

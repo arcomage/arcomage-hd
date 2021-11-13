@@ -2,14 +2,15 @@ import { INIT_TO_QUEUE } from '../../constants/ActionTypes'
 import { InitToQueueActionType, RootActionType } from '../../types/actionObj'
 import { filter, tap, ignoreElements } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { initQueues } from '../../utils/queues'
 import Queue from '../../utils/Queue'
 import devLog from '../../utils/devLog'
+import { Observable } from 'rxjs'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(

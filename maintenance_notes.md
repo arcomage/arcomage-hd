@@ -1,10 +1,5 @@
 # Maintenance Notes
 
-## Dependency Update
-
-* `rxjs` uses the latest `6.x`, instead of `7.x`
-  * `redux-observable` uses the latest `1.x`, instead of `2.x`
-
 ## App Version Update
 
 * Use yarn v1 instead of v2

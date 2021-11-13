@@ -6,14 +6,15 @@ import {
 } from '../../types/actionObj'
 import { filter, tap, ignoreElements } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { playCardQueues } from '../../utils/queues'
 import devLog from '../../utils/devLog'
 import Queue from '../../utils/Queue'
+import { Observable } from 'rxjs'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(

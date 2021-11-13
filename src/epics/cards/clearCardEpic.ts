@@ -15,7 +15,7 @@ import {
   takeUntil,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { merge, Observable, of } from 'rxjs'
 import { cardTransitionDuration } from '../../constants/visuals'
@@ -23,7 +23,7 @@ import { cardTransitionDuration } from '../../constants/visuals'
 const topArr = [-2, -3, -4]
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -63,6 +63,6 @@ export default (
           on: false,
         }),
         merge(...obs, ...obs1, ...obs2),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

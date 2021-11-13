@@ -1,9 +1,9 @@
 import { INIT_TO_QUEUE, RECEIVE } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, delay } from 'rxjs/operators'
-import { concat, EMPTY, of } from 'rxjs'
+import { concat, EMPTY, Observable, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import {
   ConnDataType,
@@ -15,7 +15,7 @@ import devLog from '../../utils/devLog'
 import { receiveSeq } from '../../utils/seq'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(

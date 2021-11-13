@@ -11,14 +11,14 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
-import { of, concat } from 'rxjs'
+import { of, concat, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { CardStateType, RootStateType } from '../../types/state'
 import { getStartState } from '../../utils/startWinState'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(

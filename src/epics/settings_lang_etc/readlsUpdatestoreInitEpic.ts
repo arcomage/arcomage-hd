@@ -11,9 +11,9 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { of, concat, EMPTY } from 'rxjs'
+import { of, concat, EMPTY, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { lsGet, lsVersion } from '../../utils/localstorage'
 import { sample } from '../../utils/random'
@@ -23,7 +23,7 @@ import {
 } from '../../constants/defaultSettings'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -82,6 +82,6 @@ export default (
         of<RootActionType>({
           type: INIT,
         }),
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

@@ -5,15 +5,15 @@ import {
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { debounceTime, filter, mergeMap } from 'rxjs/operators'
-import { of } from 'rxjs'
+import { Observable, of } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { INST } from '../../constants/connDataKind'
 import { sendSettingsDebounceTime } from '../../constants/visuals'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(

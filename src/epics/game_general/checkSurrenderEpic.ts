@@ -6,14 +6,14 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { EMPTY, of } from 'rxjs'
+import { EMPTY, Observable, of } from 'rxjs'
 import { AiCardListItemType } from '../../types/ai'
 import checkCardUseDiscard from '../../ai/checkCardUseDiscard'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -30,7 +30,7 @@ export default (
         return of<RootActionType>({
           type: SCREEN_END,
           payload: { type: 'lose', surrender: true },
-        }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+        }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
       } else {
         return EMPTY
       }

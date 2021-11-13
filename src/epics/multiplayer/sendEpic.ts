@@ -1,9 +1,9 @@
 import { SEND } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, withLatestFrom } from 'rxjs/operators'
-import { EMPTY } from 'rxjs'
+import { EMPTY, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import { ConnDataType } from '../../types/connData'
@@ -11,7 +11,7 @@ import devLog from '../../utils/devLog'
 import { sendSeq } from '../../utils/seq'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(

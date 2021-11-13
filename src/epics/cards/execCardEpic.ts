@@ -9,15 +9,15 @@ import {
 } from '../../types/actionObj'
 import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { entries } from '../../utils/typeHelpers'
 import dataCards from '../../data/cards'
 import { resNames } from '../../constants/resourceNames'
-import { of } from 'rxjs'
+import { Observable, of } from 'rxjs'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -72,6 +72,6 @@ export default (
       return of<RootActionType>({
         type: UPDATE_STATUS,
         payload: newArr,
-      }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

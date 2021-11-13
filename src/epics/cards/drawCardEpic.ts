@@ -16,14 +16,14 @@ import {
   delay,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { concat, Observable, of } from 'rxjs'
 import { randomWithProbs } from '../../utils/randomWithProbs'
 import { INST } from '../../constants/connDataKind'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -70,6 +70,6 @@ export default (
           locknumber: 1,
         }),
         temp$,
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

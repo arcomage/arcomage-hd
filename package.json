@@ -72,8 +72,8 @@
     "react-jss": "^10.8.2",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
-    "redux-observable": "^1.2.0",
-    "rxjs": "^6.6.7",
+    "redux-observable": "^2.0.0",
+    "rxjs": "^7.4.0",
     "semver": "^7.3.5",
     "tailwindcss": "^2.2.19",
     "typesafe-actions": "^5.1.0"

@@ -9,14 +9,14 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import { filter, mergeMap, withLatestFrom, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { concat, EMPTY, of } from 'rxjs'
+import { concat, EMPTY, Observable, of } from 'rxjs'
 import { INST } from '../../constants/connDataKind'
 import { reverseOwnerStr } from '../../utils/reverseState'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -53,6 +53,6 @@ export default (
               },
             })
           : EMPTY,
-      ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

@@ -7,14 +7,14 @@ import {
 import { RootActionType } from '../../types/actionObj'
 import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { concat, EMPTY, of } from 'rxjs'
+import { concat, EMPTY, Observable, of } from 'rxjs'
 
 const topArr = [-2, -3, -4]
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -39,14 +39,14 @@ export default (
               type: MOVE_CARD_TO_TOP,
               index: action.index,
             }),
-          ).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+          ).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
         }
 
         return of<RootActionType>({
           type: MOVE_CARD_TO_TOP_MAIN,
           index: action.index,
           toPosition,
-        }).pipe(takeUntil(action$.ofType(ABORT_ALL)))
+        }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
       }
       return EMPTY
     }),

@@ -12,15 +12,15 @@ import {
   withLatestFrom,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ActionsObservable, StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { EMPTY, from, of } from 'rxjs'
+import { EMPTY, from, Observable, of } from 'rxjs'
 import { initQueues } from '../../utils/queues'
 import Queue from '../../utils/Queue'
 import devLog from '../../utils/devLog'
 
 export default (
-  action$: ActionsObservable<RootActionType>,
+  action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
@@ -48,7 +48,7 @@ export default (
               }).pipe(delay(0))
             : EMPTY
         }),
-        takeUntil(action$.ofType(ABORT_CONNECTION)),
+        takeUntil(action$.pipe(ofType(ABORT_CONNECTION))),
       )
     }),
   )
