@@ -12,11 +12,12 @@ const useKeyDown = (
       }
     }
 
-    setTimeout(() => {
+    const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
       window.addEventListener('keydown', handleKeyDown)
     }, delay)
 
     return () => {
+      clearTimeout(timer)
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [])
