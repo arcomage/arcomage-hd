@@ -78,6 +78,7 @@ const Window = ({
   const prefRef = useRef(null)
   useClickOutside(prefRef, cancelFunc)
   useKeyDown('Escape', cancelFunc)
+  useKeyDown('Home', cancelFunc)
 
   const size = useContext(GameSizeContext)
 
@@ -102,7 +103,11 @@ const Window = ({
           {children}
 
           <TooltipAll title={_.i18n('Cancel')}>
-            <button className="cancel" onClick={cancelFunc}></button>
+            <button
+              accessKey="c"
+              className="cancel"
+              onClick={cancelFunc}
+            ></button>
           </TooltipAll>
         </div>
       </div>
