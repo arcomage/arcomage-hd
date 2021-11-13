@@ -203,7 +203,7 @@ P2P Multiplayer Mode without server (only uses [STUN](https://en.wikipedia.org/w
 
 Images upscaled with the library [waifu2x](https://github.com/nagadomi/waifu2x) / [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe). Card text extracted with the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
 
-Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arcomage-hd/tree/main/tools), see also [maintenance notes](https://github.com/arcomage/arcomage-hd/blob/main/maintenance_notes.md) and `scripts` section in [`package.json`](https://github.com/arcomage/arcomage-hd/blob/main/package.json). [yarn](https://yarnpkg.com/) v1 is the preferred package manager.
+Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arcomage-hd/tree/main/tools), see also [maintenance notes](https://github.com/arcomage/arcomage-hd/blob/main/maintenance_notes.md) and `scripts` section in [`package.json`](https://github.com/arcomage/arcomage-hd/blob/main/package.json). [yarn](https://yarnpkg.com/) v1 is the package manager to use.
 
 <p align="center">
 <a href="https://codecov.io/gh/arcomage/arcomage-hd" title="Codecov"><img src="https://codecov.io/gh/arcomage/arcomage-hd/branch/main/graph/badge.svg?token=5rrZ38jtVr" alt="Codecov"></a>

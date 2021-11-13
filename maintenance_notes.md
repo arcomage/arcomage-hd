@@ -2,7 +2,7 @@
 
 ## App Version Update
 
-* Use yarn v1 instead of v2
+* Use yarn v1 instead of yarn v2 or npm
   * `yarn config set version-tag-prefix "v"` and `yarn config set version-git-message "chore: bump version to v%s"` (if `version-tag-prefix` and `version-git-message` are not set yet)
 * `husky` and `commitlint` execute `yarn test` and lint the commit message before every commit
 * If a new version is decided to be released, do these:
