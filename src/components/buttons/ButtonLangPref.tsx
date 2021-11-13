@@ -315,6 +315,13 @@ const ButtonLangPref = () => {
 
   const classes = useStyles()
 
+  const clickFunc = () => {
+    dispatch({
+      type: SCREEN_LANG_PREF,
+      show: true,
+    })
+  }
+
   return (
     <TooltipAll title={_.i18n('Language')}>
       <button
@@ -322,12 +329,8 @@ const ButtonLangPref = () => {
         className={cx('topbutton', classes.langPrefButton, {
           windowactive: langPref,
         })}
-        onClick={() => {
-          dispatch({
-            type: SCREEN_LANG_PREF,
-            show: true,
-          })
-        }}
+        onClick={clickFunc}
+        onAuxClick={clickFunc}
       >
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <clipPath id="cp">

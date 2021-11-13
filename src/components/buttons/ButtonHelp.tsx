@@ -40,17 +40,20 @@ const ButtonHelp = () => {
 
   const classes = useStyles()
 
+  const clickFunc = () => {
+    dispatch({
+      type: SCREEN_HELP,
+      show: true,
+    })
+  }
+
   return (
     <TooltipAll title={_.i18n('Help')}>
       <button
         accessKey="h"
         className={cx('topbutton', classes.helpButton, { windowactive: help })}
-        onClick={() => {
-          dispatch({
-            type: SCREEN_HELP,
-            show: true,
-          })
-        }}
+        onClick={clickFunc}
+        onAuxClick={clickFunc}
       >
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12,2.1c-5.5,0-9.9,4.4-9.9,9.9c0,5.5,4.4,9.9,9.9,9.9c5.5,0,9.9-4.4,9.9-9.9C21.9,6.5,17.5,2.1,12,2.1z M12,20.1c-4.5,0-8.1-3.6-8.1-8.1c0-4.5,3.6-8.1,8.1-8.1c4.5,0,8.1,3.6,8.1,8.1C20.1,16.5,16.5,20.1,12,20.1z" />

@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import TooltipAll from '../special/TooltipAll'
+import { githubUrl } from '../../constants/devSettings'
 
 const useStyles = createUseStyles<string>({
   '@keyframes visible1by1-1-3': {
@@ -73,9 +74,12 @@ const ButtonGithub = () => {
       <a
         accessKey="g"
         className={cx('topbutton', classes.githubButton)}
-        href="https://github.com/arcomage/arcomage-hd"
+        href={githubUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onContextMenu={() => {
+          window.open(githubUrl)
+        }}
       >
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path

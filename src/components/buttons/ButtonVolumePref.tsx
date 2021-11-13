@@ -64,6 +64,13 @@ const ButtonVolumePref = () => {
 
   const classes = useStyles()
 
+  const clickFunc = () => {
+    dispatch({
+      type: SCREEN_VOLUME_PREF,
+      show: true,
+    })
+  }
+
   return (
     <TooltipAll title={_.i18n('Volume & Visual')}>
       <button
@@ -71,12 +78,8 @@ const ButtonVolumePref = () => {
         className={cx('topbutton', classes.volumePrefButton, {
           windowactive: volumePref,
         })}
-        onClick={() => {
-          dispatch({
-            type: SCREEN_VOLUME_PREF,
-            show: true,
-          })
-        }}
+        onClick={clickFunc}
+        onAuxClick={clickFunc}
       >
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path

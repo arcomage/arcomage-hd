@@ -59,20 +59,23 @@ const ButtonFullscreen = () => {
   const _ = useContext(I18nContext)
   const classes = useStyles()
 
+  const clickFunc = () => {
+    if (isEnabled) {
+      if (isFullscreen()) {
+        exitFs()
+      } else {
+        requestFs()
+      }
+    }
+  }
+
   return (
     <TooltipAll title={_.i18n('Toggle Full Screen')}>
       <button
         accessKey="t"
         className={cx('topbutton', classes.fullscreenButton)}
-        onClick={() => {
-          if (isEnabled) {
-            if (isFullscreen()) {
-              exitFs()
-            } else {
-              requestFs()
-            }
-          }
-        }}
+        onClick={clickFunc}
+        onAuxClick={clickFunc}
       >
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path
