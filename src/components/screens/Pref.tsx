@@ -254,7 +254,7 @@ const Pref = () => {
         if (hasOwnProperty(draft, name)) {
           switch (type) {
             case 'text':
-              draft[name] = value
+              draft[name] = value.trim()
               break
             case 'number':
               draft[name] = parseInt(value, 10)
@@ -792,7 +792,8 @@ const Pref = () => {
             multiplayerStatus === 'connecting_net' ||
             multiplayerStatus === 'connecting_to_id' ||
             multiplayerStatus === 'connected_to_id' ||
-            multiplayerStatus === 'connected_by_id'
+            multiplayerStatus === 'connected_by_id' ||
+            formFields.opponentId === ''
           }
           className="highlight"
           onClick={(e) => {
