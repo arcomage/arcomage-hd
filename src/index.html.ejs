@@ -8,12 +8,42 @@
     <link rel="manifest" href="<%= htmlWebpackPlugin.options.pwaManifestJson %>" />
     <link rel="icon" type="image/svg+xml" href="<%= htmlWebpackPlugin.options.faviconSvg %>" />
     <link rel="alternate icon" href="<%= htmlWebpackPlugin.options.faviconIco %>" />
-    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>" />
-    <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" />
+    <meta name="title" content="<%= htmlWebpackPlugin.options.title %>" data-rh="true" />
+    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>" data-rh="true" />
+    <meta http-equiv="Last-Modified" content="YYYY-MM-DD" />
+    <meta property="og:locale" content="en" data-rh="true" />
+    <meta property="og:locale:alternate" content="en" />
+    <meta property="og:locale:alternate" content="fr" />
+    <meta property="og:locale:alternate" content="de" />
+    <meta property="og:locale:alternate" content="zh-Hans" />
+    <meta property="og:locale:alternate" content="zh-Hant" />
+    <meta property="og:locale:alternate" content="ru" />
+    <meta property="og:locale:alternate" content="pl" />
+    <meta property="og:locale:alternate" content="es" />
+    <meta property="og:locale:alternate" content="it" />
+    <meta property="og:locale:alternate" content="cs" />
+    <meta property="og:locale:alternate" content="pt-BR" />
+    <meta property="og:locale:alternate" content="ja" />
+    <meta property="og:locale:alternate" content="uk" />
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" data-rh="true" />
+    <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>" data-rh="true" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= htmlWebpackPlugin.options.url %>" />
     <meta property="og:image" content="<%= htmlWebpackPlugin.options.ogImage %>" />
-    <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>" />
+    <meta property="og:image:alt" content="ArcoMage HD's screenshot and logo" />
+    <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.title %>" />
+    <meta property="article:published_time" content="2021-04-01T18:59:44+00:00" />
+    <meta property="article:modified_time" content="<%= htmlWebpackPlugin.options.commitTime %>" />
+    <meta property="article:author" content="https://tomchen.org/" />
+    <meta property="article:section" content="Game" />
+    <meta property="article:tag" content="Arcomage, Card, Game, Might and Magic, 3DO, NWC, RPG, Minigame, Clone, HD, Remake, Remaster, React, WebRTC" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>" data-rh="true" />
+    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.description %>" data-rh="true" />
+    <meta name="twitter:url" content="<%= htmlWebpackPlugin.options.url %>" />
+    <meta name="twitter:image" content="<%= htmlWebpackPlugin.options.ogImage %>" />
+    <meta name="twitter:creator" content="@tomchenorg" />
+    <meta name="twitter:site" content="@tomchenorg" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

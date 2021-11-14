@@ -65,9 +65,13 @@ const App = () => {
       <Helmet>
         <html lang={lang} data-erathian={erathian.toString()} />
         <title>{_.i18n('ArcoMage HD')}</title>
-        <meta property="og:title" content={_.i18n('ArcoMage HD')} />
+        <meta name="title" content={_.i18n('ArcoMage HD')} />
         <meta name="description" content={_.i18n('DESC')} />
+        <meta property="og:locale" content={lang} />
+        <meta property="og:title" content={_.i18n('ArcoMage HD')} />
         <meta property="og:description" content={_.i18n('DESC')} />
+        <meta name="twitter:title" content={_.i18n('ArcoMage HD')} />
+        <meta name="twitter:description" content={_.i18n('DESC')} />
       </Helmet>
       <Game />
     </>

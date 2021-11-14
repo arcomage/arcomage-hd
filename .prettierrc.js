@@ -8,7 +8,7 @@ module.exports = {
     {
       files: 'src/**/*.html.ejs',
       options: {
-        printWidth: 140,
+        printWidth: 1000,
       },
     },
   ],

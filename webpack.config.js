@@ -11,6 +11,16 @@ module.exports = (env, argv) => {
   const dev = argv.mode === 'development'
   const local = env.NODE_ENV2 === 'local'
   process.env.NODE_ENV = argv.mode
+  const commitTime = new Date(
+    Math.floor(
+      require('child_process')
+        .execSync('git log -1 --date=unix --format="%ad"')
+        .toString()
+        .trim(),
+    ) * 1000,
+  )
+    .toISOString()
+    .replace(/\.\d+Z$/, '+00:00')
 
   const config = {
     entry: {
@@ -140,6 +150,7 @@ module.exports = (env, argv) => {
         ogImage: dev || local ? './ogimage.jpg' : `${homeUrl}ogimage.jpg`,
         description:
           "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage. Desktop or mobile Android iOS. Online or offline PWA. Multiplayer mode available",
+        commitTime,
       }),
       new CopyPlugin({
         patterns: [

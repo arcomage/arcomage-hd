@@ -9,6 +9,12 @@
   - Commit all changes
   - `yarn version`, enter new version number. It'll automatically add a new version and tag, push, and deploy
 
+## Other Update
+
+- When `scripts` **package.json** are updated, also update the tools below
+- When a new language is added, also update `og:locale:alternate` in **./src/index.html.ejs**
+- If description changes, search the first few words in the whole project and replace them (**./assets/logo/manifest.template.ts**, **./webpack.config.js**, **./package.json**, **./src/i18n/main/en.ts** should be changed and **./assets/logo/manifest.json** should be updated)
+
 ## Tools
 
 - `yarn tool:zhconvert`: zh-Hans to zh-Hant conversion ('cards' & 'main', not 'taverns')
