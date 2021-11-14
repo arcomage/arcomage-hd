@@ -4,12 +4,17 @@ _Summary of changes for major & minor releases. For details, click the version n
 
 _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache files & reload the webpage to have the latest version._
 
-## v1.2.0 (in progress)
+## v1.3.0 (in progress)
 
 - Campaign Mode
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-11-15..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-11-15..*))
+
+## [v1.2.0](https://github.com/arcomage/arcomage-hd/compare/v1.1.0...v1.2.0) ([2021-11-15](https://github.com/arcomage/arcomage-hd/tree/fe7e056e5620b360689d7c782c00612cb3a66e46))
+
+- UX/UI improvement and [bug](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-09-26..2021-11-15+label%3Abug) fixes
 - Update to rxjs 7
 - [I18N](https://github.com/arcomage/arcomage-hd/issues/9) (update, + [uk](https://github.com/arcomage/arcomage-hd/pull/48))
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-09-26..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-09-26..*))
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-09-26..2021-11-15); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-09-26..2021-11-15))
 
 ## [v1.1.0](https://github.com/arcomage/arcomage-hd/compare/v1.0.0...v1.1.0) ([2021-09-26](https://github.com/arcomage/arcomage-hd/tree/ae1e782771c2db894a4c441eebd441a6d962ff46))
 
@@ -25,7 +30,7 @@ _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to 
 - [PWA](https://github.com/arcomage/arcomage-hd/issues/16)
 - [Manual image](https://github.com/arcomage/arcomage-hd/issues/19)
 - [Multiplayer Mode](https://github.com/arcomage/arcomage-hd/issues/10)
-- [Bug](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+is%3Aclosed+label%3Abug) fixes
+- [Bug](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-04-01..2021-07-19+label%3Abug) fixes
 - [I18N](https://github.com/arcomage/arcomage-hd/issues/9) (update, + cs, es, it, pl, [pt-BR](https://github.com/arcomage/arcomage-hd/pull/36), [ru](https://github.com/arcomage/arcomage-hd/pull/14))
 - And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-04-01..2021-07-19); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-04-01..2021-07-19))
 
