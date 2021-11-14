@@ -2,9 +2,23 @@ name: Test
 
 on:
   push:
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE.md'
+      - 'CREDIT.md'
+      - 'CHANGELOG.md'
+      - 'maintenance_notes.md'
+      - '.editorconfig'
     branches:
       - main
   pull_request:
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE.md'
+      - 'CREDIT.md'
+      - 'CHANGELOG.md'
+      - 'maintenance_notes.md'
+      - '.editorconfig'
     branches:
       - main
 
