@@ -57,8 +57,8 @@
   "author": "Tom Chen <tomchen.org@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.1.0",
     "@tailwindcss/forms": "^0.3.4",
     "classnames": "^2.3.1",
@@ -152,7 +152,7 @@
     "join-images": "^1.0.0",
     "opencc-js": "^1.0.3",
     "prettier": "^2.4.1",
-    "sharp": "^0.29.2",
+    "sharp": "^0.29.3",
     "sloc": "^0.2.1",
     "tesseract.js": "^2.1.5",
     "xml-js": "^1.6.11"
