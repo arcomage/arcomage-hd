@@ -6,14 +6,39 @@ const useClickOutside = (
 ): void => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
+      if (
+        event instanceof PointerEvent &&
+        event.pointerType === 'mouse' &&
+        ref.current &&
+        !ref.current.contains(event.target as Node)
+      ) {
         func(event)
       }
     }
+    const handleClickOutsideNonMouse = (event: MouseEvent) => {
+      if (
+        event instanceof PointerEvent &&
+        event.pointerType !== 'mouse' &&
+        ref.current &&
+        !ref.current.contains(event.target as Node)
+      ) {
+        func(event)
+      }
+    }
+    const handleMousedown = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        window.addEventListener('click', handleClickOutside)
+        window.addEventListener('auxclick', handleClickOutside)
+      }
+    }
+    window.addEventListener('mousedown', handleMousedown)
+    window.addEventListener('click', handleClickOutsideNonMouse)
 
-    window.addEventListener('click', handleClickOutside)
     return () => {
+      window.removeEventListener('mousedown', handleMousedown)
       window.removeEventListener('click', handleClickOutside)
+      window.removeEventListener('auxclick', handleClickOutside)
+      window.removeEventListener('click', handleClickOutsideNonMouse)
     }
   }, [])
 }

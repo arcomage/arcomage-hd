@@ -35,6 +35,10 @@ button {
   }
 }
 
+.MuiTooltip-tooltip {
+  @apply select-none;
+}
+
 @import './anims';
 
 @import './window';
