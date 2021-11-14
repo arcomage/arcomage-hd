@@ -1,12 +1,14 @@
-import { langs } from '../../src/i18n/langs'
+import { langs as langArr, langInfo } from '../../src/i18n/langs'
 import { DataCardsI18nType } from '../../src/i18n/types'
-import { entries } from '../../src/utils/typeHelpers'
 
-const langEntries = entries(langs)
+// theoretically the langs imported from src/i18n/langs is not ordered
+// this makes sure 'en' is the first one
+const langs = langArr.filter((lang) => lang !== 'en')
+langs.unshift('en')
 
 const i18nPromises: Promise<{
   cardsI18n: DataCardsI18nType
-}>[] = langEntries.map(([code, name]) => import(`../../src/i18n/cards/${code}`))
+}>[] = langs.map((code) => import(`../../src/i18n/cards/${code}`))
 
 const arraysEqual = (a: any[] | null, b: any[] | null) => {
   if (a === b) {
@@ -36,12 +38,16 @@ const arraysEqual = (a: any[] | null, b: any[] | null) => {
       const descCur = i18n[index].desc
       if (/(_|\n)/.test(nameCur)) {
         console.log(
-          `${langEntries[i][1]} ${index} name "${nameCur}" contains "_" or "\\n"`,
+          `${
+            langInfo[langs[i]].en
+          } ${index} name "${nameCur}" contains "_" or "\\n"`,
         )
       }
       if (/(_|\n)/.test(descCur)) {
         console.log(
-          `${langEntries[i][1]} ${index} desc "${descCur}" contains "_" or "\\n"`,
+          `${
+            langInfo[langs[i]].en
+          } ${index} desc "${descCur}" contains "_" or "\\n"`,
         )
       }
       const regex = /\d+/g
@@ -49,7 +55,11 @@ const arraysEqual = (a: any[] | null, b: any[] | null) => {
       const foundCur = descCur.match(regex)
       if (!arraysEqual(found, foundCur)) {
         console.log(
-          `${langEntries[i][1]} ${index} desc "${descCur}" 's numbers do not match the numbers in ${langEntries[0][1]} ${index} desc "${desc}"`,
+          `${
+            langInfo[langs[i]].en
+          } ${index} desc "${descCur}" 's numbers do not match the numbers in ${
+            langInfo.en.en
+          } ${index} desc "${desc}"`,
         )
       }
     })

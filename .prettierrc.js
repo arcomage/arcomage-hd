@@ -11,5 +11,11 @@ module.exports = {
         printWidth: 1000,
       },
     },
+    {
+      files: 'src/i18n/langs.ts',
+      options: {
+        printWidth: 1000,
+      },
+    },
   ],
 }

@@ -1,9 +1,7 @@
-import { ArrayElement, keys, RequiredBy } from '../utils/typeHelpers'
+import { ArrayElement, RequiredBy } from '../utils/typeHelpers'
 import { langs, defaultLang } from './langs'
 
-export const availableLangs = keys(langs)
-
-export type AvailableLangType = ArrayElement<typeof availableLangs>
+export type AvailableLangType = ArrayElement<typeof langs>
 
 export type TranslationItemType = Partial<Record<string, string>> | null
 

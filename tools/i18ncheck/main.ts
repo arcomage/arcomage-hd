@@ -1,11 +1,14 @@
-import { langs } from '../../src/i18n/langs'
+import { langs as langArr, langInfo } from '../../src/i18n/langs'
 import { i18n as i18nEn } from '../../src/i18n/main/en'
 import { entries, keys, hasOwnProperty } from '../../src/utils/typeHelpers'
 
-const langEntries = entries(langs)
+// theoretically the langs imported from src/i18n/langs is not ordered
+// this makes sure 'en' is the first one
+const langs = langArr.filter((lang) => lang !== 'en')
+langs.unshift('en')
 
-const i18nPromises: Promise<Record<string, string>>[] = langEntries.map(
-  ([code, _]) => import(`../../src/i18n/main/${code}`),
+const i18nPromises: Promise<Record<string, string>>[] = langs.map(
+  (code) => import(`../../src/i18n/main/${code}`),
 )
 
 ;(async () => {
@@ -14,8 +17,8 @@ const i18nPromises: Promise<Record<string, string>>[] = langEntries.map(
   const i18nEnLen = Object.keys(i18nEn).length
   for (let i = 1, l = i18nStrs.length; i < l; i++) {
     const i18n = i18nStrs[i]
-    const langCode = langEntries[i][0]
-    const lang = langEntries[i][1]
+    const langCode = langs[i]
+    const lang = langInfo[langs[i]].en
     const i18nLen = Object.keys(i18n).length
     if (i18nLen !== i18nEnLen) {
       console.log(

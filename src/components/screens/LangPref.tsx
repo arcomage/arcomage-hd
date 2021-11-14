@@ -3,8 +3,7 @@ import cx from 'classnames'
 import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
 import Window from './Window'
 
-import { langEnglishNames, langs } from '../../i18n/langs'
-import { entries } from '../../utils/typeHelpers'
+import { langs, langInfo } from '../../i18n/langs'
 import { AvailableLangType } from '../../i18n/types'
 import {
   SCREEN_LANG_PREF,
@@ -38,10 +37,10 @@ const LangPref = () => {
   return (
     <Window screenActionType={SCREEN_LANG_PREF}>
       <div className="my-5 flex flex-wrap justify-center">
-        {entries(langs)
-          .sort(([codeA], [codeB]) => codeA.localeCompare(codeB))
-          .map(([code, name]) => (
-            <TooltipAll key={code} title={langEnglishNames[code]}>
+        {[...langs]
+          .sort((codeA, codeB) => codeA.localeCompare(codeB))
+          .map((code) => (
+            <TooltipAll key={code} title={langInfo[code].en}>
               <button
                 key={code}
                 lang={code}
@@ -53,7 +52,7 @@ const LangPref = () => {
                   })
                 }}
               >
-                {name}
+                {langInfo[code].local}
               </button>
             </TooltipAll>
           ))}

@@ -1,5 +1,4 @@
-import { defaultLang } from '../../src/i18n/langs'
-import { availableLangs } from '../../src/i18n/types'
+import { langs, defaultLang } from '../../src/i18n/langs'
 import cards from '../../src/data/cards'
 import { preSettings } from '../../src/data/preSettings'
 import path from 'path'
@@ -18,7 +17,7 @@ describe('i18n all good', () => {
     }
   })
 
-  for (const lang of availableLangs) {
+  for (const lang of langs) {
     it(`${lang} main is good`, async () => {
       const { i18n } = await import(path.join(mainBasePath, lang))
       expect(
