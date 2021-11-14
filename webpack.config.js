@@ -4,6 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { InjectManifest } = require('workbox-webpack-plugin')
 const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin')
+const childProcess = require('child_process')
+const crypto = require('crypto')
+const fs = require('fs')
 
 const homeUrl = 'https://arcomage.github.io/'
 
@@ -11,9 +14,10 @@ module.exports = (env, argv) => {
   const dev = argv.mode === 'development'
   const local = env.NODE_ENV2 === 'local'
   process.env.NODE_ENV = argv.mode
+
   const commitTime = new Date(
     Math.floor(
-      require('child_process')
+      childProcess
         .execSync('git log -1 --date=unix --format="%ad"')
         .toString()
         .trim(),
@@ -21,6 +25,14 @@ module.exports = (env, argv) => {
   )
     .toISOString()
     .replace(/\.\d+Z$/, '+00:00')
+
+  const ogimageHash = (() => {
+    const fileBuffer = fs.readFileSync('./assets/misc/ogimage.jpg')
+    const hashSum = crypto.createHash('md4')
+    hashSum.update(fileBuffer)
+    const hex = hashSum.digest('hex')
+    return hex.substring(0, 20)
+  })()
 
   const config = {
     entry: {
@@ -147,7 +159,10 @@ module.exports = (env, argv) => {
           dev || local ? './manifest.json' : `${homeUrl}manifest.json`,
         faviconSvg: dev || local ? './favicon.svg' : `${homeUrl}favicon.svg`,
         faviconIco: dev || local ? './favicon.ico' : `${homeUrl}favicon.ico`,
-        ogImage: dev || local ? './ogimage.jpg' : `${homeUrl}ogimage.jpg`,
+        ogImage:
+          dev || local
+            ? './ogimage.jpg'
+            : `${homeUrl}ogimage.jpg?${ogimageHash}`,
         description:
           "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage. Desktop or mobile Android iOS. Online or offline PWA. Multiplayer mode available",
         commitTime,
