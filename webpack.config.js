@@ -161,6 +161,10 @@ module.exports = (env, argv) => {
               ignore: ['**/manifest.template.ts'],
             },
           },
+          {
+            from: 'assets/misc/**/*',
+            to: '[name][ext]',
+          },
         ],
       }),
       new PreloadWebpackPlugin({
