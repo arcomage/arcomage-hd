@@ -42,7 +42,7 @@ It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meani
 
 The image and sound files, as well as the card and language settings, are automatically stored in your browser. In addition, you can install this "Progressive Web App" (PWA) on your computer or smartphone. Please refer to [Google Chrome's article](https://support.google.com/chrome/answer/9658361) and [Mozilla's article](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing) on how to install a PWA.
 
-Depending on your browser, sometimes you may need to press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache files & reload arcomage.github.io webpage to have the latest version of the game.
+Depending on your browser, you may need to press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache files & reload arcomage.github.io webpage to have the latest version of the game.
 
 PWA or not, some mobile browsers do not remove top and bottom bars in fullscreen mode but it is usually configurable.
 
@@ -100,7 +100,7 @@ If you install both Google Chrome and the Desktop Version, the Desktop Version w
 
 ## Keyboard Control & Accessibility
 
-The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card, <kbd>Esc</kbd> to close a preferences window.
+The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card.
 
 <details><summary><strong>Click to show the detailed keyboard control instruction & additional special "Access Key" usage (e.g. <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences; <kbd>Alt</kbd> + <kbd>1</kbd>: use the 1st card ...)</strong></summary>
 
@@ -117,6 +117,11 @@ Or with access key (only for opening a window):
 - <kbd>Alt</kbd> + <kbd>H</kbd>: Help
 - <kbd>Alt</kbd> + <kbd>G</kbd>: GitHub
 
+When a window is open:
+
+- <kbd>Esc</kbd>: (In Fullscreen Mode) exit the mode, or (not in Fullscreen Mode) cancel & close the current window
+- <kbd>Home</kbd> or <kbd>Alt</kbd> + <kbd>C</kbd>: Cancel & close the current window
+
 ### Card
 
 Use <kbd>Tab</kbd> to select a card (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari), then <kbd>Enter</kbd> to **use** it, or <kbd>Delete</kbd> / <kbd>Backspace</kbd> to **discard** it.
@@ -126,7 +131,7 @@ Or with access key (only for using a card):
 - <kbd>Alt</kbd> + <kbd>1</kbd>: Use the 1st card
 - <kbd>Alt</kbd> + <kbd>2</kbd>: Use the 2nd card
 - <kbd>Alt</kbd> + <kbd>3</kbd>: Use the 3rd card
-- <kbd>Alt</kbd> + ...: Use the nth card (n <= 9, you can't use 10th or later card with access key)
+- <kbd>Alt</kbd> + ...: Use the nth card (n <= 9, you can't use the 10th or later cards with access key)
 
 It could be other key instead of <kbd>Alt</kbd>
 
@@ -211,9 +216,11 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
 
 <p align="center"><a href="https://developers.google.com/web/tools/lighthouse" title="Google Lighthouse"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/lighthouse.svg" alt="Google Lighthouse" width="32px" height="32px"></a><br>Google Lighthouse score<br><a href="https://github.com/arcomage/arcomage-hd/issues/41"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/lighthouse_score.png" alt="ArcoMage HD Google Lighthouse score"></a></p>
 
-## To Do
+## Changelog & To Do
 
 [To-do list](https://github.com/arcomage/arcomage-hd/projects/1)
+
+[Changelog file](CHANGELOG.md)
 
 ## Translation Credits
 
