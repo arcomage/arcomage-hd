@@ -9,7 +9,9 @@ const useBeforeWindowUnloadWarning = () => {
         e.returnValue = ''
       }
       window.addEventListener('beforeunload', onUnload)
-      return () => window.removeEventListener('beforeunload', onUnload)
+      return () => {
+        window.removeEventListener('beforeunload', onUnload)
+      }
     }
   }, [])
 }
