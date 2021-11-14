@@ -110,7 +110,7 @@ export const i18n = {
   Help: 'ヘルプ',
   'Toggle Full Screen': 'フルスクリーン切り替え',
 
-  ERATHIAN: 'エラシアン文字 [%s] を使用します（ラテン文字のみ）',
+  ERATHIAN: 'エラシアン文字 [%s] を使用します（ラテン文字の言語のみ）',
 
   'ArcoMage HD': 'ArcoMage HD',
 

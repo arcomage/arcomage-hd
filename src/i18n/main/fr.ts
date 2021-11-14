@@ -111,7 +111,7 @@ export const i18n = {
   Help: 'Aide',
   'Toggle Full Screen': 'Basculer en plein écran',
 
-  ERATHIAN: 'Utiliser Erathian [%s] (pour les lettres latines uniquement)',
+  ERATHIAN: 'Utiliser Erathian [%s] (langues à caractères latins uniquement)',
 
   'ArcoMage HD': 'ArcoMage HD',
 

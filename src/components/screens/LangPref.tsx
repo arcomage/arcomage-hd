@@ -61,6 +61,7 @@ const LangPref = () => {
         <input
           type="checkbox"
           checked={erathian}
+          disabled={langInfo[lang].isLatinScript === false}
           onChange={(e) => {
             dispatch({
               type: UPDATE_ERATHIAN,

@@ -11,6 +11,7 @@ import useWindowLoad from './utils/useWindowLoad'
 import { I18nContext } from './i18n/I18nContext'
 import { GameSizeContext } from './utils/GameSizeContext'
 import { minRootFontSize, smallRootFontScreenMax } from './constants/visuals'
+import { langInfo } from './i18n/langs'
 
 const App = () => {
   const dispatch = useAppDispatch()
@@ -63,7 +64,10 @@ const App = () => {
   return (
     <>
       <Helmet>
-        <html lang={lang} data-erathian={erathian.toString()} />
+        <html
+          lang={lang}
+          data-erathian={(erathian && langInfo[lang].isLatinScript).toString()}
+        />
         <title>{_.i18n('ArcoMage HD')}</title>
         <meta name="title" content={_.i18n('ArcoMage HD')} />
         <meta name="description" content={_.i18n('DESC')} />

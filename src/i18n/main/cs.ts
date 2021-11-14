@@ -110,7 +110,7 @@ export const i18n = {
   Help: 'Nápověda',
   'Toggle Full Screen': 'Přepnout na celou obrazovku',
 
-  ERATHIAN: 'Používejte Erathian [%s] (pouze pro písmena latinky)',
+  ERATHIAN: 'Používejte Erathian [%s] (pouze jazyky s latinkou)',
 
   'ArcoMage HD': 'ArcoMage HD',
 

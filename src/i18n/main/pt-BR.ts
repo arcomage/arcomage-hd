@@ -111,7 +111,7 @@ export const i18n = {
   Help: 'Ajuda',
   'Toggle Full Screen': 'Tela Cheia',
 
-  ERATHIAN: 'Usar Erathian [%s] (apenas para letras latinas)',
+  ERATHIAN: 'Usar Erathian [%s] (somente linguagens de escrita latina)',
 
   'ArcoMage HD': 'ArcoMage HD',
 

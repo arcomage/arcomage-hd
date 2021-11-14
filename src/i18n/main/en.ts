@@ -110,7 +110,7 @@ export const i18n = {
   Help: 'Help',
   'Toggle Full Screen': 'Toggle Full Screen',
 
-  ERATHIAN: 'Use Erathian [%s] (for latin letters only)',
+  ERATHIAN: 'Use Erathian [%s] (latin script languages only)',
 
   'ArcoMage HD': 'ArcoMage HD',
 

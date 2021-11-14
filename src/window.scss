@@ -249,6 +249,11 @@
       @apply text-gray-500 cursor-auto;
     }
 
+    input[type='checkbox']:disabled,
+    input[type='checkbox']:disabled + span {
+      @apply cursor-not-allowed opacity-50;
+    }
+
     a {
       @apply text-yellow-300 bg-no-repeat no-underline;
 
