@@ -114,7 +114,7 @@ export const i18n = {
 
   'ArcoMage HD': 'ArcoMage HD',
 
-  DESC: '3DOおよびNWCの2000カードゲームArcomageのWebベースのオープンソース高解像度クローン',
+  DESC: '3DOおよびNWCの2000カードゲームArcomageのWebベースの無料のオープンソース高解像度クローン',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     '%sに移動して詳細情報（%s1を含む）を表示し、リポジトリにスターを付けて、そこで%s2をフォローしてください。',

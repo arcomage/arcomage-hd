@@ -111,7 +111,7 @@ export const i18n = {
 
   'ArcoMage HD': '魔幻牌HD',
 
-  DESC: 'Web 浏览器版本的 3DO/NWC 2000年卡牌游戏魔幻牌的开源高清克隆',
+  DESC: 'Web 浏览器版本的 3DO/NWC 2000年卡牌游戏魔幻牌的免费开源高清克隆',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     '请访问%s查看更多信息（包括%s1），欢迎给其加星并关注%s2。',

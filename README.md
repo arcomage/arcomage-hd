@@ -2,7 +2,7 @@
 
 <h1 align="center">ArcoMage HD - Open Source Card Game</h1>
 
-**ArcoMage HD** is a web-based, open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the _Might and Magic_ RPG game series.
+**ArcoMage HD** is a web-based, free and open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the _Might and Magic_ RPG game series.
 
 This not-for-profit fan-remake of the tower defense, resource management fantasy game is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + RxJS + CSS-based animations + WebRTC (see [§ Development](#development)). Please star the repo / follow me to support me.
 

@@ -111,7 +111,7 @@ export const i18n = {
 
   'ArcoMage HD': '圓法師HD',
 
-  DESC: 'Web 瀏覽器版本的 3DO/NWC 2000年卡牌遊戲圓法師的開源高畫質克隆',
+  DESC: 'Web 瀏覽器版本的 3DO/NWC 2000年卡牌遊戲圓法師的免費開源高畫質克隆',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     '請訪問%s檢視更多資訊（包括%s1），歡迎給其加星並關注%s2。',

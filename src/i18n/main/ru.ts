@@ -112,7 +112,7 @@ export const i18n = {
 
   'ArcoMage HD': 'Аркомаг HD', // "Аркомаг" name is well known in Russia in its RU version, since just like Gwent (known in Russia as Гвинт), it was first introduced as a minigame inside another game, so they had to translate the name
 
-  DESC: 'опенсорсная веб-версия игры Arcomage, выпущенной 3DO и New World Computing в 2000 году',
+  DESC: 'Бесплатная и опенсорсная веб-версия игры Arcomage, выпущенной 3DO и New World Computing в 2000 году',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     'Чтобы узнать больше (включая %s1), посетите %s, добавьте репозиторий в избранное и подпишитесь на %s2.',

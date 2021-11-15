@@ -112,7 +112,7 @@ export const i18n = {
 
   'ArcoMage HD': 'Аркомаг HD',
 
-  DESC: 'OpenSource веб-версія гри Arcomage, що була випущена 3DO і New World Computing в 2000 році',
+  DESC: 'Безкоштовна та OpenSource веб-версія гри Arcomage, що була випущена 3DO і New World Computing в 2000 році',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     'Будь ласка, відвідайте %s щоб дізнатися більше інформації (включаючи %s1), додайте репозиторій в обране і підпишіться на %s2.',

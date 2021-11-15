@@ -114,7 +114,7 @@ export const i18n = {
 
   'ArcoMage HD': 'ArcoMage HD',
 
-  DESC: 'Webový open source HD klon karetní hry Arcomage pro 3DO a NWC z roku 2000',
+  DESC: 'Webový bezplatný a open source HD klon karetní hry Arcomage pro 3DO a NWC z roku 2000',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     'Pro zobrazení dalších informací (včetně %s1) přejděte na %s, označte repozitář hvězdičkou a sledujte %s2.',

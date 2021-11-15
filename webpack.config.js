@@ -164,7 +164,7 @@ module.exports = (env, argv) => {
             ? './ogimage.jpg'
             : `${homeUrl}ogimage.jpg?${ogimageHash}`,
         description:
-          "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage. Desktop or mobile Android iOS. Online or offline PWA. Multiplayer mode available",
+          "Web-based free and open source HD clone of 3DO and NWC's 2000 card game Arcomage. Desktop / mobile Android iOS. Online / offline PWA. Single / Multiplayer",
         commitTime,
       }),
       new CopyPlugin({

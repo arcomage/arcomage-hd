@@ -115,7 +115,7 @@ export const i18n = {
 
   'ArcoMage HD': 'ArcoMage HD',
 
-  DESC: 'Clone HD, baseado em web e de código aberto do jogo de cartas Arcomage, da 3DO e NWC, lançado em 2000.',
+  DESC: 'Clone HD, baseado em web, gratuito e de código aberto do jogo de cartas Arcomage, da 3DO e NWC, lançado em 2000.',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     'Por favor, acesse a %s para ver mais informações (incluindo %s1), marcar o repositório com estrela e seguir %s2.',

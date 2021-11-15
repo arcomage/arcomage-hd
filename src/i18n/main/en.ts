@@ -114,7 +114,7 @@ export const i18n = {
 
   'ArcoMage HD': 'ArcoMage HD',
 
-  DESC: "Web-based open source HD clone of 3DO and NWC's 2000 card game Arcomage",
+  DESC: "Web-based free and open source HD clone of 3DO and NWC's 2000 card game Arcomage",
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.',
