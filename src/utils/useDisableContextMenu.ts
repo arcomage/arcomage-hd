@@ -17,7 +17,9 @@ const useDisableContextMenu = () => {
           e.preventDefault()
         }
       }
+
       window.addEventListener('contextmenu', onContextMenu)
+
       return () => {
         window.removeEventListener('contextmenu', onContextMenu)
       }

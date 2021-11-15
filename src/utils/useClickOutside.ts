@@ -13,6 +13,7 @@ const useClickOutside = (
 
     window.addEventListener('click', handleClickOutside)
     window.addEventListener('auxclick', handleClickOutside)
+
     return () => {
       window.removeEventListener('click', handleClickOutside)
       window.removeEventListener('auxclick', handleClickOutside)

@@ -36,7 +36,11 @@ button {
 }
 
 .MuiTooltip-tooltip {
-  @apply select-none;
+  user-select: none;
+}
+
+button[disabled] {
+  pointer-events: none; // for Firefox
 }
 
 @import './anims';
