@@ -10,7 +10,7 @@ It's available in 13 languages: English, French, German, Simplified Chinese, Tra
 
 By default, you play against computer AI 🤖 in the Single Player Mode. You can switch to [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode). Note that Multiplayer Mode doesn't work if both players are behind "bad", symmetric NAT ([detect your NAT type](https://tomchen.github.io/symmetric-nat-test/)). Click gear ⚙️ icon in the game to open the "Preferences" window so you can switch to Multiplayer Mode or change other settings.
 
-It supports latest <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers (it works best in Chrome and Chrome's Blink engine-based browsers, and may or may not have performance issues in Safari & Firefox. Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead).
+It supports latest <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers. It works best in Chrome and Chrome's Blink engine-based browsers, and may or may not have performance issues in Safari & Firefox ([browser list](#browser-list)). Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead.
 
 It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meaning you can install it and play it offline](#play-it-offline-pwa).
 
@@ -56,41 +56,75 @@ The Desktop Version is **merely a Google Chrome browser-like wrapper** that visi
 
 [Click to download the Desktop Version (Windows)](https://github.com/arcomage/arcomage-hd/releases/download/v1.0.0-beta.26/ArcoMage.HD.Setup.1.0.0.7z)
 
-<details><summary><strong>Click to show more details on the Desktop Version</strong></summary>
+### Browser List
 
-### Do I Need Desktop Version? (browser list)
+<details><summary><strong>Click to show a browser list to help you decide if you need the desktop version</strong></summary>
 
-If you are using "fully supported" browser, then it's likely you don't need the Desktop Version.
+_(\*: presumably so, though I didn't really test)_
 
-Browsers based on Chrome's engine (Blink or WebKit) are fully supported by ArcoMage HD (as of 2021):
-
-_(\*: I didn't really test these browsers)_
+🏆 Browsers based on Chrome's engine, [Blink](https://www.chromium.org/blink), are fully supported by ArcoMage HD (as of 2021). With an average CPU / GPU, you should be able to play the game without performance issues. You don't need ArcoMage HD's Desktop Version:
 
 - Google Chromium
 - Google Chrome
 - Brave
-- Edge
-- Opera \*
+- Microsoft Edge (new version, from 2019)
+- Opera (from 2013) \*
+- Android's native browser / WebView \*
+- Samsung Internet
 - Maxthon \*
 - Vivaldi \*
-- QQ \*
-- Sogou \*
-- Baidu \*
+- DuckDuckGo Privacy Browser
+- Kiwi Browser
+- Dolphin Browser
+- QQ Browser \*
+- Sogou Browser \*
+- Baidu Browser \*
+- 360's browsers \*
 - WeChat's browser
 - Yandex Browser \*
 - UC Browser \*
 - CM Browser \*
+- SRWare Iron \*
+- Beaker \*
+- Naver Whale \*
+- Puffin Browser \*
 - etc.
 
-Browsers not or partially based on Chrome's engine, and may or may not run ArcoMage HD very well, therefore you can use the Desktop Version:
+_(If your Chrome-based browser does have performance issues, then the Desktop Version which is a Chrome wrapper cannot help, you need to play the game with a better device)_
 
-- Internet Explorer: this old browser, of course, does not work
-- Firefox & Safari: you can play the game with these browsers, but they do not have as good performance as Chrome's engine based browsers therefore may be a bit slow, it depends on your CPU / GPU
+✔️ Browsers based on Firefox's [Gecko](https://hg.mozilla.org/), Safari's [WebKit](https://webkit.org/) and [Qt WebEngine](https://wiki.qt.io/QtWebEngine) rendering engines, are tested and can be used to play the game, but they may be slightly slower than Chrome-based browser, although it depends on your CPU / GPU. If you find these browsers slow, you may try ArcoMage HD's Desktop Version instead:
+
+- Firefox
   - Pale Moon \*
+  - SeaMonkey \*
+  - K-Meleon \*
+  - Tor Browser \*
+  - etc.
+- Safari
+- Browsers based on Qt WebEngine
+  - qutebrowser
+  - Falkon
+  - Dooble \*
+  - etc.
+
+❌ Browsers with other rendering engines are not supported, you must use ArcoMage HD's Desktop Version instead:
+
+- Microsoft Internet Explorer (IE)
+- Microsoft Edge (old version, before 2019) \*
+- Opera (very old version, before 2013) \*
+- Lynx \*
+- NetSurf
+- Links \*
+- KaiOS browser \*
+- etc.
+
+</details>
 
 ### Other Remarks
 
-The Desktop Version is not expected to be updated. The Desktop Version's version number is different from ArcoMage HD's. Actually the Desktop Version may stays v1.0.0 forever unless there's really something to update.
+<details><summary><strong>Click to show other remarks on the desktop version</strong></summary>
+
+The Desktop Version is not expected to be updated. The Desktop Version's version number is different from ArcoMage HD's. Actually the Desktop Version may stay at v1.0.0 forever unless there's really something to update.
 
 The first time you run ArcoMage HD Desktop Version, it downloads all the images and sound files silently. You should wait maybe 1 minute (depending on your Internet speed), before you can cut off Internet and play it completely offline.
 
