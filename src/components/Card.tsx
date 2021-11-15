@@ -468,7 +468,7 @@ const Card = ({
           <div
             className={cx(
               classes.text,
-              'm-2 flex flex-wrap content-center justify-center',
+              'm-2 flex flex-wrap items-center justify-center',
             )}
           >
             <div
