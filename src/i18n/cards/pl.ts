@@ -7,11 +7,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Szczęśliwy Traf',
-    desc: '+2 kamienie. +2 klejnoty. dodatkowy ruch',
+    desc: '+2 kamienie. +2 klejnoty. Dodatkowy ruch',
   },
   {
     name: 'Przyjazny Teren',
-    desc: '+1 Mur. dodatkowy ruch',
+    desc: '+1 Mur. Dodatkowy ruch',
   },
   {
     name: 'Górnicy',
@@ -27,7 +27,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Praca po Godzinach',
-    desc: '+5 Mur. tracisz 6 klejnotów',
+    desc: '+5 Mur. Tracisz 6 klejnotów',
   },
   {
     name: 'Kopiowanie Planów',
@@ -51,11 +51,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Wstrząsy',
-    desc: '-5 Mury wszystkich graczy. dodatkowy ruch',
+    desc: '-5 Mury wszystkich graczy. Dodatkowy ruch',
   },
   {
     name: 'Tajemniczy Pokój',
-    desc: '+1 Magia. dodatkowy ruch',
+    desc: '+1 Magia. Dodatkowy ruch',
   },
   {
     name: 'Trzęsienie Ziemi',
@@ -139,11 +139,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Kwarc',
-    desc: '+1 Wieża. dodatkowy ruch',
+    desc: '+1 Wieża. Dodatkowy ruch',
   },
   {
     name: 'Kwarc Dymny',
-    desc: '1 obrażenie Wieży przeciwnika. dodatkowy ruch',
+    desc: '1 obrażenie Wieży przeciwnika. Dodatkowy ruch',
   },
   {
     name: 'Amestyt',
@@ -155,11 +155,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Pryzmat',
-    desc: 'Odłóż jedną kartę. dobierz jedną kartę. dodatkowy ruch',
+    desc: 'Odłóż jedną kartę. Dobierz jedną kartę. Dodatkowy ruch',
   },
   {
     name: 'Niebezpieczny Kamień',
-    desc: '+3 Wieża. tej karty nie można odłożyć bez zagrania nią',
+    desc: '+3 Wieża. Tej karty nie można odłożyć bez zagrania nią',
   },
   {
     name: 'Słoneczny Błysk',
@@ -207,7 +207,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Kruchy Kamień',
-    desc: '+5 Wieża. przeciwnik traci 6 kamieni',
+    desc: '+5 Wieża. Przeciwnik traci 6 kamieni',
   },
   {
     name: 'Szafir',
@@ -279,7 +279,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Driada',
-    desc: '2 obrażenia. dodatkowy ruch',
+    desc: '2 obrażenia. Dodatkowy ruch',
   },
   {
     name: 'Humorzaste Gobliny',
@@ -291,19 +291,19 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Elficki Zwiadowca',
-    desc: 'Odłóż jedną kartę. dobierz jedną kartę. dodatkowy ruch',
+    desc: 'Odłóż jedną kartę. Dobierz jedną kartę. Dodatkowy ruch',
   },
   {
     name: 'Banda Goblinów',
-    desc: '6 obrażeń. otrzymujesz 3 obrażenia',
+    desc: '6 obrażeń. Otrzymujesz 3 obrażenia',
   },
   {
     name: 'Goblińscy Łucznicy',
-    desc: '3 obrażenia Wieży wroga. otrzymujesz 1 obrażenie',
+    desc: '3 obrażenia Wieży wroga. Otrzymujesz 1 obrażenie',
   },
   {
     name: 'Driada Cienia',
-    desc: '2 obrażenia Wieży przeciwnika. dodatkowy ruch',
+    desc: '2 obrażenia Wieży przeciwnika. Dodatkowy ruch',
   },
   {
     name: 'Ork',
@@ -339,7 +339,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Szalone Owce',
-    desc: '6 obrażeń. wróg traci 3 bestie',
+    desc: '6 obrażeń. Wróg traci 3 bestie',
   },
   {
     name: 'Diablik',
@@ -367,7 +367,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Sukub',
-    desc: '5 obrażeń Wieży przeciwnika,. wróg traci 8 bestii',
+    desc: '5 obrażeń Wieży przeciwnika,. Wróg traci 8 bestii',
   },
   {
     name: 'Niszczyciele Skał',
@@ -375,7 +375,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Złodziej',
-    desc: 'Wróg traci 10 klejnotów i 5 kamieni. ty zyskujesz połowę z tego (liczby zaokrąglone w górę)',
+    desc: 'Wróg traci 10 klejnotów i 5 kamieni. Ty zyskujesz połowę z tego (liczby zaokrąglone w górę)',
   },
   {
     name: 'Skalny Kolos',
@@ -383,11 +383,11 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Wampir',
-    desc: '10 obrażeń. wróg traci 5 bestii. -1 Lochy przeciwnika',
+    desc: '10 obrażeń. Wróg traci 5 bestii. -1 Lochy przeciwnika',
   },
   {
     name: 'Smok',
-    desc: '20 obrażeń. przeciwnik traci 10 klejnotów. -1 Lochy przeciwnika',
+    desc: '20 obrażeń. Przeciwnik traci 10 klejnotów. -1 Lochy przeciwnika',
   },
   {
     name: 'Włócznik',

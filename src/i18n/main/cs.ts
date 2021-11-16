@@ -1,7 +1,7 @@
 export const i18n = {
   tower: 'věž',
-  wall: 'zed',
-  resource: 'suroviny',
+  wall: 'zeď',
+  resource: 'zdroj',
 
   brick: 'cihla',
   bricks: 'cihly',
