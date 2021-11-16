@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
   const local = env.NODE_ENV2 === 'local'
   process.env.NODE_ENV = argv.mode
 
-  const commitTime = new Date(
+  const commitTimeDateObj = new Date(
     Math.floor(
       childProcess
         .execSync('git log -1 --date=unix --format="%ad"')
@@ -23,6 +23,8 @@ module.exports = (env, argv) => {
         .trim(),
     ) * 1000,
   )
+  const commitTime = commitTimeDateObj.toUTCString()
+  const commitTime2 = commitTimeDateObj
     .toISOString()
     .replace(/\.\d+Z$/, '+00:00')
 
@@ -166,6 +168,7 @@ module.exports = (env, argv) => {
         description:
           "Web-based free and open source HD clone of 3DO and NWC's 2000 card game Arcomage. Desktop / mobile Android iOS. Online / offline PWA. Single / Multiplayer",
         commitTime,
+        commitTime2,
       }),
       new CopyPlugin({
         patterns: [
