@@ -42,7 +42,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '城墙+4',
   },
   {
-    name: '发明创造',
+    name: '技术创新',
     desc: '双方砖头产量同时+1，你还得到4个宝石',
   },
   {
@@ -86,7 +86,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '城墙+5，怪物产量+1',
   },
   {
-    name: '水晶矿石',
+    name: '水晶宝石',
     desc: '城墙+7，宝石+7',
   },
   {
@@ -94,7 +94,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '城墙+6，城堡+3',
   },
   {
-    name: '无边墙壁',
+    name: '无边之墙',
     desc: '城墙+12',
   },
   {
@@ -114,7 +114,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '城墙+20，城堡+8',
   },
   {
-    name: '强制劳动',
+    name: '强制劳役',
     desc: '城墙+9，怪物-5',
   },
   {
@@ -182,7 +182,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '对手城堡-5',
   },
   {
-    name: '熊熊烈火',
+    name: '焚心以火',
     desc: '城堡-5，宝石产量+2',
   },
   {
@@ -190,7 +190,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '宝石产量+1，城堡+3，城墙+3',
   },
   {
-    name: '平均分配',
+    name: '公平竞争',
     desc: '双方宝石产量等于产量高的一方',
   },
   {
@@ -206,7 +206,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '宝石产量-1，对手城堡-9',
   },
   {
-    name: '碎裂岩石',
+    name: '酥碎之石',
     desc: '城堡+5，对手砖头-6',
   },
   {

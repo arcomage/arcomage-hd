@@ -42,7 +42,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '城牆+4',
   },
   {
-    name: '發明創造',
+    name: '技術創新',
     desc: '雙方磚塊產量同時+1，你還得到4個寶石',
   },
   {
@@ -86,7 +86,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '城牆+5，魔獸產量+1',
   },
   {
-    name: '水晶礦石',
+    name: '水晶寶石',
     desc: '城牆+7，寶石+7',
   },
   {
@@ -94,7 +94,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '城牆+6，塔樓+3',
   },
   {
-    name: '無邊牆壁',
+    name: '無邊之牆',
     desc: '城牆+12',
   },
   {
@@ -114,7 +114,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '城牆+20，塔樓+8',
   },
   {
-    name: '強制勞動',
+    name: '強制勞役',
     desc: '城牆+9，魔獸-5',
   },
   {
@@ -182,7 +182,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '對手塔樓-5',
   },
   {
-    name: '熊熊烈火',
+    name: '焚心以火',
     desc: '塔樓-5，寶石產量+2',
   },
   {
@@ -190,7 +190,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '寶石產量+1，塔樓+3，城牆+3',
   },
   {
-    name: '平均分配',
+    name: '公平競爭',
     desc: '雙方寶石產量等於產量高的一方',
   },
   {
@@ -206,7 +206,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '寶石產量-1，對手塔樓-9',
   },
   {
-    name: '碎裂岩石',
+    name: '酥碎之石',
     desc: '塔樓+5，對手磚塊-6',
   },
   {

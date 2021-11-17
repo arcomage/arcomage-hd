@@ -107,7 +107,7 @@ _(If your Chrome-based browser does have performance issues, then the Desktop Ve
   - Dooble \*
   - etc.
 
-❌ Browsers with other rendering engines are not supported, you must use ArcoMage HD's Desktop Version instead:
+❌ Browsers with other rendering engines are not supported, you must change to a Chrome-based browser or use ArcoMage HD's Desktop Version instead:
 
 - Microsoft Internet Explorer (IE)
 - Microsoft Edge (old version, before 2019) \*
@@ -117,6 +117,8 @@ _(If your Chrome-based browser does have performance issues, then the Desktop Ve
 - Links \*
 - KaiOS browser \*
 - etc.
+
+❌ [Very old browsers that do not support ECMAScript 2015 (ES6)](https://caniuse.com/es6) are also not supported.
 
 </details>
 
