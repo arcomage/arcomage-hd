@@ -222,7 +222,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '塔樓+6，對手塔樓-4',
   },
   {
-    name: '礦場協助',
+    name: '搬磚以助',
     desc: '塔樓+7，磚塊-10',
   },
   {

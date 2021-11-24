@@ -263,8 +263,8 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
 - [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards): extracted from _Might and Magic VIII_ & _VI_ original games (or translated/retranslated) by:
   - English (`en`): [Black Rabite on GameFAQs](https://gamefaqs.gamespot.com/pc/929601-arcomage/faqs/44131)
   - Russian (`ru`) (retranslated): [rayburn](https://github.com/TombOfVARN)
-  - Simplified Chinese (`zh-Hans`): [xyz53235](https://blog.csdn.net/xyz53235/article/details/113663313)
-  - Polish (`pl`) (retranslated?): [acidcave](https://www.arcomage.acidcave.net/czerwone_karty.html)
+  - Simplified Chinese (`zh-Hans`): (extracted) [xyz53235](https://blog.csdn.net/xyz53235/article/details/113663313), (fixed/retranslated) [Tom Chen](https://github.com/tomchen)
+  - Polish (`pl`) (retranslated): [acidcave](https://www.arcomage.acidcave.net/czerwone_karty.html)
   - Czech (`cs`): Yym
   - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
   - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)

@@ -222,7 +222,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '城堡+6，对手城堡-4',
   },
   {
-    name: '矿场协助',
+    name: '搬砖以助',
     desc: '城堡+7，砖头-10',
   },
   {
