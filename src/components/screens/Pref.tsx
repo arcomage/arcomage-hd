@@ -399,6 +399,7 @@ const Pref = () => {
             type="text"
             name={poNames[0]}
             id={poNames[0]}
+            className="emoji"
             value={isGuest || isHost ? tempPlayerName : formFields.playerName}
             onChange={isGuest || isHost ? handleChangeMultiName : handleChange}
             onFocus={(e) => {
@@ -417,6 +418,7 @@ const Pref = () => {
             type="text"
             name={poNames[1]}
             id={poNames[1]}
+            className="emoji"
             disabled={isGuest || isHost}
             value={
               isGuest || isHost ? tempOpponentName : formFields.opponentName
@@ -448,6 +450,7 @@ const Pref = () => {
           <option value={-2}>{_.i18n('Default')}</option>
           {continents.map((part, ci) => (
             <optgroup
+              className="font-light not-italic"
               label={`${_.i18n(
                 ['Castle in Enroth', 'Antagarich', 'Jadame'][part.c - 6],
               )} ${['🏰', '🍺', '🍺'][part.c - 6]}`}
@@ -690,11 +693,21 @@ const Pref = () => {
               setAiLevelFormField(parseInt(e.target.value, 10))
             }}
           >
-            <option value={0}>{_.i18n('Genius')} 💡</option>
-            <option value={1}>{_.i18n('Smart')} 📚</option>
-            <option value={2}>{_.i18n('Mediocre')} 😐</option>
-            <option value={3}>{_.i18n('Stupid')} 👹</option>
-            <option value={4}>{_.i18n('Idiotic')} 🤡</option>
+            <option className="emoji" value={0}>
+              {_.i18n('Genius')} 💡
+            </option>
+            <option className="emoji" value={1}>
+              {_.i18n('Smart')} 📚
+            </option>
+            <option className="emoji" value={2}>
+              {_.i18n('Mediocre')} 😐
+            </option>
+            <option className="emoji" value={3}>
+              {_.i18n('Stupid')} 👹
+            </option>
+            <option className="emoji" value={4}>
+              {_.i18n('Idiotic')} 🤡
+            </option>
           </select>
         </label>
       </div>
@@ -721,13 +734,15 @@ const Pref = () => {
               )}
               placement="top"
             >
-              <span>🧪</span>
+              <span className="emoji">🧪</span>
             </TooltipAll>
             {_.i18n(': ')}
             {(isMultiplayer ? _.i18n('on') : _.i18n('off')).toUpperCase()}
           </span>
         </label>
-        <span id="multiplayerNotification">{notification}</span>
+        <span id="multiplayerNotification" className="emoji">
+          {notification}
+        </span>
       </h4>
       <div className="multiplayer">
         <label>
@@ -760,7 +775,7 @@ const Pref = () => {
               }
             }}
           />
-          <span ref={copied} className="copied">
+          <span ref={copied} className="copied emoji">
             {_.i18n('Copied 📋✔️')}
           </span>
         </label>

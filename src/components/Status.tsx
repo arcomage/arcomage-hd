@@ -51,6 +51,7 @@ const Status = ({ playerName, isOpponent = false }: PropType) => {
               },
               classes.username,
               'el-text',
+              'emoji',
             )}
           >
             {playerName}
