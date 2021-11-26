@@ -10,10 +10,9 @@ import { useAppSelector } from '../utils/useAppDispatch'
 
 import bg from '../../assets/img/bg.webp'
 import { GameSizeContext } from '../utils/GameSizeContext'
-import Pixelation from './effects/Pixelation'
 
 const useStyles = createUseStyles({
-  main: {
+  mainbg: {
     background: {
       image: `url(${bg})`,
       repeat: 'no-repeat',
@@ -47,24 +46,16 @@ const TableCommon = () => {
 
   const classes = useStyles()
 
-  const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
-
   return (
     <div
       className={cx(
-        classes.main,
         'z-0 flex-auto bg-green-100 relative',
         size.narrowMobile ? 'h-1/2' : 'h-2/3',
       )}
     >
-      {pixelationLevel !== 0 && (
-        <Pixelation
-          src={bg}
-          level={pixelationLevel}
-          fit="cover"
-          offsetY={0.3}
-        />
-      )}
+      <div
+        className={cx(classes.mainbg, 'w-full h-full bg-cover pixelated')}
+      ></div>
 
       <div className="absolute top-0 left-0 w-full h-full">
         <Status playerName={isIdConnected ? tempPlayerName : playerName} />

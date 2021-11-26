@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect, useRef, useState } from 'react'
+import React, { memo, useContext, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
@@ -10,11 +10,6 @@ import towerBlue from '../../assets/img/tower_blue.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import { useAppSelector } from '../utils/useAppDispatch'
 import TooltipAll from './special/TooltipAll'
-import Pixelation from './effects/Pixelation'
-import {
-  towerPixelationFallbackHeight,
-  towerWallHeightDelay,
-} from '../constants/visuals'
 import { upper1st } from '../utils/upper1st'
 
 const calcBaseRatio = (height: number): string =>
@@ -41,12 +36,6 @@ const useStyles = createUseStyles<string, { height: number; goal: number }>({
     'padding-right': ({ height }) => `calc(${calcPaddingX(height)})`,
   },
   towerbody: {
-    background: {
-      image: `url(${tower})`,
-      repeat: 'repeat-y',
-      size: '100%',
-      position: 'center 0',
-    },
     width: ({ height }) => `calc(100% - ${calcPaddingX(height)} * 2)`,
     height: ({ height, goal }) =>
       heightByCurrent(height, `(var(--n) / ${goal})`),
@@ -55,6 +44,14 @@ const useStyles = createUseStyles<string, { height: number; goal: number }>({
     'transition-property': 'height',
     'transition-timing-function': 'linear',
     'transition-duration': '0.4s',
+  },
+  towerbodybg: {
+    background: {
+      image: `url(${tower})`,
+      repeat: 'repeat-y',
+      size: '100%',
+      position: 'center 0',
+    },
   },
   towerbodytop: {
     position: 'absolute',
@@ -107,33 +104,7 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
     .replace('%s2', winTower.toString(10))
   towerTitle = upper1st(towerTitle)
 
-  const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
-
   const towerBody = useRef<HTMLDivElement | null>(null)
-  const [towerBodyMaxHeight, setTowerBodyMaxHeight] = useState(
-    towerPixelationFallbackHeight,
-  )
-  useEffect(() => {
-    const handleResize = () => {
-      setTimeout(() => {
-        if (pixelationLevel !== 0 && towerBody.current) {
-          setTowerBodyMaxHeight(
-            window
-              .getComputedStyle(towerBody.current)
-              .getPropertyValue('max-height'),
-          )
-        }
-      }, towerWallHeightDelay)
-    }
-
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('orientationchange', handleResize)
-    handleResize()
-    return () => {
-      window.removeEventListener('resize', handleResize)
-      window.removeEventListener('orientationchange', handleResize)
-    }
-  }, [])
 
   return (
     <div
@@ -154,25 +125,16 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
                 className={cx(
                   classes.towerbodytop,
                   classes[isOpponent ? 'towerbodytopblue' : 'towerbodytopred'],
+                  'pixelated',
                 )}
-              >
-                {pixelationLevel !== 0 && (
-                  <Pixelation
-                    src={isOpponent ? towerBlue : towerRed}
-                    level={pixelationLevel}
-                    cleanup
-                  />
+              ></div>
+              <div
+                className={cx(
+                  'w-full h-full',
+                  classes.towerbodybg,
+                  'pixelated',
                 )}
-              </div>
-              {pixelationLevel !== 0 && (
-                <div className="w-full h-full overflow-hidden">
-                  <Pixelation
-                    src={tower}
-                    level={pixelationLevel}
-                    height={towerBodyMaxHeight}
-                  />
-                </div>
-              )}
+              ></div>
             </div>
           </div>
           <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">

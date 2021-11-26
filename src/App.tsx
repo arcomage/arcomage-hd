@@ -12,11 +12,13 @@ import { I18nContext } from './i18n/I18nContext'
 import { GameSizeContext } from './utils/GameSizeContext'
 import { minRootFontSize, smallRootFontScreenMax } from './constants/visuals'
 import { langInfo } from './i18n/langs'
+import Pixelation from './components/effects/Pixelation'
 
 const App = () => {
   const dispatch = useAppDispatch()
   const lang = useAppSelector((state) => state.lang.code)
   const erathian: boolean = useAppSelector((state) => state.lang.erathian)
+  const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
   const _ = useContext(I18nContext)
   const { width, height } = useContext(GameSizeContext)
 
@@ -76,8 +78,12 @@ const App = () => {
         <meta property="og:description" content={_.i18n('DESC')} />
         <meta name="twitter:title" content={_.i18n('ArcoMage HD')} />
         <meta name="twitter:description" content={_.i18n('DESC')} />
+        <style type="text/css">{`.pixelated { filter: ${
+          pixelationLevel > 0 ? 'url(#pixelation)' : 'none'
+        }; }`}</style>
       </Helmet>
       <Game />
+      <Pixelation level={pixelationLevel} />
     </>
   )
 }

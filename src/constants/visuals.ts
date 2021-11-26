@@ -27,6 +27,3 @@ export const connRetryTimes = 5
 export const sendSettingsDebounceTime = 500
 export const tooltipEnterDelay = 40
 export const tooltipLeaveDelay = 40
-export const towerPixelationFallbackHeight = '500px'
-export const wallPixelationFallbackHeight = '500px'
-export const towerWallHeightDelay = 800

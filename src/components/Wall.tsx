@@ -1,19 +1,13 @@
-import React, { memo, useContext, useEffect, useRef, useState } from 'react'
+import React, { memo, useContext, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/GameSizeContext'
 import TowerOrWallNumber from './TowerOrWallNumber'
-import {
-  maxWallOnScreen,
-  towerWallHeightDelay,
-  wallPixelationFallbackHeight,
-} from '../constants/visuals'
+import { maxWallOnScreen } from '../constants/visuals'
 
 import wall from '../../assets/img/wall.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import TooltipAll from './special/TooltipAll'
-import Pixelation from './effects/Pixelation'
-import { useAppSelector } from '../utils/useAppDispatch'
 import { upper1st } from '../utils/upper1st'
 
 const calcBaseRatio = (height: number): string =>
@@ -69,33 +63,7 @@ const Wall = ({ isOpponent = false }: PropType) => {
     ),
   )
 
-  const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
-
   const wallBody = useRef<HTMLDivElement | null>(null)
-  const [wallBodyMaxHeight, setWallBodyMaxHeight] = useState(
-    wallPixelationFallbackHeight,
-  )
-  useEffect(() => {
-    const handleResize = () => {
-      setTimeout(() => {
-        if (pixelationLevel !== 0 && wallBody.current) {
-          setWallBodyMaxHeight(
-            window
-              .getComputedStyle(wallBody.current)
-              .getPropertyValue('max-height'),
-          )
-        }
-      }, towerWallHeightDelay)
-    }
-
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('orientationchange', handleResize)
-    handleResize()
-    return () => {
-      window.removeEventListener('resize', handleResize)
-      window.removeEventListener('orientationchange', handleResize)
-    }
-  }, [])
 
   return (
     <div
@@ -110,19 +78,8 @@ const Wall = ({ isOpponent = false }: PropType) => {
           <div className={cx('z-20 w-full absolute px-4', classes.wallwrapper)}>
             <div
               ref={wallBody}
-              className={cx(
-                'absolute bottom-0 overflow-hidden',
-                classes.wallbody,
-              )}
-            >
-              {pixelationLevel !== 0 && (
-                <Pixelation
-                  src={wall}
-                  level={pixelationLevel}
-                  height={wallBodyMaxHeight}
-                />
-              )}
-            </div>
+              className={cx('absolute bottom-0', classes.wallbody, 'pixelated')}
+            ></div>
           </div>
           <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
             <div

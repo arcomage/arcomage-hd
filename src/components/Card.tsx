@@ -30,7 +30,6 @@ import {
 } from '../constants/devSettings'
 import { CardPosContext, CardPosType } from '../utils/CardPosContext'
 import TooltipAll from './special/TooltipAll'
-import Pixelation from './effects/Pixelation'
 
 const calcOpacity = ({
   unusable,
@@ -120,12 +119,6 @@ const useStyles = createUseStyles<
     opacity: unusableCardOpacity,
   },
   cardback: {
-    background: {
-      image: `url(${cardbackbg})`,
-      size: 'cover',
-      position: 'center',
-      repeat: 'no-repeat',
-    },
     opacity: calcOpacity,
     'will-change': 'transform, left, top',
     'transition-property': 'opacity, transform, left, top',
@@ -146,12 +139,6 @@ const useStyles = createUseStyles<
     'backface-visibility': 'hidden',
   },
   cardbackhard: {
-    background: {
-      image: `url(${cardbackbg})`,
-      size: 'cover',
-      position: 'center',
-      repeat: 'no-repeat',
-    },
     '&:before': {
       width: '100%',
       height: '100%',
@@ -162,7 +149,15 @@ const useStyles = createUseStyles<
       background: `linear-gradient(to left, rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}))`,
     },
   },
-  image: {
+  cardbackimage: {
+    background: {
+      image: `url(${cardbackbg})`,
+      size: 'cover',
+      position: 'center',
+      repeat: 'no-repeat',
+    },
+  },
+  imagewrapper: {
     // width: calc(100% - 0.25rem * 2),
     height: 'calc((100% / 63 * 47 - 0.5rem) / 22 * 13)',
   },
@@ -234,8 +229,6 @@ const Card = ({
   const dispatch = useAppDispatch()
   const cardPos = useContext(CardPosContext)
 
-  const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
-
   const total =
     owner === 'common'
       ? totalObj[playersTurn ? 'player' : 'opponent']
@@ -274,9 +267,12 @@ const Card = ({
           },
         )}
       >
-        {pixelationLevel !== 0 && (
-          <Pixelation src={cardbackbg} level={pixelationLevel} />
-        )}
+        <div
+          className={cx(
+            classes.cardbackimage,
+            'w-full h-full bg-cover pixelated',
+          )}
+        ></div>
       </button>
     )
   } else {
@@ -440,19 +436,16 @@ const Card = ({
           </div>
           <div
             className={cx(
-              classes.image,
+              classes.imagewrapper,
               'relative m-1 shadow bg-no-repeat bg-cover bg-center',
             )}
-            style={{
-              backgroundImage: `url(${require(`../../assets/img/cards/${n}.webp`)})`,
-            }}
           >
-            {pixelationLevel !== 0 && (
-              <Pixelation
-                src={require(`../../assets/img/cards/${n}.webp`)}
-                level={pixelationLevel}
-              />
-            )}
+            <div
+              style={{
+                backgroundImage: `url(${require(`../../assets/img/cards/${n}.webp`)})`,
+              }}
+              className="w-full h-full bg-cover pixelated"
+            ></div>
             {discarded && (
               <div
                 className={cx(
@@ -508,9 +501,12 @@ const Card = ({
             'absolute top-0 bottom-0 left-0 right-0 rounded',
           )}
         >
-          {pixelationLevel !== 0 && (
-            <Pixelation src={cardbackbg} level={pixelationLevel} />
-          )}
+          <div
+            className={cx(
+              classes.cardbackimage,
+              'w-full h-full bg-cover pixelated',
+            )}
+          ></div>
         </div>
       </button>
     )
