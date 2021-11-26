@@ -370,7 +370,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '對手塔樓-5，魔獸-8',
   },
   {
-    name: '碎巖魔獸',
+    name: '碎岩魔獸',
     desc: '8點攻擊，對手磚塊產量-1',
   },
   {
