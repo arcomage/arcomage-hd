@@ -15,6 +15,7 @@ import {
   towerPixelationFallbackHeight,
   towerWallHeightDelay,
 } from '../constants/visuals'
+import { upper1st } from '../utils/upper1st'
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
@@ -104,6 +105,7 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
   towerTitle = _.i18n('%s1. Reach %s2 to win')
     .replace('%s1', towerTitle)
     .replace('%s2', winTower.toString(10))
+  towerTitle = upper1st(towerTitle)
 
   const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
 

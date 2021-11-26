@@ -19,4 +19,6 @@ it('upper1st is good', () => {
   expect(res).toBe('Ło')
   res = upper1st('العربية')
   expect(res).toBe('العربية')
+  res = upper1st('')
+  expect(res).toBe('')
 })

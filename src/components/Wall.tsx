@@ -14,6 +14,7 @@ import { I18nContext } from '../i18n/I18nContext'
 import TooltipAll from './special/TooltipAll'
 import Pixelation from './effects/Pixelation'
 import { useAppSelector } from '../utils/useAppDispatch'
+import { upper1st } from '../utils/upper1st'
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
@@ -61,9 +62,11 @@ const Wall = ({ isOpponent = false }: PropType) => {
   // float-left
   // float-right
 
-  const wallTitle = _.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
-    '%s',
-    _.i18n('wall'),
+  const wallTitle = upper1st(
+    _.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
+      '%s',
+      _.i18n('wall'),
+    ),
   )
 
   const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
