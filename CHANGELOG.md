@@ -6,7 +6,9 @@ _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to 
 
 ## v1.3.0 (in progress)
 
-- Campaign Mode
+- [Campaign Mode](https://github.com/arcomage/arcomage-hd/issues/51)
+- [Stereo audio panning](https://github.com/arcomage/arcomage-hd/issues/64)
+- [More visual options](https://github.com/arcomage/arcomage-hd/issues/61)
 - And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-11-15..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-11-15..*))
 
 ## [v1.2.0](https://github.com/arcomage/arcomage-hd/compare/v1.1.0...v1.2.0) ([2021-11-15](https://github.com/arcomage/arcomage-hd/tree/fe7e056e5620b360689d7c782c00612cb3a66e46))
