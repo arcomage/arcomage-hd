@@ -21,7 +21,7 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { concat, EMPTY, Observable, of } from 'rxjs'
-import playSound from '../../utils/playSound'
+import { Sound } from '../../utils/playSound'
 import {
   drawCardPre,
   cardTransitionDuration,
@@ -46,7 +46,7 @@ export default (
       const { n } = action
       const owner = state.game.playersTurn ? 'player' : 'opponent'
       const multiGameNumber = state.multiplayer.gameNumber
-      playSound('deal', state.volume)
+      Sound.play('deal')
 
       devLog(`${owner} draws card ${n}`, 'info')
 

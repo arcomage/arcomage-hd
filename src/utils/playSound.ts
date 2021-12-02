@@ -1,115 +1,192 @@
 import { PersonStatusType } from '../types/state'
-import { cloneNode } from './typeHelpers'
+import { hasOwnProperty } from './typeHelpers'
 
-import towerUp from '../../assets/sfx/tower_up.mp3'
-import wallUp from '../../assets/sfx/wall_up.mp3'
-import brickUp from '../../assets/sfx/brick_up.mp3'
-import gemUp from '../../assets/sfx/gem_up.mp3'
-import recruitUp from '../../assets/sfx/recruit_up.mp3'
-import brickDown from '../../assets/sfx/brick_down.mp3'
-import gemDown from '../../assets/sfx/gem_down.mp3'
-import recruitDown from '../../assets/sfx/recruit_down.mp3'
-import damage from '../../assets/sfx/damage.mp3'
-import deal from '../../assets/sfx/deal.mp3'
-import victory from '../../assets/sfx/victory.mp3'
-import defeat from '../../assets/sfx/defeat.mp3'
+import towerUpUrl from '../../assets/sfx/tower_up.mp3'
+import wallUpUrl from '../../assets/sfx/wall_up.mp3'
+import brickUpUrl from '../../assets/sfx/brick_up.mp3'
+import gemUpUrl from '../../assets/sfx/gem_up.mp3'
+import recruitUpUrl from '../../assets/sfx/recruit_up.mp3'
+import brickDownUrl from '../../assets/sfx/brick_down.mp3'
+import gemDownUrl from '../../assets/sfx/gem_down.mp3'
+import recruitDownUrl from '../../assets/sfx/recruit_down.mp3'
+import damageUrl from '../../assets/sfx/damage.mp3'
+import dealUrl from '../../assets/sfx/deal.mp3'
+import victoryUrl from '../../assets/sfx/victory.mp3'
+import defeatUrl from '../../assets/sfx/defeat.mp3'
 // import start from '../../assets/sfx/start.mp3'
 // import typing from '../../assets/sfx/typing.mp3'
 
-const towerUpAudio = new Audio(towerUp)
-const wallUpAudio = new Audio(wallUp)
-const brickUpAudio = new Audio(brickUp)
-const gemUpAudio = new Audio(gemUp)
-const recruitUpAudio = new Audio(recruitUp)
-const brickDownAudio = new Audio(brickDown)
-const gemDownAudio = new Audio(gemDown)
-const recruitDownAudio = new Audio(recruitDown)
-const damageAudio = new Audio(damage)
-const dealAudio = new Audio(deal)
-const victoryAudio = new Audio(victory)
-const defeatAudio = new Audio(defeat)
-// const startAudio = new Audio(start)
-// const typingAudio = new Audio(typing)
+const soundAdditionalTypes = ['deal', 'victory', 'defeat'] as const
 
-type soundAddtionalType = 'deal' | 'victory' | 'defeat' // | 'typing' | 'start'
+type soundTypeType =
+  | keyof PersonStatusType
+  | typeof soundAdditionalTypes[number] // | 'typing' | 'start'
 
-const cloneAndVolume = (
-  audio: HTMLAudioElement,
-  volume: number,
-): HTMLAudioElement => {
-  const _audio = cloneNode(audio)
-  _audio.volume = volume
-  return _audio
+const AudioContext = window.AudioContext || (window as any).webkitAudioContext
+
+const audioMap = {
+  tower: {
+    up: 'towerUp',
+    down: 'damage',
+  },
+  wall: {
+    up: 'wallUp',
+    down: 'damage',
+  },
+  bricks: {
+    up: 'brickUp',
+    down: 'brickDown',
+  },
+  brickProd: {
+    up: 'brickUp',
+    down: 'brickDown',
+  },
+  gems: {
+    up: 'gemUp',
+    down: 'gemDown',
+  },
+  gemProd: {
+    up: 'gemUp',
+    down: 'gemDown',
+  },
+  recruits: {
+    up: 'recruitUp',
+    down: 'recruitDown',
+  },
+  recruitProd: {
+    up: 'recruitUp',
+    down: 'recruitDown',
+  },
+  deal: 'deal',
+  victory: 'victory',
+  defeat: 'defeat',
 }
 
-const play = (audio: HTMLAudioElement): void => {
-  const promise = audio.play()
-  if (promise !== undefined) {
-    promise
-      .then((_) => {})
-      .catch((error) => {
-        // it fails here in chrome and some browsers that webpage can't autoplay audio or video
-        console.log(error)
-      })
+export class SoundClass {
+  audioContext: AudioContext
+
+  gainNode: GainNode
+
+  audios: Record<string, Promise<AudioBuffer>>
+
+  audioSourceMap:
+    | Record<
+        soundTypeType,
+        | (() => Promise<AudioBufferSourceNode>)
+        | {
+            up: {
+              left: () => Promise<AudioBufferSourceNode>
+              right: () => Promise<AudioBufferSourceNode>
+            }
+            down: {
+              left: () => Promise<AudioBufferSourceNode>
+              right: () => Promise<AudioBufferSourceNode>
+            }
+          }
+      >
+    | undefined
+
+  constructor(
+    volume: number = 5,
+    audioContext: AudioContext = new AudioContext(),
+  ) {
+    this.audioContext = audioContext
+    this.gainNode = this.audioContext.createGain()
+    this.setVolume(volume)
+
+    this.audios = {
+      towerUp: this.loadAudio(towerUpUrl),
+      wallUp: this.loadAudio(wallUpUrl),
+      brickUp: this.loadAudio(brickUpUrl),
+      gemUp: this.loadAudio(gemUpUrl),
+      recruitUp: this.loadAudio(recruitUpUrl),
+      brickDown: this.loadAudio(brickDownUrl),
+      gemDown: this.loadAudio(gemDownUrl),
+      recruitDown: this.loadAudio(recruitDownUrl),
+      damage: this.loadAudio(damageUrl),
+      deal: this.loadAudio(dealUrl),
+      victory: this.loadAudio(victoryUrl),
+      defeat: this.loadAudio(defeatUrl),
+    }
+  }
+
+  async loadAudio(url: string): Promise<AudioBuffer> {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest()
+      xhr.open('GET', url)
+      xhr.responseType = 'arraybuffer'
+      xhr.onload = () => {
+        this.audioContext.decodeAudioData(xhr.response, (buffer) => {
+          resolve(buffer)
+        })
+      }
+      xhr.onerror = (e) => {
+        reject(e)
+      }
+      xhr.send()
+    })
+    // return fetch(url)
+    //   .then((response) => response.arrayBuffer())
+    //   .then((arrayBuffer) => this.audioContext.decodeAudioData(arrayBuffer))
+  }
+
+  getSource(audio: AudioBuffer, pan: number = 0): AudioBufferSourceNode {
+    const source = this.audioContext.createBufferSource()
+    source.buffer = audio
+    const panner = new StereoPannerNode(this.audioContext, { pan })
+    source
+      .connect(this.gainNode)
+      .connect(panner)
+      .connect(this.audioContext.destination)
+    return source
+  }
+
+  setVolume(volume: number): void {
+    this.gainNode.gain.value = volume / 10
+  }
+
+  play(
+    type: soundTypeType,
+    increase: boolean | null = null,
+    isLeft: boolean | null = null, // true: left; false: right; null: none
+  ): void {
+    const audioName: string = (() => {
+      const tempObj = audioMap[type]
+      if (hasOwnProperty(tempObj, 'up')) {
+        return tempObj[increase ? 'up' : 'down']
+      } else {
+        return tempObj
+      }
+    })()
+
+    if (this.audioContext.state === 'suspended') {
+      this.audioContext.resume()
+    }
+
+    const pan: number = (() => {
+      if (isLeft === null) {
+        return 0
+      } else if (isLeft) {
+        return -1
+      } else {
+        return 1
+      }
+    })()
+
+    console.log(audioName, pan)
+    ;(async () => {
+      this.getSource(await this.audios[audioName], pan).start()
+    })()
+
+    // if (promise !== undefined) {
+    //   promise
+    //     .then((_) => {})
+    //     .catch((error) => {
+    //       // it fails here in chrome and some browsers that webpage can't autoplay audio or video
+    //       console.log(error)
+    //     })
+    // }
   }
 }
 
-const playSound = (
-  type: keyof PersonStatusType | soundAddtionalType,
-  volume: number = 10,
-  increase: boolean | null = null,
-): void => {
-  const _volume = volume / 10
-  if (increase !== null) {
-    switch (type) {
-      case 'tower':
-        play(cloneAndVolume(increase ? towerUpAudio : damageAudio, _volume))
-        break
-      case 'wall':
-        play(cloneAndVolume(increase ? wallUpAudio : damageAudio, _volume))
-        break
-      case 'bricks':
-        play(cloneAndVolume(increase ? brickUpAudio : brickDownAudio, _volume))
-        break
-      case 'brickProd':
-        play(cloneAndVolume(increase ? brickUpAudio : brickDownAudio, _volume))
-        break
-      case 'gems':
-        play(cloneAndVolume(increase ? gemUpAudio : gemDownAudio, _volume))
-        break
-      case 'gemProd':
-        play(cloneAndVolume(increase ? gemUpAudio : gemDownAudio, _volume))
-        break
-      case 'recruits':
-        play(
-          cloneAndVolume(increase ? recruitUpAudio : recruitDownAudio, _volume),
-        )
-        break
-      case 'recruitProd':
-        play(
-          cloneAndVolume(increase ? recruitUpAudio : recruitDownAudio, _volume),
-        )
-        break
-    }
-  } else {
-    switch (type) {
-      case 'deal':
-        play(cloneAndVolume(dealAudio, _volume))
-        break
-      case 'victory':
-        play(cloneAndVolume(victoryAudio, _volume))
-        break
-      case 'defeat':
-        play(cloneAndVolume(defeatAudio, _volume))
-        break
-      // case 'start':
-      //   play(cloneAndVolume(startAudio, _volume))
-      //   break
-      // case 'typing':
-      //   play(cloneAndVolume(typingAudio, _volume))
-      //   break
-    }
-  }
-}
-
-export default playSound
+export const Sound = new SoundClass()

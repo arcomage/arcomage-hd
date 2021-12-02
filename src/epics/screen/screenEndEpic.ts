@@ -9,7 +9,7 @@ import { isOfType } from 'typesafe-actions'
 import { StateObservable } from 'redux-observable'
 import { isEndScreenNoCloseState, RootStateType } from '../../types/state'
 import { concat, Observable, of } from 'rxjs'
-import playSound from '../../utils/playSound'
+import { Sound } from '../../utils/playSound'
 
 const soundMap = { lose: 'defeat', tie: 'victory', win: 'victory' } as const
 
@@ -23,7 +23,7 @@ export default (
     mergeMap(([action, state]) => {
       const { payload } = action
       if (isEndScreenNoCloseState(payload)) {
-        playSound(soundMap[payload.type], state.volume)
+        Sound.play(soundMap[payload.type])
       }
       return concat(
         of<RootActionType>({

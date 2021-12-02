@@ -22,7 +22,7 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { of, concat, EMPTY, Observable } from 'rxjs'
-import playSound from '../../utils/playSound'
+import { Sound } from '../../utils/playSound'
 import { cardTransitionDuration } from '../../constants/visuals'
 
 export default (
@@ -34,7 +34,7 @@ export default (
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const { index, position, owner } = action
-      playSound('deal', state.volume)
+      Sound.play('deal')
       return concat(
         state.game.isNewTurn
           ? of<RootActionType>({
