@@ -13,7 +13,7 @@ import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { Sound } from '../../utils/playSound'
+import { Sound } from '../../utils/Sound'
 import { concat, Observable, of } from 'rxjs'
 
 export default (

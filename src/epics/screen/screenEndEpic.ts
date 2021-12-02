@@ -9,7 +9,7 @@ import { isOfType } from 'typesafe-actions'
 import { StateObservable } from 'redux-observable'
 import { isEndScreenNoCloseState, RootStateType } from '../../types/state'
 import { concat, Observable, of } from 'rxjs'
-import { Sound } from '../../utils/playSound'
+import { Sound } from '../../utils/Sound'
 
 const soundMap = { lose: 'defeat', tie: 'victory', win: 'victory' } as const
 

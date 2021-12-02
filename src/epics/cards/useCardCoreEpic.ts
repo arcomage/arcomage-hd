@@ -23,7 +23,7 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { concat, EMPTY, Observable, of } from 'rxjs'
-import { Sound } from '../../utils/playSound'
+import { Sound } from '../../utils/Sound'
 import cards from '../../data/cards'
 import {
   cardNextStepDelay,

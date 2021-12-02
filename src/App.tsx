@@ -13,7 +13,7 @@ import { GameSizeContext } from './utils/GameSizeContext'
 import { minRootFontSize, smallRootFontScreenMax } from './constants/visuals'
 import { langInfo } from './i18n/langs'
 import SvgFilters from './components/effects/SvgFilters'
-import { Sound } from './utils/playSound'
+import { Sound } from './utils/Sound'
 
 const App = () => {
   const dispatch = useAppDispatch()
