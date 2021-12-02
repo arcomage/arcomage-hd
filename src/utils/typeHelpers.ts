@@ -7,9 +7,9 @@ export const fromEntries = <T>(entr: [keyof T, T[keyof T]][]): T =>
 
 export const keys = Object.keys as <T extends object>(obj: T) => Array<keyof T>
 
-export const cloneNode = <T extends Node>(node: T, deep: boolean = false) => {
-  return <T>node.cloneNode(deep)
-}
+// export const cloneNode = <T extends Node>(node: T, deep: boolean = false) => {
+//   return <T>node.cloneNode(deep)
+// }
 
 export type DeepReadonly<T> = { readonly [P in keyof T]: DeepReadonly<T[P]> }
 

@@ -29,6 +29,7 @@ import {
   cardNextStepDelay,
   cardTransitionDuration,
 } from '../../constants/visuals'
+import getPan from '../../utils/getPan'
 
 export default (
   action$: Observable<RootActionType>,
@@ -40,7 +41,7 @@ export default (
     mergeMap(([action, state]) => {
       const { n, index, position, owner } = action
       const special = cards[n].special
-      Sound.play('deal')
+      Sound.play('deal', null, getPan(state.cards.total[owner], position))
       return concat(
         state.game.isNewTurn
           ? of<RootActionType>({

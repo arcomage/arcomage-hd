@@ -1,7 +1,6 @@
 import {
   entries,
   fromEntries,
-  cloneNode,
   setProperty,
   hasOwnProperty,
   notEmpty,
@@ -24,12 +23,6 @@ it('fromEntries is OK', () => {
   ]
   const obj = fromEntries(ent)
   expect(obj).toEqual({ foo: 'bar', baz: 42 })
-})
-
-it('cloneNode is OK', () => {
-  const au = new Audio()
-  const _au = cloneNode(au)
-  expect(_au).toEqual(au)
 })
 
 it('setProperty is OK', () => {

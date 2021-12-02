@@ -16,13 +16,14 @@ import defeatUrl from '../../assets/sfx/defeat.mp3'
 // import start from '../../assets/sfx/start.mp3'
 // import typing from '../../assets/sfx/typing.mp3'
 
-const soundAdditionalTypes = ['deal', 'victory', 'defeat'] as const
+import { Howl, Howler } from 'howler'
+import { stereoPanValue } from '../constants/visuals'
+
+const soundAdditionalTypes = ['deal', 'victory', 'defeat'] as const // | 'typing' | 'start'
 
 type soundTypeType =
   | keyof PersonStatusType
-  | typeof soundAdditionalTypes[number] // | 'typing' | 'start'
-
-const AudioContext = window.AudioContext || (window as any).webkitAudioContext
+  | typeof soundAdditionalTypes[number]
 
 const audioMap = {
   tower: {
@@ -63,35 +64,9 @@ const audioMap = {
 }
 
 export class SoundClass {
-  audioContext: AudioContext
+  audios: Record<string, Howl>
 
-  gainNode: GainNode
-
-  audios: Record<string, Promise<AudioBuffer>>
-
-  audioSourceMap:
-    | Record<
-        soundTypeType,
-        | (() => Promise<AudioBufferSourceNode>)
-        | {
-            up: {
-              left: () => Promise<AudioBufferSourceNode>
-              right: () => Promise<AudioBufferSourceNode>
-            }
-            down: {
-              left: () => Promise<AudioBufferSourceNode>
-              right: () => Promise<AudioBufferSourceNode>
-            }
-          }
-      >
-    | undefined
-
-  constructor(
-    volume: number = 5,
-    audioContext: AudioContext = new AudioContext(),
-  ) {
-    this.audioContext = audioContext
-    this.gainNode = this.audioContext.createGain()
+  constructor(volume: number = 5) {
     this.setVolume(volume)
 
     this.audios = {
@@ -110,45 +85,28 @@ export class SoundClass {
     }
   }
 
-  async loadAudio(url: string): Promise<AudioBuffer> {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest()
-      xhr.open('GET', url)
-      xhr.responseType = 'arraybuffer'
-      xhr.onload = () => {
-        this.audioContext.decodeAudioData(xhr.response, (buffer) => {
-          resolve(buffer)
-        })
-      }
-      xhr.onerror = (e) => {
-        reject(e)
-      }
-      xhr.send()
+  loadAudio(url: string) {
+    return new Howl({
+      src: [url],
     })
-    // return fetch(url)
-    //   .then((response) => response.arrayBuffer())
-    //   .then((arrayBuffer) => this.audioContext.decodeAudioData(arrayBuffer))
-  }
-
-  getSource(audio: AudioBuffer, pan: number = 0): AudioBufferSourceNode {
-    const source = this.audioContext.createBufferSource()
-    source.buffer = audio
-    const panner = new StereoPannerNode(this.audioContext, { pan })
-    source
-      .connect(this.gainNode)
-      .connect(panner)
-      .connect(this.audioContext.destination)
-    return source
   }
 
   setVolume(volume: number): void {
-    this.gainNode.gain.value = volume / 10
+    Howler.volume(volume / 10)
   }
 
+  /**
+   *
+   * @param type - sound type name
+   * @param increase - increase or decrease, only for `tower`, `wall` and resource-related
+   * @param pan - stereo pan value, `-1` to `1`,
+   * if it's boolean, then: `true`: -stereoPanValue (-0.8 for now, i.e. real left);
+   * `false`: stereoPanValue (0.8 for now, i.e. real right)
+   */
   play(
     type: soundTypeType,
     increase: boolean | null = null,
-    isLeft: boolean | null = null, // true: left; false: right; null: none
+    pan: boolean | number = 0,
   ): void {
     const audioName: string = (() => {
       const tempObj = audioMap[type]
@@ -159,33 +117,18 @@ export class SoundClass {
       }
     })()
 
-    if (this.audioContext.state === 'suspended') {
-      this.audioContext.resume()
-    }
+    const audio = this.audios[audioName]
 
-    const pan: number = (() => {
-      if (isLeft === null) {
-        return 0
-      } else if (isLeft) {
-        return -1
+    const _pan: number = (() => {
+      if (typeof pan === 'boolean') {
+        return pan ? -stereoPanValue : stereoPanValue
       } else {
-        return 1
+        return pan
       }
     })()
+    audio.stereo(_pan)
 
-    console.log(audioName, pan)
-    ;(async () => {
-      this.getSource(await this.audios[audioName], pan).start()
-    })()
-
-    // if (promise !== undefined) {
-    //   promise
-    //     .then((_) => {})
-    //     .catch((error) => {
-    //       // it fails here in chrome and some browsers that webpage can't autoplay audio or video
-    //       console.log(error)
-    //     })
-    // }
+    audio.play()
   }
 }
 

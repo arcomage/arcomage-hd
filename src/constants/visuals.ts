@@ -1,3 +1,5 @@
+// visual and sound
+
 export const cardTransitionDuration = 500
 export const cardNextStepDelay = 350
 export const aiDelay = 350
@@ -27,3 +29,5 @@ export const connRetryTimes = 5
 export const sendSettingsDebounceTime = 500
 export const tooltipEnterDelay = 40
 export const tooltipLeaveDelay = 40
+
+export const stereoPanValue = 0.8

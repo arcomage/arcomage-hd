@@ -34,6 +34,7 @@ import {
   useAi,
 } from '../../constants/devSettings'
 import devLog from '../../utils/devLog'
+import getPan from '../../utils/getPan'
 
 export default (
   action$: Observable<RootActionType>,
@@ -46,7 +47,12 @@ export default (
       const { n } = action
       const owner = state.game.playersTurn ? 'player' : 'opponent'
       const multiGameNumber = state.multiplayer.gameNumber
-      Sound.play('deal')
+      console.log(state.cards.total[owner] + 1, state.cards.nextPos[owner])
+      Sound.play(
+        'deal',
+        null,
+        getPan(state.cards.total[owner], state.cards.nextPos[owner]),
+      )
 
       devLog(`${owner} draws card ${n}`, 'info')
 

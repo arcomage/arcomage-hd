@@ -24,6 +24,7 @@ import { RootStateType } from '../../types/state'
 import { of, concat, EMPTY, Observable } from 'rxjs'
 import { Sound } from '../../utils/playSound'
 import { cardTransitionDuration } from '../../constants/visuals'
+import getPan from '../../utils/getPan'
 
 export default (
   action$: Observable<RootActionType>,
@@ -34,7 +35,7 @@ export default (
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const { index, position, owner } = action
-      Sound.play('deal')
+      Sound.play('deal', null, getPan(state.cards.total[owner], position))
       return concat(
         state.game.isNewTurn
           ? of<RootActionType>({
