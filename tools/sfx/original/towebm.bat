@@ -1,0 +1,15 @@
+ffmpeg -i brick_down.wav -dash 1 brick_down.webm
+ffmpeg -i brick_up.wav -dash 1 brick_up.webm
+ffmpeg -i damage.wav -dash 1 damage.webm
+ffmpeg -i deal.wav -dash 1 deal.webm
+ffmpeg -i defeat.wav -dash 1 defeat.webm
+ffmpeg -i gem_down.wav -dash 1 gem_down.webm
+ffmpeg -i gem_up.wav -dash 1 gem_up.webm
+ffmpeg -i recruit_down.wav -dash 1 recruit_down.webm
+ffmpeg -i recruit_up.wav -dash 1 recruit_up.webm
+ffmpeg -i shuffle.wav -dash 1 shuffle.webm
+ffmpeg -i start.wav -dash 1 start.webm
+ffmpeg -i tower_up.wav -dash 1 tower_up.webm
+ffmpeg -i typing.wav -dash 1 typing.webm
+ffmpeg -i victory.wav -dash 1 victory.webm
+ffmpeg -i wall_up.wav -dash 1 wall_up.webm

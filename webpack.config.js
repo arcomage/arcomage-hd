@@ -136,7 +136,7 @@ module.exports = (env, argv) => {
           },
         },
         {
-          test: /\.(wav|mp3)$/,
+          test: /\.(webm|mp3|wav)$/,
           type: 'asset/resource',
           generator: {
             filename: 'assets/sfx/[hash].[ext]',
@@ -188,9 +188,9 @@ module.exports = (env, argv) => {
       new PreloadWebpackPlugin({
         rel: 'prefetch',
         include: 'all',
-        fileBlacklist: [/\.(?!(mp3$)).*$/],
+        fileBlacklist: [/\.(?!(webm$)).*$/],
         as(entry) {
-          if (/\.mp3$/.test(entry)) return 'audio'
+          if (/\.webm$/.test(entry)) return 'audio'
           return 'script'
         },
       }),

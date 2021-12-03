@@ -30,6 +30,11 @@ declare module '*.ico' {
   export = value
 }
 
+declare module '*.webm' {
+  const value: any
+  export = value
+}
+
 declare module '*.mp3' {
   const value: any
   export = value
