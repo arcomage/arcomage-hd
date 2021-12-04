@@ -188,9 +188,9 @@ module.exports = (env, argv) => {
       new PreloadWebpackPlugin({
         rel: 'prefetch',
         include: 'all',
-        fileBlacklist: [/\.(?!(webm$)).*$/],
+        fileBlacklist: [/\.(?!(mp3$)).*$/],
         as(entry) {
-          if (/\.webm$/.test(entry)) return 'audio'
+          if (/\.mp3$/.test(entry)) return 'audio'
           return 'script'
         },
       }),

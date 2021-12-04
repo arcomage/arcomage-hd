@@ -14,7 +14,7 @@ const cacheKeyWillBeUsed: any = ({ request }: { request: any }) =>
   getCacheKeyForURL(request.url)
 
 registerRoute(
-  ({ url }) => url.pathname.endsWith('.webm'),
+  ({ url }) => url.pathname.endsWith('.mp3'),
   new CacheOnly({
     cacheName: cacheNames.precache,
     plugins: [{ cacheKeyWillBeUsed }, new RangeRequestsPlugin()],

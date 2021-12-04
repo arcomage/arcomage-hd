@@ -118,7 +118,7 @@ _(If your Chrome-based browser does have performance issues, then the Desktop Ve
 - KaiOS browser \*
 - etc.
 
-❌ Very old browsers that [do not support ECMAScript 2015 (ES6)](https://caniuse.com/es6), [WebP images](https://caniuse.com/webp), or [WebM audios](https://caniuse.com/webm) are also not supported.
+❌ Very old browsers that [do not support ECMAScript 2015 (ES6)](https://caniuse.com/es6), [WebP images](https://caniuse.com/webp) are also not supported.
 
 </details>
 
@@ -243,7 +243,7 @@ The game doesn't use [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/We
 
 P2P Multiplayer Mode without server (only uses [STUN](https://en.wikipedia.org/wiki/STUN) servers for the discovery of other peers) with [WebRTC](https://webrtc.org/) (using [PeerJS](https://peerjs.com/)).
 
-Stereo sound; WebM audios. WebP & SVG images; images upscaled with the library [waifu2x](https://github.com/nagadomi/waifu2x) / [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe). Card text extracted with the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
+Stereo sound. WebP & SVG images; images upscaled with the library [waifu2x](https://github.com/nagadomi/waifu2x) / [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe). Card text extracted with the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
 
 Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arcomage-hd/tree/main/tools), see also [maintenance notes](https://github.com/arcomage/arcomage-hd/blob/main/maintenance_notes.md) and `scripts` section in [`package.json`](https://github.com/arcomage/arcomage-hd/blob/main/package.json). [yarn](https://yarnpkg.com/) v1 is the package manager to use.
 
