@@ -108,8 +108,7 @@ export const i18n = {
   Graphics: 'Grafika',
   Pixelation: 'Pixelace',
   'Visual Preset': 'Vizuální předvolba',
-  'Visual effect may slow the game. Press Alt + R to reset it':
-    'Vizuální efekt může zpomalit hru. Stisknutím kláves Alt + R jej resetujete',
+  'Filter may slow down the game': 'Filtr může zpomalit hru',
 
   Normal: 'Normální',
   Vibrant: 'Vibrant',

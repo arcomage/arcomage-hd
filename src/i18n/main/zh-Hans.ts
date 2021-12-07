@@ -105,8 +105,7 @@ export const i18n = {
   Graphics: '视觉',
   Pixelation: '像素化',
   'Visual Preset': '视觉预设',
-  'Visual effect may slow the game. Press Alt + R to reset it':
-    '视觉效果可能会使游戏变慢。Alt + R可重置该设置',
+  'Filter may slow down the game': '过滤器可能会使游戏变慢',
 
   Normal: '正常',
   Vibrant: '鲜艳',

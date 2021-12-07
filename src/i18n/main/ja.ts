@@ -108,8 +108,7 @@ export const i18n = {
   Graphics: '視覚',
   Pixelation: 'ピクセル化',
   'Visual Preset': '視覚プリセット',
-  'Visual effect may slow the game. Press Alt + R to reset it':
-    '視覚効果により、ゲームが遅くなることがあります。Alt + Rを押すとリセットされます',
+  'Filter may slow down the game': 'フィルターでゲームが遅くなることがある',
 
   Normal: '普通',
   Vibrant: '活気に満ちた',

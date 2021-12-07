@@ -109,8 +109,7 @@ export const i18n = {
   Graphics: 'Grafica',
   Pixelation: 'Pixelation',
   'Visual Preset': 'Preselezione visiva',
-  'Visual effect may slow the game. Press Alt + R to reset it':
-    "L'effetto visivo può rallentare il gioco. Premi Alt + R per ripristinarlo",
+  'Filter may slow down the game': 'Il filtro può rallentare il gioco',
 
   Normal: 'Normale',
   Vibrant: 'Vibrante',

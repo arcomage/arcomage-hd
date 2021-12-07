@@ -36,7 +36,7 @@ export const visualPresets = [
   },
   {
     en: 'Vibrant',
-    values: { saturate: 1.6, contrast: 1.1 },
+    values: { saturate: 1.5, contrast: 1.1 },
   },
   {
     en: 'Gray',

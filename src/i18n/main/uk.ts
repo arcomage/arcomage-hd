@@ -106,8 +106,7 @@ export const i18n = {
   Graphics: 'Графіка',
   Pixelation: 'Пікселізація',
   'Visual Preset': 'Візуальний пресет',
-  'Visual effect may slow the game. Press Alt + R to reset it':
-    'Візуальний ефект може сповільнити гру. Натисніть Alt + R, щоб скинути його',
+  'Filter may slow down the game': 'Фільтр може сповільнити гру',
 
   Normal: 'Нормальний',
   Vibrant: 'Яскравий',

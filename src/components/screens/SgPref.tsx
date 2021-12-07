@@ -79,8 +79,8 @@ const SgPref = () => {
           }}
         />
       </label>
-      <div className="flex">
-        <label className="flex w-1/2">
+      <div className="flex justify-evenly">
+        <label className="flex">
           <input
             type="checkbox"
             checked={volume === 0}
@@ -93,7 +93,7 @@ const SgPref = () => {
           />
           <span>{_.i18n('Mute')}</span>
         </label>
-        <label className="flex w-1/2">
+        <label className="flex">
           <input
             type="checkbox"
             checked={stereo}
@@ -136,12 +136,10 @@ const SgPref = () => {
         <span>
           {_.i18n('Visual Preset')}{' '}
           <TooltipAll
-            title={_.i18n(
-              'Visual effect may slow the game. Press Alt + R to reset it',
-            )}
+            title={`${_.i18n('Reset')}${_.i18n(': ')}Alt + R`}
             placement="top"
           >
-            <span className="emoji !p-0">🧪</span>
+            <span className="emoji !p-0">💡</span>
           </TooltipAll>
         </span>
         <select
@@ -179,8 +177,8 @@ const SgPref = () => {
             .map((d) => (
               <label key={d.term} className="w-1/4 px-1">
                 <div className="flex justify-between">
-                  <span>{_.i18n(d.en)}</span>
-                  <span>{visualvalues[d.term]}</span>
+                  <span className="!pr-0">{_.i18n(d.en)}</span>
+                  <span className="!pl-0">{visualvalues[d.term]}</span>
                 </div>
                 <input
                   type="range"
@@ -198,10 +196,16 @@ const SgPref = () => {
               </label>
             ))}
         </div>
-        <div className="flex flex-wrap">
-          <span className="flex-grow px-3 py-0.5">
+        <div className="flex flex-wrap justify-center">
+          <span className="px-3 py-0.5">
             {_.i18n('Filters')}
             {_.i18n(': ')}
+            <TooltipAll
+              title={_.i18n('Filter may slow down the game')}
+              placement="top"
+            >
+              <span className="emoji !p-0">🧪</span>
+            </TooltipAll>
           </span>
           {dataVisualvalues
             .filter((d): d is DataVisualvaluesFilterType => d.type === 'filter')
