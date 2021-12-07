@@ -93,7 +93,7 @@ export const isEndScreenNoCloseState = (
 export type ScreenStateType = {
   pref: boolean
   langPref: boolean
-  volumePref: boolean
+  sgPref: boolean
   help: boolean
   landscape: boolean
   disconnectNotice: boolean

@@ -8,7 +8,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { GameSizeProvider } from '../../src/utils/GameSizeContext'
 import { store } from '../../src/store'
 
-it('click volumePrefButton', () => {
+it('click sgPrefButton', () => {
   const wrapper = mount(
     <Provider store={store}>
       <I18nProvider>

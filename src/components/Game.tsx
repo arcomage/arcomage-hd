@@ -7,7 +7,7 @@ import ButtonBar from './buttons/ButtonBar'
 import EndScreen from './screens/EndScreen'
 import Pref from './screens/Pref'
 import LangPref from './screens/LangPref'
-import VolumePref from './screens/VolumePref'
+import SgPref from './screens/SgPref'
 import Help from './screens/Help'
 import LandscapeNotice from './screens/LandscapeNotice'
 import { isEndScreenNoCloseState } from '../types/state'
@@ -19,7 +19,7 @@ import { dataVisualvalues } from '../data/visualvalues'
 const Game = () => {
   const pref = useAppSelector((state) => state.screen.pref)
   const langPref = useAppSelector((state) => state.screen.langPref)
-  const volumePref = useAppSelector((state) => state.screen.volumePref)
+  const sgPref = useAppSelector((state) => state.screen.sgPref)
   const end = useAppSelector((state) => state.screen.end)
   const help = useAppSelector((state) => state.screen.help)
   const landscape = useAppSelector((state) => state.screen.landscape)
@@ -64,7 +64,7 @@ const Game = () => {
       {isEndScreenNoCloseState(end) && <EndScreen {...end} />}
       {pref && <Pref />}
       {langPref && <LangPref />}
-      {volumePref && <VolumePref />}
+      {sgPref && <SgPref />}
       {help && <Help />}
       {landscape && <LandscapeNotice />}
       {disconnectNotice && <DisconnectNotice />}

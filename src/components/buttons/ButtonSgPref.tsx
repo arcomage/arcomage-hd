@@ -32,7 +32,7 @@ const useStyles = createUseStyles<string>({
       visibility: 'visible',
     },
   },
-  volumePrefButton: {
+  sgPrefButton: {
     left: 'calc(60% + 6rem)',
     '@media screen and (prefers-reduced-motion: no-preference)': {
       '&:hover, &.windowactive': {
@@ -55,10 +55,10 @@ const useStyles = createUseStyles<string>({
   },
 })
 
-const ButtonVolumePref = () => {
+const ButtonSgPref = () => {
   const _ = useContext(I18nContext)
 
-  const volumePref = useAppSelector((state) => state.screen.volumePref)
+  const sgPref = useAppSelector((state) => state.screen.sgPref)
 
   const dispatch = useAppDispatch()
 
@@ -75,8 +75,8 @@ const ButtonVolumePref = () => {
     <TooltipAll title={_.i18n('Sound & Graphics')}>
       <button
         accessKey="s"
-        className={cx('topbutton', classes.volumePrefButton, {
-          windowactive: volumePref,
+        className={cx('topbutton', classes.sgPrefButton, {
+          windowactive: sgPref,
         })}
         onClick={clickFunc}
         onAuxClick={clickFunc}
@@ -104,4 +104,4 @@ const ButtonVolumePref = () => {
   )
 }
 
-export default memo(ButtonVolumePref)
+export default memo(ButtonSgPref)

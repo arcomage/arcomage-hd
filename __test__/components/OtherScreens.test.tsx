@@ -6,7 +6,7 @@ import { store } from '../../src/store'
 import DisconnectNotice from '../../src/components/screens/DisconnectNotice'
 import Help from '../../src/components/screens/Help'
 import LandscapeNotice from '../../src/components/screens/LandscapeNotice'
-import VolumePref from '../../src/components/screens/VolumePref'
+import SgPref from '../../src/components/screens/SgPref'
 
 it('renders DisconnectNotice', () => {
   const screen = mount(
@@ -41,11 +41,11 @@ it('renders LandscapeNotice', () => {
   expect(screen.length).toBe(1)
 })
 
-it('renders VolumePref', () => {
+it('renders SgPref', () => {
   const screen = mount(
     <Provider store={store}>
       <I18nProvider>
-        <VolumePref />
+        <SgPref />
       </I18nProvider>
     </Provider>,
   )

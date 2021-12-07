@@ -452,7 +452,7 @@ export type ScreenLangPrefActionType = {
   show: boolean
 }
 
-export type ScreenVolumePrefActionType = {
+export type ScreenSgPrefActionType = {
   type: typeof SCREEN_VOLUME_PREF
   show: boolean
 }
@@ -664,7 +664,7 @@ export type RootActionType =
   | CheckVictoryActionType
   | ScreenPrefActionType
   | ScreenLangPrefActionType
-  | ScreenVolumePrefActionType
+  | ScreenSgPrefActionType
   | ScreenHelpActionType
   | ScreenLandscapeActionType
   | ScreenDisconnectNoticeActionType

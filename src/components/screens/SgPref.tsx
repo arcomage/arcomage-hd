@@ -34,7 +34,7 @@ import {
 import { shallowCompare } from '../../utils/shallowCompare'
 import TooltipAll from '../special/TooltipAll'
 
-const VolumePref = () => {
+const SgPref = () => {
   const volume = useAppSelector((state) => state.sound.volume)
   const stereo = useAppSelector((state) => state.sound.stereo)
   const pixelation = useAppSelector((state) => state.visual.pixelation)
@@ -250,4 +250,4 @@ const VolumePref = () => {
   )
 }
 
-export default memo(VolumePref)
+export default memo(SgPref)
