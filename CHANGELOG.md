@@ -4,12 +4,16 @@ _Summary of changes for major & minor releases. For details, click the version n
 
 _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache files & reload the webpage to have the latest version._
 
-## v1.3.0 (in progress)
+## v1.4.0 (in progress)
 
 - [Campaign Mode](https://github.com/arcomage/arcomage-hd/issues/51)
-- [Stereo audio panning](https://github.com/arcomage/arcomage-hd/issues/64)
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-12-07..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-12-07..*))
+
+## [v1.3.0](https://github.com/arcomage/arcomage-hd/compare/v1.2.0...v1.3.0) (2021-12-07)
+
 - [More visual options](https://github.com/arcomage/arcomage-hd/issues/61)
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-11-15..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-11-15..*))
+- [Stereo audio panning](https://github.com/arcomage/arcomage-hd/issues/64)
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-11-15..2021-12-07); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-11-15..2021-12-07))
 
 ## [v1.2.0](https://github.com/arcomage/arcomage-hd/compare/v1.1.0...v1.2.0) ([2021-11-15](https://github.com/arcomage/arcomage-hd/tree/fe7e056e5620b360689d7c782c00612cb3a66e46))
 
