@@ -101,12 +101,37 @@ export const i18n = {
 
   Language: 'Langue',
 
-  'Volume & Visual': 'Volume & Visuel',
+  'Sound & Graphics': 'Son & Image',
+  Sound: 'Son',
   Volume: 'Volume',
   Mute: 'Sourdine',
-
+  'Stereo Sound': 'Son stéréo',
+  Graphics: 'Image',
   Pixelation: 'Pixelation',
-  Disable: 'Désactiver',
+  'Visual Preset': 'Préréglage visuel',
+  'Visual effect may slow the game. Press Alt + R to reset it':
+    "L'effet visuel peut ralentir le jeu. Appuyez sur Alt + R pour le réinitialiser",
+
+  Normal: 'Normal',
+  Vibrant: 'Vibrant',
+  Gray: 'Gris',
+  Nostalgia: 'Nostalgie',
+  Bright: 'Lumineux',
+  Dark: 'Sombre',
+
+  Brightness: 'Luminosité',
+  Contrast: 'Contraste',
+  Grayscale: 'Niveaux de gris',
+  Sepia: 'Sépia',
+  Saturate: 'Saturation',
+  Hue: 'Teinte',
+  Invert: 'Inverser',
+  Opacity: 'Opacité',
+
+  Twist: 'Tordre',
+  Grain: 'Grain',
+
+  Filters: 'Filtres',
 
   Help: 'Aide',
   'Toggle Full Screen': 'Basculer en plein écran',

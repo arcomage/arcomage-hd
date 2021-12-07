@@ -7,6 +7,7 @@ import {
 import {
   LangStateType,
   SettingsStateType,
+  SoundStateType,
   VisualStateType,
   AiStateType,
 } from '../types/state'
@@ -15,7 +16,7 @@ import lt from 'semver/functions/lt'
 type LocalstorageType = {
   lang?: LangStateType
   settings?: SettingsStateType
-  volume?: number
+  sound?: SoundStateType
   visual?: VisualStateType
   ai?: AiStateType
 }
@@ -24,7 +25,7 @@ const currentVersion: string = process.env.APPVERSION ?? ''
 
 export const lsVersion = (): void => {
   const ver = window.localStorage.getItem(localstorageVersionName)
-  if (ver === null || lt(currentVersion, localstorageMinVer)) {
+  if (ver === null || lt(ver, localstorageMinVer)) {
     window.localStorage.removeItem(localstorageName)
   }
   if (ver !== currentVersion) {

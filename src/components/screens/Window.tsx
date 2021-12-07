@@ -99,7 +99,10 @@ const Window = ({
               className={cx(
                 classes.logo,
                 {
-                  hidden: size.narrowMobile && screenActionType === SCREEN_PREF,
+                  hidden:
+                    size.narrowMobile &&
+                    (screenActionType === SCREEN_PREF ||
+                      screenActionType === SCREEN_VOLUME_PREF),
                 },
                 'm-auto bg-no-repeat bg-center bg-contain',
               )}

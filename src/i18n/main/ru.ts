@@ -98,12 +98,37 @@ export const i18n = {
 
   Language: 'Язык',
 
-  'Volume & Visual': 'Громкость и визуальный',
+  'Sound & Graphics': 'Звук и Графика',
+  Sound: 'Звук',
   Volume: 'Громкость',
   Mute: 'Заглушить',
-
+  'Stereo Sound': 'Стереозвук',
+  Graphics: 'Графика',
   Pixelation: 'Пикселизация',
-  Disable: 'Отключить',
+  'Visual Preset': 'Визуальный пресет',
+  'Visual effect may slow the game. Press Alt + R to reset it':
+    'Визуальный эффект может замедлить игру. Нажмите Alt + R, чтобы сбросить его',
+
+  Normal: 'Обычный',
+  Vibrant: 'Яркий',
+  Gray: 'серый',
+  Nostalgia: 'Ностальгия',
+  Bright: 'Яркий',
+  Dark: 'Темный',
+
+  Brightness: 'Яркость',
+  Contrast: 'Контраст',
+  Grayscale: 'Оттенки серого',
+  Sepia: 'Сепия',
+  Saturate: 'Насыщать',
+  Hue: 'Оттенок',
+  Invert: 'Инвертировать',
+  Opacity: 'Непрозрачность',
+
+  Twist: 'Крутить',
+  Grain: 'Зерно',
+
+  Filters: 'Фильтры',
 
   Help: 'Помощь',
   'Toggle Full Screen': 'Полноэкранный режим',

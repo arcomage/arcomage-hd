@@ -1,6 +1,6 @@
 import {
-  UPDATE_VOLUME,
-  UPDATE_VOLUME_MAIN,
+  UPDATE_PIXELATION,
+  UPDATE_PIXELATION_MAIN,
   ABORT_ALL,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -10,26 +10,26 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { lsSet } from '../../utils/localstorage'
-import { defaultStereo } from '../../constants/defaultSettings'
+import { defaultVisualvalues } from '../../constants/defaultSettings'
 
 export default (
   action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_VOLUME)),
+    filter(isOfType(UPDATE_PIXELATION)),
     mergeMap((action) => {
-      const { volume } = action
+      const { pixelation } = action
       lsSet((draft) => {
-        if (draft.sound === undefined) {
-          draft.sound = { volume, stereo: defaultStereo }
+        if (draft.visual === undefined) {
+          draft.visual = { pixelation, visualvalues: defaultVisualvalues }
         } else {
-          draft.sound.volume = volume
+          draft.visual.pixelation = pixelation
         }
       })
       return of<RootActionType>({
-        type: UPDATE_VOLUME_MAIN,
-        volume,
+        type: UPDATE_PIXELATION_MAIN,
+        pixelation,
       }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

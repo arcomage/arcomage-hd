@@ -57,7 +57,7 @@ const LangPref = () => {
             </TooltipAll>
           ))}
       </div>
-      <label className="justify-center">
+      <label className="flex w-full justify-center">
         <input
           type="checkbox"
           checked={erathian}

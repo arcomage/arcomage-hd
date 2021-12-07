@@ -5,7 +5,9 @@ import { RootStateType } from '../types/state'
 import updateLangEpic from './settings_lang_etc/updateLangEpic'
 import updateErathianEpic from './settings_lang_etc/updateErathianEpic'
 import updateVolumeEpic from './settings_lang_etc/updateVolumeEpic'
-import updateVisualEpic from './settings_lang_etc/updateVisualEpic'
+import updateStereoEpic from './settings_lang_etc/updateStereoEpic'
+import updatePixelationEpic from './settings_lang_etc/updatePixelationEpic'
+import updateVisualvaluesEpic from './settings_lang_etc/updateVisualvaluesEpic'
 import updateAiEpic from './settings_lang_etc/updateAiEpic'
 import updateSettingsEpic from './settings_lang_etc/updateSettingsEpic'
 import updateStatusEpic from './status/updateStatusEpic'
@@ -56,7 +58,9 @@ const rootEpic: MyEpic = combineEpics(
   updateLangEpic,
   updateErathianEpic,
   updateVolumeEpic,
-  updateVisualEpic,
+  updateStereoEpic,
+  updatePixelationEpic,
+  updateVisualvaluesEpic,
   updateAiEpic,
   updateSettingsEpic,
   updateStatusEpic,

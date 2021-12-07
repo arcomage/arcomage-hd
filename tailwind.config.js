@@ -4,6 +4,7 @@ const flattenColorPalette =
 const forms = require('@tailwindcss/forms')
 
 module.exports = {
+  mode: 'jit',
   purge: ['./src/**/*.{ts,tsx,js,jsx,scss,sass,css}', './src/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {

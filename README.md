@@ -138,6 +138,8 @@ If you install both Google Chrome and the Desktop Version, the Desktop Version w
 
 The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card.
 
+<kbd>Alt</kbd> + <kbd>R</kbd> can reset visual effect settings.
+
 <details><summary><strong>Click to show the detailed keyboard control instruction & additional special "Access Key" usage (e.g. <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences; <kbd>Alt</kbd> + <kbd>1</kbd>: use the 1st card ...)</strong></summary>
 
 ### Top Menu
@@ -148,7 +150,7 @@ Or with access key (only for opening a window):
 
 - <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences
 - <kbd>Alt</kbd> + <kbd>L</kbd>: Language
-- <kbd>Alt</kbd> + <kbd>V</kbd>: Volume
+- <kbd>Alt</kbd> + <kbd>S</kbd>: Sound & Graphics
 - <kbd>Alt</kbd> + <kbd>T</kbd>: Toggle Fullscreen
 - <kbd>Alt</kbd> + <kbd>H</kbd>: Help
 - <kbd>Alt</kbd> + <kbd>G</kbd>: GitHub

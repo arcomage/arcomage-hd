@@ -5,8 +5,12 @@ import {
   UPDATE_ERATHIAN_MAIN,
   UPDATE_VOLUME,
   UPDATE_VOLUME_MAIN,
+  UPDATE_STEREO,
+  UPDATE_STEREO_MAIN,
   UPDATE_PIXELATION,
   UPDATE_PIXELATION_MAIN,
+  UPDATE_VISUALVALUES,
+  UPDATE_VISUALVALUES_MAIN,
   UPDATE_AILEVEL,
   UPDATE_AILEVEL_MAIN,
   UPDATE_STATUS,
@@ -100,6 +104,7 @@ import {
   SettingsStateType,
   SettingsStateAllPartialType,
   SettingsType,
+  VisualValuesType,
 } from '../types/state'
 import { InstructionConnDataType } from './connData'
 
@@ -133,6 +138,16 @@ export type UpdateVolumeMainActionType = {
   volume: number
 }
 
+export type UpdateStereoActionType = {
+  type: typeof UPDATE_STEREO
+  stereo: boolean
+}
+
+export type UpdateStereoMainActionType = {
+  type: typeof UPDATE_STEREO_MAIN
+  stereo: boolean
+}
+
 export type UpdatePixelationActionType = {
   type: typeof UPDATE_PIXELATION
   pixelation: number
@@ -141,6 +156,16 @@ export type UpdatePixelationActionType = {
 export type UpdatePixelationMainActionType = {
   type: typeof UPDATE_PIXELATION_MAIN
   pixelation: number
+}
+
+export type UpdateVisualvaluesActionType = {
+  type: typeof UPDATE_VISUALVALUES
+  payload: Partial<VisualValuesType>
+}
+
+export type UpdateVisualvaluesMainActionType = {
+  type: typeof UPDATE_VISUALVALUES_MAIN
+  payload: Partial<VisualValuesType>
 }
 
 export type UpdateAiLevelActionType = {
@@ -584,8 +609,12 @@ export type RootActionType =
   | UpdateErathianMainActionType
   | UpdateVolumeActionType
   | UpdateVolumeMainActionType
+  | UpdateStereoActionType
+  | UpdateStereoMainActionType
   | UpdatePixelationActionType
   | UpdatePixelationMainActionType
+  | UpdateVisualvaluesActionType
+  | UpdateVisualvaluesMainActionType
   | UpdateAiLevelActionType
   | UpdateAiLevelMainActionType
   | UpdateStatusActionType

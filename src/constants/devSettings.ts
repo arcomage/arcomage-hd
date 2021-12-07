@@ -35,4 +35,4 @@ export const tutorialImageUrl =
 
 export const localstorageName = 'arcomagehdls'
 export const localstorageVersionName = 'arcomagehdls_ver'
-export const localstorageMinVer = '1.0.0-beta.27'
+export const localstorageMinVer = '1.3.0-rc.1'

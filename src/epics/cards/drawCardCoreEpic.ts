@@ -50,7 +50,9 @@ export default (
       play(
         'deal',
         null,
-        getPan(state.cards.total[owner] + 1, state.cards.nextPos[owner]),
+        state.sound.stereo
+          ? getPan(state.cards.total[owner] + 1, state.cards.nextPos[owner])
+          : 0,
       )
 
       devLog(`${owner} draws card ${n}`, 'info')

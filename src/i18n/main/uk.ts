@@ -98,12 +98,37 @@ export const i18n = {
 
   Language: 'Мова',
 
-  'Volume & Visual': 'Гучність і Графіка',
+  'Sound & Graphics': 'Звук і Графіка',
+  Sound: 'Звук',
   Volume: 'Гучність',
   Mute: 'Тихо',
-
+  'Stereo Sound': 'Стерео звук',
+  Graphics: 'Графіка',
   Pixelation: 'Пікселізація',
-  Disable: 'Вимкнути',
+  'Visual Preset': 'Візуальний пресет',
+  'Visual effect may slow the game. Press Alt + R to reset it':
+    'Візуальний ефект може сповільнити гру. Натисніть Alt + R, щоб скинути його',
+
+  Normal: 'Нормальний',
+  Vibrant: 'Яскравий',
+  Gray: 'Сірий',
+  Nostalgia: 'Ностальгія',
+  Bright: 'Яскравий',
+  Dark: 'Темний',
+
+  Brightness: 'Яскравість',
+  Contrast: 'Контраст',
+  Grayscale: 'Відтінки сірого',
+  Sepia: 'Сепія',
+  Saturate: 'Насичення',
+  Hue: 'Відтінок',
+  Invert: 'Інвертувати',
+  Opacity: 'Непрозорість',
+
+  Twist: 'Крутити',
+  Grain: 'Зерновий',
+
+  Filters: 'фільтри',
 
   Help: 'Допомога',
   'Toggle Full Screen': 'Повноекранний режим',

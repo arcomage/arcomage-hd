@@ -5,7 +5,7 @@ import cards from './cards'
 import game from './game'
 import settings from './settings'
 import screen from './screen'
-import volume from './volume'
+import sound from './sound'
 import visual from './visual'
 import ai from './ai'
 import multiplayer from './multiplayer'
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   game,
   settings,
   screen,
-  volume,
+  sound,
   visual,
   ai,
   multiplayer,

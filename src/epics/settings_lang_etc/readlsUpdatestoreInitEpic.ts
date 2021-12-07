@@ -6,7 +6,9 @@ import {
   UPDATE_ERATHIAN_MAIN,
   UPDATE_LANG_MAIN,
   UPDATE_VOLUME_MAIN,
+  UPDATE_STEREO_MAIN,
   UPDATE_PIXELATION_MAIN,
+  UPDATE_VISUALVALUES_MAIN,
   UPDATE_AILEVEL_MAIN,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -33,8 +35,10 @@ export default (
       const lang = lsGet(['lang', 'code'])
       const erathian = lsGet(['lang', 'erathian'])
       const settings = lsGet(['settings'])
-      const volume = lsGet(['volume'])
+      const volume = lsGet(['sound', 'volume'])
+      const stereo = lsGet(['sound', 'stereo'])
       const pixelation = lsGet(['visual', 'pixelation'])
+      const visualvalues = lsGet(['visual', 'visualvalues'])
       const aiLevel = lsGet(['ai', 'aiLevel'])
       return concat(
         settings !== null
@@ -67,10 +71,22 @@ export default (
               volume,
             })
           : EMPTY,
+        stereo !== null
+          ? of<RootActionType>({
+              type: UPDATE_STEREO_MAIN,
+              stereo,
+            })
+          : EMPTY,
         pixelation !== null
           ? of<RootActionType>({
               type: UPDATE_PIXELATION_MAIN,
               pixelation,
+            })
+          : EMPTY,
+        visualvalues !== null
+          ? of<RootActionType>({
+              type: UPDATE_VISUALVALUES_MAIN,
+              payload: visualvalues,
             })
           : EMPTY,
         aiLevel !== null

@@ -23,158 +23,20 @@
       @apply py-1;
     }
 
-    label {
-      @apply flex flex-wrap w-full items-center mb-0.5;
+    a {
+      @apply text-yellow-300 bg-no-repeat no-underline;
 
-      &.one-colume {
-        span {
-          @apply w-1/2;
-        }
-        input[type='number'],
-        input[type='text'],
-        select {
-          @apply w-1/2;
-        }
-      }
-    }
+      background-image: linear-gradient(
+        rgba(253, 224, 71, 0.68),
+        rgba(253, 224, 71, 0.68)
+      );
+      transition: background-size 0.25s ease-in;
+      padding-bottom: 2px;
+      background-size: 100% 2px;
+      background-position: 0 88%;
 
-    h3.preferences {
-      #opponentNotification {
-        @apply font-normal text-gray-400 px-1 text-sm float-right;
-      }
-    }
-
-    .multiplayer {
-      @apply flex w-full;
-      label {
-        @apply inline-block w-auto;
-        span {
-          @apply px-1;
-        }
-      }
-    }
-
-    h4.multiplayer {
-      label {
-        @apply flex-grow-0;
-        span {
-          @apply px-1;
-        }
-      }
-      #multiplayerNotification {
-        @apply font-normal text-yellow-400 px-1 flex-grow text-base;
-      }
-    }
-
-    div.multiplayer {
-      label {
-        @apply flex-grow flex;
-        span {
-          @apply flex-grow-0;
-        }
-        input {
-          @apply flex-grow;
-        }
-      }
-      .copied,
-      button {
-        @apply flex-grow-0 py-1 ml-2;
-      }
-      .copied {
-        @apply px-1 opacity-0;
-        transition: opacity 150ms linear;
-        &.copied-shown {
-          @apply opacity-100;
-        }
-      }
-      button {
-        @apply px-4;
-      }
-      #yourId {
-        @apply cursor-pointer;
-      }
-    }
-
-    span {
-      @apply text-right px-3 py-0.5;
-    }
-    span.erathian {
-      @apply p-0;
-    }
-    input[type='number'],
-    input[type='text'],
-    select {
-      @apply transition-colors duration-500 bg-black bg-opacity-40 hover:bg-opacity-80 focus:bg-opacity-60 py-0.5;
-    }
-
-    input[type='number'] {
-      -moz-appearance: textfield;
-      &::-webkit-inner-spin-button {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        cursor: pointer;
-      }
-    }
-
-    input[type='range'] {
-      @apply cursor-pointer block mx-auto my-1;
-      // appearance: slider-vertical;
-      width: 129px; // = 100%
-      height: 129px; // = width
-      transform: rotate(270deg);
-    }
-
-    .two-column,
-    .four-column {
-      @apply flex flex-nowrap;
-    }
-
-    .two-column {
-      label {
-        @apply w-1/2;
-      }
-
-      span {
-        @apply w-2/3 overflow-hidden;
-        &.onethird {
-          @apply w-1/3;
-        }
-      }
-      input[type='number'],
-      input[type='text'],
-      select {
-        @apply w-1/3;
-        &.twothird {
-          @apply w-2/3;
-        }
-      }
-
-      &.half {
-        span {
-          @apply w-1/2 overflow-hidden;
-        }
-        input[type='number'],
-        input[type='text'],
-        select {
-          @apply w-1/2;
-        }
-      }
-    }
-
-    .four-column {
-      label {
-        @apply w-1/4;
-      }
-
-      span {
-        @apply w-2/3 pr-1 overflow-hidden;
-      }
-      input[type='number'],
-      input[type='text'],
-      select {
-        @apply w-1/3;
+      &:hover {
+        background-size: 0 2px;
       }
     }
 
@@ -189,13 +51,6 @@
         @apply cursor-pointer;
       }
     }
-
-    // h1 {
-    //   @apply text-xl font-bold text-center;
-    //   span {
-    //     @apply p-0;
-    //   }
-    // }
 
     small {
       @apply text-sm font-light;
@@ -254,20 +109,169 @@
       @apply cursor-not-allowed opacity-50;
     }
 
-    a {
-      @apply text-yellow-300 bg-no-repeat no-underline;
+    span.erathian {
+      @apply p-0;
+    }
+    input[type='number'],
+    input[type='text'],
+    select {
+      @apply transition-colors duration-500 bg-black bg-opacity-40 hover:bg-opacity-80 focus:bg-opacity-60 py-0.5;
+    }
 
-      background-image: linear-gradient(
-        rgba(253, 224, 71, 0.68),
-        rgba(253, 224, 71, 0.68)
-      );
-      transition: background-size 0.25s ease-in;
-      padding-bottom: 2px;
-      background-size: 100% 2px;
-      background-position: 0 88%;
+    input[type='number'] {
+      -moz-appearance: textfield;
+      &::-webkit-inner-spin-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+      }
+    }
 
-      &:hover {
-        background-size: 0 2px;
+    input[type='range'] {
+      @apply cursor-pointer block w-full mb-2;
+      // appearance: slider-vertical;
+      // width: 129px; // = 100%
+      // height: 129px; // = width
+      // transform: rotate(270deg);
+    }
+
+    label {
+      @apply items-center mb-0.5;
+
+      span {
+        @apply px-3 py-0.5;
+      }
+    }
+
+    .screen-pref {
+      label {
+        @apply w-full flex flex-wrap;
+
+        span {
+          @apply text-right;
+        }
+
+        &.one-colume {
+          span {
+            @apply w-1/2;
+          }
+          input[type='number'],
+          input[type='text'],
+          select {
+            @apply w-1/2;
+          }
+        }
+      }
+
+      h3.preferences {
+        #opponentNotification {
+          @apply font-normal text-gray-400 px-1 text-sm float-right;
+        }
+      }
+
+      .multiplayer {
+        @apply flex w-full;
+        label {
+          @apply inline-block w-auto;
+          span {
+            @apply px-1;
+          }
+        }
+      }
+
+      h4.multiplayer {
+        label {
+          @apply flex-grow-0;
+          span {
+            @apply px-1;
+          }
+        }
+        #multiplayerNotification {
+          @apply font-normal text-yellow-400 px-1 flex-grow text-base text-right;
+        }
+      }
+
+      div.multiplayer {
+        label {
+          @apply flex-grow flex;
+          span {
+            @apply flex-grow-0;
+          }
+          input {
+            @apply flex-grow;
+          }
+        }
+        .copied,
+        button {
+          @apply flex-grow-0 py-1 ml-2;
+        }
+        .copied {
+          @apply px-1 opacity-0;
+          transition: opacity 150ms linear;
+          &.copied-shown {
+            @apply opacity-100;
+          }
+        }
+        button {
+          @apply px-4;
+        }
+        #yourId {
+          @apply cursor-pointer;
+        }
+      }
+
+      .two-column,
+      .four-column {
+        @apply flex flex-nowrap;
+      }
+
+      .two-column {
+        label {
+          @apply w-1/2;
+        }
+
+        span {
+          @apply w-2/3 overflow-hidden;
+          &.onethird {
+            @apply w-1/3;
+          }
+        }
+        input[type='number'],
+        input[type='text'],
+        select {
+          @apply w-1/3;
+          &.twothird {
+            @apply w-2/3;
+          }
+        }
+
+        &.half {
+          span {
+            @apply w-1/2 overflow-hidden;
+          }
+          input[type='number'],
+          input[type='text'],
+          select {
+            @apply w-1/2;
+          }
+        }
+      }
+
+      .four-column {
+        label {
+          @apply w-1/4;
+        }
+
+        span {
+          @apply w-2/3 pr-1 overflow-hidden;
+        }
+        input[type='number'],
+        input[type='text'],
+        select {
+          @apply w-1/3;
+        }
       }
     }
   }

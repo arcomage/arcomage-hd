@@ -100,12 +100,37 @@ export const i18n = {
 
   Language: 'Jazyk',
 
-  'Volume & Visual': 'Hlasitost & Vizuál',
+  'Sound & Graphics': 'Zvuk a Grafika',
+  Sound: 'Zvuk',
   Volume: 'Hlasitost',
   Mute: 'Ztlumit',
-
+  'Stereo Sound': 'Stereofonní zvuk',
+  Graphics: 'Grafika',
   Pixelation: 'Pixelace',
-  Disable: 'Zakázat',
+  'Visual Preset': 'Vizuální předvolba',
+  'Visual effect may slow the game. Press Alt + R to reset it':
+    'Vizuální efekt může zpomalit hru. Stisknutím kláves Alt + R jej resetujete',
+
+  Normal: 'Normální',
+  Vibrant: 'Vibrant',
+  Gray: 'Šedá',
+  Nostalgia: 'Nostalgie',
+  Bright: 'Jasný',
+  Dark: 'Temný',
+
+  Brightness: 'Jasnost',
+  Contrast: 'Kontrast',
+  Grayscale: 'Stupně šedi',
+  Sepia: 'Sépiová',
+  Saturate: 'Sytost',
+  Hue: 'Odstín',
+  Invert: 'Invertovat',
+  Opacity: 'Krytí',
+
+  Twist: 'Kroutit',
+  Grain: 'Zrnitý',
+
+  Filters: 'Filtry',
 
   Help: 'Nápověda',
   'Toggle Full Screen': 'Přepnout na celou obrazovku',

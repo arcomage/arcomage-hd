@@ -4,11 +4,14 @@ const useKeyDown = (
   targetKey: string | null, // `null` represents any key
   func: (event: KeyboardEvent) => void,
   delay: number = 0,
+  modifierKeys: ('alt' | 'ctrl' | 'meta' | 'shift')[] = [],
 ): void => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (targetKey == null || event.key === targetKey) {
-        func(event)
+        if (modifierKeys.every((key) => event[`${key}Key`])) {
+          func(event)
+        }
       }
     }
 

@@ -105,8 +105,32 @@ export type LangStateType = {
   erathian: boolean
 }
 
+export type SoundStateType = {
+  volume: number
+  stereo: boolean
+}
+
+export type VisualValuesMainType = {
+  brightness: number
+  contrast: number
+  grayscale: number
+  sepia: number
+  saturate: number
+  hue: number
+  invert: number
+  opacity: number
+}
+
+export type VisualValuesFilterType = {
+  twist: boolean
+  grain: boolean
+}
+
+export type VisualValuesType = VisualValuesMainType & VisualValuesFilterType
+
 export type VisualStateType = {
   pixelation: number
+  visualvalues: VisualValuesType
 }
 
 export type AiStateType = {
@@ -141,7 +165,7 @@ export type RootStateType = {
   game: GameStateType
   settings: SettingsStateType
   screen: ScreenStateType
-  volume: number
+  sound: SoundStateType
   visual: VisualStateType
   ai: AiStateType
 }

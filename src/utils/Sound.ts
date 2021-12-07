@@ -69,6 +69,7 @@ Howler.autoUnlock = false
 const loadAudio = (url: string) => {
   return new Howl({
     src: [url],
+    format: ['mp3'],
   })
 }
 

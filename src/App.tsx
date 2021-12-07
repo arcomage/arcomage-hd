@@ -14,11 +14,14 @@ import { minRootFontSize, smallRootFontScreenMax } from './constants/visuals'
 import { langInfo } from './i18n/langs'
 import SvgFilters from './components/effects/SvgFilters'
 import { setVolume } from './utils/Sound'
+import useKeyDown from './utils/useKeyDown'
+import { UPDATE_VISUALVALUES } from './constants/ActionTypes'
+import { defaultVisualvalues } from './constants/defaultSettings'
 
 const App = () => {
   const dispatch = useAppDispatch()
   const lang = useAppSelector((state) => state.lang.code)
-  const volume = useAppSelector((state) => state.volume)
+  const volume = useAppSelector((state) => state.sound.volume)
   const erathian: boolean = useAppSelector((state) => state.lang.erathian)
   const _ = useContext(I18nContext)
   const { width, height } = useContext(GameSizeContext)
@@ -31,6 +34,18 @@ const App = () => {
 
   useDisableContextMenu()
   useBeforeWindowUnloadWarning()
+
+  useKeyDown(
+    'r',
+    () => {
+      dispatch({
+        type: UPDATE_VISUALVALUES,
+        payload: defaultVisualvalues,
+      })
+    },
+    0,
+    ['alt'],
+  )
 
   useEffect(() => {
     setVolume(volume)

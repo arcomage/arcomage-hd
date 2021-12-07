@@ -1,6 +1,6 @@
 import {
-  UPDATE_PIXELATION,
-  UPDATE_PIXELATION_MAIN,
+  UPDATE_VISUALVALUES,
+  UPDATE_VISUALVALUES_MAIN,
   ABORT_ALL,
 } from '../../constants/ActionTypes'
 import { RootActionType } from '../../types/actionObj'
@@ -10,25 +10,35 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { lsSet } from '../../utils/localstorage'
+import {
+  defaultPixelation,
+  defaultVisualvalues,
+} from '../../constants/defaultSettings'
 
 export default (
   action$: Observable<RootActionType>,
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_PIXELATION)),
+    filter(isOfType(UPDATE_VISUALVALUES)),
     mergeMap((action) => {
-      const { pixelation } = action
+      const { payload } = action
       lsSet((draft) => {
         if (draft.visual === undefined) {
-          draft.visual = { pixelation }
+          draft.visual = {
+            pixelation: defaultPixelation,
+            visualvalues: { ...defaultVisualvalues, ...payload },
+          }
         } else {
-          draft.visual.pixelation = pixelation
+          draft.visual.visualvalues = {
+            ...draft.visual.visualvalues,
+            ...payload,
+          }
         }
       })
       return of<RootActionType>({
-        type: UPDATE_PIXELATION_MAIN,
-        pixelation,
+        type: UPDATE_VISUALVALUES_MAIN,
+        payload,
       }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
     }),
   )

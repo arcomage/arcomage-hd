@@ -5,9 +5,13 @@ export const UPDATE_ERATHIAN_MAIN = 'UPDATE_ERATHIAN_MAIN' as const
 
 export const UPDATE_VOLUME = 'UPDATE_VOLUME' as const
 export const UPDATE_VOLUME_MAIN = 'UPDATE_VOLUME_MAIN' as const
+export const UPDATE_STEREO = 'UPDATE_STEREO' as const
+export const UPDATE_STEREO_MAIN = 'UPDATE_STEREO_MAIN' as const
 
 export const UPDATE_PIXELATION = 'UPDATE_PIXELATION' as const
 export const UPDATE_PIXELATION_MAIN = 'UPDATE_PIXELATION_MAIN' as const
+export const UPDATE_VISUALVALUES = 'UPDATE_VISUALVALUES' as const
+export const UPDATE_VISUALVALUES_MAIN = 'UPDATE_VISUALVALUES_MAIN' as const
 
 export const UPDATE_AILEVEL = 'UPDATE_AILEVEL' as const
 export const UPDATE_AILEVEL_MAIN = 'UPDATE_AILEVEL_MAIN' as const

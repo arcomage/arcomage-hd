@@ -52,7 +52,6 @@ import { sample } from '../../utils/random'
 import isEmoji from '../../utils/isEmoji'
 import TooltipAll from '../special/TooltipAll'
 import { maxCardsInHand, minGeneratorIsOne } from '../../constants/ranges'
-import { SettingsType } from '../../types/state'
 import { variousLengthChunk } from '../../utils/variousLengthChunk'
 
 const Pref = () => {

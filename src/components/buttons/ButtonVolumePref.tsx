@@ -72,9 +72,9 @@ const ButtonVolumePref = () => {
   }
 
   return (
-    <TooltipAll title={_.i18n('Volume & Visual')}>
+    <TooltipAll title={_.i18n('Sound & Graphics')}>
       <button
-        accessKey="v"
+        accessKey="s"
         className={cx('topbutton', classes.volumePrefButton, {
           windowactive: volumePref,
         })}

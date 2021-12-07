@@ -43,7 +43,7 @@ export default (
             }
           }
           if (!noSound) {
-            play(statusProp, increase, isPlayer)
+            play(statusProp, increase, state.sound.stereo ? isPlayer : 0)
           }
           return {
             isPlayer,

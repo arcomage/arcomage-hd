@@ -41,7 +41,11 @@ export default (
     mergeMap(([action, state]) => {
       const { n, index, position, owner } = action
       const special = cards[n].special
-      play('deal', null, getPan(state.cards.total[owner], position))
+      play(
+        'deal',
+        null,
+        state.sound.stereo ? getPan(state.cards.total[owner], position) : 0,
+      )
       return concat(
         state.game.isNewTurn
           ? of<RootActionType>({

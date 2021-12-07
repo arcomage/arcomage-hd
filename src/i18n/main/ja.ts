@@ -100,12 +100,37 @@ export const i18n = {
 
   Language: '言語',
 
-  'Volume & Visual': '音量と視覚',
+  'Sound & Graphics': '音と視覚',
+  Sound: '音',
   Volume: '音量',
   Mute: 'ミュート',
-
+  'Stereo Sound': '立体音',
+  Graphics: '視覚',
   Pixelation: 'ピクセル化',
-  Disable: '無効',
+  'Visual Preset': '視覚プリセット',
+  'Visual effect may slow the game. Press Alt + R to reset it':
+    '視覚効果により、ゲームが遅くなることがあります。Alt + Rを押すとリセットされます',
+
+  Normal: '普通',
+  Vibrant: '活気に満ちた',
+  Gray: 'グレー',
+  Nostalgia: '懐かしさ',
+  Bright: '明るい',
+  Dark: '暗い',
+
+  Brightness: '輝度',
+  Contrast: '対比',
+  Grayscale: 'グレースケール',
+  Sepia: 'セピア',
+  Saturate: '飽和する',
+  Hue: '色相',
+  Invert: '反転',
+  Opacity: '不透明度',
+
+  Twist: 'ねじれ',
+  Grain: '粒状',
+
+  Filters: 'フィルタ',
 
   Help: 'ヘルプ',
   'Toggle Full Screen': 'フルスクリーン切り替え',

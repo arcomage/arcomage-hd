@@ -97,12 +97,37 @@ export const i18n = {
 
   Language: '語言',
 
-  'Volume & Visual': '音量與視覺',
+  'Sound & Graphics': '聲音和視覺',
+  Sound: '聲音',
   Volume: '音量',
   Mute: '靜音',
-
+  'Stereo Sound': '立體聲',
+  Graphics: '視覺',
   Pixelation: '畫素化',
-  Disable: '停用',
+  'Visual Preset': '視覺預設',
+  'Visual effect may slow the game. Press Alt + R to reset it':
+    '視覺效果可能會使遊戲變慢。Alt + R可重置該設定',
+
+  Normal: '正常',
+  Vibrant: '鮮豔',
+  Gray: '灰色',
+  Nostalgia: '懷舊',
+  Bright: '明亮',
+  Dark: '暗淡',
+
+  Brightness: '亮度',
+  Contrast: '對比度',
+  Grayscale: '灰度',
+  Sepia: '褐色',
+  Saturate: '飽和度',
+  Hue: '色調',
+  Invert: '反轉',
+  Opacity: '不透明度',
+
+  Twist: '扭曲',
+  Grain: '顆粒',
+
+  Filters: '過濾器',
 
   Help: '幫助',
   'Toggle Full Screen': '切換全屏模式',
