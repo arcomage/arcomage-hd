@@ -73,16 +73,16 @@ export const i18n = {
   'Your ID': 'Vaše ID',
   "Enter your opponent's ID": 'Zadejte ID soupeře',
   Connect: 'Připojit',
-  'Copied 📋✔️': 'Zkopírováno 📋✔️',
+  'Copied 📋✅': 'Zkopírováno 📋✅',
 
   'Connecting to the network ⌛': 'Připojení k síti ⌛',
-  'Connected to the network (but not to anyone) ✔️':
-    'Připojeno k síti (ale ne k nikomu) ✔️',
+  'Connected to the network (but not to anyone) 🟡':
+    'Připojeno k síti (ale ne k nikomu) 🟡',
   'Connecting to ID %s ⌛': 'Připojení k ID %s ⌛',
-  "Connected to ID %s ✔️ You're the host 🏠":
-    'Připojeno k ID %s ✔️ Jste hostitel 🏠',
-  "Connected by ID %s ✔️ You're the guest 💼":
-    'Připojeno pomocí ID %s ✔️ Jste host 💼',
+  "Connected to ID %s ✅ You're the host 🏠":
+    'Připojeno k ID %s ✅ Jste hostitel 🏠',
+  "Connected by ID %s ✅ You're the guest 💼":
+    'Připojeno pomocí ID %s ✅ Jste host 💼',
   'Connection failed ❌': 'Připojení se nezdařilo ❌',
   'Disconnected 🔌': 'Odpojeno 🔌',
   'You are playing against computer AI': 'Hrajete proti počítačové AI',

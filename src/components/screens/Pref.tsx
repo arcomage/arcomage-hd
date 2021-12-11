@@ -299,7 +299,7 @@ const Pref = () => {
 
       case 'connected_net':
         setNotification(
-          _.i18n('Connected to the network (but not to anyone) ✔️'),
+          _.i18n('Connected to the network (but not to anyone) 🟡'),
         )
         break
 
@@ -324,7 +324,7 @@ const Pref = () => {
           shorterIdStartEndLength,
         )}...${id.substring(id.length - shorterIdStartEndLength)}`
         setNotification(
-          _.i18n("Connected to ID %s ✔️ You're the host 🏠").replace(
+          _.i18n("Connected to ID %s ✅ You're the host 🏠").replace(
             '%s',
             shorterId,
           ),
@@ -339,7 +339,7 @@ const Pref = () => {
           shorterIdStartEndLength,
         )}...${id.substring(id.length - shorterIdStartEndLength)}`
         setNotification(
-          _.i18n("Connected by ID %s ✔️ You're the guest 💼").replace(
+          _.i18n("Connected by ID %s ✅ You're the guest 💼").replace(
             '%s',
             shorterId,
           ),
@@ -775,7 +775,7 @@ const Pref = () => {
             }}
           />
           <span ref={copied} className="copied emoji">
-            {_.i18n('Copied 📋✔️')}
+            {_.i18n('Copied 📋✅')}
           </span>
         </label>
       </div>

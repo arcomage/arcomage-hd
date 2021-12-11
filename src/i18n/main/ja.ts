@@ -72,16 +72,16 @@ export const i18n = {
   'Your ID': 'あなたのID',
   "Enter your opponent's ID": '相手のIDを入力する',
   Connect: '接続',
-  'Copied 📋✔️': 'コピー済み 📋✔️',
+  'Copied 📋✅': 'コピー済み 📋✅',
 
   'Connecting to the network ⌛': 'ネットワークに接続する ⌛',
-  'Connected to the network (but not to anyone) ✔️':
-    'ネットワークに接続され（誰にも接続されていません） ✔️',
+  'Connected to the network (but not to anyone) 🟡':
+    'ネットワークに接続され（誰にも接続されていません） 🟡',
   'Connecting to ID %s ⌛': 'ID %sに接続 ⌛',
-  "Connected to ID %s ✔️ You're the host 🏠":
-    'ID％sに接続 ✔️ あなたはホスト 🏠',
-  "Connected by ID %s ✔️ You're the guest 💼":
-    'ID %sで接続 ✔️ あなたはゲスト 💼',
+  "Connected to ID %s ✅ You're the host 🏠":
+    'ID％sに接続 ✅ あなたはホスト 🏠',
+  "Connected by ID %s ✅ You're the guest 💼":
+    'ID %sで接続 ✅ あなたはゲスト 💼',
   'Connection failed ❌': '接続に失敗しました ❌',
   'Disconnected 🔌': '切断されました 🔌',
   'You are playing against computer AI':

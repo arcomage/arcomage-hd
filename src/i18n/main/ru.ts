@@ -72,15 +72,15 @@ export const i18n = {
   'Your ID': 'Ваш ID',
   "Enter your opponent's ID": 'Введите ID оппонента',
   Connect: 'Соединение',
-  'Copied 📋✔️': 'Скопировано 📋✔️',
+  'Copied 📋✅': 'Скопировано 📋✅',
 
   'Connecting to the network ⌛': 'Соединение с сетью ⌛',
-  'Connected to the network (but not to anyone) ✔️':
-    'Соединено с сетью (но ни к кому) ✔️',
+  'Connected to the network (but not to anyone) 🟡':
+    'Соединено с сетью (но ни к кому) 🟡',
   'Connecting to ID %s ⌛': 'Соединение с ID %s ⌛',
-  "Connected to ID %s ✔️ You're the host 🏠": 'Соединено с ID %s ✔️ Вы хост 🏠',
-  "Connected by ID %s ✔️ You're the guest 💼":
-    'Соединено с ID %s ✔️ Вы гость 💼',
+  "Connected to ID %s ✅ You're the host 🏠": 'Соединено с ID %s ✅ Вы хост 🏠',
+  "Connected by ID %s ✅ You're the guest 💼":
+    'Соединено с ID %s ✅ Вы гость 💼',
   'Connection failed ❌': 'Соединение не удалось ❌',
   'Disconnected 🔌': 'Соединение разорвано 🔌',
   'You are playing against computer AI': 'Вы играете против ИИ',

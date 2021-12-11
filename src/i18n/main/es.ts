@@ -73,16 +73,16 @@ export const i18n = {
   'Your ID': 'Tu ID',
   "Enter your opponent's ID": 'Introduce el ID de tu oponente',
   Connect: 'Conectar',
-  'Copied 📋✔️': 'Copiado 📋✔️',
+  'Copied 📋✅': 'Copiado 📋✅',
 
   'Connecting to the network ⌛': 'Conectando a la red ⌛',
-  'Connected to the network (but not to anyone) ✔️':
-    'Conectado a la red (pero no a nadie) ✔️',
+  'Connected to the network (but not to anyone) 🟡':
+    'Conectado a la red (pero no a nadie) 🟡',
   'Connecting to ID %s ⌛': 'Conectando a ID %s ⌛',
-  "Connected to ID %s ✔️ You're the host 🏠":
-    'Conectado a ID %s ✔️ Eres el anfitrión 🏠',
-  "Connected by ID %s ✔️ You're the guest 💼":
-    'Conectado por ID %s ✔️ Eres el invitado 💼',
+  "Connected to ID %s ✅ You're the host 🏠":
+    'Conectado a ID %s ✅ Eres el anfitrión 🏠',
+  "Connected by ID %s ✅ You're the guest 💼":
+    'Conectado por ID %s ✅ Eres el invitado 💼',
   'Connection failed ❌': 'Conexión fallida ❌',
   'Disconnected 🔌': 'Desconectado 🔌',
   'You are playing against computer AI':

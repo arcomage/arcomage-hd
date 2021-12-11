@@ -73,16 +73,16 @@ export const i18n = {
   'Your ID': 'Votre ID',
   "Enter your opponent's ID": 'Entrez l’ID de votre adversaire',
   Connect: 'Connectez',
-  'Copied 📋✔️': 'Copié 📋✔️',
+  'Copied 📋✅': 'Copié 📋✅',
 
   'Connecting to the network ⌛': 'Connexion au réseau en cours ⌛',
-  'Connected to the network (but not to anyone) ✔️':
-    'Connecté au réseau (mais pas à quelqu’un) ✔️',
+  'Connected to the network (but not to anyone) 🟡':
+    'Connecté au réseau (mais pas à quelqu’un) 🟡',
   'Connecting to ID %s ⌛': 'Connexion à l’ID en cours ⌛',
-  "Connected to ID %s ✔️ You're the host 🏠":
-    'Connecté à l’ID %s ✔️ Vous êtes l’hôte 🏠',
-  "Connected by ID %s ✔️ You're the guest 💼":
-    'Connecté par ID %s ✔️ Vous êtes l’invité 💼',
+  "Connected to ID %s ✅ You're the host 🏠":
+    'Connecté à l’ID %s ✅ Vous êtes l’hôte 🏠',
+  "Connected by ID %s ✅ You're the guest 💼":
+    'Connecté par ID %s ✅ Vous êtes l’invité 💼',
   'Connection failed ❌': 'La connexion a échoué ❌',
   'Disconnected 🔌': 'Déconnecté 🔌',
   'You are playing against computer AI':
@@ -90,7 +90,7 @@ export const i18n = {
   'You are playing against human': 'Vous jouez contre un humain',
 
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
-    'Vous et votre adversaire êtes déconnectés. Veuillez aller dans "Préférences" et commencer un nouveau jeu.',
+    'Vous et votre adversaire êtes déconnectés. Veuillez aller dans « Préférences » et commencer un nouveau jeu.',
 
   'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
     'Le mode multijoueur est expérimental et ne fonctionne que pour les utilisateurs derrière un NAT non symétrique',

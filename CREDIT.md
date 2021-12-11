@@ -62,8 +62,8 @@ Copyright 2011 The Alegreya Project Authors (https://github.com/huertatipografic
 
 ### Other Free License Images
 
-- https://pixabay.com/vectors/laurel-wreath-wreath-accolade-150577/ Pixabay License
-- https://pixabay.com/vectors/trophy-achievement-award-cup-merit-153395/ Pixabay License
+- https://pixabay.com/vectors/laurel-wreath-wreath-accolade-150577/ CC0 Public Domain \*
+- https://pixabay.com/vectors/trophy-achievement-award-cup-merit-153395/ CC0 Public Domain \*
 - https://www.svgrepo.com/svg/211751/maps-and-flags-surrender CC0 Public Domain
 - https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg Public Domain
 - https://github.com/mui-org/material-ui/blob/master/packages/mui-icons-material/material-icons/settings_24px.svg MIT License
@@ -75,6 +75,8 @@ Copyright 2011 The Alegreya Project Authors (https://github.com/huertatipografic
 - https://www.svgrepo.com/svg/29760/press-button CC0 Public Domain
 
 The animations of the button icons, brick.svg, gem.svg, recruit.svg, the game ending svgs are developed by Tom Chen and licensed under the [MIT license](#mit-license).
+
+_(\* Uploaded before 15 January 2019, on which day Pixabay changed the license for all uploaded images and videos from CC0 to Pixabay License ([2019-01-14](https://web.archive.org/web/20190114121522/https://pixabay.com/) & [2019-01-15](https://web.archive.org/web/20190115202135/https://pixabay.com/) Pixabay homepage archive), therefore should be considered as being licensed under CC0)_
 
 ### Erathian Font
 

@@ -17,9 +17,9 @@ It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meani
 <p align="center"><a href="https://arcomage.github.io/"><strong>Click to play it now</strong><br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
 
 <p align="center">
-<a href="https://github.com/arcomage/arcomage-hd/"><img src="https://img.shields.io/github/package-json/v/arcomage/arcomage-hd" alt="version number"></a>
+<a href="https://github.com/arcomage/arcomage-hd/blob/main/CHANGELOG.md"><img src="https://img.shields.io/github/package-json/v/arcomage/arcomage-hd" alt="version number"></a>
 <a href="https://github.com/arcomage/arcomage-hd/actions/workflows/test.yml"><img src="https://github.com/arcomage/arcomage-hd//workflows/Test/badge.svg" alt="Actions Status"></a>
-<a href="https://github.com/arcomage/arcomage-hd/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="License"></a>
+<a href="https://github.com/arcomage/arcomage-hd/blob/main/CREDIT.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="License"></a>
 </p>
 
 ## Gameplay
@@ -92,7 +92,7 @@ _(\*: presumably so, though I didn't really test)_
 
 _(If your Chrome-based browser does have performance issues, then the Desktop Version which is a Chrome wrapper cannot help, you need to play the game with a better device)_
 
-✔️ Browsers based on Firefox's [Gecko](https://hg.mozilla.org/), Safari's [WebKit](https://webkit.org/) and [Qt WebEngine](https://wiki.qt.io/QtWebEngine) rendering engines, are tested and can be used to play the game, but they may be slightly slower than Chrome-based browser, although it depends on your CPU / GPU. If you find these browsers slow, you may try ArcoMage HD's Desktop Version instead:
+✅ Browsers based on Firefox's [Gecko](https://hg.mozilla.org/), Safari's [WebKit](https://webkit.org/) and [Qt WebEngine](https://wiki.qt.io/QtWebEngine) rendering engines, are tested and can be used to play the game, but they may be slightly slower than Chrome-based browser, although it depends on your CPU / GPU. If you find these browsers slow, you may try ArcoMage HD's Desktop Version instead:
 
 - Firefox
   - Pale Moon \*
@@ -118,7 +118,7 @@ _(If your Chrome-based browser does have performance issues, then the Desktop Ve
 - KaiOS browser \*
 - etc.
 
-❌ Very old browsers that [do not support ECMAScript 2015 (ES6)](https://caniuse.com/es6), [WebP images](https://caniuse.com/webp) are also not supported.
+❌ Very old browsers that [do not support ECMAScript 2015 (ES6)](https://caniuse.com/es6) and [WebP images](https://caniuse.com/webp), are also not supported.
 
 </details>
 
@@ -266,7 +266,7 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
 - [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards): extracted from _Might and Magic VIII_ & _VI_ original games (or translated/retranslated) by:
   - English (`en`): [Black Rabite on GameFAQs](https://gamefaqs.gamespot.com/pc/929601-arcomage/faqs/44131)
   - Russian (`ru`) (retranslated): [rayburn](https://github.com/TombOfVARN)
-  - Simplified Chinese (`zh-Hans`): (extracted) [xyz53235](https://blog.csdn.net/xyz53235/article/details/113663313), (fixed/retranslated) [Tom Chen](https://github.com/tomchen)
+  - Simplified Chinese (`zh-Hans`): (extracted) [Liar-zzy](https://github.com/Liar-zzy/Arcomage/blob/master/Arcomage.cpp), (fixed/retranslated) [Tom Chen](https://github.com/tomchen)
   - Polish (`pl`) (retranslated): [acidcave](https://www.arcomage.acidcave.net/czerwone_karty.html)
   - Czech (`cs`): Yym
   - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)

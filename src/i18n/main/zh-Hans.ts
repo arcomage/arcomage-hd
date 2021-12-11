@@ -72,14 +72,14 @@ export const i18n = {
   'Your ID': '你的ID',
   "Enter your opponent's ID": '输入对手ID',
   Connect: '连接',
-  'Copied 📋✔️': '已复制 📋✔️',
+  'Copied 📋✅': '已复制 📋✅',
 
   'Connecting to the network ⌛': '正在连接到网络 ⌛',
-  'Connected to the network (but not to anyone) ✔️':
-    '已连接到网络（但未连接任何人） ✔️',
+  'Connected to the network (but not to anyone) 🟡':
+    '已连接到网络（但未连接任何人） 🟡',
   'Connecting to ID %s ⌛': '正在连接到ID %s ⌛',
-  "Connected to ID %s ✔️ You're the host 🏠": '已连接到ID %s ✔️ 你是主机 🏠',
-  "Connected by ID %s ✔️ You're the guest 💼": '已连接到ID %s ✔️ 你是客户机 💼',
+  "Connected to ID %s ✅ You're the host 🏠": '已连接到ID %s ✅ 你是主机 🏠',
+  "Connected by ID %s ✅ You're the guest 💼": '已连接到ID %s ✅ 你是客户机 💼',
   'Connection failed ❌': '连接失败 ❌',
   'Disconnected 🔌': '连接断开 🔌',
   'You are playing against computer AI': '你正在对战电脑AI',
