@@ -209,6 +209,7 @@ module.exports = (env, argv) => {
         chunks: 'all',
         maxSize: 20000,
       },
+      runtimeChunk: 'single',
     },
   }
 
