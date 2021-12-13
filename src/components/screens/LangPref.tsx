@@ -60,8 +60,8 @@ const LangPref = () => {
       <label className="flex w-full justify-center">
         <input
           type="checkbox"
-          checked={erathian}
-          disabled={langInfo[lang].isLatinScript === false}
+          checked={langInfo[lang].isLatinScript ? erathian : false}
+          disabled={!langInfo[lang].isLatinScript}
           onChange={(e) => {
             dispatch({
               type: UPDATE_ERATHIAN,

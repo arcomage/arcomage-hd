@@ -90,7 +90,7 @@ _(\*: presumably so, though I didn't really test)_
 - Puffin Browser \*
 - etc.
 
-_(If your Chrome-based browser does have performance issues, then the Desktop Version which is a Chrome wrapper cannot help, you need to play the game with a better device)_
+_(If your Chrome-based browser does have performance issues, then the Desktop Version which is a Chrome wrapper cannot help, read the solutions in [What to do if the game is slow?](https://github.com/arcomage/arcomage-hd/issues/66))_
 
 ✅ Browsers based on Firefox's [Gecko](https://hg.mozilla.org/), Safari's [WebKit](https://webkit.org/) and [Qt WebEngine](https://wiki.qt.io/QtWebEngine) rendering engines, are tested and can be used to play the game, but they may be slightly slower than Chrome-based browser, although it depends on your CPU / GPU. If you find these browsers slow, you may try ArcoMage HD's Desktop Version instead:
 
