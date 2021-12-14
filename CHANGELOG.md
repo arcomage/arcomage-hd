@@ -8,7 +8,7 @@ _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to 
 
 - [Campaign Mode](https://github.com/arcomage/arcomage-hd/issues/51)
 - Update to Tailwind CSS 3
-- PWA update from network
+- [PWA update from network](https://github.com/arcomage/arcomage-hd/issues/68)
 - And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-12-07..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-12-07..*))
 
 ## [v1.3.0](https://github.com/arcomage/arcomage-hd/compare/v1.2.0...v1.3.0) ([2021-12-07](https://github.com/arcomage/arcomage-hd/tree/66c90ee521da676275d5c58dd8d1432feedd056e))

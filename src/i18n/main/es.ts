@@ -90,7 +90,7 @@ export const i18n = {
   'You are playing against human': 'Juegas contra un humano',
 
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
-    'Usted y su oponente están desconectados. Por favor, vaya a "Preferencias" y comience una nuevo juego.',
+    'Usted y su oponente están desconectados. Por favor, vaya a «Preferencias» y comience una nuevo juego.',
 
   'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
     'El modo multijugador es experimental y sólo funciona para usuarios detrás de un NAT no simétrico',

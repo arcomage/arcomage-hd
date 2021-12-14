@@ -89,7 +89,7 @@ export const i18n = {
   'You are playing against human': 'Hrajete proti člověku',
 
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
-    'Vy a váš soupeř jste odpojeni. Přejděte prosím do "Předvoleb" a začněte novou hru.',
+    'Vy a váš soupeř jste odpojeni. Přejděte prosím do „Předvoleb“ a začněte novou hru.',
 
   'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
     'Režim pro více hráčů je experimentální a funguje pouze pro uživatele za nesymetrickou sítí NAT',
@@ -111,7 +111,7 @@ export const i18n = {
   'Filter may slow down the game': 'Filtr může zpomalit hru',
 
   Normal: 'Normální',
-  Vibrant: 'Vibrant',
+  Vibrant: 'Živý',
   Gray: 'Šedá',
   Nostalgia: 'Nostalgie',
   Bright: 'Jasný',

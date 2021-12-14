@@ -86,7 +86,7 @@ export const i18n = {
   'You are playing against human': '你正在對戰網友',
 
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
-    '你和對手已斷開連線。請進入“設定”視窗並開始新遊戲。',
+    '你和對手已斷開連線。請進入「設定」視窗並開始新遊戲。',
 
   'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
     '二人對戰模式是測試版，只對非對稱NAT使用者有效',
@@ -149,7 +149,7 @@ export const i18n = {
   GAMERULES: `每個旅店玩牌的勝利條件各不相同。反正就是要把自己的塔樓造好，摧毀對方的塔樓，或者趕在對手之前收集到足夠的資源。
 黃色的大數字是產量計數器，它代表你們下個回合可以得到的資源的數量。黑色的小數字表示現有資源，也就是本回合你們可以使用的資源數量。
 牌：每張牌右下角小圓圈裡面的數字表明它的資源消耗量。消耗的資源種類由每張牌的顏色而定。左鍵點選一張牌即可出牌。右鍵點選一張牌表示棄牌。
-紅色的“採石場”生產磚塊，藍色的“魔法陣”生產寶石，綠色的“地下城”生產魔獸。`,
+紅色的「採石場」生產磚塊，藍色的「魔法陣」生產寶石，綠色的「地下城」生產魔獸。`,
 
   'With no usable or discardable card, your opponent has surrendered':
     '沒有任何牌可以使用或丟棄，你的對手被迫投降了',

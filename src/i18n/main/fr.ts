@@ -90,7 +90,7 @@ export const i18n = {
   'You are playing against human': 'Vous jouez contre un humain',
 
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
-    'Vous et votre adversaire êtes déconnectés. Veuillez aller dans « Préférences » et commencer un nouveau jeu.',
+    'Vous et votre adversaire êtes déconnectés. Veuillez aller dans «\u00A0Préférences\u00A0» et commencer un nouveau jeu.',
 
   'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
     'Le mode multijoueur est expérimental et ne fonctionne que pour les utilisateurs derrière un NAT non symétrique',
@@ -142,7 +142,7 @@ export const i18n = {
   DESC: 'Clone HD web gratuit et open source du jeu de cartes Arcomage de 3DO et NWC en 2000',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
-    'Merci d’aller à %s pour voir plus d’informations (y compris %s1), star le repo et suivre %s2 là.',
+    'Merci d’aller à %s pour voir plus d’informations (y compris %s1), star le repo et suivre %s2.',
 
   'the GitHub project page': 'la page du projet GitHub',
 

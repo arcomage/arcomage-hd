@@ -7,6 +7,10 @@ export const specialStrings: Record<string, string> = {
   城堡: '塔楼',
   恩洛斯: '安罗斯',
   贾丹姆: '贾达密',
+  '“': '「',
+  '”': '」',
+  '‘': '『',
+  '’': '』',
 }
 
 // zh hans to hant customized conversion. Proceeded after opencc conversion

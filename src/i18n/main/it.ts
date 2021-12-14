@@ -90,7 +90,7 @@ export const i18n = {
   'You are playing against human': 'Stai giocando contro un umano',
 
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
-    'Tu e il tuo avversario siete disconnessi. Vai su "Preferenze" e inizia una nuova partita.',
+    'Tu e il tuo avversario siete disconnessi. Vai su «Preferenze» e inizia una nuova partita.',
 
   'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
     'La modalità multiplayer è sperimentale e funziona solo per gli utenti dietro NAT non simmetrico',
@@ -151,9 +151,9 @@ export const i18n = {
 
   'Game rules': 'Regole del gioco',
 
-  GAMERULES: `Le regole per vincere variano di osteria in osteria. Occorre costruire la propria torre, distruggere la torre dell’avversario, o raccogliere abbastanza risorse prima dell’avversario.
+  GAMERULES: `Le regole per vincere variano di osteria in osteria. Occorre costruire la propria torre, distruggere la torre dell'avversario, o raccogliere abbastanza risorse prima dell'avversario.
 I grandi numeri gialli incolonnati rappresentano i generatori. Si tratta di quante nuove unità di una risorsa particolare riceverete al prossimo turno. I piccoli numeri neri incolonnati sono le risorse. Si tratta di quante unità avete a disposizione durante il turno in corso.
-Carte: il costo di ogni carta è indicato nell’angolo destro inferiore della carta. Il costo della carta giocata viene sottratto dalle risorse secondo il colore della carta. Per giocare la carta fare clic sul tasto sinistro. Per scartare senza giocare fare clic sul tasto destro.
+Carte: il costo di ogni carta è indicato nell'angolo destro inferiore della carta. Il costo della carta giocata viene sottratto dalle risorse secondo il colore della carta. Per giocare la carta fare clic sul tasto sinistro. Per scartare senza giocare fare clic sul tasto destro.
 il rosso rappresenta il Generatore Pietra, che produce i Mattoni; il blu rappresenta il Generatore Magia, che produce le Gemme; il verde rappresenta il Generatore Zoo, che produce gli Animali.`,
 
   'With no usable or discardable card, your opponent has surrendered':

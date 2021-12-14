@@ -152,9 +152,9 @@ export const i18n = {
   'Game rules': 'Regras',
 
   GAMERULES: `As condições de vitória variam por taverna. Construa sua torre, destrua a torre de seu oponente ou colete recursos suficientes antes que seu oponente o faça.
-  Grandes números amarelos nas colunas laterais são as produções. É este o número de novas unidades de um determinado recurso que você receberá na sua próxima vez. Pequenos números pretos nas colunas são os recursos. Este é o número de unidades que você tem disponível para gastar em sua vez atual.
-  Cartas: Cada uma tem seu próprio custo para jogar, indicado em um pequeno círculo no canto inferior direito da carta. O custo será deduzido de seus recursos, de acordo com a cor da carta. Clique com o botão esquerdo do mouse em uma carta para jogá-la. Clique com o botão direito do mouse sobre uma carta para descartá-la sem jogar.
-  Na coluna lateral, o vermelho representa seu gerador Pedreira, que produz Tijolos, o azul representa seu gerador Mágico que produz Gemas, e o verde representa seu gerador Masmorra, que produz Recrutas.`,
+Grandes números amarelos nas colunas laterais são as produções. É este o número de novas unidades de um determinado recurso que você receberá na sua próxima vez. Pequenos números pretos nas colunas são os recursos. Este é o número de unidades que você tem disponível para gastar em sua vez atual.
+Cartas: Cada uma tem seu próprio custo para jogar, indicado em um pequeno círculo no canto inferior direito da carta. O custo será deduzido de seus recursos, de acordo com a cor da carta. Clique com o botão esquerdo do mouse em uma carta para jogá-la. Clique com o botão direito do mouse sobre uma carta para descartá-la sem jogar.
+Na coluna lateral, o vermelho representa seu gerador Pedreira, que produz Tijolos, o azul representa seu gerador Mágico que produz Gemas, e o verde representa seu gerador Masmorra, que produz Recrutas.`,
 
   'With no usable or discardable card, your opponent has surrendered':
     'Sem cartas usáveis ou descartaveis, seu oponente se rendeu',

@@ -110,8 +110,8 @@ export const i18n = {
   'Visual Preset': '視覚プリセット',
   'Filter may slow down the game': 'フィルターでゲームが遅くなることがある',
 
-  Normal: '普通',
-  Vibrant: '活気に満ちた',
+  Normal: '通常',
+  Vibrant: '鮮やか',
   Gray: 'グレー',
   Nostalgia: '懐かしさ',
   Bright: '明るい',

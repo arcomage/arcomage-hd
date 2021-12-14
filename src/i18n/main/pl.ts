@@ -89,7 +89,7 @@ export const i18n = {
   'You are playing against human': 'Grasz przeciwko człowiekowi',
 
   'You and your opponent are disconnected. Please go to "Preferences" and start a new game.':
-    'Ty i twój przeciwnik jesteście rozłączeni. Przejdź do "Preferencje" i rozpocznij nową grę.',
+    'Ty i twój przeciwnik jesteście rozłączeni. Przejdź do „Preferencje” i rozpocznij nową grę.',
 
   'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT':
     'Tryb multiplayer jest eksperymentalny i działa tylko dla użytkowników za niesymetrycznym NAT',
