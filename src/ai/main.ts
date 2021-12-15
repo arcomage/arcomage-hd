@@ -36,7 +36,7 @@ export const aiDecision = (
   // you can edit the elements inside cardList
 
   const { player: pBefore, opponent: oBefore } = status
-  // p and o are readonly
+  // pBefore and oBefore are readonly
 
   for (const card of cardList) {
     card.score = 0

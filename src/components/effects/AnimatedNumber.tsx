@@ -23,16 +23,13 @@ const AnimatedNumber = ({ n }: PropType) => {
           setNv(prev)
         }
         // https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers
-        // browser will force to use 4 if timeout < 4
+        // browser will be forced to use 4 if timeout < 4
         // meaning if it increases from 0 to 1000, it'll look slower than animatedNumberDuration
-        // but for now I just leave it alone
         timer.current = setInterval(() => {
           setNv((nv0) => {
             const ret = nv0 + (n > prev ? 1 : -1)
-            if (ret === n) {
-              if (timer.current !== null) {
-                clearInterval(timer.current)
-              }
+            if (ret === n && timer.current !== null) {
+              clearInterval(timer.current)
             }
             return ret
           })
