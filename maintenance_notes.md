@@ -29,6 +29,7 @@
 - `yarn tool:i18ncheck:card`: check card i18n
 - `yarn tool:i18ncheck:main`: check main i18n
 - `yarn tool:calcscore`: get all card scores (for AI)
+- `yarn tool:cardbalance`: get accumulated card effect result (for balancing card probs)
 - `yarn tool:i18nextract`: extract tavern translations
 - `yarn tool:i18njs2text`: i18n script to pure text
 - `yarn tool:i18ntext2js`: i18n pure text to script
