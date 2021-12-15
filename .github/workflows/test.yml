@@ -7,7 +7,7 @@ on:
       - 'LICENSE.md'
       - 'CREDIT.md'
       - 'CHANGELOG.md'
-      - 'maintenance_notes.md'
+      - 'devnotes.md'
       - '.editorconfig'
     branches:
       - main
@@ -17,7 +17,7 @@ on:
       - 'LICENSE.md'
       - 'CREDIT.md'
       - 'CHANGELOG.md'
-      - 'maintenance_notes.md'
+      - 'devnotes.md'
       - '.editorconfig'
     branches:
       - main

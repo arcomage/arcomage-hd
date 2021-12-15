@@ -16,13 +16,13 @@ jobs:
       - name: Build App
         run: |
           if [ -e yarn.lock ]; then
-          yarn install --ignore-optional --frozen-lockfile
+          yarn install --production --ignore-optional --frozen-lockfile
           yarn build
           elif [ -e package-lock.json ]; then
-          npm ci --no-optional
+          npm ci --production --no-optional
           npm run build
           else
-          npm i --no-optional
+          npm i --production --no-optional
           npm run build
           fi
 

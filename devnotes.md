@@ -1,4 +1,10 @@
-# Maintenance Notes
+# Development Notes
+
+## Installation
+
+- `yarn ins` to install dependencies with `husky install`
+- `yarn` to install dependencies without `husky install`
+- `yarn install --production --ignore-optional` can install non-dev/optional dependencies
 
 ## App Version Update
 
