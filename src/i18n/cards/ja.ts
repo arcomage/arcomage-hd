@@ -122,7 +122,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '+1壁。+1塔。+2怪獣',
   },
   {
-    name: '洪水の水',
+    name: '洪水',
     desc: '壁が最も低いプレイヤー：-1ダンジョン、塔に2ダメージ',
   },
   {
