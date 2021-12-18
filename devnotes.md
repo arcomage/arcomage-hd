@@ -1,11 +1,5 @@
 # Development Notes
 
-## Installation
-
-- `yarn ins` to install dependencies with `husky install`
-- `yarn` to install dependencies without `husky install`
-- `yarn install --production --ignore-optional` can install non-dev/optional dependencies
-
 ## App Version Update
 
 - Use yarn v1 instead of yarn v2 or npm

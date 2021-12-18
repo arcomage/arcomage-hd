@@ -51,7 +51,7 @@ export const i18n = {
   'Castle in Enroth': 'エンロスの城',
   Antagarich: 'アンタガリッチ',
   Jadame: 'ジャダメ',
-  Default: 'ディフォルト',
+  Default: 'デフォルト',
   Customized: 'カスタマイズ',
 
   'Starting Conditions': '開始条件',
