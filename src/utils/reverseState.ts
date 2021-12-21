@@ -14,8 +14,8 @@ export const reverseOwnerStr = (owner: ownerType2): ownerType2 =>
 
 export const reverseCardList = (
   cardList: CardListItemAllType[],
-): CardListItemAllType[] => {
-  return cardList.map((card) =>
+): CardListItemAllType[] =>
+  cardList.map((card) =>
     card !== null
       ? {
           ...card,
@@ -25,4 +25,3 @@ export const reverseCardList = (
         }
       : null,
   )
-}

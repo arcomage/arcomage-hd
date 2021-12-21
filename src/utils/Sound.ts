@@ -66,12 +66,11 @@ const audioMap = {
 
 Howler.autoUnlock = false
 
-const loadAudio = (url: string) => {
-  return new Howl({
+const loadAudio = (url: string) =>
+  new Howl({
     src: [url],
     format: ['mp3'],
   })
-}
 
 const audios: Record<string, Howl> = {
   towerUp: loadAudio(towerUpUrl),

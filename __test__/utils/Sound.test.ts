@@ -5,14 +5,13 @@ const mockVolumeFn = jest.fn()
 const mockStereoFn = jest.fn()
 const mockPlayFn = jest.fn()
 
-jest.mock('howler', () => {
-  return {
-    Howler: { volume: () => mockVolumeFn() },
-    Howl: jest.fn().mockImplementation(() => {
-      return { stereo: () => mockStereoFn(), play: () => mockPlayFn() }
-    }),
-  }
-})
+jest.mock('howler', () => ({
+  Howler: { volume: () => mockVolumeFn() },
+  Howl: jest.fn().mockImplementation(() => ({
+    stereo: () => mockStereoFn(),
+    play: () => mockPlayFn(),
+  })),
+}))
 
 beforeEach(() => {
   mockVolumeFn.mockClear()

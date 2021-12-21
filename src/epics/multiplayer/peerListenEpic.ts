@@ -39,8 +39,8 @@ export default (
           }),
         ),
         fromEvent(peer, 'disconnected').pipe(
-          mergeMap(() => {
-            return concat(
+          mergeMap(() =>
+            concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
                 status: 'disconnected',
@@ -49,12 +49,12 @@ export default (
                 type: SET_MULTI_GAME_NUMBER,
                 n: -1,
               }),
-            )
-          }),
+            ),
+          ),
         ),
         fromEvent(peer, 'close').pipe(
-          mergeMap(() => {
-            return concat(
+          mergeMap(() =>
+            concat(
               of<RootActionType>({
                 type: MULTIPLAYER_STATUS,
                 status: 'disconnected',
@@ -63,8 +63,8 @@ export default (
                 type: SET_MULTI_GAME_NUMBER,
                 n: -1,
               }),
-            )
-          }),
+            ),
+          ),
         ),
         fromEvent(peer, 'error').pipe(
           mergeMap(() => {

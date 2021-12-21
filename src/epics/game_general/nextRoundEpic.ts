@@ -27,8 +27,8 @@ export default (
   action$.pipe(
     filter(isOfType(NEXT_ROUND)),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
-      return concat(
+    mergeMap(([action, state]) =>
+      concat(
         of<RootActionType>({
           type: SWITCH_TURN,
         }),
@@ -47,6 +47,6 @@ export default (
           type: SWITCH_NEW_TURN,
           on: true,
         }),
-      ).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
-    }),
+      ).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL)))),
+    ),
   )

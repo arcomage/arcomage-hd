@@ -3,9 +3,9 @@ import React, { memo } from 'react'
 type PropType = { children: string }
 const MultilineText = ({ children }: PropType) => (
   <>
-    {children.split('\n').map((t, i) => {
-      return <p key={i}>{t}</p>
-    })}
+    {children.split('\n').map((t, i) => (
+      <p key={i}>{t}</p>
+    ))}
   </>
 )
 

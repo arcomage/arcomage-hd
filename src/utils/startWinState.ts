@@ -44,21 +44,19 @@ export const getWinState = (
 
 export const getAllCondAndOtherSettingsArray = (
   settings: SettingsType | SettingsStateType | Partial<FormFieldsType>,
-) => {
-  return [
-    settings.tower,
-    settings.wall,
-    settings.bricks,
-    settings.gems,
-    settings.recruits,
-    settings.brickProd,
-    settings.gemProd,
-    settings.recruitProd,
-    settings.winTower,
-    settings.winResource,
-    settings.cardsInHand,
-  ]
-}
+) => [
+  settings.tower,
+  settings.wall,
+  settings.bricks,
+  settings.gems,
+  settings.recruits,
+  settings.brickProd,
+  settings.gemProd,
+  settings.recruitProd,
+  settings.winTower,
+  settings.winResource,
+  settings.cardsInHand,
+]
 
 export const allCondAndOtherSettingsEqual = (
   settings1: SettingsStateAllPartialType | FormFieldsAllPartialType,
