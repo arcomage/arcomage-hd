@@ -3,7 +3,7 @@ import { TavernsI18nType } from '../types'
 export const tavernsI18n: TavernsI18nType = [
   {
     name: 'オンザハウス',
-    location: 'ハーモンデール',
+    location: 'ハーモンデイル',
   },
   {
     name: 'グリフィンの休息',
@@ -11,15 +11,15 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: 'エメラルドイン',
-    location: 'トゥラリアンの森',
+    location: 'トゥラリアの森',
   },
   {
     name: '卑劣なゴブリン',
-    location: 'デイヤ',
+    location: 'デイジャ',
   },
   {
     name: 'おなじみの場所',
-    location: 'ブラカダ砂漠',
+    location: 'ブラカーダ砂漠',
   },
   {
     name: '祝福された醸造者',
@@ -27,19 +27,19 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: 'ヴァンパイアラウンジ',
-    location: 'ピット',
+    location: '奈落',
   },
   {
     name: '笑う僧侶',
-    location: 'イーブンモーンアイランド',
+    location: 'イーヴンモーン島',
   },
   {
     name: '幸運の愚かさ',
-    location: 'ニコン山',
+    location: 'ナイオン山',
   },
   {
     name: '鉱夫のみ',
-    location: 'バローダウンズ',
+    location: '古墳の丘',
   },
   {
     name: '忠実な傭兵',
@@ -51,31 +51,31 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: 'グロッグのグロッグ',
-    location: 'ストーンシティ',
+    location: 'ストーンシティー',
   },
   {
     name: 'グログとグラブ',
-    location: '短剣の傷の島',
+    location: 'ダガーワンド島',
   },
   {
     name: 'ケッセルのカンティーナ',
-    location: 'レイヴンショア',
+    location: 'レイベンショア',
   },
   {
     name: '利益の家',
-    location: 'alvar',
+    location: 'アルヴァー',
   },
   {
     name: '乾いた喉',
-    location: '砂鉄砂漠',
+    location: 'アイアンサンド砂漠',
   },
   {
     name: 'ドラゴンの血の宿',
-    location: '絞首刑峡谷',
+    location: 'ギャロットゴージ',
   },
   {
     name: 'ブラック企業',
-    location: 'シャドウスパイア',
+    location: 'シャドースパイア',
   },
   {
     name: '旅行者の休息',
@@ -83,7 +83,7 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: 'ブルズアイイン',
-    location: '荒廃したローミング',
+    location: 'ラヴィッジローミング',
   },
   {
     name: '海賊の休息',
@@ -91,11 +91,11 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: '踊る鬼',
-    location: 'レイヴンショア',
+    location: 'レイベンショア',
   },
   {
     name: '美穂のロードハウス',
-    location: 'アルバー',
+    location: 'アルヴァー',
   },
   {
     name: 'オスリック・テンパー卿',
@@ -103,11 +103,11 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: 'アンソニーストーン卿',
-    location: '凍った高地',
+    location: 'フローズンハイランド',
   },
   {
     name: 'エリック・フォン・ストロムガード卿',
-    location: '凍った高地',
+    location: 'フローズンハイランド',
   },
   {
     name: 'レディロレッタフライス',
@@ -115,7 +115,7 @@ export const tavernsI18n: TavernsI18nType = [
   },
   {
     name: 'アルバートニュートン卿',
-    location: 'ミスティ諸島',
+    location: 'ミスト諸島',
   },
   {
     name: 'ニコライアイアンフィスト王子',

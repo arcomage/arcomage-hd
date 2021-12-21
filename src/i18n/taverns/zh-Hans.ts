@@ -26,7 +26,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: '塞莱斯特',
   },
   {
-    name: '旅行之家',
+    name: '吸血鬼会馆',
     location: '地狱城',
   },
   {

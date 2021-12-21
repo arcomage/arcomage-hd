@@ -50,7 +50,7 @@ export const i18n = {
   'Choose a Tavern (Preset Preferences)': '居酒屋を選ぶ（プリセット設定）',
   'Castle in Enroth': 'エンロスの城',
   Antagarich: 'アンタガリッチ',
-  Jadame: 'ジャダメ',
+  Jadame: 'ジャデイム',
   Default: 'デフォルト',
   Customized: 'カスタマイズ',
 
@@ -136,7 +136,7 @@ export const i18n = {
 
   ERATHIAN: 'エラシアン文字 [%s] を使用します（ラテン文字の言語のみ）',
 
-  'ArcoMage HD': 'ArcoMage HD',
+  'ArcoMage HD': 'アーコメイジHD',
 
   DESC: '3DOおよびNWCの2000カードゲームArcomageのWebベースの無料のオープンソース高解像度クローン',
 
