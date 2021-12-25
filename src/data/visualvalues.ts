@@ -39,7 +39,7 @@ export const visualPresets = [
     values: { saturate: 1.5, contrast: 1.1 },
   },
   {
-    en: 'Gray',
+    en: 'Black and white',
     values: { grayscale: 1 },
   },
   {

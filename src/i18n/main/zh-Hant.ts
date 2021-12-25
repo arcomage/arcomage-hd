@@ -109,7 +109,7 @@ export const i18n = {
 
   Normal: '正常',
   Vibrant: '鮮豔',
-  Gray: '灰色',
+  'Black and white': '黑白',
   Nostalgia: '懷舊',
   Bright: '明亮',
   Dark: '暗淡',

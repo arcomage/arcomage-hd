@@ -112,7 +112,7 @@ export const i18n = {
 
   Normal: 'Normal',
   Vibrant: 'Lebendig',
-  Gray: 'Grau',
+  'Black and white': 'Schwarz-weiß',
   Nostalgia: 'Nostalgie',
   Bright: 'Hell',
   Dark: 'Dunkel',

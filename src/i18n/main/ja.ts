@@ -112,7 +112,7 @@ export const i18n = {
 
   Normal: '通常',
   Vibrant: '鮮やか',
-  Gray: 'グレー',
+  'Black and white': '黒白',
   Nostalgia: '懐かしさ',
   Bright: '明るい',
   Dark: '暗い',

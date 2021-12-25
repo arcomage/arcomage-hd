@@ -112,7 +112,7 @@ export const i18n = {
 
   Normal: 'Normální',
   Vibrant: 'Živý',
-  Gray: 'Šedá',
+  'Black and white': 'Černobílý',
   Nostalgia: 'Nostalgie',
   Bright: 'Jasný',
   Dark: 'Temný',

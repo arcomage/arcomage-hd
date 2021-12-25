@@ -4,13 +4,13 @@
 
 **ArcoMage HD** is a web-based, free and open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the _Might and Magic_ RPG game series.
 
-This not-for-profit fan-remake of the tower defense, resource management fantasy game is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + RxJS + CSS-based animations + WebRTC (see [§ Development](#development)). Please star the repo / follow me to support me.
+This non-profit fan-remake of the tower defense, resource management fantasy game is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + RxJS + CSS-based animations + WebRTC (see [§ Development](#development)). Please star the repo / follow me to support me.
 
-It's available in 13 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian.
+It's available in 13 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian. ([§ Translation Credits](https://github.com/tomchen/test2/blob/master/README.md#translation-credits))
 
 It supports latest <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers. It works best in Chrome and Chrome's Blink engine-based browsers, and may or may not have performance issues in Safari & Firefox ([browser list](#browser-list)). Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead. Read [What to do if the game is slow](https://github.com/arcomage/arcomage-hd/issues/66) for detailed solutions.
 
-It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meaning you can install it and play it offline](#play-it-offline-pwa).
+It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meaning you can install it and play it offline](#play-it-offline-pwa). It also has good [accessibility for disabled people](#keyboard-control--accessibility).
 
 By default, you play against computer AI 🤖 in the Single Player Mode. You can switch to [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode). Note that Multiplayer Mode doesn't work if both players are behind "bad", symmetric NAT ([detect your NAT type](https://tomchen.github.io/symmetric-nat-test/)). Click gear ⚙️ icon in the game to open the "Preferences" window so you can switch to Multiplayer Mode or change other settings.
 
@@ -178,6 +178,13 @@ It could be other key instead of <kbd>Alt</kbd>
 </details>
 
 The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compatible. It also supports [Reduce Motion (aka. "Show / Turn off animations")](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences) preference available in most operating systems and browsers.
+
+<p align="center">
+<a href="https://arcomage.github.io/" title="Blind Friendly"><img src="https://img.shields.io/badge/-Blind%20Friendly-black" alt="Blind Friendly"></a>
+<a href="https://arcomage.github.io/" title="Color Blind Friendly"><img src="https://img.shields.io/badge/-Color%20Blind%20Friendly-white" alt="Color Blind Friendly"></a>
+<a href="https://arcomage.github.io/" title="Deaf Friendly"><img src="https://img.shields.io/badge/-Deaf%20Friendly-purple" alt="Deaf Friendly"></a>
+<a href="https://arcomage.github.io/" title="Motion Sickness Friendly"><img src="https://img.shields.io/badge/-Motion%20Sickness%20Friendly-yellow" alt="Motion Sickness Friendly"></a>
+</p>
 
 ## Multiplayer Mode
 
