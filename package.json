@@ -6,8 +6,11 @@
     "type": "git",
     "url": "https://github.com/arcomage/arcomage-hd.git"
   },
+  "packageManager": "yarn@3.2.0",
   "scripts": {
     "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
     "start": "webpack serve --mode development",
     "build": "rimraf dist && webpack --mode production",
     "build:local": "rimraf dist && webpack --env NODE_ENV2=local --mode production && http-server dist",
@@ -110,6 +113,7 @@
     "jest": "^27.4.5",
     "jest-canvas-mock": "^2.3.1",
     "node-sass": "^7.0.0",
+    "pinst": "^3.0.0",
     "postcss": "^8.4.5",
     "postcss-import": "^14.0.2",
     "postcss-loader": "^6.2.1",

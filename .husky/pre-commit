@@ -2,6 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 . "$(dirname "$0")/common.sh"
 
-yarn check --integrity --verify-tree
 yarn lint-staged
 yarn test
