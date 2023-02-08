@@ -1,6 +1,17 @@
 import getPan from '../../src/utils/getPan'
 import { stereoPanValue } from '../../src/constants/visuals'
 
+it('getPan is OK when n = 1', () => {
+  const n = 1
+  expect(getPan(n, 0)).toBe(0)
+})
+
+it('getPan is OK when n = 2', () => {
+  const n = 2
+  expect(getPan(n, 0)).toBe(-stereoPanValue)
+  expect(getPan(n, 1)).toBe(stereoPanValue)
+})
+
 it('getPan is OK when n = 5', () => {
   const n = 5
   expect(getPan(n, 0)).toBe(-stereoPanValue)
