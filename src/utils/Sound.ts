@@ -96,8 +96,8 @@ export const setVolume = (volume: number): void => {
  * @param type - sound type name
  * @param increase - increase or decrease, only for `tower`, `wall` and resource-related
  * @param pan - stereo pan value, `-1` to `1`,
- * if it's boolean, then: `true`: -stereoPanValue (-0.8 for now, i.e. real left);
- * `false`: stereoPanValue (0.8 for now, i.e. real right)
+ * if it's boolean, then: `true`: -stereoPanValue (real left);
+ * `false`: stereoPanValue (real right)
  */
 export const play = (
   type: soundTypeType,
