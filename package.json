@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/arcomage/arcomage-hd.git"
   },
-  "packageManager": "yarn@3.2.0",
+  "packageManager": "yarn@3.4.1",
   "scripts": {
     "postinstall": "husky install",
     "prepack": "pinst --disable",
@@ -16,6 +16,7 @@
     "build:local": "rimraf dist && webpack --env NODE_ENV2=local --mode production && http-server dist",
     "test": "jest --coverage",
     "tool:ts": "ts-node --project ./tools/tsconfig.json",
+    "tool:ver": "yarn tool:ts ./tools/ver",
     "tool:zhconvert": "yarn tool:ts ./tools/zhconvert",
     "tool:imgpc": "yarn tool:ts ./tools/img-processing/crop && yarn tool:ts ./tools/img-processing/upscale",
     "tool:imgmin": "node --loader ts-node/esm ./tools/img-min/index.ts",
@@ -37,9 +38,7 @@
     "tool:reduxreducers": "yarn tool:ts ./tools/redux-reducers",
     "tool:prettier": "prettier --check ./{src,__test__,__mocks__,tools}/**/*.{ts,tsx}",
     "tool:eslint": "eslint ./{src,__test__,__mocks__,tools}/**/*.{ts,tsx}",
-    "tool:linecount": "sloc src tools __test__",
-    "preversion": "git diff-index --quiet HEAD --",
-    "postversion": "git push --follow-tags"
+    "tool:linecount": "sloc src tools __test__"
   },
   "lint-staged": {
     "./{src,__test__,__mocks__,tools}/**/*.{ts,tsx}": [
