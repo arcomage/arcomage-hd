@@ -1,6 +1,7 @@
 pipeline {
-    agent any
-    
+    agent {
+        label 'vm-agent'
+    }    
     stages {
         stage('First Stage') {
             steps {
