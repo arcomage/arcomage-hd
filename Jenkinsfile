@@ -6,19 +6,20 @@ pipeline {
         CI = 'true'
         VERSION = '1.0.0'
         REPO_NAME = ''
+        NODE_IMAGE = 'node:16'
     }
     stages {
         stage('Generate Release Tag') {
             steps {
                 echo 'Generating release tag...'
-                echo 'RELEASE TAG: $VERSION'
+                echo "RELEASE TAG: $VERSION"
             }
         }
         
         stage('Install dependencies') {
             agent {
                 docker {
-                    image 'npm:16'
+                    image $NODE_IMAGE
                     reuseNode true
                 }
             }
@@ -31,7 +32,7 @@ pipeline {
         stage('Generate Build') {
             agent {
                 docker {
-                    image 'npm:16'
+                    image $NODE_IMAGE
                     reuseNode true
                 }
             }
@@ -44,7 +45,7 @@ pipeline {
         stage('Run Tests') {
             agent {
                 docker {
-                    image 'npm:16'
+                    image $NODE_IMAGE
                     reuseNode true
                 }
             }
