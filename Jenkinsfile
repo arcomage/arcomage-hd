@@ -25,7 +25,7 @@ pipeline {
             }
             steps {
                 echo 'Installing dependencies...'
-                npm install
+                sh 'npm install'
             }
         }
         
@@ -38,7 +38,7 @@ pipeline {
             }
             steps {
                 echo 'Generating build folder...'
-                npm build
+                sh 'npm build'
             }
         }
 
@@ -51,7 +51,7 @@ pipeline {
             }
             steps {
                  echo 'Running Tests...'
-                 npm test
+                 sh 'npm test'
             }
         }
         
