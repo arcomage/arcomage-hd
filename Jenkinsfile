@@ -25,7 +25,7 @@ pipeline {
             }
             steps {
                 echo 'Installing dependencies...'
-                sh 'npm install'
+                sh 'yarn install'
             }
         }
         
@@ -38,7 +38,7 @@ pipeline {
             }
             steps {
                 echo 'Generating build folder...'
-                sh 'npm build'
+                sh 'yarn build'
             }
         }
 
@@ -51,7 +51,7 @@ pipeline {
             }
             steps {
                  echo 'Running Tests...'
-                 sh 'npm test'
+                 sh 'yarn test'
             }
         }
         
