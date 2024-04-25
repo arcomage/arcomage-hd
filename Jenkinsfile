@@ -17,6 +17,7 @@ pipeline {
         
         stage('Install dependencies') {
             agent {
+                label 'vm-agent'
                 docker {
                     image 'npm:16'
                     reuseNode true
@@ -30,6 +31,7 @@ pipeline {
         
         stage('Generate Build') {
             agent {
+                label 'vm-agent'
                 docker {
                     image 'npm:16'
                     reuseNode true
@@ -43,6 +45,7 @@ pipeline {
 
         stage('Run Tests') {
             agent {
+                label 'vm-agent'
                 docker {
                     image 'npm:16'
                     reuseNode true
@@ -67,6 +70,5 @@ pipeline {
 }
 }
 def extractRepositoryName() {
-    // Extract repository name from GIT_URL
     return sh(script: 'basename -s .git ${GIT_URL}', returnStdout: true).trim()
 }
