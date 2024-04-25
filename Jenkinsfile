@@ -17,7 +17,6 @@ pipeline {
         
         stage('Install dependencies') {
             agent {
-                label 'vm-agent'
                 docker {
                     image 'npm:16'
                     reuseNode true
@@ -31,7 +30,6 @@ pipeline {
         
         stage('Generate Build') {
             agent {
-                label 'vm-agent'
                 docker {
                     image 'npm:16'
                     reuseNode true
@@ -45,7 +43,6 @@ pipeline {
 
         stage('Run Tests') {
             agent {
-                label 'vm-agent'
                 docker {
                     image 'npm:16'
                     reuseNode true
