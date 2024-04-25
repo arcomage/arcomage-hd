@@ -19,7 +19,7 @@ pipeline {
         stage('Install dependencies') {
             agent {
                 docker {
-                    image $NODE_IMAGE
+                    image "$NODE_IMAGE"
                     reuseNode true
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
         stage('Generate Build') {
             agent {
                 docker {
-                    image $NODE_IMAGE
+                    image "$NODE_IMAGE"
                     reuseNode true
                 }
             }
@@ -45,7 +45,7 @@ pipeline {
         stage('Run Tests') {
             agent {
                 docker {
-                    image $NODE_IMAGE
+                    image "$NODE_IMAGE"
                     reuseNode true
                 }
             }
