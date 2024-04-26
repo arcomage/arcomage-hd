@@ -84,20 +84,19 @@ pipeline {
         stage('Deploy App') {
             steps {
                 script {
-                    def dockerComposeTemplate = """
-                    services:
-                        {{ APP_NAME }}:
-                            image: {{ IMAGE_NAME }}
-                            ports:
-                            - "80:80"
-                            restart: always
-                    """
+def dockerComposeTemplate = """
+services:
+    {{ APP_NAME }}:
+        image: {{ IMAGE_NAME }}
+        ports:
+        - "80:80"
+"""
                     def dockerCompose = dockerComposeTemplate.replaceAll('\\{\\{ APP_NAME \\}\\}', "$REPO_NAME").replaceAll('\\{\\{ IMAGE_NAME \\}\\}',"$IMAGE_NAME")
                     echo "docker compose file: $dockerCompose"
                     withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'HostKey', keyFileVariable: 'HOST_PRIVATE_KEY')]) {
                     sh """ssh -i $HOST_PRIVATE_KEY -o StrictHostKeyChecking=no $HOST_USERNAME@$HOST_IP  << EOF
                     docker login -u \$ARTIFACTORY_USERNAME -p \$ARTIFACTORY_PASSWORD $ARTIFACTORY_URL
-                    echo $dockerCompose > docker-compose.yaml
+                    echo "$dockerCompose" > docker-compose.yaml
                     docker compose up -d
                     exit
                     EOF"""
