@@ -20,6 +20,8 @@ pipeline {
             steps {
                 echo 'Generating release tag...'
                 echo "RELEASE TAG: $VERSION"
+                sh "git tag $VERSION"
+                sh "git push origin --tags"
             }
         }
         
@@ -32,7 +34,7 @@ pipeline {
             }
             steps{
             script {
-            if (hasFileChanged("package.json")) {
+            if (hasFileChanged("package.json") || !fileExists('node_modules')) {
                         echo "package.json has changed. Installing dependencies..."
                         sh 'yarn install'
             } else {
@@ -71,7 +73,7 @@ pipeline {
         stage('Build & Push Docker Image') {
             steps {
                 script {
-                    sh "docker login -u $ARTIFACTORY_USERNAME -p $ARTIFACTORY_PASSWORD $ARTIFACTORY_URL"
+                    sh "docker login -u \$ARTIFACTORY_USERNAME -p \$ARTIFACTORY_PASSWORD $ARTIFACTORY_URL"
                     echo "Generating $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION image..."
                     sh "docker build -t $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION ."
                     sh "docker push $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION"
