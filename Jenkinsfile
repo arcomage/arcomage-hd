@@ -93,32 +93,35 @@ pipeline {
             }
     }
 }
-   post {
-        success {
-            script{
-                echo "Subject: Jenkins Build Success: ${currentBuild.fullDisplayName}"
-                echo "Body: The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}"
-                echo "Recipient: ${ARTIFACTORY_USERNAME}"
-            }
+post {
+    success {
+        script {
+            def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
+            echo "Subject: Jenkins Build Success: ${currentBuild.fullDisplayName}"
+            echo "Body: The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}"
+            echo "Recipient: ${committerEmail}"
             emailext (
                 subject: "Jenkins Build Success: ${currentBuild.fullDisplayName}",
                 body: "The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}",
-                to: "$ARTIFACTORY_USERNAME",
-            )
-        }
-        failure {
-            script{
-                echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
-                echo "Body: The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}"
-                echo "Recipient: ${ARTIFACTORY_USERNAME}"
-            }
-            emailext (
-                subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
-                body: "The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}",
-                to: "$ARTIFACTORY_USERNAME",
+                to: "${committerEmail}",
             )
         }
     }
+    failure {
+        script {
+            def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
+            echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
+            echo "Body: The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}"
+            echo "Recipient: ${committerEmail}"
+            emailext (
+                subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
+                body: "The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}",
+                to: "${committerEmail}",
+            )
+        }
+    }
+}
+
 }
 
 
