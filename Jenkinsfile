@@ -98,24 +98,24 @@ pipeline {
             script{
                 echo "Subject: Jenkins Build Success: ${currentBuild.fullDisplayName}"
                 echo "Body: The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}"
-                echo "Recipient: ${GIT_COMMITTER_EMAIL}"
+                echo "Recipient: ${ARTIFACTORY_USERNAME}"
             }
             emailext (
                 subject: "Jenkins Build Success: ${currentBuild.fullDisplayName}",
                 body: "The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}",
-                to: "$GIT_COMMITTER_EMAIL",
+                to: "$ARTIFACTORY_USERNAME",
             )
         }
         failure {
             script{
                 echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
-                echo "Body: The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}"
-                echo "Recipient: ${GIT_COMMITTER_EMAIL}"
+                echo "Body: The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}"
+                echo "Recipient: ${ARTIFACTORY_USERNAME}"
             }
             emailext (
                 subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
                 body: "The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}",
-                to: "$GIT_COMMITTER_EMAIL",
+                to: "$ARTIFACTORY_USERNAME",
             )
         }
     }
