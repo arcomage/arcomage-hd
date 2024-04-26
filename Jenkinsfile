@@ -81,15 +81,16 @@ pipeline {
                 }
             }
         }
-        stage('Deploy Docker Image') {
+        stage('Deploy App') {
             steps {
                 script {
+                    def dockerComposeTemplate = composeTemplate.replaceAll('{{ APP_NAME }}', "$REPO_NAME").replaceAll('{{ IMAGE_NAME }}',"$IMAGE_NAME")
+                    echo "docker compose file: $dockerCompose"
                     withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'HostKey', keyFileVariable: 'HOST_PRIVATE_KEY')]) {
                     sh """ssh -i $HOST_PRIVATE_KEY -o StrictHostKeyChecking=no $HOST_USERNAME@$HOST_IP  << EOF
                     docker login -u \$ARTIFACTORY_USERNAME -p \$ARTIFACTORY_PASSWORD $ARTIFACTORY_URL
-                    docker pull $IMAGE_NAME
-                    docker stop $REPO_NAME || true
-                    docker run -d -p 80:80 --name $REPO_NAME $IMAGE_NAME
+                    echo $dockerCompose > docker-compose.yaml
+                    docker compose up -d
                     exit
                     EOF"""
                 }
@@ -128,7 +129,15 @@ post {
 
 }
 
-
+def dockerComposeTemplate = """
+version: '3'
+services:
+  {{ APP_NAME }}:
+    image: {{ IMAGE_NAME }}
+    ports:
+      - "80:80"
+    restart: always
+"""
 
 def extractRepositoryName() {
     return sh(script: 'basename -s .git ${GIT_URL}', returnStdout: true).trim()

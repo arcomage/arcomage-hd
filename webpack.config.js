@@ -8,7 +8,7 @@ const childProcess = require('child_process')
 const crypto = require('crypto')
 const fs = require('fs')
 
-const homeUrl = 'https://arcomage.github.io/'
+const homeUrl = ''
 
 module.exports = (env, argv) => {
   const dev = argv.mode === 'development'
