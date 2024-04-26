@@ -13,6 +13,7 @@ pipeline {
         ARTIFACTORY_PASSWORD=credentials('JFrogPassword')
         HOST_USERNAME='ubuntu'
         HOST_IP='13.49.44.93'
+        IMAGE_NAME="$ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION"
     }
 
     stages {
@@ -74,9 +75,9 @@ pipeline {
             steps {
                 script {
                     sh "docker login -u \$ARTIFACTORY_USERNAME -p \$ARTIFACTORY_PASSWORD $ARTIFACTORY_URL"
-                    echo "Generating $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION image..."
-                    sh "docker build -t $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION ."
-                    sh "docker push $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION"
+                    echo "Generating $IMAGE_NAME image..."
+                    sh "docker build -t $IMAGE_NAME ."
+                    sh "docker push $IMAGE_NAME"
                 }
             }
         }
@@ -85,9 +86,9 @@ pipeline {
                 script {
                     withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'HostKey', keyFileVariable: 'HOST_PRIVATE_KEY')]) {
                     sh """ssh -i $HOST_PRIVATE_KEY -o StrictHostKeyChecking=no $HOST_USERNAME@$HOST_IP  << EOF
-                    docker pull $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION
+                    docker pull $IMAGE_NAME
                     docker stop $REPO_NAME || true
-                    docker run -d -p 80:80 --name $REPO_NAME $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION
+                    docker run -d -p 80:80 --name $REPO_NAME $IMAGE_NAME
                     exit
                     EOF"""
                 }
