@@ -86,6 +86,7 @@ pipeline {
                 script {
                     withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'HostKey', keyFileVariable: 'HOST_PRIVATE_KEY')]) {
                     sh """ssh -i $HOST_PRIVATE_KEY -o StrictHostKeyChecking=no $HOST_USERNAME@$HOST_IP  << EOF
+                    docker login -u \$ARTIFACTORY_USERNAME -p \$ARTIFACTORY_PASSWORD $ARTIFACTORY_URL
                     docker pull $IMAGE_NAME
                     docker stop $REPO_NAME || true
                     docker run -d -p 80:80 --name $REPO_NAME $IMAGE_NAME
