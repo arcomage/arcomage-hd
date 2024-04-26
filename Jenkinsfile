@@ -84,7 +84,7 @@ pipeline {
         stage('Deploy App') {
             steps {
                 script {
-                    def dockerComposeTemplate = composeTemplate.replaceAll('{{ APP_NAME }}', "$REPO_NAME").replaceAll('{{ IMAGE_NAME }}',"$IMAGE_NAME")
+                    def dockerCompose = dockerComposeTemplate.replaceAll('{{ APP_NAME }}', "$REPO_NAME").replaceAll('{{ IMAGE_NAME }}',"$IMAGE_NAME")
                     echo "docker compose file: $dockerCompose"
                     withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'HostKey', keyFileVariable: 'HOST_PRIVATE_KEY')]) {
                     sh """ssh -i $HOST_PRIVATE_KEY -o StrictHostKeyChecking=no $HOST_USERNAME@$HOST_IP  << EOF
