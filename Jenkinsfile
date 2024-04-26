@@ -9,8 +9,8 @@ pipeline {
         REPO_NAME = extractRepositoryName()
         NODE_IMAGE = 'node:16'
         ARTIFACTORY_URL='demosiemensali.jfrog.io'
-        ARTIFACTORY_USERNAME=credentials('JFrogUsername').getPlain()
-        ARTIFACTORY_PASSWORD=credentials('JFrogPassword').getPlain()
+        ARTIFACTORY_USERNAME=credentials('JFrogUsername')
+        ARTIFACTORY_PASSWORD=credentials('JFrogPassword')
         HOST_USERNAME='ubuntu'
         HOST_IP='13.49.44.93'
     }
@@ -81,7 +81,7 @@ pipeline {
         stage('Deploy Docker Image') {
             steps {
                 script {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'HostKey', keyFileVariable: 'HOST_PRIVATE_KEY')]) {
+                    withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'HostKey', keyFileVariable: 'HOST_PRIVATE_KEY')]) {
                     sh """ssh -i $HOST_PRIVATE_KEY -o StrictHostKeyChecking=no $HOST_USERNAME@$HOST_IP  << EOF
                     docker pull $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION
                     docker stop $REPO_NAME || true
