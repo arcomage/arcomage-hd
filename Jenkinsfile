@@ -1,13 +1,15 @@
 pipeline {
     agent {
-        label 'vm-agent'
-    }    
+        label '4gb-vm-agent'
+    } 
+
     environment {
         CI = 'true'
-        VERSION = '1.0.0'
-        REPO_NAME = ''
+        VERSION = extractVersionNumber()
+        REPO_NAME = extractRepositoryName()
         NODE_IMAGE = 'node:16'
     }
+
     stages {
         stage('Generate Release Tag') {
             steps {
@@ -58,8 +60,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Extract repository name
-                    REPO_NAME = extractRepositoryName()
                     echo "Generating ${REPO_NAME}:${VERSION} image..."
                     docker.build("${REPO_NAME}:${VERSION}", " .")
                 }
@@ -69,4 +69,8 @@ pipeline {
 }
 def extractRepositoryName() {
     return sh(script: 'basename -s .git ${GIT_URL}', returnStdout: true).trim()
+}
+def extractVersionNumber(){
+    def packageJson = readJSON file: 'package.json'
+    return packageJson.version 
 }
