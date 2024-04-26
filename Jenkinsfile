@@ -21,7 +21,7 @@ pipeline {
                 echo 'Generating release tag...'
                 echo "RELEASE TAG: $VERSION"
                 sh "git tag $VERSION"
-                sh "git push origin --tags"
+                //sh "git push origin --tags"
             }
         }
         
