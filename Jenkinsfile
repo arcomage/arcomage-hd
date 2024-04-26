@@ -84,6 +84,15 @@ pipeline {
         stage('Deploy App') {
             steps {
                 script {
+                    def dockerComposeTemplate = """
+                        version: '3'
+                        services:
+                        {{ APP_NAME }}:
+                            image: {{ IMAGE_NAME }}
+                            ports:
+                            - "80:80"
+                            restart: always
+                    """
                     def dockerCompose = dockerComposeTemplate.replaceAll('{{ APP_NAME }}', "$REPO_NAME").replaceAll('{{ IMAGE_NAME }}',"$IMAGE_NAME")
                     echo "docker compose file: $dockerCompose"
                     withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'HostKey', keyFileVariable: 'HOST_PRIVATE_KEY')]) {
@@ -129,15 +138,7 @@ post {
 
 }
 
-def dockerComposeTemplate = """
-version: '3'
-services:
-  {{ APP_NAME }}:
-    image: {{ IMAGE_NAME }}
-    ports:
-      - "80:80"
-    restart: always
-"""
+
 
 def extractRepositoryName() {
     return sh(script: 'basename -s .git ${GIT_URL}', returnStdout: true).trim()
