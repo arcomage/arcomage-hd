@@ -8,6 +8,11 @@ pipeline {
         VERSION = extractVersionNumber()
         REPO_NAME = extractRepositoryName()
         NODE_IMAGE = 'node:16'
+        ARTIFACTORY_URL='demosiemensali.jfrog.io'
+        ARTIFACTORY_USERNAME=credentials('JFrogUsername').getPlain()
+        ARTIFACTORY_PASSWORD=credentials('JFrogPassword').getPlain()
+        HOST_USERNAME='ubuntu'
+        HOST_IP='13.49.44.93'
     }
 
     stages {
@@ -25,9 +30,15 @@ pipeline {
                     reuseNode true
                 }
             }
-            steps {
-                echo 'Installing dependencies...'
-                sh 'yarn install'
+            steps{
+            script {
+            if (hasFileChanged("package.json")) {
+                        echo "package.json has changed. Installing dependencies..."
+                        sh 'yarn install'
+            } else {
+                        echo "File package.json has not changed. Skipping dependency installation."
+                    }
+            }
             }
         }
         
@@ -57,20 +68,74 @@ pipeline {
             }
         }
         
-        stage('Build Docker Image') {
+        stage('Build & Push Docker Image') {
             steps {
                 script {
-                    echo "Generating ${REPO_NAME}:${VERSION} image..."
-                    docker.build("${REPO_NAME}:${VERSION}", " .")
+                    sh "docker login -u $ARTIFACTORY_USERNAME -p $ARTIFACTORY_PASSWORD $ARTIFACTORY_URL"
+                    echo "Generating $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION image..."
+                    sh "docker build -t $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION ."
+                    sh "docker push $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION"
+                }
+            }
+        }
+        stage('Deploy Docker Image') {
+            steps {
+                script {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'HostKey', keyFileVariable: 'HOST_PRIVATE_KEY')]) {
+                    sh """ssh -i $HOST_PRIVATE_KEY -o StrictHostKeyChecking=no $HOST_USERNAME@$HOST_IP  << EOF
+                    docker pull $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION
+                    docker stop $REPO_NAME || true
+                    docker run -d -p 80:80 --name $REPO_NAME $ARTIFACTORY_URL/$REPO_NAME/$REPO_NAME:$VERSION
+                    exit
+                    EOF"""
+                }
                 }
             }
     }
 }
+   post {
+        success {
+            script{
+                echo "Subject: Jenkins Build Success: ${currentBuild.fullDisplayName}"
+                echo "Body: The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}"
+                echo "Recipient: ${GIT_COMMITTER_EMAIL}"
+            }
+            emailext (
+                subject: "Jenkins Build Success: ${currentBuild.fullDisplayName}",
+                body: "The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}",
+                to: "$GIT_COMMITTER_EMAIL",
+            )
+        }
+        failure {
+            script{
+                echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
+                echo "Body: The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}"
+                echo "Recipient: ${GIT_COMMITTER_EMAIL}"
+            }
+            emailext (
+                subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
+                body: "The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}",
+                to: "$GIT_COMMITTER_EMAIL",
+            )
+        }
+    }
 }
+
+
+
 def extractRepositoryName() {
     return sh(script: 'basename -s .git ${GIT_URL}', returnStdout: true).trim()
 }
 def extractVersionNumber(){
     def packageJson = readJSON file: 'package.json'
     return packageJson.version 
+}
+def hasFileChanged(file) {
+    def currentCommit = sh(script: 'git rev-parse HEAD', returnStdout: true).trim()
+    def previousCommit = sh(script: 'git rev-parse HEAD^', returnStdout: true).trim()
+
+    def diffCommand = "git diff --name-only ${previousCommit} ${currentCommit}"
+    def diffOutput = sh(script: diffCommand, returnStdout: true).trim()
+
+    return diffOutput.contains(file)
 }
