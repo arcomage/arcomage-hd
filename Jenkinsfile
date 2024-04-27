@@ -45,6 +45,13 @@ pipeline {
           }
         }
       }
+      post{
+        success{
+            script{
+                archiveArtifacts artifacts: 'node_modules', followSymlinks: false
+            }
+        }
+      }
     }
 
     stage('Generate Build') {
@@ -86,25 +93,11 @@ pipeline {
       }
       post {
         always {
-            node("4gb-vm-agent"){
             script {
-              junit 'junit.xml'
-              jf 'c show'
-
-              // Ping Artifactory.
-              jf 'rt ping'
-              def jfrogTestResultsDirectory = "test-results-virtual"
-              def testResultsFile = 'junit.xml'
-
-              // Create a file and upload it to a repository 
-              jf "rt u $testResultsFile /$jfrogTestResultsDirectory"
-
-              // Publish the build-info to Artifactory.
-              jf 'rt bp'
-            }
-            }
+              junit allowEmptyResults: true, testResults: 'junit.xml'
         }
       }
+    }
     }
 
     stage('Build & Push Docker Image') {
@@ -152,6 +145,23 @@ services:
           } else {
             echo "Application is up and running. APPLICATION URL: $APP_URL"
           }
+        }
+      }
+    }
+    stage('Push Artifacts') {
+      steps {
+        script {
+              jf 'c show'
+              // Ping Artifactory.
+              jf 'rt ping'
+              def jfrogTestResultsDirectory = "test-results-artifacts"
+              def jfrogModulesDirectory="node-modules-artifacts"
+              def jfrogBuildsDirectory="build-artifacts"
+              def testResultsFile = 'junit.xml'
+              jf "rt u $testResultsFile /$jfrogTestResultsDirectory"
+              jf "rt u node_modules/* /$jfrogModulesDirectory"
+              jf "rt u dist/* /$jfrogBuildsDirectory"
+              jf 'rt bp'
         }
       }
     }
