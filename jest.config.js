@@ -21,4 +21,5 @@ module.exports = {
   },
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!<rootDir>/src/utils/devLog.ts'],
   coverageDirectory: '<rootDir>/coverage/',
+  testResultsProcessor: "jest-junit"
 }

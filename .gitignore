@@ -165,3 +165,4 @@ Thumbs.db
 # General
 log/
 *.log
+junit.xml
