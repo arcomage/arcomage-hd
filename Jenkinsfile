@@ -48,7 +48,7 @@ pipeline {
       post{
         success{
             script{
-                archiveArtifacts artifacts: 'node_modules', followSymlinks: false
+                archiveArtifacts artifacts: 'node_modules/**', followSymlinks: false
             }
         }
       }
