@@ -88,8 +88,6 @@ pipeline {
         always {
             node("4gb-vm-agent"){
             script {
-              sh "pwd"
-              sh "ls"
               junit 'junit.xml'
               jf 'c show'
 
