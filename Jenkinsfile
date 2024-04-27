@@ -86,6 +86,7 @@ pipeline {
       }
       post {
         always {
+            node("4gb-vm-agent"){
             script {
               junit 'junit.xml'
               jf 'c show'
@@ -100,6 +101,7 @@ pipeline {
 
               // Publish the build-info to Artifactory.
               jf 'rt bp'
+            }
             }
         }
       }
