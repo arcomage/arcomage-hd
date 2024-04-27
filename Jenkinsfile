@@ -150,12 +150,12 @@ services:
               def jfrogTestResultsDirectory = "test-results-artifacts"
               def jfrogModulesDirectory="node-modules-artifacts"
               def jfrogBuildsDirectory="build-artifacts"
-              sh "cp junit.xml junit_$BUILD_NUMBER.xml"
+              sh "cp junit.xml junit_${BUILD_NUMBER}.xml"
               echo "Uploading test results to JFrog..."
-              jf "rt u junit_$BUILD_NUMBER.xml /$jfrogTestResultsDirectory"
+              jf "rt u junit_${BUILD_NUMBER}.xml /$jfrogTestResultsDirectory"
               //jf "rt u node_modules/* /$jfrogModulesDirectory"
-              sh "zip -r dist_$VERSION.zip"
-              jf "rt u dist_$VERSION.zip /$jfrogBuildsDirectory"
+              sh "zip -r dist_${VERSION}.zip"
+              jf "rt u dist_${VERSION}.zip /$jfrogBuildsDirectory"
               jf 'rt bp'
         }
       }
