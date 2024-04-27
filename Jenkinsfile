@@ -154,7 +154,7 @@ services:
               echo "Uploading test results to JFrog..."
               jf "rt u junit_${BUILD_NUMBER}.xml /$jfrogTestResultsDirectory"
               //jf "rt u node_modules/* /$jfrogModulesDirectory"
-              sh "zip -r dist_${VERSION}.zip"
+              sh "zip -r dist_${VERSION}.zip dist"
               jf "rt u dist_${VERSION}.zip /$jfrogBuildsDirectory"
               jf 'rt bp'
         }
