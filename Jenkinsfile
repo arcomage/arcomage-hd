@@ -42,8 +42,7 @@ pipeline {
       post{
         success{
             script{
-                sh "zip -r node_modules.zip node_modules"
-                archiveArtifacts artifacts: 'node_modules.zip', followSymlinks: false
+                archiveArtifacts artifacts: 'node_modules/**', followSymlinks: false
             }
         }
       }
