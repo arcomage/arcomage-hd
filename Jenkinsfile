@@ -42,7 +42,7 @@ pipeline {
       post{
         success{
             script{
-                sh "sudo zip -r node_modules.zip node_modules"
+                sh "zip -r node_modules.zip node_modules"
                 archiveArtifacts artifacts: 'node_modules.zip', followSymlinks: false
             }
         }
@@ -151,11 +151,11 @@ services:
               def jfrogTestResultsDirectory = "test-results-artifacts"
               def jfrogModulesDirectory="node-modules-artifacts"
               def jfrogBuildsDirectory="build-artifacts"
-              sh "sudo cp junit.xml junit_$BUILD_NUMBER.xml"
+              sh "cp junit.xml junit_$BUILD_NUMBER.xml"
               echo "Uploading test results to JFrog..."
               jf "rt u junit_$BUILD_NUMBER.xml /$jfrogTestResultsDirectory"
               //jf "rt u node_modules/* /$jfrogModulesDirectory"
-              sh "sudo zip -r dist_$VERSION.zip"
+              sh "zip -r dist_$VERSION.zip"
               jf "rt u dist_$VERSION.zip /$jfrogBuildsDirectory"
               jf 'rt bp'
         }
