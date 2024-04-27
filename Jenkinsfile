@@ -36,19 +36,14 @@ pipeline {
         }
       }
       steps {
-        script {
-          if (hasFileChanged("package.json") || !fileExists('node_modules')) {
-            echo "package.json has changed. Installing dependencies..."
+            echo "Installing dependencies..."
             sh 'yarn install'
-          } else {
-            echo "File package.json has not changed. Skipping dependency installation."
-          }
-        }
       }
       post{
         success{
             script{
-                archiveArtifacts artifacts: 'node_modules/**', followSymlinks: false
+                sh "sudo zip -r node_modules.zip node_modules"
+                archiveArtifacts artifacts: 'node_modules.zip', followSymlinks: false
             }
         }
       }
@@ -152,15 +147,16 @@ services:
       steps {
         script {
               jf 'c show'
-              // Ping Artifactory.
               jf 'rt ping'
               def jfrogTestResultsDirectory = "test-results-artifacts"
               def jfrogModulesDirectory="node-modules-artifacts"
               def jfrogBuildsDirectory="build-artifacts"
-              def testResultsFile = 'junit.xml'
-              jf "rt u $testResultsFile /$jfrogTestResultsDirectory"
-              jf "rt u node_modules/* /$jfrogModulesDirectory"
-              jf "rt u dist/* /$jfrogBuildsDirectory"
+              sh "sudo cp junit.xml junit_$BUILD_NUMBER.xml"
+              echo "Uploading test results to JFrog..."
+              jf "rt u junit_$BUILD_NUMBER.xml /$jfrogTestResultsDirectory"
+              //jf "rt u node_modules/* /$jfrogModulesDirectory"
+              sh "sudo zip -r dist_$VERSION.zip"
+              jf "rt u dist_$VERSION.zip /$jfrogBuildsDirectory"
               jf 'rt bp'
         }
       }
