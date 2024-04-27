@@ -86,7 +86,6 @@ pipeline {
       }
       post {
         always {
-          steps {
             script {
               junit 'junit.xml'
               jf 'c show'
@@ -102,7 +101,6 @@ pipeline {
               // Publish the build-info to Artifactory.
               jf 'rt bp'
             }
-          }
         }
       }
     }
@@ -158,7 +156,6 @@ services:
   }
   post {
     success {
-      steps {
         script {
           def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
           echo "Subject: Jenkins Build Success: ${currentBuild.fullDisplayName}"
@@ -170,10 +167,8 @@ services:
             to: "${committerEmail}",
           )
         }
-      }
     }
     failure {
-      steps {
         script {
           def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
           echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
@@ -185,7 +180,6 @@ services:
             to: "${committerEmail}",
           )
         }
-      }
     }
   }
 
