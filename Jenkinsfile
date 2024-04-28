@@ -22,20 +22,11 @@ pipeline {
   }
 
   stages {
-    stage('Print Release Version & Testing Email sending') {
+    stage('Create Release Tag') {
       steps {
         echo "RELEASE TAG: $VERSION"
-        script {
-          def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
-          echo "Recipient: ${committerEmail}"
-          echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
-          echo "Body: The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}"
-          emailext(
-            subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
-            body: "The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}",
-            to: "${committerEmail}",
-          )
-        }
+        sh "git tag -f $VERSION"
+        sh "git push origin --tags"
       }
     }
 
@@ -176,7 +167,7 @@ services:
     success {
         script {
           def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
-          echo "Recipient: ${committerEmail}"
+          echo "Receiver Email: ${committerEmail}"
           echo "Subject: Jenkins Build Success: ${currentBuild.fullDisplayName}"
           echo "Body: The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}"
           emailext(
@@ -189,7 +180,7 @@ services:
     failure {
         script {
           def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
-          echo "Recipient: ${committerEmail}"
+          echo "Receiver Email: ${committerEmail}"
           echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
           echo "Body: The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}"
           emailext(
