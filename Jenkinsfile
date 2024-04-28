@@ -112,7 +112,7 @@ pipeline {
         script {
           sh "docker login -u \$ARTIFACTORY_USERNAME -p \$ARTIFACTORY_PASSWORD $ARTIFACTORY_URL"
           echo "Generating $IMAGE_NAME image..."
-          if fileExists("dist"){
+          if (fileExists("dist")){
           echo "Build folder found, building from nginx Dockerfile..."
            sh "docker build -t $IMAGE_NAME ."           
           }
