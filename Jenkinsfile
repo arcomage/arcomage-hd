@@ -22,9 +22,20 @@ pipeline {
   }
 
   stages {
-    stage('Print Release Version') {
+    stage('Print Release Version & Testing Email sending') {
       steps {
         echo "RELEASE TAG: $VERSION"
+        script {
+          def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
+          echo "Recipient: ${committerEmail}"
+          echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
+          echo "Body: The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}"
+          emailext(
+            subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
+            body: "The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}",
+            to: "${committerEmail}",
+          )
+        }
       }
     }
 
@@ -150,12 +161,12 @@ services:
               def jfrogTestResultsDirectory = "test-results-artifacts"
               def jfrogModulesDirectory="node-modules-artifacts"
               def jfrogBuildsDirectory="build-artifacts"
-              sh "cp junit.xml junit_${BUILD_NUMBER}.xml"
+              sh "cp junit.xml junit_${REPO_NAME}_${BUILD_NUMBER}.xml"
               echo "Uploading test results to JFrog..."
-              jf "rt u junit_${BUILD_NUMBER}.xml /$jfrogTestResultsDirectory"
+              jf "rt u junit_${REPO_NAME}_${BUILD_NUMBER}.xml /$jfrogTestResultsDirectory"
               //jf "rt u node_modules/* /$jfrogModulesDirectory"
-              sh "zip -r dist_${VERSION}.zip dist"
-              jf "rt u dist_${VERSION}.zip /$jfrogBuildsDirectory"
+              sh "zip -r dist_${REPO_NAME}_${VERSION}.zip dist"
+              jf "rt u dist_${REPO_NAME}_${VERSION}.zip /$jfrogBuildsDirectory"
               jf 'rt bp'
         }
       }
@@ -165,9 +176,9 @@ services:
     success {
         script {
           def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
+          echo "Recipient: ${committerEmail}"
           echo "Subject: Jenkins Build Success: ${currentBuild.fullDisplayName}"
           echo "Body: The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}"
-          echo "Recipient: ${committerEmail}"
           emailext(
             subject: "Jenkins Build Success: ${currentBuild.fullDisplayName}",
             body: "The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}",
@@ -178,9 +189,9 @@ services:
     failure {
         script {
           def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
+          echo "Recipient: ${committerEmail}"
           echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
           echo "Body: The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}"
-          echo "Recipient: ${committerEmail}"
           emailext(
             subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
             body: "The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}",
