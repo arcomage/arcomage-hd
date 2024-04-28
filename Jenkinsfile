@@ -48,6 +48,12 @@ pipeline {
         }
       }
       steps {
+        script{
+          if(!fileExists("node_modules"))
+          {
+            sh "yarn install"
+          }
+        }
         echo 'Generating build folder...'
         sh 'yarn build'
       }
@@ -61,6 +67,12 @@ pipeline {
         }
       }
       steps {
+          script{
+          if(!fileExists("node_modules"))
+          {
+            sh "yarn install"
+          }
+        }
         echo 'Running Linting...'
         sh 'yarn lint-staged'
       }
@@ -74,6 +86,12 @@ pipeline {
         }
       }
       steps {
+        script{
+          if(!fileExists("node_modules"))
+          {
+            sh "yarn install"
+          }
+        }
         echo 'Running Tests...'
         sh 'yarn test'
       }
@@ -94,7 +112,14 @@ pipeline {
         script {
           sh "docker login -u \$ARTIFACTORY_USERNAME -p \$ARTIFACTORY_PASSWORD $ARTIFACTORY_URL"
           echo "Generating $IMAGE_NAME image..."
-          sh "docker build -t $IMAGE_NAME ."
+          if fileExists("dist"){
+          echo "Build folder found, building from nginx Dockerfile..."
+           sh "docker build -t $IMAGE_NAME ."           
+          }
+          else{
+          echo "Build folder not found, building from multistaged Dockerfile..."
+          sh "docker build -t $IMAGE_NAME -f Dockerfile.multistage ."
+          }
           sh "docker push $IMAGE_NAME"
         }
       }
@@ -133,7 +158,7 @@ services:
       }
       steps {
         script {
-          echo "Making sure application is running..."
+          echo "Making sure application is running after new deployment..."
           def status = sh(script: "curl -Is $APP_URL | head -1 | cut -d' ' -f2", returnStdout: true).trim()
           if (status != '200') {
             error "ERROR: Application is not running on $APP_URL"
@@ -188,7 +213,7 @@ services:
       }
     }
   }
-  
+
   post {
     success {
         script {
