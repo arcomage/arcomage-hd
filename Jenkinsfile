@@ -3,9 +3,7 @@ pipeline {
     label '4gb-vm-agent'
   }
 
-  tools {
-    jfrog 'jfrog-cli'
-  }
+
 
   environment {
     CI = 'true'
@@ -22,14 +20,6 @@ pipeline {
   }
 
   stages {
-    stage('Create Release Tag') {
-      steps {
-        echo "RELEASE TAG: $VERSION"
-        sh "git tag -f $VERSION"
-        sh "git push origin --tags"
-      }
-    }
-
     stage('Install dependencies') {
       agent {
         docker {
@@ -97,6 +87,9 @@ pipeline {
     }
 
     stage('Build & Push Docker Image') {
+      when {
+        branch 'main'
+      }
       steps {
         script {
           sh "docker login -u \$ARTIFACTORY_USERNAME -p \$ARTIFACTORY_PASSWORD $ARTIFACTORY_URL"
@@ -108,6 +101,9 @@ pipeline {
     }
 
     stage('Deploy App') {
+      when {
+        branch 'main'
+      }
       steps {
         script {
 def dockerComposeTemplate = """
@@ -132,6 +128,9 @@ services:
     }
 
     stage('Status Test') {
+      when {
+        branch 'main'
+      }
       steps {
         script {
           echo "Making sure application is running..."
@@ -144,49 +143,76 @@ services:
         }
       }
     }
+
+    stage('Create Release Tag') {
+      when {
+        branch 'main'
+      }
+      steps {
+        echo "RELEASE TAG: $VERSION"
+        sh "git tag -f $VERSION"
+        sh "git push -f origin --tags"
+      }
+    }
+
+
     stage('Push Artifacts') {
+      when{
+      expression {
+          !pipelineIsManuallyTriggered()
+        }
+      }
+      tools {
+          jfrog 'jfrog-cli'
+      }
       steps {
         script {
               jf 'c show'
               jf 'rt ping'
               def jfrogTestResultsDirectory = "test-results-artifacts"
-              def jfrogModulesDirectory="node-modules-artifacts"
               def jfrogBuildsDirectory="build-artifacts"
-              sh "cp junit.xml junit_${REPO_NAME}_${BUILD_NUMBER}.xml"
-              echo "Uploading test results to JFrog..."
-              jf "rt u junit_${REPO_NAME}_${BUILD_NUMBER}.xml /$jfrogTestResultsDirectory"
-              //jf "rt u node_modules/* /$jfrogModulesDirectory"
-              sh "zip -r dist_${REPO_NAME}_${VERSION}.zip dist"
-              jf "rt u dist_${REPO_NAME}_${VERSION}.zip /$jfrogBuildsDirectory"
+              def builds_tag="${REPO_NAME}_${GIT_BRANCH}_${VERSION}"
+              def tests_tag="${REPO_NAME}_${GIT_BRANCH}_${BUILD_NUMBER}"
+              def test_results_file = "junit.xml"
+              def jfrog_tests_file = "junit_${tests_tag}.xml"
+              def build_folder = "dist"
+              def jfrog_build_archive = "dist_${builds_tag}.zip"
+              echo "Uploading $jfrog_tests_file test results file to JFrog..."
+              sh "cp $test_results_file $jfrog_tests_file"
+              jf "rt u $jfrog_tests_file /$jfrogTestResultsDirectory"
+              echo "Uploading $jfrog_build_archive build archive to JFrog..."
+              sh "zip -r $jfrog_build_archive $build_folder"
+              jf "rt u $jfrog_build_archive /$jfrogBuildsDirectory"
               jf 'rt bp'
         }
       }
     }
   }
+  
   post {
     success {
         script {
           def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
-          echo "Receiver Email: ${committerEmail}"
+          echo "Receiver Email: $committerEmail"
           echo "Subject: Jenkins Build Success: ${currentBuild.fullDisplayName}"
           echo "Body: The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}"
           emailext(
             subject: "Jenkins Build Success: ${currentBuild.fullDisplayName}",
             body: "The Jenkins build ${currentBuild.fullDisplayName} succeeded. Build URL: ${BUILD_URL}",
-            to: "${committerEmail}",
+            to: "$committerEmail",
           )
         }
     }
     failure {
         script {
           def committerEmail = sh(script: 'git log --format="%ae" | head -1', returnStdout: true).trim()
-          echo "Receiver Email: ${committerEmail}"
+          echo "Receiver Email: $committerEmail"
           echo "Subject: Jenkins Build Failure: ${currentBuild.fullDisplayName}"
           echo "Body: The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}"
           emailext(
             subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
             body: "The Jenkins build ${currentBuild.fullDisplayName} failed. Build URL: ${BUILD_URL}",
-            to: "${committerEmail}",
+            to: "$committerEmail",
           )
         }
     }
@@ -209,4 +235,7 @@ def hasFileChanged(file) {
   def diffOutput = sh(script: diffCommand, returnStdout: true).trim()
 
   return diffOutput.contains(file)
+}
+def pipelineIsManuallyTriggered(){
+  return currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
 }

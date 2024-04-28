@@ -1,6 +1,0 @@
-services:
-  {{ APP_NAME }}:
-    image: {{ IMAGE_NAME }}  # Specify the Docker image for your application
-    ports:
-      - "80:80" 
-    restart: always
