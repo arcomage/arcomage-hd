@@ -182,11 +182,6 @@ services:
 
 
     stage('Push Artifacts') {
-      when{
-      expression {
-          !pipelineIsManuallyTriggered()
-        }
-      }
       tools {
           jfrog 'jfrog-cli'
       }
@@ -202,11 +197,15 @@ services:
               def jfrog_tests_file = "junit_${tests_tag}.xml"
               def build_folder = "dist"
               def jfrog_build_archive = "dist_${builds_tag}.zip"
+              if fileExists(test_results_file){
               echo "Uploading $jfrog_tests_file test results file to JFrog..."
               sh "cp $test_results_file $jfrog_tests_file"
               jf "rt u $jfrog_tests_file /$jfrogTestResultsDirectory"
+              }
+              if fileExists(build_folder){
               echo "Uploading $jfrog_build_archive build archive to JFrog..."
               sh "zip -r $jfrog_build_archive $build_folder"
+              }
               jf "rt u $jfrog_build_archive /$jfrogBuildsDirectory"
               jf 'rt bp'
         }
