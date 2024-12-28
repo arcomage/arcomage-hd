@@ -17,6 +17,7 @@
 
 ## Tools
 
+- `yarn tool:ts`: run TypeScript file directly (e.g. `yarn tool:ts ./abcde.ts`)
 - `yarn tool:zhconvert`: zh-Hans to zh-Hant conversion ('cards' & 'main', not 'taverns')
 - `yarn tool:imgpc`: extract (crop) images from the big image of the original game
 - `yarn tool:imgmin`: minify images (_./img-min/original_ stores minified PNG images before their conversion to .webp)

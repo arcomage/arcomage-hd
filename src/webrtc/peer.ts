@@ -1,4 +1,4 @@
-import Peer from 'peerjs'
+import Peer, { DataConnection } from 'peerjs'
 import icelist from './icelist'
 
 const config = {
@@ -14,8 +14,9 @@ const config = {
 
 type ConnectionType = {
   peer: Peer | null
-  conn: Peer.DataConnection | null
+  conn: DataConnection | null
 }
+
 export const peerAll: ConnectionType = {
   peer: null,
   conn: null,

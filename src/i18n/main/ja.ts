@@ -56,6 +56,11 @@ export const i18n = {
 
   'Starting Conditions': '開始条件',
   'Victory Conditions': '勝利条件',
+
+  'Minimum is starting %s + 1': 'Minimum is starting %s + 1',
+  'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1':
+    'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1',
+
   'Other Preferences': 'その他の設定',
   'Cards in Hand': '手札のカード数',
 
@@ -106,6 +111,7 @@ export const i18n = {
   Mute: 'ミュート',
   'Stereo Sound': '立体音',
   Graphics: '視覚',
+  'Disable animation': 'Disable animation',
   Pixelation: 'ピクセル化',
   'Visual Preset': '視覚プリセット',
   'Filter may slow down the game': 'フィルターでゲームが遅くなることがある',

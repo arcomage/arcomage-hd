@@ -5,11 +5,17 @@ import NumberDiff from '../../src/components/effects/NumberDiff'
 import AnimatedNumber from '../../src/components/effects/AnimatedNumber'
 import NumberChangeVisual from '../../src/components/effects/NumberChangeVisual'
 import { act } from 'react-dom/test-utils'
+import { Provider } from 'react-redux'
+import { store } from '../../src/store'
 
 jest.useFakeTimers()
 
 it('AnimatedNumber render correctly', () => {
-  const wrapper = mount(<AnimatedNumber n={3} />)
+  const wrapper = mount(
+    <Provider store={store}>
+      <AnimatedNumber n={3} />
+    </Provider>,
+  )
   act(() => {
     wrapper.setProps({ n: 14 })
     jest.runAllTimers()

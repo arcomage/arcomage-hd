@@ -54,9 +54,9 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+html[data-noanime='true'] {
   * {
-    animation-duration: 0.001s !important;
-    transition-duration: 0.001s !important;
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
   }
 }

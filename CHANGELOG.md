@@ -6,7 +6,6 @@ _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to 
 
 ## v1.4.0 (in progress)
 
-- [Campaign Mode](https://github.com/arcomage/arcomage-hd/issues/51)
 - Update to Tailwind CSS 3
 - [PWA update from network](https://github.com/arcomage/arcomage-hd/issues/68)
 - And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-12-07..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-12-07..*))

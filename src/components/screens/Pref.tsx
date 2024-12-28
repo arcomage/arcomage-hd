@@ -619,41 +619,60 @@ const Pref = () => {
       <div className="two-column">
         <label>
           <span>{upper1st(_.i18n('tower'))}</span>
-          <input
-            type="number"
-            name={otherSettingNames[0]}
-            id={otherSettingNames[0]}
-            min={formFields.tower + 1}
-            disabled={isGuest}
-            value={
-              isGuest && tempSettingsStore !== null
-                ? tempSettingsStore.winTower
-                : formFields.winTower
-            }
-            onChange={handleChange}
-          />
+          <TooltipAll
+            title={_.i18n('Minimum is starting %s + 1').replace(
+              '%s',
+              upper1st(_.i18n('tower')),
+            )}
+            placement="bottom"
+          >
+            <input
+              type="number"
+              name={otherSettingNames[0]}
+              id={otherSettingNames[0]}
+              min={formFields.tower + 1}
+              disabled={isGuest}
+              value={
+                isGuest && tempSettingsStore !== null
+                  ? tempSettingsStore.winTower
+                  : formFields.winTower
+              }
+              onChange={handleChange}
+            />
+          </TooltipAll>
         </label>
         <label>
           <span>{upper1st(_.i18n('resource'))}</span>
-          <input
-            type="number"
-            name={otherSettingNames[1]}
-            id={otherSettingNames[1]}
-            min={
-              Math.max(
-                formFields.bricks + formFields.brickProd,
-                formFields.gems + formFields.gemProd,
-                formFields.recruits + formFields.recruitProd,
-              ) + 1
-            }
-            disabled={isGuest}
-            value={
-              isGuest && tempSettingsStore !== null
-                ? tempSettingsStore.winResource
-                : formFields.winResource
-            }
-            onChange={handleChange}
-          />
+          <TooltipAll
+            title={_.i18n('Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1')
+              .replace('%s1', upper1st(_.i18n('bricks')))
+              .replace('%s2', upper1st(_.i18n('quarry')))
+              .replace('%s3', upper1st(_.i18n('gems')))
+              .replace('%s4', upper1st(_.i18n('magic')))
+              .replace('%s5', upper1st(_.i18n('recruits')))
+              .replace('%s6', upper1st(_.i18n('dungeon')))}
+            placement="bottom"
+          >
+            <input
+              type="number"
+              name={otherSettingNames[1]}
+              id={otherSettingNames[1]}
+              min={
+                Math.max(
+                  formFields.bricks + formFields.brickProd,
+                  formFields.gems + formFields.gemProd,
+                  formFields.recruits + formFields.recruitProd,
+                ) + 1
+              }
+              disabled={isGuest}
+              value={
+                isGuest && tempSettingsStore !== null
+                  ? tempSettingsStore.winResource
+                  : formFields.winResource
+              }
+              onChange={handleChange}
+            />
+          </TooltipAll>
         </label>
       </div>
 

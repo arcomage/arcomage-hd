@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { animatedNumberDuration } from '../../constants/visuals'
+import { useAppSelector } from '../../utils/useAppDispatch'
 
 type PropType = { n: number }
 
@@ -8,10 +9,12 @@ const AnimatedNumber = ({ n }: PropType) => {
   const prevNRef = useRef(0)
   const timer = useRef<NodeJS.Timeout | null>(null)
 
+  const noanim: boolean = useAppSelector((state) => state.visual.noanim)
+
   const [nv, setNv] = useState(n)
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (noanim) {
       setNv(n)
     } else {
       if (hasMounted.current) {

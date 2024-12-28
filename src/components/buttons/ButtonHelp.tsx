@@ -21,7 +21,7 @@ const useStyles = createUseStyles<string>({
   },
   helpButton: {
     left: 'calc(60% + 12rem)',
-    '@media screen and (prefers-reduced-motion: no-preference)': {
+    'html[data-noanime="false"]': {
       '&:hover, &.windowactive': {
         '& svg': {
           animation: '$rotate2 2s linear infinite',

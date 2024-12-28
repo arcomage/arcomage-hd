@@ -45,7 +45,7 @@ const useStyles = createUseStyles<string>({
         visibility: 'hidden',
       },
     },
-    '@media screen and (prefers-reduced-motion: no-preference)': {
+    'html[data-noanime="false"]': {
       '&:hover': {
         '& svg': {
           '& .el-0': {

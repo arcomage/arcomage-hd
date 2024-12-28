@@ -10,7 +10,10 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { lsSet } from '../../utils/localstorage'
-import { defaultVisualvalues } from '../../constants/defaultSettings'
+import {
+  defaultNoanim,
+  defaultVisualvalues,
+} from '../../constants/defaultSettings'
 
 export default (
   action$: Observable<RootActionType>,
@@ -22,7 +25,11 @@ export default (
       const { pixelation } = action
       lsSet((draft) => {
         if (draft.visual === undefined) {
-          draft.visual = { pixelation, visualvalues: defaultVisualvalues }
+          draft.visual = {
+            pixelation,
+            visualvalues: defaultVisualvalues,
+            noanim: defaultNoanim,
+          }
         } else {
           draft.visual.pixelation = pixelation
         }

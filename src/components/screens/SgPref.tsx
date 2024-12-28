@@ -6,6 +6,7 @@ import {
   SCREEN_VOLUME_PREF,
   UPDATE_VOLUME,
   UPDATE_STEREO,
+  UPDATE_NOANIM,
   UPDATE_PIXELATION,
   UPDATE_VISUALVALUES,
 } from '../../constants/ActionTypes'
@@ -13,6 +14,7 @@ import { I18nContext } from '../../i18n/I18nContext'
 import {
   defaultVolume,
   defaultStereo,
+  defaultNoanim,
   defaultPixelation,
   defaultVisualvalues,
 } from '../../constants/defaultSettings'
@@ -37,6 +39,7 @@ import TooltipAll from '../special/TooltipAll'
 const SgPref = () => {
   const volume = useAppSelector((state) => state.sound.volume)
   const stereo = useAppSelector((state) => state.sound.stereo)
+  const noanim = useAppSelector((state) => state.visual.noanim)
   const pixelation = useAppSelector((state) => state.visual.pixelation)
   const visualvalues = useAppSelector((state) => state.visual.visualvalues)
   const _ = useContext(I18nContext)
@@ -107,10 +110,25 @@ const SgPref = () => {
           <span>{_.i18n('Stereo Sound')}</span>
         </label>
       </div>
-      <h3>
-        {_.i18n('Graphics')}
-        {_.i18n(': ')}
-      </h3>
+      <div className="flex justify-between">
+        <h3 className="left">
+          {_.i18n('Graphics')}
+          {_.i18n(': ')}
+        </h3>
+        <label className="right">
+          <input
+            type="checkbox"
+            checked={noanim}
+            onChange={(e) => {
+              dispatch({
+                type: UPDATE_NOANIM,
+                noanim: e.target.checked,
+              })
+            }}
+          />
+          <span className="!pl-1">{_.i18n('Disable animation')}</span>
+        </label>
+      </div>
       <label>
         <div className="flex justify-between">
           <span className="!p-0">
@@ -236,6 +254,10 @@ const SgPref = () => {
             dispatch({
               type: UPDATE_STEREO,
               stereo: defaultStereo,
+            })
+            dispatch({
+              type: UPDATE_NOANIM,
+              noanim: defaultNoanim,
             })
             dispatch({
               type: UPDATE_PIXELATION,

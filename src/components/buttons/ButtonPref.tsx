@@ -18,7 +18,7 @@ const useStyles = createUseStyles<string>({
   },
   prefButton: {
     left: '60%',
-    '@media screen and (prefers-reduced-motion: no-preference)': {
+    'html[data-noanime="false"]': {
       '&:hover, &.windowactive': {
         '& svg': {
           animation: '$rotate 2s linear infinite',

@@ -8,6 +8,8 @@ export const UPDATE_VOLUME_MAIN = 'UPDATE_VOLUME_MAIN' as const
 export const UPDATE_STEREO = 'UPDATE_STEREO' as const
 export const UPDATE_STEREO_MAIN = 'UPDATE_STEREO_MAIN' as const
 
+export const UPDATE_NOANIM = 'UPDATE_NOANIM' as const
+export const UPDATE_NOANIM_MAIN = 'UPDATE_NOANIM_MAIN' as const
 export const UPDATE_PIXELATION = 'UPDATE_PIXELATION' as const
 export const UPDATE_PIXELATION_MAIN = 'UPDATE_PIXELATION_MAIN' as const
 export const UPDATE_VISUALVALUES = 'UPDATE_VISUALVALUES' as const

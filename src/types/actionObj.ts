@@ -7,6 +7,8 @@ import {
   UPDATE_VOLUME_MAIN,
   UPDATE_STEREO,
   UPDATE_STEREO_MAIN,
+  UPDATE_NOANIM,
+  UPDATE_NOANIM_MAIN,
   UPDATE_PIXELATION,
   UPDATE_PIXELATION_MAIN,
   UPDATE_VISUALVALUES,
@@ -146,6 +148,16 @@ export type UpdateStereoActionType = {
 export type UpdateStereoMainActionType = {
   type: typeof UPDATE_STEREO_MAIN
   stereo: boolean
+}
+
+export type UpdateNoanimActionType = {
+  type: typeof UPDATE_NOANIM
+  noanim: boolean
+}
+
+export type UpdateNoanimMainActionType = {
+  type: typeof UPDATE_NOANIM_MAIN
+  noanim: boolean
 }
 
 export type UpdatePixelationActionType = {
@@ -611,6 +623,8 @@ export type RootActionType =
   | UpdateVolumeMainActionType
   | UpdateStereoActionType
   | UpdateStereoMainActionType
+  | UpdateNoanimActionType
+  | UpdateNoanimMainActionType
   | UpdatePixelationActionType
   | UpdatePixelationMainActionType
   | UpdateVisualvaluesActionType

@@ -187,7 +187,7 @@ const useStyles = createUseStyles<string>({
   },
   langPrefButton: {
     left: 'calc(60% + 3rem)',
-    '@media screen and (prefers-reduced-motion: no-preference)': {
+    'html[data-noanime="false"]': {
       '&:hover, &.windowactive': {
         '& svg': {
           '& .el-1': {

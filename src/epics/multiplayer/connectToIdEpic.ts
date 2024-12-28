@@ -12,7 +12,7 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
-import Peer from 'peerjs'
+import { DataConnection } from 'peerjs'
 import { connBaseRetryTime, connRetryTimes } from '../../constants/visuals'
 import { receiveSeq, sendSeq } from '../../utils/seq'
 import devLog from '../../utils/devLog'
@@ -32,7 +32,7 @@ export default (
       }
       const connectToPeerId: Promise<null> = new Promise((resolve, reject) => {
         if (peer !== null) {
-          let conn: Peer.DataConnection | null = null
+          let conn: DataConnection | null = null
           let timer: NodeJS.Timeout | null = null
           let tryTimes = 0
           const loop = () => {

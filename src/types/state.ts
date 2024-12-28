@@ -129,6 +129,7 @@ export type VisualValuesFilterType = {
 export type VisualValuesType = VisualValuesMainType & VisualValuesFilterType
 
 export type VisualStateType = {
+  noanim: boolean
   pixelation: number
   visualvalues: VisualValuesType
 }

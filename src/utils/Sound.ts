@@ -106,10 +106,10 @@ export const play = (
 ): void => {
   const audioName: string = (() => {
     const tempObj = audioMap[type]
-    if (hasOwnProperty(tempObj, 'up')) {
-      return tempObj[increase ? 'up' : 'down']
+    if (typeof tempObj === 'object' && hasOwnProperty(tempObj, 'up')) {
+      return increase ? tempObj.up : tempObj.down
     } else {
-      return tempObj
+      return tempObj as string
     }
   })()
 

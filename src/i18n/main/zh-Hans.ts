@@ -56,6 +56,11 @@ export const i18n = {
 
   'Starting Conditions': '起始条件',
   'Victory Conditions': '胜利条件',
+
+  'Minimum is starting %s + 1': 'Minimum is starting %s + 1',
+  'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1':
+    'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1',
+
   'Other Preferences': '其他设置',
   'Cards in Hand': '手中牌数量',
 
@@ -103,6 +108,7 @@ export const i18n = {
   Mute: '静音',
   'Stereo Sound': '立体声',
   Graphics: '视觉',
+  'Disable animation': 'Disable animation',
   Pixelation: '像素化',
   'Visual Preset': '视觉预设',
   'Filter may slow down the game': '过滤器可能会使游戏变慢',

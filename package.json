@@ -35,14 +35,14 @@
     "tool:cardsbk": "yarn tool:ts ./tools/cardsbk",
     "tool:resizesvg": "yarn tool:ts ./tools/resize-svg",
     "tool:reduxreducers": "yarn tool:ts ./tools/redux-reducers",
-    "tool:prettier": "prettier --check ./{src,__test__,__mocks__,tools}/**/*.{ts,tsx}",
-    "tool:eslint": "eslint ./{src,__test__,__mocks__,tools}/**/*.{ts,tsx}",
+    "tool:prettier": "prettier --check '**/*.{ts,tsx}'",
+    "tool:eslint": "eslint '**/*.{ts,tsx}'",
     "tool:linecount": "sloc src tools __test__",
     "preversion": "git diff-index --quiet HEAD --",
     "postversion": "git push --follow-tags"
   },
   "lint-staged": {
-    "./{src,__test__,__mocks__,tools}/**/*.{ts,tsx}": [
+    "**/*.{ts,tsx}": [
       "prettier --check",
       "eslint"
     ]

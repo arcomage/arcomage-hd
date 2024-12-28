@@ -12,7 +12,7 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
-import Peer from 'peerjs'
+import { DataConnection } from 'peerjs'
 import devLog from '../../utils/devLog'
 
 export default (
@@ -27,7 +27,7 @@ export default (
         return EMPTY
       }
       return merge(
-        fromEvent<Peer.DataConnection>(peer, 'connection').pipe(
+        fromEvent<DataConnection>(peer, 'connection').pipe(
           mergeMap((conn) => {
             peerAll.conn = conn
             return concat(

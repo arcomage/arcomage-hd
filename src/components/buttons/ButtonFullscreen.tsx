@@ -34,7 +34,7 @@ const useStyles = createUseStyles<string>({
 
   fullscreenButton: {
     left: 'calc(60% + 9rem)',
-    '@media screen and (prefers-reduced-motion: no-preference)': {
+    'html[data-noanime="false"]': {
       '&:hover': {
         '& svg': {
           '& .el-0': {

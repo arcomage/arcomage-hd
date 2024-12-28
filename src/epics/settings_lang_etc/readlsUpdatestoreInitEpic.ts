@@ -7,6 +7,7 @@ import {
   UPDATE_LANG_MAIN,
   UPDATE_VOLUME_MAIN,
   UPDATE_STEREO_MAIN,
+  UPDATE_NOANIM_MAIN,
   UPDATE_PIXELATION_MAIN,
   UPDATE_VISUALVALUES_MAIN,
   UPDATE_AILEVEL_MAIN,
@@ -37,6 +38,7 @@ export default (
       const settings = lsGet(['settings'])
       const volume = lsGet(['sound', 'volume'])
       const stereo = lsGet(['sound', 'stereo'])
+      const noanim = lsGet(['visual', 'noanim'])
       const pixelation = lsGet(['visual', 'pixelation'])
       const visualvalues = lsGet(['visual', 'visualvalues'])
       const aiLevel = lsGet(['ai', 'aiLevel'])
@@ -75,6 +77,12 @@ export default (
           ? of<RootActionType>({
               type: UPDATE_STEREO_MAIN,
               stereo,
+            })
+          : EMPTY,
+        noanim !== null
+          ? of<RootActionType>({
+              type: UPDATE_NOANIM_MAIN,
+              noanim,
             })
           : EMPTY,
         pixelation !== null

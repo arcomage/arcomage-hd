@@ -177,7 +177,7 @@ It could be other key instead of <kbd>Alt</kbd>
 
 </details>
 
-The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compatible. It also supports [Reduce Motion (aka. "Show / Turn off animations")](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences) preference available in most operating systems and browsers.
+The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compatible. It did support "[Reduce Motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences)" but doesn't support it now due to a [Win11 bug](https://github.com/arcomage/arcomage-hd/issues/88), instead, you can simply disable animation in the graphics settings if you want to.
 
 <p align="center">
 <a href="https://arcomage.github.io/" title="Blind Friendly"><img src="https://img.shields.io/badge/-Blind%20Friendly-black" alt="Blind Friendly"></a>
