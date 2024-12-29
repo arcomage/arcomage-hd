@@ -58,9 +58,9 @@ export const i18n = {
   'Starting Conditions': 'Počáteční podmínky',
   'Victory Conditions': 'Podmínky vítězství',
 
-  'Minimum is starting %s + 1': 'Minimum is starting %s + 1',
+  'Minimum is starting %s + 1': 'Minimální startovací %s + 1',
   'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1':
-    'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1',
+    'Minimum je MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1',
 
   'Other Preferences': 'Další předvolby',
   'Cards in Hand': 'Karty v ruce',
@@ -111,7 +111,7 @@ export const i18n = {
   Mute: 'Ztlumit',
   'Stereo Sound': 'Stereofonní zvuk',
   Graphics: 'Grafika',
-  'Disable animation': 'Disable animation',
+  'Disable animation': 'Zakázat animaci',
   Pixelation: 'Pixelace',
   'Visual Preset': 'Vizuální předvolba',
   'Filter may slow down the game': 'Filtr může zpomalit hru',

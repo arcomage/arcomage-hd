@@ -58,9 +58,9 @@ export const i18n = {
   'Starting Conditions': 'Warunki rozpoczęcia',
   'Victory Conditions': 'Warunki zwycięstwa',
 
-  'Minimum is starting %s + 1': 'Minimum is starting %s + 1',
+  'Minimum is starting %s + 1': 'Minimum to %s początkowy + 1',
   'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1':
-    'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1',
+    'Minimum to MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1',
 
   'Other Preferences': 'Inne opcje',
   'Cards in Hand': 'Karty w ręce',
@@ -111,7 +111,7 @@ export const i18n = {
   Mute: 'Wycisz',
   'Stereo Sound': 'Dźwięk stereofoniczny',
   Graphics: 'Grafika',
-  'Disable animation': 'Disable animation',
+  'Disable animation': 'Wyłącz animację',
   Pixelation: 'Pikselacja',
   'Visual Preset': 'Ustawienia wizualne',
   'Filter may slow down the game': 'Filtr może spowolnić grę',
