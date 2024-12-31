@@ -141,6 +141,7 @@ export const i18n = {
   Help: 'Ayuda',
   'Toggle Full Screen': 'Activar la pantalla completa',
 
+  'Bold font': 'Fuente en negrita',
   ERATHIAN: 'Usar Erathian [%s] (sólo lenguas de escritura latina)',
 
   'ArcoMage HD': 'ArcoMage HD',

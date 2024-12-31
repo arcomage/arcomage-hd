@@ -94,6 +94,7 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
   // float-left
   // float-right
 
+  const boldfont: boolean = useAppSelector((state) => state.lang.boldfont)
   const winTower = useAppSelector((state) => state.settings.winTower)
   let towerTitle = _.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
     '%s',
@@ -141,6 +142,7 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
             <div
               className={cx(
                 'border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono',
+                boldfont && 'font-bold',
                 'el-number',
               )}
             >

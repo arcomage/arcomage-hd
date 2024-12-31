@@ -11,6 +11,7 @@ import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { lsSet } from '../../utils/localstorage'
 import { defaultLang } from '../../i18n/langs'
+import { defaultBoldfont } from '../../constants/defaultSettings'
 
 export default (
   action$: Observable<RootActionType>,
@@ -22,7 +23,11 @@ export default (
       const { erathian } = action
       lsSet((draft) => {
         if (draft.lang === undefined) {
-          draft.lang = { code: defaultLang, erathian }
+          draft.lang = {
+            code: defaultLang,
+            boldfont: defaultBoldfont,
+            erathian,
+          }
         } else {
           draft.lang.erathian = erathian
         }

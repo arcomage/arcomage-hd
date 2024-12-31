@@ -9,6 +9,7 @@ import wall from '../../assets/img/wall.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import TooltipAll from './special/TooltipAll'
 import { upper1st } from '../utils/upper1st'
+import { useAppSelector } from '../utils/useAppDispatch'
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
@@ -52,6 +53,8 @@ const Wall = ({ isOpponent = false }: PropType) => {
 
   const classes = useStyles(height)
 
+  const boldfont: boolean = useAppSelector((state) => state.lang.boldfont)
+
   // Force TailwindCSS to aware of these classes:
   // float-left
   // float-right
@@ -85,6 +88,7 @@ const Wall = ({ isOpponent = false }: PropType) => {
             <div
               className={cx(
                 'border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono',
+                boldfont && 'font-bold',
                 'el-number',
               )}
             >

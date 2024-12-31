@@ -3,6 +3,7 @@ import {
   UPDATE_SETTINGS_MAIN,
   ABORT_ALL,
   INIT,
+  UPDATE_BOLDFONT_MAIN,
   UPDATE_ERATHIAN_MAIN,
   UPDATE_LANG_MAIN,
   UPDATE_VOLUME_MAIN,
@@ -34,6 +35,7 @@ export default (
     mergeMap((action) => {
       lsVersion()
       const lang = lsGet(['lang', 'code'])
+      const boldfont = lsGet(['lang', 'boldfont'])
       const erathian = lsGet(['lang', 'erathian'])
       const settings = lsGet(['settings'])
       const volume = lsGet(['sound', 'volume'])
@@ -59,6 +61,12 @@ export default (
           ? of<RootActionType>({
               type: UPDATE_LANG_MAIN,
               lang,
+            })
+          : EMPTY,
+        boldfont !== null
+          ? of<RootActionType>({
+              type: UPDATE_BOLDFONT_MAIN,
+              boldfont,
             })
           : EMPTY,
         erathian !== null

@@ -226,6 +226,8 @@ const Card = ({
     (state) => state.cards.total,
   ) // player: 4 | 5 | 6 | 7 | 8, opponent:...
 
+  const boldfont: boolean = useAppSelector((state) => state.lang.boldfont)
+
   const dispatch = useAppDispatch()
   const cardPos = useContext(CardPosContext)
 
@@ -427,7 +429,8 @@ const Card = ({
           <div
             className={cx(
               classes.cardname,
-              'm-1 shadow text-center font-semibold tracking-tight',
+              'm-1 shadow text-center tracking-tight',
+              boldfont ? 'font-bold' : 'font-semibold',
               `bg-${color}-200`,
               'el-text',
             )}
@@ -465,7 +468,11 @@ const Card = ({
             )}
           >
             <div
-              className={cx('leading-tight break-words text-center', 'el-text')}
+              className={cx(
+                'leading-tight break-words text-center',
+                boldfont && 'font-bold',
+                'el-text',
+              )}
             >
               {_.cards(n, 'desc')}
             </div>

@@ -102,6 +102,7 @@ export type ScreenStateType = {
 
 export type LangStateType = {
   code: AvailableLangType
+  boldfont: boolean
   erathian: boolean
 }
 

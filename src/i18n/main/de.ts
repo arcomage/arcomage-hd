@@ -140,6 +140,7 @@ export const i18n = {
   Help: 'Hilfe',
   'Toggle Full Screen': 'Vollbild umschalten',
 
+  'Bold font': 'Fette Schriftart',
   ERATHIAN: 'Erathian [%s] verwenden (nur Sprachen mit lateinischer Schrift)',
 
   'ArcoMage HD': 'ArcoMage HD',

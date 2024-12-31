@@ -137,6 +137,7 @@ export const i18n = {
   Help: '帮助',
   'Toggle Full Screen': '切换全屏模式',
 
+  'Bold font': '字体加粗',
   ERATHIAN: '使用埃拉西亚文字 [%s]（仅限拉丁字母语言）',
 
   'ArcoMage HD': '魔幻牌HD',

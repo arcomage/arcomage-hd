@@ -1,6 +1,8 @@
 import {
   UPDATE_LANG,
   UPDATE_LANG_MAIN,
+  UPDATE_BOLDFONT,
+  UPDATE_BOLDFONT_MAIN,
   UPDATE_ERATHIAN,
   UPDATE_ERATHIAN_MAIN,
   UPDATE_VOLUME,
@@ -118,6 +120,16 @@ export type UpdateLangActionType = {
 export type UpdateLangMainActionType = {
   type: typeof UPDATE_LANG_MAIN
   lang: AvailableLangType
+}
+
+export type UpdateBoldfontActionType = {
+  type: typeof UPDATE_BOLDFONT
+  boldfont: boolean
+}
+
+export type UpdateBoldfontMainActionType = {
+  type: typeof UPDATE_BOLDFONT_MAIN
+  boldfont: boolean
 }
 
 export type UpdateErathianActionType = {
@@ -617,6 +629,8 @@ export type ReceiveActionType = {
 export type RootActionType =
   | UpdateLangActionType
   | UpdateLangMainActionType
+  | UpdateBoldfontActionType
+  | UpdateBoldfontMainActionType
   | UpdateErathianActionType
   | UpdateErathianMainActionType
   | UpdateVolumeActionType

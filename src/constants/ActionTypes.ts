@@ -1,5 +1,7 @@
 export const UPDATE_LANG = 'UPDATE_LANG' as const
 export const UPDATE_LANG_MAIN = 'UPDATE_LANG_MAIN' as const
+export const UPDATE_BOLDFONT = 'UPDATE_BOLDFONT' as const
+export const UPDATE_BOLDFONT_MAIN = 'UPDATE_BOLDFONT_MAIN' as const
 export const UPDATE_ERATHIAN = 'UPDATE_ERATHIAN' as const
 export const UPDATE_ERATHIAN_MAIN = 'UPDATE_ERATHIAN_MAIN' as const
 

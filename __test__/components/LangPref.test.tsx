@@ -26,11 +26,12 @@ it('click langPrefButton', () => {
   const frButton = wrapper.find("button[lang='fr']")
   expect(frButton.length).toBe(1)
   frButton.simulate('click')
-  const erathianCheckbox = wrapper.find(
+  const langprefCheckboxes = wrapper.find(
     '.window-wrapper input[type="checkbox"]',
   )
-  expect(erathianCheckbox.length).toBe(1)
-  erathianCheckbox.simulate('change', { target: { checked: true } })
+  expect(langprefCheckboxes.length).toBe(2)
+  langprefCheckboxes.at(0).simulate('change', { target: { checked: true } })
+  langprefCheckboxes.at(1).simulate('change', { target: { checked: true } })
   const cancelButton = wrapper.find('button.cancel')
   expect(cancelButton.length).toBe(1)
   cancelButton.simulate('click')

@@ -3,6 +3,7 @@ import { combineEpics, Epic } from 'redux-observable'
 import { RootStateType } from '../types/state'
 
 import updateLangEpic from './settings_lang_etc/updateLangEpic'
+import updateBoldfontEpic from './settings_lang_etc/updateBoldfontEpic'
 import updateErathianEpic from './settings_lang_etc/updateErathianEpic'
 import updateVolumeEpic from './settings_lang_etc/updateVolumeEpic'
 import updateStereoEpic from './settings_lang_etc/updateStereoEpic'
@@ -57,6 +58,7 @@ export type MyEpic = Epic<RootActionType, RootActionType, RootStateType>
 
 const rootEpic: MyEpic = combineEpics(
   updateLangEpic,
+  updateBoldfontEpic,
   updateErathianEpic,
   updateVolumeEpic,
   updateStereoEpic,

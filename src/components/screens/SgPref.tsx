@@ -111,11 +111,11 @@ const SgPref = () => {
         </label>
       </div>
       <div className="flex justify-between">
-        <h3 className="left">
+        <h3>
           {_.i18n('Graphics')}
           {_.i18n(': ')}
         </h3>
-        <label className="right">
+        <label>
           <input
             type="checkbox"
             checked={noanim}

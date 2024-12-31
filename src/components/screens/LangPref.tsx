@@ -7,6 +7,7 @@ import { langs, langInfo } from '../../i18n/langs'
 import { AvailableLangType } from '../../i18n/types'
 import {
   SCREEN_LANG_PREF,
+  UPDATE_BOLDFONT,
   UPDATE_ERATHIAN,
   UPDATE_LANG,
 } from '../../constants/ActionTypes'
@@ -15,6 +16,7 @@ import TooltipAll from '../special/TooltipAll'
 
 const LangPref = () => {
   const lang: AvailableLangType = useAppSelector((state) => state.lang.code)
+  const boldfont: boolean = useAppSelector((state) => state.lang.boldfont)
   const erathian: boolean = useAppSelector((state) => state.lang.erathian)
   const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
@@ -57,6 +59,20 @@ const LangPref = () => {
             </TooltipAll>
           ))}
       </div>
+
+      <label className="flex w-full justify-center">
+        <input
+          type="checkbox"
+          checked={boldfont}
+          onChange={(e) => {
+            dispatch({
+              type: UPDATE_BOLDFONT,
+              boldfont: e.target.checked,
+            })
+          }}
+        />
+        <span className="!pl-1">{_.i18n('Bold font')}</span>
+      </label>
       <label className="flex w-full justify-center">
         <input
           type="checkbox"

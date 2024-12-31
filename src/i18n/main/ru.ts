@@ -138,6 +138,7 @@ export const i18n = {
   Help: 'Помощь',
   'Toggle Full Screen': 'Полноэкранный режим',
 
+  'Bold font': 'Жирный шрифт',
   ERATHIAN: 'Использовать Эрафийский [%s] (только языки латинской графики)',
 
   'ArcoMage HD': 'Аркомаг HD', // "Аркомаг" name is well known in Russia in its RU version, since just like Gwent (known in Russia as Гвинт), it was first introduced as a minigame inside another game, so they had to translate the name
