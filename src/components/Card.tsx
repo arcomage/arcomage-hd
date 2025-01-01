@@ -353,6 +353,15 @@ const Card = ({
             e.preventDefault()
             discardCardFunc()
           },
+          // Most mobile system treat long press as right click on desktop,
+          // but not iOS 13+ which need the following `onTouchStart`
+          onTouchStart: (e: React.TouchEvent<HTMLButtonElement>) => {
+            const timer = setTimeout(() => {
+              e.preventDefault()
+              discardCardFunc()
+            }, 500)
+            return () => clearTimeout(timer)
+          },
         }
       }
       return {}
@@ -519,5 +528,4 @@ const Card = ({
     )
   }
 }
-
 export default memo(Card)
