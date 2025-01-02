@@ -10,7 +10,10 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { lsSet } from '../../utils/localstorage'
-import { defaultBoldfont, defaultErathian } from '../../constants/defaultSettings'
+import {
+  defaultBoldfont,
+  defaultErathian,
+} from '../../constants/defaultSettings'
 
 export default (
   action$: Observable<RootActionType>,

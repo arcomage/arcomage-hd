@@ -25,6 +25,7 @@ export const i18n = {
   '%s recruits': '%s頭魔獸', // 3 recruits
 
   'This card costs %s': '打這張牌將消耗%s', // This card costs 3 bricks
+  allUnusableTip: '所有的牌都無法使用，你必須使用右鍵點選或長按來棄牌',
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': '你的%sp', // Your bricks

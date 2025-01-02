@@ -106,6 +106,9 @@ const Pref = () => {
 
   const [aiLevelFormField, setAiLevelFormField] = useState<number>(aiLevel)
 
+  const [victoryCondMinTriggered, setVictoryCondMinTriggered] =
+    useState<boolean>(false)
+
   const applyAndNewGame = () => {
     dispatch({
       type: SCREEN_PREF,
@@ -241,6 +244,9 @@ const Pref = () => {
 
       if (parseInt(value, 10) < parseInt(min, 10)) {
         value = min
+        if (e.target.id === 'winTower' || e.target.id === 'winResource') {
+          setVictoryCondMinTriggered(true)
+        }
       }
 
       if (parseInt(e.target.value, 10) > parseInt(max, 10)) {
@@ -625,6 +631,7 @@ const Pref = () => {
               upper1st(_.i18n('tower')),
             )}
             placement="bottom"
+            enterTouchDelay={victoryCondMinTriggered ? 0 : 700}
           >
             <input
               type="number"
@@ -651,6 +658,7 @@ const Pref = () => {
               .replace('%s4', upper1st(_.i18n('magic')))
               .replace('%s5', upper1st(_.i18n('recruits')))
               .replace('%s6', upper1st(_.i18n('dungeon')))}
+            enterTouchDelay={victoryCondMinTriggered ? 0 : 700}
             placement="bottom"
           >
             <input

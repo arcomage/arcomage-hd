@@ -25,6 +25,8 @@ export const i18n = {
   '%s recruits': '%s体の怪獣', // 3 recruits
 
   'This card costs %s': 'このカードのコストは%sです', // This card costs 3 bricks
+  allUnusableTip:
+    'すべてのカードは使用不可です。カードを右クリックまたは長押しして破棄する必要があります',
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'あなたの%sp', // Your bricks

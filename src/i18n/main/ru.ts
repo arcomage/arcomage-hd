@@ -25,6 +25,8 @@ export const i18n = {
   '%s recruits': '%s существа', // 3 recruits
 
   'This card costs %s': 'Эта карта стоит %s', // This card costs 3 bricks
+  allUnusableTip:
+    'Все карты бесполезны, вы должны сбросить карту, щелкнув правой кнопкой мыши или удерживая ее',
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Ваши %sp', // Your bricks

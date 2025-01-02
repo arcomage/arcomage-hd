@@ -25,6 +25,8 @@ export const i18n = {
   '%s recruits': '%s příšery', // 3 recruits
 
   'This card costs %s': 'Tato karta stojí %s', // This card costs 3 bricks
+  allUnusableTip:
+    'Všechny karty jsou nepoužitelné, kartu musíte odhodit kliknutím pravým tlačítkem nebo dlouhým stisknutím',
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Váš/Vaše %sp', // Your bricks

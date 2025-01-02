@@ -192,7 +192,7 @@ type PropType = {
   n: number // .. | -1: cardback
   unusable?: boolean
   discarded?: boolean
-  position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | -1 | -2 | -3 | -4 | -5
+  position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | ... | -1 | -2 | -3 | -4 | -5. See ROOTFOLDER/tools/devnotes/card-state-position-numbers.png
   owner?: ownerType
   index?: number // in-store index
   isFlipped?: boolean
@@ -348,20 +348,29 @@ const Card = ({
         !(useAi && multiGameNumber === -1 && owner === 'opponent')
       ) {
         buttonDisabled = false
+        let timer: NodeJS.Timeout | undefined
+        const clear = () => {
+          if (timer) {
+            clearTimeout(timer)
+          }
+        }
         return {
           onContextMenu: (e: MouseEvent) => {
             e.preventDefault()
             discardCardFunc()
           },
           // Most mobile system treat long press as right click on desktop,
-          // but not iOS 13+ which need the following `onTouchStart`
+          // but not iOS 13+ which need the following listeners
           onTouchStart: (e: React.TouchEvent<HTMLButtonElement>) => {
-            const timer = setTimeout(() => {
+            timer = setTimeout(() => {
               e.preventDefault()
               discardCardFunc()
             }, 500)
-            return () => clearTimeout(timer)
+            return clear
           },
+          onTouchCancel: clear,
+          onTouchEnd: clear,
+          onTouchMove: clear,
         }
       }
       return {}

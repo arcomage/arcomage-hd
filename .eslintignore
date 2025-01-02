@@ -5,3 +5,4 @@ __mocks__
 others
 
 *.js
+setup-tests.ts

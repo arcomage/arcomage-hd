@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks'
-import { fireEvent } from '@testing-library/react'
+import { fireEvent } from '@testing-library/dom'
 import useKeyDown from '../../src/utils/useKeyDown'
 
 it('useKeyDown (specified key) is OK', () => {

@@ -22,7 +22,7 @@ const useStyles = createUseStyles({
 
   main: {
     'background-repeat': 'no-repeat',
-    'html[data-noanime="false"]': {
+    'html[data-noanime="false"] &': {
       'will-change': 'background-position',
       'animation-duration': `${numberChangeVisualDuration}ms`,
       'animation-iteration-count': 1,
@@ -35,7 +35,7 @@ const useStyles = createUseStyles({
     top: 0,
     left: 0,
     'background-image': `url(${explosion})`,
-    'html[data-noanime="false"]': {
+    'html[data-noanime="false"] &': {
       'animation-name': '$explosion',
       'animation-timing-function': 'steps(21)',
     },
@@ -47,7 +47,7 @@ const useStyles = createUseStyles({
     top: '-300%',
     left: '1rem',
     'background-image': `url(${firework})`,
-    'html[data-noanime="false"]': {
+    'html[data-noanime="false"] &': {
       'animation-name': '$firework',
       'animation-timing-function': 'steps(31)',
     },

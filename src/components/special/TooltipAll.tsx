@@ -18,16 +18,23 @@ type PropType = {
     | 'top-end'
     | 'top-start'
     | 'top'
+  enterTouchDelay?: number
 }
-const TooltipAll = ({ title, children, placement }: PropType) => (
+const TooltipAll = ({
+  title,
+  children,
+  placement,
+  enterTouchDelay = 700,
+}: PropType) => (
   <Tooltip
-    title={<span style={{ fontSize: '120%' }}>{title}</span>}
+    title={title ? <span style={{ fontSize: '120%' }}>{title}</span> : ''}
     aria-label={title}
     arrow
     enterDelay={tooltipEnterDelay}
     leaveDelay={tooltipLeaveDelay}
     placement={placement}
     disableInteractive
+    enterTouchDelay={enterTouchDelay}
   >
     {children}
   </Tooltip>

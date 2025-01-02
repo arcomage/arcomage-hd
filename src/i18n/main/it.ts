@@ -25,6 +25,8 @@ export const i18n = {
   '%s recruits': '%s reclute', // 3 recruits
 
   'This card costs %s': 'Questa carta costa %s', // This card costs 3 bricks
+  allUnusableTip:
+    'Tutte le carte sono inutilizzabili, devi scartare una carta cliccando con il tasto destro o tenendo premuto a lungo su di essa',
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'I tuoi/Le tue %sp', // Your bricks

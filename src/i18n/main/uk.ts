@@ -25,6 +25,8 @@ export const i18n = {
   '%s recruits': '%s істоти', // 3 recruits
 
   'This card costs %s': 'Ця карта коштує %s', // This card costs 3 bricks
+  allUnusableTip:
+    'Усі карти непридатні для використання, ви повинні скинути картку, клацнувши на ній правою кнопкою миші або утримуючи її',
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Ваші %sp', // Your bricks
