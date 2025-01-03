@@ -5,7 +5,7 @@ import { keys, hasOwnProperty } from '../../src/utils/typeHelpers'
 // theoretically the langs imported from src/i18n/langs is not ordered
 // this makes sure 'en' is the first one
 const langs = langArr.filter((lang) => lang !== 'en')
-langs.unshift('en' as typeof langs[number])
+langs.unshift('en' as (typeof langs)[number])
 
 const i18nPromises: Promise<Record<string, string>>[] = langs.map(
   (code) => import(`../../src/i18n/main/${code}`),

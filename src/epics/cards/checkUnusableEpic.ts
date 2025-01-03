@@ -28,8 +28,8 @@ export default (
           const owner = !action.lastOnly
             ? card.owner
             : state.game.playersTurn
-            ? 'player'
-            : 'opponent'
+              ? 'player'
+              : 'opponent'
           if (owner !== 'common') {
             const { type, cost } = cards[card.n]
             if (state.status[owner][resNames[type]] < cost) {

@@ -28,15 +28,18 @@ const AnimatedNumber = ({ n }: PropType) => {
         // https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers
         // browser will be forced to use 4 if timeout < 4
         // meaning if it increases from 0 to 1000, it'll look slower than animatedNumberDuration
-        timer.current = setInterval(() => {
-          setNv((nv0) => {
-            const ret = nv0 + (n > prev ? 1 : -1)
-            if (ret === n && timer.current !== null) {
-              clearInterval(timer.current)
-            }
-            return ret
-          })
-        }, animatedNumberDuration / Math.abs(n - prev))
+        timer.current = setInterval(
+          () => {
+            setNv((nv0) => {
+              const ret = nv0 + (n > prev ? 1 : -1)
+              if (ret === n && timer.current !== null) {
+                clearInterval(timer.current)
+              }
+              return ret
+            })
+          },
+          animatedNumberDuration / Math.abs(n - prev),
+        )
       }
     }
     if (!hasMounted.current) {

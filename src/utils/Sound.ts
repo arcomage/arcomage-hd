@@ -24,7 +24,7 @@ const soundAdditionalTypes = ['deal', 'victory', 'defeat'] as const
 
 type soundTypeType =
   | keyof PersonStatusType
-  | typeof soundAdditionalTypes[number]
+  | (typeof soundAdditionalTypes)[number]
 
 const audioMap = {
   tower: {
