@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: '22.x'
       - name: Set OpenSSL Legacy Provider
-        run: export NODE_OPTIONS=--openssl-legacy-provider
+        run: echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV
       - name: Build App
         run: |
           if [ -e yarn.lock ]; then
