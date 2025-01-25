@@ -18,7 +18,7 @@ By default, you play against computer AI 🤖 in the Single Player Mode. You can
 
 <p align="center">
 <a href="https://github.com/arcomage/arcomage-hd/blob/main/CHANGELOG.md"><img src="https://img.shields.io/github/package-json/v/arcomage/arcomage-hd" alt="version number"></a>
-<a href="https://github.com/arcomage/arcomage-hd/actions/workflows/test.yml"><img src="https://github.com/arcomage/arcomage-hd//workflows/Test/badge.svg" alt="Actions Status"></a>
+<a href="https://github.com/arcomage/arcomage-hd/actions/workflows/test.yml"><img src="https://github.com/arcomage/arcomage-hd/actions/workflows/test.yml/badge.svg" alt="Actions Status"></a>
 <a href="https://github.com/arcomage/arcomage-hd/blob/main/CREDIT.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="License"></a>
 </p>
 
