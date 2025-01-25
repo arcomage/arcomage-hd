@@ -4,11 +4,14 @@ _Summary of changes for major & minor releases. For details, click the version n
 
 _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache files & reload the webpage to have the latest version._
 
-## v1.4.0 (in progress)
+## [v1.4.0](https://github.com/arcomage/arcomage-hd/compare/v1.3.0...v1.4.0) (2025-01-25)
 
-- Update to Tailwind CSS 3
+- Fix [iOS 13+ long press to discard a card](https://github.com/arcomage/arcomage-hd/issues/74), [landscape notice](https://github.com/arcomage/arcomage-hd/issues/87)
+- [Disable animation](https://github.com/arcomage/arcomage-hd/issues/88), [bold font](https://github.com/arcomage/arcomage-hd/issues/72) options
+- [All cards unusable](https://github.com/arcomage/arcomage-hd/issues/76#issuecomment-2054153524), [victory condition](https://github.com/arcomage/arcomage-hd/issues/81) tooltips
+- Update many dependent libraries (but not all to the latest)
 - [PWA update from network](https://github.com/arcomage/arcomage-hd/issues/68)
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-12-07..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-12-07..*))
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-12-07..2021-12-26); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-12-07..2021-12-26))
 
 ## [v1.3.0](https://github.com/arcomage/arcomage-hd/compare/v1.2.0...v1.3.0) ([2021-12-07](https://github.com/arcomage/arcomage-hd/tree/66c90ee521da676275d5c58dd8d1432feedd056e))
 
