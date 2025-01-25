@@ -13,8 +13,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.x'
-      - name: Set OpenSSL Legacy Provider
-        run: echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV
       - name: Build App
         run: |
           if [ -e yarn.lock ]; then
@@ -27,7 +25,8 @@ jobs:
           npm i --no-optional
           npm run build
           fi
-
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
       - name: Deploy to GitHub Pages (in another repo)
         uses: cpina/github-action-push-to-another-repository@main
         env:

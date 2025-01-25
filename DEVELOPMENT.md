@@ -8,6 +8,7 @@
   - `git add .`
   - `git commit -m "chore: bump version to v<VERSIONNUMBER>"`
   - `git tag -a v<VERSIONNUMBER> -m "chore: bump version to v<VERSIONNUMBER>"`
+  - `git push`
   - `git push --tags`
 
 ## Other Update
