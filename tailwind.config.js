@@ -62,11 +62,6 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      display: ['motion-reduce'],
-    },
-  },
 
   plugins: [
     forms,

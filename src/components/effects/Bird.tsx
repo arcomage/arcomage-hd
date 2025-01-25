@@ -46,6 +46,9 @@ const useStyles = createUseStyles({
   },
 
   birdcontainer: {
+    'html[data-noanime="true"] &': {
+      display: 'none',
+    },
     position: 'absolute',
     top: '32%',
     left: '-10%',
@@ -93,23 +96,13 @@ const Bird = () => {
   return (
     <>
       <div
-        className={cx(
-          'z-10',
-          classes.birdcontainer,
-          classes.birdcontainer1,
-          'motion-reduce:hidden',
-        )}
+        className={cx('z-10', classes.birdcontainer, classes.birdcontainer1)}
       >
         <div className={cx(classes.bird, classes.bird1)}></div>
       </div>
 
       <div
-        className={cx(
-          'z-10',
-          classes.birdcontainer,
-          classes.birdcontainer2,
-          'motion-reduce:hidden',
-        )}
+        className={cx('z-10', classes.birdcontainer, classes.birdcontainer2)}
       >
         <div className={cx(classes.bird, classes.bird2)}></div>
       </div>
