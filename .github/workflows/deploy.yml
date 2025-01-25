@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.x'
+      - name: Set OpenSSL Legacy Provider
+        run: export NODE_OPTIONS=--openssl-legacy-provider
       - name: Build App
         run: |
           if [ -e yarn.lock ]; then
