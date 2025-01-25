@@ -34,7 +34,7 @@ const useStyles = createUseStyles<string>({
 
   fullscreenButton: {
     left: 'calc(60% + 9rem)',
-    'html[data-noanime="false"]': {
+    'html[data-noanime="false"] &': {
       '&:hover': {
         '& svg': {
           '& .el-0': {

@@ -19,7 +19,7 @@ const useStyles = createUseStyles({
     top: '-0.5em',
     left: '0.4em',
     opacity: 0,
-    'html[data-noanime="false"]': {
+    'html[data-noanime="false"] &': {
       'will-change': 'transform, opacity',
       'animation-name': '$fadeOutUp',
       'animation-duration': `${numberDiffDuration}ms`,

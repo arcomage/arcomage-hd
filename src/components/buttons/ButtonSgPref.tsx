@@ -34,7 +34,7 @@ const useStyles = createUseStyles<string>({
   },
   sgPrefButton: {
     left: 'calc(60% + 6rem)',
-    'html[data-noanime="false"]': {
+    'html[data-noanime="false"] &': {
       '&:hover, &.windowactive': {
         '& svg': {
           '& .el-1': {
