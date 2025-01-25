@@ -2,15 +2,17 @@
 
 ## App Version Update
 
-- Use yarn v2 instead of yarn v1 or npm
-  - `yarn config set version-tag-prefix "v"` and `yarn config set version-git-message "chore: bump version to v%s"` (if `version-tag-prefix` and `version-git-message` are not set yet)
-- `husky` and `commitlint` execute `yarn test` and lint the commit message before every commit
 - If a new version is decided to be released, do these:
   - Commit all changes
-  - `yarn version`, enter new version number. It'll automatically add a new version and tag, push, and deploy
+  - `yarn version <VERSIONNUMBER>`
+  - `git add .`
+  - `git commit -m "chore: bump version to v<VERSIONNUMBER>"`
+  - `git tag -a v<VERSIONNUMBER> -m "chore: bump version to v<VERSIONNUMBER>"`
+  - `git push --tags`
 
 ## Other Update
 
+- `husky` and `commitlint` execute `yarn test` and lint the commit message before every commit
 - When `scripts` **package.json** are updated, also update the tools below
 - When a new language is added, also update `og:locale:alternate` in **./src/index.html.ejs**
 - If description changes, search the first few words in the whole project and replace them (**./assets/logo/manifest.template.ts**, **./webpack.config.js**, **./package.json**, **./src/i18n/main/en.ts** should be changed and **./assets/logo/manifest.json** should be updated)
