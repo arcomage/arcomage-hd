@@ -7,14 +7,10 @@ import { GameSizeContext } from '../utils/GameSizeContext'
 import { I18nContext } from '../i18n/I18nContext'
 import TooltipAll from './special/TooltipAll'
 
-const useStyles = createUseStyles<
-  string,
-  { height: number; isOpponent: boolean }
->({
+const useStyles = createUseStyles<string, { height: number }>({
   main: {
     width: ({ height }) => `calc(${calcStatusWidth(height)})`,
     'min-width': '7.8rem',
-    float: ({ isOpponent }) => (isOpponent ? 'right' : 'left'),
   },
   username: {
     'transition-property': 'color, border-color',
@@ -34,10 +30,16 @@ const Status = ({ playerName, isOpponent = false }: PropType) => {
   const size = useContext(GameSizeContext)
   const height = (size.height / 3) * 2
 
-  const classes = useStyles({ height, isOpponent })
+  const classes = useStyles({ height })
 
   return (
-    <div className={cx(classes.main, 'z-20 p-5 h-full relative')}>
+    <div
+      className={cx(
+        classes.main,
+        'z-20 p-5 h-full relative',
+        isOpponent ? 'float-right' : 'float-left',
+      )}
+    >
       <div className="bg-black bg-opacity-50 mb-4 p-1 shadow-lg">
         <TooltipAll
           title={_.i18n(isOpponent ? "Opponent's Name" : 'Your Name')}

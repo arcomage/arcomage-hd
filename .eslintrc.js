@@ -29,6 +29,7 @@ const obj = {
   },
   rules: {
     'jsx-a11y/label-has-associated-control': ['warn'], // maybe broken
+    'react/prop-types': 'off',
     'react/jsx-filename-extension': [
       1,
       { extensions: ['.ts', '.tsx', '.js', '.jsx'] },

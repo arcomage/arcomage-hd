@@ -60,9 +60,9 @@ export const i18n = {
   'Starting Conditions': 'Condições Iniciais',
   'Victory Conditions': 'Condições de Vitória',
 
-  'Minimum is starting %s + 1': 'O mínimo é %s inicial + 1',
-  'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1':
-    'O mínimo é MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1',
+  'Minimum is starting %s1 + 1 = %s0': 'O mínimo é %s1 inicial + 1 = %s0',
+  'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1 = %s0':
+    'O mínimo é MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1 = %s0',
 
   'Other Preferences': 'Outras Preferências',
   'Cards in Hand': 'Cartas na Mão',

@@ -4652,6 +4652,7 @@ __metadata:
     postcss: ^8.5.1
     postcss-import: ^16.1.0
     postcss-loader: ^8.1.1
+    postcss-rtlcss: ^5.6.0
     prettier: ^3.4.2
     pwacompat: ^2.0.17
     react: ^17.0.2
@@ -14818,6 +14819,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-rtlcss@npm:^5.6.0":
+  version: 5.6.0
+  resolution: "postcss-rtlcss@npm:5.6.0"
+  dependencies:
+    rtlcss: 4.3.0
+  peerDependencies:
+    postcss: ^8.4.21
+  checksum: 30ae7f3d222d20af75c5fa07d7a60ed5f5ce3da57ed5b5aab951c285354960fc71241fe868d8844ffd76a139dcfa6066f611157c5669bd501352a0511837ee11
+  languageName: node
+  linkType: hard
+
 "postcss-selector-parser@npm:^6.1.1, postcss-selector-parser@npm:^6.1.2":
   version: 6.1.2
   resolution: "postcss-selector-parser@npm:6.1.2"
@@ -14868,7 +14880,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.33, postcss@npm:^8.4.47, postcss@npm:^8.5.1":
+"postcss@npm:^8.4.21, postcss@npm:^8.4.33, postcss@npm:^8.4.47, postcss@npm:^8.5.1":
   version: 8.5.1
   resolution: "postcss@npm:8.5.1"
   dependencies:
@@ -15956,6 +15968,20 @@ __metadata:
     lodash.flattendeep: ^4.4.0
     nearley: ^2.7.10
   checksum: fbfb2f6a7d4c9b3e013ef555ac06e5dba444e0d37dc959b94c507b6c34093ef10fe98141338d9cac58e5ae0f9453a5ef7f85af3d5e6386b237c1b3552debe4a0
+  languageName: node
+  linkType: hard
+
+"rtlcss@npm:4.3.0":
+  version: 4.3.0
+  resolution: "rtlcss@npm:4.3.0"
+  dependencies:
+    escalade: ^3.1.1
+    picocolors: ^1.0.0
+    postcss: ^8.4.21
+    strip-json-comments: ^3.1.1
+  bin:
+    rtlcss: bin/rtlcss.js
+  checksum: b2e78d01cb15ca7da374681f52d29ea71306166788872242a78ad36afdc4b53e78ee6e33b761744353121b01f65a7209b165b253d2715d313f8f282d4ded62bb
   languageName: node
   linkType: hard
 

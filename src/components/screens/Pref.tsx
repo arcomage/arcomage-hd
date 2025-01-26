@@ -53,6 +53,7 @@ import isEmoji from '../../utils/isEmoji'
 import TooltipAll from '../special/TooltipAll'
 import { maxCardsInHand, minGeneratorIsOne } from '../../constants/ranges'
 import { variousLengthChunk } from '../../utils/variousLengthChunk'
+import NumberInput from '../special/NumberInput'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -105,9 +106,6 @@ const Pref = () => {
   const [formFields, setFormFields] = useState<FormFieldsType>(settingStore)
 
   const [aiLevelFormField, setAiLevelFormField] = useState<number>(aiLevel)
-
-  const [victoryCondMinTriggered, setVictoryCondMinTriggered] =
-    useState<boolean>(false)
 
   const applyAndNewGame = () => {
     dispatch({
@@ -235,37 +233,15 @@ const Pref = () => {
 
   // only `formFields`-controlled fields use `handleChange`
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, type, min, max } = e.target
+    const { name, type, inputMode } = e.target
     let { value } = e.target
-    if (type === 'number') {
-      if (value === '') {
-        value = '0'
-      }
-
-      if (parseInt(value, 10) < parseInt(min, 10)) {
-        value = min
-        if (e.target.id === 'winTower' || e.target.id === 'winResource') {
-          setVictoryCondMinTriggered(true)
-        }
-      }
-
-      if (parseInt(e.target.value, 10) > parseInt(max, 10)) {
-        value = max
-      }
-    }
-
     setFormFields((prev) =>
       produce(prev, (draft) => {
         if (hasOwnProperty(draft, name)) {
-          switch (type) {
-            case 'text':
-              draft[name] = value.trim()
-              break
-            case 'number':
-              draft[name] = parseInt(value, 10)
-              break
-            default:
-              break
+          if (inputMode === 'numeric') {
+            draft[name] = parseInt(value, 10)
+          } else if (type === 'text') {
+            draft[name] = value.trim()
           }
         }
       }),
@@ -384,18 +360,19 @@ const Pref = () => {
         }
       }}
     >
-      <h3 className="preferences">
-        {_.i18n('Preferences')}
-        {_.i18n(': ')}
+      <div className="flex justify-between">
+        <h3 className="preferences">
+          {_.i18n('Preferences')}
+          {_.i18n(': ')}
+        </h3>
         <span id="opponentNotification">
           {multiGameNumber > 0
             ? _.i18n('You are playing against human')
             : _.i18n('You are playing against computer AI')}
         </span>
-      </h3>
-
+      </div>
       <div className="two-column half">
-        <label>
+        <label htmlFor={poNames[0]}>
           <span>
             {_.i18n('Your Name')}
             {_.i18n(': ')}
@@ -414,7 +391,7 @@ const Pref = () => {
             }}
           />
         </label>
-        <label>
+        <label htmlFor={poNames[1]}>
           <span>
             {_.i18n("Opponent's Name")}
             {_.i18n(': ')}
@@ -438,7 +415,7 @@ const Pref = () => {
         </label>
       </div>
 
-      <label className="one-colume">
+      <label htmlFor="tavern" className="one-colume">
         <span>
           {_.i18n('Choose a Tavern (Preset Preferences)')}
           {_.i18n(': ')}
@@ -485,10 +462,9 @@ const Pref = () => {
       </h4>
 
       <div className="four-column">
-        <label>
+        <label htmlFor={allStatusNames[0]}>
           <span>{upper1st(_.i18n('tower'))}</span>
-          <input
-            type="number"
+          <NumberInput
             name={allStatusNames[0]}
             id={allStatusNames[0]}
             min="1"
@@ -501,10 +477,9 @@ const Pref = () => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label htmlFor={allStatusNames[2]}>
           <span>{upper1st(_.i18n('bricks'))}</span>
-          <input
-            type="number"
+          <NumberInput
             name={allStatusNames[2]}
             id={allStatusNames[2]}
             min="0"
@@ -517,10 +492,9 @@ const Pref = () => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label htmlFor={allStatusNames[3]}>
           <span>{upper1st(_.i18n('gems'))}</span>
-          <input
-            type="number"
+          <NumberInput
             name={allStatusNames[3]}
             id={allStatusNames[3]}
             min="0"
@@ -533,10 +507,9 @@ const Pref = () => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label htmlFor={allStatusNames[4]}>
           <span>{upper1st(_.i18n('recruits'))}</span>
-          <input
-            type="number"
+          <NumberInput
             name={allStatusNames[4]}
             id={allStatusNames[4]}
             min="0"
@@ -552,10 +525,9 @@ const Pref = () => {
       </div>
 
       <div className="four-column">
-        <label>
+        <label htmlFor={allStatusNames[1]}>
           <span>{upper1st(_.i18n('wall'))}</span>
-          <input
-            type="number"
+          <NumberInput
             name={allStatusNames[1]}
             id={allStatusNames[1]}
             min="0"
@@ -568,10 +540,9 @@ const Pref = () => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label htmlFor={allStatusNames[5]}>
           <span>{upper1st(_.i18n('quarry'))}</span>
-          <input
-            type="number"
+          <NumberInput
             name={allStatusNames[5]}
             id={allStatusNames[5]}
             min={minGeneratorIsOne ? 1 : 0}
@@ -584,10 +555,9 @@ const Pref = () => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label htmlFor={allStatusNames[6]}>
           <span>{upper1st(_.i18n('magic'))}</span>
-          <input
-            type="number"
+          <NumberInput
             name={allStatusNames[6]}
             id={allStatusNames[6]}
             min={minGeneratorIsOne ? 1 : 0}
@@ -600,10 +570,9 @@ const Pref = () => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label htmlFor={allStatusNames[7]}>
           <span>{upper1st(_.i18n('dungeon'))}</span>
-          <input
-            type="number"
+          <NumberInput
             name={allStatusNames[7]}
             id={allStatusNames[7]}
             min={minGeneratorIsOne ? 1 : 0}
@@ -623,18 +592,16 @@ const Pref = () => {
         {_.i18n(': ')}
       </h4>
       <div className="two-column">
-        <label>
+        <label htmlFor={otherSettingNames[0]}>
           <span>{upper1st(_.i18n('tower'))}</span>
           <TooltipAll
-            title={_.i18n('Minimum is starting %s + 1').replace(
-              '%s',
-              upper1st(_.i18n('tower')),
-            )}
+            title={_.i18n('Minimum is starting %s1 + 1 = %s0')
+              .replace('%s1', upper1st(_.i18n('tower')))
+              .replace('%s0', (formFields.tower + 1).toString())}
             placement="bottom"
-            enterTouchDelay={victoryCondMinTriggered ? 0 : 700}
+            enterTouchDelay={0}
           >
-            <input
-              type="number"
+            <NumberInput
               name={otherSettingNames[0]}
               id={otherSettingNames[0]}
               min={formFields.tower + 1}
@@ -648,21 +615,30 @@ const Pref = () => {
             />
           </TooltipAll>
         </label>
-        <label>
+        <label htmlFor={otherSettingNames[1]}>
           <span>{upper1st(_.i18n('resource'))}</span>
           <TooltipAll
-            title={_.i18n('Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1')
+            title={_.i18n('Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1 = %s0')
               .replace('%s1', upper1st(_.i18n('bricks')))
               .replace('%s2', upper1st(_.i18n('quarry')))
               .replace('%s3', upper1st(_.i18n('gems')))
               .replace('%s4', upper1st(_.i18n('magic')))
               .replace('%s5', upper1st(_.i18n('recruits')))
-              .replace('%s6', upper1st(_.i18n('dungeon')))}
-            enterTouchDelay={victoryCondMinTriggered ? 0 : 700}
+              .replace('%s6', upper1st(_.i18n('dungeon')))
+              .replace(
+                '%s0',
+                (
+                  Math.max(
+                    formFields.bricks + formFields.brickProd,
+                    formFields.gems + formFields.gemProd,
+                    formFields.recruits + formFields.recruitProd,
+                  ) + 1
+                ).toString(),
+              )}
+            enterTouchDelay={0}
             placement="bottom"
           >
-            <input
-              type="number"
+            <NumberInput
               name={otherSettingNames[1]}
               id={otherSettingNames[1]}
               min={
@@ -690,10 +666,9 @@ const Pref = () => {
       </h4>
 
       <div className="two-column">
-        <label>
+        <label htmlFor={otherSettingNames[2]}>
           <span>{_.i18n('Cards in Hand')}</span>
-          <input
-            type="number"
+          <NumberInput
             name={otherSettingNames[2]}
             id={otherSettingNames[2]}
             min="0"
@@ -707,7 +682,7 @@ const Pref = () => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label htmlFor={otherSettingNames[3]}>
           <span className="onethird">{_.i18n('AI Level')}</span>
           <select
             name={otherSettingNames[3]}
@@ -738,40 +713,42 @@ const Pref = () => {
         </label>
       </div>
 
-      <h4 className="multiplayer">
-        <label>
-          <input
-            type="checkbox"
-            name="isMultiplayer"
-            id="isMultiplayer"
-            checked={isMultiplayer}
-            onChange={(e) => {
-              dispatch({
-                type: SWITCH_MULTIPLAYER_MODE,
-                on: e.target.checked,
-              })
-            }}
-          />
-          <span>
-            {_.i18n('Multiplayer')}
-            <TooltipAll
-              title={_.i18n(
-                'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT',
-              )}
-              placement="top"
-            >
-              <span className="emoji">🧪</span>
-            </TooltipAll>
-            {_.i18n(': ')}
-            {(isMultiplayer ? _.i18n('on') : _.i18n('off')).toUpperCase()}
-          </span>
-        </label>
+      <div className="flex justify-between multiplayer">
+        <h4>
+          <label htmlFor="isMultiplayer">
+            <input
+              type="checkbox"
+              name="isMultiplayer"
+              id="isMultiplayer"
+              checked={isMultiplayer}
+              onChange={(e) => {
+                dispatch({
+                  type: SWITCH_MULTIPLAYER_MODE,
+                  on: e.target.checked,
+                })
+              }}
+            />
+            <span>
+              {_.i18n('Multiplayer')}
+              <TooltipAll
+                title={_.i18n(
+                  'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT',
+                )}
+                placement="top"
+              >
+                <span className="emoji">🧪</span>
+              </TooltipAll>
+              {_.i18n(': ')}
+              {(isMultiplayer ? _.i18n('on') : _.i18n('off')).toUpperCase()}
+            </span>
+          </label>
+        </h4>
         <span id="multiplayerNotification" className="emoji">
           {notification}
         </span>
-      </h4>
+      </div>
       <div className="multiplayer">
-        <label>
+        <label htmlFor="yourId">
           <span>
             {_.i18n('Your ID')}
             {_.i18n(': ')}
@@ -807,7 +784,7 @@ const Pref = () => {
         </label>
       </div>
       <div className="multiplayer">
-        <label>
+        <label htmlFor="opponentId">
           <span>
             {_.i18n("Enter your opponent's ID")}
             {_.i18n(': ')}

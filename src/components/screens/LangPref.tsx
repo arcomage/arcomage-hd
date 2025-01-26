@@ -71,7 +71,7 @@ const LangPref = () => {
             })
           }}
         />
-        <span className="!pl-1">{_.i18n('Bold font')}</span>
+        <span>{_.i18n('Bold font')}</span>
       </label>
       <label className="flex w-full justify-center">
         <input

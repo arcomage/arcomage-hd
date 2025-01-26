@@ -58,9 +58,9 @@ export const i18n = {
   'Starting Conditions': '起始條件',
   'Victory Conditions': '勝利條件',
 
-  'Minimum is starting %s + 1': '最小值為：起始%s + 1',
-  'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1':
-    '最小值為：取其中最大值(%s1+%s2, %s3+%s4, %s5+%s6) + 1',
+  'Minimum is starting %s1 + 1 = %s0': '最小值為：起始%s1 + 1 = %s0',
+  'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1 = %s0':
+    '最小值為：MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1 = %s0',
 
   'Other Preferences': '其他設定',
   'Cards in Hand': '手中牌數量',

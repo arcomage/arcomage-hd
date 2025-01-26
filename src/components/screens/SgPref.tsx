@@ -115,7 +115,7 @@ const SgPref = () => {
           {_.i18n('Graphics')}
           {_.i18n(': ')}
         </h3>
-        <label>
+        <label className="shrink-0">
           <input
             type="checkbox"
             checked={noanim}
@@ -126,7 +126,7 @@ const SgPref = () => {
               })
             }}
           />
-          <span className="!pl-1">{_.i18n('Disable animation')}</span>
+          <span>{_.i18n('Disable animation')}</span>
         </label>
       </div>
       <label>
@@ -195,8 +195,8 @@ const SgPref = () => {
             .map((d) => (
               <label key={d.term} className="w-1/4 px-1">
                 <div className="flex justify-between">
-                  <span className="!pr-0">{_.i18n(d.en)}</span>
-                  <span className="!pl-0">{visualvalues[d.term]}</span>
+                  <span>{_.i18n(d.en)}</span>
+                  <span>{visualvalues[d.term]}</span>
                 </div>
                 <input
                   type="range"
@@ -228,7 +228,7 @@ const SgPref = () => {
           {dataVisualvalues
             .filter((d): d is DataVisualvaluesFilterType => d.type === 'filter')
             .map((d) => (
-              <label key={d.term}>
+              <label key={d.term} className="mx-1">
                 <input
                   type="checkbox"
                   checked={visualvalues[d.term]}
@@ -239,7 +239,7 @@ const SgPref = () => {
                     })
                   }}
                 />
-                <span className="!pl-1">{_.i18n(d.en)}</span>
+                <span>{_.i18n(d.en)}</span>
               </label>
             ))}
         </div>

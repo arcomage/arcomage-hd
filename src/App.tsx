@@ -89,6 +89,7 @@ const App = () => {
       <Helmet>
         <html
           lang={lang}
+          dir={langInfo[lang].isRtl ? 'rtl' : 'ltr'}
           data-erathian={(erathian && langInfo[lang].isLatinScript).toString()}
           data-noanime={noanim.toString()}
         />

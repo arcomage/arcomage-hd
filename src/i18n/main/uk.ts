@@ -59,9 +59,9 @@ export const i18n = {
   'Starting Conditions': 'Стартові умови',
   'Victory Conditions': 'Умови перемоги',
 
-  'Minimum is starting %s + 1': 'Мінімум: початкова %s +1',
-  'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1':
-    'Мінімум: MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1',
+  'Minimum is starting %s1 + 1 = %s0': 'Мінімум: початкова %s1 + 1 = %s0',
+  'Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1 = %s0':
+    'Мінімум: MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1 = %s0',
 
   'Other Preferences': 'Інші налаштування',
   'Cards in Hand': 'Карт в руці',

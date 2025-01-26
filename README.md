@@ -262,11 +262,11 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
 
 <p align="center"><a href="https://developers.google.com/web/tools/lighthouse" title="Google Lighthouse"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/lighthouse.svg" alt="Google Lighthouse" width="32px" height="32px"></a><br>Google Lighthouse score<br><a href="https://github.com/arcomage/arcomage-hd/issues/41"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/lighthouse_score.png" alt="ArcoMage HD Google Lighthouse score"></a></p>
 
-## Changelog & To Do
-
-[To-do list](https://github.com/arcomage/arcomage-hd/projects/1)
+## Changelog & Issues
 
 [Changelog file](CHANGELOG.md)
+
+[Issues](https://github.com/arcomage/arcomage-hd/issues)
 
 ## Translation Credits
 
