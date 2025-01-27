@@ -85,7 +85,7 @@ export const i18n = {
   'Connecting to the network ⌛': 'Connexion au réseau en cours ⌛',
   'Connected to the network (but not to anyone) 🟡':
     'Connecté au réseau (mais pas à quelqu’un) 🟡',
-  'Connecting to ID %s ⌛': 'Connexion à l’ID en cours ⌛',
+  'Connecting to ID %s ⌛': 'Connexion à l’ID %s en cours ⌛',
   "Connected to ID %s ✅ You're the host 🏠":
     'Connecté à l’ID %s ✅ Vous êtes l’hôte 🏠',
   "Connected by ID %s ✅ You're the guest 💼":
@@ -114,7 +114,7 @@ export const i18n = {
   Mute: 'Sourdine',
   'Stereo Sound': 'Son stéréo',
   Graphics: 'Image',
-  'Disable animation': "Désactiver l'animation",
+  'Disable animation': "Désactiver l’animation",
   Pixelation: 'Pixelation',
   'Visual Preset': 'Préréglage visuel',
   'Filter may slow down the game': 'Le filtre peut ralentir le jeu',

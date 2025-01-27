@@ -84,11 +84,11 @@ export const i18n = {
   'Connecting to the network ⌛': 'ネットワークに接続する ⌛',
   'Connected to the network (but not to anyone) 🟡':
     'ネットワークに接続され（誰にも接続されていません） 🟡',
-  'Connecting to ID %s ⌛': 'ID %sに接続 ⌛',
+  'Connecting to ID %s ⌛': 'ID %s に接続 ⌛',
   "Connected to ID %s ✅ You're the host 🏠":
-    'ID％sに接続 ✅ あなたはホスト 🏠',
+    'ID %s に接続 ✅ あなたはホスト 🏠',
   "Connected by ID %s ✅ You're the guest 💼":
-    'ID %sで接続 ✅ あなたはゲスト 💼',
+    'ID %s で接続 ✅ あなたはゲスト 💼',
   'Connection failed ❌': '接続に失敗しました ❌',
   'Disconnected 🔌': '切断されました 🔌',
   'You are playing against computer AI':

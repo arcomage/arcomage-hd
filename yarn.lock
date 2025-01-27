@@ -4462,10 +4462,6 @@ __metadata:
     workbox-webpack-plugin: ^7.3.0
     xml-js: ^1.6.11
   dependenciesMeta:
-    "@commitlint/cli":
-      optional: true
-    "@commitlint/config-conventional":
-      optional: true
     "@types/convert-excel-to-json":
       optional: true
     "@types/imagemin":
@@ -4517,8 +4513,6 @@ __metadata:
     imagemin-webp:
       optional: true
     join-images:
-      optional: true
-    lint-staged:
       optional: true
     opencc-js:
       optional: true

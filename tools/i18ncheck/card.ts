@@ -3,7 +3,7 @@ import { DataCardsI18nType } from '../../src/i18n/types'
 
 // theoretically the langs imported from src/i18n/langs is not ordered
 // this makes sure 'en' is the first one
-const langs = langArr.filter((lang) => lang !== 'en')
+const langs: typeof langArr = langArr.filter((lang) => lang !== 'en')
 langs.unshift('en')
 
 const i18nPromises: Promise<{

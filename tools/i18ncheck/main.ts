@@ -11,6 +11,14 @@ const i18nPromises: Promise<Record<string, string>>[] = langs.map(
   (code) => import(`../../src/i18n/main/${code}`),
 )
 
+const checkPlaceholders = (str1: string, str2: string) => {
+  // regex for '%s', '%s0', '%s1', etc.
+  const placeholderPattern = /%s\d*/g
+  const placeholders1 = (str1.match(placeholderPattern) || []).sort()
+  const placeholders2 = (str2.match(placeholderPattern) || []).sort()
+  return JSON.stringify(placeholders1) === JSON.stringify(placeholders2)
+}
+
 ;(async () => {
   const i18nStrs = (await Promise.all(i18nPromises)).map((o) => o.i18n)
   // console.log(i18nStrs)
@@ -26,10 +34,16 @@ const i18nPromises: Promise<Record<string, string>>[] = langs.map(
       )
     }
     keys(i18nEn).forEach((key) => {
-      if (hasOwnProperty(i18n, key) && i18n[key] === i18nEn[key]) {
-        console.log(
-          `${lang} (${langCode}) has a string that is the same as in the English version: "${i18n[key]}"`,
-        )
+      if (hasOwnProperty(i18n, key)) {
+        if (i18n[key] === i18nEn[key]) {
+          console.log(
+            `${lang} (${langCode}) has a string that is the same as in the English version: "${i18nEn[key]}"`,
+          )
+        } else if (!checkPlaceholders(i18n[key] as string, i18nEn[key])) {
+          console.log(
+            `The percentage placeholders "%s" in "${i18n[key]}" in ${lang} (${langCode}) version don't match English version's: "${i18nEn[key]}"`,
+          )
+        }
       }
     })
   }
