@@ -8,14 +8,16 @@
   },
   "packageManager": "yarn@3.2.0",
   "scripts": {
-    "postinstall": "husky install",
-    "prepack": "pinst --disable",
-    "postpack": "pinst --enable",
     "start": "webpack serve --mode development",
     "build": "rimraf dist && webpack --mode production",
     "build:local": "rimraf dist && webpack --env NODE_ENV2=local --mode production && http-server dist",
+    "checkall": "yarn test && yarn tool:prettier && yarn tool:eslint && yarn tool:typecheck",
     "test": "jest --coverage",
     "tool:ts": "ts-node --project ./tools/tsconfig.json",
+    "tool:prettier": "prettier --check '**/*.{ts,tsx}'",
+    "tool:eslint": "eslint '**/*.{ts,tsx}'",
+    "tool:typecheck": "yarn tsc --noEmit",
+    "tool:version": "yarn tool:ts ./tools/version/bump.ts",
     "tool:zhconvert": "yarn tool:ts ./tools/zhconvert",
     "tool:imgpc": "yarn tool:ts ./tools/img-processing/crop && yarn tool:ts ./tools/img-processing/upscale",
     "tool:imgmin": "node --loader ts-node/esm ./tools/img-min/index.ts",
@@ -35,17 +37,7 @@
     "tool:cardsbk": "yarn tool:ts ./tools/cardsbk",
     "tool:resizesvg": "yarn tool:ts ./tools/resize-svg",
     "tool:reduxreducers": "yarn tool:ts ./tools/redux-reducers",
-    "tool:prettier": "prettier --check '**/*.{ts,tsx}'",
-    "tool:eslint": "eslint '**/*.{ts,tsx}'",
-    "tool:linecount": "sloc src tools __test__",
-    "preversion": "git diff-index --quiet HEAD --",
-    "postversion": "git push --follow-tags"
-  },
-  "lint-staged": {
-    "**/*.{ts,tsx}": [
-      "prettier --check",
-      "eslint"
-    ]
+    "tool:linecount": "sloc src tools __test__"
   },
   "homepage": "https://arcomage.github.io/",
   "keywords": [
@@ -109,10 +101,8 @@
     "enzyme": "^3.11.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.6.3",
-    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "jest-canvas-mock": "^2.5.2",
-    "pinst": "^3.0.0",
     "postcss": "^8.5.1",
     "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
@@ -135,8 +125,6 @@
     "workbox-webpack-plugin": "^7.3.0"
   },
   "optionalDependencies": {
-    "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
     "@types/convert-excel-to-json": "^1.7.4",
     "@types/imagemin": "^8.0.5",
     "@types/imagemin-jpegtran": "^5.0.4",
@@ -163,7 +151,6 @@
     "imagemin-optipng": "^8.0.0",
     "imagemin-webp": "^8.0.0",
     "join-images": "^1.1.5",
-    "lint-staged": "^12.5.0",
     "opencc-js": "^1.0.5",
     "prettier": "^3.4.2",
     "sharp": "^0.33.5",
@@ -172,6 +159,9 @@
     "ts-node": "^10.9.2",
     "xml-js": "^1.6.11"
   },
+  "trustedDependencies": [
+    "sharp"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

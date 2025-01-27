@@ -41,8 +41,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Install modules
         run: yarn
-      - name: Run tests
-        run: yarn test
+      - name: Run tests + prettier + eslint + ts typecheck
+        run: yarn run checkall
       - name: Codecov Upload
         if: ${{ success() && matrix.os == 'ubuntu-latest' && matrix.node == '22.x'}}
         uses: codecov/codecov-action@v5

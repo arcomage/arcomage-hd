@@ -1,26 +1,42 @@
 # Development Notes
 
-## App Version Update
+## Common Dev, Version Update and Deployment
 
-- If a new version is decided to be released, do these:
-  - Commit all changes
-  - `yarn version <VERSIONNUMBER>`
+- Installation
+  - `yarn`
+- Common development
+  - You may need to use `export NODE_OPTIONS=--openssl-legacy-provider` before `yarn start`
+  - `yarn start`
+- If a new version will be released, check first then commit:
+  - `yarn checkall`
   - `git add .`
-  - `git commit -m "chore: bump version to v<VERSIONNUMBER>"`
-  - `git tag -a v<VERSIONNUMBER> -m "chore: bump version to v<VERSIONNUMBER>"`
-  - `git push`
-  - `git push --tags`
+  - `git commit -m "<YOURMESSAGE>"`
+- Then bump, tag and push the new version
+  - `yarn tool:version a.b.c` can now do the following things automatically:
+    - `yarn version a.b.c`
+    - `git add .`
+    - `git commit -m "chore: bump version to va.b.c"`
+    - `git tag -a va.b.c -m "chore: bump version to va.b.c"`
+    - `git push --follow-tags`
 
 ## Other Update
 
-- `husky` and `commitlint` execute `yarn test` and lint the commit message before every commit
-- When `scripts` **package.json** are updated, also update the tools below
 - When a new language is added, also update `og:locale:alternate` in **./src/index.html.ejs**
 - If description changes, search the first few words in the whole project and replace them (**./assets/logo/manifest.template.ts**, **./webpack.config.js**, **./package.json**, **./src/i18n/main/en.ts** should be changed and **./assets/logo/manifest.json** should be updated)
+- (`husky` and `commitlint` are not used anymore)
 
-## Tools
+## Tools & Scripts
 
-- `yarn tool:ts`: run TypeScript file directly (e.g. `yarn tool:ts ./abcde.ts`)
+- `yarn`: install dependencies
+- `yarn start`: start the project in development mode
+- `yarn build`: build the project in production mode
+- `yarn build:local`: build the project in production & local mode
+- `yarn checkall`: test + prettier + eslint + typecheck
+- `yarn test`: test with Jest
+- `yarn tool:prettier`: check with prettier
+- `yarn tool:eslint`: check with eslint
+- `yarn tool:typecheck`: check TypeScript types
+- `yarn tool:version a.b.c`: update the version to a.b.c in package.json, create tag and commit change
 - `yarn tool:zhconvert`: zh-Hans to zh-Hant conversion ('cards' & 'main', not 'taverns')
 - `yarn tool:imgpc`: extract (crop) images from the big image of the original game
 - `yarn tool:imgmin`: minify images (_./img-min/original_ stores minified PNG images before their conversion to .webp)
@@ -40,6 +56,4 @@
 - `yarn tool:cardsbk`: backup card data to _./\_\_test\_\_/cardsbk.ts_
 - `yarn tool:resizesvg`: resize SVG images in _./misc/readme_images/_
 - `yarn tool:reduxreducers`: Redux DevTools auto-generated reducer test remove duplicate
-- `yarn tool:prettier`: check with prettier
-- `yarn tool:eslint`: check with eslint
 - `yarn tool:linecount`: get total line count

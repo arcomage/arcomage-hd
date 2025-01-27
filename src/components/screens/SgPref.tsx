@@ -63,6 +63,7 @@ const SgPref = () => {
         {_.i18n('Sound')}
         {_.i18n(': ')}
       </h3>
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label>
         <div className="flex justify-between">
           <span>{_.i18n('Volume')}</span>
@@ -129,6 +130,7 @@ const SgPref = () => {
           <span>{_.i18n('Disable animation')}</span>
         </label>
       </div>
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label>
         <div className="flex justify-between">
           <span className="!p-0">
@@ -150,7 +152,7 @@ const SgPref = () => {
           }}
         />
       </label>
-      <label className="flex">
+      <label htmlFor="visual-preset" className="flex">
         <span>
           {_.i18n('Visual Preset')}{' '}
           <TooltipAll
@@ -161,6 +163,7 @@ const SgPref = () => {
           </TooltipAll>
         </span>
         <select
+          id="visual-preset"
           className="flex-grow"
           value={visualPresetIndex}
           onChange={(e) => {
@@ -193,6 +196,7 @@ const SgPref = () => {
           {dataVisualvalues
             .filter((d): d is DataVisualvaluesMainType => d.type === 'main')
             .map((d) => (
+              // eslint-disable-next-line jsx-a11y/label-has-associated-control
               <label key={d.term} className="w-1/4 px-1">
                 <div className="flex justify-between">
                   <span>{_.i18n(d.en)}</span>
@@ -228,8 +232,9 @@ const SgPref = () => {
           {dataVisualvalues
             .filter((d): d is DataVisualvaluesFilterType => d.type === 'filter')
             .map((d) => (
-              <label key={d.term} className="mx-1">
+              <label key={d.term} className="mx-1" htmlFor={`filter-${d.term}`}>
                 <input
+                  id={`filter-${d.term}`}
                   type="checkbox"
                   checked={visualvalues[d.term]}
                   onChange={(e) => {
@@ -275,5 +280,4 @@ const SgPref = () => {
     </Window>
   )
 }
-
 export default memo(SgPref)

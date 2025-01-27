@@ -4,6 +4,13 @@ _Summary of changes for major & minor releases. For details, click the version n
 
 _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache files & reload the webpage to have the latest version._
 
+## [v1.5.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.0...v1.5.0) (2025-01-28) (in progress)
+
+- Debounced number input ([#81](https://github.com/arcomage/arcomage-hd/issues/81))
+- LTR / Arabic support
+- CI update, replace husky git hooks by my own script
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-25..2025-01-28); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-25..2025-01-28))
+
 ## [v1.4.0](https://github.com/arcomage/arcomage-hd/compare/v1.3.0...v1.4.0) ([2025-01-25](https://github.com/arcomage/arcomage-hd/commit/552bf596a98d403310345efe7afc7c067938d489))
 
 - Fix [iOS 13+ long press to discard a card](https://github.com/arcomage/arcomage-hd/issues/74), [landscape notice](https://github.com/arcomage/arcomage-hd/issues/87)
@@ -11,7 +18,7 @@ _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to 
 - [All cards unusable](https://github.com/arcomage/arcomage-hd/issues/76#issuecomment-2054153524), [victory condition](https://github.com/arcomage/arcomage-hd/issues/81) tooltips
 - Update many dependent libraries (but not all to the latest)
 - [PWA update from network](https://github.com/arcomage/arcomage-hd/issues/68)
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-12-07..2021-12-26); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-12-07..2021-12-26))
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2021-12-07..2025-01-25); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-12-07..2025-01-25))
 
 ## [v1.3.0](https://github.com/arcomage/arcomage-hd/compare/v1.2.0...v1.3.0) ([2021-12-07](https://github.com/arcomage/arcomage-hd/tree/66c90ee521da676275d5c58dd8d1432feedd056e))
 
