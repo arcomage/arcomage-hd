@@ -6,7 +6,7 @@
 
 This non-profit fan-remake of the tower defense, resource management fantasy game is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + RxJS + CSS-based animations + WebRTC (see [§ Development](#development)). Please star the repo / follow me to support me.
 
-It's available in 13 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian. ([§ Translation Credits](#translation-credits))
+It's available in 14 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian, Arabic (RTL supported). ([§ Translation Credits](#translation-credits))
 
 It supports latest <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari 14+"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari 14+" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers. It works best in Chrome and Chrome's Blink engine-based browsers, and may or may not have performance issues in Safari & Firefox ([browser list](#browser-list)). Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead. Read [What to do if the game is slow](https://github.com/arcomage/arcomage-hd/issues/66) for detailed solutions.
 
@@ -278,8 +278,9 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
   - Polish (`pl`) (retranslated): [acidcave](https://www.arcomage.acidcave.net/czerwone_karty.html)
   - Czech (`cs`): Yym
   - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
-  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
   - Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
+  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
+  - Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/)
   - All others: [Tom Chen](https://github.com/tomchen) with OCR tool [tesseract.js](https://tesseract.projectnaptha.com/) & [other scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools)
   - Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
 - [Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main) string translators (some are from the original games):
@@ -292,6 +293,7 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
 - [Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns): extracted from _Might and Magic VIII_ & _VI_ original games by [Tom Chen](https://github.com/tomchen) with [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction). Except for:
   - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
   - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
+  - Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/)
   - Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
 
 _See also [I18N Issue Page](https://github.com/arcomage/arcomage-hd/issues/9)_
