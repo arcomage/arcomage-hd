@@ -114,7 +114,7 @@ export const i18n = {
   Mute: 'Sourdine',
   'Stereo Sound': 'Son stéréo',
   Graphics: 'Image',
-  'Disable animation': "Désactiver l’animation",
+  'Disable animation': 'Désactiver l’animation',
   Pixelation: 'Pixelation',
   'Visual Preset': 'Préréglage visuel',
   'Filter may slow down the game': 'Le filtre peut ralentir le jeu',

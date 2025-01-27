@@ -5,7 +5,8 @@
 - Installation
   - `yarn`
 - Common development
-  - You may need to use `export NODE_OPTIONS=--openssl-legacy-provider` before `yarn start`
+  - You may need to use `export NODE_OPTIONS=--openssl-legacy-provider` (may be `set NODE_OPTIONS=--openssl-legacy-provider
+` for cmd and `$env:NODE_OPTIONS="--openssl-legacy-provider"` for Powershell) before `yarn start`
   - `yarn start`
 - If a new version will be released, check first then commit:
   - `yarn checkall`

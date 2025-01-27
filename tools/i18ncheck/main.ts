@@ -12,8 +12,8 @@ const i18nPromises: Promise<Record<string, string>>[] = langs.map(
 )
 
 const checkPlaceholders = (str1: string, str2: string) => {
-  // regex for '%s', '%s0', '%s1', etc.
-  const placeholderPattern = /%s\d*/g
+  // regex for '%s', '%s0', '%s1', etc. plus '%sp', '%ss'
+  const placeholderPattern = /%s(s|p|\d*)/g
   const placeholders1 = (str1.match(placeholderPattern) || []).sort()
   const placeholders2 = (str2.match(placeholderPattern) || []).sort()
   return JSON.stringify(placeholders1) === JSON.stringify(placeholders2)
