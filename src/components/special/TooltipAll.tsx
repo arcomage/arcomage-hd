@@ -1,6 +1,10 @@
 import Tooltip from '@mui/material/Tooltip'
 import React, { memo } from 'react'
-import { tooltipEnterDelay, tooltipLeaveDelay } from '../../constants/visuals'
+import {
+  defaultTooltipEnterTouchDelay,
+  tooltipEnterDelay,
+  tooltipLeaveDelay,
+} from '../../constants/visuals'
 
 type PropType = {
   title: string
@@ -24,7 +28,7 @@ const TooltipAll = ({
   title,
   children,
   placement,
-  enterTouchDelay = 700,
+  enterTouchDelay = defaultTooltipEnterTouchDelay,
 }: PropType) => (
   <Tooltip
     title={title ? <span style={{ fontSize: '120%' }}>{title}</span> : ''}

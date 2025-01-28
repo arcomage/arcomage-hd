@@ -34,9 +34,10 @@
 - `yarn build:local`: build the project in production & local mode
 - `yarn checkall`: test + prettier + eslint + typecheck
 - `yarn test`: test with Jest
-- `yarn tool:prettier`: check with prettier
-- `yarn tool:eslint`: check with eslint
-- `yarn tool:typecheck`: check TypeScript types
+- `yarn format`: check with prettier
+- `yarn lint`: check with eslint
+- `yarn typecheck`: check TypeScript types
+- `yarn tool:ts`: followed by ts file path to run that ts file (e.g. `yarn tool:ts ./tools/zhconvert`), however, it is strongly recommended to install [bun](https://bun.sh/) and use `bun ./tools/zhconvert` instead
 - `yarn tool:version a.b.c`: update the version to a.b.c in package.json, create tag and commit change
 - `yarn tool:zhconvert`: zh-Hans to zh-Hant conversion ('cards' & 'main', not 'taverns')
 - `yarn tool:imgpc`: extract (crop) images from the big image of the original game
@@ -49,6 +50,7 @@
 - `yarn tool:ocr`: get card text in different languages
 - `yarn tool:i18ncheck:card`: check card i18n
 - `yarn tool:i18ncheck:main`: check main i18n
+- `yarn tool:i18ncheck:specific`: check all i18n with language-specific rules
 - `yarn tool:calcscore`: get all card scores (for AI)
 - `yarn tool:cardbalance`: get accumulated card effect result (for balancing card probs)
 - `yarn tool:i18nextract`: extract tavern translations
@@ -57,4 +59,6 @@
 - `yarn tool:cardsbk`: backup card data to _./\_\_test\_\_/cardsbk.ts_
 - `yarn tool:resizesvg`: resize SVG images in _./misc/readme_images/_
 - `yarn tool:reduxreducers`: Redux DevTools auto-generated reducer test remove duplicate
-- `yarn tool:linecount`: get total line count
+- `yarn linecount`: get total line count
+
+**Attention:** all `yarn tool:` commands require [bun](https://bun.sh/) to be installed globally. Previously, `yarn tool:ts` (with `ts-node`) was used, but now this slow approach is not recommended

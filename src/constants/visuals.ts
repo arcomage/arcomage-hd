@@ -29,5 +29,6 @@ export const connRetryTimes = 5
 export const sendSettingsDebounceTime = 500
 export const tooltipEnterDelay = 40
 export const tooltipLeaveDelay = 40
+export const defaultTooltipEnterTouchDelay = 700
 
 export const stereoPanValue = 0.7

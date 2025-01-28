@@ -65,29 +65,3 @@ const arraysEqual = (a: any[] | null, b: any[] | null) => {
     })
   }
 })()
-
-/**
- * French `'` -> `’` check
- */
-
-import { i18n } from '../../src/i18n/main/fr'
-import { cardsI18n } from '../../src/i18n/cards/fr'
-import { tavernsI18n } from '../../src/i18n/taverns/fr'
-
-const i18nArr = Object.values(i18n)
-const cardsI18nArr = cardsI18n.reduce(
-  (accu: string[], { name, desc }) => accu.concat([name, desc]),
-  [],
-)
-const tavernsI18nArr = tavernsI18n.reduce(
-  (accu: string[], { name, location }) => accu.concat([name, location]),
-  [],
-)
-i18nArr
-  .concat(cardsI18nArr)
-  .concat(tavernsI18nArr)
-  .forEach((s) => {
-    if (/'/g.test(s)) {
-      console.log(s)
-    }
-  })

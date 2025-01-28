@@ -53,6 +53,7 @@ const Help = () => {
               href={authorUrl}
               target="_blank"
               rel="noopener noreferrer"
+              dir="ltr"
             >
               @tomchen
             </a>
