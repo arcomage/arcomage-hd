@@ -66,7 +66,6 @@ interface NumberInputProps extends InputHTMLAttributes<HTMLInputElement> {
  *   step={2}
  *   disabled={false}
  *   onChange={(e) => handleChange(e)}
- *   // TODO onChangeImmediate={(e) => handleChangeImmediate(e)}
  *   debounceDelay={900}
  *   validate={(val, max, min) => customValidation(val, max, min)}
  *   sanitize={(val, max, min) => customSanitization(val, max, min)}
@@ -132,14 +131,10 @@ const NumberInput = ({
   }
 
   useEffect(() => {
-    immediateValidateAndUpdate(value?.toString() ?? '0')
-  }, [value])
-
-  useEffect(() => {
-    if (inputValue !== undefined) {
-      immediateValidateAndUpdate(inputValue)
+    if (value !== undefined) {
+      immediateValidateAndUpdate(value?.toString() ?? '0')
     }
-  }, [_min, _max])
+  }, [value, _min, _max])
 
   const debouncedValidateAndUpdate = (val: string, delay: number) => {
     if (debounceTimerRef.current) {
