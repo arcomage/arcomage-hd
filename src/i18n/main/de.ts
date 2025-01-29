@@ -67,7 +67,7 @@ export const i18n = {
   'Other Preferences': 'Andere Voreinstellungen',
   'Cards in Hand': 'Karten auf der Hand',
 
-  'AI Level': 'AI-Ebene',
+  'AI Level': 'KI-Ebene',
   Genius: 'Genial',
   Smart: 'Klug',
   Mediocre: 'Mittelmäßig',

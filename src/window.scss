@@ -155,6 +155,9 @@
         :dir(rtl) & {
           padding-left: 0.9rem;
         }
+        &[aria-invalid='true'] {
+          @apply border-red-500;
+        }
       }
     }
 
