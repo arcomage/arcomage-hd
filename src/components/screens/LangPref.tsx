@@ -27,8 +27,8 @@ const LangPref = () => {
       const arr = er.split('%s')
       return [
         <Fragment key={0}>{arr[0]}</Fragment>,
-        <span key={1} className={cx('text-2xl p-0', 'erathian')}>
-          Erathian
+        <span aria-hidden={true} key={1} className="!px-0">
+          [<span className={cx('text-2xl p-0', 'erathian')}>Erathian</span>]
         </span>,
         <Fragment key={2}>{arr[1]}</Fragment>,
       ]
@@ -42,7 +42,11 @@ const LangPref = () => {
         {[...langs]
           .sort((codeA, codeB) => codeA.localeCompare(codeB))
           .map((code) => (
-            <TooltipAll key={code} title={langInfo[code].en}>
+            <TooltipAll
+              key={code}
+              title={langInfo[code].en}
+              ariaLabel={`${langInfo[code].local} [${langInfo[code].en}]`}
+            >
               <button
                 key={code}
                 lang={code}

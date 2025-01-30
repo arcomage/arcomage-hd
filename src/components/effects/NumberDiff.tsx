@@ -67,7 +67,13 @@ const NumberDiff = ({ n }: PropType) => {
   // text-green-500
   // text-red-500
 
-  return <div ref={main} className="z-50 absolute w-full h-full"></div>
+  return (
+    <div
+      ref={main}
+      className="z-50 absolute w-full h-full"
+      aria-hidden={true}
+    ></div>
+  )
 }
 
 export default NumberDiff

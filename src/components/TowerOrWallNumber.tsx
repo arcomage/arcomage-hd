@@ -1,23 +1,14 @@
 import React, { memo, useEffect } from 'react'
 // import devLog from '../utils/devLog'
-import { useAppSelector } from '../utils/useAppDispatch'
 import AnimatedNumber from './effects/AnimatedNumber'
 import NumberChangeVisual from './effects/NumberChangeVisual'
 import NumberDiff from './effects/NumberDiff'
 
 type PropType = {
-  isOpponent: boolean
-  isWall: boolean
+  n: number
   target: React.MutableRefObject<HTMLDivElement | null>
 }
-const TowerOrWallNumber = ({ isOpponent, isWall, target }: PropType) => {
-  const n = useAppSelector(
-    (state) =>
-      state.status[isOpponent ? 'opponent' : 'player'][
-        isWall ? 'wall' : 'tower'
-      ],
-  )
-
+const TowerOrWallNumber = ({ n, target }: PropType) => {
   useEffect(() => {
     if (target.current !== null) {
       target.current.style.setProperty('--n', n.toString(10))

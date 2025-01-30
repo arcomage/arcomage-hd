@@ -15,7 +15,7 @@ import { smallRootFontScreenMax, unitTextMaxLength } from '../constants/visuals'
 import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'
 import recruit from '../../assets/img/recruit.svg'
-import { ResNameType } from '../constants/resourceNames'
+import { resNameAllMap, ResNameType } from '../constants/resourceNames'
 import { useAppSelector } from '../utils/useAppDispatch'
 import TooltipAll from './special/TooltipAll'
 
@@ -146,6 +146,10 @@ const Resource = ({ type, isOpponent }: PropType) => {
   // bg-blue-300
   // bg-green-300
 
+  const nProd = useAppSelector(
+    (state) =>
+      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][1]],
+  )
   let resProdTitle = _.i18n(`${isOpponent ? "Opponent's" : 'Your'} %s`).replace(
     '%s',
     _.i18n('%s (%ss production)')
@@ -171,8 +175,12 @@ const Resource = ({ type, isOpponent }: PropType) => {
         ),
       ),
   )
-  resProdTitle = upper1st(resProdTitle)
+  resProdTitle = `${upper1st(resProdTitle)} = ${nProd}`
 
+  const nRes = useAppSelector(
+    (state) =>
+      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][0]],
+  )
   const winResource = useAppSelector((state) => state.settings.winResource)
   let resTitle = _.i18n(`${isOpponent ? "Opponent's" : 'Your'} %sp`)
     .replace(
@@ -187,7 +195,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
     )
     .replace('%ss', _.i18n(type))
   resTitle = _.i18n('%s1. Reach %s2 to win')
-    .replace('%s1', resTitle)
+    .replace('%s1', `${resTitle} = ${nRes}`)
     .replace('%s2', winResource.toString(10))
   resTitle = upper1st(resTitle)
 
@@ -208,6 +216,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
         >
           <div
             className={cx(classes[type], 'w-full h-full bg-cover pixelated')}
+            aria-hidden={true}
           ></div>
           <div
             className={cx(
@@ -217,7 +226,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
               'el-number',
             )}
           >
-            <ResourceNumber isProd {...{ type, isOpponent }} />
+            <ResourceNumber n={nProd} />
           </div>
         </div>
       </TooltipAll>
@@ -231,7 +240,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
               'el-number',
             )}
           >
-            <ResourceNumber isProd={false} {...{ type, isOpponent }} />
+            <ResourceNumber n={nRes} />
           </div>
           <div
             className={cx(

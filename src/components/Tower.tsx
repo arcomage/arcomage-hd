@@ -96,12 +96,15 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
 
   const boldfont: boolean = useAppSelector((state) => state.lang.boldfont)
   const winTower = useAppSelector((state) => state.settings.winTower)
+  const n = useAppSelector(
+    (state) => state.status[isOpponent ? 'opponent' : 'player'].tower,
+  )
   let towerTitle = _.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
     '%s',
     _.i18n('tower'),
   )
   towerTitle = _.i18n('%s1. Reach %s2 to win')
-    .replace('%s1', towerTitle)
+    .replace('%s1', `${towerTitle} = ${n}`)
     .replace('%s2', winTower.toString(10))
   towerTitle = upper1st(towerTitle)
 
@@ -117,7 +120,10 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
     >
       <TooltipAll title={towerTitle} placement="bottom">
         <div className="w-full h-full">
-          <div className={cx('z-20 w-full absolute', classes.towerwrapper)}>
+          <div
+            className={cx('z-20 w-full absolute', classes.towerwrapper)}
+            aria-hidden={true}
+          >
             <div
               ref={towerBody}
               className={cx('absolute bottom-0', classes.towerbody)}
@@ -146,11 +152,7 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
                 'el-number',
               )}
             >
-              <TowerOrWallNumber
-                isOpponent={isOpponent}
-                isWall={false}
-                target={towerBody}
-              />
+              <TowerOrWallNumber n={n} target={towerBody} />
             </div>
           </div>
         </div>

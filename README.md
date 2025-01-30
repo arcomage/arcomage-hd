@@ -158,7 +158,7 @@ Or with access key (only for opening a window):
 When a window is open:
 
 - <kbd>Esc</kbd>: (In Fullscreen Mode) exit the mode, or (not in Fullscreen Mode) cancel & close the current window
-- <kbd>Home</kbd> or <kbd>Alt</kbd> + <kbd>C</kbd>: Cancel & close the current window
+- <kbd>Alt</kbd> + <kbd>X</kbd>: Cancel & close the current window
 
 ### Card
 
@@ -177,7 +177,7 @@ It could be other key instead of <kbd>Alt</kbd>
 
 </details>
 
-The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compatible. It did support "[Reduce Motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion#user_preferences)" but doesn't support it now due to a [Win11 bug](https://github.com/arcomage/arcomage-hd/issues/88), instead, you can simply disable animation in the graphics settings if you want to.
+The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compatible. Animation could be disabled in the graphics settings if you want.
 
 <p align="center">
 <a href="https://arcomage.github.io/" title="Blind Friendly"><img src="https://img.shields.io/badge/-Blind%20Friendly-black" alt="Blind Friendly"></a>

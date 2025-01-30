@@ -32,7 +32,7 @@ export const i18n = {
   'Your %sp': 'あなたの%sp', // Your bricks
   "Opponent's %sp": '相手の%sp', // Opponent's bricks
 
-  '%s1. Reach %s2 to win': '%s1。勝つために%s2に到達する', // Your tower/bricks/gems/recruits. Reach 100 to win
+  '%s1. Reach %s2 to win': '%s1。勝つために%s2に到達する', // Your tower/bricks/gems/recruits = n. Reach 100 to win
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s（%ssの生産）', // quarry (brick production)
@@ -143,7 +143,7 @@ export const i18n = {
   'Toggle Full Screen': 'フルスクリーン切り替え',
 
   'Bold font': '太字フォント',
-  ERATHIAN: 'エラシアン文字 [%s] を使用します（ラテン文字の言語のみ）',
+  ERATHIAN: 'エラシアン文字 %s を使用します（ラテン文字の言語のみ）',
 
   'ArcoMage HD': 'アーコメイジHD',
 

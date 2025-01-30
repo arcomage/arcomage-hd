@@ -31,7 +31,7 @@ export const i18n = {
   'Your %sp': '你的%sp', // Your bricks
   "Opponent's %sp": '对手的%sp', // Opponent's bricks
 
-  '%s1. Reach %s2 to win': '%s1。达到%s2即可获胜', // Your tower/bricks/gems/recruits. Reach 100 to win
+  '%s1. Reach %s2 to win': '%s1。达到%s2即可获胜', // Your tower/bricks/gems/recruits = n. Reach 100 to win
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s', // quarry (brick production)
@@ -139,7 +139,7 @@ export const i18n = {
   'Toggle Full Screen': '切换全屏模式',
 
   'Bold font': '字体加粗',
-  ERATHIAN: '使用埃拉西亚文字 [%s]（仅限拉丁字母语言）',
+  ERATHIAN: '使用埃拉西亚文字 %s（仅限拉丁字母语言）',
 
   'ArcoMage HD': '魔幻牌HD',
 

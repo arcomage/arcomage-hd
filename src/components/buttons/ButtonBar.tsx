@@ -7,7 +7,7 @@ import ButtonGithub from './ButtonGithub'
 import ButtonFullscreen from './ButtonFullscreen'
 
 const ButtonBar = () => (
-  <div>
+  <div role="navigation">
     <ButtonPref />
     <ButtonLangPref />
     <ButtonSgPref />

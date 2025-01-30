@@ -8,6 +8,7 @@ _Go to https://arcomage.github.io/ and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to 
 
 - Debounced number input ([#81](https://github.com/arcomage/arcomage-hd/issues/81))
 - LTR / Arabic support ([#90](https://github.com/arcomage/arcomage-hd/issues/90))
+- Fix and improve a11y
 - CI update, replace husky git hooks by my own script
 - And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..*))
 

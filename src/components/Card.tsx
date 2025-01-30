@@ -1,4 +1,4 @@
-import React, { useContext, memo, MouseEvent, useRef } from 'react'
+import React, { useContext, memo, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
@@ -256,7 +256,8 @@ const Card = ({
       <button
         ref={main}
         disabled
-        aria-hidden="true"
+        aria-hidden={true}
+        tabIndex={-1}
         className={cx(
           classes.main,
           classes.cardbackhard,
@@ -355,7 +356,7 @@ const Card = ({
           }
         }
         return {
-          onContextMenu: (e: MouseEvent) => {
+          onContextMenu: (e: React.MouseEvent) => {
             e.preventDefault()
             discardCardFunc()
           },
@@ -416,11 +417,10 @@ const Card = ({
         }
         tabIndex={!buttonDisabled ? position + 1 : -1}
         disabled={buttonDisabled}
-        {...(buttonDisabled ? { 'aria-hidden': 'true' } : [])}
         {...onClickFunc}
         {...onContextMenuFunc}
-        onKeyDown={(event) => {
-          if (event.key === 'Delete' || event.key === 'Backspace') {
+        onKeyDown={(e) => {
+          if (e.key === 'Delete' || e.key === 'Backspace') {
             const el = main.current
             if (el) {
               const mouseEvent = new MouseEvent('contextmenu', {
@@ -432,6 +432,7 @@ const Card = ({
                 clientX: el.getBoundingClientRect().x,
                 clientY: el.getBoundingClientRect().y,
               })
+              e.preventDefault()
               el.dispatchEvent(mouseEvent)
             }
           }

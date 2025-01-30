@@ -32,7 +32,7 @@ export const i18n = {
   'Your %sp': 'Ваші %sp', // Your bricks
   "Opponent's %sp": 'Ворожі %sp', // Opponent's bricks
 
-  '%s1. Reach %s2 to win': '%s1. Отримате %s2, щоб перемогти', // Your tower/bricks/gems/recruits. Reach 100 to win
+  '%s1. Reach %s2 to win': '%s1. Отримате %s2, щоб перемогти', // Your tower/bricks/gems/recruits = n. Reach 100 to win
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (%ss виробництво)', // quarry (brick production)
@@ -141,7 +141,7 @@ export const i18n = {
   'Toggle Full Screen': 'Повноекранний режим',
 
   'Bold font': 'Жирний шрифт',
-  ERATHIAN: 'Використовувати Ерафійський [%s] (лише мови латинського шрифту)',
+  ERATHIAN: 'Використовувати Ерафійський %s (лише мови латинського шрифту)',
 
   'ArcoMage HD': 'Аркомаг HD',
 

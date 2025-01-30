@@ -97,12 +97,14 @@ const Bird = () => {
     <>
       <div
         className={cx('z-10', classes.birdcontainer, classes.birdcontainer1)}
+        aria-hidden={true}
       >
         <div className={cx(classes.bird, classes.bird1)}></div>
       </div>
 
       <div
         className={cx('z-10', classes.birdcontainer, classes.birdcontainer2)}
+        aria-hidden={true}
       >
         <div className={cx(classes.bird, classes.bird2)}></div>
       </div>

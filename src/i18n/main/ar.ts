@@ -112,7 +112,7 @@ export const i18n = {
   Help: 'مساعدة',
   'Toggle Full Screen': 'تبديل ملء الشاشة',
   'Bold font': 'خط عريض',
-  ERATHIAN: 'استخدم Erathian [%s] (لغات الكتابة اللاتينية فقط)',
+  ERATHIAN: 'استخدم Erathian %s (لغات الكتابة اللاتينية فقط)',
   'ArcoMage HD': 'ArcoMage HD',
   DESC: 'نسخة طبق الأصل مجانية ومفتوحة المصدر على الويب من لعبة الورق Arcomage لعام 2000 من 3DO وNWC',
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':

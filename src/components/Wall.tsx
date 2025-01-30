@@ -54,17 +54,20 @@ const Wall = ({ isOpponent = false }: PropType) => {
   const classes = useStyles(height)
 
   const boldfont: boolean = useAppSelector((state) => state.lang.boldfont)
+  const n = useAppSelector(
+    (state) => state.status[isOpponent ? 'opponent' : 'player'].wall,
+  )
 
   // Force TailwindCSS to aware of these classes:
   // float-left
   // float-right
 
-  const wallTitle = upper1st(
+  const wallTitle = `${upper1st(
     _.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
       '%s',
       _.i18n('wall'),
     ),
-  )
+  )} = ${n}`
 
   const wallBody = useRef<HTMLDivElement | null>(null)
 
@@ -78,7 +81,10 @@ const Wall = ({ isOpponent = false }: PropType) => {
     >
       <TooltipAll title={wallTitle} placement="bottom">
         <div className="w-full h-full">
-          <div className={cx('z-20 w-full absolute px-4', classes.wallwrapper)}>
+          <div
+            className={cx('z-20 w-full absolute px-4', classes.wallwrapper)}
+            aria-hidden={true}
+          >
             <div
               ref={wallBody}
               className={cx('absolute bottom-0', classes.wallbody, 'pixelated')}
@@ -92,11 +98,7 @@ const Wall = ({ isOpponent = false }: PropType) => {
                 'el-number',
               )}
             >
-              <TowerOrWallNumber
-                isOpponent={isOpponent}
-                isWall
-                target={wallBody}
-              />
+              <TowerOrWallNumber n={n} target={wallBody} />
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ const SvgFilters = () => {
           pixelationLevel > 0 ? 'url(#pixelation)' : 'none'
         }; }`}</style>
       </Helmet>
-      <svg className="absolute w-0 h-0 overflow-hidden" aria-hidden="true">
+      <svg className="absolute w-0 h-0 overflow-hidden" aria-hidden={true}>
         <filter id="pixelation" x="0" y="0">
           <feFlood x="1" y="1" height="1" width="1" />
           <feComposite width={pixelationLevel} height={pixelationLevel} />

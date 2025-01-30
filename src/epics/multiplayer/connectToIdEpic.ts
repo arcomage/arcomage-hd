@@ -32,26 +32,29 @@ export default (
       }
       const connectToPeerId: Promise<null> = new Promise((resolve, reject) => {
         if (peer !== null) {
-          let conn: DataConnection | null = null
+          let conn: DataConnection | null | undefined = null
           let timer: NodeJS.Timeout | null = null
           let tryTimes = 0
           const loop = () => {
             if (tryTimes > connRetryTimes) {
-              if (conn !== null) {
+              if (conn !== null && conn !== undefined) {
                 conn.close()
               }
               reject(false)
             }
             tryTimes += 1
-            if (conn === null || (conn !== null && !conn.open)) {
+            if (
+              conn === null ||
+              (conn !== null && conn !== undefined && !conn.open)
+            ) {
               if (conn !== null) {
-                conn.close()
+                conn?.close()
               }
               conn = peer.connect(action.id)
               peerAll.conn = conn
             }
             timer = setTimeout(loop, connBaseRetryTime * tryTimes)
-            conn.on('open', () => {
+            conn?.on('open', () => {
               // conn.send('hi!')
               if (timer !== null) {
                 clearTimeout(timer)
@@ -61,7 +64,7 @@ export default (
           }
           loop()
           peer.on('error', (error) => {
-            if (conn !== null) {
+            if (conn !== null && conn !== undefined) {
               conn.close()
             }
             reject(error)

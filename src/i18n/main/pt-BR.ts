@@ -32,7 +32,7 @@ export const i18n = {
   'Your %sp': 'Seus %sp', // Your bricks
   "Opponent's %sp": '%sp do oponente', // Opponent's bricks
 
-  '%s1. Reach %s2 to win': '%s1. Chegue a %s2 para vencer', // Your tower/bricks/gems/recruits. Reach 100 to win
+  '%s1. Reach %s2 to win': '%s1. Chegue a %s2 para vencer', // Your tower/bricks/gems/recruits = n. Reach 100 to win
 
   // %s = 'quarry', %ss = 'brick', %sp = 'bricks'
   '%s (%ss production)': '%s (produção de %ss)', // quarry (brick production)
@@ -144,7 +144,7 @@ export const i18n = {
   'Toggle Full Screen': 'Tela Cheia',
 
   'Bold font': 'Fonte em negrito',
-  ERATHIAN: 'Usar Erathian [%s] (somente linguagens de escrita latina)',
+  ERATHIAN: 'Usar Erathian %s (somente linguagens de escrita latina)',
 
   'ArcoMage HD': 'ArcoMage HD',
 

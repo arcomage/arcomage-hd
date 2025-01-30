@@ -42,7 +42,7 @@ const Status = ({ playerName, isOpponent = false }: PropType) => {
     >
       <div className="bg-black bg-opacity-50 mb-4 p-1 shadow-lg">
         <TooltipAll
-          title={_.i18n(isOpponent ? "Opponent's Name" : 'Your Name')}
+          title={`${_.i18n(isOpponent ? "Opponent's Name" : 'Your Name')} = ${playerName}`}
           placement={isOpponent ? 'left' : 'right'}
         >
           <div
