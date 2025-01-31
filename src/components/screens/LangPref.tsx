@@ -13,6 +13,7 @@ import {
 } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import TooltipAll from '../special/TooltipAll'
+import CheckBox from '../special/CheckBox'
 
 const LangPref = () => {
   const lang: AvailableLangType = useAppSelector((state) => state.lang.code)
@@ -65,8 +66,7 @@ const LangPref = () => {
       </div>
 
       <label className="flex w-full justify-center">
-        <input
-          type="checkbox"
+        <CheckBox
           checked={boldfont}
           onChange={(e) => {
             dispatch({
@@ -78,8 +78,7 @@ const LangPref = () => {
         <span>{_.i18n('Bold font')}</span>
       </label>
       <label className="flex w-full justify-center">
-        <input
-          type="checkbox"
+        <CheckBox
           checked={langInfo[lang].isLatinScript ? erathian : false}
           disabled={!langInfo[lang].isLatinScript}
           onChange={(e) => {

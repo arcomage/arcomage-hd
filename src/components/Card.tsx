@@ -268,6 +268,7 @@ const Card = ({
               (!playersTurn && owner === 'player'),
             [classes.unusableopacity]: n === -1,
           },
+          'card',
         )}
       >
         <div
@@ -409,6 +410,7 @@ const Card = ({
           },
           { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
+          'card',
         )}
         accessKey={
           !buttonDisabled && position >= 0 && position < 9

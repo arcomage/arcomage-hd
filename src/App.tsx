@@ -14,6 +14,7 @@ import { minRootFontSize, smallRootFontScreenMax } from './constants/visuals'
 import { langInfo } from './i18n/langs'
 import SvgFilters from './components/effects/SvgFilters'
 import { setVolume } from './utils/Sound'
+import useArrowKeyFocus from './utils/useArrowKeyFocus'
 import useKeyDown from './utils/useKeyDown'
 import { UPDATE_VISUALVALUES } from './constants/ActionTypes'
 import { defaultVisualvalues } from './constants/defaultSettings'
@@ -36,8 +37,10 @@ const App = () => {
   useDisableContextMenu()
   useBeforeWindowUnloadWarning()
 
+  useArrowKeyFocus()
+
   useKeyDown(
-    'r',
+    'o',
     () => {
       dispatch({
         type: UPDATE_VISUALVALUES,

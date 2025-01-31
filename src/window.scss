@@ -128,7 +128,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.25);
         &.increase {
           top: 0;
           &:hover {
@@ -141,9 +141,15 @@
             color: red;
           }
         }
+        &:disabled {
+          color: rgba(255, 255, 255, 0.11);
+        }
       }
       &:hover button {
         color: rgba(255, 255, 255, 1);
+        &:disabled {
+          color: rgba(255, 255, 255, 0.11);
+        }
       }
       input[type='text'] {
         padding-left: 0.4rem;

@@ -57,7 +57,8 @@ interface NumberInputProps extends InputHTMLAttributes<HTMLInputElement> {
  * @param {number} [props.debounceDelay=1000] - Decouncing delay in milliseconds before the input value is processed, default is 1000ms, set to 0 to disable debouncing
  * @param {Function} [props.validate=defaultValidate] - Custom validation function to run after debouncing. It receives (value, max, min). For default function, see `defaultValidate` in source code file NumberInput.tsx (simple function that ensures the value is an integer within the range))
  * @param {Function} [props.sanitize=defaultSanitize] - Custom sanitization function to run immediately after user types anything, any before debouncing. It receives (value, max, min). For default function, see `defaultSanitize` in source code file NumberInput.tsx (simple function that ensures the value is an integer))
- * @param {React.RefObject<HTMLInputElement>} [props.ref] - A reference to the input element
+ * @param {React.RefObject<HTMLInputElement>} [ref] - A reference to the input element
+ * @returns {JSX.Element} A controlled input component that handles numeric values
  *
  * @note `props.onChange`'s `event` argument also has the same interface as `event` in `React.ChangeEvent<HTMLInputElement>`, with `event.target` being the input element which is slightly different: it is now an input element with `type="text" inputMode="numeric"` instead of `type="number"`.
  *
@@ -186,6 +187,8 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
 
     return (
       <div
+        role="textbox"
+        tabIndex={-1}
         className="number-input"
         onWheel={(e) => {
           if (disabled) {
@@ -194,6 +197,18 @@ const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
           if (e.deltaY < 0) {
             handleButtonClick(true)
           } else {
+            handleButtonClick(false)
+          }
+        }}
+        onKeyDown={(e) => {
+          if (disabled) {
+            return
+          }
+          if (e.key === 'ArrowUp') {
+            e.preventDefault()
+            handleButtonClick(true)
+          } else if (e.key === 'ArrowDown') {
+            e.preventDefault()
             handleButtonClick(false)
           }
         }}
