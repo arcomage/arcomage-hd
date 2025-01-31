@@ -15,8 +15,8 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { EMPTY, from, Observable, of } from 'rxjs'
-import { drawCardQueues } from '../../utils/queues'
-import Queue from '../../utils/Queue'
+import { drawCardQueues } from '../../utils/multiplayer/queues'
+import Queue from '../../utils/multiplayer/Queue'
 import devLog from '../../utils/devLog'
 
 export default (

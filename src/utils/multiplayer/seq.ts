@@ -1,5 +1,5 @@
-import { ConnDataType } from '../types/connData'
-import devLog from './devLog'
+import { ConnDataType } from '../../types/connData'
+import devLog from '../devLog'
 
 class receiveSequence {
   private _v: number = 0

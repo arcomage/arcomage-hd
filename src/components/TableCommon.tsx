@@ -6,10 +6,10 @@ import Bird from './effects/Bird'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import { useAppSelector } from '../utils/useAppDispatch'
+import { useAppSelector } from '../utils/hooks/useAppDispatch'
 
 import bg from '../../assets/img/bg.webp'
-import { GameSizeContext } from '../utils/GameSizeContext'
+import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 
 const useStyles = createUseStyles({
   mainbg: {

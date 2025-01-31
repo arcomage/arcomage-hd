@@ -8,7 +8,7 @@ import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import { ConnDataType } from '../../types/connData'
 import devLog from '../../utils/devLog'
-import { sendSeq } from '../../utils/seq'
+import { sendSeq } from '../../utils/multiplayer/seq'
 
 export default (
   action$: Observable<RootActionType>,

@@ -13,7 +13,7 @@ import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { of, concat, EMPTY, Observable } from 'rxjs'
 import { INST } from '../../constants/connDataKind'
-import { reverseOwnerStr } from '../../utils/reverseState'
+import { reverseOwnerStr } from '../../utils/multiplayer/reverseState'
 
 export default (
   action$: Observable<RootActionType>,

@@ -14,7 +14,7 @@ import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
 import { DataConnection } from 'peerjs'
 import { connBaseRetryTime, connRetryTimes } from '../../constants/visuals'
-import { receiveSeq, sendSeq } from '../../utils/seq'
+import { receiveSeq, sendSeq } from '../../utils/multiplayer/seq'
 import devLog from '../../utils/devLog'
 
 // connect to opponent ID, and set opponent ID in the store

@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks'
-import useWindowLoad from '../../src/utils/useWindowLoad'
+import useWindowLoad from '../../src/utils/hooks/useWindowLoad'
 
 it('useWindowLoad is OK', () => {
   global.addEventListener = jest.fn()

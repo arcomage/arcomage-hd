@@ -65,23 +65,23 @@ In settings window, when a form element / input element is selected, you can use
 
 ## Gamepad🎮
 
-| Button (Xbox)                   | Button (PlayStation)                 | Function or Exact Keyboard Equivalent                                   |
-| ------------------------------- | ------------------------------------ | ----------------------------------------------------------------------- |
-| <kbd>A</kbd>                    | <kbd>✕</kbd>                         | Use card, click button, toggle checkbox, etc.                           |
-| <kbd>B</kbd>                    | <kbd>◯</kbd>                         | Discard card, exit current window                                       |
-| <kbd>X</kbd>                    | <kbd>▢</kbd>                         | Select (focus on) the previous card, button, or other clickable element |
-| <kbd>Y</kbd>                    | <kbd>△</kbd>                         | Select (focus on) the next card, button, or other clickable element     |
-| <kbd>Left Bumper (LB)</kbd>     | <kbd>L1</kbd>                        | Select (focus on) the previous card                                     |
-| <kbd>Right Bumper (RB)</kbd>    | <kbd>R1</kbd>                        | Select (focus on) the next card                                         |
-| <kbd>Left Trigger (LT)</kbd>    | <kbd>L2</kbd>                        | Close virtual keyboard ⌨️ in Text / Number inputs                       |
-| <kbd>Right Trigger (RT)</kbd>   | <kbd>R2</kbd>                        | Show virtual keyboard ⌨️ in Text / Number inputs                        |
-| <kbd>Start</kbd>                | <kbd>Options</kbd>                   | Open Preferences                                                        |
-| <kbd>Back</kbd>                 | <kbd>Share</kbd> / <kbd>Select</kbd> | Exit hand cursor 👆 mode                                                |
-| <kbd>Left Stick 🕹</kbd>        | Same as Xbox                         | Show and move a hand cursor 👆                                          |
-| <kbd>Right Stick 🕹</kbd>       | Same as Xbox                         | Show and move a hand cursor 👆 (fast movement)                          |
-| <kbd>Left Stick 🕹 Click</kbd>  | Same as Xbox                         | Hand cursor 👆 left click                                               |
-| <kbd>Right Stick 🕹 Click</kbd> | Same as Xbox                         | Hand cursor 👆 right click                                              |
-| <kbd>D-Pad Up 🔼</kbd>          | Same as Xbox                         | <kbd>↑</kbd> in Text / Number / Range inputs                            |
-| <kbd>D-Pad Down 🔽</kbd>        | Same as Xbox                         | <kbd>↓</kbd> in Text / Number / Range inputs                            |
-| <kbd>D-Pad Left ◀️</kbd>        | Same as Xbox                         | <kbd>←</kbd> in Text / Number / Range inputs                            |
-| <kbd>D-Pad Right ▶️</kbd>       | Same as Xbox                         | <kbd>→</kbd> in Text / Number / Range inputs                            |
+| Button (Xbox)                   | Button (PlayStation)                 | Function or Exact Keyboard Equivalent                                            |
+| ------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------- |
+| <kbd>A</kbd>                    | <kbd>✕</kbd>                         | Use card, click button, toggle checkbox, etc.                                    |
+| <kbd>B</kbd>                    | <kbd>◯</kbd>                         | Discard card, exit current window                                                |
+| <kbd>X</kbd>                    | <kbd>▢</kbd>                         | Select (focus on) the previous card, button, or other clickable element          |
+| <kbd>Y</kbd>                    | <kbd>△</kbd>                         | Select (focus on) the next card, button, or other clickable element              |
+| <kbd>Left Bumper (LB)</kbd>     | <kbd>L1</kbd>                        | Select (focus on) the previous card                                              |
+| <kbd>Right Bumper (RB)</kbd>    | <kbd>R1</kbd>                        | Select (focus on) the next card                                                  |
+| <kbd>Left Trigger (LT)</kbd>    | <kbd>L2</kbd>                        | Not yet implemented <del>Close virtual keyboard ⌨️ in Text / Number inputs</del> |
+| <kbd>Right Trigger (RT)</kbd>   | <kbd>R2</kbd>                        | Not yet implemented <del>Show virtual keyboard ⌨️ in Text / Number inputs</del>  |
+| <kbd>Start</kbd>                | <kbd>Options</kbd>                   | Open Preferences                                                                 |
+| <kbd>Back</kbd>                 | <kbd>Share</kbd> / <kbd>Select</kbd> | Not yet implemented <del>Exit hand cursor 👆 mode</del>                          |
+| <kbd>Left Stick 🕹</kbd>        | Same as Xbox                         | Not yet implemented <del>Show and move a hand cursor 👆</del>                    |
+| <kbd>Right Stick 🕹</kbd>       | Same as Xbox                         | Not yet implemented <del>Show and move a hand cursor 👆 (fast movement)</del>    |
+| <kbd>Left Stick 🕹 Click</kbd>  | Same as Xbox                         | Not yet implemented <del>Hand cursor 👆 left click</del>                         |
+| <kbd>Right Stick 🕹 Click</kbd> | Same as Xbox                         | Not yet implemented <del>Hand cursor 👆 right click</del>                        |
+| <kbd>D-Pad Up 🔼</kbd>          | Same as Xbox                         | <kbd>↑</kbd> in Text / Number / Range inputs                                     |
+| <kbd>D-Pad Down 🔽</kbd>        | Same as Xbox                         | <kbd>↓</kbd> in Text / Number / Range inputs                                     |
+| <kbd>D-Pad Left ◀️</kbd>        | Same as Xbox                         | <kbd>←</kbd> in Text / Number / Range inputs                                     |
+| <kbd>D-Pad Right ▶️</kbd>       | Same as Xbox                         | <kbd>→</kbd> in Text / Number / Range inputs                                     |

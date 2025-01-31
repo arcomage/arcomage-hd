@@ -129,7 +129,7 @@ The stack:
 
 [TypeScript](https://www.typescriptlang.org/) + [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [redux-observable](https://redux-observable.js.org/) + [RxJS](https://rxjs.dev/). [PWA](https://web.dev/progressive-web-apps/) (using [Workbox](https://developers.google.com/web/tools/workbox)).
 
-The game doesn't use [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API), [rAF](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame), or `<canvas>` at all. Instead, it relies on DOM and CSS-based animations, which can improve SEO and accessibility, while making it feel more like a "standard web app." While CSS animations may not perform as well as `<canvas>`, they still provide excellent performance on Blink-based browsers on modern devices.
+The game doesn't use [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API), [rAF](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) (except for gamepad controls), or `<canvas>` at all. Instead, it relies on DOM and CSS-based animations, which can improve SEO and accessibility, while making it feel more like a "standard web app." While CSS animations may not perform as well as `<canvas>`, they still provide excellent performance on Blink-based browsers on modern devices.
 
 The game features P2P Multiplayer Mode without a server, utilizing only [STUN](https://en.wikipedia.org/wiki/STUN) servers for peer discovery and [WebRTC](https://webrtc.org/) (with [PeerJS](https://peerjs.com/)) for communication.
 

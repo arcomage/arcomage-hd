@@ -1,12 +1,12 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { GameSizeProvider } from '../../src/utils/GameSizeContext'
+import { GameSizeProvider } from '../../src/utils/contexts/GameSizeContext'
 import { I18nProvider } from '../../src/i18n/I18nContext'
 import { Provider } from 'react-redux'
 import { store } from '../../src/store'
 import Card from '../../src/components/Card'
 import { CardListItemType } from '../../src/types/state'
-import { CardPosProvider } from '../../src/utils/CardPosContext'
+import { CardPosProvider } from '../../src/utils/contexts/CardPosContext'
 
 it('renders Card 1 that is clickable', () => {
   const cardProps: CardListItemType = {

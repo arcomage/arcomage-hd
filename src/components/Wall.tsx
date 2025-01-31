@@ -1,7 +1,7 @@
 import React, { memo, useContext, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { GameSizeContext } from '../utils/GameSizeContext'
+import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 import TowerOrWallNumber from './TowerOrWallNumber'
 import { maxWallOnScreen } from '../constants/visuals'
 
@@ -9,7 +9,7 @@ import wall from '../../assets/img/wall.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import TooltipAll from './special/TooltipAll'
 import { upper1st } from '../utils/upper1st'
-import { useAppSelector } from '../utils/useAppDispatch'
+import { useAppSelector } from '../utils/hooks/useAppDispatch'
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`

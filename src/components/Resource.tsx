@@ -1,7 +1,7 @@
 import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { GameSizeContext } from '../utils/GameSizeContext'
+import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 
 import ResourceNumber from './ResourceNumber'
 
@@ -16,7 +16,7 @@ import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'
 import recruit from '../../assets/img/recruit.svg'
 import { resNameAllMap, ResNameType } from '../constants/resourceNames'
-import { useAppSelector } from '../utils/useAppDispatch'
+import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import TooltipAll from './special/TooltipAll'
 
 const whRatio = 156 / 216

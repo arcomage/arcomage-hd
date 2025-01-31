@@ -1,4 +1,4 @@
-import { CardListItemAllType, ownerType, ownerType2 } from '../types/state'
+import { CardListItemAllType, ownerType, ownerType2 } from '../../types/state'
 
 // type ObjectType<T> = T extends ownerType2
 //   ? ownerType2

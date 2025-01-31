@@ -4,9 +4,9 @@ import { filter, tap, ignoreElements } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { drawCardQueues } from '../../utils/queues'
+import { drawCardQueues } from '../../utils/multiplayer/queues'
 import devLog from '../../utils/devLog'
-import Queue from '../../utils/Queue'
+import Queue from '../../utils/multiplayer/Queue'
 import { Observable } from 'rxjs'
 
 export default (

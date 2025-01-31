@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react'
-import { useAppSelector } from '../utils/useAppDispatch'
+import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import TableCommon from './TableCommon'
 import TableP from './TableP'
 import ButtonBar from './buttons/ButtonBar'

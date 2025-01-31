@@ -5,7 +5,7 @@ import App from '../../src/App'
 import { I18nProvider } from '../../src/i18n/I18nContext'
 import { Provider } from 'react-redux'
 import { HelmetProvider } from 'react-helmet-async'
-import { GameSizeProvider } from '../../src/utils/GameSizeContext'
+import { GameSizeProvider } from '../../src/utils/contexts/GameSizeContext'
 import { store } from '../../src/store'
 
 it('click langPrefButton', () => {

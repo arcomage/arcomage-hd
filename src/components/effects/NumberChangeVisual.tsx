@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss'
 
 import explosion from '../../../assets/img/explosion.webp'
 import firework from '../../../assets/img/firework.webp'
-import { GameSizeContext } from '../../utils/GameSizeContext'
+import { GameSizeContext } from '../../utils/contexts/GameSizeContext'
 import { numberChangeVisualDuration } from '../../constants/visuals'
 
 const useStyles = createUseStyles({

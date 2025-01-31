@@ -15,7 +15,7 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { peerAll } from '../../webrtc/peer'
-import { receiveSeq, sendSeq } from '../../utils/seq'
+import { receiveSeq, sendSeq } from '../../utils/multiplayer/seq'
 import devLog from '../../utils/devLog'
 import { noLatency } from '../../constants/devSettings'
 

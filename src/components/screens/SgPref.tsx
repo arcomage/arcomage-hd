@@ -1,5 +1,8 @@
 import React, { memo, useContext, useEffect, useState } from 'react'
-import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
+import {
+  useAppSelector,
+  useAppDispatch,
+} from '../../utils/hooks/useAppDispatch'
 import Window from './Window'
 
 import {

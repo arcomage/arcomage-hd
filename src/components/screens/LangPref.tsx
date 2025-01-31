@@ -1,6 +1,9 @@
 import React, { Fragment, memo, useContext } from 'react'
 import cx from 'classnames'
-import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
+import {
+  useAppSelector,
+  useAppDispatch,
+} from '../../utils/hooks/useAppDispatch'
 import Window from './Window'
 
 import { langs, langInfo } from '../../i18n/langs'

@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import { store, epicMiddleware } from './store'
 import rootEpic from './epics'
 import { I18nProvider } from './i18n/I18nContext'
-import { GameSizeProvider } from './utils/GameSizeContext'
+import { GameSizeProvider } from './utils/contexts/GameSizeContext'
 import { HelmetProvider } from 'react-helmet-async'
 
 import './utils/swreg'

@@ -8,7 +8,10 @@ import React, {
 } from 'react'
 import produce from 'immer'
 import copy from 'copy-to-clipboard'
-import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
+import {
+  useAppSelector,
+  useAppDispatch,
+} from '../../utils/hooks/useAppDispatch'
 import Window from './Window'
 
 import {
