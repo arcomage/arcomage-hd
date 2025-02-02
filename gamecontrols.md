@@ -26,12 +26,12 @@
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
 | _<kbd>Enter</kbd> / <kbd>Space</kbd>_                                    | _Use card, click button, etc._                                                                          |
 | <kbd>Delete</kbd> / <kbd>Backspace</kbd>                                 | Discard card                                                                                            |
-| _<kbd>Shift</kbd> + <kbd>Tab</kbd>_                                      | _Select (focus on) the previous card, button, or other clickable element_                               |
-| _<kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari)_ | _Select (focus on) the next card, button, or other clickable element_                                   |
-| <kbd>←</kbd>                                                             | Select (focus on) the previous card or top-bar button, can only use when no window (settings) is open   |
-| <kbd>→</kbd>                                                             | Select (focus on) the next card or top-bar button, can only use when no window (settings) is open       |
-| <kbd>↑</kbd>                                                             | Select (focus on) the first top-bar button, can only use when no window (settings) is open              |
-| <kbd>↓</kbd>                                                             | Select (focus on) the first card, can only use when no window (settings) is open                        |
+| _<kbd>Shift</kbd> + <kbd>Tab</kbd>_                                      | _Select the previous card, button, or other clickable element_                                          |
+| _<kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari)_ | _Select the next card, button, or other clickable element_                                              |
+| <kbd>←</kbd>                                                             | Select the previous card or top-bar button, can only use when no window (settings) is open              |
+| <kbd>→</kbd>                                                             | Select the next card or top-bar button, can only use when no window (settings) is open                  |
+| <kbd>↑</kbd>                                                             | Select the first top-bar button, can only use when no window (settings) is open                         |
+| <kbd>↓</kbd>                                                             | Select the first card, can only use when no window (settings) is open                                   |
 | <kbd>Esc</kbd>                                                           | _Exit current window (with fullscreen mode disabled)_, or exit fullscreen mode (if the mode is enabled) |
 
 ### Form Element
@@ -51,7 +51,7 @@ In settings window, when a form element / input element is selected, you can use
 
 | Key                                            | Function                                                                                                                                                                         |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>Alt</kbd> + <kbd>1</kbd> ... <kbd>9</kbd> | Use the **1**st ... **9**th card. If unusable, then focus on this card. 1 ≤ n ≤ 9, you can't use the 10th or later cards with access key                                         |
+| <kbd>Alt</kbd> + <kbd>1</kbd> ... <kbd>9</kbd> | Use the **1**st ... **9**th card. If unusable, then select this card. 1 ≤ n ≤ 9, you can't use the 10th or later cards with access key                                           |
 | <kbd>Alt</kbd> + <kbd>P</kbd>                  | Open **P**references                                                                                                                                                             |
 | <kbd>Alt</kbd> + <kbd>L</kbd>                  | Open **L**anguage                                                                                                                                                                |
 | <kbd>Alt</kbd> + <kbd>S</kbd>                  | Open **S**ound & Graphics                                                                                                                                                        |
@@ -65,23 +65,24 @@ In settings window, when a form element / input element is selected, you can use
 
 ## Gamepad🎮
 
-| Button (Xbox)                   | Button (PlayStation)                 | Function or Exact Keyboard Equivalent                                            |
-| ------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------- |
-| <kbd>A</kbd>                    | <kbd>✕</kbd>                         | Use card, click button, toggle checkbox, etc.                                    |
-| <kbd>B</kbd>                    | <kbd>◯</kbd>                         | Discard card, exit current window                                                |
-| <kbd>X</kbd>                    | <kbd>▢</kbd>                         | Select (focus on) the previous card, button, or other clickable element          |
-| <kbd>Y</kbd>                    | <kbd>△</kbd>                         | Select (focus on) the next card, button, or other clickable element              |
-| <kbd>Left Bumper (LB)</kbd>     | <kbd>L1</kbd>                        | Select (focus on) the previous card                                              |
-| <kbd>Right Bumper (RB)</kbd>    | <kbd>R1</kbd>                        | Select (focus on) the next card                                                  |
-| <kbd>Left Trigger (LT)</kbd>    | <kbd>L2</kbd>                        | Not yet implemented <del>Close virtual keyboard ⌨️ in Text / Number inputs</del> |
-| <kbd>Right Trigger (RT)</kbd>   | <kbd>R2</kbd>                        | Not yet implemented <del>Show virtual keyboard ⌨️ in Text / Number inputs</del>  |
-| <kbd>Start</kbd>                | <kbd>Options</kbd>                   | Open Preferences                                                                 |
-| <kbd>Back</kbd>                 | <kbd>Share</kbd> / <kbd>Select</kbd> | Not yet implemented <del>Exit hand cursor 👆 mode</del>                          |
-| <kbd>Left Stick 🕹</kbd>        | Same as Xbox                         | Not yet implemented <del>Show and move a hand cursor 👆</del>                    |
-| <kbd>Right Stick 🕹</kbd>       | Same as Xbox                         | Not yet implemented <del>Show and move a hand cursor 👆 (fast movement)</del>    |
-| <kbd>Left Stick 🕹 Click</kbd>  | Same as Xbox                         | Not yet implemented <del>Hand cursor 👆 left click</del>                         |
-| <kbd>Right Stick 🕹 Click</kbd> | Same as Xbox                         | Not yet implemented <del>Hand cursor 👆 right click</del>                        |
-| <kbd>D-Pad Up 🔼</kbd>          | Same as Xbox                         | <kbd>↑</kbd> in Text / Number / Range inputs                                     |
-| <kbd>D-Pad Down 🔽</kbd>        | Same as Xbox                         | <kbd>↓</kbd> in Text / Number / Range inputs                                     |
-| <kbd>D-Pad Left ◀️</kbd>        | Same as Xbox                         | <kbd>←</kbd> in Text / Number / Range inputs                                     |
-| <kbd>D-Pad Right ▶️</kbd>       | Same as Xbox                         | <kbd>→</kbd> in Text / Number / Range inputs                                     |
+| Button (Xbox)                   | Button (PlayStation)                 | Function or Exact Keyboard Equivalent                                                                                         |
+| ------------------------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>A</kbd>                    | <kbd>✕</kbd>                         | Use card, click button, toggle checkbox, etc.                                                                                 |
+| <kbd>B</kbd>                    | <kbd>◯</kbd>                         | Discard card, exit current window                                                                                             |
+| <kbd>X</kbd>                    | <kbd>▢</kbd>                         | Select the previous card, button, or other clickable element                                                                  |
+| <kbd>Y</kbd>                    | <kbd>△</kbd>                         | Select the next card, button, or other clickable element                                                                      |
+| <kbd>Left Bumper (LB)</kbd>     | <kbd>L1</kbd>                        | Select the previous card                                                                                                      |
+| <kbd>Right Bumper (RB)</kbd>    | <kbd>R1</kbd>                        | Select the next card                                                                                                          |
+| <kbd>Left Trigger (LT)</kbd>    | <kbd>L2</kbd>                        | Not yet implemented <del>(During virtual keyboard mode ⌨️) Select the previous key (button) in the virtual keyboard</del>     |
+| <kbd>Right Trigger (RT)</kbd>   | <kbd>R2</kbd>                        | Not yet implemented <del>(During virtual keyboard mode ⌨️) Select the next key (button) in the virtual keyboard</del>         |
+| <kbd>Start</kbd>                | <kbd>Options</kbd>                   | Open Preferences                                                                                                              |
+| <kbd>Back</kbd>                 | <kbd>Share</kbd> / <kbd>Select</kbd> | Not yet implemented <del>Exit hand cursor 👆 mode</del>                                                                       |
+| <kbd>Left Stick 🕹</kbd>        | Same as Xbox                         | Not yet implemented <del>Show and move a hand cursor 👆</del>                                                                 |
+| <kbd>Right Stick 🕹</kbd>       | Same as Xbox                         | Not yet implemented <del>Show and move a hand cursor 👆 (fast movement)</del>                                                 |
+| <kbd>Left Stick 🕹 Click</kbd>  | Same as Xbox                         | Not yet implemented <del>Hand cursor 👆 left click</del>                                                                      |
+| <kbd>Right Stick 🕹 Click</kbd> | Same as Xbox                         | Not yet implemented <del>Hand cursor 👆 right click</del>                                                                     |
+| <kbd>D-Pad Up 🔼</kbd>          | Same as Xbox                         | Select the previous card or top-bar button when no window (settings) is open, or <kbd>↑</kbd> in Text / Number / Range inputs / Option Select |
+| <kbd>D-Pad Down 🔽</kbd>        | Same as Xbox                         | Select the next card or top-bar button when no window (settings) is open, or <kbd>↓</kbd> in Text / Number / Range inputs / Option Select     |
+| <kbd>D-Pad Left ◀️</kbd>        | Same as Xbox                         | Select the first top-bar button when no window (settings) is open, or <kbd>←</kbd> in Text / Number / Range inputs / Option Select            |
+| <kbd>D-Pad Right ▶️</kbd>       | Same as Xbox                         | Select the first card when no window (settings) is open, or <kbd>→</kbd> in Text / Number / Range inputs / Option Select                      |
+| <kbd>Guide (Xbox)</kbd>         | <kbd>PS</kbd>                        | Not yet implemented <del>Show/hide virtual keyboard ⌨️ when focused on Text/Number inputs</del>                               |

@@ -18,7 +18,7 @@ const inPlaceSortByTabIndex = (elArr: HTMLElement[]): void => {
   })
 }
 
-type FocusSwitchOptions = {
+type FocusChangeOptions = {
   currentTarget?: EventTarget | null
   listType?: 'c' | 'b' | 'c&b' | 'c|b' | 'all'
   indexType?: '>' | '<' | '0'
@@ -46,7 +46,7 @@ export const focusChange = ({
   currentTarget = null,
   listType = 'all',
   indexType = '>',
-}: FocusSwitchOptions): void => {
+}: FocusChangeOptions): void => {
   const cardSelector = 'button.card:not([disabled])'
   const topButtonSelector = 'button.topbutton,a.topbutton'
 

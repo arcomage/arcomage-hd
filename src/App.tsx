@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from './utils/hooks/useAppDispatch'
 import { Helmet } from 'react-helmet-async'
 
 import useBeforeWindowUnloadWarning from './utils/hooks/useBeforeWindowUnloadWarning'
-import useDisableContextMenu from './utils/hooks/useDisableContextMenu'
+import useDisableContextMenu from './utils/hooks/gamecontrols/useDisableContextMenu'
 import useWindowLoad from './utils/hooks/useWindowLoad'
 import { I18nContext } from './i18n/I18nContext'
 import { GameSizeContext } from './utils/contexts/GameSizeContext'
@@ -18,6 +18,8 @@ import useArrowKeyFocus from './utils/hooks/gamecontrols/useArrowKeyFocus'
 import useKeyDown from './utils/hooks/gamecontrols/useKeyDown'
 import { UPDATE_VISUALVALUES } from './constants/ActionTypes'
 import { defaultVisualvalues } from './constants/defaultSettings'
+import useGamepad from './utils/hooks/gamecontrols/useGamepad'
+import { handleGamepadButtonDown } from './utils/hooks/gamecontrols/handleGamepad'
 
 const App = () => {
   const dispatch = useAppDispatch()
@@ -50,6 +52,10 @@ const App = () => {
     0,
     ['alt'],
   )
+
+  useGamepad({
+    onButtonDown: handleGamepadButtonDown,
+  })
 
   useEffect(() => {
     setVolume(volume)

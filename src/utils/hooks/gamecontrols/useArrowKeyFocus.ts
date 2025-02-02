@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { focusChange } from './focusChange'
+import { isEditable } from '../../textediting/isEditable'
 
 const useArrowKeyFocus = (): void => {
   useEffect(() => {
@@ -9,34 +10,47 @@ const useArrowKeyFocus = (): void => {
 
       if (
         document.getElementsByClassName('window-bg').length > 0 ||
-        target instanceof HTMLInputElement ||
-        target instanceof HTMLTextAreaElement
+        isEditable(target as HTMLElement) ||
+        target instanceof HTMLSelectElement ||
+        (target instanceof HTMLInputElement && target.type === 'range')
       ) {
         return
       }
 
-      if (key === 'ArrowDown') {
-        focusChange({
-          listType: 'c',
-          indexType: '0',
-        })
-      } else if (key === 'ArrowUp') {
-        focusChange({
-          listType: 'b',
-          indexType: '0',
-        })
-      } else if (key === 'ArrowLeft') {
-        focusChange({
-          currentTarget: target,
-          listType: 'c|b',
-          indexType: '<',
-        })
-      } else if (key === 'ArrowRight') {
-        focusChange({
-          currentTarget: target,
-          listType: 'c|b',
-          indexType: '>',
-        })
+      switch (key) {
+        case 'ArrowUp': {
+          focusChange({
+            listType: 'b',
+            indexType: '0',
+          })
+          return
+        }
+        case 'ArrowDown': {
+          focusChange({
+            listType: 'c',
+            indexType: '0',
+          })
+          return
+        }
+        case 'ArrowLeft': {
+          focusChange({
+            currentTarget: target,
+            listType: 'c|b',
+            indexType: '<',
+          })
+          return
+        }
+        case 'ArrowRight': {
+          focusChange({
+            currentTarget: target,
+            listType: 'c|b',
+            indexType: '>',
+          })
+          return
+        }
+        default: {
+          return
+        }
       }
     }
 

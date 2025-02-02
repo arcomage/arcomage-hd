@@ -7,7 +7,7 @@ import React, {
   useState,
 } from 'react'
 import produce from 'immer'
-import copy from 'copy-to-clipboard'
+import { copy } from '../../utils/textediting/copy'
 import {
   useAppSelector,
   useAppDispatch,
@@ -767,6 +767,22 @@ const Pref = () => {
               if (target.value !== '') {
                 target.select()
                 copy(target.value)
+                  .then(() => {
+                    if (copied.current !== null) {
+                      copied.current.classList.add('copied-shown')
+                      if (copiedTimer.current !== null) {
+                        clearTimeout(copiedTimer.current)
+                      }
+                      copiedTimer.current = setTimeout(() => {
+                        if (copied.current !== null) {
+                          copied.current.classList.remove('copied-shown')
+                        }
+                      }, copiedDuration)
+                    }
+                  })
+                  .catch((error) => {
+                    console.error('Failed to copy text: ', error)
+                  })
                 if (copied.current !== null) {
                   copied.current.classList.add('copied-shown')
                   if (copiedTimer.current !== null) {
