@@ -21,14 +21,14 @@ const useArrowKeyFocus = (): void => {
         case 'ArrowUp': {
           focusChange({
             listType: 'b',
-            indexType: '0',
+            indexType: '1',
           })
           return
         }
         case 'ArrowDown': {
           focusChange({
             listType: 'c',
-            indexType: '0',
+            indexType: '1',
           })
           return
         }

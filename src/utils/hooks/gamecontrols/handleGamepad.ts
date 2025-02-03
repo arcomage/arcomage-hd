@@ -47,6 +47,7 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
     case 'X': {
       focusChange({
         currentTarget: target,
+        listType: 'c',
         indexType: '<',
       })
       return
@@ -54,6 +55,7 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
     case 'Y': {
       focusChange({
         currentTarget: target,
+        listType: 'c',
         indexType: '>',
       })
       return
@@ -61,7 +63,6 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
     case 'LB': {
       focusChange({
         currentTarget: target,
-        listType: 'c',
         indexType: '<',
       })
       return
@@ -69,7 +70,6 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
     case 'RB': {
       focusChange({
         currentTarget: target,
-        listType: 'c',
         indexType: '>',
       })
       return
@@ -114,7 +114,7 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
       } else if (document.getElementsByClassName('window-bg').length === 0) {
         focusChange({
           listType: 'b',
-          indexType: '0',
+          indexType: '1',
         })
       }
       return
@@ -140,7 +140,7 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
       } else if (document.getElementsByClassName('window-bg').length === 0) {
         focusChange({
           listType: 'c',
-          indexType: '0',
+          indexType: '1',
         })
       }
       return

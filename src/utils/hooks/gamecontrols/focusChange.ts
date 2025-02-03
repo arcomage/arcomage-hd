@@ -21,7 +21,7 @@ const inPlaceSortByTabIndex = (elArr: HTMLElement[]): void => {
 type FocusChangeOptions = {
   currentTarget?: EventTarget | null
   listType?: 'c' | 'b' | 'c&b' | 'c|b' | 'all'
-  indexType?: '>' | '<' | '0'
+  indexType?: '>' | '<' | '1' | '-1'
 }
 
 /**
@@ -37,7 +37,8 @@ type FocusChangeOptions = {
  * @param options.indexType which element to focus, could be:
  * - '>' : next element
  * - '<' : previous element
- * - '0' : first element
+ * - '1' : first element
+ * - '-1' : last element
  * @returns void
  *
  * @note it falls back to the first card if there is no next/previous element
@@ -97,12 +98,28 @@ export const focusChange = ({
 
   let finalIndex: number
 
-  if (indexType === '0' || !(currentTarget instanceof HTMLElement)) {
+  console.log(currentTarget)
+
+  const defaultIndex = (indexTypeArrow: '>' | '<') => {
+    if (indexTypeArrow === '>') {
+      return 0
+    } else if (indexTypeArrow === '<') {
+      return elements.length - 1
+    } else {
+      return 0 // unreachable, just for ts check
+    }
+  }
+
+  if (indexType === '1') {
     finalIndex = 0
+  } else if (indexType === '-1') {
+    finalIndex = elements.length - 1
+  } else if (!(currentTarget instanceof HTMLElement)) {
+    finalIndex = defaultIndex(indexType)
   } else {
     const currentIndex = elements.indexOf(currentTarget)
     if (currentIndex === -1) {
-      finalIndex = 0
+      finalIndex = defaultIndex(indexType)
     } else if (indexType === '>') {
       finalIndex = currentIndex === elements.length - 1 ? 0 : currentIndex + 1
     } else if (indexType === '<') {
