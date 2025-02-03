@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { enableWindowUnloadWarning } from '../constants/devSettings'
+import { enableWindowUnloadWarning } from '../../constants/devSettings'
 
 const useBeforeWindowUnloadWarning = () => {
   useEffect(() => {

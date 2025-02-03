@@ -2,19 +2,19 @@
 
 <h1 align="center">ArcoMage HD - Open Source Card Game</h1>
 
-**ArcoMage HD** is a web-based, free and open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game Arcomage, which appeared in the _Might and Magic_ RPG game series.
+**ArcoMage HD** is a web-based, free and open source, remastered 3D clone of 3DO and New World Computing's 2000 PC card game, _Arcomage_, which was featured in the _Might and Magic_ RPG series.
 
-This non-profit fan-remake of the tower defense, resource management fantasy game is developed by [@tomchen](https://github.com/tomchen) with TypeScript + React + Redux + redux-observable + RxJS + CSS-based animations + WebRTC (see [§ Development](#development)). Please star the repo / follow me to support me.
+This non-profit fan remake brings the classic tower defense and resource management fantasy game to modern platforms, and is developed by [@tomchen](https://github.com/tomchen) using TypeScript, React, Redux, redux-observable, RxJS, CSS animations, and WebRTC (see [§ Development](#development)). If you enjoy the game, please support me by starring the repository or following me on [GitHub](https://github.com/tomchen).
 
-It's available in 14 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian, Arabic (RTL supported). ([§ Translation Credits](#translation-credits))
+ArcoMage HD is available in 14 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian, and Arabic (with RTL support). ([§ Translation Credits](#translation-credits))
 
-It supports latest <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari 14+"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari 14+" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers. It works best in Chrome and Chrome's Blink engine-based browsers, and may or may not have performance issues in Safari & Firefox ([browser list](#browser-list)). Safari, Firefox, IE users can use [the Desktop Version](#desktop-version) instead. Read [What to do if the game is slow](https://github.com/arcomage/arcomage-hd/issues/66) for detailed solutions.
+It's compatible with the latest versions of <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari 14+"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari 14+" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern browsers.
 
-It supports desktop / tablet / mobile screen 🖥️💻📱. [It's a PWA, meaning you can install it and play it offline](#play-it-offline-pwa). It also has good [accessibility for disabled people](#keyboard-control--accessibility).
+The game is fully responsive, supporting desktop, tablet, and mobile devices 🖥️💻📱. [As a PWA, you can install it and play offline](#play-offline-pwa). It is fully controllable with [mouse](gamecontrols.md#mouse), [touch device](gamecontrols.md#touch-device), [keyboard](gamecontrols.md#keyboard), or [gamepad](gamecontrols.md#gamepad) 🖱️📱⌨️🎮, and includes comprehensive [accessibility features for users with disabilities](#game-controls--accessibility).
 
-By default, you play against computer AI 🤖 in the Single Player Mode. You can switch to [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode). Note that Multiplayer Mode doesn't work if both players are behind "bad", symmetric NAT ([detect your NAT type](https://tomchen.github.io/symmetric-nat-test/)). Click gear ⚙️ icon in the game to open the "Preferences" window so you can switch to Multiplayer Mode or change other settings.
+By default, you'll play against the computer AI 🤖 in Single Player Mode. You can also switch to [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode).
 
-<p align="center"><a href="https://arcomage.github.io/"><strong>Click to play it now</strong><br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
+<p align="center"><a href="https://arcomage.github.io/"><strong>Click here to play it now!</strong><br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
 
 <p align="center">
 <a href="https://github.com/arcomage/arcomage-hd/blob/main/CHANGELOG.md"><img src="https://img.shields.io/github/package-json/v/arcomage/arcomage-hd" alt="version number"></a>
@@ -26,7 +26,7 @@ By default, you play against computer AI 🤖 in the Single Player Mode. You can
 
 <p align="center"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/manual.jpg" alt="ArcoMage HD Manual Image"></a></p>
 
-<details><summary><strong>Click to show game rules in text form</strong></summary>
+<details><summary><strong>Click to view the game rules in text format</strong></summary>
 
 > Victory conditions vary per tavern. Build your tower, destroy your opponent's tower, or collect enough resources before your opponent does.
 >
@@ -38,146 +38,17 @@ By default, you play against computer AI 🤖 in the Single Player Mode. You can
 
 </details>
 
-## Play It Offline (PWA)
+## Play Offline (PWA)
 
-The image and sound files, as well as the card and language settings, are automatically stored in your browser. In addition, you can install this "Progressive Web App" (PWA) on your computer or smartphone. Please refer to [Google Chrome's article](https://support.google.com/chrome/answer/9658361) and [Mozilla's article](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing) on how to install a PWA.
+The image and sound files, along with your card and language settings, are automatically stored in your browser. Additionally, you can install this "Progressive Web App" (PWA) on your computer or smartphone. For installation instructions, please refer to [Google Chrome's guide](https://support.google.com/chrome/answer/9658361) and [Mozilla's guide](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing).
 
-Depending on your browser, you may need to press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache files & reload arcomage.github.io webpage to have the latest version of the game.
+Depending on your browser, you may need to press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache and reload the [arcomage.github.io](https://arcomage.github.io) webpage to ensure you're using the latest version of the game.
 
-PWA or not, some mobile browsers do not remove top and bottom bars in fullscreen mode but it is usually configurable.
+## Game Controls & Accessibility
 
-## Desktop Version
+The game is fully controllable using either a **[mouse](gamecontrols.md#mouse)**, **[touch device](gamecontrols.md#touch-device)**, **[keyboard](gamecontrols.md#keyboard)**, or **[gamepad](gamecontrols.md#gamepad)** (click these links to view detailed instructions).
 
-**If you don't have performance issues playing ArcoMage HD in your browser, then you don't need the Desktop Version.**
-
-Some browsers, such as Firefox and Safari, that are not Chrome's engine based, may (or may not) be a bit slow running ArcoMage HD. In this case, you can use the Desktop Version.
-
-The Desktop Version is **merely a Google Chrome browser-like wrapper** that visits the URL [https://arcomage.github.io/](https://arcomage.github.io/).
-
-[Click to download the Desktop Version (Windows)](https://github.com/arcomage/arcomage-hd/releases/download/v1.0.0-beta.26/ArcoMage.HD.Setup.1.0.0.7z)
-
-### Browser List
-
-<details><summary><strong>Click to show a browser list to help you decide if you need the desktop version</strong></summary>
-
-_(\*: presumably so, though I didn't really test)_
-
-🏆 Browsers based on Chrome's engine, [Blink](https://www.chromium.org/blink), are fully supported by ArcoMage HD (as of 2021). With an average CPU / GPU, you should be able to play the game without performance issues. You don't need ArcoMage HD's Desktop Version:
-
-- Google Chromium
-- Google Chrome
-- Brave
-- Microsoft Edge (new version, from 2019)
-- Opera (from 2013) \*
-- Android's native browser / WebView \*
-- Samsung Internet
-- Maxthon \*
-- Vivaldi \*
-- DuckDuckGo Privacy Browser
-- Kiwi Browser
-- Dolphin Browser
-- QQ Browser \*
-- Sogou Browser \*
-- Baidu Browser \*
-- 360's browsers \*
-- WeChat's browser
-- Yandex Browser \*
-- UC Browser \*
-- CM Browser \*
-- SRWare Iron \*
-- Beaker \*
-- Naver Whale \*
-- Puffin Browser \*
-- etc.
-
-_(If your Chrome-based browser does have performance issues, then the Desktop Version which is a Chrome wrapper cannot help, read the solutions in [What to do if the game is slow](https://github.com/arcomage/arcomage-hd/issues/66))_
-
-✅ Browsers based on Firefox's [Gecko](https://hg.mozilla.org/), Safari's [WebKit](https://webkit.org/) and [Qt WebEngine](https://wiki.qt.io/QtWebEngine) rendering engines, are tested and can be used to play the game, but they may be slightly slower than Chrome-based browser, although it depends on your CPU / GPU. If you find these browsers slow, you may try ArcoMage HD's Desktop Version instead:
-
-- Firefox
-  - Pale Moon \*
-  - SeaMonkey \*
-  - K-Meleon \*
-  - Tor Browser \*
-  - etc.
-- Safari 14+ (and/or iOS 14+) (v13- can run the game but can't see WebP images)
-- Browsers based on Qt WebEngine
-  - qutebrowser
-  - Falkon
-  - Dooble \*
-  - etc.
-
-❌ Browsers with other rendering engines are not supported, you must change to a Chrome-based browser or use ArcoMage HD's Desktop Version instead:
-
-- Microsoft Internet Explorer (IE)
-- Microsoft Edge (old version, before 2019) \*
-- Opera (very old version, before 2013) \*
-- Lynx \*
-- NetSurf
-- Links \*
-- KaiOS browser \*
-- etc.
-
-❌ Very old browsers that [do not support ECMAScript 2015 (ES6)](https://caniuse.com/es6) and [WebP images](https://caniuse.com/webp), are also not supported.
-
-</details>
-
-### Other Remarks
-
-<details><summary><strong>Click to show other remarks on the desktop version</strong></summary>
-
-The Desktop Version is not expected to be updated. The Desktop Version's version number is different from ArcoMage HD's. Actually the Desktop Version may stay at v1.0.0 forever unless there's really something to update.
-
-The first time you run ArcoMage HD Desktop Version, it downloads all the images and sound files silently. You should wait maybe 1 minute (depending on your Internet speed), before you can cut off Internet and play it completely offline.
-
-If you install both Google Chrome and the Desktop Version, the Desktop Version will have independent storage. Clearing your Google Chrome's stored data will not reset the Desktop Version's settings.
-
-</details>
-
-## Keyboard Control & Accessibility
-
-The game is fully controllable with keyboard. Use <kbd>Tab</kbd> (or <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari) to select a top-menu icon or a card, then <kbd>Enter</kbd> to open or use it, <kbd>Delete</kbd> / <kbd>Backspace</kbd> to discard a card.
-
-<kbd>Alt</kbd> + <kbd>R</kbd> can reset visual effect settings.
-
-<details><summary><strong>Click to show the detailed keyboard control instruction & additional special "Access Key" usage (e.g. <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences; <kbd>Alt</kbd> + <kbd>1</kbd>: use the 1st card ...)</strong></summary>
-
-### Top Menu
-
-Use <kbd>Tab</kbd> to select an icon (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari), then <kbd>Enter</kbd> to open it. When the window is open, use <kbd>Esc</kbd> to close it.
-
-Or with access key (only for opening a window):
-
-- <kbd>Alt</kbd> + <kbd>P</kbd>: Preferences
-- <kbd>Alt</kbd> + <kbd>L</kbd>: Language
-- <kbd>Alt</kbd> + <kbd>S</kbd>: Sound & Graphics
-- <kbd>Alt</kbd> + <kbd>T</kbd>: Toggle Fullscreen
-- <kbd>Alt</kbd> + <kbd>H</kbd>: Help
-- <kbd>Alt</kbd> + <kbd>G</kbd>: GitHub
-
-When a window is open:
-
-- <kbd>Esc</kbd>: (In Fullscreen Mode) exit the mode, or (not in Fullscreen Mode) cancel & close the current window
-- <kbd>Alt</kbd> + <kbd>X</kbd>: Cancel & close the current window
-
-### Card
-
-Use <kbd>Tab</kbd> to select a card (it's <kbd>Option (Alt)</kbd> + <kbd>Tab</kbd> in Safari), then <kbd>Enter</kbd> to **use** it, or <kbd>Delete</kbd> / <kbd>Backspace</kbd> to **discard** it.
-
-Or with access key (only for using a card):
-
-- <kbd>Alt</kbd> + <kbd>1</kbd>: Use the 1st card
-- <kbd>Alt</kbd> + <kbd>2</kbd>: Use the 2nd card
-- <kbd>Alt</kbd> + <kbd>3</kbd>: Use the 3rd card
-- <kbd>Alt</kbd> + ...: Use the nth card (n <= 9, you can't use the 10th or later cards with access key)
-
-It could be other key instead of <kbd>Alt</kbd>
-
-[The way to activate the accesskey depends on the browser and its platform](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey), it's "<kbd>Alt</kbd> + key" in Chrome Windows/Linux.
-
-</details>
-
-The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compatible. Animation could be disabled in the graphics settings if you want.
+The game is fully compatible with and easy to use with a [screen reader](https://en.wikipedia.org/wiki/Screen_reader). You can also disable animations in the graphics settings if desired.
 
 <p align="center">
 <a href="https://arcomage.github.io/" title="Blind Friendly"><img src="https://img.shields.io/badge/-Blind%20Friendly-black" alt="Blind Friendly"></a>
@@ -188,27 +59,36 @@ The game is [screen-reader](https://en.wikipedia.org/wiki/Screen_reader) compati
 
 ## Multiplayer Mode
 
-_(Currently it **can't connect two users who are both behind symmetric NAT** ([test if you're behind "bad", symmetric NAT](https://tomchen.github.io/symmetric-nat-test/)))_
-
-### How To Use the Multiplayer Mode
+### How to Use Multiplayer Mode
 
 https://user-images.githubusercontent.com/529949/115864733-941cbd00-a437-11eb-955d-f6a341c8ea64.mp4
 
-Both players enable the "Multiplayer" Mode. Bob 🧝 must copy and **give his ID to Alice 👧 via Discord, forums, etc.**. Alice 👧 then enters Bob 🧝's ID and connects to Bob 🧝. Alice 👧 becomes the host 🏠 (i.e. technically it's her computer that deals cards) and Bob 🧝 is the guest 💼.
+1. Both players enable "Multiplayer" Mode (click the gear ⚙️ icon in the game to open the "Preferences" window)
+2. Bob 🧝 must copy and **share his ID with Alice 👧 via Discord, forums, etc.**
+3. Alice 👧 enters Bob 🧝's ID and connects to him
+4. Alice 👧 becomes the host 🏠 (her computer deals the cards), and Bob 🧝 is the guest 💼
+
+**Note:** Multiplayer Mode may not function if both players are behind symmetric NAT. You can [test if you're behind "bad", symmetric NAT](https://tomchen.github.io/symmetric-nat-test/).
 
 <details><summary><strong>Click to show technical details</strong></summary>
 
-### Technical
+### Technical Details
 
-In Multiplayer Mode, you are connected directly to your opponent (Peer to Peer, P2P) without server. However, we still need free public [STUN](https://en.wikipedia.org/wiki/STUN) servers (set up by Google and others) for the discovery of other peers. Once we use the ID assigned by the server to connect to each other, we are connected directly and don't need the server any more.
+In Multiplayer Mode, the game connects directly to the opponent (Peer-to-Peer, P2P) without using a server. However, we still rely on free public [STUN](https://en.wikipedia.org/wiki/STUN) servers (set up by Google and others) for peer discovery. Once connected using the ID assigned by the server, the players are directly connected and no longer need the server.
 
-The game operates no servers at all, therefore it does not have a server that stores a "list of players online" so you can choose your opponent more easily. You have to instead give your ID to your opponent via Discord or other platforms.
+The game doesn't use any servers, so there isn't a central "list of online players" for easy matchmaking. Instead, you must share your ID with your opponent through platforms like Discord.
 
-See also [WebRTC (Web Real-Time Communication)](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) and [PeerJS library](https://peerjs.com/).
+For more details, see [WebRTC (Web Real-Time Communication)](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) and [PeerJS library](https://peerjs.com/).
 
-Because currently the game uses no [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server, it can't connect two users who are both behind symmetric NAT (which is a rare case).
+Currently, since the game doesn't use a [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server, it cannot connect two users who are both behind symmetric NAT (a rare scenario).
 
 </details>
+
+## Troubleshooting
+
+If you're experiencing performance issues while running the game, or if the game doesn't run at all in your browser (likely an older or non-major browser), you can refer to the [troubleshooting guide](troubleshooting.md). It includes a [list of tested browsers](troubleshooting.md#browser-list) that are known to run the game without major issues. Additionally, you may consider installing the Windows [Desktop Version](troubleshooting.md#desktop-version) of the game ([click to download](https://github.com/arcomage/arcomage-hd/releases/download/v1.0.0-beta.26/ArcoMage.HD.Setup.1.0.0.7z)), though please note that the current desktop version is not recommended in most cases.
+
+If you encounter any issues, please [open an issue](https://github.com/arcomage/arcomage-hd/issues).
 
 ## Development
 
@@ -249,13 +129,13 @@ The stack:
 
 [TypeScript](https://www.typescriptlang.org/) + [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [redux-observable](https://redux-observable.js.org/) + [RxJS](https://rxjs.dev/). [PWA](https://web.dev/progressive-web-apps/) (using [Workbox](https://developers.google.com/web/tools/workbox)).
 
-The game doesn't use [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API), [rAF](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame), or \<canvas\> at all. Instead, it uses DOM & CSS-based animations which may be better for SEO and accessibility and make it more like "standard web app". CSS animation's performance is not as good as \<canvas\>'s, but still quite good in Blink-based browsers in modern devices.
+The game doesn't use [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API), [rAF](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) (except for gamepad controls), or `<canvas>` at all. Instead, it relies on DOM and CSS-based animations, which can improve SEO and accessibility, while making it feel more like a "standard web app." While CSS animations may not perform as well as `<canvas>`, they still provide excellent performance on Blink-based browsers on modern devices.
 
-P2P Multiplayer Mode without server (only uses [STUN](https://en.wikipedia.org/wiki/STUN) servers for the discovery of other peers) with [WebRTC](https://webrtc.org/) (using [PeerJS](https://peerjs.com/)).
+The game features P2P Multiplayer Mode without a server, utilizing only [STUN](https://en.wikipedia.org/wiki/STUN) servers for peer discovery and [WebRTC](https://webrtc.org/) (with [PeerJS](https://peerjs.com/)) for communication.
 
-Stereo sound. WebP & SVG images; images upscaled with the library [waifu2x](https://github.com/nagadomi/waifu2x) / [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe). Card text extracted with the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
+It also supports stereo sound, WebP and SVG images, with images upscaled using the [waifu2x](https://github.com/nagadomi/waifu2x) / [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe) libraries. Card text is extracted using the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
 
-Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arcomage-hd/tree/main/tools), see also [dev notes](https://github.com/arcomage/arcomage-hd/blob/main/DEVELOPMENT.md) and `scripts` section in [`package.json`](https://github.com/arcomage/arcomage-hd/blob/main/package.json). [yarn](https://yarnpkg.com/) is the package manager to use.
+Developer scripts and tools are located in the [`tools` folder](https://github.com/arcomage/arcomage-hd/tree/main/tools). For more details, see the [development notes](https://github.com/arcomage/arcomage-hd/blob/main/DEVELOPMENT.md) and the `scripts` section in [`package.json`](https://github.com/arcomage/arcomage-hd/blob/main/package.json).
 
 <p align="center">
 <a href="https://codecov.io/gh/arcomage/arcomage-hd" title="Codecov"><img src="https://codecov.io/gh/arcomage/arcomage-hd/branch/main/graph/badge.svg?token=5rrZ38jtVr" alt="Codecov"></a>
@@ -271,7 +151,7 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
 
 ## Translation Credits
 
-- [Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards): extracted from _Might and Magic VIII_ & _VI_ original games (or translated/retranslated) by:
+- **[Cards](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/cards)**: Extracted from _Might and Magic VIII_ & _VI_ original games (or translated/retranslated) by:
   - English (`en`): [Black Rabite on GameFAQs](https://gamefaqs.gamespot.com/pc/929601-arcomage/faqs/44131)
   - Russian (`ru`) (retranslated): [rayburn](https://github.com/TombOfVARN)
   - Simplified Chinese (`zh-Hans`): (extracted) [Liar-zzy](https://github.com/Liar-zzy/Arcomage/blob/master/Arcomage.cpp), (fixed/retranslated) [Tom Chen](https://github.com/tomchen)
@@ -279,33 +159,35 @@ Dev scripts / tools are in the [`tools` folder](https://github.com/arcomage/arco
   - Czech (`cs`): Yym
   - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
   - Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
-  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
-  - Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/)
+  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
+  - Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/)
   - All others: [Tom Chen](https://github.com/tomchen) with OCR tool [tesseract.js](https://tesseract.projectnaptha.com/) & [other scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools)
-  - Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
-- [Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main) string translators (some are from the original games):
+  - Traditional Chinese (`zh-Hant`): Converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) using [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) and [opencc-js](https://github.com/nk2028/opencc-js)
+- **[Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main)** string translators (some from the original games):
+
   - Russian (`ru`): [rayburn](https://github.com/TombOfVARN)
   - Polish (`pl`): (partially by) Plamcia
   - Brazilian Portuguese (`pt-BR`): [mateuscv](https://github.com/mateuscv)
   - Ukrainian (`uk`): [troyane](https://github.com/troyane)
-  - All others: [Tom Chen](https://github.com/tomchen) by himself and/or with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
-  - Traditional Chinese (`zh-Hant`): converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) with [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) using [opencc-js](https://github.com/nk2028/opencc-js)
-- [Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns): extracted from _Might and Magic VIII_ & _VI_ original games by [Tom Chen](https://github.com/tomchen) with [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction). Except for:
+  - All others: [Tom Chen](https://github.com/tomchen) by himself and/or with help from [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
+  - Traditional Chinese (`zh-Hant`): Converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) using [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) and [opencc-js](https://github.com/nk2028/opencc-js)
+
+- **[Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns)**: Extracted from _Might and Magic VIII_ & _VI_ original games by [Tom Chen](https://github.com/tomchen) using [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction). Except for:
   - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
-  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
-  - Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with the help of [Google Translate](https://translate.google.com/)
+  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
+  - Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/)
   - Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
 
 _See also [I18N Issue Page](https://github.com/arcomage/arcomage-hd/issues/9)_
 
-## Arcomage original game
+## Arcomage Original Game
 
-Arcomage was initially developed by Stickman Games and later sold to The 3DO Company (3DO). The game appeared as a mini-game in _Might and Magic VII: For Blood and Honor_ (MM7) and _Might and Magic VIII: Day of the Destroyer_ (MM8), the seventh and eighth games in New World Computing (NWC)'s _Might and Magic_ (MM) series. (It's like _Gwent_ in _The Witcher_) NWC and its parent company, 3DO, also released a stand-alone version in 2000, which can be played in single player or multi player mode. The original stand-alone Arcomage has a resolution of 800 x 600 pixels and is usable in 16-bit color mode in Windows 10, but the graphics is unstable.
+Arcomage was initially developed by Stickman Games and later sold to The 3DO Company (3DO). The game appeared as a mini-game in _Might and Magic VII: For Blood and Honor_ (MM7) and _Might and Magic VIII: Day of the Destroyer_ (MM8), the seventh and eighth games in New World Computing (NWC)'s _Might and Magic_ (MM) series. (It's similar to _Gwent_ in _The Witcher_.) NWC and its parent company, 3DO, also released a standalone version in 2000, which can be played in single-player or multiplayer mode. The original standalone Arcomage has a resolution of 800 x 600 pixels and works in 16-bit color mode on Windows 10, but the graphics are unstable.
 
 ## Copyright
 
-The code of the ArcoMage HD game: MIT License (c) 2021 [Tom Chen](https://tomchen.org/).
+The code for the ArcoMage HD game: MIT License (c) [Tom Chen](https://tomchen.org/).
 
-The assets, text, appearance and other copyrightable elements of the game: (c) 2001 The 3DO Company.
+The assets, text, appearance, and other copyrightable elements of the game: (c) 2001 The 3DO Company.
 
-See [CREDIT.md file](CREDIT.md) for a detailed presentation of the copyright status, licenses and credit of the game's components.
+See the [CREDIT.md file](CREDIT.md) for a detailed presentation of the copyright status, licenses, and credits for the game's components.

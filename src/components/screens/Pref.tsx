@@ -7,8 +7,11 @@ import React, {
   useState,
 } from 'react'
 import produce from 'immer'
-import copy from 'copy-to-clipboard'
-import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
+import { copy } from '../../utils/textediting/copy'
+import {
+  useAppSelector,
+  useAppDispatch,
+} from '../../utils/hooks/useAppDispatch'
 import Window from './Window'
 
 import {
@@ -54,6 +57,7 @@ import TooltipAll from '../special/TooltipAll'
 import { maxCardsInHand, minGeneratorIsOne } from '../../constants/ranges'
 import { variousLengthChunk } from '../../utils/variousLengthChunk'
 import NumberInput from '../special/NumberInput'
+import CheckBox from '../special/CheckBox'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -716,8 +720,7 @@ const Pref = () => {
       <div className="flex justify-between multiplayer">
         <h4>
           <label htmlFor="isMultiplayer">
-            <input
-              type="checkbox"
+            <CheckBox
               name="isMultiplayer"
               id="isMultiplayer"
               checked={isMultiplayer}
@@ -764,6 +767,22 @@ const Pref = () => {
               if (target.value !== '') {
                 target.select()
                 copy(target.value)
+                  .then(() => {
+                    if (copied.current !== null) {
+                      copied.current.classList.add('copied-shown')
+                      if (copiedTimer.current !== null) {
+                        clearTimeout(copiedTimer.current)
+                      }
+                      copiedTimer.current = setTimeout(() => {
+                        if (copied.current !== null) {
+                          copied.current.classList.remove('copied-shown')
+                        }
+                      }, copiedDuration)
+                    }
+                  })
+                  .catch((error) => {
+                    console.error('Failed to copy text: ', error)
+                  })
                 if (copied.current !== null) {
                   copied.current.classList.add('copied-shown')
                   if (copiedTimer.current !== null) {
@@ -827,6 +846,7 @@ const Pref = () => {
 
       <div className="button-wrapper">
         <button
+          accessKey="r"
           disabled={isGuest}
           onClick={(e) => {
             setFormFields(({ opponentId }) => ({
@@ -845,6 +865,7 @@ const Pref = () => {
           {_.i18n('Reset')}
         </button>
         <button
+          accessKey="a"
           disabled={isGuest}
           className="warning"
           onClick={applyAndNewGame}

@@ -1,5 +1,8 @@
 import React, { memo, useContext, useEffect, useState } from 'react'
-import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
+import {
+  useAppSelector,
+  useAppDispatch,
+} from '../../utils/hooks/useAppDispatch'
 import Window from './Window'
 
 import {
@@ -35,6 +38,7 @@ import {
 } from '../../data/visualvalues'
 import { shallowCompare } from '../../utils/shallowCompare'
 import TooltipAll from '../special/TooltipAll'
+import CheckBox from '../special/CheckBox'
 
 const SgPref = () => {
   const volume = useAppSelector((state) => state.sound.volume)
@@ -85,8 +89,7 @@ const SgPref = () => {
       </label>
       <div className="flex justify-evenly">
         <label className="flex">
-          <input
-            type="checkbox"
+          <CheckBox
             checked={volume === 0}
             onChange={(e) => {
               dispatch({
@@ -98,8 +101,7 @@ const SgPref = () => {
           <span>{_.i18n('Mute')}</span>
         </label>
         <label className="flex">
-          <input
-            type="checkbox"
+          <CheckBox
             checked={stereo}
             onChange={(e) => {
               dispatch({
@@ -117,8 +119,7 @@ const SgPref = () => {
           {_.i18n(': ')}
         </h3>
         <label className="shrink-0">
-          <input
-            type="checkbox"
+          <CheckBox
             checked={noanim}
             onChange={(e) => {
               dispatch({
@@ -233,9 +234,8 @@ const SgPref = () => {
             .filter((d): d is DataVisualvaluesFilterType => d.type === 'filter')
             .map((d) => (
               <label key={d.term} className="mx-1" htmlFor={`filter-${d.term}`}>
-                <input
+                <CheckBox
                   id={`filter-${d.term}`}
-                  type="checkbox"
                   checked={visualvalues[d.term]}
                   onChange={(e) => {
                     dispatch({
@@ -251,6 +251,7 @@ const SgPref = () => {
       </div>
       <div className="button-wrapper">
         <button
+          accessKey="r"
           onClick={(e) => {
             dispatch({
               type: UPDATE_VOLUME,

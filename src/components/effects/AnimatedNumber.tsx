@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { animatedNumberDuration } from '../../constants/visuals'
-import { useAppSelector } from '../../utils/useAppDispatch'
+import { useAppSelector } from '../../utils/hooks/useAppDispatch'
 
 type PropType = { n: number }
 

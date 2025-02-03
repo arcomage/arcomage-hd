@@ -12,7 +12,7 @@ import { StateObservable } from 'redux-observable'
 import { CardListItemAllType, RootStateType } from '../../types/state'
 import { randomWithProbs } from '../../utils/randomWithProbs'
 import { INST } from '../../constants/connDataKind'
-import { reverseCardList } from '../../utils/reverseState'
+import { reverseCardList } from '../../utils/multiplayer/reverseState'
 
 export default (
   action$: Observable<RootActionType>,

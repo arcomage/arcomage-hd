@@ -1,13 +1,13 @@
 import React, { memo, useContext, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { useAppDispatch } from '../../utils/useAppDispatch'
+import { useAppDispatch } from '../../utils/hooks/useAppDispatch'
 
 import logo from '../../../assets/logo/logo.svg'
-import useClickOutside from '../../utils/useClickOutside'
+import useClickOutside from '../../utils/hooks/gamecontrols/useClickOutside'
 import { I18nContext } from '../../i18n/I18nContext'
-import useKeyDown from '../../utils/useKeyDown'
-import { GameSizeContext } from '../../utils/GameSizeContext'
+import useKeyDown from '../../utils/hooks/gamecontrols/useKeyDown'
+import { GameSizeContext } from '../../utils/contexts/GameSizeContext'
 import {
   SCREEN_PREF,
   SCREEN_LANG_PREF,

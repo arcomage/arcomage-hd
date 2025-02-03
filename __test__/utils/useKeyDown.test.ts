@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import { fireEvent } from '@testing-library/dom'
-import useKeyDown from '../../src/utils/useKeyDown'
+import useKeyDown from '../../src/utils/hooks/gamecontrols/useKeyDown'
 
 it('useKeyDown (specified key) is OK', () => {
   jest.useFakeTimers()

@@ -21,7 +21,7 @@ import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
 import { concat, EMPTY, Observable, of } from 'rxjs'
-import { play } from '../../utils/Sound'
+import { play } from '../../utils/sound/Sound'
 import {
   drawCardPre,
   cardTransitionDuration,
@@ -34,7 +34,7 @@ import {
   useAi,
 } from '../../constants/devSettings'
 import devLog from '../../utils/devLog'
-import getPan from '../../utils/getPan'
+import getPan from '../../utils/sound/getPan'
 
 export default (
   action$: Observable<RootActionType>,

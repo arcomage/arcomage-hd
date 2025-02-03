@@ -7,12 +7,12 @@ import loseImg from '../../../assets/img/end_lose.svg'
 import tieImg from '../../../assets/img/end_tie.svg'
 // import firework from '../../../assets/img/firework.webp'
 import { I18nContext } from '../../i18n/I18nContext'
-import { useAppDispatch } from '../../utils/useAppDispatch'
+import { useAppDispatch } from '../../utils/hooks/useAppDispatch'
 import { CLOSE_SCREEN_END_INIT } from '../../constants/ActionTypes'
-import useKeyDown from '../../utils/useKeyDown'
+import useKeyDown from '../../utils/hooks/gamecontrols/useKeyDown'
 import { endScreenExitableDelay } from '../../constants/visuals'
 import { EndScreenNoCloseStateType } from '../../types/state'
-// import { GameSizeContext } from '../../utils/GameSizeContext'
+// import { GameSizeContext } from '../../utils/contexts/GameSizeContext'
 
 const textMap = { lose: 'You Lose!', tie: 'Tie Game', win: 'You Win!' }
 const erathianTextMap = { lose: 'you lose', tie: 'tie game', win: 'you win' }

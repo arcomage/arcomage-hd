@@ -1,22 +1,25 @@
 import React, { memo, useContext, useEffect } from 'react'
 import './App.scss'
 import Game from './components/Game'
-import { useAppDispatch, useAppSelector } from './utils/useAppDispatch'
+import { useAppDispatch, useAppSelector } from './utils/hooks/useAppDispatch'
 
 import { Helmet } from 'react-helmet-async'
 
-import useBeforeWindowUnloadWarning from './utils/useBeforeWindowUnloadWarning'
-import useDisableContextMenu from './utils/useDisableContextMenu'
-import useWindowLoad from './utils/useWindowLoad'
+import useBeforeWindowUnloadWarning from './utils/hooks/useBeforeWindowUnloadWarning'
+import useDisableContextMenu from './utils/hooks/gamecontrols/useDisableContextMenu'
+import useWindowLoad from './utils/hooks/useWindowLoad'
 import { I18nContext } from './i18n/I18nContext'
-import { GameSizeContext } from './utils/GameSizeContext'
+import { GameSizeContext } from './utils/contexts/GameSizeContext'
 import { minRootFontSize, smallRootFontScreenMax } from './constants/visuals'
 import { langInfo } from './i18n/langs'
 import SvgFilters from './components/effects/SvgFilters'
-import { setVolume } from './utils/Sound'
-import useKeyDown from './utils/useKeyDown'
+import { setVolume } from './utils/sound/Sound'
+import useArrowKeyFocus from './utils/hooks/gamecontrols/useArrowKeyFocus'
+import useKeyDown from './utils/hooks/gamecontrols/useKeyDown'
 import { UPDATE_VISUALVALUES } from './constants/ActionTypes'
 import { defaultVisualvalues } from './constants/defaultSettings'
+import useGamepad from './utils/hooks/gamecontrols/useGamepad'
+import { handleGamepadButtonDown } from './utils/hooks/gamecontrols/handleGamepad'
 
 const App = () => {
   const dispatch = useAppDispatch()
@@ -36,8 +39,10 @@ const App = () => {
   useDisableContextMenu()
   useBeforeWindowUnloadWarning()
 
+  useArrowKeyFocus()
+
   useKeyDown(
-    'r',
+    'o',
     () => {
       dispatch({
         type: UPDATE_VISUALVALUES,
@@ -47,6 +52,10 @@ const App = () => {
     0,
     ['alt'],
   )
+
+  useGamepad({
+    onButtonDown: handleGamepadButtonDown,
+  })
 
   useEffect(() => {
     setVolume(volume)

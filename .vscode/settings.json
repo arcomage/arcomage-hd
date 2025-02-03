@@ -1,6 +1,9 @@
 {
   "css.customData": [".vscode/css_custom_data.json"],
   "search.exclude": {
-    "**/reducer_auto_all.test.ts": true
+    "**/reducer_auto_all.test.ts": true,
+    "**/yarn.lock": true,
+    "**/plugin-version.cjs": true,
+    "**/yarn-*.cjs": true
   }
 }

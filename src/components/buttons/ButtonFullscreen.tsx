@@ -72,7 +72,7 @@ const ButtonFullscreen = () => {
   return (
     <TooltipAll title={_.i18n('Toggle Full Screen')}>
       <button
-        accessKey="t"
+        accessKey="f"
         className={cx('topbutton', classes.fullscreenButton)}
         onClick={clickFunc}
         onAuxClick={clickFunc}

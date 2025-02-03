@@ -1,4 +1,4 @@
-import { setVolume, play } from '../../src/utils/Sound'
+import { setVolume, play } from '../../src/utils/sound/Sound'
 // import { Howl, Howler } from 'howler'
 
 const mockVolumeFn = jest.fn()

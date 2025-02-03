@@ -1,14 +1,14 @@
 import React, { memo, useContext, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { GameSizeContext } from '../utils/GameSizeContext'
+import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 import TowerOrWallNumber from './TowerOrWallNumber'
 
 import tower from '../../assets/img/tower.webp'
 import towerRed from '../../assets/img/tower_red.webp'
 import towerBlue from '../../assets/img/tower_blue.webp'
 import { I18nContext } from '../i18n/I18nContext'
-import { useAppSelector } from '../utils/useAppDispatch'
+import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import TooltipAll from './special/TooltipAll'
 import { upper1st } from '../utils/upper1st'
 

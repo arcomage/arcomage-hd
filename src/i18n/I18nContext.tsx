@@ -8,7 +8,7 @@ import {
   I18nContextType,
   TranslationFullType,
 } from './types'
-import { useAppSelector } from '../utils/useAppDispatch'
+import { useAppSelector } from '../utils/hooks/useAppDispatch'
 
 const allDefault = {
   i18n: defaultTrans,

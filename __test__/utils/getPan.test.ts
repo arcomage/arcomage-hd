@@ -1,4 +1,4 @@
-import getPan from '../../src/utils/getPan'
+import getPan from '../../src/utils/sound/getPan'
 import { stereoPanValue } from '../../src/constants/visuals'
 
 it('getPan is OK when n = 1', () => {

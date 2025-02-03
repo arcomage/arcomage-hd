@@ -1,4 +1,4 @@
-import { stereoPanValue } from '../constants/visuals'
+import { stereoPanValue } from '../../constants/visuals'
 
 /**
  * Get pan value for a card

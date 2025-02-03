@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react'
-import { narrowMobileWinHeightMax } from '../constants/visuals'
+import { narrowMobileWinHeightMax } from '../../constants/visuals'
 
 export type vType = {
   width: number

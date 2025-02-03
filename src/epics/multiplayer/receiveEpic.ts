@@ -12,7 +12,7 @@ import {
 } from '../../types/connData'
 import { INST } from '../../constants/connDataKind'
 import devLog from '../../utils/devLog'
-import { receiveSeq } from '../../utils/seq'
+import { receiveSeq } from '../../utils/multiplayer/seq'
 
 export default (
   action$: Observable<RootActionType>,

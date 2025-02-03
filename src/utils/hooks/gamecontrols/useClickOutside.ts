@@ -11,12 +11,11 @@ const useClickOutside = (
       }
     }
 
-    window.addEventListener('click', handleClickOutside)
-    window.addEventListener('auxclick', handleClickOutside)
+    // mousedown only to prevent the situation where user "mousedown" inside the window and select text or do other things which ends up "mouseup" outside the window
+    window.addEventListener('mousedown', handleClickOutside)
 
     return () => {
-      window.removeEventListener('click', handleClickOutside)
-      window.removeEventListener('auxclick', handleClickOutside)
+      window.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
 }

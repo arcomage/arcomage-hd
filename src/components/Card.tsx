@@ -2,7 +2,7 @@ import React, { useContext, memo, useRef } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
 
-import { useAppSelector, useAppDispatch } from '../utils/useAppDispatch'
+import { useAppSelector, useAppDispatch } from '../utils/hooks/useAppDispatch'
 import { USE_CARD, DISCARD_CARD } from '../constants/ActionTypes'
 import { CardTotalType, ownerType } from '../types/state'
 import {
@@ -28,7 +28,7 @@ import {
   hideOpponentCard,
   useAi,
 } from '../constants/devSettings'
-import { CardPosContext, CardPosType } from '../utils/CardPosContext'
+import { CardPosContext, CardPosType } from '../utils/contexts/CardPosContext'
 import TooltipAll from './special/TooltipAll'
 
 const calcOpacity = ({
@@ -268,6 +268,7 @@ const Card = ({
               (!playersTurn && owner === 'player'),
             [classes.unusableopacity]: n === -1,
           },
+          'card',
         )}
       >
         <div
@@ -409,6 +410,7 @@ const Card = ({
           },
           { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
+          'card',
         )}
         accessKey={
           !buttonDisabled && position >= 0 && position < 9

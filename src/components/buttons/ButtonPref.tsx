@@ -1,7 +1,10 @@
 import React, { memo, useContext } from 'react'
 import cx from 'classnames'
 import { createUseStyles } from 'react-jss'
-import { useAppSelector, useAppDispatch } from '../../utils/useAppDispatch'
+import {
+  useAppSelector,
+  useAppDispatch,
+} from '../../utils/hooks/useAppDispatch'
 
 import { SCREEN_PREF } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'

@@ -1,49 +1,14 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
 
-@import './custom-utilities';
+@use './custom-utilities';
 
-@import './typography';
+@use './typography';
 
-body {
-  overflow: hidden;
-  perspective: 120vh;
-}
+@use './general';
 
-button[disabled='disabled'],
-button:disabled {
-  cursor: default;
-}
+@use './anims';
 
-// button,
-// input[type='range'],
-// input[type='checkbox'],
-// input[type='radio'] {
-//   appearance: none;
-
-//   &:focus {
-//     outline: none;
-//     box-shadow: 0 0 2px 2px lime;
-//   }
-// }
-
-a,
-button {
-  &:focus {
-    outline: 1px solid #fff;
-  }
-}
-
-.MuiTooltip-tooltip {
-  user-select: none;
-}
-
-button[disabled] {
-  pointer-events: none; // for Firefox
-}
-
-@import './anims';
-
-@import './window';
-@import './buttonbar';
+@use './window';
+@use './buttonbar';
