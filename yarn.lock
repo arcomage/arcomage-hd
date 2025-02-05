@@ -4397,7 +4397,7 @@ __metadata:
     "@vue/preload-webpack-plugin": ^2.0.0
     "@wojtekmaj/enzyme-adapter-react-17": ^0.8.0
     autoprefixer: ^10.4.20
-    classnames: ^2.5.1
+    clsx: ^2.1.1
     convert-excel-to-json: ^1.7.0
     copy-webpack-plugin: ^12.0.2
     cross-env: ^7.0.3
@@ -5721,13 +5721,6 @@ __metadata:
   version: 1.2.2
   resolution: "cjs-module-lexer@npm:1.2.2"
   checksum: 977f3f042bd4f08e368c890d91eecfbc4f91da0bc009a3c557bc4dfbf32022ad1141244ac1178d44de70fc9f3dea7add7cd9a658a34b9fae98a55d8f92331ce5
-  languageName: node
-  linkType: hard
-
-"classnames@npm:^2.5.1":
-  version: 2.5.1
-  resolution: "classnames@npm:2.5.1"
-  checksum: da424a8a6f3a96a2e87d01a432ba19315503294ac7e025f9fece656db6b6a0f7b5003bb1fbb51cbb0d9624d964f1b9bb35a51c73af9b2434c7b292c42231c1e5
   languageName: node
   linkType: hard
 

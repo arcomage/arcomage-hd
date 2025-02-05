@@ -159,7 +159,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '怪石纏身',
-    desc: '塔樓+3，這張牌不能換，只能使用',
+    desc: '塔樓+3，這張牌不能棄換，只能使用',
   },
   {
     name: '太陽耀斑',

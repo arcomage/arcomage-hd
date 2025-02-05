@@ -1,5 +1,5 @@
 import React, { useContext, memo, useRef } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
 import { useAppSelector, useAppDispatch } from '../utils/hooks/useAppDispatch'

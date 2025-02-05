@@ -1,6 +1,6 @@
 import React, { memo, useContext } from 'react'
 import Card from './Card'
-import cx from 'classnames'
+import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
@@ -56,6 +56,7 @@ const TableP = () => {
       winWidth={winWidth}
     >
       <TooltipAll
+        // TODO allUnusableTip should only be shown when player is able to select card
         title={allUnusable && !discardMode ? _.i18n('allUnusableTip') : ''}
         placement="top"
         enterTouchDelay={0}

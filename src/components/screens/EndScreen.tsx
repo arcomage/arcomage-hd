@@ -1,5 +1,5 @@
 import React, { memo, useContext, useEffect, useState } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
 import winImg from '../../../assets/img/end_win.svg'

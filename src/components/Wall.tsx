@@ -1,5 +1,5 @@
 import React, { memo, useContext, useRef } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 import TowerOrWallNumber from './TowerOrWallNumber'

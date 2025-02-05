@@ -3,7 +3,7 @@ import Status from './Status'
 import Tower from './Tower'
 import Wall from './Wall'
 import Bird from './effects/Bird'
-import cx from 'classnames'
+import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
 import { useAppSelector } from '../utils/hooks/useAppDispatch'

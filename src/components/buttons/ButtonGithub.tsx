@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import TooltipAll from '../special/TooltipAll'
 import { githubUrl } from '../../constants/devSettings'

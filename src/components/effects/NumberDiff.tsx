@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { numberDiffDuration } from '../../constants/visuals'
 

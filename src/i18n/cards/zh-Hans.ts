@@ -159,7 +159,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: '怪石缠身',
-    desc: '城堡+3，这张牌不能换，只能使用',
+    desc: '城堡+3，这张牌不能弃换，只能使用',
   },
   {
     name: '太阳耀斑',

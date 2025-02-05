@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import cx from 'classnames'
+import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
 import explosion from '../../../assets/img/explosion.webp'
