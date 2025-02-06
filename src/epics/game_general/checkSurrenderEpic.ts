@@ -36,3 +36,4 @@ export default (
       }
     }),
   )
+// TODO: fix: multiplayer mode, opponent surrenders, game freezes

@@ -8,9 +8,9 @@ import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
 import { RootStateType } from '../../types/state'
-import { resNames } from '../../constants/resourceNames'
 import { EMPTY, Observable, of } from 'rxjs'
 import { getWinState } from '../../utils/startWinState'
+import { checkVictory } from '../../utils/checkVictory'
 
 export default (
   action$: Observable<RootActionType>,
@@ -23,31 +23,12 @@ export default (
       const { winTower, winResource } = getWinState(state.settings)
       const { player, opponent } = state.status
 
-      const playerWin =
-        player.tower >= winTower ||
-        opponent.tower <= 0 ||
-        resNames.some((resName) => player[resName] >= winResource)
-      const opponentWin =
-        opponent.tower >= winTower ||
-        player.tower <= 0 ||
-        resNames.some((resName) => opponent[resName] >= winResource)
+      const res = checkVictory(player, opponent, winTower, winResource)
 
-      if (playerWin && !opponentWin) {
+      if (res) {
         return of<RootActionType>({
           type: SCREEN_END,
-          payload: { type: 'win' },
-        }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
-      }
-      if (!playerWin && opponentWin) {
-        return of<RootActionType>({
-          type: SCREEN_END,
-          payload: { type: 'lose' },
-        }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
-      }
-      if (playerWin && opponentWin) {
-        return of<RootActionType>({
-          type: SCREEN_END,
-          payload: { type: 'tie' },
+          payload: res,
         }).pipe(takeUntil(action$.pipe(ofType(ABORT_ALL))))
       }
 

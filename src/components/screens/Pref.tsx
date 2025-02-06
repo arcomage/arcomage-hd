@@ -63,8 +63,9 @@ const Pref = () => {
   const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
 
-  const copied = useRef<HTMLDivElement | null>(null)
+  const yourIdInputRef = useRef<HTMLInputElement>(null)
   const copiedTimer = useRef<NodeJS.Timeout | null>(null)
+  const [copied, setCopied] = useState<boolean>(false)
 
   const isMultiplayer = useAppSelector((state) => state.multiplayer.on)
   const yourId = useAppSelector((state) => state.multiplayer.yourId)
@@ -757,6 +758,7 @@ const Pref = () => {
             {_.i18n(': ')}
           </span>
           <input
+            ref={yourIdInputRef}
             type="text"
             name="yourId"
             id="yourId"
@@ -768,38 +770,28 @@ const Pref = () => {
                 target.select()
                 copy(target.value)
                   .then(() => {
-                    if (copied.current !== null) {
-                      copied.current.classList.add('copied-shown')
-                      if (copiedTimer.current !== null) {
-                        clearTimeout(copiedTimer.current)
-                      }
-                      copiedTimer.current = setTimeout(() => {
-                        if (copied.current !== null) {
-                          copied.current.classList.remove('copied-shown')
-                        }
-                      }, copiedDuration)
+                    setCopied(true)
+                    if (copiedTimer.current !== null) {
+                      clearTimeout(copiedTimer.current)
                     }
+                    copiedTimer.current = setTimeout(() => {
+                      setCopied(false)
+                    }, copiedDuration)
                   })
                   .catch((error) => {
                     console.error('Failed to copy text: ', error)
                   })
-                if (copied.current !== null) {
-                  copied.current.classList.add('copied-shown')
-                  if (copiedTimer.current !== null) {
-                    clearTimeout(copiedTimer.current)
-                  }
-                  copiedTimer.current = setTimeout(() => {
-                    if (copied.current !== null) {
-                      copied.current.classList.remove('copied-shown')
-                    }
-                  }, copiedDuration)
-                }
               }
             }}
           />
-          <span ref={copied} className="copied emoji">
-            {_.i18n('Copied 📋✅')}
-          </span>
+          <button
+            disabled={!isMultiplayer}
+            onClick={() => {
+              yourIdInputRef.current?.click()
+            }}
+          >
+            {copied ? _.i18n('Copied 📋✅') : _.i18n('Copy')}
+          </button>
         </label>
       </div>
       <div className="multiplayer">

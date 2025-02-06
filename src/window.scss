@@ -285,24 +285,13 @@
             @apply flex-grow;
           }
         }
-        .copied,
         button {
-          @apply flex-grow-0 py-1 ltr:ml-2 rtl:mr-2;
+          @apply flex-grow-0 py-1 px-4 ltr:ml-2 rtl:mr-2;
           &:active {
             @apply border-b-0;
             padding-top: calc(0.25rem + 2px);
             padding-bottom: calc(0.25rem + 2px);
           }
-        }
-        .copied {
-          @apply px-1 opacity-0;
-          transition: opacity 150ms linear;
-          &.copied-shown {
-            @apply opacity-100;
-          }
-        }
-        button {
-          @apply px-4;
         }
         #yourId {
           @apply cursor-pointer;

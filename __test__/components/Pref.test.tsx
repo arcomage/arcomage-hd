@@ -96,8 +96,8 @@ it('renders Pref', () => {
     target: { value: '4b0e835d-002f-4478-8d89-e384f19cd999' },
   })
   const buttonConnect = screen.find('div.multiplayer button')
-  expect(buttonConnect.length).toBe(1)
-  buttonConnect.simulate('click')
+  expect(buttonConnect.length).toBe(2)
+  buttonConnect.at(0).simulate('click')
   const buttonsResetApply = screen.find('div.button-wrapper button')
   expect(buttonsResetApply.length > 0).toBeTruthy()
   buttonsResetApply.forEach((button) => {

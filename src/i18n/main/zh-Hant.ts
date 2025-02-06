@@ -43,6 +43,13 @@ export const i18n = {
   'You Lose!': '你輸了!',
   'Tie Game': '握手言和',
 
+  '%s has reached the victory condition': '%s已達到勝利條件', // %s = 'Your tower', "Opponent's tower"
+  '%s have reached the victory condition': '%s已達到勝利條件', // %s = 'Your bricks', "Opponent's bricks", "Your gems", ...
+  'Your opponent has no tower left': '對手塔樓已被完全摧毀',
+  'You have no tower left': '你的塔樓已被完全摧毀',
+
+  '. ': '。',
+
   Preferences: '設定',
   ': ': '：',
   'Your Name': '你的名字',
@@ -78,6 +85,7 @@ export const i18n = {
   'Your ID': '你的ID',
   "Enter your opponent's ID": '輸入對手ID',
   Connect: '連線',
+  Copy: '複製',
   'Copied 📋✅': '已複製 📋✅',
 
   'Connecting to the network ⌛': '正在連線到網路 ⌛',

@@ -76,14 +76,21 @@ export type SettingsStateType = SettingsType & SettingsStateNameType
 
 export type SettingsStateAllPartialType = Partial<SettingsStateType>
 
+export type GameEndReasonsType = {
+  win?: number[]
+  lose?: number[]
+}
+
 export type EndScreenStateType = {
   type: 'win' | 'tie' | 'lose' | null // null = close screen
   surrender?: boolean
+  reasons?: GameEndReasonsType
 }
 
 export type EndScreenNoCloseStateType = {
   type: 'win' | 'tie' | 'lose'
   surrender?: boolean
+  reasons?: GameEndReasonsType
 }
 
 export const isEndScreenNoCloseState = (

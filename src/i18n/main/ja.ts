@@ -44,6 +44,13 @@ export const i18n = {
   'You Lose!': '負け！',
   'Tie Game': '引き分け',
 
+  '%s has reached the victory condition': '%sは勝利条件に達しました', // %s = 'Your tower', "Opponent's tower"
+  '%s have reached the victory condition': '%sは勝利条件に達しました', // %s = 'Your bricks', "Opponent's bricks", "Your gems", ...
+  'Your opponent has no tower left': '対戦相手にはタワーが残っていません',
+  'You have no tower left': 'あなたにはタワーが残っていません',
+
+  '. ': '。',
+
   Preferences: '設定',
   ': ': '：',
   'Your Name': 'あなたの名前',
@@ -79,6 +86,7 @@ export const i18n = {
   'Your ID': 'あなたのID',
   "Enter your opponent's ID": '相手のIDを入力する',
   Connect: '接続',
+  Copy: 'コピー',
   'Copied 📋✅': 'コピー済み 📋✅',
 
   'Connecting to the network ⌛': 'ネットワークに接続する ⌛',

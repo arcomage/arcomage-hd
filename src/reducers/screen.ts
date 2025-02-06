@@ -50,6 +50,7 @@ export default produce((draft: ScreenStateType, action: RootActionType) => {
     case SCREEN_END_MAIN: {
       draft.end.type = action.payload.type
       draft.end.surrender = action.payload.surrender
+      draft.end.reasons = action.payload.reasons
       break
     }
   }

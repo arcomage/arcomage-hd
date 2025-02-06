@@ -44,6 +44,13 @@ export const i18n = {
   'You Lose!': 'Prohrál jsi!',
   'Tie Game': 'Remízová hra',
 
+  '%s has reached the victory condition': '%s dosáhla vítězné podmínky', // %s = 'Your tower', "Opponent's tower"
+  '%s have reached the victory condition': '%s dosáhly vítězné podmínky', // %s = 'Your bricks', "Opponent's bricks", "Your gems", ...
+  'Your opponent has no tower left': 'Vašemu protivníkovi nezbyla žádná věž',
+  'You have no tower left': 'Nezbyla ti žádná věž',
+
+  '. ': '. ',
+
   Preferences: 'Předvolby',
   ': ': ': ',
   'Your Name': 'Vaše jméno',
@@ -80,6 +87,7 @@ export const i18n = {
   'Your ID': 'Vaše ID',
   "Enter your opponent's ID": 'Zadejte ID soupeře',
   Connect: 'Připojit',
+  Copy: 'Kopie',
   'Copied 📋✅': 'Zkopírováno 📋✅',
 
   'Connecting to the network ⌛': 'Připojení k síti ⌛',

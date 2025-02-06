@@ -44,6 +44,14 @@ export const i18n = {
   'You Lose!': 'Sie verlieren!',
   'Tie Game': 'Unentschieden Spiel',
 
+  '%s has reached the victory condition': '%s hat die Siegbedingung erreicht', // %s = 'Your tower', "Opponent's tower"
+  '%s have reached the victory condition':
+    '%s haben die Siegbedingung erreicht', // %s = 'Your bricks', "Opponent's bricks", "Your gems", ...
+  'Your opponent has no tower left': 'Ihr Gegner hat keinen Turm mehr',
+  'You have no tower left': 'Sie haben keinen Turm mehr',
+
+  '. ': '. ',
+
   Preferences: 'Voreinstellungen',
   ': ': ': ',
   'Your Name': 'Ihr Name',
@@ -80,6 +88,7 @@ export const i18n = {
   'Your ID': 'Ihre ID',
   "Enter your opponent's ID": 'Geben Sie die ID Ihres Gegners ein',
   Connect: 'Verbinden',
+  Copy: 'Kopieren',
   'Copied 📋✅': 'Kopiert 📋✅',
 
   'Connecting to the network ⌛': 'Verbindung zum Netzwerk herstellen ⌛',

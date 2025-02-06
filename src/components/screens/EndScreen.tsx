@@ -12,6 +12,7 @@ import { CLOSE_SCREEN_END_INIT } from '../../constants/ActionTypes'
 import useKeyDown from '../../utils/hooks/gamecontrols/useKeyDown'
 import { endScreenExitableDelay } from '../../constants/visuals'
 import { EndScreenNoCloseStateType } from '../../types/state'
+import { reasonTranslate } from '../../utils/checkVictory'
 // import { GameSizeContext } from '../../utils/contexts/GameSizeContext'
 
 const textMap = { lose: 'You Lose!', tie: 'Tie Game', win: 'You Win!' }
@@ -96,8 +97,8 @@ const useStyles = createUseStyles<string, EndScreenNoCloseStateType>({
   notetext: {
     top: '62%',
     height: '5em',
-    'font-size': '5vh',
-    'line-height': '5vh',
+    'font-size': '4vh',
+    'line-height': '4vh',
   },
 
   text: {
@@ -128,7 +129,7 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
   const _ = useContext(I18nContext)
   const classes = useStyles(endScreenState)
 
-  const { type, surrender } = endScreenState
+  const { type, surrender, reasons } = endScreenState
 
   // const size = useContext(GameSizeContext)
 
@@ -145,7 +146,17 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
   )
 
   let noteText: string | null = null
-  if (surrender) {
+  if (reasons) {
+    const reasonTexts = [
+      ...(reasons.win
+        ? reasons.win.map((reason) => reasonTranslate(reason, true, _))
+        : []),
+      ...(reasons.lose
+        ? reasons.lose.map((reason) => reasonTranslate(reason, false, _))
+        : []),
+    ]
+    noteText = reasonTexts.join(_.i18n('. '))
+  } else if (surrender) {
     switch (type) {
       case 'win':
         noteText = _.i18n(
@@ -252,5 +263,4 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
     </div>
   )
 }
-
 export default memo(EndScreen)

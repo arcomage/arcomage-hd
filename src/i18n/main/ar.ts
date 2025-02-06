@@ -31,6 +31,11 @@ export const i18n = {
   'You Win!': 'فزت!',
   'You Lose!': 'خسرت!',
   'Tie Game': 'لعبة التعادل',
+  '%s has reached the victory condition': 'لقد وصل %s إلى حالة النصر', // %s = 'Your tower', "Opponent's tower"
+  '%s have reached the victory condition': 'لقد وصل %s إلى حالة النصر', // %s = 'Your bricks', "Opponent's bricks", "Your gems", ...
+  'Your opponent has no tower left': 'لم يتبق لخصمك أي برج',
+  'You have no tower left': 'لم يتبق لك أي برج',
+  '. ': '. ',
   Preferences: 'التفضيلات',
   ': ': ':',
   'Your Name': 'اسمك',
@@ -60,6 +65,7 @@ export const i18n = {
   'Your ID': 'معرفك',
   "Enter your opponent's ID": 'أدخل معرف خصمك',
   Connect: 'الاتصال',
+  Copy: 'نسخ',
   'Copied 📋✅': 'تم النسخ 📋✅',
   'Connecting to the network ⌛': 'الاتصال بالشبكة ⌛',
   'Connected to the network (but not to anyone) 🟡':

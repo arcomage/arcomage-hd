@@ -23,6 +23,11 @@ const TableP = () => {
   const cardsInHand = useAppSelector((state) => state.settings.cardsInHand)
   const discardMode = useAppSelector((state) => state.game.discardMode)
 
+  const playersTurn = useAppSelector((state) => state.game.playersTurn)
+  const locked = useAppSelector((state) => state.game.locked).some(
+    (l) => l === true,
+  )
+
   const size = useContext(GameSizeContext)
   const winHeight = size.height
   const winWidth = size.width
@@ -56,8 +61,11 @@ const TableP = () => {
       winWidth={winWidth}
     >
       <TooltipAll
-        // TODO allUnusableTip should only be shown when player is able to select card
-        title={allUnusable && !discardMode ? _.i18n('allUnusableTip') : ''}
+        title={
+          allUnusable && playersTurn && !locked && !discardMode
+            ? _.i18n('allUnusableTip')
+            : ''
+        }
         placement="top"
         enterTouchDelay={0}
       >
