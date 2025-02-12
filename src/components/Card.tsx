@@ -105,7 +105,7 @@ const useStyles = createUseStyles<
     'transition-property': 'opacity, transform, left, top',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDuration}ms`,
-    '&:before': {
+    '&::before': {
       width: '100%',
       height: '100%',
       position: 'absolute',
@@ -124,7 +124,7 @@ const useStyles = createUseStyles<
     'transition-property': 'opacity, transform, left, top',
     'transition-timing-function': 'ease-in-out',
     'transition-duration': `${cardTransitionDuration}ms`,
-    '&:before': {
+    '&::before': {
       width: '100%',
       height: '100%',
       position: 'absolute',
@@ -139,7 +139,7 @@ const useStyles = createUseStyles<
     'backface-visibility': 'hidden',
   },
   cardbackhard: {
-    '&:before': {
+    '&::before': {
       width: '100%',
       height: '100%',
       position: 'absolute',

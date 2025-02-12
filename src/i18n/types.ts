@@ -26,10 +26,10 @@ export type TranslationType = Partial<
   Record<AvailableLangType, TranslationObjType>
 >
 
-export type TranslationFullType = RequiredBy<
-  TranslationType,
-  typeof defaultLang
->
+// export type TranslationFullType = RequiredBy<
+//   TranslationType,
+//   typeof defaultLang
+// >
 
 export type I18nContextType = {
   i18n: (str: string) => string

@@ -46,7 +46,7 @@ const useStyles = createUseStyles<string>({
       },
     },
     'html[data-noanime="false"] &': {
-      '&:hover': {
+      '&:hover, &:focus': {
         '& svg': {
           '& .el-0': {
             visibility: 'hidden',

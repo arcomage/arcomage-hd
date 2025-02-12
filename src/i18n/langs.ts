@@ -19,4 +19,4 @@ export const langInfo = {
 
 export const langs = keys(langInfo)
 
-export const defaultLang = 'en' as const
+export const defaultLang = 'en' as const // see alse imports in I18nContext.tsx

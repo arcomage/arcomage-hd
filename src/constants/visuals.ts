@@ -32,3 +32,6 @@ export const tooltipLeaveDelay = 40
 export const defaultTooltipEnterTouchDelay = 700
 
 export const stereoPanValue = 0.7
+
+export const startSoundLength = 10000
+export const typingSoundLength = 1000

@@ -25,7 +25,7 @@ const useStyles = createUseStyles<string>({
   helpButton: {
     left: 'calc(60% + 12rem)',
     'html[data-noanime="false"] &': {
-      '&:hover, &.windowactive': {
+      '&:hover, &:focus, &.windowactive': {
         '& svg': {
           animation: '$rotate2 2s linear infinite',
         },

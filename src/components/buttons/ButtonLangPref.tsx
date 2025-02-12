@@ -191,7 +191,7 @@ const useStyles = createUseStyles<string>({
   langPrefButton: {
     left: 'calc(60% + 3rem)',
     'html[data-noanime="false"] &': {
-      '&:hover, &.windowactive': {
+      '&:hover, &:focus, &.windowactive': {
         '& svg': {
           '& .el-1': {
             'stroke-dasharray': 10.843,

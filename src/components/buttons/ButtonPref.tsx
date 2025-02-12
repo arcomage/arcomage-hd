@@ -22,7 +22,7 @@ const useStyles = createUseStyles<string>({
   prefButton: {
     left: '60%',
     'html[data-noanime="false"] &': {
-      '&:hover, &.windowactive': {
+      '&:hover, &:focus, &.windowactive': {
         '& svg': {
           animation: '$rotate 2s linear infinite',
         },

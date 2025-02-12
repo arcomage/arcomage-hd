@@ -7,11 +7,14 @@ _To ensure you're using the latest version, open the game and press <kbd>Ctrl</k
 ## [v1.5.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.0...v1.5.0) (2025-?-?) (in progress)
 
 - Full control with mouse, touch device, keyboard, or gamepad 🖱️📱⌨️🎮 ([instructions](gamecontrols.md))
+- [Show reasons for win/loss/draw](https://github.com/arcomage/arcomage-hd/issues/84)
+- Optimize AnimatedNumber & lang change
 - [Debounced number input](https://github.com/arcomage/arcomage-hd/issues/81)
 - [LTR / Arabic support](https://github.com/arcomage/arcomage-hd/issues/90)
 - Fixes and improvements to accessibility (a11y)
 - CI update, replaced husky git hooks with custom script
 - Docs update
+- Easter egg when clicking on birds
 - And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..*))
 
 ## [v1.4.0](https://github.com/arcomage/arcomage-hd/compare/v1.3.0...v1.4.0) ([2025-01-25](https://github.com/arcomage/arcomage-hd/commit/552bf596a98d403310345efe7afc7c067938d489))

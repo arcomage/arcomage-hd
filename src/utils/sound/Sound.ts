@@ -13,14 +13,19 @@ import damageUrl from '../../../assets/sfx/damage.mp3'
 import dealUrl from '../../../assets/sfx/deal.mp3'
 import victoryUrl from '../../../assets/sfx/victory.mp3'
 import defeatUrl from '../../../assets/sfx/defeat.mp3'
-// import start from '../../../assets/sfx/start.mp3'
-// import typing from '../../../assets/sfx/typing.mp3'
+import startUrl from '../../../assets/sfx/start.mp3'
+import typingUrl from '../../../assets/sfx/typing.mp3'
 
 import { Howl, Howler } from 'howler'
 import { stereoPanValue } from '../../constants/visuals'
 
-const soundAdditionalTypes = ['deal', 'victory', 'defeat'] as const
-// 'typing', 'start'
+const soundAdditionalTypes = [
+  'deal',
+  'victory',
+  'defeat',
+  'start',
+  'typing',
+] as const
 
 type soundTypeType =
   | keyof PersonStatusType
@@ -62,6 +67,8 @@ const audioMap = {
   deal: 'deal',
   victory: 'victory',
   defeat: 'defeat',
+  start: 'start',
+  typing: 'typing',
 }
 
 Howler.autoUnlock = false
@@ -85,6 +92,8 @@ const audios: Record<string, Howl> = {
   deal: loadAudio(dealUrl),
   victory: loadAudio(victoryUrl),
   defeat: loadAudio(defeatUrl),
+  start: loadAudio(startUrl),
+  typing: loadAudio(typingUrl),
 }
 
 export const setVolume = (volume: number): void => {

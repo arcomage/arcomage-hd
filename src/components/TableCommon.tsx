@@ -2,7 +2,7 @@ import React, { memo, useContext } from 'react'
 import Status from './Status'
 import Tower from './Tower'
 import Wall from './Wall'
-import Bird from './effects/Bird'
+import Birds from './effects/Birds'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
@@ -68,7 +68,7 @@ const TableCommon = () => {
         />
         <Tower isOpponent goal={winTower} />
         <Wall isOpponent />
-        <Bird />
+        <Birds />
       </div>
     </div>
   )

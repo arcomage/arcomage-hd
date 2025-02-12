@@ -35,7 +35,7 @@ const useStyles = createUseStyles<string>({
   fullscreenButton: {
     left: 'calc(60% + 9rem)',
     'html[data-noanime="false"] &': {
-      '&:hover': {
+      '&:hover, &:focus': {
         '& svg': {
           '& .el-0': {
             animation: '$moveto-tl 0.6s linear infinite',
