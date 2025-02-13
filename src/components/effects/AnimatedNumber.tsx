@@ -1,5 +1,8 @@
 import React, { memo, useEffect, useRef } from 'react'
-import { animatedNumberDuration } from '../../constants/visuals'
+import {
+  animatedNumberDuration,
+  minAnimatedNumberInterval,
+} from '../../constants/visuals'
 import { useAppSelector } from '../../utils/hooks/useAppDispatch'
 
 type PropType = { n: number }
@@ -32,9 +35,13 @@ const AnimatedNumber = ({ n }: PropType) => {
       return
     }
 
-    const step = n > prev ? 1 : -1
-    const totalSteps = Math.abs(n - prev)
-    const intervalTime = animatedNumberDuration / totalSteps
+    let step = n > prev ? 1 : -1
+    const diffNumber = Math.abs(n - prev)
+    let intervalTime = animatedNumberDuration / diffNumber
+    if (intervalTime < minAnimatedNumberInterval) {
+      step = step * Math.ceil(minAnimatedNumberInterval / intervalTime)
+      intervalTime = minAnimatedNumberInterval
+    }
     let currentValue = prev
     let lastTime = performance.now()
 
@@ -51,6 +58,17 @@ const AnimatedNumber = ({ n }: PropType) => {
         numberRef.current.textContent = String(currentValue)
 
         if (currentValue === n) {
+          animationFrameRef.current = null
+          return
+        }
+        if (
+          step !== 1 &&
+          step !== -1 &&
+          (n > prev ? currentValue + step > n : currentValue + step < n)
+        ) {
+          currentValue = n
+          displayValueRef.current = currentValue
+          numberRef.current.textContent = String(currentValue)
           animationFrameRef.current = null
           return
         }

@@ -71,7 +71,7 @@ const audioMap = {
   typing: 'typing',
 }
 
-Howler.autoUnlock = false
+// Howler.autoUnlock = false
 
 const loadAudio = (url: string) =>
   new Howl({
@@ -101,7 +101,7 @@ export const setVolume = (volume: number): void => {
 }
 
 /**
- *
+ * Play sound
  * @param type - sound type name
  * @param increase - increase or decrease, only for `tower`, `wall` and resource-related
  * @param pan - stereo pan value, `-1` to `1`,

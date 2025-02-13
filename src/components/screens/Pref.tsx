@@ -246,7 +246,7 @@ const Pref = () => {
           if (inputMode === 'numeric') {
             draft[name] = parseInt(value, 10)
           } else if (type === 'text') {
-            draft[name] = value.trim()
+            draft[name] = value
           }
         }
       }),

@@ -18,9 +18,10 @@ export const unitTextMaxLength = 7
 export const narrowMobileWinHeightMax = 499
 export const smallRootFontScreenMax = 689
 export const minRootFontSize = 4
-export const animatedNumberDuration = 200
+export const animatedNumberDuration = 300
+export const minAnimatedNumberInterval = 18 // should > 16.67 (16.67ms per frame = 60 fps)
 export const numberChangeVisualDuration = 1000 // explosion & firework
-export const numberDiffDuration = 1500
+export const numberDiffDuration = 2000
 export const maxWallOnScreen = 100
 export const copiedDuration = 3000
 export const shorterIdStartEndLength = 5
