@@ -6,12 +6,12 @@ import { numberDiffDuration } from '../../constants/visuals'
 const useStyles = createUseStyles({
   '@keyframes fadeOutUp': {
     from: {
-      transform: 'translateY(0)',
+      transform: 'translateY(0) translateZ(0)',
       opacity: 1,
     },
 
     to: {
-      transform: 'translateY(-2.5em)',
+      transform: 'translateY(-2.5em) translateZ(0)',
       opacity: 0,
     },
   },

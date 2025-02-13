@@ -13,13 +13,13 @@ import TooltipAll from '../special/TooltipAll'
 const useStyles = createUseStyles<string>({
   '@keyframes rotate2': {
     '0%, 100%': {
-      transform: 'rotate(0deg)',
+      transform: 'rotate(0deg) translateZ(0)',
     },
     '25%': {
-      transform: 'rotate(30deg)',
+      transform: 'rotate(30deg) translateZ(0)',
     },
     '75%': {
-      transform: 'rotate(-30deg)',
+      transform: 'rotate(-30deg) translateZ(0)',
     },
   },
   helpButton: {

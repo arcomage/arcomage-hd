@@ -1,24 +1,24 @@
 @keyframes cardFlip {
   0% {
-    transform: rotateZ(0deg) rotateY(180deg);
+    transform: rotateZ(0deg) rotateY(180deg) translateZ(0);
   }
   50% {
-    transform: rotateZ(-10deg) rotateY(90deg);
+    transform: rotateZ(-10deg) rotateY(90deg) translateZ(0);
   }
   100% {
-    transform: rotateZ(0deg) rotateY(0deg);
+    transform: rotateZ(0deg) rotateY(0deg) translateZ(0);
   }
 }
 
 @keyframes cardUnFlip {
   0% {
-    transform: rotateZ(0deg) rotateY(0deg);
+    transform: rotateZ(0deg) rotateY(0deg) translateZ(0);
   }
   50% {
-    transform: rotateZ(-10deg) rotateY(90deg);
+    transform: rotateZ(-10deg) rotateY(90deg) translateZ(0);
   }
   100% {
-    transform: rotateZ(0deg) rotateY(180deg);
+    transform: rotateZ(0deg) rotateY(180deg) translateZ(0);
   }
 }
 

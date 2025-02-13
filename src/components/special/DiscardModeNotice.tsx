@@ -10,7 +10,7 @@ const DiscardModeNotice = ({ shown = true }: PropType) => {
   return shown ? (
     <div
       className={cx(
-        'transform -translate-y-1/2 w-full text-center text-yellow-300 pointer-events-none text-4xl text-shadow-lg',
+        '-translate-y-1/2 w-full text-center text-yellow-300 pointer-events-none text-4xl text-shadow-lg',
         'robotocondensed',
         'el-text',
       )}

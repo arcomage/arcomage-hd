@@ -14,7 +14,7 @@ const useStyles = createUseStyles<string>({
       transform: 'none',
     },
     '68%, 100%': {
-      transform: 'rotate(90deg) translateX(-100%)',
+      transform: 'rotate(90deg) translateX(-100%) translateZ(0)',
     },
   },
   '@keyframes mouth': {
@@ -22,7 +22,7 @@ const useStyles = createUseStyles<string>({
       transform: 'none',
     },
     '56%, 100%': {
-      transform: 'scaleY(-1) translateY(-35%)',
+      transform: 'scaleY(-1) translateY(-35%) translateZ(0)',
     },
   },
   '@keyframes smiley': {
@@ -30,7 +30,7 @@ const useStyles = createUseStyles<string>({
       transform: 'none',
     },
     '68%, 100%': {
-      transform: 'rotate(-90deg)',
+      transform: 'rotate(-90deg) translateZ(0)',
     },
   },
   wrapper: {

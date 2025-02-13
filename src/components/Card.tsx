@@ -91,7 +91,7 @@ const useStyles = createUseStyles<
       `${(cardPos ? cardPos.width * 0.094 : 16) * 1.1}px`,
   },
   isflipped: {
-    transform: 'translateX(-100%) rotateY(-179.99deg)',
+    transform: 'translateX(-100%) translateZ(0) rotateY(-179.99deg)',
   },
   cardeffect: {
     'transform-style': 'preserve-3d',
@@ -135,7 +135,7 @@ const useStyles = createUseStyles<
     },
   },
   cardbackeffect: {
-    transform: 'translateX(0) rotateY(180deg)',
+    transform: 'translateX(0) translateZ(0) rotateY(180deg)',
     'backface-visibility': 'hidden',
   },
   cardbackhard: {
@@ -189,7 +189,7 @@ const useStyles = createUseStyles<
 })
 
 type PropType = {
-  n: number // .. | -1: cardback
+  n: number // 0 | 1 | 2 | ... | -1: cardback. index of the card in `cards` array, see src/data/cards.ts
   unusable?: boolean
   discarded?: boolean
   position: number // 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | ... | -1 | -2 | -3 | -4 | -5. See ROOTFOLDER/tools/devnotes/card-state-position-numbers.png
@@ -251,6 +251,7 @@ const Card = ({
   })
 
   if (type === undefined) {
+    // CardBack
     // `type === undefined` is equivalent to `isCardback`
     return (
       <button
@@ -261,7 +262,7 @@ const Card = ({
         className={cx(
           classes.main,
           classes.cardbackhard,
-          'transform absolute rounded shadow-lg',
+          'absolute rounded shadow-lg',
           {
             'opacity-0 pointer-events-none':
               (playersTurn && owner === 'opponent') ||
@@ -280,7 +281,7 @@ const Card = ({
       </button>
     )
   } else {
-    const { cost, special } = dataCards[n]
+    // CardFront
 
     const color = ['red', 'blue', 'green'][type]
     // Force TailwindCSS to aware of these classes:
@@ -290,6 +291,8 @@ const Card = ({
     // bg-red-300
     // bg-blue-300
     // bg-green-300
+
+    const { cost, special } = dataCards[n]
 
     let buttonDisabled = true
 
@@ -402,7 +405,7 @@ const Card = ({
           classes.main,
           classes.cardeffect,
           { [classes.isflipped]: isFlipped },
-          'transform absolute rounded',
+          'absolute rounded',
           {
             'opacity-0 pointer-events-none':
               (playersTurn && owner === 'opponent') ||

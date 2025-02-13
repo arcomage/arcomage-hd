@@ -13,10 +13,10 @@ import TooltipAll from '../special/TooltipAll'
 const useStyles = createUseStyles<string>({
   '@keyframes rotate': {
     from: {
-      transform: 'rotate(0deg)',
+      transform: 'rotate(0deg) translateZ(0)',
     },
     to: {
-      transform: 'rotate(360deg)',
+      transform: 'rotate(360deg) translateZ(0)',
     },
   },
   prefButton: {

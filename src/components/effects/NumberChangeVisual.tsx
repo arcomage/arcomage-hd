@@ -70,7 +70,7 @@ const NumberChangeVisual = ({ n }: PropType) => {
       if (mainEl !== null) {
         const divEl = document.createElement('div')
         divEl.className = cx(
-          'transform -translate-x-1/2 -translate-y-1/2 absolute',
+          '-translate-x-1/2 -translate-y-1/2 absolute',
           size.narrowMobile ? 'scale-50' : 'scale-75',
           classes.main,
           n < prev ? classes.explosion : classes.firework,

@@ -15,35 +15,35 @@ const useStyles = createUseStyles({
 
   '@keyframes fly-right-one': {
     '0%': {
-      transform: 'scale(0.3) translateX(-10vw)',
+      transform: 'translateX(-10vw) scale(0.3) translateZ(0)',
     },
 
     '10%': {
-      transform: 'translateY(2vh) translateX(10vw) scale(0.4)',
+      transform: 'translateY(2vh) translateX(10vw) scale(0.4) translateZ(0)',
     },
 
     '20%': {
-      transform: 'translateY(0vh) translateX(30vw) scale(0.5)',
+      transform: 'translateY(0vh) translateX(30vw) scale(0.5) translateZ(0)',
     },
 
     '30%': {
-      transform: 'translateY(4vh) translateX(50vw) scale(0.6)',
+      transform: 'translateY(4vh) translateX(50vw) scale(0.6) translateZ(0)',
     },
 
     '40%': {
-      transform: 'translateY(2vh) translateX(70vw) scale(0.6)',
+      transform: 'translateY(2vh) translateX(70vw) scale(0.6) translateZ(0)',
     },
 
     '50%': {
-      transform: 'translateY(0vh) translateX(90vw) scale(0.6)',
+      transform: 'translateY(0vh) translateX(90vw) scale(0.6) translateZ(0)',
     },
 
     '60%': {
-      transform: 'translateY(0vh) translateX(110vw) scale(0.6)',
+      transform: 'translateY(0vh) translateX(110vw) scale(0.6) translateZ(0)',
     },
 
     '100%': {
-      transform: 'translateY(0vh) translateX(110vw) scale(0.6)',
+      transform: 'translateY(0vh) translateX(110vw) scale(0.6) translateZ(0)',
     },
   },
 
@@ -54,7 +54,7 @@ const useStyles = createUseStyles({
     position: 'absolute',
     top: '32%',
     left: '-10%',
-    transform: 'scale(0) translateX(-10vw)',
+    transform: 'scale(0) translateX(-10vw) translateZ(0)',
     'will-change': 'transform',
     'animation-name': '$fly-right-one',
     'animation-timing-function': 'linear',

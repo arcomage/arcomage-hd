@@ -245,7 +245,7 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
             <div
               className={cx(
                 classes.firework,
-                'absolute top-0 left-1/4 transform',
+                'absolute top-0 left-1/4',
                 size.narrowMobile ? 'scale-50' : 'scale-75',
               )}
             ></div>
@@ -253,7 +253,7 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
               className={cx(
                 classes.firework,
                 classes.firework2,
-                'absolute bottom-0 right-1/4 transform',
+                'absolute bottom-0 right-1/4',
                 size.narrowMobile ? 'scale-50' : 'scale-75',
               )}
             ></div>

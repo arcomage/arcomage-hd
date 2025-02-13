@@ -13,22 +13,22 @@ import TooltipAll from '../special/TooltipAll'
 const useStyles = createUseStyles<string>({
   '@keyframes moveto-tl': {
     to: {
-      transform: 'translate(-1.4px, -1.4px)',
+      transform: 'translate3d(-1.4px, -1.4px, 0)',
     },
   },
   '@keyframes moveto-tr': {
     to: {
-      transform: 'translate(1.4px, -1.4px)',
+      transform: 'translate3d(1.4px, -1.4px, 0)',
     },
   },
   '@keyframes moveto-bl': {
     to: {
-      transform: 'translate(-1.4px, 1.4px)',
+      transform: 'translate3d(-1.4px, 1.4px, 0)',
     },
   },
   '@keyframes moveto-br': {
     to: {
-      transform: 'translate(1.4px, 1.4px)',
+      transform: 'translate3d(1.4px, 1.4px, 0)',
     },
   },
 
