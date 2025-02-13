@@ -32,7 +32,9 @@ const TableP = () => {
   const winHeight = size.height
   const winWidth = size.width
 
-  const playerCards = cards.filter((card) => card && card.position >= 0)
+  const playerCards = cards.filter(
+    (card) => card && card.position >= 0 && card.owner === 'player',
+  )
   const allUnusable =
     playerCards.length > 0 &&
     playerCards.every((card) => card && card.unusable === true)

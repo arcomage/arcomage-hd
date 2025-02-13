@@ -8,7 +8,7 @@ _To ensure you're using the latest version, open the game and press <kbd>Ctrl</k
 
 - Full control with mouse, touch device, keyboard, or gamepad 🖱️📱⌨️🎮 ([instructions](gamecontrols.md))
 - [Show reasons for win/loss/draw](https://github.com/arcomage/arcomage-hd/issues/84)
-- Optimize AnimatedNumber & lang change
+- [Optimize AnimatedNumber](https://github.com/arcomage/arcomage-hd/issues/95) & lang change
 - [Debounced number input](https://github.com/arcomage/arcomage-hd/issues/81)
 - [LTR / Arabic support](https://github.com/arcomage/arcomage-hd/issues/90)
 - Fixes and improvements to accessibility (a11y)
