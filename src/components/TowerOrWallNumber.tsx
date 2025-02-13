@@ -7,16 +7,18 @@ import NumberDiff from './effects/NumberDiff'
 type PropType = {
   n: number
   target: React.MutableRefObject<HTMLDivElement | null>
+  maxN: number // only applys to `--n`
 }
-const TowerOrWallNumber = ({ n, target }: PropType) => {
+const TowerOrWallNumber = ({ n, target, maxN }: PropType) => {
+  const nStyle = n > maxN ? maxN : n
   useEffect(() => {
     if (target.current !== null) {
-      target.current.style.setProperty('--n', n.toString(10))
+      target.current.style.setProperty('--n', nStyle.toString(10))
     }
     // else {
     //   devLog("the tower / wall number component can't get its target!", 'bug')
     // }
-  }, [n])
+  }, [nStyle])
 
   return (
     <>

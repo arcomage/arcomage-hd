@@ -26,8 +26,8 @@ const useStyles = createUseStyles<string, number>({
     bottom: 'calc(1.75rem + 0.25rem * 2)',
   },
   wallbody: {
-    height: (height) =>
-      heightByCurrent(height, `(var(--n) / ${maxWallOnScreen})`),
+    height: (height) => heightByCurrent(height, '1'),
+    transform: `translateY(calc((1 - (var(--n) / ${maxWallOnScreen})) * 100%)) translateZ(0)`,
     background: {
       image: `url(${wall})`,
       repeat: 'repeat-y',
@@ -35,9 +35,8 @@ const useStyles = createUseStyles<string, number>({
       position: 'center 0',
     },
     width: (height) => `calc(${calcBaseRatio(height)} * 72)`,
-    'max-height': (height) => `calc(${calcBaseRatio(height)} * 597)`,
-    'will-change': 'height',
-    'transition-property': 'height',
+    'will-change': 'transform',
+    'transition-property': 'transform',
     'transition-timing-function': 'linear',
     'transition-duration': '0.4s',
   },
@@ -82,7 +81,10 @@ const Wall = ({ isOpponent = false }: PropType) => {
       <TooltipAll title={wallTitle} placement="bottom">
         <div className="w-full h-full">
           <div
-            className={cx('z-20 w-full absolute px-4', classes.wallwrapper)}
+            className={cx(
+              'z-20 w-full absolute px-4 overflow-hidden',
+              classes.wallwrapper,
+            )}
             aria-hidden={true}
           >
             <div
@@ -98,7 +100,11 @@ const Wall = ({ isOpponent = false }: PropType) => {
                 'el-number',
               )}
             >
-              <TowerOrWallNumber n={n} target={wallBody} />
+              <TowerOrWallNumber
+                n={n}
+                target={wallBody}
+                maxN={maxWallOnScreen}
+              />
             </div>
           </div>
         </div>

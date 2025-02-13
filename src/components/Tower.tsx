@@ -30,18 +30,17 @@ const useStyles = createUseStyles<string, { height: number; goal: number }>({
     width: ({ height }) => `calc(${calcWidth(height)})`,
   },
   towerwrapper: {
-    height: ({ height }) => heightByCurrent(height, '1'),
     bottom: 'calc(1.75rem + 0.25rem * 2)',
     'padding-left': ({ height }) => `calc(${calcPaddingX(height)})`,
     'padding-right': ({ height }) => `calc(${calcPaddingX(height)})`,
   },
   towerbody: {
     width: ({ height }) => `calc(100% - ${calcPaddingX(height)} * 2)`,
-    height: ({ height, goal }) =>
-      heightByCurrent(height, `(var(--n) / ${goal})`),
-    'max-height': ({ height }) => heightByCurrent(height, '1'),
-    'will-change': 'height',
-    'transition-property': 'height',
+    height: ({ height }) => heightByCurrent(height, '1'),
+    transform: ({ goal }) =>
+      `translateY(calc((1 - (var(--n) / ${goal})) * 100%)) translateZ(0)`,
+    'will-change': 'transform',
+    'transition-property': 'transform',
     'transition-timing-function': 'linear',
     'transition-duration': '0.4s',
   },
@@ -121,7 +120,10 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
       <TooltipAll title={towerTitle} placement="bottom">
         <div className="w-full h-full">
           <div
-            className={cx('z-20 w-full absolute', classes.towerwrapper)}
+            className={cx(
+              'z-20 w-full h-full absolute overflow-hidden',
+              classes.towerwrapper,
+            )}
             aria-hidden={true}
           >
             <div
@@ -152,7 +154,7 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
                 'el-number',
               )}
             >
-              <TowerOrWallNumber n={n} target={towerBody} />
+              <TowerOrWallNumber n={n} target={towerBody} maxN={goal} />
             </div>
           </div>
         </div>
