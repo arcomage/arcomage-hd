@@ -1,31 +1,15 @@
 import React, { memo, useEffect, useState } from 'react'
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
-import TableCommon from './TableCommon'
-import TableP from './TableP'
+import ZoneStatus from './ZoneStatus'
+import ZoneCards from './ZoneCards'
 import ButtonBar from './buttons/ButtonBar'
 
-import EndScreen from './screens/EndScreen'
-import Pref from './screens/Pref'
-import LangPref from './screens/LangPref'
-import SgPref from './screens/SgPref'
-import Help from './screens/Help'
-import LandscapeNotice from './screens/LandscapeNotice'
-import { isEndScreenNoCloseState } from '../types/state'
-import DisconnectNotice from './screens/DisconnectNotice'
 import { defaultVisualvalues } from '../constants/defaultSettings'
 import { entries } from '../utils/typeHelpers'
 import { dataVisualvalues } from '../data/visualvalues'
+import GameWindowList from './GameWindowList'
 
 const Game = () => {
-  const pref = useAppSelector((state) => state.screen.pref)
-  const langPref = useAppSelector((state) => state.screen.langPref)
-  const sgPref = useAppSelector((state) => state.screen.sgPref)
-  const end = useAppSelector((state) => state.screen.end)
-  const help = useAppSelector((state) => state.screen.help)
-  const landscape = useAppSelector((state) => state.screen.landscape)
-  const disconnectNotice = useAppSelector(
-    (state) => state.screen.disconnectNotice,
-  )
   const visualvalues = useAppSelector((state) => state.visual.visualvalues)
 
   const [visualCss, setVisualCss] = useState('')
@@ -59,15 +43,9 @@ const Game = () => {
       tabIndex={-1}
       {...(visualCss !== '' ? { style: { filter: visualCss } } : {})}
     >
-      <TableCommon />
-      <TableP />
-      {isEndScreenNoCloseState(end) && <EndScreen {...end} />}
-      {pref && <Pref />}
-      {langPref && <LangPref />}
-      {sgPref && <SgPref />}
-      {help && <Help />}
-      {landscape && <LandscapeNotice />}
-      {disconnectNotice && <DisconnectNotice />}
+      <ZoneStatus />
+      <ZoneCards />
+      <GameWindowList />
       <ButtonBar />
     </div>
   )

@@ -49,6 +49,9 @@ export const i18n = {
   'Your opponent has no tower left': '対戦相手にはタワーが残っていません',
   'You have no tower left': 'あなたにはタワーが残っていません',
 
+  'Review cards': 'カードを確認する',
+  'Hide cards': 'カードを隠す',
+
   '. ': '。',
 
   Preferences: '設定',

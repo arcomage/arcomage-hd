@@ -22,7 +22,10 @@ const useStyles = createUseStyles({
   },
 })
 
-const TableCommon = () => {
+/**
+ * Upper Zone for Status, Tower, Wall, Birds
+ */
+const ZoneStatus = () => {
   const playerName = useAppSelector((state) => state.settings.playerName)
   const opponentName = useAppSelector((state) => state.settings.opponentName)
   const winTower = useAppSelector((state) => state.settings.winTower)
@@ -74,4 +77,4 @@ const TableCommon = () => {
   )
 }
 
-export default memo(TableCommon)
+export default memo(ZoneStatus)

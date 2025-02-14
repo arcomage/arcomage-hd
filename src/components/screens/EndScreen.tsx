@@ -214,7 +214,7 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
   return (
     <div
       className={cx(
-        'absolute w-full h-full top-0 left-0 z-90 bg-black bg-opacity-60',
+        'absolute w-full h-full top-0 left-0 z-90 bg-black bg-opacity-50',
         classes.container,
       )}
       {...clickObj}

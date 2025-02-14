@@ -6,7 +6,6 @@ import { createUseStyles } from 'react-jss'
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import { CardListItemAllType } from '../types/state'
 import DiscardModeNotice from './special/DiscardModeNotice'
-import { CardPosProvider } from '../utils/contexts/CardPosContext'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 import { I18nContext } from '../i18n/I18nContext'
 import TooltipAll from './special/TooltipAll'
@@ -15,22 +14,19 @@ const useStyles = createUseStyles({
   main: { background: { image: 'linear-gradient(#326a4b, #000 2rem)' } },
 })
 
-const TableP = () => {
+const ZoneCardsInner = () => {
   const _ = useContext(I18nContext)
   const cards: Readonly<CardListItemAllType[]> = useAppSelector(
     (state) => state.cards.list,
   )
-  const cardsInHand = useAppSelector((state) => state.settings.cardsInHand)
   const discardMode = useAppSelector((state) => state.game.discardMode)
 
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
-  const locked = useAppSelector((state) => state.game.locked).some(
-    (l) => l === true,
+  const locked = useAppSelector((state) =>
+    state.game.locked.some((l) => l === true),
   )
 
   const size = useContext(GameSizeContext)
-  const winHeight = size.height
-  const winWidth = size.width
 
   const playerCards = cards.filter(
     (card) => card && card.position >= 0 && card.owner === 'player',
@@ -57,24 +53,18 @@ const TableP = () => {
     </div>
   )
   return (
-    <CardPosProvider
-      cardsInHand={cardsInHand}
-      winHeight={winHeight}
-      winWidth={winWidth}
+    <TooltipAll
+      title={
+        allUnusable && playersTurn && !locked && !discardMode
+          ? _.i18n('allUnusableTip')
+          : ''
+      }
+      placement="top"
+      enterTouchDelay={0}
     >
-      <TooltipAll
-        title={
-          allUnusable && playersTurn && !locked && !discardMode
-            ? _.i18n('allUnusableTip')
-            : ''
-        }
-        placement="top"
-        enterTouchDelay={0}
-      >
-        {inner}
-      </TooltipAll>
-    </CardPosProvider>
+      {inner}
+    </TooltipAll>
   )
 }
 
-export default memo(TableP)
+export default memo(ZoneCardsInner)

@@ -49,6 +49,9 @@ export const i18n = {
   'Your opponent has no tower left': 'Twój przeciwnik nie ma już żadnej wieży',
   'You have no tower left': 'Ty nie masz już żadnej wieży',
 
+  'Review cards': 'Przejrzyj karty',
+  'Hide cards': 'Ukryj karty',
+
   '. ': '. ',
 
   Preferences: 'Preferencje',

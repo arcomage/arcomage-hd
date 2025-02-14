@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import { store } from '../../src/store'
 import Card from '../../src/components/Card'
 import { CardListItemType } from '../../src/types/state'
-import { CardPosProvider } from '../../src/utils/contexts/CardPosContext'
 
 it('renders Card 1 that is clickable', () => {
   const cardProps: CardListItemType = {
@@ -18,18 +17,11 @@ it('renders Card 1 that is clickable', () => {
     isFlipped: false,
     zeroOpacity: false,
   }
-  const cardPosProviderProps = {
-    cardsInHand: 2,
-    winHeight: 1024,
-    winWidth: 768,
-  }
   const card = mount(
     <Provider store={store}>
       <I18nProvider>
         <GameSizeProvider>
-          <CardPosProvider {...cardPosProviderProps}>
-            <Card {...cardProps} />
-          </CardPosProvider>
+          <Card {...cardProps} />
         </GameSizeProvider>
       </I18nProvider>
     </Provider>,
@@ -48,18 +40,11 @@ it('renders Card 1 that is right-clickable', () => {
     isFlipped: false,
     zeroOpacity: false,
   }
-  const cardPosProviderProps = {
-    cardsInHand: 2,
-    winHeight: 1024,
-    winWidth: 768,
-  }
   const card = mount(
     <Provider store={store}>
       <I18nProvider>
         <GameSizeProvider>
-          <CardPosProvider {...cardPosProviderProps}>
-            <Card {...cardProps} />
-          </CardPosProvider>
+          <Card {...cardProps} />
         </GameSizeProvider>
       </I18nProvider>
     </Provider>,
@@ -78,18 +63,11 @@ it('renders Card 2', () => {
     zeroOpacity: true,
     owner: 'opponent',
   }
-  const cardPosProviderProps = {
-    cardsInHand: 2,
-    winHeight: 768,
-    winWidth: 1024,
-  }
   const card = mount(
     <Provider store={store}>
       <I18nProvider>
         <GameSizeProvider>
-          <CardPosProvider {...cardPosProviderProps}>
-            <Card {...cardProps} />
-          </CardPosProvider>
+          <Card {...cardProps} />
         </GameSizeProvider>
       </I18nProvider>
     </Provider>,

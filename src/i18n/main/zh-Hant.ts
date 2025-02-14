@@ -48,6 +48,9 @@ export const i18n = {
   'Your opponent has no tower left': '對手塔樓已被完全摧毀',
   'You have no tower left': '你的塔樓已被完全摧毀',
 
+  'Review cards': '檢視剛才的牌',
+  'Hide cards': '隱藏剛才的牌',
+
   '. ': '。',
 
   Preferences: '設定',

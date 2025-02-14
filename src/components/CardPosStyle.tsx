@@ -1,5 +1,5 @@
-import React, { useState, useEffect, createContext, useContext } from 'react'
-import { GameSizeContext } from './GameSizeContext'
+import React, { useState, useEffect, useContext, memo } from 'react'
+import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 
 const heightPercToTable = 0.8
 const whRatio = 188 / 252
@@ -131,15 +131,15 @@ const positionLeftMapFunc =
   }
 
 // in px
-export type CardPosType = {
-  width: number
-  height: number
-  total: number
-  top: number[]
-  left: number[]
-  topM1: number[]
-  leftM1: number[]
-}
+// export type CardPosType = {
+//   width: number
+//   height: number
+//   total: number
+//   top: number[]
+//   left: number[]
+//   topM1: number[]
+//   leftM1: number[]
+// }
 
 // const defaultCardPos: CardPosType = {
 //   width: 0,
@@ -151,21 +151,15 @@ export type CardPosType = {
 //   leftM1: [],
 // }
 
-export const CardPosContext = createContext<CardPosType | null>(null)
+// export const CardPosContext = createContext<CardPosType | null>(null)
 
 type PropType = {
   cardsInHand: number
   winHeight: number
   winWidth: number
-  children: React.ReactNode
 }
-export const CardPosProvider = ({
-  cardsInHand,
-  winHeight,
-  winWidth,
-  children,
-}: PropType) => {
-  const [cardPos, setCardPos] = useState<CardPosType | null>(null)
+const CardPosStyle = ({ cardsInHand, winHeight, winWidth }: PropType) => {
+  const [css, setCss] = useState('')
 
   const size = useContext(GameSizeContext)
   const { narrowMobile } = size
@@ -174,11 +168,11 @@ export const CardPosProvider = ({
     const total = cardsInHand + 1
     const rangeArr = [...Array(total + 5).keys()]
 
-    const tablePHeight = winHeight * (narrowMobile ? 1 / 2 : 1 / 3)
+    const zoneCardsHeight = winHeight * (narrowMobile ? 1 / 2 : 1 / 3)
 
-    const width = getWidth(tablePHeight, winWidth, total)
+    const width = getWidth(zoneCardsHeight, winWidth, total)
 
-    const height = getHeight(tablePHeight, winWidth, total)
+    const height = getHeight(zoneCardsHeight, winWidth, total)
 
     // index in the top, topM1, left, leftM1 arrays is not the real position, it needs to add 5
     const top = rangeArr.map(
@@ -195,20 +189,51 @@ export const CardPosProvider = ({
       positionLeftMapFunc(total - 1, winHeight, winWidth, narrowMobile),
     )
 
-    setCardPos({
-      width,
-      height,
-      total,
-      top,
-      left,
-      topM1,
-      leftM1,
-    })
+    let _css = `
+.endscreen-review-cards-btn {
+  width: ${width}px;
+  height: 3em;
+  line-height: 1.1em;
+  top: calc(${top[4]}px + (${height}px - 3em) / 2);
+  left: ${left[4]}px;
+}
+.card {
+  --cardwidth: ${width}px;
+  width: ${width}px;
+  height: ${height}px;
+  font-size: ${width * 0.094}px;
+}`
+
+    const posCsses = [-5, -4, -3, -2, -1].map(
+      (pos) => `
+.card-pos-${pos} {
+  top: ${top[pos + 5]}px;
+  left: ${left[pos + 5]}px;
+}`,
+    )
+
+    for (let i = 5, len = top.length; i < len; i++) {
+      posCsses.push(`
+.card-pos-m0.card-pos-${i - 5} {
+  top: ${top[i]}px;
+  left: ${left[i]}px;
+}`)
+    }
+
+    for (let i = 5, len = topM1.length; i < len; i++) {
+      posCsses.push(`
+.card-pos-m1.card-pos-${i - 5} {
+  top: ${topM1[i]}px;
+  left: ${leftM1[i]}px;
+}`)
+    }
+
+    _css += posCsses.join('')
+
+    setCss(_css)
   }, [cardsInHand, winHeight, winWidth, narrowMobile])
 
-  return (
-    <CardPosContext.Provider value={cardPos}>
-      {children}
-    </CardPosContext.Provider>
-  )
+  return <style>{css}</style>
 }
+
+export default memo(CardPosStyle)

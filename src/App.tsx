@@ -1,33 +1,24 @@
 import React, { memo, useContext, useEffect } from 'react'
 import './App.scss'
 import Game from './components/Game'
-import { useAppDispatch, useAppSelector } from './utils/hooks/useAppDispatch'
-
-import { Helmet } from 'react-helmet-async'
+import { useAppDispatch } from './utils/hooks/useAppDispatch'
 
 import useBeforeWindowUnloadWarning from './utils/hooks/useBeforeWindowUnloadWarning'
 import useDisableContextMenu from './utils/hooks/gamecontrols/useDisableContextMenu'
 import useWindowLoad from './utils/hooks/useWindowLoad'
-import { I18nContext } from './i18n/I18nContext'
 import { GameSizeContext } from './utils/contexts/GameSizeContext'
 import { minRootFontSize, smallRootFontScreenMax } from './constants/visuals'
-import { langInfo } from './i18n/langs'
 import SvgFilters from './components/effects/SvgFilters'
-import { setVolume } from './utils/sound/Sound'
 import useArrowKeyFocus from './utils/hooks/gamecontrols/useArrowKeyFocus'
 import useKeyDown from './utils/hooks/gamecontrols/useKeyDown'
 import { UPDATE_VISUALVALUES } from './constants/ActionTypes'
 import { defaultVisualvalues } from './constants/defaultSettings'
 import useGamepad from './utils/hooks/gamecontrols/useGamepad'
 import { handleGamepadButtonDown } from './utils/hooks/gamecontrols/handleGamepad'
+import HtmlHead from './components/HtmlHead'
 
 const App = () => {
   const dispatch = useAppDispatch()
-  const lang = useAppSelector((state) => state.lang.code)
-  const volume = useAppSelector((state) => state.sound.volume)
-  const erathian: boolean = useAppSelector((state) => state.lang.erathian)
-  const noanim: boolean = useAppSelector((state) => state.visual.noanim)
-  const _ = useContext(I18nContext)
   const { width, height } = useContext(GameSizeContext)
 
   useWindowLoad(() => {
@@ -56,10 +47,6 @@ const App = () => {
   useGamepad({
     onButtonDown: handleGamepadButtonDown,
   })
-
-  useEffect(() => {
-    setVolume(volume)
-  }, [volume])
 
   useEffect(() => {
     const checkAndShowLandscapeNotice = () => {
@@ -95,22 +82,7 @@ const App = () => {
 
   return (
     <>
-      <Helmet>
-        <html
-          lang={lang}
-          dir={langInfo[lang].isRtl ? 'rtl' : 'ltr'}
-          data-erathian={(erathian && langInfo[lang].isLatinScript).toString()}
-          data-noanime={noanim.toString()}
-        />
-        <title>{_.i18n('ArcoMage HD')}</title>
-        <meta name="title" content={_.i18n('ArcoMage HD')} />
-        <meta name="description" content={_.i18n('DESC')} />
-        <meta property="og:locale" content={lang} />
-        <meta property="og:title" content={_.i18n('ArcoMage HD')} />
-        <meta property="og:description" content={_.i18n('DESC')} />
-        <meta name="twitter:title" content={_.i18n('ArcoMage HD')} />
-        <meta name="twitter:description" content={_.i18n('DESC')} />
-      </Helmet>
+      <HtmlHead />
       <Game />
       <SvgFilters />
     </>

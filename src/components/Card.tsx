@@ -28,7 +28,6 @@ import {
   hideOpponentCard,
   useAi,
 } from '../constants/devSettings'
-import { CardPosContext, CardPosType } from '../utils/contexts/CardPosContext'
 import TooltipAll from './special/TooltipAll'
 
 const calcOpacity = ({
@@ -50,8 +49,6 @@ const calcOpacity = ({
 const useStyles = createUseStyles<
   string,
   {
-    cardPos: CardPosType | null
-    total: number
     position: number
     type?: number
     unusable: boolean
@@ -60,15 +57,6 @@ const useStyles = createUseStyles<
   }
 >({
   main: {
-    width: ({ cardPos }) => cardPos?.width,
-    height: ({ cardPos }) => cardPos?.height,
-    top: ({ cardPos, total, position }) =>
-      cardPos?.[total === cardPos.total ? 'top' : 'topM1'][position + 5],
-    left: ({ cardPos, total, position }) =>
-      cardPos?.[total === cardPos.total ? 'left' : 'leftM1'][position + 5],
-
-    'font-size': ({ cardPos }) => (cardPos ? cardPos.width * 0.094 : 16),
-
     // 'will-change: opacity' has bug and cannot be set here
     'will-change': 'transform, left, top',
     'transition-property': 'opacity, transform, left, top',
@@ -76,19 +64,15 @@ const useStyles = createUseStyles<
     'transition-duration': `${cardTransitionDuration}ms`,
   },
   cardname: {
-    'font-size': ({ cardPos, cardNameLength }) => {
+    'font-size': ({ cardNameLength }) => {
       if (cardNameLength > cardNameMaxLength) {
-        return (
-          ((cardPos ? cardPos.width * 0.094 : 16) * (cardNameMaxLength + 1)) /
-          cardNameLength
-        )
+        return `calc(var(--cardwidth) * 0.094 * ${cardNameMaxLength + 1} / ${cardNameLength})`
       } else {
         return 'inherit'
       }
     },
-    height: ({ cardPos }) => (cardPos ? cardPos.width * 0.094 : 16) * 1.1,
-    'line-height': ({ cardPos }) =>
-      `${(cardPos ? cardPos.width * 0.094 : 16) * 1.1}px`,
+    height: 'calc(var(--cardwidth) * 0.094 * 1.1)',
+    'line-height': 'calc(var(--cardwidth) * 0.094 * 1.1)',
   },
   isflipped: {
     transform: 'translateX(-100%) translateZ(0) rotateY(-179.99deg)',
@@ -166,15 +150,13 @@ const useStyles = createUseStyles<
   },
   text: {
     // width: calc(100% - 0.25rem * 2),
-    height: ({ cardPos }) =>
-      `calc(100% - (${
-        (cardPos ? cardPos.width * 0.094 : 16) * 1.1
-      }px + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)`,
+    height:
+      'calc(100% - (var(--cardwidth) * 0.094 * 1.1 + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
   },
   resall: {
-    width: ({ cardPos }) => (cardPos ? cardPos.width : 0) * 0.2,
-    height: ({ cardPos }) => (cardPos ? cardPos.width : 0) * 0.2,
-    'line-height': ({ cardPos }) => `${(cardPos ? cardPos.width : 0) * 0.2}px`,
+    width: 'calc(var(--cardwidth) * 0.2)',
+    height: 'calc(var(--cardwidth) * 0.2)',
+    'line-height': 'calc(var(--cardwidth) * 0.2)',
   },
   resbg: {
     'background-image': ({ type }) =>
@@ -212,8 +194,8 @@ const Card = ({
   const cardName = _.cards(n, 'name')
   const cardNameLength = cardName.length
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
-  const locked = useAppSelector((state) => state.game.locked).some(
-    (l) => l === true,
+  const locked = useAppSelector((state) =>
+    state.game.locked.some((l) => l === true),
   )
   const discardMode = useAppSelector((state) => state.game.discardMode)
   const main = useRef<HTMLButtonElement | null>(null)
@@ -230,20 +212,21 @@ const Card = ({
   const boldfont: boolean = useAppSelector((state) => state.lang.boldfont)
 
   const dispatch = useAppDispatch()
-  const cardPos = useContext(CardPosContext)
+
+  const cardsInHand = useAppSelector((state) => state.settings.cardsInHand) + 1
 
   const total =
     owner === 'common'
       ? totalObj[playersTurn ? 'player' : 'opponent']
       : totalObj[owner]
 
+  const isM0 = total === cardsInHand
+
   const isCardback = n === -1 || (hideOpponentCard && owner === 'opponent')
 
   const type = isCardback ? undefined : dataCards[n].type
 
   const classes = useStyles({
-    cardPos,
-    total,
     position,
     type,
     unusable,
@@ -272,6 +255,7 @@ const Card = ({
           },
           'card',
           `card-pos-${position}`,
+          `card-pos-${isM0 ? 'm0' : 'm1'}`,
         )}
       >
         <div
@@ -417,6 +401,7 @@ const Card = ({
           { 'cursor-pointer hover:scale-105': position >= 0 },
           'card',
           `card-pos-${position}`,
+          `card-pos-${isM0 ? 'm0' : 'm1'}`,
         )}
         accessKey={
           !buttonDisabled && position >= 0 && position < 9

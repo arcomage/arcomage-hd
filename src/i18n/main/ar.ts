@@ -35,6 +35,9 @@ export const i18n = {
   '%s have reached the victory condition': 'لقد وصل %s إلى حالة النصر', // %s = 'Your bricks', "Opponent's bricks", "Your gems", ...
   'Your opponent has no tower left': 'لم يتبق لخصمك أي برج',
   'You have no tower left': 'لم يتبق لك أي برج',
+  'Review cards': 'مراجعة البطاقات',
+  'Hide cards': 'إخفاء البطاقات',
+
   '. ': '. ',
   Preferences: 'التفضيلات',
   ': ': ':',

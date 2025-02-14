@@ -1,6 +1,8 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useContext, useState } from 'react'
+import { I18nContext } from '../../i18n/I18nContext'
 
 const EndScreenReviewCardsBtn = () => {
+  const _ = useContext(I18nContext)
   const [useStyle, setUseStyle] = useState(false)
   const toggleUseStyle = () => {
     setUseStyle((_useStyle) => !_useStyle)
@@ -17,11 +19,11 @@ const EndScreenReviewCardsBtn = () => {
 .card-pos--4 > div,
 .card-pos--3 > div,
 .card-pos--2 > div {
-  opacity: 1;
+  opacity: 0.9;
 }`}</style>
       )}
       <button
-        className="font-sans font-bold text-lg text-black shadow-sm shadow-blue-400 bg-blue-500 px-1 rounded absolute top-12 left-1/4 transition-bg duration-500 hover:bg-blue-400 focus:outline focus:outline-2"
+        className="robotocondensed text-lg text-white hover:text-shadow-md-white px-1 rounded absolute transition-text-shadow duration-500 focus:outline focus:outline-1 underline endscreen-review-cards-btn"
         accessKey="c"
         onClick={(e) => {
           e.stopPropagation()
@@ -36,7 +38,7 @@ const EndScreenReviewCardsBtn = () => {
           e.stopPropagation()
         }}
       >
-        {useStyle ? 'Hide cards' : 'Review cards'}
+        {useStyle ? _.i18n('Hide cards') : _.i18n('Review cards')}
       </button>
     </>
   )
