@@ -62,6 +62,7 @@ In settings window, when a form element / input element is selected, you can use
 | <kbd>Alt</kbd> + <kbd>A</kbd>                  | **A**pply & New Game (in Preferences)                                                                                                                                            |
 | <kbd>Alt</kbd> + <kbd>R</kbd>                  | **R**eset settings (in Preferences / Sound & Graphics)                                                                                                                           |
 | <kbd>Alt</kbd> + <kbd>O</kbd>                  | Restore **o**riginal visual settings. This can be used anywhere—if you accidentally set the game's visuals too dark to see anything, press this hotkey combination to reset them |
+| <kbd>Alt</kbd> + <kbd>c</kbd>                  | Review/hide **c**ards in game end screen                                                                                                                                         |
 
 ## Gamepad
 

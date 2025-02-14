@@ -35,6 +35,7 @@ const ButtonPref = () => {
   const _ = useContext(I18nContext)
 
   const pref = useAppSelector((state) => state.screen.pref)
+  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
 
   const dispatch = useAppDispatch()
 
@@ -50,6 +51,7 @@ const ButtonPref = () => {
   return (
     <TooltipAll title={_.i18n('Preferences')}>
       <button
+        {...(isEndScreen ? { tabIndex: -1 } : {})}
         accessKey="p"
         className={cx('topbutton', classes.prefButton, { windowactive: pref })}
         onClick={clickFunc}

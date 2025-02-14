@@ -3,6 +3,7 @@ import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import TooltipAll from '../special/TooltipAll'
 import { githubUrl } from '../../constants/devSettings'
+import { useAppSelector } from '../../utils/hooks/useAppDispatch'
 
 const useStyles = createUseStyles<string>({
   '@keyframes visible1by1-1-3': {
@@ -67,11 +68,13 @@ const useStyles = createUseStyles<string>({
 })
 
 const ButtonGithub = () => {
+  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
   const classes = useStyles()
 
   return (
     <TooltipAll title="GitHub">
       <a
+        {...(isEndScreen ? { tabIndex: -1 } : {})}
         accessKey="g"
         className={cx('topbutton', classes.githubButton)}
         href={githubUrl}

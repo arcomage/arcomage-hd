@@ -221,7 +221,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
           <div
             className={cx(
               classes.prod,
-              'text-yellow-400 absolute bottom-1 left-1 text-shadow-md tracking-tighter',
+              'text-yellow-400 absolute bottom-1 left-1 tracking-tighter',
               'fatnumber',
               'el-number',
             )}

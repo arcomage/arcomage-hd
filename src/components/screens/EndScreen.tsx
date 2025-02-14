@@ -13,6 +13,7 @@ import useKeyDown from '../../utils/hooks/gamecontrols/useKeyDown'
 import { endScreenExitableDelay } from '../../constants/visuals'
 import { EndScreenNoCloseStateType } from '../../types/state'
 import { reasonTranslate } from '../../utils/checkVictory'
+import EndScreenReviewCardsBtn from './EndScreenReviewCardsBtn'
 // import { GameSizeContext } from '../../utils/contexts/GameSizeContext'
 
 const textMap = { lose: 'You Lose!', tie: 'Tie Game', win: 'You Win!' }
@@ -183,7 +184,22 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
     }
   }, [endScreenState])
 
-  const onActionFunc = () => {
+  const onActionFunc = (
+    e: React.MouseEvent | MouseEvent | React.KeyboardEvent | KeyboardEvent,
+  ) => {
+    if (
+      (e instanceof KeyboardEvent ||
+        ('nativeEvent' in e && e.nativeEvent instanceof KeyboardEvent)) &&
+      (('key' in e &&
+        (e.key === 'Tab' || e.key === 'c' || e.key === 'CapsLock')) ||
+        e.shiftKey ||
+        e.altKey ||
+        e.ctrlKey ||
+        e.metaKey)
+    ) {
+      return
+    }
+    e.preventDefault()
     dispatch({
       type: CLOSE_SCREEN_END_INIT,
     })
@@ -192,22 +208,24 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
   useKeyDown(null, onActionFunc, endScreenExitableDelay)
 
   const clickObj = exitable
-    ? { onClick: onActionFunc, onContextMenu: onActionFunc, tabIndex: 0 }
+    ? { onClick: onActionFunc, onContextMenu: onActionFunc } // onClick: onActionFunc, onContextMenu: onActionFunc,
     : {}
 
   return (
     <div
       className={cx(
-        'absolute w-full h-full top-0 left-0 z-90 bg-black bg-opacity-50',
+        'absolute w-full h-full top-0 left-0 z-90 bg-black bg-opacity-60',
         classes.container,
       )}
       {...clickObj}
     >
       <div
         className={cx(
-          'w-full h-full bg-center bg-no-repeat bg-contain relative',
+          'w-full h-full bg-center bg-no-repeat bg-contain relative outline-none focus-visible:outline-white focus-visible:outline-1 cursor-auto',
           classes.main,
         )}
+        role="button"
+        tabIndex={0}
       >
         {noteText !== null && (
           <div
@@ -245,7 +263,7 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
             <div
               className={cx(
                 classes.firework,
-                'absolute top-0 left-1/4',
+                'absolute top-0 left-1/4 transform-gpu',
                 size.narrowMobile ? 'scale-50' : 'scale-75',
               )}
             ></div>
@@ -253,13 +271,14 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
               className={cx(
                 classes.firework,
                 classes.firework2,
-                'absolute bottom-0 right-1/4',
+                'absolute bottom-0 right-1/4 transform-gpu',
                 size.narrowMobile ? 'scale-50' : 'scale-75',
               )}
             ></div>
           </>
         )} */}
       </div>
+      <EndScreenReviewCardsBtn />
     </div>
   )
 }

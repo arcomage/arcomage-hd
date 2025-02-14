@@ -47,7 +47,7 @@ const Status = ({ playerName, isOpponent = false }: PropType) => {
         >
           <div
             className={cx(
-              'border border-yellow-400 text-yellow-400 text-center h-7 leading-7 font-mono',
+              'border border-yellow-400 text-yellow-400 text-center h-7 leading-7 overflow-hidden font-mono',
               {
                 'border-opacity-25 text-opacity-25': playersTurn === isOpponent,
               },

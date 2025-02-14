@@ -62,6 +62,7 @@ const ButtonSgPref = () => {
   const _ = useContext(I18nContext)
 
   const sgPref = useAppSelector((state) => state.screen.sgPref)
+  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
 
   const dispatch = useAppDispatch()
 
@@ -77,6 +78,7 @@ const ButtonSgPref = () => {
   return (
     <TooltipAll title={_.i18n('Sound & Graphics')}>
       <button
+        {...(isEndScreen ? { tabIndex: -1 } : {})}
         accessKey="s"
         className={cx('topbutton', classes.sgPrefButton, {
           windowactive: sgPref,

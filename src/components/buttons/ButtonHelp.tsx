@@ -38,6 +38,7 @@ const ButtonHelp = () => {
   const _ = useContext(I18nContext)
 
   const help = useAppSelector((state) => state.screen.help)
+  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
 
   const dispatch = useAppDispatch()
 
@@ -53,6 +54,7 @@ const ButtonHelp = () => {
   return (
     <TooltipAll title={_.i18n('Help')}>
       <button
+        {...(isEndScreen ? { tabIndex: -1 } : {})}
         accessKey="h"
         className={cx('topbutton', classes.helpButton, { windowactive: help })}
         onClick={clickFunc}

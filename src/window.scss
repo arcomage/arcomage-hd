@@ -1,6 +1,6 @@
 @layer base {
   .window-bg {
-    @apply absolute w-full h-full top-0 left-0 z-100 text-shadow flex justify-center items-center pointer-events-none;
+    @apply absolute w-full h-full top-0 left-0 z-100 flex justify-center items-center pointer-events-none;
 
     &.darkerbg {
       @apply bg-black bg-opacity-80;

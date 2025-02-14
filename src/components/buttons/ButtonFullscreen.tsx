@@ -9,6 +9,7 @@ import {
   exitFs,
 } from '../../utils/fullscreen'
 import TooltipAll from '../special/TooltipAll'
+import { useAppSelector } from '../../utils/hooks/useAppDispatch'
 
 const useStyles = createUseStyles<string>({
   '@keyframes moveto-tl': {
@@ -57,6 +58,7 @@ const useStyles = createUseStyles<string>({
 
 const ButtonFullscreen = () => {
   const _ = useContext(I18nContext)
+  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
   const classes = useStyles()
 
   const clickFunc = () => {
@@ -72,6 +74,7 @@ const ButtonFullscreen = () => {
   return (
     <TooltipAll title={_.i18n('Toggle Full Screen')}>
       <button
+        {...(isEndScreen ? { tabIndex: -1 } : {})}
         accessKey="f"
         className={cx('topbutton', classes.fullscreenButton)}
         onClick={clickFunc}

@@ -226,6 +226,7 @@ const Card = ({
     (state) => state.cards.total,
   ) // player: 4 | 5 | 6 | 7 | 8, opponent:...
 
+  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
   const boldfont: boolean = useAppSelector((state) => state.lang.boldfont)
 
   const dispatch = useAppDispatch()
@@ -270,6 +271,7 @@ const Card = ({
             [classes.unusableopacity]: n === -1,
           },
           'card',
+          `card-pos-${position}`,
         )}
       >
         <div
@@ -414,13 +416,14 @@ const Card = ({
           { 'shadow-lg': position !== -1 },
           { 'cursor-pointer hover:scale-105': position >= 0 },
           'card',
+          `card-pos-${position}`,
         )}
         accessKey={
           !buttonDisabled && position >= 0 && position < 9
             ? (position + 1).toString(10)
             : ''
         }
-        tabIndex={!buttonDisabled ? position + 1 : -1}
+        tabIndex={isEndScreen ? -1 : !buttonDisabled ? position + 1 : -1}
         disabled={buttonDisabled}
         {...onClickFunc}
         {...onContextMenuFunc}

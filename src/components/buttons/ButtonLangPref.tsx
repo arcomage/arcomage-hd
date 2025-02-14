@@ -313,6 +313,7 @@ const ButtonLangPref = () => {
   const _ = useContext(I18nContext)
 
   const langPref = useAppSelector((state) => state.screen.langPref)
+  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
 
   const dispatch = useAppDispatch()
 
@@ -328,6 +329,7 @@ const ButtonLangPref = () => {
   return (
     <TooltipAll title={_.i18n('Language')}>
       <button
+        {...(isEndScreen ? { tabIndex: -1 } : {})}
         accessKey="l"
         className={cx('topbutton', classes.langPrefButton, {
           windowactive: langPref,
