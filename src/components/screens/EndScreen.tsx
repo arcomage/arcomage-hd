@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
@@ -282,4 +282,4 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
     </div>
   )
 }
-export default memo(EndScreen)
+export default EndScreen

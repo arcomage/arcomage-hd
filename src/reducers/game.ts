@@ -1,4 +1,4 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import {
   INIT_GAME,
   SWITCH_DISCARD_MODE,

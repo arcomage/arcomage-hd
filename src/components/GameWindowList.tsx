@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
 
 import EndScreen from './screens/EndScreen'
@@ -34,4 +34,4 @@ const GameWindowList = () => {
   )
 }
 
-export default memo(GameWindowList)
+export default GameWindowList

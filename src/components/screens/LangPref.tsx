@@ -1,4 +1,4 @@
-import React, { Fragment, memo, useContext } from 'react'
+import React, { Fragment, useContext } from 'react'
 import cx from 'clsx'
 import {
   useAppSelector,
@@ -97,4 +97,4 @@ const LangPref = () => {
   )
 }
 
-export default memo(LangPref)
+export default LangPref

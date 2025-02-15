@@ -1,7 +1,7 @@
 import './utils/polyfill'
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import App from './App'
 import { Provider } from 'react-redux'
 import { store, epicMiddleware } from './store'
@@ -14,19 +14,19 @@ import './utils/swreg'
 
 epicMiddleware.run(rootEpic)
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <I18nProvider>
-        <GameSizeProvider>
-          <HelmetProvider>
-            <App />
-          </HelmetProvider>
-        </GameSizeProvider>
-      </I18nProvider>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root'),
-)
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
+root.render(
+  <HelmetProvider>
+    <React.StrictMode>
+      <Provider store={store}>
+        <I18nProvider>
+          <GameSizeProvider>
+            <App />
+          </GameSizeProvider>
+        </I18nProvider>
+      </Provider>
+    </React.StrictMode>
+  </HelmetProvider>,
+)
 // pwacompat.js inserted after it, see webpack.config.js

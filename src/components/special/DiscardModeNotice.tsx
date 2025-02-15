@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import cx from 'clsx'
 import { I18nContext } from '../../i18n/I18nContext'
 
@@ -20,4 +20,4 @@ const DiscardModeNotice = ({ shown = true }: PropType) => {
   ) : null
 }
 
-export default memo(DiscardModeNotice)
+export default DiscardModeNotice

@@ -38,8 +38,8 @@
 - `yarn start`: Start the project in development mode
 - `yarn build`: Build the project in production mode
 - `yarn build:local`: Build the project in both production and local mode
-- `yarn checkall`: Run tests, format with Prettier, lint with ESLint, and check types
-- `yarn test`: Run tests with Jest
+- `yarn checkall`: Run format with Prettier, lint with ESLint, and check types (`yarn test` is not included)
+- `yarn test`: Run tests with Jest (currently broken after 2025 upgrade (v1.5.0) and not used)
 - `yarn format`: Format code using Prettier
 - `yarn lint`: Lint code using ESLint
 - `yarn typecheck`: Check TypeScript types

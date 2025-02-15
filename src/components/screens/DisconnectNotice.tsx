@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import Window from './Window'
 
 import { SCREEN_DISCONNECT_NOTICE } from '../../constants/ActionTypes'
@@ -20,4 +20,4 @@ const DisconnectNotice = () => {
   )
 }
 
-export default memo(DisconnectNotice)
+export default DisconnectNotice

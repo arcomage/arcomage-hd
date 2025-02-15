@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {
   useAppSelector,
   useAppDispatch,
@@ -281,4 +281,4 @@ const SgPref = () => {
     </Window>
   )
 }
-export default memo(SgPref)
+export default SgPref

@@ -1,12 +1,11 @@
 import React, {
   ChangeEvent,
-  memo,
   useContext,
   useEffect,
   useRef,
   useState,
 } from 'react'
-import produce from 'immer'
+import { produce } from 'immer'
 import { copy } from '../../utils/textediting/copy'
 import {
   useAppSelector,
@@ -869,4 +868,4 @@ const Pref = () => {
   )
 }
 
-export default memo(Pref)
+export default Pref

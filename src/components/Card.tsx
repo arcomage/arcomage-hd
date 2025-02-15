@@ -1,4 +1,4 @@
-import React, { useContext, memo, useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
@@ -531,4 +531,4 @@ const Card = ({
     )
   }
 }
-export default memo(Card)
+export default Card

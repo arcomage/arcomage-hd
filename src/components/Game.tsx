@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import ZoneStatus from './ZoneStatus'
 import ZoneCards from './ZoneCards'
@@ -51,4 +51,4 @@ const Game = () => {
   )
 }
 
-export default memo(Game)
+export default Game

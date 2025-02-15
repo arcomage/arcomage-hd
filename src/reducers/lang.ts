@@ -1,4 +1,4 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import {
   UPDATE_LANG_MAIN,
   UPDATE_BOLDFONT_MAIN,

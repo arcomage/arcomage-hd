@@ -1,4 +1,4 @@
-import React, { forwardRef, memo } from 'react'
+import React, { forwardRef } from 'react'
 
 type CheckBoxProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'>
 
@@ -30,4 +30,4 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
 
 CheckBox.displayName = 'CheckBox'
 
-export default memo(CheckBox)
+export default CheckBox

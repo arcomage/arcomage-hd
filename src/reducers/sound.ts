@@ -1,4 +1,4 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import {
   UPDATE_VOLUME_MAIN,
   UPDATE_STEREO_MAIN,

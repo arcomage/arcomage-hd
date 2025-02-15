@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
@@ -258,4 +258,4 @@ const Resource = ({ type, isOpponent }: PropType) => {
   )
 }
 
-export default memo(Resource)
+export default Resource

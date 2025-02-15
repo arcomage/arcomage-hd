@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, memo } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 
 const heightPercToTable = 0.8
@@ -236,4 +236,4 @@ const CardPosStyle = ({ cardsInHand, winHeight, winWidth }: PropType) => {
   return <style>{css}</style>
 }
 
-export default memo(CardPosStyle)
+export default CardPosStyle

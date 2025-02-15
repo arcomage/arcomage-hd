@@ -1,8 +1,6 @@
-import { createStore, applyMiddleware } from 'redux'
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
-import rootReducer from './reducers'
+import { configureStore } from '@reduxjs/toolkit'
 import { createEpicMiddleware } from 'redux-observable'
+import rootReducer from './reducers'
 import { RootActionType } from './types/actionObj'
 import { RootStateType } from './types/state'
 
@@ -12,10 +10,12 @@ export const epicMiddleware = createEpicMiddleware<
   RootStateType
 >()
 
-export const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(epicMiddleware)),
-)
+export const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(epicMiddleware),
+  devTools: process.env.NODE_ENV !== 'production',
+})
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

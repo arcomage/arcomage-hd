@@ -1,4 +1,4 @@
-import React, { memo, useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { I18nContext } from '../../i18n/I18nContext'
 
 const EndScreenReviewCardsBtn = () => {
@@ -44,4 +44,4 @@ const EndScreenReviewCardsBtn = () => {
   )
 }
 
-export default memo(EndScreenReviewCardsBtn)
+export default EndScreenReviewCardsBtn

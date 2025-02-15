@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { useAppDispatch } from '../../utils/hooks/useAppDispatch'
@@ -73,7 +73,7 @@ const Window = ({
       clearTimeout(timer)
     }
   }, [])
-  const exitableRef = useRef<boolean>()
+  const exitableRef = useRef<boolean>(undefined)
   exitableRef.current = exitable
 
   const cancelFunc = () => {
@@ -142,4 +142,4 @@ const Window = ({
   )
 }
 
-export default memo(Window)
+export default Window

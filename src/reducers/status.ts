@@ -1,4 +1,4 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import { INIT_STATUS, UPDATE_STATUS_MAIN } from '../constants/ActionTypes'
 import { StatusType } from '../types/state'
 import { RootActionType } from '../types/actionObj'

@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import ButtonPref from './ButtonPref'
 import ButtonLangPref from './ButtonLangPref'
 import ButtonSgPref from './ButtonSgPref'
@@ -17,4 +17,4 @@ const ButtonBar = () => (
   </div>
 )
 
-export default memo(ButtonBar)
+export default ButtonBar

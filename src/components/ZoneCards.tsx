@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import CardPosStyle from './CardPosStyle'
@@ -27,4 +27,4 @@ const ZoneCards = () => {
   )
 }
 
-export default memo(ZoneCards)
+export default ZoneCards

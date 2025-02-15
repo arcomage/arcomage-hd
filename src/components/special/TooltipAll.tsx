@@ -1,5 +1,5 @@
 import Tooltip from '@mui/material/Tooltip'
-import React, { memo } from 'react'
+import React from 'react'
 import {
   defaultTooltipEnterTouchDelay,
   tooltipEnterDelay,
@@ -46,4 +46,4 @@ const TooltipAll = ({
   </Tooltip>
 )
 
-export default memo(TooltipAll)
+export default TooltipAll

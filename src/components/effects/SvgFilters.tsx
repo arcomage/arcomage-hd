@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useAppSelector } from '../../utils/hooks/useAppDispatch'
 
@@ -7,7 +7,7 @@ const SvgFilters = () => {
   return (
     <>
       <Helmet>
-        <style type="text/css">{`.pixelated { filter: ${
+        <style>{`.pixelated { filter: ${
           pixelationLevel > 0 ? 'url(#pixelation)' : 'none'
         }; }`}</style>
       </Helmet>
@@ -44,4 +44,4 @@ const SvgFilters = () => {
   )
 }
 
-export default memo(SvgFilters)
+export default SvgFilters

@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import Status from './Status'
 import Tower from './Tower'
 import Wall from './Wall'
@@ -77,4 +77,4 @@ const ZoneStatus = () => {
   )
 }
 
-export default memo(ZoneStatus)
+export default ZoneStatus

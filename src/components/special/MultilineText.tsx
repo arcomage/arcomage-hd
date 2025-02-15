@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 
 type PropType = { children: string }
 const MultilineText = ({ children }: PropType) => (
@@ -9,4 +9,4 @@ const MultilineText = ({ children }: PropType) => (
   </>
 )
 
-export default memo(MultilineText)
+export default MultilineText

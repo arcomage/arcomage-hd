@@ -5,6 +5,10 @@ const CopyPlugin = require('copy-webpack-plugin')
 const { InjectManifest } = require('workbox-webpack-plugin')
 const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin')
 const childProcess = require('child_process')
+const {
+  defineReactCompilerLoaderOption,
+  reactCompilerLoader,
+} = require('react-compiler-webpack')
 const crypto = require('crypto')
 const fs = require('fs')
 
@@ -82,9 +86,15 @@ module.exports = (env, argv) => {
         {
           test: /\.(j|t)sx?$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'ts-loader',
-          },
+          use: [
+            {
+              loader: reactCompilerLoader,
+              options: defineReactCompilerLoaderOption({}),
+            },
+            {
+              loader: 'ts-loader',
+            },
+          ],
         },
         {
           test: /\.(s?c|sa)ss$/i,
@@ -105,7 +115,6 @@ module.exports = (env, argv) => {
                   plugins: [
                     'postcss-import',
                     'tailwindcss',
-                    // 'postcss-rtlcss',
                     'autoprefixer',
                     ...(dev ? [] : ['cssnano']),
                   ],

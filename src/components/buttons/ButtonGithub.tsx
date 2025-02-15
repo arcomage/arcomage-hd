@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import TooltipAll from '../special/TooltipAll'
@@ -103,4 +103,4 @@ const ButtonGithub = () => {
   )
 }
 
-export default memo(ButtonGithub)
+export default ButtonGithub

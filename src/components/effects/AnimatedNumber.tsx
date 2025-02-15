@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import {
   animatedNumberDuration,
   minAnimatedNumberInterval,
@@ -90,4 +90,4 @@ const AnimatedNumber = ({ n }: PropType) => {
   return <span ref={numberRef}>{displayValueRef.current}</span>
 }
 
-export default memo(AnimatedNumber)
+export default AnimatedNumber

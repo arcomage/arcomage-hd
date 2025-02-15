@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import {
@@ -109,4 +109,4 @@ const ButtonSgPref = () => {
   )
 }
 
-export default memo(ButtonSgPref)
+export default ButtonSgPref

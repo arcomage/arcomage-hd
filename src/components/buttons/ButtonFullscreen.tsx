@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { I18nContext } from '../../i18n/I18nContext'
@@ -103,4 +103,4 @@ const ButtonFullscreen = () => {
   )
 }
 
-export default memo(ButtonFullscreen)
+export default ButtonFullscreen

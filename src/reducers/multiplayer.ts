@@ -1,4 +1,4 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import {
   SWITCH_MULTIPLAYER_MODE_MAIN,
   SET_YOUR_ID,

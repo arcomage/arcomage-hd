@@ -4,7 +4,6 @@ import React, {
   useState,
   InputHTMLAttributes,
   useMemo,
-  forwardRef,
 } from 'react'
 
 const _toValidMaxMin = (
@@ -80,16 +79,15 @@ const NumberInput = ({
   validate = defaultValidate,
   sanitize = defaultSanitize,
   ...props
-  // TODO: add `ref` (for parent component tooltip) (note that forwardRef may cause issue of onChange not triggered)
 }: NumberInputProps) => {
   const { value, min, max, step, disabled, onChange, ...rest } = props
 
   const [inputValue, setInputValue] = useState<string>()
   const [hasError, setHasError] = useState<boolean>(false)
 
-  const oldInputValueRef = useRef<string>()
+  const oldInputValueRef = useRef<string>(undefined)
 
-  const debounceTimerRef = useRef<ReturnType<typeof setTimeout>>()
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 
   const _max = useMemo(() => {
     return _toValidMaxMin(max, Number.MAX_SAFE_INTEGER)

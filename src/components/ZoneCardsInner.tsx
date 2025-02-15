@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import Card from './Card'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
@@ -67,4 +67,4 @@ const ZoneCardsInner = () => {
   )
 }
 
-export default memo(ZoneCardsInner)
+export default ZoneCardsInner

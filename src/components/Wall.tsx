@@ -1,4 +1,4 @@
-import React, { memo, useContext, useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
@@ -113,4 +113,4 @@ const Wall = ({ isOpponent = false }: PropType) => {
   )
 }
 
-export default memo(Wall)
+export default Wall

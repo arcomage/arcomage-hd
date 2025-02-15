@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import Window from './Window'
@@ -113,4 +113,4 @@ const LandscapeNotice = () => {
   )
 }
 
-export default memo(LandscapeNotice)
+export default LandscapeNotice

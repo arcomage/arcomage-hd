@@ -1,4 +1,4 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import {
   UPDATE_NOANIM_MAIN,
   UPDATE_PIXELATION_MAIN,

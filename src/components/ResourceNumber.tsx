@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import AnimatedNumber from './effects/AnimatedNumber'
 import NumberDiff from './effects/NumberDiff'
 
@@ -12,4 +12,4 @@ const ResourceNumber = ({ n }: PropType) => (
   </>
 )
 
-export default memo(ResourceNumber)
+export default ResourceNumber

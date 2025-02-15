@@ -1,4 +1,4 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import {
   MOVE_CARD_TO_CENTER,
   DELETE_CARD,

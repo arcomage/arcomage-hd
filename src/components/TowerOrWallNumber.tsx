@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { useEffect } from 'react'
 // import devLog from '../utils/devLog'
 import AnimatedNumber from './effects/AnimatedNumber'
 import NumberChangeVisual from './effects/NumberChangeVisual'
@@ -29,4 +29,4 @@ const TowerOrWallNumber = ({ n, target, maxN }: PropType) => {
   )
 }
 
-export default memo(TowerOrWallNumber)
+export default TowerOrWallNumber

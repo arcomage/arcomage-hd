@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './App.scss'
 import Game from './components/Game'
 import { useAppDispatch } from './utils/hooks/useAppDispatch'
@@ -89,4 +89,4 @@ const App = () => {
   )
 }
 
-export default memo(App)
+export default App

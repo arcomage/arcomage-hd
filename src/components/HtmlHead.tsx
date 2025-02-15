@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { langInfo } from '../i18n/langs'
 import { setVolume } from '../utils/sound/Sound'
@@ -36,4 +36,4 @@ const HtmlHead = () => {
   )
 }
 
-export default memo(HtmlHead)
+export default HtmlHead

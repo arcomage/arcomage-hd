@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import Resource, { calcStatusWidth } from './Resource'
@@ -68,4 +68,4 @@ const Status = ({ playerName, isOpponent = false }: PropType) => {
   )
 }
 
-export default memo(Status)
+export default Status

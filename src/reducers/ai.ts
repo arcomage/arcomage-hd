@@ -1,4 +1,4 @@
-import produce from 'immer'
+import { produce } from 'immer'
 import { UPDATE_AILEVEL_MAIN } from '../constants/ActionTypes'
 import { defaultAiLevel } from '../constants/defaultSettings'
 import { RootActionType } from '../types/actionObj'

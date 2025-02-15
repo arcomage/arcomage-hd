@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import Window from './Window'
 import MultilineText from '../special/MultilineText'
 
@@ -93,4 +93,4 @@ const Help = () => {
   )
 }
 
-export default memo(Help)
+export default Help
