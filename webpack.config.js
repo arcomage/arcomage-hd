@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -99,7 +100,7 @@ module.exports = (env, argv) => {
         {
           test: /\.(s?c|sa)ss$/i,
           use: [
-            'style-loader',
+            dev ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-modules-typescript-loader',
             {
               loader: 'css-loader',
@@ -155,6 +156,7 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
+      ...(dev ? [] : [new MiniCssExtractPlugin()]),
       new webpack.DefinePlugin({
         'process.env.APPVERSION': JSON.stringify(
           process.env.npm_package_version,

@@ -15,8 +15,8 @@ import {
   UPDATE_LANG,
 } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
-import TooltipAll from '../special/TooltipAll'
 import CheckBox from '../special/CheckBox'
+import { tooltipAttrs } from '../../utils/tooltip'
 
 const LangPref = () => {
   const lang: AvailableLangType = useAppSelector((state) => state.lang.code)
@@ -46,25 +46,21 @@ const LangPref = () => {
         {[...langs]
           .sort((codeA, codeB) => codeA.localeCompare(codeB))
           .map((code) => (
-            <TooltipAll
+            <button
               key={code}
-              title={langInfo[code].en}
-              ariaLabel={`${langInfo[code].local} [${langInfo[code].en}]`}
+              lang={code}
+              className={cx('m-2', { active: code === lang })}
+              onClick={() => {
+                dispatch({
+                  type: UPDATE_LANG,
+                  lang: code,
+                })
+              }}
+              {...tooltipAttrs(langInfo[code].en, 'bottom')}
+              aria-label={`${langInfo[code].local} [${langInfo[code].en}]`}
             >
-              <button
-                key={code}
-                lang={code}
-                className={cx('m-2', { active: code === lang })}
-                onClick={() => {
-                  dispatch({
-                    type: UPDATE_LANG,
-                    lang: code,
-                  })
-                }}
-              >
-                {langInfo[code].local}
-              </button>
-            </TooltipAll>
+              {langInfo[code].local}
+            </button>
           ))}
       </div>
 

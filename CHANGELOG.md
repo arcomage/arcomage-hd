@@ -6,21 +6,21 @@ _To ensure you're using the latest version, open the game and press <kbd>Ctrl</k
 
 ## [v1.6.0](https://github.com/arcomage/arcomage-hd/compare/v1.5.0...v1.6.0) (2025-?-?) (in progress)
 
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-02-15..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-02-15..*))
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-02-18..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-02-18..*))
 
-## [v1.5.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.0...v1.5.0) (2025-02-15)
+## [v1.5.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.0...v1.5.0) (2025-02-17)
 
 - [Upgrade of libraries](https://github.com/arcomage/arcomage-hd/issues/78) (react 19, redux 5, rxjs 7.8, etc.), use [React Compiler](https://react.dev/learn/react-compiler) for optimization
 - [Full control with mouse, touch device, keyboard, or gamepad](https://github.com/arcomage/arcomage-hd/issues/93) 🖱️📱⌨️🎮 ([instructions](gamecontrols.md)) (gamepad has basic support and is not fully finished)
-- At game end screen, [show reasons for win/loss/draw](https://github.com/arcomage/arcomage-hd/issues/84), add "Review cards" button
-- Optimize [AnimatedNumber](https://github.com/arcomage/arcomage-hd/issues/95), Tower/Wall/card anim, lang change, etc.
-- [Debounced number input](https://github.com/arcomage/arcomage-hd/issues/81)
+- At game end screen, [show reasons for win/loss/draw](https://github.com/arcomage/arcomage-hd/issues/84), [add "Review cards" button](https://github.com/arcomage/arcomage-hd/issues/101)
+- Optimization of: [AnimatedNumber](https://github.com/arcomage/arcomage-hd/issues/95) (rewritten), [Tower/Wall/card anim](https://github.com/arcomage/arcomage-hd/issues/100), [tooltip](https://github.com/arcomage/arcomage-hd/issues/103) (rewritten), [debounced number input](https://github.com/arcomage/arcomage-hd/issues/81) (rewritten), lang change, etc.
 - [LTR / Arabic support](https://github.com/arcomage/arcomage-hd/issues/90)
 - Fixes and improvements to accessibility (a11y)
+- Button & tooltip color change
 - CI update, replaced husky git hooks with custom script
 - Docs update
 - Easter egg when clicking on birds
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..2025-02-15); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..2025-02-15))
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..2025-02-17); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..2025-02-17))
 
 ## [v1.4.0](https://github.com/arcomage/arcomage-hd/compare/v1.3.0...v1.4.0) ([2025-01-25](https://github.com/arcomage/arcomage-hd/commit/552bf596a98d403310345efe7afc7c067938d489))
 

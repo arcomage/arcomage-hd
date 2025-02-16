@@ -37,8 +37,8 @@ import {
   visualPresets,
 } from '../../data/visualvalues'
 import { shallowCompare } from '../../utils/shallowCompare'
-import TooltipAll from '../special/TooltipAll'
 import CheckBox from '../special/CheckBox'
+import { tooltipAttrs } from '../../utils/tooltip'
 
 const SgPref = () => {
   const volume = useAppSelector((state) => state.sound.volume)
@@ -156,12 +156,12 @@ const SgPref = () => {
       <label htmlFor="visual-preset" className="flex">
         <span>
           {_.i18n('Visual Preset')}{' '}
-          <TooltipAll
-            title={`${_.i18n('Reset')}${_.i18n(': ')}Alt + R`}
-            placement="top"
+          <span
+            className="emoji !p-0"
+            {...tooltipAttrs(`${_.i18n('Reset')}${_.i18n(': ')}Alt + R`)}
           >
-            <span className="emoji !p-0">💡</span>
-          </TooltipAll>
+            💡
+          </span>
         </span>
         <select
           id="visual-preset"
@@ -223,12 +223,12 @@ const SgPref = () => {
           <span className="px-3 py-0.5">
             {_.i18n('Filters')}
             {_.i18n(': ')}
-            <TooltipAll
-              title={_.i18n('Filter may slow down the game')}
-              placement="top"
+            <span
+              className="emoji !p-0"
+              {...tooltipAttrs(_.i18n('Filter may slow down the game'))}
             >
-              <span className="emoji !p-0">🧪</span>
-            </TooltipAll>
+              🧪
+            </span>
           </span>
           {dataVisualvalues
             .filter((d): d is DataVisualvaluesFilterType => d.type === 'filter')

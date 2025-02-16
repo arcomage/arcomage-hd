@@ -27,10 +27,6 @@ button {
   }
 }
 
-.MuiTooltip-tooltip {
-  user-select: none;
-}
-
 button[disabled] {
   pointer-events: none; // for Firefox
 }

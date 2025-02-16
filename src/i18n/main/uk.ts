@@ -150,6 +150,7 @@ export const i18n = {
 
   Help: 'Допомога',
   'Toggle Full Screen': 'Повноекранний режим',
+  GitHub: 'GitHub',
 
   'Bold font': 'Жирний шрифт',
   ERATHIAN: 'Використовувати Ерафійський %s (лише мови латинського шрифту)',

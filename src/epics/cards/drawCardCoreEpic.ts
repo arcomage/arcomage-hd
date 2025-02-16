@@ -31,7 +31,7 @@ import {
 import {
   aiExtraDelay,
   noAiExtraDelay,
-  useAi,
+  shouldUseAi,
 } from '../../constants/devSettings'
 import devLog from '../../utils/devLog'
 import getPan from '../../utils/sound/getPan'
@@ -75,7 +75,7 @@ export default (
           on: false,
           locknumber: 1,
         }).pipe(delay(0)),
-        owner === 'opponent' && useAi && multiGameNumber === -1
+        owner === 'opponent' && shouldUseAi && multiGameNumber === -1
           ? of<RootActionType>({
               type: AI_PLAY_CARD,
             }).pipe(

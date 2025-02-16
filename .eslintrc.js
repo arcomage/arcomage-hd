@@ -4,7 +4,7 @@ const obj = {
     es6: true,
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react-compiler'],
   extends: [
     'airbnb-typescript',
     'prettier',
@@ -28,6 +28,7 @@ const obj = {
     },
   },
   rules: {
+    'react-compiler/react-compiler': 'error',
     'jsx-a11y/label-has-associated-control': ['warn'], // maybe broken
     'react/prop-types': 'off',
     'react/jsx-filename-extension': [

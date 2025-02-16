@@ -152,6 +152,7 @@ export const i18n = {
 
   Help: 'Nápověda',
   'Toggle Full Screen': 'Přepnout na celou obrazovku',
+  GitHub: 'GitHub',
 
   'Bold font': 'Tučné písmo',
   ERATHIAN: 'Používejte Erathian %s (pouze jazyky s latinkou)',

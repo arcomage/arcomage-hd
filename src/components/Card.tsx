@@ -26,9 +26,9 @@ import { I18nContext } from '../i18n/I18nContext'
 import {
   canDiscardUndiscardableWhenDDP,
   hideOpponentCard,
-  useAi,
+  shouldUseAi,
 } from '../constants/devSettings'
-import TooltipAll from './special/TooltipAll'
+import { tooltipAttrs } from '../utils/tooltip'
 
 const calcOpacity = ({
   unusable,
@@ -198,7 +198,7 @@ const Card = ({
     state.game.locked.some((l) => l === true),
   )
   const discardMode = useAppSelector((state) => state.game.discardMode)
-  const main = useRef<HTMLButtonElement | null>(null)
+  const main = useRef<HTMLButtonElement>(null)
 
   const multiGameNumber = useAppSelector(
     (state) => state.multiplayer.gameNumber,
@@ -309,7 +309,7 @@ const Card = ({
       if (
         owner !== 'common' &&
         !locked &&
-        !(useAi && multiGameNumber === -1 && owner === 'opponent')
+        !(shouldUseAi && multiGameNumber === -1 && owner === 'opponent')
       ) {
         if (discardMode) {
           if (canDiscardUndiscardableWhenDDP || !special?.undiscardable) {
@@ -336,7 +336,7 @@ const Card = ({
         !locked &&
         (!special?.undiscardable ||
           (discardMode && canDiscardUndiscardableWhenDDP)) &&
-        !(useAi && multiGameNumber === -1 && owner === 'opponent')
+        !(shouldUseAi && multiGameNumber === -1 && owner === 'opponent')
       ) {
         buttonDisabled = false
         let timer: NodeJS.Timeout | undefined
@@ -374,7 +374,7 @@ const Card = ({
       buttonDisabled = true
     }
 
-    const cardTitle = _.i18n('This card costs %s').replace(
+    const cardTooltip = _.i18n('This card costs %s').replace(
       '%s',
       cost === 1
         ? _.i18n(['1 brick', '1 gem', '1 recruit'][type])
@@ -501,16 +501,12 @@ const Card = ({
                 'absolute top-0 left-0 w-full h-full',
               )}
             ></div>
-            <TooltipAll title={cardTitle} placement="top">
-              <div
-                className={cx(
-                  'absolute top-0 left-0 w-full h-full',
-                  'el-number',
-                )}
-              >
-                {cost}
-              </div>
-            </TooltipAll>
+            <div
+              className={cx('absolute top-0 left-0 w-full h-full', 'el-number')}
+              {...tooltipAttrs(cardTooltip, undefined, { noTouch: true })}
+            >
+              {cost}
+            </div>
           </div>
         </div>
         <div

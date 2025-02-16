@@ -153,6 +153,7 @@ export const i18n = {
 
   Help: 'Ajuda',
   'Toggle Full Screen': 'Tela Cheia',
+  GitHub: 'GitHub',
 
   'Bold font': 'Fonte em negrito',
   ERATHIAN: 'Usar Erathian %s (somente linguagens de escrita latina)',

@@ -148,6 +148,7 @@ export const i18n = {
 
   Help: '幫助',
   'Toggle Full Screen': '切換全屏模式',
+  GitHub: 'GitHub',
 
   'Bold font': '字型加粗',
   ERATHIAN: '使用埃拉西亞文字 %s（僅限拉丁字母語言）',

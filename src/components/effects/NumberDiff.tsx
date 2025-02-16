@@ -34,7 +34,7 @@ const NumberDiff = ({ n }: PropType) => {
   const classes = useStyles()
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)
-  const main = useRef<HTMLDivElement | null>(null)
+  const main = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (hasMounted.current) {

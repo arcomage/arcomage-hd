@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { RefObject, useEffect } from 'react'
 // import devLog from '../utils/devLog'
 import AnimatedNumber from './effects/AnimatedNumber'
 import NumberChangeVisual from './effects/NumberChangeVisual'
@@ -6,7 +6,7 @@ import NumberDiff from './effects/NumberDiff'
 
 type PropType = {
   n: number
-  target: React.MutableRefObject<HTMLDivElement | null>
+  target: RefObject<HTMLDivElement | null>
   maxN: number // only applys to `--n`
 }
 const TowerOrWallNumber = ({ n, target, maxN }: PropType) => {

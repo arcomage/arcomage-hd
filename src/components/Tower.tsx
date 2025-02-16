@@ -9,8 +9,8 @@ import towerRed from '../../assets/img/tower_red.webp'
 import towerBlue from '../../assets/img/tower_blue.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
-import TooltipAll from './special/TooltipAll'
 import { upper1st } from '../utils/upper1st'
+import { tooltipAttrs } from '../utils/tooltip'
 
 const calcBaseRatio = (height: number): string =>
   `(${height}px - (1.75rem + 0.25rem * 2)) / (282 + 600)`
@@ -21,9 +21,9 @@ const calcPaddingX = (height: number): string =>
   `${calcBaseRatio(height)} * ((204 - 135) / 2)`
 
 const heightByCurrent = (height: number, currentGoalRatio: string): string =>
-  `calc((${calcWidth(height)} - ${calcPaddingX(
+  `(${calcWidth(height)} - ${calcPaddingX(
     height,
-  )} * 2) / 135 * 600 * ${currentGoalRatio})`
+  )} * 2) / 135 * 600 * ${currentGoalRatio}`
 
 const useStyles = createUseStyles<string, { height: number; goal: number }>({
   main: {
@@ -36,7 +36,7 @@ const useStyles = createUseStyles<string, { height: number; goal: number }>({
   },
   towerbody: {
     width: ({ height }) => `calc(100% - ${calcPaddingX(height)} * 2)`,
-    height: ({ height }) => heightByCurrent(height, '1'),
+    height: ({ height }) => `calc(${heightByCurrent(height, '1')})`,
     transform: ({ goal }) =>
       `translateY(calc((1 - (var(--n) / ${goal})) * 100%)) translateZ(0)`,
     'will-change': 'transform',
@@ -76,6 +76,10 @@ const useStyles = createUseStyles<string, { height: number; goal: number }>({
       image: `url(${towerBlue})`,
     },
   },
+  towerTooltipBearer: {
+    height: ({ height, goal }) =>
+      `calc(2.25rem + ${heightByCurrent(height, '1')} * var(--n) / ${goal} + ${calcWidth(height)} / 204 * 282)`, // (1.75rem + 0.25rem * 2) [numberoutwrapper] + heightByCurrent * nRatio + towerbodytop's Height
+  },
 })
 
 type PropType = {
@@ -98,16 +102,16 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
   const n = useAppSelector(
     (state) => state.status[isOpponent ? 'opponent' : 'player'].tower,
   )
-  let towerTitle = _.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
+  let towerTooltip = _.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
     '%s',
     _.i18n('tower'),
   )
-  towerTitle = _.i18n('%s1. Reach %s2 to win')
-    .replace('%s1', `${towerTitle} = ${n}`)
+  towerTooltip = _.i18n('%s1. Reach %s2 to win')
+    .replace('%s1', `${towerTooltip} = ${n}`)
     .replace('%s2', winTower.toString(10))
-  towerTitle = upper1st(towerTitle)
+  towerTooltip = upper1st(towerTooltip)
 
-  const towerBody = useRef<HTMLDivElement | null>(null)
+  const towerNBearer = useRef<HTMLDivElement>(null)
 
   return (
     <div
@@ -117,48 +121,46 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
         classes.main,
       )}
     >
-      <TooltipAll title={towerTitle} placement="bottom">
-        <div className="w-full h-full">
-          <div
-            className={cx(
-              'z-20 w-full h-full absolute overflow-hidden',
-              classes.towerwrapper,
-            )}
-            aria-hidden={true}
-          >
-            <div
-              ref={towerBody}
-              className={cx('absolute bottom-0', classes.towerbody)}
-            >
-              <div
-                className={cx(
-                  classes.towerbodytop,
-                  classes[isOpponent ? 'towerbodytopblue' : 'towerbodytopred'],
-                  'pixelated',
-                )}
-              ></div>
-              <div
-                className={cx(
-                  'w-full h-full',
-                  classes.towerbodybg,
-                  'pixelated',
-                )}
-              ></div>
-            </div>
-          </div>
-          <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
+      <div ref={towerNBearer} className="w-full h-full">
+        <div
+          className={cx(
+            'z-20 w-full h-full absolute overflow-hidden',
+            classes.towerwrapper,
+          )}
+          aria-hidden={true}
+        >
+          <div className={cx('absolute bottom-0', classes.towerbody)}>
             <div
               className={cx(
-                'border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono',
-                boldfont && 'font-bold',
-                'el-number',
+                classes.towerbodytop,
+                classes[isOpponent ? 'towerbodytopblue' : 'towerbodytopred'],
+                'pixelated',
               )}
-            >
-              <TowerOrWallNumber n={n} target={towerBody} maxN={goal} />
-            </div>
+            ></div>
+            <div
+              className={cx('w-full h-full', classes.towerbodybg, 'pixelated')}
+            ></div>
           </div>
         </div>
-      </TooltipAll>
+        <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
+          <div
+            className={cx(
+              'border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono',
+              boldfont && 'font-bold',
+              'el-number',
+            )}
+          >
+            <TowerOrWallNumber n={n} target={towerNBearer} maxN={goal} />
+          </div>
+        </div>
+        <div
+          className={cx(
+            'z-50 w-full absolute bottom-0',
+            classes.towerTooltipBearer,
+          )}
+          {...tooltipAttrs(towerTooltip, 'bottom')}
+        ></div>
+      </div>
     </div>
   )
 }

@@ -155,6 +155,7 @@ export const i18n = {
 
   Help: 'Aide',
   'Toggle Full Screen': 'Basculer en plein écran',
+  GitHub: 'GitHub',
 
   'Bold font': 'Police en gras',
   ERATHIAN: 'Utiliser Erathian %s (langues à caractères latins uniquement)',

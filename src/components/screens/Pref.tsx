@@ -52,18 +52,18 @@ import {
 } from '../../utils/startWinState'
 import { sample } from '../../utils/random'
 import isEmoji from '../../utils/isEmoji'
-import TooltipAll from '../special/TooltipAll'
 import { maxCardsInHand, minGeneratorIsOne } from '../../constants/ranges'
 import { variousLengthChunk } from '../../utils/variousLengthChunk'
 import NumberInput from '../special/NumberInput'
 import CheckBox from '../special/CheckBox'
+import { tooltipAttrs } from '../../utils/tooltip'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
 
   const yourIdInputRef = useRef<HTMLInputElement>(null)
-  const copiedTimer = useRef<NodeJS.Timeout | null>(null)
+  const copiedTimer = useRef<NodeJS.Timeout>(null)
   const [copied, setCopied] = useState<boolean>(false)
 
   const isMultiplayer = useAppSelector((state) => state.multiplayer.on)
@@ -598,69 +598,65 @@ const Pref = () => {
       <div className="two-column">
         <label htmlFor={otherSettingNames[0]}>
           <span>{upper1st(_.i18n('tower'))}</span>
-          <TooltipAll
-            title={_.i18n('Minimum is starting %s1 + 1 = %s0')
-              .replace('%s1', upper1st(_.i18n('tower')))
-              .replace('%s0', (formFields.tower + 1).toString())}
-            placement="bottom"
-            enterTouchDelay={0}
-          >
-            <NumberInput
-              name={otherSettingNames[0]}
-              id={otherSettingNames[0]}
-              min={formFields.tower + 1}
-              disabled={isGuest}
-              value={
-                isGuest && tempSettingsStore !== null
-                  ? tempSettingsStore.winTower
-                  : formFields.winTower
-              }
-              onChange={handleChange}
-            />
-          </TooltipAll>
+          <NumberInput
+            name={otherSettingNames[0]}
+            id={otherSettingNames[0]}
+            min={formFields.tower + 1}
+            disabled={isGuest}
+            value={
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.winTower
+                : formFields.winTower
+            }
+            onChange={handleChange}
+            {...tooltipAttrs(
+              _.i18n('Minimum is starting %s1 + 1 = %s0')
+                .replace('%s1', upper1st(_.i18n('tower')))
+                .replace('%s0', (formFields.tower + 1).toString()),
+              'bottom',
+            )}
+          />
         </label>
         <label htmlFor={otherSettingNames[1]}>
           <span>{upper1st(_.i18n('resource'))}</span>
-          <TooltipAll
-            title={_.i18n('Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1 = %s0')
-              .replace('%s1', upper1st(_.i18n('bricks')))
-              .replace('%s2', upper1st(_.i18n('quarry')))
-              .replace('%s3', upper1st(_.i18n('gems')))
-              .replace('%s4', upper1st(_.i18n('magic')))
-              .replace('%s5', upper1st(_.i18n('recruits')))
-              .replace('%s6', upper1st(_.i18n('dungeon')))
-              .replace(
-                '%s0',
-                (
-                  Math.max(
-                    formFields.bricks + formFields.brickProd,
-                    formFields.gems + formFields.gemProd,
-                    formFields.recruits + formFields.recruitProd,
-                  ) + 1
-                ).toString(),
-              )}
-            enterTouchDelay={0}
-            placement="bottom"
-          >
-            <NumberInput
-              name={otherSettingNames[1]}
-              id={otherSettingNames[1]}
-              min={
-                Math.max(
-                  formFields.bricks + formFields.brickProd,
-                  formFields.gems + formFields.gemProd,
-                  formFields.recruits + formFields.recruitProd,
-                ) + 1
-              }
-              disabled={isGuest}
-              value={
-                isGuest && tempSettingsStore !== null
-                  ? tempSettingsStore.winResource
-                  : formFields.winResource
-              }
-              onChange={handleChange}
-            />
-          </TooltipAll>
+          <NumberInput
+            name={otherSettingNames[1]}
+            id={otherSettingNames[1]}
+            min={
+              Math.max(
+                formFields.bricks + formFields.brickProd,
+                formFields.gems + formFields.gemProd,
+                formFields.recruits + formFields.recruitProd,
+              ) + 1
+            }
+            disabled={isGuest}
+            value={
+              isGuest && tempSettingsStore !== null
+                ? tempSettingsStore.winResource
+                : formFields.winResource
+            }
+            onChange={handleChange}
+            {...tooltipAttrs(
+              _.i18n('Minimum is MAX(%s1+%s2, %s3+%s4, %s5+%s6) + 1 = %s0')
+                .replace('%s1', upper1st(_.i18n('bricks')))
+                .replace('%s2', upper1st(_.i18n('quarry')))
+                .replace('%s3', upper1st(_.i18n('gems')))
+                .replace('%s4', upper1st(_.i18n('magic')))
+                .replace('%s5', upper1st(_.i18n('recruits')))
+                .replace('%s6', upper1st(_.i18n('dungeon')))
+                .replace(
+                  '%s0',
+                  (
+                    Math.max(
+                      formFields.bricks + formFields.brickProd,
+                      formFields.gems + formFields.gemProd,
+                      formFields.recruits + formFields.recruitProd,
+                    ) + 1
+                  ).toString(),
+                ),
+              'bottom',
+            )}
+          />
         </label>
       </div>
 
@@ -733,14 +729,17 @@ const Pref = () => {
             />
             <span>
               {_.i18n('Multiplayer')}
-              <TooltipAll
-                title={_.i18n(
-                  'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT',
+              <span
+                className="emoji"
+                {...tooltipAttrs(
+                  _.i18n(
+                    'Multiplayer Mode is experimental and works only for users behind non-symmetric NAT',
+                  ),
                 )}
-                placement="top"
               >
-                <span className="emoji">🧪</span>
-              </TooltipAll>
+                🧪
+              </span>
+
               {_.i18n(': ')}
               {(isMultiplayer ? _.i18n('on') : _.i18n('off')).toUpperCase()}
             </span>
@@ -823,7 +822,6 @@ const Pref = () => {
             multiplayerStatus === 'connected_by_id' ||
             formFields.opponentId === ''
           }
-          className="highlight"
           onClick={(e) => {
             dispatch({
               type: CONNECT_TO_ID,

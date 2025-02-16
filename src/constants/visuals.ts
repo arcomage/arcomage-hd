@@ -11,7 +11,7 @@ export const resbgOpacity = 0.35
 export const drawCardPre = 100
 export const endScreenExitableDelay = 750
 // export const windowEnterAnimDurationMs = 0.8 // see window.scss
-export const LandscapeNoticeExitableDelay = 750
+export const LandscapeNoticeExitableDelay = 5750
 export const DisconnectNoticeExitableDelay = 750
 export const cardNameMaxLength = 15
 export const unitTextMaxLength = 7
@@ -28,9 +28,7 @@ export const shorterIdStartEndLength = 5
 export const connBaseRetryTime = 4000
 export const connRetryTimes = 5
 export const sendSettingsDebounceTime = 500
-export const tooltipEnterDelay = 40
-export const tooltipLeaveDelay = 40
-export const defaultTooltipEnterTouchDelay = 700
+export const tooltipTransitionDuration = 300 // see also tooltip.scss
 
 export const stereoPanValue = 0.7
 

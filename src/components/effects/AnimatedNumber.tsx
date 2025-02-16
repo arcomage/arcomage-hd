@@ -9,9 +9,9 @@ type PropType = { n: number }
 
 const AnimatedNumber = ({ n }: PropType) => {
   const noanim = useAppSelector((state) => state.visual.noanim)
-  const numberRef = useRef<HTMLSpanElement | null>(null)
+  const numberRef = useRef<HTMLSpanElement>(null)
   const prevNRef = useRef(n)
-  const animationFrameRef = useRef<number | null>(null)
+  const animationFrameRef = useRef<number>(null)
   const displayValueRef = useRef(n)
 
   useEffect(() => {
@@ -87,6 +87,7 @@ const AnimatedNumber = ({ n }: PropType) => {
     }
   }, [n]) // intentionally not including `noanim` in dependencies
 
+  // eslint-disable-next-line react-compiler/react-compiler
   return <span ref={numberRef}>{displayValueRef.current}</span>
 }
 

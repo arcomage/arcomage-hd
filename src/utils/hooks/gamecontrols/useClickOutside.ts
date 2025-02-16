@@ -1,7 +1,7 @@
-import { MutableRefObject, useEffect } from 'react'
+import { RefObject, useEffect } from 'react'
 
 const useClickOutside = (
-  ref: MutableRefObject<HTMLElement | null>,
+  ref: RefObject<HTMLElement | null>,
   func: (event: MouseEvent) => void,
 ): void => {
   useEffect(() => {

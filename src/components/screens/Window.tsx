@@ -16,7 +16,7 @@ import {
   SCREEN_LANDSCAPE,
   SCREEN_DISCONNECT_NOTICE,
 } from '../../constants/ActionTypes'
-import TooltipAll from '../special/TooltipAll'
+import { tooltipAttrs } from '../../utils/tooltip'
 
 const useStyles = createUseStyles({
   logo: {
@@ -72,15 +72,17 @@ const Window = ({
     return () => {
       clearTimeout(timer)
     }
-  }, [])
-  const exitableRef = useRef<boolean>(undefined)
-  exitableRef.current = exitable
+  }, [exitableDelay])
+
+  // to prevent cancelFunc from using stale exitable value
+  const exitableRef = useRef<boolean>(false)
+  useEffect(() => {
+    exitableRef.current = exitable
+  }, [exitable])
 
   const cancelFunc = () => {
     if (exitableRef.current) {
-      if (onCancel !== undefined) {
-        onCancel()
-      }
+      onCancel?.()
       dispatch({
         type: screenActionType,
         show: false,
@@ -111,35 +113,33 @@ const Window = ({
             screenActionType.toLowerCase().replace(/_/g, '-'),
           )}
         >
-          <TooltipAll title={_.i18n('ArcoMage HD')}>
-            <div
-              className={cx(
-                classes.logo,
-                {
-                  hidden:
-                    size.narrowMobile &&
-                    (screenActionType === SCREEN_PREF ||
-                      screenActionType === SCREEN_VOLUME_PREF),
-                },
-                'm-auto bg-no-repeat bg-center bg-contain',
-              )}
-              aria-hidden={true}
-            ></div>
-          </TooltipAll>
+          <div
+            className={cx(
+              classes.logo,
+              {
+                hidden:
+                  size.narrowMobile &&
+                  (screenActionType === SCREEN_PREF ||
+                    screenActionType === SCREEN_VOLUME_PREF),
+              },
+              'm-auto bg-no-repeat bg-center bg-contain',
+            )}
+            aria-hidden={true}
+            {...tooltipAttrs(_.i18n('ArcoMage HD'), 'bottom')}
+          ></div>
 
           {children}
 
-          <TooltipAll title={_.i18n('Cancel')}>
-            <button
-              accessKey="x"
-              className="cancel"
-              onClick={cancelFunc}
-            ></button>
-          </TooltipAll>
+          <button
+            accessKey="x"
+            className="cancel"
+            onClick={cancelFunc}
+            aria-label={_.i18n('Cancel')}
+            {...tooltipAttrs(_.i18n('Cancel'), 'bottom')}
+          ></button>
         </div>
       </div>
     </div>
   )
 }
-
 export default Window

@@ -153,6 +153,7 @@ export const i18n = {
 
   Help: 'Hilfe',
   'Toggle Full Screen': 'Vollbild umschalten',
+  GitHub: 'GitHub',
 
   'Bold font': 'Fette Schriftart',
   ERATHIAN: 'Erathian %s verwenden (nur Sprachen mit lateinischer Schrift)',

@@ -37,7 +37,6 @@ export const i18n = {
   'You have no tower left': 'لم يتبق لك أي برج',
   'Review cards': 'مراجعة البطاقات',
   'Hide cards': 'إخفاء البطاقات',
-
   '. ': '. ',
   Preferences: 'التفضيلات',
   ': ': ':',
@@ -120,6 +119,7 @@ export const i18n = {
   Filters: 'فلاتر',
   Help: 'مساعدة',
   'Toggle Full Screen': 'تبديل ملء الشاشة',
+  GitHub: 'GitHub',
   'Bold font': 'خط عريض',
   ERATHIAN: 'استخدم Erathian %s (لغات الكتابة اللاتينية فقط)',
   'ArcoMage HD': 'ArcoMage HD',

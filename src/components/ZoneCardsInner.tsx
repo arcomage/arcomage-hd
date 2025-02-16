@@ -8,7 +8,7 @@ import { CardListItemAllType } from '../types/state'
 import DiscardModeNotice from './special/DiscardModeNotice'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 import { I18nContext } from '../i18n/I18nContext'
-import TooltipAll from './special/TooltipAll'
+import { tooltipAttrs } from '../utils/tooltip'
 
 const useStyles = createUseStyles({
   main: { background: { image: 'linear-gradient(#326a4b, #000 2rem)' } },
@@ -35,15 +35,22 @@ const ZoneCardsInner = () => {
     playerCards.length > 0 &&
     playerCards.every((card) => card && card.unusable === true)
 
+  const useAllUnusableTooltip =
+    allUnusable && playersTurn && !locked && !discardMode
+  const allUnusableTooltip = useAllUnusableTooltip
+    ? _.i18n('allUnusableTip')
+    : ''
+
   const classes = useStyles()
 
-  const inner = (
+  return (
     <div
       className={cx(
         classes.main,
         'flex-auto',
         size.narrowMobile ? 'h-1/2' : 'h-1/3',
       )}
+      {...tooltipAttrs(allUnusableTooltip)}
     >
       <Card n={-1} position={-1} unusable />
       {cards.map((card, i) =>
@@ -51,19 +58,6 @@ const ZoneCardsInner = () => {
       )}
       <DiscardModeNotice shown={discardMode} />
     </div>
-  )
-  return (
-    <TooltipAll
-      title={
-        allUnusable && playersTurn && !locked && !discardMode
-          ? _.i18n('allUnusableTip')
-          : ''
-      }
-      placement="top"
-      enterTouchDelay={0}
-    >
-      {inner}
-    </TooltipAll>
   )
 }
 

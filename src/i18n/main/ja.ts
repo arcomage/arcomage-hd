@@ -152,6 +152,7 @@ export const i18n = {
 
   Help: 'ヘルプ',
   'Toggle Full Screen': 'フルスクリーン切り替え',
+  GitHub: 'GitHub',
 
   'Bold font': '太字フォント',
   ERATHIAN: 'エラシアン文字 %s を使用します（ラテン文字の言語のみ）',
