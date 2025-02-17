@@ -76,6 +76,9 @@ const useStyles = createUseStyles<string, { height: number; goal: number }>({
       image: `url(${towerBlue})`,
     },
   },
+  towercountwrapper: {
+    'min-width': '2.8rem',
+  },
   towerTooltipBearer: {
     height: ({ height, goal }) =>
       `calc(2.25rem + ${heightByCurrent(height, '1')} * var(--n) / ${goal} + ${calcWidth(height)} / 204 * 282)`, // (1.75rem + 0.25rem * 2) [numberoutwrapper] + heightByCurrent * nRatio + towerbodytop's Height
@@ -142,7 +145,12 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
             ></div>
           </div>
         </div>
-        <div className="bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0">
+        <div
+          className={cx(
+            classes.towercountwrapper,
+            'w-full left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 p-1 shadow-lg absolute bottom-0',
+          )}
+        >
           <div
             className={cx(
               'border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono',

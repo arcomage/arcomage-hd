@@ -17,7 +17,7 @@ export const cardNameMaxLength = 15
 export const unitTextMaxLength = 7
 export const narrowMobileWinHeightMax = 499
 export const smallRootFontScreenMax = 689
-export const minRootFontSize = 5
+export const minRootFontSize = 7 // except for card which currently doesn't have a min font size
 export const animatedNumberDuration = 300
 export const minAnimatedNumberInterval = 18 // should > 16.67 (16.67ms per frame = 60 fps)
 export const numberChangeVisualDuration = 1000 // explosion & firework

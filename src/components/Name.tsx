@@ -30,7 +30,12 @@ const Name = ({ playerName, isOpponent = false }: PropType) => {
   const classes = useStyles({ height })
 
   return (
-    <div className="bg-black bg-opacity-50 mb-4 p-1 shadow-lg">
+    <div
+      className={cx(
+        'bg-black bg-opacity-50 p-1 shadow-lg',
+        size.narrowMobile ? ' mb-2' : 'mb-4',
+      )}
+    >
       <div
         className={cx(
           'border border-yellow-400 text-yellow-400 text-center h-7 leading-7 overflow-hidden font-mono',

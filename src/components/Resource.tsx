@@ -10,7 +10,11 @@ import gemBg from '../../assets/img/res_2.webp'
 import recruitBg from '../../assets/img/res_3.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import { upper1st } from '../utils/upper1st'
-import { smallRootFontScreenMax, unitTextMaxLength } from '../constants/visuals'
+import {
+  minRootFontSize,
+  smallRootFontScreenMax,
+  unitTextMaxLength,
+} from '../constants/visuals'
 
 import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'
@@ -23,7 +27,7 @@ const whRatio = 156 / 216
 
 const getFontSize = (height: number, percentage: number): number => {
   const fontSizeTemp = height * percentage
-  return fontSizeTemp >= 12 ? fontSizeTemp : 12
+  return Math.max(fontSizeTemp, minRootFontSize)
 }
 
 const getLineHeight = (height: number, percentage: number): number =>
@@ -59,6 +63,7 @@ const useStyles = createUseStyles<
     'background-image': `url(${recruitBg})`,
   },
   prodcontainer: {
+    height: ({ height }) => `calc(${calcProdHeight(height)})`,
     'min-height': '2em',
   },
   prod: {
@@ -202,15 +207,18 @@ const Resource = ({ type, isOpponent }: PropType) => {
   resTooltip = upper1st(resTooltip)
 
   return (
-    <div className={cx('mb-3 p-1 shadow-lg', `bg-${color}-300`)}>
+    <div
+      className={cx(
+        size.narrowMobile ? 'mb-2' : 'mb-3',
+        'p-1 shadow-lg',
+        `bg-${color}-300`,
+      )}
+    >
       <div
         className={cx(
           classes.prodcontainer,
           'bg-no-repeat bg-cover bg-center border border-l-darkborder border-t-darkborder border-r-lightborder border-b-lightborder relative',
         )}
-        style={{
-          height: `calc(${calcProdHeight(height)})`,
-        }}
         {...tooltipAttrs(resProdTooltip, isOpponent ? 'left' : 'right')}
       >
         <div

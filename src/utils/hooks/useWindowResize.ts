@@ -12,6 +12,7 @@ const useWindowResize = (): vType => {
     width: window.innerWidth,
     height: window.innerHeight,
     narrowMobile: window.innerHeight <= narrowMobileWinHeightMax,
+    // note: consider 320px width × 480px height as the minimum size for mobile devices
   })
 
   useEffect(() => {
