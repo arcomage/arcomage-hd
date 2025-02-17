@@ -105,14 +105,14 @@ const Window = ({
       aria-modal={true}
       ref={containerRef}
     >
-      <div className={'window-outerwrapper'}>
-        <div
-          ref={prefRef}
-          className={cx(
-            'window-wrapper',
-            screenActionType.toLowerCase().replace(/_/g, '-'),
-          )}
-        >
+      <div
+        ref={prefRef}
+        className={cx(
+          'window-wrapper',
+          screenActionType.toLowerCase().replace(/_/g, '-'),
+        )}
+      >
+        <div className={cx('window-innerwrapper')}>
           <div
             className={cx(
               classes.logo,

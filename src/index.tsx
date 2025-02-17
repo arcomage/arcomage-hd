@@ -29,4 +29,5 @@ root.render(
     </React.StrictMode>
   </HelmetProvider>,
 )
+
 // pwacompat.js inserted after it, see webpack.config.js

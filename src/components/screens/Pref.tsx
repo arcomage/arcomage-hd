@@ -369,7 +369,7 @@ const Pref = () => {
           {_.i18n('Preferences')}
           {_.i18n(': ')}
         </h3>
-        <span id="opponentNotification">
+        <span id="against-human-or-ai">
           {multiGameNumber > 0
             ? _.i18n('You are playing against human')
             : _.i18n('You are playing against computer AI')}

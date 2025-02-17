@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const Beasties = require('beasties-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -82,6 +82,7 @@ module.exports = (env, argv) => {
         '.json',
       ],
     },
+    target: ['web'],
     module: {
       rules: [
         {
@@ -100,18 +101,18 @@ module.exports = (env, argv) => {
         {
           test: /\.(s?c|sa)ss$/i,
           use: [
-            dev ? 'style-loader' : MiniCssExtractPlugin.loader,
+            'style-loader',
             'css-modules-typescript-loader',
             {
               loader: 'css-loader',
               options: {
-                sourceMap: dev,
+                sourceMap: true,
               },
             },
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: dev,
+                sourceMap: true,
                 postcssOptions: {
                   plugins: [
                     'postcss-import',
@@ -125,7 +126,7 @@ module.exports = (env, argv) => {
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: dev,
+                sourceMap: true,
               },
             },
           ],
@@ -156,7 +157,7 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      ...(dev ? [] : [new MiniCssExtractPlugin()]),
+      new Beasties({}),
       new webpack.DefinePlugin({
         'process.env.APPVERSION': JSON.stringify(
           process.env.npm_package_version,
