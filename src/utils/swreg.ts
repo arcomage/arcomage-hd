@@ -1,15 +1,34 @@
-if ('serviceWorker' in navigator) {
+function updateApp(registration: ServiceWorkerRegistration) {
+  if (confirm('A new version is available. Reload now?')) {
+    registration.waiting?.postMessage({ type: 'SKIP_WAITING' })
+    window.location.reload()
+  }
+}
+
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('./service-worker.js')
       .then((registration) => {
-        console.log('Service worker (PWA) registered: ', registration)
-      })
-      .catch((registrationError) => {
-        console.log(
-          'Service worker (PWA) registration failed: ',
-          registrationError,
-        )
+        console.log('Service Worker registered:', registration)
+
+        if (registration.waiting) {
+          updateApp(registration)
+        }
+
+        registration.addEventListener('updatefound', () => {
+          const newWorker = registration.installing
+          if (newWorker) {
+            newWorker.addEventListener('statechange', () => {
+              if (
+                newWorker.state === 'installed' &&
+                navigator.serviceWorker.controller
+              ) {
+                updateApp(registration)
+              }
+            })
+          }
+        })
       })
   })
 }

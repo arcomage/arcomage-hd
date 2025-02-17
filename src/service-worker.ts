@@ -1,8 +1,10 @@
-declare let self: ServiceWorkerGlobalScope & Window & typeof globalThis
+/// <reference lib="webworker" />
+
+declare const self: ServiceWorkerGlobalScope
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { skipWaiting, clientsClaim, cacheNames } from 'workbox-core'
-import { precacheAndRoute, getCacheKeyForURL } from 'workbox-precaching'
+import { precacheAndRoute } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
 import { RangeRequestsPlugin } from 'workbox-range-requests'
@@ -10,15 +12,36 @@ import { RangeRequestsPlugin } from 'workbox-range-requests'
 skipWaiting()
 clientsClaim()
 
-const cacheKeyWillBeUsed: any = ({ request }: { request: any }) =>
-  getCacheKeyForURL(request.url)
+self.addEventListener('message', (event: ExtendableMessageEvent) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting()
+  }
+})
+
+self.addEventListener('activate', (event: ExtendableEvent) => {
+  event.waitUntil(
+    caches.keys().then((cacheList) =>
+      Promise.all(
+        cacheList.map((cacheName) => {
+          if (
+            cacheName !== cacheNames.runtime &&
+            cacheName !== cacheNames.precache
+          ) {
+            return caches.delete(cacheName)
+          }
+          return Promise.resolve()
+        }),
+      ),
+    ),
+  )
+})
 
 registerRoute(
   ({ url }) => url.pathname.endsWith('.mp3'),
   new StaleWhileRevalidate({
-    cacheName: cacheNames.precache,
-    plugins: [{ cacheKeyWillBeUsed }, new RangeRequestsPlugin()],
+    cacheName: cacheNames.runtime,
+    plugins: [new RangeRequestsPlugin()],
   }),
 )
 
-precacheAndRoute(self.__WB_MANIFEST)
+precacheAndRoute(self.__WB_MANIFEST as any)
