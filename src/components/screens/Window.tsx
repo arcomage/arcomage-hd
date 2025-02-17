@@ -57,22 +57,25 @@ const Window = ({
     const timer: ReturnType<typeof setTimeout> = setTimeout(() => {
       setExitable(true)
     }, exitableDelay)
-
-    setTimeout(() => {
-      if (containerRef.current) {
-        ;(
-          containerRef.current.querySelector(
-            'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-          ) as HTMLElement | null
-        )?.focus()
-      }
-    }, 50)
-    // containerRef.current.focus()
-
     return () => {
       clearTimeout(timer)
     }
   }, [exitableDelay])
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (containerRef.current) {
+        const lastEnabledCard = document.querySelector(
+          'button.card:not([disabled]):last-of-type',
+        ) as HTMLButtonElement | null
+        if (lastEnabledCard) {
+          // Set focus to the last enabled card so that tab will focus on the first focusable element in the Window
+          lastEnabledCard.focus()
+          lastEnabledCard.blur()
+        }
+      }
+    }, 50)
+  }, [])
 
   // to prevent cancelFunc from using stale exitable value
   const exitableRef = useRef<boolean>(false)
