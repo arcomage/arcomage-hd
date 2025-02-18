@@ -11,6 +11,7 @@ import {
   cardNameMaxLength,
   cardTransitionDuration,
   resbgOpacity,
+  touchDelay,
   unusableCardOpacity,
 } from '../constants/visuals'
 
@@ -29,6 +30,7 @@ import {
   shouldUseAi,
 } from '../constants/devSettings'
 import { tooltipAttrs } from '../utils/tooltip'
+import isTouch from '../utils/isTouch'
 
 const calcOpacity = ({
   unusable,
@@ -345,24 +347,33 @@ const Card = ({
             clearTimeout(timer)
           }
         }
-        return {
-          onContextMenu: (e: React.MouseEvent) => {
-            e.preventDefault()
-            discardCardFunc()
-          },
-          // Most mobile system treat long press as right click on desktop,
-          // but not iOS 13+ which need the following listeners
-          onTouchStart: (e: React.TouchEvent<HTMLButtonElement>) => {
-            timer = setTimeout(() => {
-              e.preventDefault()
-              discardCardFunc()
-            }, 500)
-            return clear
-          },
-          onTouchCancel: clear,
-          onTouchEnd: clear,
-          onTouchMove: clear,
-        }
+        /**
+         * Note: Most mobile systems treat long press as right click on desktop,
+         * but not iOS 13+ which need onTouch listeners
+         * so we use onTouch listeners for all (very likely) touch-only devices and use onContextMenu for all other devices
+         */
+        return isTouch
+          ? {
+              onTouchStart: (e: React.TouchEvent<HTMLButtonElement>) => {
+                if (e.touches.length > 1) {
+                  // ignore multi-touch
+                  return
+                }
+                timer = setTimeout(() => {
+                  e.preventDefault()
+                  discardCardFunc()
+                }, touchDelay)
+              },
+              onTouchCancel: clear,
+              onTouchEnd: clear,
+              onTouchMove: clear,
+            }
+          : {
+              onContextMenu: (e: React.MouseEvent) => {
+                e.preventDefault()
+                discardCardFunc()
+              },
+            }
       }
       return {}
     })()
@@ -418,12 +429,9 @@ const Card = ({
             if (el) {
               const mouseEvent = new MouseEvent('contextmenu', {
                 bubbles: true,
-                cancelable: false,
+                cancelable: true,
                 view: window,
                 button: 2,
-                buttons: 0,
-                clientX: el.getBoundingClientRect().x,
-                clientY: el.getBoundingClientRect().y,
               })
               e.preventDefault()
               el.dispatchEvent(mouseEvent)

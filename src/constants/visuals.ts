@@ -34,3 +34,5 @@ export const stereoPanValue = 0.7
 
 export const startSoundLength = 10000
 export const typingSoundLength = 1000
+
+export const touchDelay = 500
