@@ -20,6 +20,12 @@ export default (
     filter(isOfType(CHECK_SURRENDER)),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
+      // if multiplayer mode, don't check surrender, user should manually start a new game
+      // this is to temporarily fix https://github.com/arcomage/arcomage-hd/issues/94
+      if (state.multiplayer.on) {
+        return EMPTY
+      }
+
       // it borrows `checkCardUseDiscard` function and relavant types in ai/ folder
       const cardList: AiCardListItemType[] = checkCardUseDiscard(
         state,
