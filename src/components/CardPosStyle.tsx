@@ -26,7 +26,6 @@ const getHeight = (
   if (shouldUseWidth(tableHeight, tableWidth, total)) {
     return tableHeight * heightPercToTable
   } else {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     return getWidth(tableHeight, tableWidth, total) / whRatio
   }
 }

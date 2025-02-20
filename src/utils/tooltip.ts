@@ -67,7 +67,7 @@ const adjustTooltip = (tooltip: HTMLElement, tooltipId: string) => {
 
   let newLeft = rect.left
   let newTop = rect.top
-  let offset: {
+  const offset: {
     x?: number
     y?: number
   } = {}
@@ -95,7 +95,7 @@ const adjustTooltip = (tooltip: HTMLElement, tooltipId: string) => {
   const hasOffset = Object.keys(offset).length !== 0
 
   if (hasOffset) {
-    let existingStyle = document.getElementById(`${tooltipId}-style`)
+    const existingStyle = document.getElementById(`${tooltipId}-style`)
     if (existingStyle) {
       tooltip.removeChild(existingStyle)
     }

@@ -3,7 +3,7 @@ import './App.scss'
 import Game from './components/Game'
 import { useAppDispatch } from './utils/hooks/useAppDispatch'
 
-import useBeforeWindowUnloadWarning from './utils/hooks/useBeforeWindowUnloadWarning'
+import { useBeforeWindowUnloadWarning } from './utils/hooks/useBeforeWindowUnloadWarning'
 import useDisableContextMenu from './utils/hooks/gamecontrols/useDisableContextMenu'
 import useWindowLoad from './utils/hooks/useWindowLoad'
 import { GameSizeContext } from './utils/contexts/GameSizeContext'

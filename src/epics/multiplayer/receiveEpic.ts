@@ -61,7 +61,9 @@ export default (
         })
 
         return concat(...ret)
-      } catch (error) {}
+      } catch (error) {
+        /* empty */
+      }
       return EMPTY
     }),
   )

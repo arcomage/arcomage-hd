@@ -1,19 +1,18 @@
 import { useEffect } from 'react'
 import { enableWindowUnloadWarning } from '../../constants/devSettings'
 
-const useBeforeWindowUnloadWarning = () => {
+export const beforeWindowUnloadFn = (e: BeforeUnloadEvent): void => {
+  e.preventDefault()
+  e.returnValue = ''
+}
+
+export const useBeforeWindowUnloadWarning = () => {
   useEffect(() => {
     if (enableWindowUnloadWarning) {
-      const onUnload = (e: BeforeUnloadEvent): void => {
-        e.preventDefault()
-        e.returnValue = ''
-      }
-      window.addEventListener('beforeunload', onUnload)
+      window.addEventListener('beforeunload', beforeWindowUnloadFn)
       return () => {
-        window.removeEventListener('beforeunload', onUnload)
+        window.removeEventListener('beforeunload', beforeWindowUnloadFn)
       }
     }
   }, [])
 }
-
-export default useBeforeWindowUnloadWarning

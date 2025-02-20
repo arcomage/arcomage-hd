@@ -238,7 +238,7 @@ const Pref = () => {
   // only `formFields`-controlled fields use `handleChange`
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, type, inputMode } = e.target
-    let { value } = e.target
+    const { value } = e.target
     setFormFields((prev) =>
       produce(prev, (draft) => {
         if (hasOwnProperty(draft, name)) {

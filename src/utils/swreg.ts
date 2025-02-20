@@ -1,5 +1,8 @@
+import { beforeWindowUnloadFn } from './hooks/useBeforeWindowUnloadWarning'
+
 function updateApp(registration: ServiceWorkerRegistration) {
   if (confirm('A new version is available. Reload now?')) {
+    window.removeEventListener('beforeunload', beforeWindowUnloadFn)
     registration.waiting?.postMessage({ type: 'SKIP_WAITING' })
     window.location.reload()
   }

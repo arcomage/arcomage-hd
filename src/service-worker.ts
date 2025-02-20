@@ -2,7 +2,6 @@
 
 declare const self: ServiceWorkerGlobalScope
 
-/* eslint-disable import/no-extraneous-dependencies */
 import { skipWaiting, clientsClaim, cacheNames } from 'workbox-core'
 import { precacheAndRoute } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'

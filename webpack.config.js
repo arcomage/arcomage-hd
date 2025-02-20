@@ -117,8 +117,21 @@ module.exports = (env, argv) => {
                   plugins: [
                     'postcss-import',
                     'tailwindcss',
-                    'autoprefixer',
-                    ...(dev ? [] : ['cssnano']),
+                    [
+                      'postcss-preset-env',
+                      {
+                        env: 'production',
+                      },
+                    ],
+                    // dev
+                    //   ? null
+                    //   : [
+                    //       'doiuse',
+                    //       {
+                    //         browsers: JSON.parse(fs.readFileSync('package.json', 'utf8'))?.browserslist?.production ?? '',
+                    //       },
+                    //     ],
+                    // ...(dev ? [] : ['cssnano']),
                   ],
                 },
               },

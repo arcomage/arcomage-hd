@@ -24,7 +24,7 @@ export const initQueues = new Map<
 // }
 
 if (process.env.ISDEV) {
-  ;(window as any).dq = drawCardQueues
-  ;(window as any).pq = playCardQueues
-  ;(window as any).iq = initQueues
+  ;(window as Window & typeof globalThis & { dq: unknown }).dq = drawCardQueues
+  ;(window as Window & typeof globalThis & { pq: unknown }).pq = playCardQueues
+  ;(window as Window & typeof globalThis & { iq: unknown }).iq = initQueues
 }

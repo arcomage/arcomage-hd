@@ -1,8 +1,0 @@
-node_modules
-dist
-coverage
-__mocks__
-others
-
-*.js
-setup-tests.ts
