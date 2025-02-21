@@ -127,7 +127,7 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
       <div ref={towerNBearer} className="w-full h-full">
         <div
           className={cx(
-            'z-20 w-full h-full absolute overflow-hidden',
+            'w-full h-full absolute overflow-hidden',
             classes.towerwrapper,
           )}
           aria-hidden={true}
