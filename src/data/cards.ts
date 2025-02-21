@@ -485,7 +485,7 @@ const cards: DataCardsType = [
     // desc: "+3 Tower. This card can't be discarded without playing it",
     type: 1,
     cost: 5,
-    prob: 200,
+    prob: 2,
     special: { undiscardable: true },
     effect: (p, o) => {
       change(p, 'tower', 3)
