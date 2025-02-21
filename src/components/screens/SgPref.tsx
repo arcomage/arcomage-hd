@@ -67,6 +67,7 @@ const SgPref = () => {
         {_.i18n('Sound')}
         {_.i18n(': ')}
       </h3>
+      {/* no lint reason: though deeply nested, text is in the label */}
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label>
         <div className="flex justify-between">
@@ -131,6 +132,7 @@ const SgPref = () => {
           <span>{_.i18n('Disable animation')}</span>
         </label>
       </div>
+      {/* no lint reason: though deeply nested, text is in the label */}
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label>
         <div className="flex justify-between">
@@ -197,6 +199,7 @@ const SgPref = () => {
           {dataVisualvalues
             .filter((d): d is DataVisualvaluesMainType => d.type === 'main')
             .map((d) => (
+              // no lint reason: though deeply nested, text is in the label
               // eslint-disable-next-line jsx-a11y/label-has-associated-control
               <label key={d.term} className="w-1/4 px-1">
                 <div className="flex justify-between">

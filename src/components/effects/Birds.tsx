@@ -122,6 +122,9 @@ const Bird = ({ index }: PropType) => {
 
   useEffect(() => {
     return () => {
+      // no lint reason: expected to change before cleanup
+      // eslint-disable-next-line react-compiler/react-compiler
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       timeoutRefs.current.forEach(clearTimeout)
     }
   }, [])

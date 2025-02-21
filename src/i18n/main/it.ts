@@ -183,6 +183,9 @@ il rosso rappresenta il Generatore Pietra, che produce i Mattoni; il blu rappres
     'Senza carte utilizzabili o scartate, il tuo avversario si è arreso',
   'With no usable or discardable card, you have surrendered':
     'Senza carte utilizzabili o scartate, ti sei arreso',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    'Senza carte utilizzabili o scartate, devi arrenderti. Apri la finestra "%s1" e clicca su "%s2" (o chiedi al tuo avversario di farlo)',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode':
     'Si prega di ruotare il dispositivo in modalità orizzontale',

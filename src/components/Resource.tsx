@@ -22,25 +22,7 @@ import recruit from '../../assets/img/recruit.svg'
 import { resNameAllMap, ResNameType } from '../constants/resourceNames'
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '../utils/tooltip'
-
-const whRatio = 156 / 216
-
-const getFontSize = (height: number, percentage: number): number => {
-  const fontSizeTemp = height * percentage
-  return Math.max(fontSizeTemp, minRootFontSize)
-}
-
-const getLineHeight = (height: number, percentage: number): number =>
-  getFontSize(height, percentage) * 1.2
-
-const calcProdHeight = (height: number): string =>
-  `(${height}px - 1.25rem * 2 - (1.75rem + 0.25rem * 2 + 1rem) - (0.25rem * 2 + ${getLineHeight(
-    height,
-    0.036,
-  )}px + 0.25rem + 0.75rem) * 3) / 3`
-
-export const calcStatusWidth = (height: number): string =>
-  `${calcProdHeight(height)} / ${whRatio} + 0.25rem * 2 + 1.25rem * 2`
+import { calcProdHeight, getFontSize, getLineHeight } from './ResourceFuncs'
 
 const useStyles = createUseStyles<
   string,

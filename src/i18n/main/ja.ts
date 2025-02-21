@@ -179,6 +179,9 @@ export const i18n = {
     '使用可能または破棄可能なカードがないため、相手は降伏しました',
   'With no usable or discardable card, you have surrendered':
     '使用可能または廃棄可能なカードがないため、あなたは降伏しました',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    '使用可能または廃棄可能なカードがないため、降伏する必要があります。「%s1」ウィンドウを開いて「%s2」をクリックしてください (または相手にそうするように依頼してください)',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode':
     'デバイスを横向きモードに回転させてください',

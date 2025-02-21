@@ -32,7 +32,7 @@ import {
   defaultSettings,
   defaultAiLevel,
 } from '../../constants/defaultSettings'
-import { hasOwnProperty } from '../../utils/typeHelpers'
+import { hasProperty } from '../../utils/typeHelpers'
 import {
   copiedDuration,
   shorterIdStartEndLength,
@@ -179,13 +179,13 @@ const Pref = () => {
         payload: rest,
       })
     }
-  }, getAllCondAndOtherSettingsArray(formFields))
+  }, [dispatch, formFields, isHost])
 
   const [tempPreset, setTempPreset] = useState<number>(-10)
 
   useEffect(() => {
     setTempPreset(checkPreset(tempSettingsStore))
-  }, getAllCondAndOtherSettingsArray(tempSettingsStore))
+  }, [tempSettingsStore])
 
   const prevMultiplayerStatus = useRef('')
   useEffect(() => {
@@ -225,7 +225,7 @@ const Pref = () => {
     }
 
     prevMultiplayerStatus.current = multiplayerStatus
-  }, [multiplayerStatus, settingStore.opponentId])
+  }, [dispatch, formFields, multiplayerStatus, settingStore.opponentId])
 
   useEffect(() => {
     setFormFields((prev) =>
@@ -241,7 +241,7 @@ const Pref = () => {
     const { value } = e.target
     setFormFields((prev) =>
       produce(prev, (draft) => {
-        if (hasOwnProperty(draft, name)) {
+        if (hasProperty(draft, name)) {
           if (inputMode === 'numeric') {
             draft[name] = parseInt(value, 10)
           } else if (type === 'text') {
@@ -280,7 +280,12 @@ const Pref = () => {
   useEffect(() => {
     switch (multiplayerStatus) {
       case 'connecting_net':
-        setNotification(_.i18n('Connecting to the network ⌛'))
+        setNotification(
+          isMultiplayer
+            ? _.i18n('Connecting to the network ⌛')
+            : _.i18n('Disconnected 🔌'),
+          // check multiplayer checkbox, before failed or connected, uncheck it, multiplayerStatus will stay at 'connecting_net' and not change to 'disconnected'
+        )
         break
 
       case 'connected_net':
@@ -344,12 +349,18 @@ const Pref = () => {
       default:
         break
     }
-  }, [multiplayerStatus, _])
+  }, [
+    multiplayerStatus,
+    _,
+    formFields.opponentId,
+    settingStore.opponentId,
+    isMultiplayer,
+  ])
 
   useEffect(() => {
     setIsGuest(isMultiplayer && multiplayerStatus === 'connected_by_id')
     setIsHost(isMultiplayer && multiplayerStatus === 'connected_to_id')
-  }, [multiplayerStatus])
+  }, [isMultiplayer, multiplayerStatus])
 
   return (
     <Window

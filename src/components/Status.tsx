@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
-import Resource, { calcStatusWidth } from './Resource'
+import Resource from './Resource'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 import Name from './Name'
+import { calcStatusWidth } from './ResourceFuncs'
 
 const useStyles = createUseStyles<string, { height: number }>({
   main: {

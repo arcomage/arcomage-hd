@@ -62,30 +62,28 @@ const nativeAPI: Record<string, string> | null = (() => {
   return null
 })()
 
-const requestFullscreen = nativeAPI?.requestFullscreen
-const exitFullscreen = nativeAPI?.exitFullscreen
-const fullscreenElement = nativeAPI?.fullscreenElement
-const fullscreenEnabled = nativeAPI?.fullscreenEnabled
-// const fullscreenchange = nativeAPI?.fullscreenchange
-// const fullscreenerror = nativeAPI?.fullscreenerror
+/* prettier-ignore */ const requestFullscreenString = nativeAPI?.requestFullscreen as 'requestFullscreen' | undefined
+/* prettier-ignore */ const exitFullscreenString    = nativeAPI?.exitFullscreen    as 'exitFullscreen'    | undefined
+/* prettier-ignore */ const fullscreenElementString = nativeAPI?.fullscreenElement as 'fullscreenElement' | undefined
+/* prettier-ignore */ const fullscreenEnabledString = nativeAPI?.fullscreenEnabled as 'fullscreenEnabled' | undefined
+/* prettier-ignore */ // const fullscreenchange        = nativeAPI?.fullscreenchange  as 'fullscreenchange'  | undefined
+/* prettier-ignore */ // const fullscreenerror         = nativeAPI?.fullscreenerror   as 'fullscreenerror'   | undefined
 
-export const isEnabled: boolean = fullscreenEnabled
-  ? (document as Record<string, any>)[fullscreenEnabled]
+export const isEnabled: boolean = fullscreenEnabledString
+  ? document[fullscreenEnabledString]
   : false
 
 export const isFullscreen = (): boolean =>
-  fullscreenElement
-    ? (document as Record<string, any>)[fullscreenElement]
-    : false
+  fullscreenElementString ? !!document[fullscreenElementString] : false
 
 export const requestFs = () => {
-  if (requestFullscreen) {
-    ;(document.documentElement as Record<string, any>)[requestFullscreen]()
+  if (requestFullscreenString) {
+    document.documentElement[requestFullscreenString]()
   }
 }
 
 export const exitFs = () => {
-  if (exitFullscreen) {
-    ;(document as Record<string, any>)[exitFullscreen]()
+  if (exitFullscreenString) {
+    document[exitFullscreenString]()
   }
 }

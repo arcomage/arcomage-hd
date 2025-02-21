@@ -2,7 +2,6 @@ import {
   entries,
   fromEntries,
   setProperty,
-  hasOwnProperty,
   notEmpty,
   isInArray,
 } from '../../src/utils/typeHelpers'
@@ -29,11 +28,6 @@ it('setProperty is OK', () => {
   const obj = { foo: 'bar', baz: 42 }
   setProperty(obj, 'foo', 'hi')
   expect(obj).toEqual({ foo: 'hi', baz: 42 })
-})
-
-it('hasOwnProperty is OK', () => {
-  const obj = { foo: 'bar', baz: 42 }
-  expect(hasOwnProperty(obj, 'foo')).toBeTruthy()
 })
 
 it('notEmpty is OK', () => {

@@ -180,6 +180,9 @@ Czerwony kolor oznacza generator kamieni, w którym powstaje surowiec zwany kami
     'Twój przeciwnik poddał się bez użytecznej lub możliwej do odrzucenia karty',
   'With no usable or discardable card, you have surrendered':
     'Nie posiadając żadnej możliwej do użycia lub odrzucenia karty, poddałeś się',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    'Jeśli nie masz użytecznych ani odrzucanych kart, musisz się poddać. Otwórz okno "%s1" i kliknij "%s2" (lub poproś o to przeciwnika)',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode':
     'Proszę obrócić urządzenie do trybu poziomego',

@@ -92,6 +92,6 @@ class sendSequence {
 export const sendSeq = new sendSequence()
 
 if (process.env.ISDEV) {
-  ;(window as any).sq = sendSeq
-  ;(window as any).rq = receiveSeq
+  ;(window as Window & typeof globalThis & { sq: unknown }).sq = sendSeq
+  ;(window as Window & typeof globalThis & { rq: unknown }).rq = receiveSeq
 }

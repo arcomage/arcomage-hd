@@ -78,6 +78,9 @@ const App = () => {
 
     checkAndShowLandscapeNotice()
     checkAndSetRootFontSize(width, height)
+    // no lint reason: dispatch function is stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width, height])
 
   return (

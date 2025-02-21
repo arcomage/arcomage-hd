@@ -183,6 +183,9 @@ En Rouge, votre Carrière qui produit des Briques. En Bleu, votre Magie qui prod
     'Sans carte utilisable ou défaussable, votre adversaire a capitulé',
   'With no usable or discardable card, you have surrendered':
     'Sans carte utilisable ou défaussable, vous avez capitulé',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    'Sans carte utilisable ou défaussable, vous devez capituler. Ouvrez la fenêtre « %s1 » et cliquez sur « %s2 » (ou demandez à votre adversaire de le faire)',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode':
     'Veuillez faire pivoter votre appareil en mode paysage',

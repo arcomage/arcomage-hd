@@ -180,6 +180,9 @@ Cihly se generují v červeném generátoru těžby, drahokamy v modrém generá
     'Bez použitelné nebo vyřazitelné karty se váš soupeř vzdal',
   'With no usable or discardable card, you have surrendered':
     'Bez použitelné nebo vyřazitelné karty jste se vzdali',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    'Bez použitelné nebo vyřazitelné karty se musíte vzdát. Otevřete okno "%s1" a klikněte na "%s2" (nebo o to požádejte soupeře)',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode':
     'Otočte zařízení do režimu na šířku',

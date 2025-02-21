@@ -181,6 +181,9 @@ Rot stellt Euren Ziegel-Generator dar, der Ziegel-Ressourcen erzeugt, blau den M
     'Ohne verwendbare oder ablegbare Karte hat Ihr Gegner kapituliert',
   'With no usable or discardable card, you have surrendered':
     'Ohne verwendbare oder ablegbare Karte haben Sie aufgegeben',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    'Ohne verwendbare oder ablegbare Karte müssen Sie aufgeben. Öffnen Sie das Fenster „%s1“ und klicken Sie auf „%s2“ (oder bitten Sie Ihren Gegner, dies zu tun)',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode':
     'Bitte drehen Sie Ihr Gerät in das Querformat',

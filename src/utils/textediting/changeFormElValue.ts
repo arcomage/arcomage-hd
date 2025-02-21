@@ -1,4 +1,7 @@
-export const changeInputValue = (target: HTMLInputElement, newValue: any) => {
+export const changeInputValue = (
+  target: HTMLInputElement,
+  newValue: string,
+) => {
   const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
     window.HTMLInputElement.prototype,
     'value',
@@ -13,7 +16,7 @@ export const changeInputValue = (target: HTMLInputElement, newValue: any) => {
 
 export const changeSelectValueByIndex = (
   target: HTMLSelectElement,
-  index: any,
+  index: number,
 ) => {
   target.selectedIndex = index
   target.dispatchEvent(new Event('change', { bubbles: true }))

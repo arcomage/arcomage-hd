@@ -83,7 +83,10 @@ const NumberChangeVisual = ({ n }: PropType) => {
       hasMounted.current = true
     }
     prevNRef.current = n
-  }, [n])
+    // no lint reason: 'classes.explosion', 'classes.firework', 'classes.main' are stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [n, size.narrowMobile])
 
   return (
     <div

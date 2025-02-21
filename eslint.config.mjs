@@ -55,6 +55,7 @@ const conf = tseslint.config(
       'src-tauri/',
       'tools/',
       '*.*',
+      '**/*.d.ts',
     ],
   },
   {

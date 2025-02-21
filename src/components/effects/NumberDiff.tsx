@@ -61,6 +61,9 @@ const NumberDiff = ({ n }: PropType) => {
       hasMounted.current = true
     }
     prevNRef.current = n
+    // no lint reason: `classes.main` is stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [n])
 
   // Force TailwindCSS to aware of these classes:

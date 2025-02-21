@@ -18,6 +18,9 @@ const TowerOrWallNumber = ({ n, target, maxN }: PropType) => {
     // else {
     //   devLog("the tower / wall number component can't get its target!", 'bug')
     // }
+    // no lint reason: `target` is stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nStyle])
 
   return (

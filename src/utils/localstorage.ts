@@ -33,18 +33,22 @@ export const lsVersion = (): void => {
   }
 }
 
-export const lsGet = (
+export const lsGet = <T>(
   name: keyof LocalstorageType | [keyof LocalstorageType, ...string[]],
-): any => {
+): T | null => {
   const v = window.localStorage.getItem(localstorageName)
   if (v === null) {
     return null
   }
   const lsStore: LocalstorageType = JSON.parse(v)
+
   if (typeof name === 'string') {
-    return lsStore[name]
+    return lsStore[name] as T
   } else {
-    return name.reduce<any>((acc, n) => acc?.[n] ?? null, lsStore)
+    return name.reduce<unknown>(
+      (acc, n) => (acc as Record<string, unknown>)?.[n] ?? null,
+      lsStore,
+    ) as T | null
   }
 }
 

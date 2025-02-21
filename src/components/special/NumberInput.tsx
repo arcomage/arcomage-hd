@@ -4,6 +4,7 @@ import React, {
   useState,
   InputHTMLAttributes,
   useMemo,
+  useCallback,
 } from 'react'
 
 const _toValidMaxMin = (
@@ -101,40 +102,46 @@ const NumberInput = ({
 
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const validateAndUpdate = (val: string) => {
-    const finalValue = validate(val, _max, _min).toString()
-    setInputValue(finalValue)
-    setHasError(false)
+  const validateAndUpdate = useCallback(
+    (val: string) => {
+      const finalValue = validate(val, _max, _min).toString()
+      setInputValue(finalValue)
+      setHasError(false)
 
-    if (
-      debounceTimerRef.current === undefined &&
-      oldInputValueRef.current !== undefined &&
-      finalValue !== oldInputValueRef.current &&
-      onChange &&
-      inputRef.current
-    ) {
-      inputRef.current.value = finalValue
-      const e = {
-        target: inputRef.current,
-      } as React.ChangeEvent<HTMLInputElement>
-      onChange(e)
-    }
-    oldInputValueRef.current = finalValue
-  }
+      if (
+        debounceTimerRef.current === undefined &&
+        oldInputValueRef.current !== undefined &&
+        finalValue !== oldInputValueRef.current &&
+        onChange &&
+        inputRef.current
+      ) {
+        inputRef.current.value = finalValue
+        const e = {
+          target: inputRef.current,
+        } as React.ChangeEvent<HTMLInputElement>
+        onChange(e)
+      }
+      oldInputValueRef.current = finalValue
+    },
+    [_max, _min, onChange, validate],
+  )
 
-  const immediateValidateAndUpdate = (val: string) => {
-    if (debounceTimerRef.current) {
-      clearTimeout(debounceTimerRef.current)
-    }
-    debounceTimerRef.current = undefined
-    validateAndUpdate(val)
-  }
+  const immediateValidateAndUpdate = useCallback(
+    (val: string) => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current)
+      }
+      debounceTimerRef.current = undefined
+      validateAndUpdate(val)
+    },
+    [validateAndUpdate],
+  )
 
   useEffect(() => {
     if (value !== undefined) {
       immediateValidateAndUpdate(value?.toString() ?? '0')
     }
-  }, [value, _min, _max])
+  }, [value, _min, _max, immediateValidateAndUpdate])
 
   const debouncedValidateAndUpdate = (val: string, delay: number) => {
     if (debounceTimerRef.current) {
@@ -252,6 +259,5 @@ const NumberInput = ({
     </div>
   )
 }
-
 NumberInput.displayName = 'NumberInput'
 export default NumberInput

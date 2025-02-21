@@ -177,6 +177,9 @@ export const i18n = {
     'Якщо у опонента немає можливості ні зіграти, ні скинути карту - він автоматично здається',
   'With no usable or discardable card, you have surrendered':
     'Якщо у вас немає можливості ні зіграти, ні скинути карту - вм автоматично здаєтеся',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    'Якщо у вас немає можливості ні зіграти, ні скинути карту, ви повинні здатися. Відкрийте вікно «%s1» і натисніть «%s2» (або попросіть опонента зробити це)',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode':
     'Будь ласка, поверніть прилад в альбомний режим',

@@ -1,5 +1,4 @@
 import { PersonStatusType } from '../../types/state'
-import { hasOwnProperty } from '../typeHelpers'
 
 import towerUpUrl from '../../../assets/sfx/tower_up.mp3'
 import wallUpUrl from '../../../assets/sfx/wall_up.mp3'
@@ -115,7 +114,7 @@ export const play = (
 ): void => {
   const audioName: string = (() => {
     const tempObj = audioMap[type]
-    if (typeof tempObj === 'object' && hasOwnProperty(tempObj, 'up')) {
+    if (typeof tempObj === 'object' && 'up' in tempObj) {
       return increase ? tempObj.up : tempObj.down
     } else {
       return tempObj as string

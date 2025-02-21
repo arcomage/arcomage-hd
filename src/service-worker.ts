@@ -43,4 +43,4 @@ registerRoute(
   }),
 )
 
-precacheAndRoute(self.__WB_MANIFEST as any)
+precacheAndRoute(self.__WB_MANIFEST)

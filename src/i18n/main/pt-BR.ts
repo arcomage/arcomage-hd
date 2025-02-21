@@ -181,6 +181,9 @@ Na coluna lateral, o vermelho representa seu gerador Pedreira, que produz Tijolo
     'Sem cartas usáveis ou descartaveis, seu oponente se rendeu',
   'With no usable or discardable card, you have surrendered':
     'Sem cartas usáveis ou descartáveis, você se rendeu',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    'Sem cartas usáveis ou descartáveis, você deve se render. Abra a janela "%s1" e clique em "%s2" (ou peça para seu oponente fazer isso)',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode':
     'Por favor, rotacione seu dispositivo para o modo paisagem',

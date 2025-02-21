@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { I18nProvider } from '../../src/i18n/I18nContext'
+import I18nProvider from '../../src/i18n/I18nProvider'
 import { Provider } from 'react-redux'
 import { store } from '../../src/store'
 import EndScreen from '../../src/components/screens/EndScreen'

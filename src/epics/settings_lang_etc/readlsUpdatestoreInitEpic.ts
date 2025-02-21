@@ -18,13 +18,18 @@ import { filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { of, concat, EMPTY, Observable } from 'rxjs'
 import { isOfType } from 'typesafe-actions'
 import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
+import {
+  RootStateType,
+  SettingsStateType,
+  VisualValuesType,
+} from '../../types/state'
 import { lsGet, lsVersion } from '../../utils/localstorage'
 import { sample } from '../../utils/random'
 import {
   defaultOpponentNameList,
   defaultPlayerNameList,
 } from '../../constants/defaultSettings'
+import { AvailableLangType } from '../../i18n/types'
 
 export default (
   action$: Observable<RootActionType>,
@@ -34,16 +39,20 @@ export default (
     filter(isOfType(READLS_UPDATESTORE_INIT)),
     mergeMap((action) => {
       lsVersion()
-      const lang = lsGet(['lang', 'code'])
-      const boldfont = lsGet(['lang', 'boldfont'])
-      const erathian = lsGet(['lang', 'erathian'])
-      const settings = lsGet(['settings'])
-      const volume = lsGet(['sound', 'volume'])
-      const stereo = lsGet(['sound', 'stereo'])
-      const noanim = lsGet(['visual', 'noanim'])
-      const pixelation = lsGet(['visual', 'pixelation'])
-      const visualvalues = lsGet(['visual', 'visualvalues'])
-      const aiLevel = lsGet(['ai', 'aiLevel'])
+      const lang = lsGet<AvailableLangType>(['lang', 'code'])
+      const boldfont = lsGet<boolean>(['lang', 'boldfont'])
+      const erathian = lsGet<boolean>(['lang', 'erathian'])
+      const settings = lsGet<Partial<SettingsStateType>>(['settings'])
+      const volume = lsGet<number>(['sound', 'volume'])
+      const stereo = lsGet<boolean>(['sound', 'stereo'])
+      const noanim = lsGet<boolean>(['visual', 'noanim'])
+      const pixelation = lsGet<number>(['visual', 'pixelation'])
+      const visualvalues = lsGet<Partial<VisualValuesType>>([
+        'visual',
+        'visualvalues',
+      ])
+      const aiLevel = lsGet<number>(['ai', 'aiLevel'])
+
       return concat(
         settings !== null
           ? of<RootActionType>({

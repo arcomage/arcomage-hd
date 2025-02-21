@@ -13,8 +13,8 @@ export const keys = Object.keys as <T extends object>(obj: T) => Array<keyof T>
 
 export type DeepReadonly<T> = { readonly [P in keyof T]: DeepReadonly<T[P]> }
 
-export type ArrayElement<ArrayType extends readonly unknown[]> =
-  ArrayType extends readonly (infer ElementType)[] ? ElementType : never
+// export type ArrayElement<ArrayType extends readonly unknown[]> =
+//   ArrayType extends readonly (infer ElementType)[] ? ElementType : never
 
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
@@ -32,10 +32,12 @@ export const setProperty = <T, K extends keyof T>(
   obj[key] = value
 }
 
-export const hasOwnProperty = <X extends {}, Y extends PropertyKey>(
-  obj: X,
-  prop: Y,
-): obj is X & Record<Y, unknown> => obj.hasOwnProperty(prop)
+export const hasProperty = <T extends object, K extends PropertyKey>(
+  obj: T,
+  key: K,
+): obj is T & Record<K, unknown> => {
+  return key in obj
+}
 
 export const notEmpty = <TValue>(
   value: TValue | null | undefined,

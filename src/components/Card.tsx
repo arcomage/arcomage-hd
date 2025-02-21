@@ -32,6 +32,10 @@ import {
 import { tooltipAttrs } from '../utils/tooltip'
 import isTouch from '../utils/isTouch'
 
+// `require.context()` is webpack-only
+const images = require.context('../../assets/img/cards', false, /\.webp$/)
+const getImageUrl = (n: number) => images(`./${n}.webp`)
+
 const calcOpacity = ({
   unusable,
   zeroOpacity,
@@ -465,7 +469,7 @@ const Card = ({
           >
             <div
               style={{
-                backgroundImage: `url(${require(`../../assets/img/cards/${n}.webp`)})`,
+                backgroundImage: `url(${getImageUrl(n)})`,
               }}
               className="w-full h-full bg-cover pixelated"
             ></div>

@@ -175,6 +175,9 @@ export const i18n = {
     '沒有任何牌可以使用或丟棄，你的對手被迫投降了',
   'With no usable or discardable card, you have surrendered':
     '沒有任何牌可以使用或丟棄，你被迫投降了',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    '沒有任何牌可以使用或丟棄，你必須投降。開啟「%s1」視窗並點選「%s2」（或請你的對手這樣做）',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode': '請將設備旋轉到橫向模式',
 }

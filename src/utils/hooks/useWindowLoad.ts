@@ -2,14 +2,16 @@ import { useEffect } from 'react'
 
 const useWindowLoad = (func: (event: Event) => void) => {
   useEffect(() => {
-    const onLoad = (event: Event): void => {
+    const handleLoad = (event: Event) => {
       func(event)
     }
-    window.addEventListener('load', onLoad)
+
+    window.addEventListener('load', handleLoad)
+
     return () => {
-      window.removeEventListener('load', onLoad)
+      window.removeEventListener('load', handleLoad)
     }
-  }, [])
+  }, [func])
 }
 
 export default useWindowLoad

@@ -23,7 +23,8 @@ export const peerAll: ConnectionType = {
 }
 
 if (process.env.ISDEV) {
-  ;(window as any).peerAll = peerAll
+  ;(window as Window & typeof globalThis & { peerAll: unknown }).peerAll =
+    peerAll
 }
 
 export const onUnloadDisconnect = () => {

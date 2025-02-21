@@ -182,6 +182,9 @@ Red represents your Quarry Generator which produces your Brick resources, blue r
     'With no usable or discardable card, your opponent has surrendered',
   'With no usable or discardable card, you have surrendered':
     'With no usable or discardable card, you have surrendered',
+  'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)':
+    'With no usable or discardable card, you must surrender. Open the "%s1" window and click "%s2" (or ask your opponent to do so)',
+  // %s1 and %s2 do not need to be translated. %s1 = 'Preferences' ; %s2 = 'Apply & New Game'
 
   'Please rotate your device to landscape mode':
     'Please rotate your device to landscape mode',

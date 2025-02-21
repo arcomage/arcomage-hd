@@ -1,8 +1,20 @@
-export const shallowCompare = (
-  obj1: Record<string, any>,
-  obj2: Record<string, any>,
-) =>
-  Object.keys(obj1).length === Object.keys(obj2).length &&
-  Object.keys(obj1).every(
-    (key) => obj2.hasOwnProperty(key) && obj1[key] === obj2[key],
-  )
+export const shallowCompare = <T extends object>(objA: T, objB: T): boolean => {
+  if (objA === objB) {
+    return true
+  }
+
+  const keysA = Object.keys(objA) as Array<keyof T>
+  const keysB = Object.keys(objB) as Array<keyof T>
+
+  if (keysA.length !== keysB.length) {
+    return false
+  }
+
+  for (const key of keysA) {
+    if (objA[key] !== objB[key]) {
+      return false
+    }
+  }
+
+  return true
+}

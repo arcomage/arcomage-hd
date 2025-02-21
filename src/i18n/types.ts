@@ -1,7 +1,7 @@
-import { ArrayElement, RequiredBy } from '../utils/typeHelpers'
-import { langs, defaultLang } from './langs'
+// import { RequiredBy } from '../utils/typeHelpers'
+import { langs } from './langs'
 
-export type AvailableLangType = ArrayElement<typeof langs>
+export type AvailableLangType = (typeof langs)[number]
 
 export type TranslationItemType = Partial<Record<string, string>> | null
 
