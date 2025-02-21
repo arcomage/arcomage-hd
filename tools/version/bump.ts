@@ -17,6 +17,13 @@ import semver from 'semver'
 const versionOrRelease: string | undefined = process.argv[2]
 const identifier: string | undefined = process.argv[3]
 
+try {
+  execSync('bun checkall', { stdio: 'inherit' })
+} catch (error) {
+  console.error('Prettier, eslint, type check, or test has failed')
+  process.exit(1)
+}
+
 const gitStatus = execSync('git status --porcelain').toString()
 if (gitStatus) {
   console.error(
