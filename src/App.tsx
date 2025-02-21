@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import './App.scss'
 import Game from './components/Game'
 import { useAppDispatch } from './utils/hooks/useAppDispatch'
 

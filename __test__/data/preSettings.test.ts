@@ -1,3 +1,4 @@
+import { it, expect } from 'bun:test'
 import { preSettings, continents } from '../../src/data/preSettings'
 import { allCondAndOtherSettingsEqual } from '../../src/utils/startWinState'
 

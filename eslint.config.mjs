@@ -42,8 +42,6 @@ const conf = tseslint.config(
   },
   {
     ignores: [
-      '__mocks__/',
-      '__test__/',
       '.github/',
       '.vscode/',
       'assets/',
@@ -53,7 +51,6 @@ const conf = tseslint.config(
       'node_modules/',
       'others/',
       'src-tauri/',
-      'tools/',
       '*.*',
       '**/*.d.ts',
     ],

@@ -3,8 +3,8 @@ import { PersonStatusType } from '../../src/types/state'
 import { keys } from '../../src/utils/typeHelpers'
 
 const objCalc = (
-  objA: Record<string, any>,
-  objB: Record<string, any>,
+  objA: Record<string, number>,
+  objB: Record<string, number>,
   func: (a: number, b: number) => number,
 ) => {
   const res = { ...objA }

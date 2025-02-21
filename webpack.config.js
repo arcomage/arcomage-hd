@@ -131,7 +131,7 @@ module.exports = (env, argv) => {
                     //         browsers: JSON.parse(fs.readFileSync('package.json', 'utf8'))?.browserslist?.production ?? '',
                     //       },
                     //     ],
-                    // ...(dev ? [] : ['cssnano']),
+                    ...(dev ? [] : ['cssnano']),
                   ],
                 },
               },

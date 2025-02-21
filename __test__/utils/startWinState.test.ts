@@ -1,3 +1,4 @@
+import { it, expect } from 'bun:test'
 import { getWinState } from '../../src/utils/startWinState'
 
 it('getWinState is OK', () => {

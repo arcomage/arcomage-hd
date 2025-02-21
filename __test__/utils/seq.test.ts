@@ -1,3 +1,4 @@
+import { it, expect } from 'bun:test'
 import { receiveSeq, sendSeq } from '../../src/utils/multiplayer/seq'
 
 it('send seq is OK', () => {

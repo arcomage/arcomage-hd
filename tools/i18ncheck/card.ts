@@ -10,7 +10,7 @@ const i18nPromises: Promise<{
   cardsI18n: DataCardsI18nType
 }>[] = langs.map((code) => import(`../../src/i18n/cards/${code}`))
 
-const arraysEqual = (a: any[] | null, b: any[] | null) => {
+const arraysEqual = (a: unknown[] | null, b: unknown[] | null) => {
   if (a === b) {
     return true
   }
@@ -20,7 +20,7 @@ const arraysEqual = (a: any[] | null, b: any[] | null) => {
   if (a.length !== b.length) {
     return false
   }
-  for (var i = 0; i < a.length; ++i) {
+  for (let i = 0; i < a.length; ++i) {
     if (a[i] !== b[i]) {
       return false
     }

@@ -1,5 +1,4 @@
-/// <reference path="./opencc.d.ts" />
-
+import './opencc.d.ts'
 import fs from 'fs'
 import { Converter } from 'opencc-js'
 
@@ -13,7 +12,7 @@ const replaceAll = (str: string, replacementPairs: Record<string, string>) =>
   Object.entries(replacementPairs).reduce(
     (text, [from, to]) =>
       text.replace(
-        new RegExp(from.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'),
+        new RegExp(from.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'),
         to,
       ),
     str,

@@ -10,11 +10,7 @@ import gemBg from '../../assets/img/res_2.webp'
 import recruitBg from '../../assets/img/res_3.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import { upper1st } from '../utils/upper1st'
-import {
-  minRootFontSize,
-  smallRootFontScreenMax,
-  unitTextMaxLength,
-} from '../constants/visuals'
+import { smallRootFontScreenMax, unitTextMaxLength } from '../constants/visuals'
 
 import brick from '../../assets/img/brick.svg'
 import gem from '../../assets/img/gem.svg'

@@ -16,7 +16,7 @@ const _extractedDir = path.join(__dirname, extractedDir)
 
   locales.forEach((locale) => {
     fs.mkdirSync(path.join(_extractedDir, locale, 'desc'), { recursive: true })
-    let promises: Promise<sharp.OutputInfo>[] = []
+    const promises: Promise<sharp.OutputInfo>[] = []
     for (let t = 0; t < 3; t++) {
       for (let i = 0; i < 34; i++) {
         try {

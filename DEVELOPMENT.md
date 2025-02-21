@@ -39,8 +39,8 @@
 - `bun start`: Start the project in development mode
 - `bun run build`: Build the project in production mode
 - `bun build:local`: Build the project in both production and local mode
-- `bun checkall`: Run format with Prettier, lint with ESLint, and check types (`bun run test` is not included)
-- <del>`bun test`: Run tests with Jest (currently broken after 2025 upgrade (v1.5.0) and not used)</del>
+- `bun checkall`: Run format with Prettier, lint with ESLint, check types, and run basic tests (see below)
+- `bun test`: Run basic tests (Jest tests from < v1.5 are not yet all migrated after v1.5's upgrade/migration to react 19 & bun)
 - `bun format`: Format code using Prettier
 - `bun lint`: Lint code using ESLint
 - `bun typecheck`: Check TypeScript types

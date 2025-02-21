@@ -1,3 +1,4 @@
+import { it, expect } from 'bun:test'
 import { weightedRandom, sample, randomIntFrom } from '../../src/utils/random'
 
 it('weightedRandom is OK', () => {

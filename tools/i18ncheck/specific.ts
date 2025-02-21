@@ -16,9 +16,9 @@ const checkLangStr = (str: string, langCode: string) => {
         `"${str}" (in French) contains decimal with "." - use "," instead`,
       )
     }
-    if (/"\""/g.test(str)) {
+    if (/"""/g.test(str)) {
       console.log(
-        `"${str}" (in French) uses straight quotes "\"" - use "«", "»" instead`,
+        `"${str}" (in French) uses straight quotes """ - use "«", "»" instead`,
       )
     }
     if (/«[^\u00A0]|[^\u00A0]»/g.test(str)) {
@@ -31,9 +31,9 @@ const checkLangStr = (str: string, langCode: string) => {
 
   // German checks
   if (lang === 'de') {
-    if (/"\""/g.test(str)) {
+    if (/"""/g.test(str)) {
       console.log(
-        `"${str}" (in German) uses straight quotes "\"" - use "„", "“" instead`,
+        `"${str}" (in German) uses straight quotes """ - use "„", "“" instead`,
       )
     }
     if (/\d\.\d/g.test(str)) {
@@ -48,7 +48,7 @@ const checkLangStr = (str: string, langCode: string) => {
     if (/\?/g.test(str) && !/¿.*\?/g.test(str)) {
       console.log(`"${str}" (in Spanish) contains "?" - use "¿" instead`)
     }
-    if (/\!/g.test(str) && !/¡.*\!/g.test(str)) {
+    if (/!/g.test(str) && !/¡.*!/g.test(str)) {
       console.log(`"${str}" (in Spanish) contains "!" - use "¡" instead`)
     }
   }
@@ -92,9 +92,9 @@ const checkLangStr = (str: string, langCode: string) => {
         `"${str}" (in Italian) contains decimal with "." - use "," instead`,
       )
     }
-    if (/"\""/g.test(str)) {
+    if (/"""/g.test(str)) {
       console.log(
-        `"${str}" (in Italian) uses straight quotes "\"" - use "«", "»" instead`,
+        `"${str}" (in Italian) uses straight quotes """ - use "«", "»" instead`,
       )
     }
   }
@@ -107,7 +107,7 @@ const langs: typeof langArr = langArr.filter((lang) => lang !== 'en')
 langs.unshift('en')
 
 const i18nPromises: Promise<{
-  i18n: any
+  i18n: Record<string, string>
 }>[] = langs.map((code) => import(`../../src/i18n/main/${code}`))
 const cardsI18nPromises: Promise<{
   cardsI18n: DataCardsI18nType

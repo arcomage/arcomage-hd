@@ -118,7 +118,7 @@ type PropType = { index: 1 | 2 }
 
 const Bird = ({ index }: PropType) => {
   const [sounds, setSounds] = useState<boolean[]>([])
-  const timeoutRefs = useRef<NodeJS.Timeout[]>([])
+  const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([])
 
   useEffect(() => {
     return () => {

@@ -33,7 +33,7 @@ export default (
       const connectToPeerId: Promise<null> = new Promise((resolve, reject) => {
         if (peer !== null) {
           let conn: DataConnection | null | undefined = null
-          let timer: NodeJS.Timeout | null = null
+          let timer: ReturnType<typeof setTimeout> | null = null
           let tryTimes = 0
           const loop = () => {
             if (tryTimes > connRetryTimes) {

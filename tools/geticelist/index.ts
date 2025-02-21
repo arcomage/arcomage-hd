@@ -16,7 +16,7 @@ https
 
     res.on('end', () => {
       try {
-        let json = JSON.parse(body)
+        const json = JSON.parse(body)
         const resultJson = JSON.stringify(json, null, 2)
         fs.writeFileSync(
           './src/webrtc/icelist.ts',

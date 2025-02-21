@@ -54,25 +54,26 @@ logoSvgToPngSizes.forEach(async (size) => {
  * manifest.json
  */
 
-const icons: any = faviconSvgToPngSizes
-  .map((i) => {
-    const str = i.toString()
-    return {
-      src: iconNames.faviconPng.replace('%s', str),
-      sizes: `${str}x${str}`,
-      type: 'image/png',
-    }
-  })
-  .concat(
-    logoSvgToPngSizes.map((i) => {
+const icons: { src: string; sizes: string; type: string; purpose?: string }[] =
+  faviconSvgToPngSizes
+    .map((i) => {
       const str = i.toString()
       return {
-        src: iconNames.logoPng.replace('%s', str),
+        src: iconNames.faviconPng.replace('%s', str),
         sizes: `${str}x${str}`,
         type: 'image/png',
       }
-    }),
-  )
+    })
+    .concat(
+      logoSvgToPngSizes.map((i) => {
+        const str = i.toString()
+        return {
+          src: iconNames.logoPng.replace('%s', str),
+          sizes: `${str}x${str}`,
+          type: 'image/png',
+        }
+      }),
+    )
 
 icons.push({
   src: iconNames.logoSvg,

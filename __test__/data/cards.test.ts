@@ -1,3 +1,4 @@
+import { it, expect } from 'bun:test'
 import cards from '../../src/data/cards'
 import cardsbk from './cardsbk'
 import { PersonStatusType } from '../../src/types/state'
@@ -42,7 +43,46 @@ it('None of the cards is modified', () => {
     const { effect: e2, ...cardsbkRest } = cardbk
     expect(cardRest).toStrictEqual(cardsbkRest)
 
-    let p1, o1, p2, o2
+    let p1: {
+        bricks: number
+        gems: number
+        recruits: number
+        brickProd: number
+        gemProd: number
+        recruitProd: number
+        tower: number
+        wall: number
+      },
+      o1: {
+        bricks: number
+        gems: number
+        recruits: number
+        brickProd: number
+        gemProd: number
+        recruitProd: number
+        tower: number
+        wall: number
+      },
+      p2: {
+        bricks: number
+        gems: number
+        recruits: number
+        brickProd: number
+        gemProd: number
+        recruitProd: number
+        tower: number
+        wall: number
+      },
+      o2: {
+        bricks: number
+        gems: number
+        recruits: number
+        brickProd: number
+        gemProd: number
+        recruitProd: number
+        tower: number
+        wall: number
+      }
 
     // dummyStatus2 vs dummyStatus1
 

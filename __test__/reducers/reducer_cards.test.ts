@@ -1,9 +1,11 @@
+import { it, expect, describe } from 'bun:test'
 import { DRAW_CARD_MAIN } from '../../src/constants/ActionTypes'
 import reducer from '../../src/reducers/cards'
+import { RootActionType } from '../../src/types/actionObj'
 
 describe('cards reducer', () => {
   it('should return the initial state', () => {
-    expect(reducer(undefined, {} as any)).toEqual({
+    expect(reducer(undefined, {} as RootActionType)).toEqual({
       total: { player: 0, opponent: 0 },
       list: [],
       nextPos: { player: 0, opponent: 0 },

@@ -33,5 +33,5 @@ jobs:
         run: bun install
       - name: Run prettier + eslint + ts typecheck
         run: bun checkall
-      - name: Codecov Upload
-        uses: codecov/codecov-action@v5
+      # - name: Codecov Upload
+      #   uses: codecov/codecov-action@v5

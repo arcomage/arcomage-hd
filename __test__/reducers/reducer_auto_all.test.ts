@@ -1,7 +1,10 @@
+/* eslint-disable */
 // @ts-nocheck
 
-import reducers from '../../src/reducers';
+import { test, expect } from 'bun:test'
+import reducers from '../../src/reducers'
 
+// prettier-ignore
 test('reducers', () => {
   let state;
   state = reducers(undefined, {});

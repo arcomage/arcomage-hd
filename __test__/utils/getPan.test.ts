@@ -1,3 +1,4 @@
+import { it, expect } from 'bun:test'
 import getPan from '../../src/utils/sound/getPan'
 import { stereoPanValue } from '../../src/constants/visuals'
 

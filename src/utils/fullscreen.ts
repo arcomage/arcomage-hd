@@ -52,7 +52,7 @@ const nativeAPI: Record<string, string> | null = (() => {
   const unprefixedMethods = methodMap[0]
   for (const methodList of methodMap) {
     const exitFullscreenMethod = methodList?.[1]
-    if (exitFullscreenMethod in document) {
+    if (typeof document !== 'undefined' && exitFullscreenMethod in document) {
       return unprefixedMethods.reduce(
         (obj, k, i) => ({ ...obj, [k]: methodList[i] }),
         {},

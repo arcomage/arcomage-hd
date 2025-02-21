@@ -1,3 +1,4 @@
+import { it, expect } from 'bun:test'
 import { upper1st } from '../../src/utils/upper1st'
 
 it('upper1st is good', () => {

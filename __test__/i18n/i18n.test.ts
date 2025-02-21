@@ -1,3 +1,4 @@
+import { it, expect, describe, beforeEach } from 'bun:test'
 import { langs, defaultLang } from '../../src/i18n/langs'
 import cards from '../../src/data/cards'
 import { preSettings } from '../../src/data/preSettings'
@@ -9,8 +10,8 @@ const tavernsBasePath = '../../src/i18n/taverns'
 
 describe('i18n all good', () => {
   let defaultI18n: Record<string, string>
-  let cardLength = cards.length
-  let tavernLength = preSettings.length
+  const cardLength = cards.length
+  const tavernLength = preSettings.length
   beforeEach(async () => {
     if (defaultI18n === undefined) {
       defaultI18n = (await import(path.join(mainBasePath, defaultLang))).i18n

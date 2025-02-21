@@ -23,8 +23,8 @@ import { TavernsI18nType } from '../../src/i18n/types'
 const root = './tools/i18n-extraction/data'
 
 const createPromise = (p: string): Promise<string[][]> =>
-  new Promise((resolve, reject) => {
-    const csvData: any[] = []
+  new Promise<string[][]>((resolve, reject) => {
+    const csvData: string[][] = []
     fs.createReadStream(p)
       .pipe(
         parse({
@@ -34,14 +34,13 @@ const createPromise = (p: string): Promise<string[][]> =>
           trim: true,
         }),
       )
-      .on('data', (csvrow) => {
+      .on('data', (csvrow: string[]) => {
         csvData.push(csvrow)
       })
       .on('end', () => {
         resolve(csvData)
       })
   })
-
 const getRC = (arr2d: string[][], str: string): [number, number] | null => {
   let column = -1
   const row = arr2d.findIndex((row0) => {

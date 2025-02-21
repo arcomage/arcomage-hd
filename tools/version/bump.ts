@@ -92,8 +92,10 @@ try {
   console.log(
     `Version bumped from v${oldVersion} to v${version} and pushed successfully.`,
   )
-} catch (error: any) {
+} catch (error) {
   console.error('An error occurred:')
-  console.error(error.message)
+  if (error instanceof Error) {
+    console.error(error.message)
+  }
   process.exit(1)
 }

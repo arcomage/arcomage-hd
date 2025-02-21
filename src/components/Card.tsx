@@ -345,7 +345,7 @@ const Card = ({
         !(shouldUseAi && multiGameNumber === -1 && owner === 'opponent')
       ) {
         buttonDisabled = false
-        let timer: NodeJS.Timeout | undefined
+        let timer: ReturnType<typeof setTimeout> | undefined
         const clear = () => {
           if (timer) {
             clearTimeout(timer)

@@ -1,5 +1,6 @@
 import React, {
   ChangeEvent,
+  JSX,
   useContext,
   useEffect,
   useRef,
@@ -63,7 +64,7 @@ const Pref = () => {
   const dispatch = useAppDispatch()
 
   const yourIdInputRef = useRef<HTMLInputElement>(null)
-  const copiedTimer = useRef<NodeJS.Timeout>(null)
+  const copiedTimer = useRef<ReturnType<typeof setTimeout>>(null)
   const [copied, setCopied] = useState<boolean>(false)
 
   const isMultiplayer = useAppSelector((state) => state.multiplayer.on)
