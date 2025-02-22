@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 import { useAppDispatch } from '../../utils/hooks/useAppDispatch'
@@ -83,7 +89,7 @@ const Window = ({
     exitableRef.current = exitable
   }, [exitable])
 
-  const cancelFunc = () => {
+  const cancelFunc = useCallback(() => {
     if (exitableRef.current) {
       onCancel?.()
       dispatch({
@@ -91,7 +97,10 @@ const Window = ({
         show: false,
       })
     }
-  }
+    // no lint reason: dispatch, onCancel, screenActionType are stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const prefRef = useRef<HTMLDivElement>(null)
   useClickOutside(prefRef, cancelFunc)

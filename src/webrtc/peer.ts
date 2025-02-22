@@ -1,5 +1,6 @@
 import Peer, { DataConnection } from 'peerjs'
 import icelist from './icelist'
+import { isProd } from '../constants/devSettings'
 
 const config = {
   secure: true,
@@ -22,7 +23,7 @@ export const peerAll: ConnectionType = {
   conn: null,
 }
 
-if (process.env.ISDEV) {
+if (!isProd) {
   ;(window as Window & typeof globalThis & { peerAll: unknown }).peerAll =
     peerAll
 }

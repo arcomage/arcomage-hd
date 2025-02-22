@@ -1,5 +1,6 @@
 import { RefObject, useEffect } from 'react'
 
+// Note: `func` should nearly always be wrapped in useCallback
 const useClickOutside = (
   ref: RefObject<HTMLElement | null>,
   func: (event: MouseEvent) => void,

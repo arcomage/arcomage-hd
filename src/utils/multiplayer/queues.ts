@@ -1,3 +1,4 @@
+import { isProd } from '../../constants/devSettings'
 import {
   DiscardCardCoreActionType,
   InitToQueueActionType,
@@ -23,7 +24,7 @@ export const initQueues = new Map<
 //   gameNumber: number | null
 // }
 
-if (process.env.ISDEV) {
+if (!isProd) {
   ;(window as Window & typeof globalThis & { dq: unknown }).dq = drawCardQueues
   ;(window as Window & typeof globalThis & { pq: unknown }).pq = playCardQueues
   ;(window as Window & typeof globalThis & { iq: unknown }).iq = initQueues

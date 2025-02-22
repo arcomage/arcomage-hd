@@ -31,7 +31,6 @@
     - **./src/i18n/main/en.ts**
   - The following file should be regenerated:
     - **./assets/logo/manifest.json**
-- **Husky** and **commitlint** are no longer used.
 
 ## Tools & Scripts
 

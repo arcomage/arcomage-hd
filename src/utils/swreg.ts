@@ -1,3 +1,4 @@
+import { isProd } from '../constants/devSettings'
 import { beforeWindowUnloadFn } from './hooks/useBeforeWindowUnloadWarning'
 
 function updateApp(registration: ServiceWorkerRegistration) {
@@ -8,7 +9,7 @@ function updateApp(registration: ServiceWorkerRegistration) {
   }
 }
 
-if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+if ('serviceWorker' in navigator && isProd) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('./service-worker.js')

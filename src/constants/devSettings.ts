@@ -6,7 +6,8 @@ const _noAiExtraDelay = true
 const _noLatency = false
 const _noDevLog = false
 
-const isProd = !process.env.ISDEV
+export const isProd = import.meta.env.MODE === 'production'
+export const currentVersion: string = import.meta.env.VITE_APP_VERSION ?? ''
 
 export const disableContextMenu = isProd || _disableContextMenu
 export const enableWindowUnloadWarning = isProd || _enableWindowUnloadWarning

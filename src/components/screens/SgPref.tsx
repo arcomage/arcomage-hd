@@ -160,7 +160,7 @@ const SgPref = () => {
           {_.i18n('Visual Preset')}{' '}
           <span
             className="emoji !p-0"
-            {...tooltipAttrs(`${_.i18n('Reset')}${_.i18n(': ')}Alt + R`)}
+            {...tooltipAttrs(`${_.i18n('Reset')}${_.i18n(': ')}Alt + O`)}
           >
             💡
           </span>

@@ -10,6 +10,7 @@ others
 *.sass.d.ts
 
 build
+public
 
 # MicrosoftOffice.gitignore
 *.tmp

@@ -1,8 +1,16 @@
 import { createContext } from 'react'
-import { vType } from '../hooks/useWindowResize'
+import { narrowMobileWinHeightMax } from '../../constants/visuals'
 
-export const GameSizeContext = createContext<vType>({
+export type vType = {
+  width: number
+  height: number
+  narrowMobile: boolean
+}
+
+export const defaultGameSize: vType = {
   width: window.innerWidth,
   height: window.innerHeight,
-  narrowMobile: false,
-})
+  narrowMobile: window.innerHeight <= narrowMobileWinHeightMax,
+}
+
+export const GameSizeContext = createContext<vType>(defaultGameSize)

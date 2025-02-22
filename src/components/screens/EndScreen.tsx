@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import cx from 'clsx'
 import { createUseStyles } from 'react-jss'
 
@@ -184,26 +184,32 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
     }
   }, [endScreenState])
 
-  const onActionFunc = (
-    e: React.MouseEvent | MouseEvent | React.KeyboardEvent | KeyboardEvent,
-  ) => {
-    if (
-      (e instanceof KeyboardEvent ||
-        ('nativeEvent' in e && e.nativeEvent instanceof KeyboardEvent)) &&
-      (('key' in e &&
-        (e.key === 'Tab' || e.key === 'c' || e.key === 'CapsLock')) ||
-        e.shiftKey ||
-        e.altKey ||
-        e.ctrlKey ||
-        e.metaKey)
-    ) {
-      return
-    }
-    e.preventDefault()
-    dispatch({
-      type: CLOSE_SCREEN_END_INIT,
-    })
-  }
+  const onActionFunc = useCallback(
+    (
+      e: React.MouseEvent | MouseEvent | React.KeyboardEvent | KeyboardEvent,
+    ) => {
+      if (
+        (e instanceof KeyboardEvent ||
+          ('nativeEvent' in e && e.nativeEvent instanceof KeyboardEvent)) &&
+        (('key' in e &&
+          (e.key === 'Tab' || e.key === 'c' || e.key === 'CapsLock')) ||
+          e.shiftKey ||
+          e.altKey ||
+          e.ctrlKey ||
+          e.metaKey)
+      ) {
+        return
+      }
+      e.preventDefault()
+      dispatch({
+        type: CLOSE_SCREEN_END_INIT,
+      })
+    },
+    // no lint reason: dispatch function is stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  )
 
   useKeyDown(null, onActionFunc, endScreenExitableDelay)
 

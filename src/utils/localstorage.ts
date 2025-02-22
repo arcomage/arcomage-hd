@@ -1,5 +1,6 @@
 import { produce } from 'immer'
 import {
+  currentVersion,
   localstorageMinVer,
   localstorageName,
   localstorageVersionName,
@@ -20,8 +21,6 @@ type LocalstorageType = {
   visual?: VisualStateType
   ai?: AiStateType
 }
-
-const currentVersion: string = process.env.APPVERSION ?? ''
 
 export const lsVersion = (): void => {
   const ver = window.localStorage.getItem(localstorageVersionName)

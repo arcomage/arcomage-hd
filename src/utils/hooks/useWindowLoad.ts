@@ -1,15 +1,16 @@
 import { useEffect } from 'react'
 
-const useWindowLoad = (func: (event: Event) => void) => {
+// Note: `func` should nearly always be wrapped in useCallback
+const useWindowLoad = (func: () => void) => {
   useEffect(() => {
-    const handleLoad = (event: Event) => {
-      func(event)
+    if (document.readyState === 'complete') {
+      func()
+    } else {
+      window.addEventListener('load', func)
     }
 
-    window.addEventListener('load', handleLoad)
-
     return () => {
-      window.removeEventListener('load', handleLoad)
+      window.removeEventListener('load', func)
     }
   }, [func])
 }

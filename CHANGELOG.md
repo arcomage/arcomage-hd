@@ -6,25 +6,29 @@ _To ensure you're using the latest version, open the game and press <kbd>Ctrl</k
 
 <!-- ## [v1.6.0](https://github.com/arcomage/arcomage-hd/compare/v1.5.0...v1.6.0) (2025-?-?) (in progress)
 
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-02-18..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-02-18..*)) -->
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-02-24..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-02-24..*)) -->
 
-## [v1.5.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.0...v1.5.0) (2025-?-?) (in beta testing phase)
+## [v1.5.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.3...v1.5.0) (2025-02-23) (in beta testing phase)
 
-- [Upgrade of libraries](https://github.com/arcomage/arcomage-hd/issues/78) (react 19, redux 5, rxjs 7.8, etc.), use [React Compiler](https://react.dev/learn/react-compiler) for optimization
+- [Major Library changes](https://github.com/arcomage/arcomage-hd/issues/78)
+  - Major Upgrade: React 19, Redux 5, RxJS 7.8, etc.
+  - Removed: Webpack and related libs, Yarn, Jest and related libs, Enzyme, Testing Library, MUI, Husky, commitlint, classnames, copy-to-clipboard, some eslint plugins, ts-node, etc.
+  - Added: Bun, Vite, [React Compiler](https://react.dev/learn/react-compiler), clsx, etc.
 - [Automatic update (and/or showing notification) of the game in PWA or non PWA](https://github.com/arcomage/arcomage-hd/issues/106)
 - [Full control with mouse, touch device, keyboard, or gamepad](https://github.com/arcomage/arcomage-hd/issues/93) 🖱️📱⌨️🎮 ([instructions](gamecontrols.md)) (gamepad has basic support and is not fully finished)
 - At game end screen, [show reasons for win/loss/draw](https://github.com/arcomage/arcomage-hd/issues/84), [add "Review cards" button](https://github.com/arcomage/arcomage-hd/issues/101)
 - [Add scroll bar in window](https://github.com/arcomage/arcomage-hd/issues/98), [window layout issue in mobile](https://github.com/arcomage/arcomage-hd/issues/105)
 - Optimization of: [AnimatedNumber](https://github.com/arcomage/arcomage-hd/issues/95) (rewritten), [Tower/Wall/card anim](https://github.com/arcomage/arcomage-hd/issues/100), [tooltip](https://github.com/arcomage/arcomage-hd/issues/103) (rewritten), [debounced number input](https://github.com/arcomage/arcomage-hd/issues/81) (rewritten), lang change, etc.
 - [LTR / Arabic support](https://github.com/arcomage/arcomage-hd/issues/90)
+- Fix some bugs including a [window load bug](https://github.com/arcomage/arcomage-hd/issues/104) and others
 - Fixes and improvements to accessibility (a11y)
 - Button & tooltip color change
 - CI update, replaced husky git hooks with custom script
 - Docs update
 - Easter egg when clicking on birds
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..))
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..2025-02-23); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..2025-02-23))
 
-## [v1.4.0](https://github.com/arcomage/arcomage-hd/compare/v1.3.0...v1.4.0) ([2025-01-25](https://github.com/arcomage/arcomage-hd/commit/552bf596a98d403310345efe7afc7c067938d489))
+## [v1.4.0](https://github.com/arcomage/arcomage-hd/compare/v1.3.0...v1.4.3) ([2025-01-25](https://github.com/arcomage/arcomage-hd/tree/552bf596a98d403310345efe7afc7c067938d489))
 
 - Fix for [iOS 13+ long press to discard a card](https://github.com/arcomage/arcomage-hd/issues/74), [landscape notice](https://github.com/arcomage/arcomage-hd/issues/87)
 - [Disable animation](https://github.com/arcomage/arcomage-hd/issues/88), [bold font](https://github.com/arcomage/arcomage-hd/issues/72) options

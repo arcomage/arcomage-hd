@@ -32,9 +32,16 @@ import {
 import { tooltipAttrs } from '../utils/tooltip'
 import isTouch from '../utils/isTouch'
 
-// `require.context()` is webpack-only
-const images = require.context('../../assets/img/cards', false, /\.webp$/)
-const getImageUrl = (n: number) => images(`./${n}.webp`)
+// `import.meta.glob()` is vite-only
+const images = import.meta.glob('../../assets/img/cards/*.webp', {
+  eager: true,
+})
+const getImageUrl = (n: number) => {
+  return (
+    (images[`../../assets/img/cards/${n}.webp`] as { default: string })
+      ?.default || ''
+  )
+}
 
 const calcOpacity = ({
   unusable,

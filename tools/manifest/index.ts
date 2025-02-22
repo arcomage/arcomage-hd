@@ -3,6 +3,23 @@ import fs from 'fs'
 import manifestTmpl from '../../assets/logo/manifest.template'
 import resizedSvgToSharp from './resizedSvgToSharp'
 
+const copy = (fileName: string, srcDir: string, destDir: string) => {
+  fs.copyFile(
+    path.join(srcDir, fileName),
+    path.join(destDir, fileName),
+    (err) => {
+      if (err) {
+        console.error('Error copying file:', err)
+      } else {
+        console.log('File copied successfully!')
+      }
+    },
+  )
+}
+
+const ogimageDir = path.join(__dirname, '../../assets/misc')
+const ogimage = 'ogimage.jpg'
+
 const {
   faviconSvgToPngSizes,
   logoSvgToPngSizes,
@@ -13,13 +30,18 @@ const {
 } = manifestTmpl
 
 const dir = path.join(__dirname, '../../assets/logo/')
+const outDir = path.join(__dirname, '../../public/')
 const faviconOrigPath = path.join(dir, iconNames.faviconSvg)
 const logoOrigPath = path.join(dir, iconNames.logoSvg)
+
+if (!fs.existsSync(outDir)) {
+  fs.mkdirSync(outDir, { recursive: true })
+  console.log('Directory created:', outDir)
+}
 
 /**
  * favicon generation
  */
-
 faviconSvgToPngSizes.forEach(async (size) => {
   const faviconSharp = await resizedSvgToSharp(faviconOrigPath, {
     width: size,
@@ -27,7 +49,9 @@ faviconSvgToPngSizes.forEach(async (size) => {
 
   faviconSharp
     .png({ compressionLevel: 9 })
-    .toFile(path.join(dir, iconNames.faviconPng.replace('%s', size.toString())))
+    .toFile(
+      path.join(outDir, iconNames.faviconPng.replace('%s', size.toString())),
+    )
     .catch(function (e) {
       console.log(e)
     })
@@ -36,7 +60,6 @@ faviconSvgToPngSizes.forEach(async (size) => {
 /**
  * logo generation
  */
-
 logoSvgToPngSizes.forEach(async (size) => {
   const logoSharp = await resizedSvgToSharp(logoOrigPath, {
     width: size,
@@ -44,7 +67,7 @@ logoSvgToPngSizes.forEach(async (size) => {
 
   logoSharp
     .png({ compressionLevel: 9 })
-    .toFile(path.join(dir, iconNames.logoPng.replace('%s', size.toString())))
+    .toFile(path.join(outDir, iconNames.logoPng.replace('%s', size.toString())))
     .catch(function (e) {
       console.log(e)
     })
@@ -53,7 +76,6 @@ logoSvgToPngSizes.forEach(async (size) => {
 /**
  * manifest.json
  */
-
 const icons: { src: string; sizes: string; type: string; purpose?: string }[] =
   faviconSvgToPngSizes
     .map((i) => {
@@ -96,4 +118,13 @@ icons.push({
 })
 
 const resultJson = JSON.stringify({ ...rest, icons }, null, 2)
-fs.writeFileSync(path.join(dir, 'manifest.json'), resultJson)
+fs.writeFileSync(path.join(outDir, 'manifest.json'), resultJson)
+
+copy('favicon_logo_maskable.svg', dir, outDir)
+copy('favicon_logo.svg', dir, outDir)
+copy('favicon_maskable.svg', dir, outDir)
+copy('favicon.ico', dir, outDir)
+copy('favicon.svg', dir, outDir)
+copy('logo.svg', dir, outDir)
+
+copy(ogimage, ogimageDir, outDir)

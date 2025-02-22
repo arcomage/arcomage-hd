@@ -6,6 +6,7 @@ import { SCREEN_HELP } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import {
   authorUrl,
+  currentVersion,
   githubUrl,
   tutorialImageUrl,
 } from '../../constants/devSettings'
@@ -67,7 +68,7 @@ const Help = () => {
 
   return (
     <Window screenActionType={SCREEN_HELP}>
-      <small className="version select-all">v{process.env.APPVERSION}</small>
+      <small className="version select-all">v{currentVersion}</small>
       <p className="description select-text">
         {_.i18n('ArcoMage HD') !== 'ArcoMage HD' && (
           <>

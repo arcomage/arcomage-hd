@@ -1,3 +1,4 @@
+import { isProd } from '../../constants/devSettings'
 import { ConnDataType } from '../../types/connData'
 import devLog from '../devLog'
 
@@ -91,7 +92,7 @@ class sendSequence {
 
 export const sendSeq = new sendSequence()
 
-if (process.env.ISDEV) {
+if (!isProd) {
   ;(window as Window & typeof globalThis & { sq: unknown }).sq = sendSeq
   ;(window as Window & typeof globalThis & { rq: unknown }).rq = receiveSeq
 }

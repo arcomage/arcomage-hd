@@ -43,6 +43,7 @@ const getGamepadButtonType = (index: number): GamepadButtonType => {
 
 // TODO: stick controlled cursor
 
+// Note: `onButtonDown` `onButtonUp` should nearly always be wrapped in useCallback
 const useGamepad = ({
   onButtonDown,
   onButtonUp,

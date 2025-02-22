@@ -12,6 +12,8 @@ const translationDefault: TranslationObjType = {
   taverns: defaultTavernsI18n,
 }
 
+const modules = import.meta.glob('./**/*.ts')
+
 const I18nProvider = ({ children }: { children: React.ReactNode }) => {
   const [translation, setTranslation] = useState(translationDefault)
   const lang = useAppSelector((state): AvailableLangType => state.lang.code)
@@ -19,25 +21,11 @@ const I18nProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     ;(async () => {
       const [{ i18n }, { cardsI18n }, { tavernsI18n }] = await Promise.all([
-        import(
-          /* webpackChunkName: "i18n" */
-          /* webpackMode: "lazy" */
-          /* webpackPrefetch: true */
-          `./main/${lang}`
-        ),
-        import(
-          /* webpackChunkName: "cardi18n" */
-          /* webpackMode: "lazy" */
-          /* webpackPrefetch: true */
-          `./cards/${lang}`
-        ),
-        import(
-          /* webpackChunkName: "taverni18n" */
-          /* webpackMode: "lazy" */
-          /* webpackPrefetch: true */
-          `./taverns/${lang}`
-        ),
+        modules[`./main/${lang}.ts`]() as Promise<{ i18n: typeof defaultTrans }>,
+        modules[`./cards/${lang}.ts`]() as Promise<{ cardsI18n: typeof defaultCardsI18n }>,
+        modules[`./taverns/${lang}.ts`]() as Promise<{ tavernsI18n: typeof defaultTavernsI18n }>,
       ])
+
       setTranslation({ i18n, cards: cardsI18n, taverns: tavernsI18n })
     })()
   }, [lang])

@@ -44,3 +44,5 @@ registerRoute(
 )
 
 precacheAndRoute(self.__WB_MANIFEST)
+
+// TODO: maybe fix 'revision':null
