@@ -15,8 +15,14 @@ import defeatUrl from '../../../assets/sfx/defeat.mp3'
 import startUrl from '../../../assets/sfx/start.mp3'
 import typingUrl from '../../../assets/sfx/typing.mp3'
 
-import { Howl, Howler } from 'howler'
 import { stereoPanValue } from '../../constants/visuals'
+
+const audioContext = new (window.AudioContext ||
+  (window as typeof window & { webkitAudioContext: unknown })
+    .webkitAudioContext)()
+const gainNode = audioContext.createGain()
+gainNode.gain.value = 0.5
+gainNode.connect(audioContext.destination)
 
 const soundAdditionalTypes = [
   'deal',
@@ -70,15 +76,14 @@ const audioMap = {
   typing: 'typing',
 }
 
-// Howler.autoUnlock = false
+const loadAudio = async (url: string): Promise<AudioBuffer> => {
+  const response = await fetch(url)
+  const arrayBuffer = await response.arrayBuffer()
+  const audioBuffer = await audioContext.decodeAudioData(arrayBuffer)
+  return audioBuffer
+}
 
-const loadAudio = (url: string) =>
-  new Howl({
-    src: [url],
-    format: ['mp3'],
-  })
-
-const audios: Record<string, Howl> = {
+const audioBufferPromises: Record<string, Promise<AudioBuffer>> = {
   towerUp: loadAudio(towerUpUrl),
   wallUp: loadAudio(wallUpUrl),
   brickUp: loadAudio(brickUpUrl),
@@ -96,7 +101,7 @@ const audios: Record<string, Howl> = {
 }
 
 export const setVolume = (volume: number): void => {
-  Howler.volume(volume / 10)
+  gainNode.gain.value = volume / 10
 }
 
 /**
@@ -121,7 +126,7 @@ export const play = (
     }
   })()
 
-  const audio = audios[audioName]
+  const audioBufferPromise = audioBufferPromises[audioName]
 
   const _pan: number = (() => {
     if (typeof pan === 'boolean') {
@@ -130,7 +135,17 @@ export const play = (
       return pan
     }
   })()
-  audio.stereo(_pan)
 
-  audio.play()
+  audioBufferPromise.then((audioBuffer) => {
+    const source = audioContext.createBufferSource()
+    source.buffer = audioBuffer
+
+    const panner = audioContext.createStereoPanner()
+    panner.pan.value = _pan
+
+    source.connect(panner)
+    panner.connect(gainNode)
+
+    source.start()
+  })
 }

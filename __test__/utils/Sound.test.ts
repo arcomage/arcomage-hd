@@ -1,18 +1,9 @@
 // import { it, expect } from 'bun:test'
 // import { setVolume, play } from '../../src/utils/sound/Sound'
-// // import { Howl, Howler } from 'howler'
 
 // const mockVolumeFn = jest.fn()
 // const mockStereoFn = jest.fn()
 // const mockPlayFn = jest.fn()
-
-// jest.mock('howler', () => ({
-//   Howler: { volume: () => mockVolumeFn() },
-//   Howl: jest.fn().mockImplementation(() => ({
-//     stereo: () => mockStereoFn(),
-//     play: () => mockPlayFn(),
-//   })),
-// }))
 
 // beforeEach(() => {
 //   mockVolumeFn.mockClear()

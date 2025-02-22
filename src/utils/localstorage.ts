@@ -1,6 +1,6 @@
 import { produce } from 'immer'
 import {
-  currentVersion,
+  appVersion,
   localstorageMinVer,
   localstorageName,
   localstorageVersionName,
@@ -27,8 +27,8 @@ export const lsVersion = (): void => {
   if (ver === null || lt(ver, localstorageMinVer)) {
     window.localStorage.removeItem(localstorageName)
   }
-  if (ver !== currentVersion) {
-    window.localStorage.setItem(localstorageVersionName, currentVersion)
+  if (ver !== appVersion) {
+    window.localStorage.setItem(localstorageVersionName, appVersion)
   }
 }
 

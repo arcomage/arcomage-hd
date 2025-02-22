@@ -51,10 +51,10 @@ The game is fully controllable using either a **[mouse](gamecontrols.md#mouse)**
 The game is fully compatible with and easy to use with a [screen reader](https://en.wikipedia.org/wiki/Screen_reader). You can also disable animations in the graphics settings if desired.
 
 <p align="center">
-<a href="https://arcomage.github.io/" title="Blind Friendly"><img src="https://img.shields.io/badge/-Blind%20Friendly-black" alt="Blind Friendly"></a>
-<a href="https://arcomage.github.io/" title="Color Blind Friendly"><img src="https://img.shields.io/badge/-Color%20Blind%20Friendly-white" alt="Color Blind Friendly"></a>
-<a href="https://arcomage.github.io/" title="Deaf Friendly"><img src="https://img.shields.io/badge/-Deaf%20Friendly-purple" alt="Deaf Friendly"></a>
-<a href="https://arcomage.github.io/" title="Motion Sickness Friendly"><img src="https://img.shields.io/badge/-Motion%20Sickness%20Friendly-yellow" alt="Motion Sickness Friendly"></a>
+<a href="https://arcomage.github.io/" title="Blind Friendly"><img src="https://img.shields.io/badge/-Blind_Friendly-black" alt="Blind Friendly"></a>
+<a href="https://arcomage.github.io/" title="Color Blind Friendly"><img src="https://img.shields.io/badge/-Color_Blind_Friendly-white" alt="Color Blind Friendly"></a>
+<a href="https://arcomage.github.io/" title="Deaf Friendly"><img src="https://img.shields.io/badge/-Deaf_Friendly-purple" alt="Deaf Friendly"></a>
+<a href="https://arcomage.github.io/" title="Motion Sickness Friendly"><img src="https://img.shields.io/badge/-Motion_Sickness_Friendly-yellow" alt="Motion Sickness Friendly"></a>
 </p>
 
 ## Multiplayer Mode
@@ -92,7 +92,7 @@ If you encounter any issues, please [open an issue](https://github.com/arcomage/
 
 ## Development
 
-The stack:
+The stack :
 
 <p align="center">
 <a href="https://www.typescriptlang.org/" title="Typescript"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/typescript-icon.svg" alt="Typescript" width="21px" height="21px"></a>
@@ -104,27 +104,33 @@ The stack:
 <a href="https://developers.google.com/web/tools/workbox" title="Workbox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/workbox-icon.svg" alt="Workbox" width="21px" height="21px"></a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/javascript.svg" alt="JavaScript" width="21px" height="21px"></a>
 <a href="https://tc39.es/ecma262/" title="ECMAScript 6+"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/es6.svg" alt="ECMAScript 6+" width="21px" height="21px"></a>
+<a href="https://bun.sh/" title="bun"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/bun.svg" alt="bun" width="21px" height="21px"></a>
+<a href="https://vite.dev/" title="Vite"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/vite.svg" alt="Vite" width="21px" height="21px"></a>
 <a href="https://sass-lang.com/" title="Sass"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/sass.svg" alt="Sass" width="21px" height="21px"></a>
 <a href="https://tailwindcss.com/" title="Tailwind CSS"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/tailwindcss-icon.svg" alt="Tailwind CSS" width="21px" height="21px"></a>
-<a href="https://material-ui.com/" title="Material-UI"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/material-ui.svg" alt="Material-UI" width="21px" height="21px"></a>
-<a href="https://webpack.js.org/" title="webpack"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/webpack.svg" alt="webpack" width="21px" height="21px"></a>
-<a href="https://jestjs.io/" title="Jest"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/jest.svg" alt="Jest" width="21px" height="21px"></a>
-<a href="https://github.com/enzymejs/enzyme" title="Enzyme"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/enzyme.svg" alt="Enzyme" width="21px" height="21px"></a>
-<a href="https://testing-library.com/" title="Testing Library"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/testing-library.svg" alt="Testing Library" width="21px" height="21px"></a>
-<a href="https://istanbul.js.org/" title="Istanbul"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/istanbul.svg" alt="Istanbul" width="21px" height="21px"></a>
-<a href="https://codecov.io/" title="Codecov"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/codecov.svg" alt="Codecov" width="21px" height="21px"></a>
 <a href="https://cssinjs.org/" title="JSS"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/jss.svg" alt="JSS" width="21px" height="21px"></a>
 <a href="https://prettier.io/" title="Prettier"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/prettier.svg" alt="Prettier" width="21px" height="21px"></a>
 <a href="https://eslint.org/" title="ESLint"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/eslint.svg" alt="ESLint" width="21px" height="21px"></a>
 <a href="https://github.com/postcss/postcss" title="PostCSS"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/postcss.svg" alt="PostCSS" width="21px" height="21px"></a>
 <a href="https://github.com/postcss/autoprefixer" title="Autoprefixer"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/autoprefixer.svg" alt="Autoprefixer" width="21px" height="21px"></a>
 <a href="https://code.visualstudio.com/" title="Visual Studio Code"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/visual-studio-code.svg" alt="Visual Studio Code" width="21px" height="21px"></a>
-<a href="https://yarnpkg.com/" title="yarn"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/yarn.svg" alt="yarn" width="21px" height="21px"></a>
-<a href="https://bun.sh/" title="bun"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/bun.svg" alt="bun" width="21px" height="21px"></a>
-<a href="https://howlerjs.com/" title="howler.js"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/howler.svg" alt="howler.js" width="21px" height="21px"></a>
+<a href="https://testing-library.com/" title="Testing Library"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/testing-library.svg" alt="Testing Library" width="21px" height="21px"></a>
+<a href="https://istanbul.js.org/" title="Istanbul"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/istanbul.svg" alt="Istanbul" width="21px" height="21px"></a>
+<a href="https://codecov.io/" title="Codecov"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/codecov.svg" alt="Codecov" width="21px" height="21px"></a>
 <a href="https://inkscape.org/" title="Inkscape"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/inkscape.svg" alt="Inkscape" width="21px" height="21px"></a>
 <a href="https://www.adobe.com/products/illustrator.html" title="Adobe Illustrator"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/adobe-illustrator.svg" alt="Adobe Illustrator" width="21px" height="21px"></a>
 <a href="https://www.adobe.com/products/photoshop.html" title="Adobe Photoshop"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/adobe-photoshop.svg" alt="Adobe Photoshop" width="21px" height="21px"></a>
+</p>
+
+Used in ≤1.4 but not in 1.5+:
+
+<p align="center">
+<a href="https://yarnpkg.com/" title="yarn"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/yarn.svg" alt="yarn" width="21px" height="21px"></a>
+<a href="https://webpack.js.org/" title="webpack"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/webpack.svg" alt="webpack" width="21px" height="21px"></a>
+<a href="https://material-ui.com/" title="Material-UI"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/material-ui.svg" alt="Material-UI" width="21px" height="21px"></a>
+<a href="https://jestjs.io/" title="Jest"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/jest.svg" alt="Jest" width="21px" height="21px"></a>
+<a href="https://github.com/enzymejs/enzyme" title="Enzyme"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/enzyme.svg" alt="Enzyme" width="21px" height="21px"></a>
+<a href="https://howlerjs.com/" title="howler.js"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/howler.svg" alt="howler.js" width="21px" height="21px"></a>
 </p>
 
 [TypeScript](https://www.typescriptlang.org/) + [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [redux-observable](https://redux-observable.js.org/) + [RxJS](https://rxjs.dev/). [PWA](https://web.dev/progressive-web-apps/) (using [Workbox](https://developers.google.com/web/tools/workbox)).
@@ -135,19 +141,13 @@ The game features P2P Multiplayer Mode without a server, utilizing only [STUN](h
 
 It also supports stereo sound, WebP and SVG images, with images upscaled using the [waifu2x](https://github.com/nagadomi/waifu2x) / [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe) libraries. Card text is extracted using the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
 
-Developer scripts and tools are located in the [`tools` folder](https://github.com/arcomage/arcomage-hd/tree/main/tools). For more details, see the [development notes](https://github.com/arcomage/arcomage-hd/blob/main/DEVELOPMENT.md) and the `scripts` section in [`package.json`](https://github.com/arcomage/arcomage-hd/blob/main/package.json).
+Developer scripts and tools are located in the [`tools` folder](https://github.com/arcomage/arcomage-hd/tree/main/tools). For more details, see the [development notes](https://github.com/arcomage/arcomage-hd/blob/main/DEVELOPMENT.md), [changelog](CHANGELOG.md), and the `scripts` section in [`package.json`](https://github.com/arcomage/arcomage-hd/blob/main/package.json).
 
 <p align="center">
 <a href="https://codecov.io/gh/arcomage/arcomage-hd" title="Codecov"><img src="https://codecov.io/gh/arcomage/arcomage-hd/branch/main/graph/badge.svg?token=5rrZ38jtVr" alt="Codecov"></a>
 </p>
 
 <p align="center"><a href="https://developers.google.com/web/tools/lighthouse" title="Google Lighthouse"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/stack/lighthouse.svg" alt="Google Lighthouse" width="32px" height="32px"></a><br>Google Lighthouse score<br><a href="https://github.com/arcomage/arcomage-hd/issues/41"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/lighthouse_score.png" alt="ArcoMage HD Google Lighthouse score"></a></p>
-
-## Changelog & Issues
-
-[Changelog file](CHANGELOG.md)
-
-[Issues](https://github.com/arcomage/arcomage-hd/issues)
 
 ## Translation Credits
 
@@ -191,3 +191,9 @@ The code for the ArcoMage HD game: MIT License (c) [Tom Chen](https://tomchen.or
 The assets, text, appearance, and other copyrightable elements of the game: (c) 2001 The 3DO Company.
 
 See the [CREDIT.md file](CREDIT.md) for a detailed presentation of the copyright status, licenses, and credits for the game's components.
+
+## Links
+
+[![Changelog](https://img.shields.io/badge/-Changelog-green)](CHANGELOG.md) [![Credit](https://img.shields.io/badge/-Credit-yellow)](CREDIT.md) [![MIT License](https://img.shields.io/badge/-MIT_License-pink)](LICENSE.md) [![Development Notes](https://img.shields.io/badge/-Development_Notes-tan)](DEVELOPMENT.md) [![Game Control Details](https://img.shields.io/badge/-Game_Control_Details-blue)](gamecontrols.md) [![Troubleshooting](https://img.shields.io/badge/-Troubleshooting-red)](troubleshooting.md)
+
+ [![Game Home Page](https://img.shields.io/badge/-Game_Home_Page-coral)](https://arcomage.github.io/) [![GitHub Project Page](https://img.shields.io/badge/-GitHub_Project_Page-forestgreen)](https://github.com/arcomage/arcomage-hd) [![Issues](https://img.shields.io/badge/-Issues-darkslateblue)](https://github.com/arcomage/arcomage-hd/issues)   [![@tomchen on GitHub](https://img.shields.io/badge/-@tomchen_on_GitHub-black)](https://github.com/tomchen)

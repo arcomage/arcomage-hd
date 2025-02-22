@@ -7,7 +7,7 @@ const _noLatency = false
 const _noDevLog = false
 
 export const isProd = import.meta.env.MODE === 'production'
-export const currentVersion: string = import.meta.env.VITE_APP_VERSION ?? ''
+export const appVersion: string = import.meta.env.APP_VERSION ?? ''
 
 export const disableContextMenu = isProd || _disableContextMenu
 export const enableWindowUnloadWarning = isProd || _enableWindowUnloadWarning
