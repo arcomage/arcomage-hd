@@ -1,10 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+import license from 'rollup-plugin-license'
+import legacy from '@vitejs/plugin-legacy'
+import htmlMinifier from 'vite-plugin-html-minifier'
 import pkg from './package.json'
 import fs from 'fs'
 import crypto from 'crypto'
 import childProcess from 'child_process'
 import { defaultAppUrl, origDesc, origTitle } from './src/constants/htmlVars'
+import genManifestAndIcons from './tools/manifest'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -20,7 +25,7 @@ const commitTime = commitTimeDateObj.toUTCString()
 const commitTime2 = commitTimeDateObj.toISOString().replace(/\.\d+Z$/, '+00:00')
 
 const ogimageHash = (() => {
-  const fileBuffer = fs.readFileSync('./assets/misc/ogimage.jpg')
+  const fileBuffer = fs.readFileSync('./assets/logo/ogimage.jpg')
   const hashSum = crypto.createHash('sha1')
   hashSum.update(fileBuffer)
   return hashSum.digest('hex').substring(0, 20)
@@ -59,13 +64,117 @@ export default defineConfig({
         plugins: [['babel-plugin-react-compiler', ReactCompilerConfig]],
       },
     }),
+    VitePWA({
+      manifest: genManifestAndIcons(),
+      registerType: 'autoUpdate',
+      includeAssets: [
+        '**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,mp3,woff,woff2,ttf,otf}',
+      ],
+      workbox: {
+        globPatterns: [
+          '**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,mp3,woff,woff2,ttf,otf}',
+        ],
+        globIgnores: ['**/sw.js', '**/workbox-*.js'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.destination === 'document',
+            handler: 'NetworkFirst', // Always check for updates, but cache for offline
+            options: {
+              cacheName: 'html-cache',
+              networkTimeoutSeconds: 5, // If the network is slow, use cached version
+              expiration: {
+                maxEntries: 20,
+                maxAgeSeconds: 60 * 60 * 24 * 7, // 7 days
+              },
+            },
+          },
+          {
+            urlPattern: ({ request }) =>
+              ['script', 'style', 'worker'].includes(request.destination),
+            handler: 'StaleWhileRevalidate', // Load from cache, but update in background
+            options: {
+              cacheName: 'assets-cache',
+              expiration: {
+                maxEntries: 300,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+              },
+            },
+          },
+          {
+            urlPattern: ({ request }) => request.destination === 'image',
+            handler: 'CacheFirst', // Always use cache unless expired
+            options: {
+              cacheName: 'image-cache',
+              expiration: {
+                maxEntries: 500,
+                maxAgeSeconds: 60 * 60 * 24 * 60, // 60 days
+              },
+            },
+          },
+          {
+            urlPattern: ({ request }) => request.destination === 'audio',
+            handler: 'CacheFirst', // Load from cache first for instant playback
+            options: {
+              cacheName: 'audio-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 60, // 60 days
+              },
+            },
+          },
+          // {
+          //   urlPattern: ({ url }) => url.pathname.startsWith('/api/'),
+          //   handler: 'NetworkFirst', // Use fresh data when possible, but cache offline
+          //   options: {
+          //     cacheName: 'api-cache',
+          //     networkTimeoutSeconds: 3,
+          //     expiration: {
+          //       maxEntries: 300,
+          //       maxAgeSeconds: 60 * 60 * 24, // 1 day
+          //     },
+          //   },
+          // },
+        ],
+        maximumFileSizeToCacheInBytes: 100000000, // 100 MB
+        cleanupOutdatedCaches: true,
+        clientsClaim: true,
+        skipWaiting: true,
+      },
+      devOptions: {
+        enabled: true,
+        type: 'module',
+      },
+    }),
+    license({
+      thirdParty: {
+        output: 'dist/LICENSES.txt',
+      },
+    }),
+    legacy({
+      modernPolyfills: true,
+      renderLegacyChunks: false,
+      modernTargets: pkg.browserslist.production,
+    }),
+    htmlMinifier({
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeEmptyAttributes: true,
+        minifyJS: true,
+        minifyCSS: true,
+      },
+    }),
   ],
   server: {
     port: 8080,
+    open: true,
   },
   build: {
+    target: 'es2017',
     outDir: 'dist',
     minify: 'terser',
+    assetsInlineLimit: 0,
     terserOptions: {
       compress: {
         drop_console: true,

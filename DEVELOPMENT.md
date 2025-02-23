@@ -22,22 +22,18 @@
 
 ## Other Updates
 
-- When adding a new language, also update `og:locale:alternate` in **./src/index.html.ejs**.
-- If there are changes to the description, search the first few words in the entire project and replace them:
-  - The following files should be updated:
-    - **./assets/logo/manifest.template.ts**
-    - **./webpack.config.js**
-    - **./package.json**
-    - **./src/i18n/main/en.ts**
-  - The following file should be regenerated:
-    - **./assets/logo/manifest.json**
+- When adding a new language, also update `og:locale:alternate` in **./index.html**.
+- Settings are mostly in ./src/constants/\*.ts, ./index.html, ./assets/logo/manifest.template.ts, ./package.json, etc.
 
 ## Tools & Scripts
 
-- `bun`: Install dependencies
+- `bun install`: Install dependencies
+- `bun upgrade`: Upgrade dependencies to the latest compatible versions
 - `bun start`: Start the project in development mode
+  - `bun start --host` or `bun preview --host`: Run the project in development/production mode and expose it to the local network (on devices on the same wifi/network, go to `http://192.168.?.?:PORT` to view the app)
+  - `./tools/manifest` generates json object of `manifest.json` and icon files from ./assets/logo/, it runs automatically before each start or build, see `vite.config.ts`
 - `bun run build`: Build the project in production mode
-- `bun build:local`: Build the project in both production and local mode
+- `bun preview`: Preview the built project in production mode (does not include build process)
 - `bun checkall`: Run format with Prettier, lint with ESLint, check types, and run basic tests (see below)
 - `bun test`: Run basic tests (Jest tests from < v1.5 are not yet all migrated after v1.5's upgrade/migration to react 19 & bun)
 - `bun format`: Format code using Prettier
@@ -51,7 +47,6 @@
 - `bun tool:datapc`: Extract card data from an Excel file
 - `bun tool:taverns`: Extract tavern data from an Excel file
 - `bun tool:geticelist`: Fetch a free STUN server list
-- `bun tool:manifest`: Generate `manifest.json` and icons
 - `bun tool:ocr:pre`: Prepare OCR processing
 - `bun tool:ocr`: Extract card text in different languages
 - `bun tool:i18ncheck:card`: Check card localization

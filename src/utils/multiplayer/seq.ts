@@ -92,7 +92,7 @@ class sendSequence {
 
 export const sendSeq = new sendSequence()
 
-if (!isProd) {
+if (!isProd && typeof window !== 'undefined') {
   ;(window as Window & typeof globalThis & { sq: unknown }).sq = sendSeq
   ;(window as Window & typeof globalThis & { rq: unknown }).rq = receiveSeq
 }

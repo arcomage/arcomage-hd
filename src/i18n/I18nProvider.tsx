@@ -21,9 +21,15 @@ const I18nProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     ;(async () => {
       const [{ i18n }, { cardsI18n }, { tavernsI18n }] = await Promise.all([
-        modules[`./main/${lang}.ts`]() as Promise<{ i18n: typeof defaultTrans }>,
-        modules[`./cards/${lang}.ts`]() as Promise<{ cardsI18n: typeof defaultCardsI18n }>,
-        modules[`./taverns/${lang}.ts`]() as Promise<{ tavernsI18n: typeof defaultTavernsI18n }>,
+        modules[`./main/${lang}.ts`]() as Promise<{
+          i18n: typeof defaultTrans
+        }>,
+        modules[`./cards/${lang}.ts`]() as Promise<{
+          cardsI18n: typeof defaultCardsI18n
+        }>,
+        modules[`./taverns/${lang}.ts`]() as Promise<{
+          tavernsI18n: typeof defaultTavernsI18n
+        }>,
       ])
 
       setTranslation({ i18n, cards: cardsI18n, taverns: tavernsI18n })

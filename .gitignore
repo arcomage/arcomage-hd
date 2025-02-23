@@ -12,6 +12,8 @@ others
 build
 public
 
+dev-dist
+
 # MicrosoftOffice.gitignore
 *.tmp
 

@@ -44,7 +44,7 @@ SOFTWARE.
 
 ### Copyright Notice of the Dependencies
 
-See [dist](https://github.com/arcomage/arcomage.github.io/tree/gh-pages)/\*.js.LICENSE.txt files
+See [LICENSES.txt in dist](https://github.com/arcomage/arcomage.github.io/tree/gh-pages/LICENSES.txt)
 
 ### SVG Animated Birds
 

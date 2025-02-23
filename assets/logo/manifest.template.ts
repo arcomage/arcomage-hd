@@ -1,10 +1,12 @@
+import { origDesc, origTitle } from '../../src/constants/htmlVars'
+import { defaultLang } from '../../src/i18n/langs'
+
 // prettier-ignore
 export default {
-  name: 'ArcoMage HD',
-  short_name: 'ArcoMage HD',
-  description:
-    "Web-based free and open source HD clone of 3DO and NWC's 2000 card game Arcomage. Desktop / mobile Android iOS. Online / offline PWA. Single / Multiplayer",
-  lang: 'en-US',
+  name: origTitle,
+  short_name: origTitle,
+  description: origDesc,
+  lang: defaultLang,
   display: 'fullscreen',
   orientation: 'landscape',
   start_url: './',
@@ -23,4 +25,4 @@ export default {
     logoPng: 'favicon_logo-%s.png',
     logoMaskableSvg: 'favicon_logo_maskable.svg',
   }
-}
+} as const

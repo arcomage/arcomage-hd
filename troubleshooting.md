@@ -1,28 +1,10 @@
 # Troubleshooting for [ArcoMage HD](https://arcomage.github.io/)
 
-## Performance
+## Browser Support
 
-ArcoMage HD performs best on Chrome and other browsers based on the Blink engine. Based on a 2021 test and user feedback, there may be performance issues on Safari and Firefox. [See browser compatibility details](#browser-list). If you encounter issues, users of Safari, Firefox, or Internet Explorer may want to consider using the [Desktop Version](#desktop-version). For performance optimization tips, check "[What to do if the game is slow](https://github.com/arcomage/arcomage-hd/issues/66)".
+The game officially supports all individual versions of actively maintained browsers with more than 0.2% global market share (`>0.2% and not dead`). Click "[supported browser list](https://browsersl.ist/#q=%3E0.2%25+and+not+dead)" and check if your browser is supported. Upgrade your browser if it's not supported.
 
-## Desktop Version
-
-**If you don't experience performance issues playing ArcoMage HD in your browser, then you don't need the current Desktop Version.**
-
-Some browsers, such as Firefox and Safari, which are not based on Chrome's Blink engine, may experience slight slowness while running ArcoMage HD. In this case, you can opt for the Desktop Version.
-
-The current Desktop Version is **simply a Google Chrome browser-like wrapper** that visits the URL [https://arcomage.github.io/](https://arcomage.github.io/).
-
-[Click to download the Desktop Version (Windows)](https://github.com/arcomage/arcomage-hd/releases/download/v1.0.0-beta.26/ArcoMage.HD.Setup.1.0.0.7z)
-
-The first time you run the ArcoMage HD Desktop Version, it will silently download all images and sound files. Please allow about 1 minute (depending on your Internet speed) before you can disconnect from the Internet and play offline.
-
-If both Google Chrome and the Desktop Version are installed, the Desktop Version will have its own independent storage. Clearing data in Google Chrome will not affect the Desktop Version's settings.
-
-The current Windows Desktop Version is not expected to be updated. MacOS and Linux versions of this Electron-powered app are not planned. However, Tauri may be used to build future cross-platform and lightweight desktop and mobile apps of the game. ([issue page](https://github.com/arcomage/arcomage-hd/issues/3))
-
-## Browser List
-
-<details><summary><strong>Click to show a list of browsers tested to run or not run the game</strong></summary>
+<details><summary><strong>Click to show a list of browsers tested to run or not run the game in 2021 (maybe outdated)</strong></summary>
 
 _(\*: presumed to work, but not fully tested)_
 
@@ -85,6 +67,26 @@ _(If your Chrome-based browser has performance issues, the Desktop Version (a Ch
 ❌ Very old browsers that [do not support ECMAScript 2015 (ES6)](https://caniuse.com/es6) or [WebP images](https://caniuse.com/webp) are also not supported.
 
 </details>
+
+## Performance
+
+ArcoMage HD performs best on Chrome and other browsers based on the Blink engine. Based on a 2021 test and user feedback, there may be performance issues on Safari and Firefox. [See browser compatibility details](#browser-list). If you encounter issues, users of Safari, Firefox, or Internet Explorer may want to consider using the [Desktop Version](#desktop-version). For performance optimization tips, check "[What to do if the game is slow](https://github.com/arcomage/arcomage-hd/issues/66)".
+
+## Desktop Version
+
+**If you don't experience performance or other issues playing ArcoMage HD in your browser, then you don't need the current Desktop Version.**
+
+Some browsers, such as Firefox and Safari, which are not based on Chrome's Blink engine, may experience slight slowness while running ArcoMage HD. In this case, you can opt for the Desktop Version.
+
+The current Desktop Version is **simply a Google Chrome browser-like wrapper** that visits the URL [https://arcomage.github.io/](https://arcomage.github.io/).
+
+[Click to download the Desktop Version (Windows)](https://github.com/arcomage/arcomage-hd/releases/download/v1.0.0-beta.26/ArcoMage.HD.Setup.1.0.0.7z)
+
+The first time you run the ArcoMage HD Desktop Version, it will silently download all images and sound files. Please allow about 1 minute (depending on your Internet speed) before you can disconnect from the Internet and play offline.
+
+If both Google Chrome and the Desktop Version are installed, the Desktop Version will have its own independent storage. Clearing data in Google Chrome will not affect the Desktop Version's settings.
+
+The current Windows Desktop Version is not expected to be updated. MacOS and Linux versions of this Electron-powered app are not planned. However, Tauri may be used to build future cross-platform and lightweight desktop and mobile apps of the game. ([issue page](https://github.com/arcomage/arcomage-hd/issues/3))
 
 ## Fullscreen Mode
 

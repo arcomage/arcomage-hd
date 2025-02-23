@@ -47,6 +47,7 @@ const conf = tseslint.config(
       'assets/',
       'coverage/',
       'dist/',
+      'dev-dist/',
       'misc/',
       'node_modules/',
       'others/',

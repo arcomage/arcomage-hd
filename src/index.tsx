@@ -1,5 +1,3 @@
-import './utils/polyfill'
-
 import './styles/index.scss'
 
 import React from 'react'
@@ -32,4 +30,4 @@ root.render(
   </HelmetProvider>,
 )
 
-// pwacompat.js inserted after it, see webpack.config.js
+import 'pwacompat'
