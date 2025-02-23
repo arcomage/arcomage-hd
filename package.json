@@ -7,6 +7,7 @@
     "url": "https://github.com/arcomage/arcomage-hd.git"
   },
   "scripts": {
+    "install:nooptional": "bun tools/rm-optional-deps/remove.ts && bun install && bun tools/rm-optional-deps/restore.ts",
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -96,7 +97,8 @@
     "typescript": "^5.7.3",
     "vite": "^6.1.1",
     "vite-plugin-html-minifier": "^1.0.5",
-    "vite-plugin-pwa": "^0.21.1"
+    "vite-plugin-pwa": "^0.21.1",
+    "sharp": "^0.33.5"
   },
   "optionalDependencies": {
     "@eslint/js": "^9.21.0",
@@ -125,7 +127,6 @@
     "join-images": "^1.1.5",
     "opencc-js": "^1.0.5",
     "prettier": "^3.5.2",
-    "sharp": "^0.33.5",
     "sloc": "^0.3.2",
     "tesseract.js": "^2.1.5",
     "typescript-eslint": "^8.24.1",

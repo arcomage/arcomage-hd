@@ -28,6 +28,7 @@
 ## Tools & Scripts
 
 - `bun install`: Install dependencies
+  - `bun install:nooptional`: Install dependencies without optional dependencies (temporarily remove optional dependencies in package.json and re-add them after install. Used by CI)
 - `bun upgrade`: Upgrade dependencies to the latest compatible versions
 - `bun start`: Start the project in development mode
   - `bun start --host` or `bun preview --host`: Run the project in development/production mode and expose it to the local network (on devices on the same wifi/network, go to `http://192.168.?.?:PORT` to view the app)
