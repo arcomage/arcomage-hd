@@ -14,7 +14,7 @@ The game is fully responsive, supporting desktop, tablet, and mobile devices �
 
 By default, you'll play against the computer AI 🤖 in Single Player Mode. You can also switch to [Multiplayer Mode 🧑‍🤝‍🧑](#multiplayer-mode).
 
-<p align="center"><a href="https://arcomage.github.io/"><strong>Click here to play it now!</strong><br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/misc/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
+<p align="center"><a href="https://arcomage.github.io/"><strong>Click here to play it now!</strong><br><br><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/assets/logo/ogimage.jpg" alt="ArcoMage HD screenshot"></a></p>
 
 <p align="center">
 <a href="https://github.com/arcomage/arcomage-hd/blob/main/CHANGELOG.md"><img src="https://img.shields.io/github/package-json/v/arcomage/arcomage-hd" alt="version number"></a>
