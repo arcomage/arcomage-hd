@@ -1,0 +1,20 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) translateZ(0);
+  }
+  to {
+    transform: rotate(360deg) translateZ(0);
+  }
+}
+.prefButton {
+  left: 60%;
+  html[data-noanime='false'] & {
+    &:hover,
+    &:focus,
+    &.windowactive {
+      svg {
+        animation: rotate 2s linear infinite;
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@
 - Install dependencies:
   - `bun install`
 - Start the project in development mode:
-  - `bun start`
+  - `bun dev`
 - Before releasing a new version, run the checks:
   - `bun checkall`
   - `git add .`
@@ -30,8 +30,8 @@
 - `bun install`: Install dependencies
   - `bun install:nooptional`: Install dependencies without optional dependencies (temporarily remove optional dependencies in package.json and re-add them after install. Used by CI)
 - `bun upgrade`: Upgrade dependencies to the latest compatible versions
-- `bun start`: Start the project in development mode
-  - `bun start --host` or `bun preview --host`: Run the project in development/production mode and expose it to the local network (on devices on the same wifi/network, go to `http://192.168.?.?:PORT` to view the app)
+- `bun dev`: Start the project in development mode
+  - `bun dev --host` or `bun preview --host`: Run the project in development/production mode and expose it to the local network (on devices on the same wifi/network, go to `http://192.168.?.?:PORT` to view the app)
   - `./tools/manifest` generates json object of `manifest.json` and icon files from ./assets/logo/, it runs automatically before each start or build, see `vite.config.ts`
 - `bun run build`: Build the project in production mode
 - `bun preview`: Preview the built project in production mode (does not include build process)

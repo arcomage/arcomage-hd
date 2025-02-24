@@ -6,13 +6,13 @@ _To ensure you're using the latest version, open the game and press <kbd>Ctrl</k
 
 <!-- ## [v1.6.0](https://github.com/arcomage/arcomage-hd/compare/v1.5.0...v1.6.0) (2025-?-?) (in progress)
 
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-02-24..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-02-24..*)) -->
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-02-26..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-02-26..*)) -->
 
-## [v1.5.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.3...v1.5.0) (2025-02-23) (in beta testing phase)
+## [v1.5.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.3...v1.5.0) (2025-02-25) (in beta testing phase)
 
 - [Major Library changes](https://github.com/arcomage/arcomage-hd/issues/78)
   - Major Upgrade: React 19, Redux 5, RxJS 7.8, etc.
-  - Removed: Webpack and related libs, Yarn, Jest and related libs, Enzyme, Testing Library, MUI, Husky, commitlint, classnames, copy-to-clipboard, some eslint plugins, ts-node, etc.
+  - Removed: Webpack and related libs, Yarn, JSS, Jest and related libs, Enzyme, Testing Library, MUI, Husky, commitlint, classnames, copy-to-clipboard, some eslint plugins, ts-node, some polyfills (including pwacompat),etc.
   - Added: Bun, Vite, [React Compiler](https://react.dev/learn/react-compiler), clsx, etc.
 - [Automatic update (and/or showing notification) of the game in PWA or non PWA](https://github.com/arcomage/arcomage-hd/issues/106)
 - [Full control with mouse, touch device, keyboard, or gamepad](https://github.com/arcomage/arcomage-hd/issues/93) 🖱️📱⌨️🎮 ([instructions](gamecontrols.md)) (gamepad has basic support and is not fully finished)
@@ -26,7 +26,7 @@ _To ensure you're using the latest version, open the game and press <kbd>Ctrl</k
 - CI update, replaced husky git hooks with custom script
 - Docs update
 - Easter egg when clicking on birds
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..2025-02-23); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..2025-02-23))
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..2025-02-25); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..2025-02-25))
 
 ## [v1.4.0](https://github.com/arcomage/arcomage-hd/compare/v1.3.0...v1.4.3) ([2025-01-25](https://github.com/arcomage/arcomage-hd/tree/552bf596a98d403310345efe7afc7c067938d489))
 

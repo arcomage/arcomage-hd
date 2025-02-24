@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 import {
   useAppSelector,
   useAppDispatch,
@@ -9,30 +8,7 @@ import {
 import { SCREEN_HELP } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import { tooltipAttrs } from '../../utils/tooltip'
-
-const useStyles = createUseStyles<string>({
-  '@keyframes rotate2': {
-    '0%, 100%': {
-      transform: 'rotate(0deg) translateZ(0)',
-    },
-    '25%': {
-      transform: 'rotate(30deg) translateZ(0)',
-    },
-    '75%': {
-      transform: 'rotate(-30deg) translateZ(0)',
-    },
-  },
-  helpButton: {
-    left: 'calc(60% + 12rem)',
-    'html[data-noanime="false"] &': {
-      '&:hover, &:focus, &.windowactive': {
-        '& svg': {
-          animation: '$rotate2 2s linear infinite',
-        },
-      },
-    },
-  },
-})
+import styles from './ButtonHelp.module.scss'
 
 const ButtonHelp = () => {
   const _ = useContext(I18nContext)
@@ -41,8 +17,6 @@ const ButtonHelp = () => {
   const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
 
   const dispatch = useAppDispatch()
-
-  const classes = useStyles()
 
   const clickFunc = () => {
     dispatch({
@@ -55,7 +29,9 @@ const ButtonHelp = () => {
     <button
       {...(isEndScreen ? { tabIndex: -1 } : {})}
       accessKey="h"
-      className={cx('topbutton', classes.helpButton, { windowactive: help })}
+      className={cx('topbutton', styles.helpButton, {
+        [styles.windowactive]: help,
+      })}
       onClick={clickFunc}
       onAuxClick={clickFunc}
       {...tooltipAttrs(_.i18n('Help'), 'bottom')}

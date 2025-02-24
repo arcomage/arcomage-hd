@@ -1,0 +1,145 @@
+@use '../styles/_variables.scss' as *;
+
+$cardGradient: linear-gradient(
+  to left,
+  rgba(
+    $cardGradientSideRgb,
+    $cardGradientSideRgb,
+    $cardGradientSideRgb,
+    $cardGradientSideOpacity
+  ),
+  rgba(0, 0, 0, 0),
+  rgba(
+    $cardGradientSideRgb,
+    $cardGradientSideRgb,
+    $cardGradientSideRgb,
+    $cardGradientSideOpacity
+  )
+);
+
+.main {
+  // 'will-change: opacity' has bug and cannot be set here
+  will-change: transform, left, top;
+  transition-property: opacity, transform, left, top;
+  transition-timing-function: ease-in-out;
+  transition-duration: #{$cardTransitionDuration}ms;
+}
+.cardname {
+  @apply m-1 shadow text-center tracking-tight;
+  height: calc(var(--cardwidth) * 0.094 * 1.1);
+  line-height: calc(var(--cardwidth) * 0.094 * 1.1);
+}
+.isflipped {
+  transform: translateX(-100%) translateZ(0) rotateY(-179.99deg);
+}
+.cardeffect {
+  @apply absolute rounded;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+}
+.cardfront {
+  @apply absolute top-0 bottom-0 left-0 right-0 rounded;
+  background-image: url('../../assets/img/noise.webp');
+  backface-visibility: hidden;
+  will-change: transform, left, top;
+  transition-property: opacity, transform, left, top;
+  transition-timing-function: ease-in-out;
+  transition-duration: #{$cardTransitionDuration}ms;
+  &::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: $cardGradient;
+  }
+}
+.unusableopacity {
+  opacity: $unusableCardOpacity;
+}
+.cardback {
+  @apply absolute top-0 bottom-0 left-0 right-0 rounded;
+  will-change: transform, left, top;
+  transition-property: opacity, transform, left, top;
+  transition-timing-function: ease-in-out;
+  transition-duration: #{$cardTransitionDuration}ms;
+  transform: translateX(0) translateZ(0) rotateY(180deg);
+  backface-visibility: hidden;
+  &::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: $cardGradient;
+  }
+}
+.cardbackhard {
+  @apply absolute rounded shadow-lg;
+  &::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    background: $cardGradient;
+  }
+}
+.cardbackimage {
+  @apply w-full h-full bg-cover;
+  background-image: url('../../assets/img/cardback.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.imagewrapper {
+  @apply relative m-1 shadow bg-no-repeat bg-cover bg-center;
+  // width: calc(100% - 0.25rem * 2),
+  height: calc((100% / 63 * 47 - 0.5rem) / 22 * 13);
+}
+.imageholder {
+  @apply w-full h-full bg-cover;
+}
+.discarded {
+  @apply absolute top-0 left-0 w-full h-full flex justify-center items-center text-red-500 font-bold uppercase text-shadow-stroke;
+  font-size: 125%;
+}
+.text {
+  @apply m-2 flex flex-wrap items-center justify-center;
+  // width: calc(100% - 0.25rem * 2),
+  height: calc(
+    100% - (var(--cardwidth) * 0.094 * 1.1 + 0.25rem + 0.25rem) -
+      (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13
+  );
+}
+.textholder {
+  @apply leading-tight break-words text-center;
+}
+.resall {
+  @apply absolute bottom-1 right-1 text-center font-bold;
+  width: calc(var(--cardwidth) * 0.2);
+  height: calc(var(--cardwidth) * 0.2);
+  line-height: calc(var(--cardwidth) * 0.2);
+}
+.resbg {
+  @apply absolute top-0 left-0 w-full h-full;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: $resbgOpacity;
+  &.brick {
+    background-image: url('../../assets/img/brick.svg');
+  }
+  &.gem {
+    background-image: url('../../assets/img/gem.svg');
+  }
+  &.recruit {
+    background-image: url('../../assets/img/recruit.svg');
+  }
+}
+.cost {
+  @apply absolute top-0 left-0 w-full h-full;
+}

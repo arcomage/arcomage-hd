@@ -10,8 +10,6 @@ import I18nProvider from './i18n/I18nProvider'
 import GameSizeProvider from './utils/contexts/GameSizeProvider'
 import { HelmetProvider } from 'react-helmet-async'
 
-import './utils/swreg'
-
 epicMiddleware.run(rootEpic)
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
@@ -29,5 +27,3 @@ root.render(
     </React.StrictMode>
   </HelmetProvider>,
 )
-
-import 'pwacompat'

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 import {
   useAppSelector,
   useAppDispatch,
@@ -9,54 +8,7 @@ import {
 import { SCREEN_VOLUME_PREF } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import { tooltipAttrs } from '../../utils/tooltip'
-
-const useStyles = createUseStyles<string>({
-  '@keyframes visible-1-3': {
-    '24.99%': {
-      visibility: 'hidden',
-    },
-    '25%': {
-      visibility: 'visible',
-    },
-  },
-  '@keyframes visible-2-3': {
-    '49.99%': {
-      visibility: 'hidden',
-    },
-    '50%': {
-      visibility: 'visible',
-    },
-  },
-  '@keyframes visible-3-3': {
-    '74.99%': {
-      visibility: 'hidden',
-    },
-    '75%': {
-      visibility: 'visible',
-    },
-  },
-  sgPrefButton: {
-    left: 'calc(60% + 6rem)',
-    'html[data-noanime="false"] &': {
-      '&:hover, &:focus, &.windowactive': {
-        '& svg': {
-          '& .el-1': {
-            visibility: 'hidden',
-            animation: '$visible-1-3 2s linear infinite',
-          },
-          '& .el-2': {
-            visibility: 'hidden',
-            animation: '$visible-2-3 2s linear infinite',
-          },
-          '& .el-3': {
-            visibility: 'hidden',
-            animation: '$visible-3-3 2s linear infinite',
-          },
-        },
-      },
-    },
-  },
-})
+import styles from './ButtonSgPref.module.scss'
 
 const ButtonSgPref = () => {
   const _ = useContext(I18nContext)
@@ -65,8 +17,6 @@ const ButtonSgPref = () => {
   const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
 
   const dispatch = useAppDispatch()
-
-  const classes = useStyles()
 
   const clickFunc = () => {
     dispatch({
@@ -79,8 +29,8 @@ const ButtonSgPref = () => {
     <button
       {...(isEndScreen ? { tabIndex: -1 } : {})}
       accessKey="s"
-      className={cx('topbutton', classes.sgPrefButton, {
-        windowactive: sgPref,
+      className={cx('topbutton', styles.sgPrefButton, {
+        [styles.windowactive]: sgPref,
       })}
       onClick={clickFunc}
       onAuxClick={clickFunc}

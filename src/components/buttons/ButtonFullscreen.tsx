@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 import { I18nContext } from '../../i18n/I18nContext'
 import {
   isEnabled,
@@ -10,56 +9,12 @@ import {
 } from '../../utils/fullscreen'
 import { useAppSelector } from '../../utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '../../utils/tooltip'
-
-const useStyles = createUseStyles<string>({
-  '@keyframes moveto-tl': {
-    to: {
-      transform: 'translate3d(-1.4px, -1.4px, 0)',
-    },
-  },
-  '@keyframes moveto-tr': {
-    to: {
-      transform: 'translate3d(1.4px, -1.4px, 0)',
-    },
-  },
-  '@keyframes moveto-bl': {
-    to: {
-      transform: 'translate3d(-1.4px, 1.4px, 0)',
-    },
-  },
-  '@keyframes moveto-br': {
-    to: {
-      transform: 'translate3d(1.4px, 1.4px, 0)',
-    },
-  },
-
-  fullscreenButton: {
-    left: 'calc(60% + 9rem)',
-    'html[data-noanime="false"] &': {
-      '&:hover, &:focus': {
-        '& svg': {
-          '& .el-0': {
-            animation: '$moveto-tl 0.6s linear infinite',
-          },
-          '& .el-1': {
-            animation: '$moveto-tr 0.6s linear infinite',
-          },
-          '& .el-2': {
-            animation: '$moveto-bl 0.6s linear infinite',
-          },
-          '& .el-3': {
-            animation: '$moveto-br 0.6s linear infinite',
-          },
-        },
-      },
-    },
-  },
-})
+import styles from './ButtonFullscreen.module.scss'
 
 const ButtonFullscreen = () => {
   const _ = useContext(I18nContext)
+
   const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
-  const classes = useStyles()
 
   const clickFunc = () => {
     if (isEnabled) {
@@ -75,7 +30,7 @@ const ButtonFullscreen = () => {
     <button
       {...(isEndScreen ? { tabIndex: -1 } : {})}
       accessKey="f"
-      className={cx('topbutton', classes.fullscreenButton)}
+      className={cx('topbutton', styles.fullscreenButton)}
       onClick={clickFunc}
       onAuxClick={clickFunc}
       {...tooltipAttrs(_.i18n('Toggle Full Screen'), 'bottom')}

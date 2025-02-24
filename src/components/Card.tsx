@@ -1,27 +1,12 @@
 import React, { useContext, useRef } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 
 import { useAppSelector, useAppDispatch } from '../utils/hooks/useAppDispatch'
 import { USE_CARD, DISCARD_CARD } from '../constants/ActionTypes'
 import { CardTotalType, ownerType } from '../types/state'
-import {
-  cardGradientSideOpacity,
-  cardGradientSideRgb,
-  cardNameMaxLength,
-  cardTransitionDuration,
-  resbgOpacity,
-  touchDelay,
-  unusableCardOpacity,
-} from '../constants/visuals'
+import { cardNameMaxLength, touchDelay } from '../constants/visuals'
 
 import dataCards from '../../src/data/cards'
-
-import noise from '../../assets/img/noise.webp'
-import cardbackbg from '../../assets/img/cardback.webp'
-import brick from '../../assets/img/brick.svg'
-import gem from '../../assets/img/gem.svg'
-import recruit from '../../assets/img/recruit.svg'
 
 import { I18nContext } from '../i18n/I18nContext'
 import {
@@ -31,6 +16,7 @@ import {
 } from '../constants/devSettings'
 import { tooltipAttrs } from '../utils/tooltip'
 import isTouch from '../utils/isTouch'
+import styles from './Card.module.scss'
 
 // `import.meta.glob()` is vite-only
 const images = import.meta.glob('../../assets/img/cards/*.webp', {
@@ -42,146 +28,6 @@ const getImageUrl = (n: number) => {
       ?.default || ''
   )
 }
-
-const calcOpacity = ({
-  unusable,
-  zeroOpacity,
-}: {
-  unusable: boolean
-  zeroOpacity: boolean
-}): number => {
-  if (zeroOpacity) {
-    return 0
-  }
-  if (unusable) {
-    return unusableCardOpacity
-  }
-  return 1
-}
-
-const useStyles = createUseStyles<
-  string,
-  {
-    position: number
-    type?: number
-    unusable: boolean
-    zeroOpacity: boolean
-    cardNameLength: number
-  }
->({
-  main: {
-    // 'will-change: opacity' has bug and cannot be set here
-    'will-change': 'transform, left, top',
-    'transition-property': 'opacity, transform, left, top',
-    'transition-timing-function': 'ease-in-out',
-    'transition-duration': `${cardTransitionDuration}ms`,
-  },
-  cardname: {
-    'font-size': ({ cardNameLength }) => {
-      if (cardNameLength > cardNameMaxLength) {
-        return `calc(var(--cardwidth) * 0.094 * ${cardNameMaxLength + 1} / ${cardNameLength})`
-      } else {
-        return 'inherit'
-      }
-    },
-    height: 'calc(var(--cardwidth) * 0.094 * 1.1)',
-    'line-height': 'calc(var(--cardwidth) * 0.094 * 1.1)',
-  },
-  isflipped: {
-    transform: 'translateX(-100%) translateZ(0) rotateY(-179.99deg)',
-  },
-  cardeffect: {
-    'transform-style': 'preserve-3d',
-    'transform-origin': 'center right',
-  },
-  cardfront: {
-    'background-image': `url(${noise})`,
-    'backface-visibility': 'hidden',
-    opacity: calcOpacity,
-    'will-change': 'transform, left, top',
-    'transition-property': 'opacity, transform, left, top',
-    'transition-timing-function': 'ease-in-out',
-    'transition-duration': `${cardTransitionDuration}ms`,
-    '&::before': {
-      width: '100%',
-      height: '100%',
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      content: '""',
-      background: `linear-gradient(to left, rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}))`,
-    },
-  },
-  unusableopacity: {
-    opacity: unusableCardOpacity,
-  },
-  cardback: {
-    opacity: calcOpacity,
-    'will-change': 'transform, left, top',
-    'transition-property': 'opacity, transform, left, top',
-    'transition-timing-function': 'ease-in-out',
-    'transition-duration': `${cardTransitionDuration}ms`,
-    '&::before': {
-      width: '100%',
-      height: '100%',
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      content: '""',
-      background: `linear-gradient(to left, rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}))`,
-    },
-  },
-  cardbackeffect: {
-    transform: 'translateX(0) translateZ(0) rotateY(180deg)',
-    'backface-visibility': 'hidden',
-  },
-  cardbackhard: {
-    '&::before': {
-      width: '100%',
-      height: '100%',
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      content: '""',
-      background: `linear-gradient(to left, rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}), rgba(0, 0, 0, 0), rgba(${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideRgb}, ${cardGradientSideOpacity}))`,
-    },
-  },
-  cardbackimage: {
-    background: {
-      image: `url(${cardbackbg})`,
-      size: 'cover',
-      position: 'center',
-      repeat: 'no-repeat',
-    },
-  },
-  imagewrapper: {
-    // width: calc(100% - 0.25rem * 2),
-    height: 'calc((100% / 63 * 47 - 0.5rem) / 22 * 13)',
-  },
-  discarded: {
-    'font-size': '125%',
-  },
-  text: {
-    // width: calc(100% - 0.25rem * 2),
-    height:
-      'calc(100% - (var(--cardwidth) * 0.094 * 1.1 + 0.25rem + 0.25rem) - (0.5rem + 0.5rem) - (100% / 63 * 47 - 0.5rem) / 22 * 13)',
-  },
-  resall: {
-    width: 'calc(var(--cardwidth) * 0.2)',
-    height: 'calc(var(--cardwidth) * 0.2)',
-    'line-height': 'calc(var(--cardwidth) * 0.2)',
-  },
-  resbg: {
-    'background-image': ({ type }) =>
-      type === undefined ? 'none' : `url(${[brick, gem, recruit][type]})`,
-    background: {
-      repeat: 'no-repeat',
-      size: 'cover',
-      position: 'center center',
-    },
-    opacity: resbgOpacity,
-  },
-})
 
 type PropType = {
   n: number // 0 | 1 | 2 | ... | -1: cardback. index of the card in `cards` array, see src/data/cards.ts
@@ -239,14 +85,6 @@ const Card = ({
 
   const type = isCardback ? undefined : dataCards[n].type
 
-  const classes = useStyles({
-    position,
-    type,
-    unusable,
-    zeroOpacity,
-    cardNameLength,
-  })
-
   if (type === undefined) {
     // CardBack
     // `type === undefined` is equivalent to `isCardback`
@@ -257,26 +95,18 @@ const Card = ({
         aria-hidden={true}
         tabIndex={-1}
         className={cx(
-          classes.main,
-          classes.cardbackhard,
-          'absolute rounded shadow-lg',
-          {
-            'opacity-0 pointer-events-none':
-              (playersTurn && owner === 'opponent') ||
-              (!playersTurn && owner === 'player'),
-            [classes.unusableopacity]: n === -1,
-          },
+          styles.main,
+          styles.cardbackhard,
+          ((playersTurn && owner === 'opponent') ||
+            (!playersTurn && owner === 'player')) &&
+            'opacity-0 pointer-events-none',
+          n === -1 && styles.unusableopacity,
           'card',
           `card-pos-${position}`,
           `card-pos-${isM0 ? 'm0' : 'm1'}`,
         )}
       >
-        <div
-          className={cx(
-            classes.cardbackimage,
-            'w-full h-full bg-cover pixelated',
-          )}
-        ></div>
+        <div className={cx(styles.cardbackimage, 'pixelated')}></div>
       </button>
     )
   } else {
@@ -410,10 +240,9 @@ const Card = ({
       <button
         ref={main}
         className={cx(
-          classes.main,
-          classes.cardeffect,
-          { [classes.isflipped]: isFlipped },
-          'absolute rounded',
+          styles.main,
+          styles.cardeffect,
+          { [styles.isflipped]: isFlipped },
           {
             'opacity-0 pointer-events-none':
               (playersTurn && owner === 'opponent') ||
@@ -452,55 +281,48 @@ const Card = ({
       >
         <div
           className={cx(
-            classes.cardfront,
-            'absolute top-0 bottom-0 left-0 right-0 rounded',
+            styles.cardfront,
             `bg-${color}-300`,
+            zeroOpacity
+              ? 'opacity-0'
+              : unusable
+                ? styles.unusableopacity
+                : 'opacity-100',
           )}
         >
           <div
             className={cx(
-              classes.cardname,
-              'm-1 shadow text-center tracking-tight',
+              styles.cardname,
               boldfont ? 'font-bold' : 'font-semibold',
               `bg-${color}-200`,
               'el-text',
             )}
+            style={{
+              fontSize:
+                cardNameLength > cardNameMaxLength
+                  ? `calc(var(--cardwidth) * 0.094 * ${cardNameMaxLength + 1} / ${cardNameLength})`
+                  : 'inherit',
+            }}
           >
             {cardName}
           </div>
-          <div
-            className={cx(
-              classes.imagewrapper,
-              'relative m-1 shadow bg-no-repeat bg-cover bg-center',
-            )}
-          >
+          <div className={styles.imagewrapper}>
             <div
               style={{
                 backgroundImage: `url(${getImageUrl(n)})`,
               }}
-              className="w-full h-full bg-cover pixelated"
+              className={cx(styles.imageholder, 'pixelated')}
             ></div>
             {discarded && (
-              <div
-                className={cx(
-                  classes.discarded,
-                  'absolute top-0 left-0 w-full h-full flex justify-center items-center text-red-500 font-bold uppercase text-shadow-stroke',
-                  'el-text',
-                )}
-              >
+              <div className={cx(styles.discarded, 'el-text')}>
                 {_.i18n('discarded')}
               </div>
             )}
           </div>
-          <div
-            className={cx(
-              classes.text,
-              'm-2 flex flex-wrap items-center justify-center',
-            )}
-          >
+          <div className={styles.text}>
             <div
               className={cx(
-                'leading-tight break-words text-center',
+                styles.textholder,
                 boldfont && 'font-bold',
                 'el-text',
               )}
@@ -508,20 +330,15 @@ const Card = ({
               {_.cards(n, 'desc')}
             </div>
           </div>
-          <div
-            className={cx(
-              classes.resall,
-              'absolute bottom-1 right-1 text-center font-bold',
-            )}
-          >
+          <div className={styles.resall}>
             <div
               className={cx(
-                classes.resbg,
-                'absolute top-0 left-0 w-full h-full',
+                styles.resbg,
+                [styles.brick, styles.gem, styles.recruit][type],
               )}
             ></div>
             <div
-              className={cx('absolute top-0 left-0 w-full h-full', 'el-number')}
+              className={cx(styles.cost, 'el-number')}
               {...tooltipAttrs(cardTooltip, undefined, { noTouch: true })}
             >
               {cost}
@@ -530,17 +347,15 @@ const Card = ({
         </div>
         <div
           className={cx(
-            classes.cardback,
-            classes.cardbackeffect,
-            'absolute top-0 bottom-0 left-0 right-0 rounded',
+            styles.cardback,
+            zeroOpacity
+              ? 'opacity-0'
+              : unusable
+                ? styles.unusableopacity
+                : 'opacity-100',
           )}
         >
-          <div
-            className={cx(
-              classes.cardbackimage,
-              'w-full h-full bg-cover pixelated',
-            )}
-          ></div>
+          <div className={cx(styles.cardbackimage, 'pixelated')}></div>
         </div>
       </button>
     )

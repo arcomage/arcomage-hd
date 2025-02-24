@@ -1,84 +1,21 @@
 import React, { useContext } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 import { githubUrl } from '../../constants/devSettings'
 import { useAppSelector } from '../../utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '../../utils/tooltip'
 import { I18nContext } from '../../i18n/I18nContext'
-
-const useStyles = createUseStyles<string>({
-  '@keyframes visible1by1-1-3': {
-    '0%, 100%, 33.32%': {
-      visibility: 'visible',
-    },
-    '33.33%, 99.99%': {
-      visibility: 'hidden',
-    },
-  },
-  '@keyframes visible1by1-2-3': {
-    '0%, 100%, 33.32%': {
-      visibility: 'hidden',
-    },
-    '33.33%, 66.65%': {
-      visibility: 'visible',
-    },
-    '66.66%, 99.99%': {
-      visibility: 'hidden',
-    },
-  },
-  '@keyframes visible1by1-3-3': {
-    '0%, 100%, 66.65%': {
-      visibility: 'hidden',
-    },
-    '66.66%, 99.99%': {
-      visibility: 'visible',
-    },
-  },
-  githubButton: {
-    left: 'calc(60% + 15rem)',
-    '& svg': {
-      '& .el-0': {
-        visibility: 'visible',
-      },
-      '& .el-1': {
-        visibility: 'hidden',
-      },
-      '& .el-2': {
-        visibility: 'hidden',
-      },
-    },
-    'html[data-noanime="false"] &': {
-      '&:hover, &:focus': {
-        '& svg': {
-          '& .el-0': {
-            visibility: 'hidden',
-            animation: '$visible1by1-2-3 0.4s linear infinite',
-          },
-          '& .el-1': {
-            visibility: 'visible',
-            animation: '$visible1by1-1-3 0.4s linear infinite',
-          },
-          '& .el-2': {
-            visibility: 'hidden',
-            animation: '$visible1by1-3-3 0.4s linear infinite',
-          },
-        },
-      },
-    },
-  },
-})
+import styles from './ButtonGithub.module.scss'
 
 const ButtonGithub = () => {
   const _ = useContext(I18nContext)
 
   const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
-  const classes = useStyles()
 
   return (
     <a
       {...(isEndScreen ? { tabIndex: -1 } : {})}
       accessKey="g"
-      className={cx('topbutton', classes.githubButton)}
+      className={cx('topbutton', styles.githubButton)}
       href={githubUrl}
       target="_blank"
       rel="noopener noreferrer"

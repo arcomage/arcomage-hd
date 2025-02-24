@@ -47,10 +47,7 @@ import {
   FormFieldsType,
   FormFieldsAllPartialType,
 } from '../../types/formFields'
-import {
-  allCondAndOtherSettingsEqual,
-  getAllCondAndOtherSettingsArray,
-} from '../../utils/startWinState'
+import { allCondAndOtherSettingsEqual } from '../../utils/startWinState'
 import { sample } from '../../utils/random'
 import isEmoji from '../../utils/isEmoji'
 import { maxCardsInHand, minGeneratorIsOne } from '../../constants/ranges'

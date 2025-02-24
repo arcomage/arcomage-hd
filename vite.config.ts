@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import license from 'rollup-plugin-license'
 import legacy from '@vitejs/plugin-legacy'
+import vitePluginRunScript from './tools/vite-plugin-run-script'
 import htmlMinifier from 'vite-plugin-html-minifier'
 import pkg from './package.json'
 import fs from 'fs'
@@ -42,9 +43,6 @@ export default defineConfig({
     'import.meta.env.APP_VERSION': JSON.stringify(pkg.version),
     'import.meta.env.APP_TITLE': JSON.stringify(origTitle),
     'import.meta.env.APP_URL': JSON.stringify(homeUrl),
-    'import.meta.env.APP_PWAMANIFESTJSON': JSON.stringify(
-      isDev ? './manifest.json' : `${homeUrl}manifest.json`,
-    ),
     'import.meta.env.APP_FAVICONSVG': JSON.stringify(
       isDev ? './favicon.svg' : `${homeUrl}favicon.svg`,
     ),
@@ -59,6 +57,10 @@ export default defineConfig({
     'import.meta.env.APP_COMMITTIME2': JSON.stringify(commitTime2),
   },
   plugins: [
+    vitePluginRunScript({
+      scripts: ['bun tools/sass-var-gen'],
+      before: 'both',
+    }),
     react({
       babel: {
         plugins: [['babel-plugin-react-compiler', ReactCompilerConfig]],
@@ -139,10 +141,6 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
-      },
-      devOptions: {
-        enabled: true,
-        type: 'module',
       },
     }),
     license({

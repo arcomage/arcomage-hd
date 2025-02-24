@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 import {
   useAppSelector,
   useAppDispatch,
@@ -9,27 +8,7 @@ import {
 import { SCREEN_PREF } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import { tooltipAttrs } from '../../utils/tooltip'
-
-const useStyles = createUseStyles<string>({
-  '@keyframes rotate': {
-    from: {
-      transform: 'rotate(0deg) translateZ(0)',
-    },
-    to: {
-      transform: 'rotate(360deg) translateZ(0)',
-    },
-  },
-  prefButton: {
-    left: '60%',
-    'html[data-noanime="false"] &': {
-      '&:hover, &:focus, &.windowactive': {
-        '& svg': {
-          animation: '$rotate 2s linear infinite',
-        },
-      },
-    },
-  },
-})
+import styles from './ButtonPref.module.scss'
 
 const ButtonPref = () => {
   const _ = useContext(I18nContext)
@@ -38,8 +17,6 @@ const ButtonPref = () => {
   const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
 
   const dispatch = useAppDispatch()
-
-  const classes = useStyles()
 
   const clickFunc = () => {
     dispatch({
@@ -52,7 +29,9 @@ const ButtonPref = () => {
     <button
       {...(isEndScreen ? { tabIndex: -1 } : {})}
       accessKey="p"
-      className={cx('topbutton', classes.prefButton, { windowactive: pref })}
+      className={cx('topbutton', styles.prefButton, {
+        [styles.windowactive]: pref,
+      })}
       onClick={clickFunc}
       onAuxClick={clickFunc}
       {...tooltipAttrs(_.i18n('Preferences'), 'bottom')}

@@ -1,0 +1,24 @@
+@keyframes rotate2 {
+  0%,
+  100% {
+    transform: rotate(0deg) translateZ(0);
+  }
+  25% {
+    transform: rotate(30deg) translateZ(0);
+  }
+  75% {
+    transform: rotate(-30deg) translateZ(0);
+  }
+}
+.helpButton {
+  left: calc(60% + 12rem);
+  html[data-noanime='false'] & {
+    &:hover,
+    &:focus,
+    &.windowactive {
+      svg {
+        animation: rotate2 2s linear infinite;
+      }
+    }
+  }
+}
