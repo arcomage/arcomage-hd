@@ -1,0 +1,13 @@
+.main {
+  @apply z-0 flex-auto bg-green-100 relative;
+}
+.mainbg {
+  @apply w-full h-full bg-cover;
+  background-image: url('../../assets/img/bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 30%;
+}
+.side {
+  @apply absolute top-0 left-0 w-full h-full;
+}

@@ -4,23 +4,12 @@ import Tower from './Tower'
 import Wall from './Wall'
 import Birds from './effects/Birds'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
 
-import bg from '../../assets/img/bg.webp'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 
-const useStyles = createUseStyles({
-  mainbg: {
-    background: {
-      image: `url(${bg})`,
-      repeat: 'no-repeat',
-      size: 'cover',
-      position: 'center 30%',
-    },
-  },
-})
+import styles from './ZoneStatus.module.scss'
 
 /**
  * Upper Zone for Status, Tower, Wall, Birds
@@ -47,20 +36,11 @@ const ZoneStatus = () => {
 
   const size = useContext(GameSizeContext)
 
-  const classes = useStyles()
-
   return (
-    <div
-      className={cx(
-        'z-0 flex-auto bg-green-100 relative',
-        size.narrowMobile ? 'h-1/2' : 'h-2/3',
-      )}
-    >
-      <div
-        className={cx(classes.mainbg, 'w-full h-full bg-cover pixelated')}
-      ></div>
+    <div className={cx(styles.main, size.narrowMobile ? 'h-1/2' : 'h-2/3')}>
+      <div className={cx(styles.mainbg, 'pixelated')}></div>
 
-      <div className="absolute top-0 left-0 w-full h-full">
+      <div className={styles.side}>
         <Status playerName={isIdConnected ? tempPlayerName : playerName} />
         <Tower goal={winTower} />
         <Wall />

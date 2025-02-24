@@ -1,0 +1,66 @@
+.main {
+  @apply p-1 shadow-lg;
+}
+.brick {
+  @apply bg-red-300;
+}
+.gem {
+  @apply bg-blue-300;
+}
+.recruit {
+  @apply bg-green-300;
+}
+
+.resimgholder {
+  @apply w-full h-full bg-cover;
+
+  .brick & {
+    background-image: url('../../assets/img/res_1.webp');
+    background-position: center 15%;
+  }
+  .gem & {
+    background-image: url('../../assets/img/res_2.webp');
+    background-position: center 21%;
+  }
+  .recruit & {
+    background-image: url('../../assets/img/res_3.webp');
+  }
+}
+
+.prodcontainer {
+  @apply bg-no-repeat bg-cover bg-center border border-l-darkborder border-t-darkborder border-r-lightborder border-b-lightborder relative;
+  min-height: 2em;
+}
+.prod {
+  @apply text-yellow-400 absolute bottom-1 left-1 tracking-tighter;
+  margin-bottom: -0.2em;
+}
+.countcontainer {
+  @apply flow-root mt-1;
+}
+.count {
+  @apply float-left text-black flex-1 text-left relative tracking-tighter;
+  width: 42.5%;
+}
+.unit {
+  @apply float-right text-black flex-1 text-right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  &.smallmode {
+    opacity: 0.75;
+
+    .brick & {
+      background-image: url('../../assets/img/brick.svg');
+    }
+    .gem & {
+      background-image: url('../../assets/img/gem.svg');
+      transform: translateY(-12%);
+    }
+    .recruit & {
+      background-image: url('../../assets/img/recruit.svg');
+      transform: translateY(6%);
+    }
+  }
+}

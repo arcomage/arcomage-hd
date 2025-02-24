@@ -1,100 +1,18 @@
 import React, { useContext } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 
 import ResourceNumber from './ResourceNumber'
 
-import brickBg from '../../assets/img/res_1.webp'
-import gemBg from '../../assets/img/res_2.webp'
-import recruitBg from '../../assets/img/res_3.webp'
 import { I18nContext } from '../i18n/I18nContext'
 import { upper1st } from '../utils/upper1st'
 import { smallRootFontScreenMax, unitTextMaxLength } from '../constants/visuals'
 
-import brick from '../../assets/img/brick.svg'
-import gem from '../../assets/img/gem.svg'
-import recruit from '../../assets/img/recruit.svg'
 import { resNameAllMap, ResNameType } from '../constants/resourceNames'
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '../utils/tooltip'
 import { calcProdHeight, getFontSize, getLineHeight } from './ResourceFuncs'
-
-const useStyles = createUseStyles<
-  string,
-  {
-    type: ResNameType
-    height: number
-    smallMode: boolean
-    unitTextLength: number
-  }
->({
-  brick: {
-    'background-image': `url(${brickBg})`,
-    'background-position': 'center 15%',
-  },
-  gem: {
-    'background-image': `url(${gemBg})`,
-    'background-position': 'center 21%',
-  },
-  recruit: {
-    'background-image': `url(${recruitBg})`,
-  },
-  prodcontainer: {
-    height: ({ height }) => `calc(${calcProdHeight(height)})`,
-    'min-height': '2em',
-  },
-  prod: {
-    'font-size': ({ height }) => `${getFontSize(height, 0.05)}px`,
-    'line-height': ({ height }) => `${getLineHeight(height, 0.05)}px`,
-    'margin-bottom': '-0.2em',
-  },
-  count: {
-    'font-size': ({ height }) => `${getFontSize(height, 0.036)}px`,
-    'line-height': ({ height }) => `${getLineHeight(height, 0.036)}px`,
-    height: ({ height }) => `${getLineHeight(height, 0.036)}px`,
-    width: '42.5%',
-  },
-  unit: {
-    'font-size': ({ height, unitTextLength }) => {
-      let fontSize = getFontSize(height, 0.036)
-      if (unitTextLength > unitTextMaxLength) {
-        fontSize = (fontSize / unitTextLength) * (unitTextMaxLength + 1)
-      }
-      return `${fontSize}px`
-    },
-    'line-height': ({ height }) => `${getLineHeight(height, 0.036)}px`,
-    height: ({ height }) => `${getLineHeight(height, 0.036)}px`,
-    width: ({ height, smallMode }) =>
-      smallMode ? `${getLineHeight(height, 0.036)}px` : '57.5%',
-    'background-image': ({ type, smallMode }) =>
-      smallMode
-        ? `url(${
-            {
-              brick,
-              gem,
-              recruit,
-            }[type]
-          })`
-        : 'none',
-    background: {
-      repeat: 'no-repeat',
-      size: 'cover',
-      position: 'center center',
-    },
-    opacity: ({ smallMode }) => (smallMode ? 0.75 : 1),
-    transform: ({ type, smallMode }) => {
-      if (smallMode) {
-        if (type === 'gem') {
-          return 'translateY(-12%)'
-        } else if (type === 'recruit') {
-          return 'translateY(6%)'
-        }
-      }
-      return 'none'
-    },
-  },
-})
+import styles from './Resource.module.scss'
 
 type PropType = {
   type: ResNameType
@@ -106,7 +24,6 @@ const Resource = ({ type, isOpponent }: PropType) => {
   const winHeight = size.height
   const height = winHeight * (size.narrowMobile ? 1 / 2 : 2 / 3)
   const smallMode = winHeight < smallRootFontScreenMax
-  const color = { brick: 'red', gem: 'blue', recruit: 'green' }[type]
   const text = _.i18n(
     {
       brick: 'bricks',
@@ -114,20 +31,6 @@ const Resource = ({ type, isOpponent }: PropType) => {
       recruit: 'recruits',
     }[type],
   )
-
-  const classes = useStyles({
-    type,
-    height,
-    smallMode,
-    unitTextLength: smallMode
-      ? 0
-      : text.replace(/[ыщ]/g, '  ').replace(/ll/g, 'l').replace(/in/g, 'n')
-          .length,
-  })
-  // Force TailwindCSS to aware of these classes:
-  // bg-red-300
-  // bg-blue-300
-  // bg-green-300
 
   const nProd = useAppSelector(
     (state) =>
@@ -187,54 +90,71 @@ const Resource = ({ type, isOpponent }: PropType) => {
   return (
     <div
       className={cx(
+        styles.main,
+        styles[type],
         size.narrowMobile ? 'mb-2' : 'mb-3',
-        'p-1 shadow-lg',
-        `bg-${color}-300`,
       )}
     >
       <div
-        className={cx(
-          classes.prodcontainer,
-          'bg-no-repeat bg-cover bg-center border border-l-darkborder border-t-darkborder border-r-lightborder border-b-lightborder relative',
-        )}
+        className={cx(styles.prodcontainer)}
+        style={{
+          height: `calc(${calcProdHeight(height)})`,
+        }}
         {...tooltipAttrs(resProdTooltip, isOpponent ? 'left' : 'right')}
       >
         <div
-          className={cx(classes[type], 'w-full h-full bg-cover pixelated')}
+          className={cx(styles.resimgholder, 'pixelated')}
           aria-hidden={true}
         ></div>
         <div
-          className={cx(
-            classes.prod,
-            'text-yellow-400 absolute bottom-1 left-1 tracking-tighter',
-            'fatnumber',
-            'el-number',
-          )}
+          className={cx(styles.prod, 'fatnumber', 'el-number')}
+          style={{
+            fontSize: `${getFontSize(height, 0.05)}px`,
+            lineHeight: `${getLineHeight(height, 0.05)}px`,
+          }}
         >
           <ResourceNumber n={nProd} />
         </div>
       </div>
       <div
-        className="flow-root mt-1"
+        className={styles.countcontainer}
         {...tooltipAttrs(resTooltip, isOpponent ? 'left' : 'right')}
       >
         <div
-          className={cx(
-            classes.count,
-            'float-left text-black flex-1 text-left relative tracking-tighter',
-            'fatnumber',
-            'el-number',
-          )}
+          className={cx(styles.count, 'fatnumber', 'el-number')}
+          style={{
+            fontSize: `${getFontSize(height, 0.036)}px`,
+            lineHeight: `${getLineHeight(height, 0.036)}px`,
+            height: `${getLineHeight(height, 0.036)}px`,
+          }}
         >
           <ResourceNumber n={nRes} />
         </div>
         <div
           className={cx(
-            classes.unit,
-            'float-right text-black flex-1 text-right',
+            styles.unit,
+            smallMode && styles.smallmode,
             'robotocondensed',
             'el-text',
           )}
+          style={{
+            fontSize: (() => {
+              let fontSize = getFontSize(height, 0.036)
+              const unitTextLength = smallMode
+                ? 0
+                : text
+                    .replace(/[ыщ]/g, '  ')
+                    .replace(/ll/g, 'l')
+                    .replace(/in/g, 'n').length
+              if (unitTextLength > unitTextMaxLength) {
+                fontSize = (fontSize / unitTextLength) * (unitTextMaxLength + 1)
+              }
+              return `${fontSize}px`
+            })(),
+            lineHeight: `${getLineHeight(height, 0.036)}px`,
+            height: `${getLineHeight(height, 0.036)}px`,
+            width: smallMode ? `${getLineHeight(height, 0.036)}px` : '57.5%',
+          }}
         >
           {smallMode ? '' : text}
         </div>

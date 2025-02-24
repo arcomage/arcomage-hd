@@ -1,63 +1,13 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 
-import explosion from '../../../assets/img/explosion.webp'
-import firework from '../../../assets/img/firework.webp'
 import { GameSizeContext } from '../../utils/contexts/GameSizeContext'
-import { numberChangeVisualDuration } from '../../constants/visuals'
 
-const useStyles = createUseStyles({
-  '@keyframes explosion': {
-    '100%': {
-      'background-position': '-4032px',
-    },
-  },
-
-  '@keyframes firework': {
-    '100%': {
-      'background-position': '-7936px',
-    },
-  },
-
-  main: {
-    'background-repeat': 'no-repeat',
-    'html[data-noanime="false"] &': {
-      'will-change': 'background-position',
-      'animation-duration': `${numberChangeVisualDuration}ms`,
-      'animation-iteration-count': 1,
-    },
-  },
-
-  explosion: {
-    width: '192px',
-    height: '192px',
-    top: 0,
-    left: 0,
-    'background-image': `url(${explosion})`,
-    'html[data-noanime="false"] &': {
-      'animation-name': '$explosion',
-      'animation-timing-function': 'steps(21)',
-    },
-  },
-
-  firework: {
-    width: '256px',
-    height: '256px',
-    top: '-300%',
-    left: '1rem',
-    'background-image': `url(${firework})`,
-    'html[data-noanime="false"] &': {
-      'animation-name': '$firework',
-      'animation-timing-function': 'steps(31)',
-    },
-  },
-})
+import styles from './NumberChangeVisual.module.scss'
 
 type PropType = { n: number }
 
 const NumberChangeVisual = ({ n }: PropType) => {
-  const classes = useStyles()
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)
   const main = useRef<HTMLDivElement>(null)
@@ -72,8 +22,8 @@ const NumberChangeVisual = ({ n }: PropType) => {
         divEl.className = cx(
           '-translate-x-1/2 -translate-y-1/2 transform-gpu absolute',
           size.narrowMobile ? 'scale-50' : 'scale-75',
-          classes.main,
-          n < prev ? classes.explosion : classes.firework,
+          styles.main,
+          n < prev ? styles.explosion : styles.firework,
         )
         mainEl.appendChild(divEl)
         divEl.onanimationend = () => mainEl.removeChild(divEl)
@@ -83,9 +33,6 @@ const NumberChangeVisual = ({ n }: PropType) => {
       hasMounted.current = true
     }
     prevNRef.current = n
-    // no lint reason: 'classes.explosion', 'classes.firework', 'classes.main' are stable
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [n, size.narrowMobile])
 
   return (

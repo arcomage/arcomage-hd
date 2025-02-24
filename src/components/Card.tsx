@@ -6,7 +6,7 @@ import { USE_CARD, DISCARD_CARD } from '../constants/ActionTypes'
 import { CardTotalType, ownerType } from '../types/state'
 import { cardNameMaxLength, touchDelay } from '../constants/visuals'
 
-import dataCards from '../../src/data/cards'
+import dataCards from '../data/cards'
 
 import { I18nContext } from '../i18n/I18nContext'
 import {
@@ -113,6 +113,9 @@ const Card = ({
     // CardFront
 
     const color = ['red', 'blue', 'green'][type]
+
+    // TODO remove bg-??-200 bg-??-300 with css
+
     // Force TailwindCSS to aware of these classes:
     // bg-red-200
     // bg-blue-200
@@ -242,14 +245,12 @@ const Card = ({
         className={cx(
           styles.main,
           styles.cardeffect,
-          { [styles.isflipped]: isFlipped },
-          {
-            'opacity-0 pointer-events-none':
-              (playersTurn && owner === 'opponent') ||
-              (!playersTurn && owner === 'player'),
-          },
-          { 'shadow-lg': position !== -1 },
-          { 'cursor-pointer hover:scale-105': position >= 0 },
+          isFlipped && styles.isflipped,
+          ((playersTurn && owner === 'opponent') ||
+            (!playersTurn && owner === 'player')) &&
+            'opacity-0 pointer-events-none',
+          position !== -1 && 'shadow-lg',
+          position >= 0 && 'cursor-pointer hover:scale-105',
           'card',
           `card-pos-${position}`,
           `card-pos-${isM0 ? 'm0' : 'm1'}`,

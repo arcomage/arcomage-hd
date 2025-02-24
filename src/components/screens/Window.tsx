@@ -6,10 +6,8 @@ import React, {
   useState,
 } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 import { useAppDispatch } from '../../utils/hooks/useAppDispatch'
 
-import logo from '../../../assets/logo/logo.svg'
 import useClickOutside from '../../utils/hooks/gamecontrols/useClickOutside'
 import { I18nContext } from '../../i18n/I18nContext'
 import useKeyDown from '../../utils/hooks/gamecontrols/useKeyDown'
@@ -23,14 +21,7 @@ import {
   SCREEN_DISCONNECT_NOTICE,
 } from '../../constants/ActionTypes'
 import { tooltipAttrs } from '../../utils/tooltip'
-
-const useStyles = createUseStyles({
-  logo: {
-    'background-image': `url(${logo})`,
-    width: '134.5px',
-    height: '46.5px',
-  },
-})
+import styles from './Window.module.scss'
 
 type PropType = {
   screenActionType:
@@ -108,8 +99,6 @@ const Window = ({
 
   const size = useContext(GameSizeContext)
 
-  const classes = useStyles()
-
   return (
     <div
       className={cx('window-bg', { darkerbg: darkerBg })}
@@ -126,16 +115,12 @@ const Window = ({
       >
         <div className={cx('window-innerwrapper')}>
           <div
-            className={cx(
-              classes.logo,
-              {
-                hidden:
-                  size.narrowMobile &&
-                  (screenActionType === SCREEN_PREF ||
-                    screenActionType === SCREEN_VOLUME_PREF),
-              },
-              'm-auto bg-no-repeat bg-center bg-contain',
-            )}
+            className={cx(styles.logo, {
+              hidden:
+                size.narrowMobile &&
+                (screenActionType === SCREEN_PREF ||
+                  screenActionType === SCREEN_VOLUME_PREF),
+            })}
             aria-hidden={true}
             {...tooltipAttrs(_.i18n('ArcoMage HD'), 'bottom')}
           ></div>

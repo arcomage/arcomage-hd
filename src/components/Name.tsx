@@ -1,18 +1,10 @@
 import React, { useContext } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 import { I18nContext } from '../i18n/I18nContext'
 import { tooltipAttrs } from '../utils/tooltip'
-
-const useStyles = createUseStyles<string, { height: number }>({
-  username: {
-    'transition-property': 'color, border-color',
-    'transition-timing-function': 'ease-in-out',
-    'transition-duration': `0.3s`,
-  },
-})
+import styles from './Name.module.scss'
 
 type PropType = {
   playerName: string
@@ -23,11 +15,8 @@ const Name = ({ playerName, isOpponent = false }: PropType) => {
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
 
   const size = useContext(GameSizeContext)
-  const height = (size.height / 3) * 2
 
   const nameTooltip = `${_.i18n(isOpponent ? "Opponent's Name" : 'Your Name')} = ${playerName}`
-
-  const classes = useStyles({ height })
 
   return (
     <div
@@ -42,7 +31,7 @@ const Name = ({ playerName, isOpponent = false }: PropType) => {
           {
             'border-opacity-25 text-opacity-25': playersTurn === isOpponent,
           },
-          classes.username,
+          styles.username,
           'el-text',
           'emoji',
         )}

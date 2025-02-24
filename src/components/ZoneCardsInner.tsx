@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import Card from './Card'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 
 import { useAppSelector } from '../utils/hooks/useAppDispatch'
 import { CardListItemAllType } from '../types/state'
@@ -9,12 +8,9 @@ import DiscardModeNotice from './special/DiscardModeNotice'
 import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 import { I18nContext } from '../i18n/I18nContext'
 import { tooltipAttrs } from '../utils/tooltip'
-import dataCards from '../../src/data/cards'
+import dataCards from '../data/cards'
 import { canDiscardUndiscardableWhenDDP } from '../constants/devSettings'
-
-const useStyles = createUseStyles({
-  main: { background: { image: 'linear-gradient(#326a4b, #000 2rem)' } },
-})
+import styles from './ZoneCardsInner.module.scss'
 
 const ZoneCardsInner = () => {
   const _ = useContext(I18nContext)
@@ -59,22 +55,15 @@ const ZoneCardsInner = () => {
           .replace('%s1', _.i18n('Preferences'))
           .replace('%s2', _.i18n('Apply & New Game'))
       : ''
-  // TODO i18n
 
   const allUnusableTooltip =
     allUnusable && playersTurn && !locked && !discardMode
       ? _.i18n('allUnusableTip')
       : ''
 
-  const classes = useStyles()
-
   return (
     <div
-      className={cx(
-        classes.main,
-        'flex-auto',
-        size.narrowMobile ? 'h-1/2' : 'h-1/3',
-      )}
+      className={cx(styles.main, size.narrowMobile ? 'h-1/2' : 'h-1/3')}
       {...tooltipAttrs(shouldSurrenderTooltip || allUnusableTooltip)}
     >
       <Card n={-1} position={-1} unusable />

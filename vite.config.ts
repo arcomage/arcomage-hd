@@ -11,6 +11,7 @@ import crypto from 'crypto'
 import childProcess from 'child_process'
 import { defaultAppUrl, origDesc, origTitle } from './src/constants/htmlVars'
 import genManifestAndIcons from './tools/manifest'
+import path from 'path'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -55,6 +56,13 @@ export default defineConfig({
     'import.meta.env.APP_DESCRIPTION': JSON.stringify(origDesc),
     'import.meta.env.APP_COMMITTIME': JSON.stringify(commitTime),
     'import.meta.env.APP_COMMITTIME2': JSON.stringify(commitTime2),
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@assets': path.resolve(__dirname, 'assets'),
+      '@root': path.resolve(__dirname),
+    },
   },
   plugins: [
     vitePluginRunScript({

@@ -1,71 +1,15 @@
 import React, { useContext } from 'react'
 import cx from 'clsx'
-import { createUseStyles } from 'react-jss'
 import Window from './Window'
 
 import { SCREEN_LANDSCAPE } from '../../constants/ActionTypes'
 import { I18nContext } from '../../i18n/I18nContext'
 import { LandscapeNoticeExitableDelay } from '../../constants/visuals'
 import { tooltipAttrs } from '../../utils/tooltip'
-
-const useStyles = createUseStyles<string>({
-  '@keyframes all': {
-    '0%, 32%': {
-      transform: 'none',
-    },
-    '68%, 100%': {
-      transform: 'rotate(90deg) translateX(-100%) translateZ(0)',
-    },
-  },
-  '@keyframes mouth': {
-    '0%, 55.9999%': {
-      transform: 'none',
-    },
-    '56%, 100%': {
-      transform: 'scaleY(-1) translateY(-35%) translateZ(0)',
-    },
-  },
-  '@keyframes smiley': {
-    '0%, 32%': {
-      transform: 'none',
-    },
-    '68%, 100%': {
-      transform: 'rotate(-90deg) translateZ(0)',
-    },
-  },
-  wrapper: {
-    'padding-right': '52%', // (544.12 - 261.17) / 544.12
-    width: '10rem',
-    'margin-left': '1rem',
-    'margin-bottom': '1rem',
-  },
-  all: {
-    'will-change': 'transform',
-    'transform-origin': 'bottom left',
-    animation: '$all 2.3s linear infinite',
-  },
-  arrow: {
-    top: '8%',
-    right: '8%',
-    width: '30%',
-  },
-  mouth: {
-    'will-change': 'transform',
-    'transform-origin': 'center',
-    animation: '$mouth 2.3s linear infinite',
-  },
-  smiley: {
-    top: '50%',
-    left: 0,
-    'margin-top': '-50%',
-    'will-change': 'transform',
-    animation: '$smiley 2.3s linear infinite',
-  },
-})
+import styles from './LandscapeNotice.module.scss'
 
 const LandscapeNotice = () => {
   const _ = useContext(I18nContext)
-  const classes = useStyles()
 
   return (
     <Window
@@ -74,7 +18,7 @@ const LandscapeNotice = () => {
       exitableDelay={LandscapeNoticeExitableDelay}
     >
       <div
-        className={cx(classes.wrapper, 'relative')}
+        className={cx(styles.wrapper, 'relative')}
         {...tooltipAttrs(
           _.i18n('Please rotate your device to landscape mode'),
           'bottom',
@@ -82,7 +26,7 @@ const LandscapeNotice = () => {
         aria-label={_.i18n('Please rotate your device to landscape mode')}
       >
         <svg
-          className={cx(classes.arrow, 'absolute')}
+          className={cx(styles.arrow, 'absolute')}
           viewBox="0 0 13.16 10.677"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -90,7 +34,7 @@ const LandscapeNotice = () => {
             <path d="M.662.66c5.926.163 9.178 3.464 9.354 9.354M12.499 6.02l-2.483 3.991M6.513 6.93l3.503 3.08" />
           </g>
         </svg>
-        <div className={cx(classes.all, 'relative')}>
+        <div className={cx(styles.all, 'relative')}>
           <svg viewBox="0 0 261.17 544.12" xmlns="http://www.w3.org/2000/svg">
             <path
               fill="#fff"
@@ -98,14 +42,14 @@ const LandscapeNotice = () => {
             />
           </svg>
           <svg
-            className={cx(classes.smiley, 'absolute')}
+            className={cx(styles.smiley, 'absolute')}
             viewBox="0 0 79.375 79.375"
             xmlns="http://www.w3.org/2000/svg"
           >
             <circle cx="21.828" cy="28.297" r="6.804" fill="#fff" />
             <circle cx="57.544" cy="28.297" r="6.804" fill="#fff" />
             <path
-              className={cx(classes.mouth, '')}
+              className={cx(styles.mouth, '')}
               d="M15.119 56.88c13.919-9.022 29.213-12.999 49.137 0"
               stroke="#fff"
               strokeLinecap="round"

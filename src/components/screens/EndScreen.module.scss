@@ -1,0 +1,171 @@
+@use 'sass:list';
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.container {
+  @apply absolute w-full h-full top-0 left-0 z-90 bg-black bg-opacity-50;
+  padding: 15vh 10%;
+  opacity: 1;
+  animation-name: fadein;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.4s;
+
+  // &.win {}
+  // &.lose {}
+  // &.tie {}
+}
+.main {
+  @apply w-full h-full bg-center bg-no-repeat bg-contain relative outline-none focus-visible:outline-white focus-visible:outline-1 cursor-auto;
+
+  .win & {
+    background-image: url('../../../assets/img/end_win.svg');
+  }
+  .lose & {
+    background-image: url('../../../assets/img/end_lose.svg');
+  }
+  .tie & {
+    background-image: url('../../../assets/img/end_tie.svg');
+  }
+}
+
+@keyframes firework {
+  100% {
+    background-position: -7936px;
+  }
+}
+.firework {
+  @apply absolute transform-gpu;
+  width: 256px;
+  height: 256px;
+  background-image: url('../../../assets/img/firework.webp');
+  background-repeat: no-repeat;
+  animation-name: firework;
+  animation-timing-function: steps(31);
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-delay: 0.5s;
+
+  .narrowmobilemode {
+    @apply scale-50;
+  }
+  .normalmode {
+    @apply scale-75;
+  }
+}
+.firework1 {
+  @apply top-0 left-1/4;
+}
+.firework2 {
+  @apply bottom-0 right-1/4;
+  animation-delay: 1.6s;
+}
+
+.notetext {
+  @apply absolute w-full font-bold text-white text-center text-shadow-stroke;
+  top: 62%;
+  height: 5em;
+  font-size: 4vh;
+  line-height: 4vh;
+}
+
+$red-glow: (
+  rgba(225, 191, 191, 0.92),
+  rgba(225, 191, 191, 0.54),
+  rgba(238, 54, 37, 0.72),
+  rgba(238, 54, 37, 0.92),
+  rgba(238, 54, 37, 0.78),
+  rgba(238, 54, 37, 0.92)
+);
+$red-glow-alt: (
+  rgba(225, 191, 191, 0.98),
+  rgba(225, 191, 191, 0.62),
+  rgba(238, 54, 37, 0.78),
+  rgba(238, 54, 37, 0.84),
+  rgba(238, 54, 37, 0.88),
+  rgba(238, 54, 37, 1)
+);
+$black-glow: (
+  rgba(0, 0, 0, 0.92),
+  rgba(0, 0, 0, 0.54),
+  rgba(0, 0, 0, 0.72),
+  rgba(0, 0, 0, 0.92),
+  rgba(0, 0, 0, 0.78),
+  rgba(0, 0, 0, 0.92)
+);
+$black-glow-alt: (
+  rgba(0, 0, 0, 0.98),
+  rgba(0, 0, 0, 0.62),
+  rgba(0, 0, 0, 0.78),
+  rgba(0, 0, 0, 0.84),
+  rgba(0, 0, 0, 0.88),
+  rgba(0, 0, 0, 1)
+);
+@mixin neon-effect($colors) {
+  text-shadow:
+    0 0 6px list.nth($colors, 1),
+    0 0 30px list.nth($colors, 2),
+    0 0 12px list.nth($colors, 3),
+    0 0 21px list.nth($colors, 4),
+    0 0 34px list.nth($colors, 5),
+    0 0 54px list.nth($colors, 6);
+}
+// disable animation for better performance
+// @keyframes redNeon {
+//   from {
+//     @include neon-effect($red-glow);
+//   }
+//   to {
+//     @include neon-effect($red-glow-alt);
+//   }
+// }
+// @keyframes blackNeon {
+//   from {
+//     @include neon-effect($black-glow);
+//   }
+//   to {
+//     @include neon-effect($black-glow-alt);
+//   }
+// }
+// @mixin neon-animation($animation) {
+//   animation: $animation 0.08s ease-in-out infinite alternate;
+// }
+.text {
+  @apply absolute w-full font-bold text-white text-center;
+  font-size: 15vh;
+  line-height: 15vh;
+  bottom: 53%;
+  .win &,
+  .tie & {
+    @include neon-effect($red-glow-alt);
+    // @include neon-animation(redNeon);
+  }
+  .lose & {
+    @include neon-effect($black-glow-alt);
+    // @include neon-animation(blackNeon);
+  }
+}
+
+.erathiantext {
+  @apply absolute w-full tracking-tighter text-white text-center;
+  font-size: 6.8vh;
+  line-height: 6.8vh;
+  bottom: 42%;
+  text-shadow:
+    0 0 10px rgba(125, 203, 255, 0.98),
+    0 0 30px rgba(125, 203, 255, 0.82),
+    0 0 12px rgba(0, 129, 255, 0.88),
+    0 0 22px rgba(0, 129, 255, 0.84),
+    0 0 38px rgba(0, 129, 255, 0.88),
+    0 0 60px rgba(0, 129, 255, 1);
+}
+.erathiantextspace {
+  display: inline-block;
+  width: 4em;
+}
