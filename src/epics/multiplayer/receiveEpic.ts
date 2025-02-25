@@ -1,18 +1,18 @@
-import { INIT_TO_QUEUE, RECEIVE } from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, delay } from 'rxjs/operators'
-import { concat, EMPTY, Observable, of } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
 import { StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
+import { concat, EMPTY, Observable, of } from 'rxjs'
+import { filter, mergeMap, delay } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
+import { INIT_TO_QUEUE, RECEIVE } from '@/constants/ActionTypes'
+import { INST } from '@/constants/connDataKind'
+import { RootActionType } from '@/types/actionObj'
 import {
   ConnDataType,
   instructionActionTypes,
   isVerifyGameNumberInst,
-} from '../../types/connData'
-import { INST } from '../../constants/connDataKind'
-import devLog from '../../utils/devLog'
-import { receiveSeq } from '../../utils/multiplayer/seq'
+} from '@/types/connData'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import { receiveSeq } from '@/utils/multiplayer/seq'
 
 export default (
   action$: Observable<RootActionType>,

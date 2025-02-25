@@ -1,3 +1,7 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { concat, merge, EMPTY, fromEvent, of, Observable } from 'rxjs'
+import { filter, mergeMap, takeUntil, withLatestFrom } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   CONNECTION_LISTEN,
   ABORT_CONNECTION,
@@ -7,17 +11,13 @@ import {
   RECEIVE,
   SET_MULTI_GAME_NUMBER,
   SCREEN_DISCONNECT_NOTICE,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, takeUntil, withLatestFrom } from 'rxjs/operators'
-import { concat, merge, EMPTY, fromEvent, of, Observable } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { peerAll } from '../../webrtc/peer'
-import { receiveSeq, sendSeq } from '../../utils/multiplayer/seq'
-import devLog from '../../utils/devLog'
-import { noLatency } from '../../constants/devSettings'
+} from '@/constants/ActionTypes'
+import { noLatency } from '@/constants/devSettings'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import { receiveSeq, sendSeq } from '@/utils/multiplayer/seq'
+import { peerAll } from '@/webrtc/peer'
 
 export default (
   action$: Observable<RootActionType>,

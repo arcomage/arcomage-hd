@@ -1,6 +1,6 @@
+import path from 'path'
 import listAllFiles from './listAllFiles'
 import resizeSvg from './resizeSvg'
-import path from 'path'
 
 const size: number = 21 // in px
 

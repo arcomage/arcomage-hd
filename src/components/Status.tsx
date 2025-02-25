@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import cx from 'clsx'
-import Resource from './Resource'
-import { GameSizeContext } from '../utils/contexts/GameSizeContext'
+import cl from '@/utils/clarr'
+import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 import Name from './Name'
+import Resource from './Resource'
 import { calcStatusWidth } from './ResourceFuncs'
 import styles from './Status.module.scss'
 
@@ -16,7 +16,7 @@ const Status = ({ playerName, isOpponent = false }: PropType) => {
 
   return (
     <div
-      className={cx(styles.main, isOpponent ? 'float-right' : 'float-left')}
+      className={cl(styles.main, isOpponent ? 'float-right' : 'float-left')}
       style={{
         width: `calc(${calcStatusWidth(height)})`,
       }}

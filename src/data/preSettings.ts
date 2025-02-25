@@ -4,7 +4,7 @@
  *  not in the original game but added here for fun)
  */
 
-import { ContinentsType, SettingsType } from '../types/state'
+import { ContinentsType, SettingsType } from '@/types/state'
 
 export const preSettings: SettingsType[] = [
   {

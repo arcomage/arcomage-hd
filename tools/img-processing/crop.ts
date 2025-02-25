@@ -1,7 +1,7 @@
-import sharp from 'sharp'
-import joinImages from 'join-images'
 import fs from 'fs'
 import path from 'path'
+import joinImages from 'join-images'
+import sharp from 'sharp'
 
 const originalDir = './original'
 const extractedDir = './extracted'

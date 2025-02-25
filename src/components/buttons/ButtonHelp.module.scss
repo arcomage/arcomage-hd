@@ -3,16 +3,20 @@
   100% {
     transform: rotate(0deg) translateZ(0);
   }
+
   25% {
     transform: rotate(30deg) translateZ(0);
   }
+
   75% {
     transform: rotate(-30deg) translateZ(0);
   }
 }
-.helpButton {
+
+.helpbutton {
   left: calc(60% + 12rem);
-  html[data-noanime='false'] & {
+
+  :global(body.anim) & {
     &:hover,
     &:focus,
     &.windowactive {

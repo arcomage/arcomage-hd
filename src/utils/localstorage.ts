@@ -1,18 +1,18 @@
 import { produce } from 'immer'
+import lt from 'semver/functions/lt'
 import {
   appVersion,
   localstorageMinVer,
   localstorageName,
   localstorageVersionName,
-} from '../constants/devSettings'
+} from '@/constants/devSettings'
 import {
   LangStateType,
   SettingsStateType,
   SoundStateType,
   VisualStateType,
   AiStateType,
-} from '../types/state'
-import lt from 'semver/functions/lt'
+} from '@/types/state'
 
 type LocalstorageType = {
   lang?: LangStateType

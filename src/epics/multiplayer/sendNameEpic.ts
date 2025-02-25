@@ -1,16 +1,16 @@
+import { StateObservable } from 'redux-observable'
+import { Observable, of } from 'rxjs'
+import { debounceTime, filter, mergeMap } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   SEND,
   SEND_NAME,
   SET_TEMP_OPPONENT_NAME,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { debounceTime, filter, mergeMap } from 'rxjs/operators'
-import { Observable, of } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { INST } from '../../constants/connDataKind'
-import { sendSettingsDebounceTime } from '../../constants/visuals'
+} from '@/constants/ActionTypes'
+import { INST } from '@/constants/connDataKind'
+import { sendSettingsDebounceTime } from '@/constants/visuals'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
 
 export default (
   action$: Observable<RootActionType>,

@@ -1,13 +1,5 @@
-import {
-  DRAW_CARD,
-  DRAW_CARD_CORE,
-  ABORT_ALL,
-  SEND,
-  SWITCH_LOCK,
-  DRAW_CARD_TO_QUEUE,
-  DRAW_CARD_FROM_QUEUE,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
+import { ofType, StateObservable } from 'redux-observable'
+import { concat, Observable, of } from 'rxjs'
 import {
   filter,
   mergeMap,
@@ -16,11 +8,19 @@ import {
   delay,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { concat, Observable, of } from 'rxjs'
-import { randomWithProbs } from '../../utils/randomWithProbs'
-import { INST } from '../../constants/connDataKind'
+import {
+  DRAW_CARD,
+  DRAW_CARD_CORE,
+  ABORT_ALL,
+  SEND,
+  SWITCH_LOCK,
+  DRAW_CARD_TO_QUEUE,
+  DRAW_CARD_FROM_QUEUE,
+} from '@/constants/ActionTypes'
+import { INST } from '@/constants/connDataKind'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import { randomWithProbs } from '@/utils/randomWithProbs'
 
 export default (
   action$: Observable<RootActionType>,

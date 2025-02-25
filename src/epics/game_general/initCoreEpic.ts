@@ -1,3 +1,7 @@
+import { StateObservable } from 'redux-observable'
+import { of, concat, Observable } from 'rxjs'
+import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   INIT_CORE,
   INIT_CARD,
@@ -8,14 +12,10 @@ import {
   ABORT_ALL,
   SET_MULTI_GAME_NUMBER,
   SCREEN_END,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
-import { of, concat, Observable } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { StateObservable } from 'redux-observable'
-import { CardStateType, RootStateType } from '../../types/state'
-import { getStartState } from '../../utils/startWinState'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { CardStateType, RootStateType } from '@/types/state'
+import { getStartState } from '@/utils/startWinState'
 
 export default (
   action$: Observable<RootActionType>,

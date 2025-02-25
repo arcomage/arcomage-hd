@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import { tooltipTransitionDuration } from '../constants/visuals'
+import { tooltipTransitionDuration } from '@/constants/visuals'
 
 const listenerTypes = ['targetExists', 'content'] as const
 

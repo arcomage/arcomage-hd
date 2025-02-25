@@ -1,7 +1,7 @@
 import { it, expect } from 'bun:test'
-import cards from '../../src/data/cards'
+import cards from '@/data/cards'
+import { PersonStatusType } from '@/types/state'
 import cardsbk from './cardsbk'
-import { PersonStatusType } from '../../src/types/state'
 
 const dummyStatus1: PersonStatusType = {
   bricks: 3,

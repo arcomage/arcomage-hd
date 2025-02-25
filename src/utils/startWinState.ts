@@ -1,11 +1,11 @@
-import { FormFieldsAllPartialType, FormFieldsType } from '../types/formFields'
+import { FormFieldsAllPartialType, FormFieldsType } from '@/types/formFields'
 import {
   PersonStatusType,
   SettingsStateAllPartialType,
   SettingsStateType,
   SettingsType,
   WinSettingsType,
-} from '../types/state'
+} from '@/types/state'
 
 export const getStartState = (
   state: SettingsType | SettingsStateType,

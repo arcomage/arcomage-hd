@@ -1,13 +1,13 @@
-import { RECEIVE, RECEIVE_WITH_LATENCY } from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, delay } from 'rxjs/operators'
-import { Observable, of } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
 import { StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { noLatency, testLatency } from '../../constants/devSettings'
-import { randomIntFrom } from '../../utils/random'
-import devLog from '../../utils/devLog'
+import { Observable, of } from 'rxjs'
+import { filter, mergeMap, delay } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
+import { RECEIVE, RECEIVE_WITH_LATENCY } from '@/constants/ActionTypes'
+import { noLatency, testLatency } from '@/constants/devSettings'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import { randomIntFrom } from '@/utils/random'
 
 export default (
   action$: Observable<RootActionType>,

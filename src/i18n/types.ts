@@ -1,4 +1,4 @@
-// import { RequiredBy } from '../utils/typeHelpers'
+// import { RequiredBy } from '@/utils/typeHelpers'
 import { langs } from './langs'
 
 export type AvailableLangType = (typeof langs)[number]

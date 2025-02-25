@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useAppSelector } from '../../utils/hooks/useAppDispatch'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 
 const SvgFilters = () => {
   const pixelationLevel = useAppSelector((state) => state.visual.pixelation)

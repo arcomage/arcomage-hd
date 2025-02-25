@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "types": ["vite/client"],
+    "types": ["vite/client", "bun-types"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -17,6 +17,6 @@
       "@root/*": ["*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src", "__test__", "tools"],
   "compileOnSave": false
 }

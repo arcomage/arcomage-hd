@@ -1,4 +1,4 @@
-import { VisualValuesFilterType, VisualValuesMainType } from '../types/state'
+import { VisualValuesFilterType, VisualValuesMainType } from '@/types/state'
 
 export type DataVisualvaluesMainType = {
   term: keyof VisualValuesMainType

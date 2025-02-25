@@ -1,5 +1,5 @@
-import { isEditable } from '../../textediting/isEditable'
-import { simulateArrowKey } from '../../textediting/simulateArrowKey'
+import { isEditable } from '@/utils/textediting/isEditable'
+import { simulateArrowKey } from '@/utils/textediting/simulateArrowKey'
 import { focusChange } from './focusChange'
 import { GamepadButtonType } from './useGamepad'
 

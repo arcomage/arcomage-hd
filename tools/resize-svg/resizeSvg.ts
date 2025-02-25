@@ -1,5 +1,5 @@
-import convert from 'xml-js'
 import fs from 'fs'
+import convert from 'xml-js'
 
 const resizeSvg = (
   filePath: string,

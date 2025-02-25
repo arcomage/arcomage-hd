@@ -14,7 +14,7 @@ public
 
 dev-dist
 
-src/styles/_variables.scss
+_css_constants.scss
 
 package.json.bk
 

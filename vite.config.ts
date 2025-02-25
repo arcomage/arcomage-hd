@@ -40,6 +40,13 @@ const ReactCompilerConfig = {
 const homeUrl = process.env.APP_URL || defaultAppUrl
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@assets': path.resolve(__dirname, 'assets'),
+      '@root': path.resolve(__dirname),
+    },
+  },
   define: {
     'import.meta.env.APP_VERSION': JSON.stringify(pkg.version),
     'import.meta.env.APP_TITLE': JSON.stringify(origTitle),
@@ -56,13 +63,6 @@ export default defineConfig({
     'import.meta.env.APP_DESCRIPTION': JSON.stringify(origDesc),
     'import.meta.env.APP_COMMITTIME': JSON.stringify(commitTime),
     'import.meta.env.APP_COMMITTIME2': JSON.stringify(commitTime2),
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '@assets': path.resolve(__dirname, 'assets'),
-      '@root': path.resolve(__dirname),
-    },
   },
   plugins: [
     vitePluginRunScript({

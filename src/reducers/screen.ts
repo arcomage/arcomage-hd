@@ -7,9 +7,9 @@ import {
   SCREEN_LANG_PREF,
   SCREEN_PREF,
   SCREEN_VOLUME_PREF,
-} from '../constants/ActionTypes'
-import { RootActionType } from '../types/actionObj'
-import { ScreenStateType } from '../types/state'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { ScreenStateType } from '@/types/state'
 
 const defaultScreen: ScreenStateType = {
   pref: false,

@@ -1,6 +1,6 @@
-import { resProds } from '../constants/resourceNames'
-import { DataCardEffectPersonType } from '../types/dataCard'
-import { minGeneratorIsOne } from '../constants/ranges'
+import { minGeneratorIsOne } from '@/constants/ranges'
+import { resProds } from '@/constants/resourceNames'
+import { DataCardEffectPersonType } from '@/types/dataCard'
 
 export const set = (
   person: DataCardEffectPersonType,

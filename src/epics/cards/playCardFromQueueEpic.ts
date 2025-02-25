@@ -1,13 +1,5 @@
-import {
-  PLAY_CARD_FROM_QUEUE,
-  ABORT_CONNECTION,
-  PLAY_CARD_CORE_GUARDED,
-} from '../../constants/ActionTypes'
-import {
-  DiscardCardCoreActionType,
-  RootActionType,
-  UseCardCoreActionType,
-} from '../../types/actionObj'
+import { ofType, StateObservable } from 'redux-observable'
+import { EMPTY, from, Observable, of } from 'rxjs'
 import {
   filter,
   mergeMap,
@@ -16,12 +8,20 @@ import {
   delay,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { EMPTY, from, Observable, of } from 'rxjs'
-import { playCardQueues } from '../../utils/multiplayer/queues'
-import Queue from '../../utils/multiplayer/Queue'
-import devLog from '../../utils/devLog'
+import {
+  PLAY_CARD_FROM_QUEUE,
+  ABORT_CONNECTION,
+  PLAY_CARD_CORE_GUARDED,
+} from '@/constants/ActionTypes'
+import {
+  DiscardCardCoreActionType,
+  RootActionType,
+  UseCardCoreActionType,
+} from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import Queue from '@/utils/multiplayer/Queue'
+import { playCardQueues } from '@/utils/multiplayer/queues'
 
 export default (
   action$: Observable<RootActionType>,

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { I18nContext } from '../../i18n/I18nContext'
+import { I18nContext } from '@/i18n/I18nContext'
 
 const EndScreenReviewCardsBtn = () => {
   const _ = useContext(I18nContext)

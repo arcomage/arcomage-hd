@@ -1,8 +1,8 @@
-import { it, expect, describe, beforeEach } from 'bun:test'
-import { langs, defaultLang } from '../../src/i18n/langs'
-import cards from '../../src/data/cards'
-import { preSettings } from '../../src/data/preSettings'
 import path from 'path'
+import { it, expect, describe, beforeEach } from 'bun:test'
+import cards from '@/data/cards'
+import { preSettings } from '@/data/preSettings'
+import { langs, defaultLang } from '@/i18n/langs'
 
 const mainBasePath = '../../src/i18n/main'
 const cardsBasePath = '../../src/i18n/cards'

@@ -1,14 +1,11 @@
 import React, { useContext } from 'react'
+import cl from '@/utils/clarr'
+import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import Birds from './effects/Birds'
 import Status from './Status'
 import Tower from './Tower'
 import Wall from './Wall'
-import Birds from './effects/Birds'
-import cx from 'clsx'
-
-import { useAppSelector } from '../utils/hooks/useAppDispatch'
-
-import { GameSizeContext } from '../utils/contexts/GameSizeContext'
-
 import styles from './ZoneStatus.module.scss'
 
 /**
@@ -37,8 +34,8 @@ const ZoneStatus = () => {
   const size = useContext(GameSizeContext)
 
   return (
-    <div className={cx(styles.main, size.narrowMobile ? 'h-1/2' : 'h-2/3')}>
-      <div className={cx(styles.mainbg, 'pixelated')}></div>
+    <div className={cl(styles.main, size.narrowMobile ? 'h-1/2' : 'h-2/3')}>
+      <div className={cl(styles.mainbg, 'pixelated')}></div>
 
       <div className={styles.side}>
         <Status playerName={isIdConnected ? tempPlayerName : playerName} />

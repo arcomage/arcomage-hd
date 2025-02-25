@@ -1,20 +1,20 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { concat, Observable, of } from 'rxjs'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   CHECK_UNUSABLE,
   CHECK_VICTORY,
   ABORT_ALL,
   UPDATE_STATUS,
   UPDATE_STATUS_MAIN,
-} from '../../constants/ActionTypes'
+} from '@/constants/ActionTypes'
 import {
   RootActionType,
   UpdateStatusMainActionTypeSingle,
-} from '../../types/actionObj'
-import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { play } from '../../utils/sound/Sound'
-import { concat, Observable, of } from 'rxjs'
+} from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import { play } from '@/utils/sound/Sound'
 
 export default (
   action$: Observable<RootActionType>,

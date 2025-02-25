@@ -1,6 +1,6 @@
-import { isProd } from '../../constants/devSettings'
-import { ConnDataType } from '../../types/connData'
-import devLog from '../devLog'
+import { isProd } from '@/constants/devSettings'
+import { ConnDataType } from '@/types/connData'
+import devLog from '@/utils/devLog'
 
 class receiveSequence {
   private _v: number = 0

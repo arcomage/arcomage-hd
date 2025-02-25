@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import cx from 'clsx'
+import cl from '@/utils/clarr'
 import styles from './NumberDiff.module.scss'
 
 type PropType = { n: number }
@@ -19,7 +19,7 @@ const NumberDiff = ({ n }: PropType) => {
         const textNode = document.createTextNode(
           `${diff > 0 ? '+' : ''}${diff.toString()}`,
         )
-        divEl.className = cx(
+        divEl.className = cl(
           styles.number,
           diff >= 0 ? styles.up : styles.down,
           'el-number',

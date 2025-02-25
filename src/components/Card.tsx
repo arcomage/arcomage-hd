@@ -1,21 +1,18 @@
 import React, { useContext, useRef } from 'react'
-import cx from 'clsx'
-
-import { useAppSelector, useAppDispatch } from '../utils/hooks/useAppDispatch'
-import { USE_CARD, DISCARD_CARD } from '../constants/ActionTypes'
-import { CardTotalType, ownerType } from '../types/state'
-import { cardNameMaxLength, touchDelay } from '../constants/visuals'
-
-import dataCards from '../data/cards'
-
-import { I18nContext } from '../i18n/I18nContext'
+import { USE_CARD, DISCARD_CARD } from '@/constants/ActionTypes'
 import {
   canDiscardUndiscardableWhenDDP,
   hideOpponentCard,
   shouldUseAi,
-} from '../constants/devSettings'
-import { tooltipAttrs } from '../utils/tooltip'
-import isTouch from '../utils/isTouch'
+} from '@/constants/devSettings'
+import { cardNameMaxLength, touchDelay } from '@/constants/visuals'
+import dataCards from '@/data/cards'
+import { I18nContext } from '@/i18n/I18nContext'
+import { CardTotalType, ownerType } from '@/types/state'
+import cl from '@/utils/clarr'
+import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import isTouch from '@/utils/isTouch'
+import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './Card.module.scss'
 
 // `import.meta.glob()` is vite-only
@@ -68,7 +65,6 @@ const Card = ({
   ) // player: 4 | 5 | 6 | 7 | 8, opponent:...
 
   const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
-  const boldfont: boolean = useAppSelector((state) => state.lang.boldfont)
 
   const dispatch = useAppDispatch()
 
@@ -94,7 +90,7 @@ const Card = ({
         disabled
         aria-hidden={true}
         tabIndex={-1}
-        className={cx(
+        className={cl(
           styles.main,
           styles.cardbackhard,
           ((playersTurn && owner === 'opponent') ||
@@ -106,23 +102,11 @@ const Card = ({
           `card-pos-${isM0 ? 'm0' : 'm1'}`,
         )}
       >
-        <div className={cx(styles.cardbackimage, 'pixelated')}></div>
+        <div className={cl(styles.cardbackimage, 'pixelated')}></div>
       </button>
     )
   } else {
     // CardFront
-
-    const color = ['red', 'blue', 'green'][type]
-
-    // TODO remove bg-??-200 bg-??-300 with css
-
-    // Force TailwindCSS to aware of these classes:
-    // bg-red-200
-    // bg-blue-200
-    // bg-green-200
-    // bg-red-300
-    // bg-blue-300
-    // bg-green-300
 
     const { cost, special } = dataCards[n]
 
@@ -242,9 +226,10 @@ const Card = ({
     return (
       <button
         ref={main}
-        className={cx(
+        className={cl(
           styles.main,
           styles.cardeffect,
+          styles[['red', 'blue', 'green'][type]],
           isFlipped && styles.isflipped,
           ((playersTurn && owner === 'opponent') ||
             (!playersTurn && owner === 'player')) &&
@@ -281,9 +266,8 @@ const Card = ({
         }}
       >
         <div
-          className={cx(
+          className={cl(
             styles.cardfront,
-            `bg-${color}-300`,
             zeroOpacity
               ? 'opacity-0'
               : unusable
@@ -292,12 +276,7 @@ const Card = ({
           )}
         >
           <div
-            className={cx(
-              styles.cardname,
-              boldfont ? 'font-bold' : 'font-semibold',
-              `bg-${color}-200`,
-              'el-text',
-            )}
+            className={cl(styles.cardname, 'el-text cantoggleboldfont')}
             style={{
               fontSize:
                 cardNameLength > cardNameMaxLength
@@ -312,34 +291,28 @@ const Card = ({
               style={{
                 backgroundImage: `url(${getImageUrl(n)})`,
               }}
-              className={cx(styles.imageholder, 'pixelated')}
+              className={cl(styles.imageholder, 'pixelated')}
             ></div>
             {discarded && (
-              <div className={cx(styles.discarded, 'el-text')}>
+              <div className={cl(styles.discarded, 'el-text')}>
                 {_.i18n('discarded')}
               </div>
             )}
           </div>
           <div className={styles.text}>
-            <div
-              className={cx(
-                styles.textholder,
-                boldfont && 'font-bold',
-                'el-text',
-              )}
-            >
+            <div className={cl(styles.textholder, 'el-text cantoggleboldfont')}>
               {_.cards(n, 'desc')}
             </div>
           </div>
           <div className={styles.resall}>
             <div
-              className={cx(
+              className={cl(
                 styles.resbg,
                 [styles.brick, styles.gem, styles.recruit][type],
               )}
             ></div>
             <div
-              className={cx(styles.cost, 'el-number')}
+              className={cl(styles.cost, 'el-number')}
               {...tooltipAttrs(cardTooltip, undefined, { noTouch: true })}
             >
               {cost}
@@ -347,7 +320,7 @@ const Card = ({
           </div>
         </div>
         <div
-          className={cx(
+          className={cl(
             styles.cardback,
             zeroOpacity
               ? 'opacity-0'
@@ -356,7 +329,7 @@ const Card = ({
                 : 'opacity-100',
           )}
         >
-          <div className={cx(styles.cardbackimage, 'pixelated')}></div>
+          <div className={cl(styles.cardbackimage, 'pixelated')}></div>
         </div>
       </button>
     )

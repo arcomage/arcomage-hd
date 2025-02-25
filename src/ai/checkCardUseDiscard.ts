@@ -1,7 +1,7 @@
-import { canDiscardUndiscardableWhenDDP } from '../constants/devSettings'
-import cards from '../data/cards'
-import { AiCardListItemType } from '../types/ai'
-import { ownerType2, RootStateType } from '../types/state'
+import { canDiscardUndiscardableWhenDDP } from '@/constants/devSettings'
+import cards from '@/data/cards'
+import { AiCardListItemType } from '@/types/ai'
+import { ownerType2, RootStateType } from '@/types/state'
 
 const checkCardUseDiscard = (
   state: RootStateType,

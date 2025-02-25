@@ -1,24 +1,9 @@
-// const colors = require('tailwindcss/colors')
-// const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default
-// const defaultTheme = require('tailwindcss/defaultTheme')
-const forms = require('@tailwindcss/forms')
+import forms from '@tailwindcss/forms'
 
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: ['./src/**/*.{ts,tsx,js,jsx,scss,sass,css}', './src/index.html'],
   theme: {
-    // colors: {
-    //   transparent: 'transparent',
-    //   current: 'currentColor',
-    //   black: colors.black,
-    //   white: colors.white,
-    //   gray: colors.gray,
-    //   red: colors.red,
-    //   blue: colors.blue,
-    //   green: colors.green,
-    //   yellow: colors.yellow,
-    //   darkborder: 'rgba(31, 41, 55, 0.65)',
-    //   lightborder: 'rgba(243, 244, 246, 0.65)',
-    // },
     boxShadow: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.25)',
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.3)',
@@ -30,22 +15,6 @@ module.exports = {
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.30)',
       none: 'none',
     },
-    // screens: {
-    //   sm: '640px',
-    //   // => @media (min-width: 640px) { ... }
-
-    //   md: '768px',
-    //   // => @media (min-width: 768px) { ... }
-
-    //   lg: '1024px',
-    //   // => @media (min-width: 1024px) { ... }
-
-    //   xl: '1280px',
-    //   // => @media (min-width: 1280px) { ... }
-
-    //   '2xl': '1536px',
-    //   // => @media (min-width: 1536px) { ... }
-    // },
     extend: {
       colors: {
         transparent: 'transparent',
@@ -63,21 +32,5 @@ module.exports = {
     },
   },
 
-  plugins: [
-    forms,
-    // ({ addUtilities, theme, variants }) => {
-    //   const borderColor = flattenColorPalette(theme('borderColor'))
-    //   delete borderColor.default
-
-    //   const colorMap = Object.keys(borderColor).map((color) => ({
-    //     [`.border-t-${color}`]: { borderTopColor: borderColor[color] },
-    //     [`.border-r-${color}`]: { borderRightColor: borderColor[color] },
-    //     [`.border-b-${color}`]: { borderBottomColor: borderColor[color] },
-    //     [`.border-l-${color}`]: { borderLeftColor: borderColor[color] },
-    //   }))
-    //   const utilities = Object.assign({}, ...colorMap)
-
-    //   addUtilities(utilities, variants('borderColor'))
-    // },
-  ],
+  plugins: [forms],
 }

@@ -1,5 +1,5 @@
 import { it, expect } from 'bun:test'
-import { variousLengthChunk } from '../../src/utils/variousLengthChunk'
+import { variousLengthChunk } from '@/utils/variousLengthChunk'
 
 it('variousLengthChunk is good', () => {
   const arr = [425, 678, 'f', 76, 29, 'd', 46, 89, true]

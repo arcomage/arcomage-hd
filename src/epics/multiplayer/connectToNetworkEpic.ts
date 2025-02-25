@@ -1,18 +1,18 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { of, concat, from, merge, Observable } from 'rxjs'
+import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   CONNECT_TO_NETWORK,
   SET_YOUR_ID,
   MULTIPLAYER_STATUS,
   PEER_LISTEN,
   ABORT_CONNECTION,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
-import { of, concat, from, merge, Observable } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { initPeer, peerAll } from '../../webrtc/peer'
-import devLog from '../../utils/devLog'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import { initPeer, peerAll } from '@/webrtc/peer'
 
 // connect to the network, get your ID, and set your ID in the store
 

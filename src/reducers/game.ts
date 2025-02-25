@@ -5,9 +5,9 @@ import {
   SWITCH_LOCK,
   SWITCH_NEW_TURN,
   SWITCH_TURN,
-} from '../constants/ActionTypes'
-import { GameStateType } from '../types/state'
-import { RootActionType } from '../types/actionObj'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { GameStateType } from '@/types/state'
 
 const defaultGame: GameStateType = {
   playersTurn: true,

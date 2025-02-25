@@ -1,10 +1,10 @@
-import { resNames } from '../constants/resourceNames'
+import { resNames } from '@/constants/resourceNames'
+import { I18nContextType } from '@/i18n/types'
 import {
   EndScreenStateType,
   GameEndReasonsType,
   PersonStatusType,
-} from '../types/state'
-import { I18nContextType } from '../i18n/types'
+} from '@/types/state'
 
 const getTrueIndexes = (arr: boolean[]): number[] =>
   arr.reduce<number[]>((acc, value, index) => {

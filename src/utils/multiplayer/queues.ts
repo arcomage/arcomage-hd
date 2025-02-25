@@ -1,9 +1,9 @@
-import { isProd } from '../../constants/devSettings'
+import { isProd } from '@/constants/devSettings'
 import {
   DiscardCardCoreActionType,
   InitToQueueActionType,
   UseCardCoreActionType,
-} from '../../types/actionObj'
+} from '@/types/actionObj'
 import Queue from './Queue'
 
 export const drawCardQueues = new Map<number, Queue<number>>()

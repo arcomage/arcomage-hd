@@ -1,7 +1,7 @@
+import fs from 'fs'
+import path from 'path'
 import { createWorker } from 'tesseract.js'
 import { locales, locales3L } from './locales'
-import path from 'path'
-import fs from 'fs'
 
 const extractedDir = './extracted'
 const outputDir = './output'

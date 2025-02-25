@@ -2,14 +2,14 @@
 // import './matchMediaMock'
 // import React from 'react'
 // import { mount } from 'enzyme'
-// import App from '../../src/App'
-// import I18nProvider from '../../src/i18n/I18nProvider'
+// import App from '@/App'
+// import I18nProvider from '@/i18n/I18nProvider'
 // import { Provider } from 'react-redux'
 // import { HelmetProvider } from 'react-helmet-async'
-// import GameSizeProvider from '../../src/utils/contexts/GameSizeProvider'
-// import { store } from '../../src/store'
+// import GameSizeProvider from '@/utils/contexts/GameSizeProvider'
+// import { store } from '@/store'
 
-// it('click langPrefButton', () => {
+// it('click langprefbutton', () => {
 //   const wrapper = mount(
 //     <Provider store={store}>
 //       <I18nProvider>

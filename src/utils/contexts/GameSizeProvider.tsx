@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { narrowMobileWinHeightMax } from '@/constants/visuals'
 import { defaultGameSize, GameSizeContext, vType } from './GameSizeContext'
-import { narrowMobileWinHeightMax } from '../../constants/visuals'
 
 type PropType = {
   children: React.ReactNode

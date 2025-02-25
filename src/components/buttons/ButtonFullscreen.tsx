@@ -1,14 +1,9 @@
 import React, { useContext } from 'react'
-import cx from 'clsx'
-import { I18nContext } from '../../i18n/I18nContext'
-import {
-  isEnabled,
-  isFullscreen,
-  requestFs,
-  exitFs,
-} from '../../utils/fullscreen'
-import { useAppSelector } from '../../utils/hooks/useAppDispatch'
-import { tooltipAttrs } from '../../utils/tooltip'
+import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
+import { isEnabled, isFullscreen, requestFs, exitFs } from '@/utils/fullscreen'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './ButtonFullscreen.module.scss'
 
 const ButtonFullscreen = () => {
@@ -30,7 +25,7 @@ const ButtonFullscreen = () => {
     <button
       {...(isEndScreen ? { tabIndex: -1 } : {})}
       accessKey="f"
-      className={cx('topbutton', styles.fullscreenButton)}
+      className={cl('topbutton', styles.fullscreenbutton)}
       onClick={clickFunc}
       onAuxClick={clickFunc}
       {...tooltipAttrs(_.i18n('Toggle Full Screen'), 'bottom')}

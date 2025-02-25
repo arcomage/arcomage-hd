@@ -1,10 +1,10 @@
 // import { it, expect } from 'bun:test'
 // import React from 'react'
 // import { mount } from 'enzyme'
-// import I18nProvider from '../../src/i18n/I18nProvider'
+// import I18nProvider from '@/i18n/I18nProvider'
 // import { Provider } from 'react-redux'
-// import { store } from '../../src/store'
-// import EndScreen from '../../src/components/screens/EndScreen'
+// import { store } from '@/store'
+// import EndScreen from '@/components/screens/EndScreen'
 
 // it('renders EndScreen (win)', () => {
 //   const screen = mount(

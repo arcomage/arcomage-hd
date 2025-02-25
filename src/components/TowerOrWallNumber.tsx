@@ -1,5 +1,5 @@
 import React, { RefObject, useEffect } from 'react'
-// import devLog from '../utils/devLog'
+// import devLog from '@/utils/devLog'
 import AnimatedNumber from './effects/AnimatedNumber'
 import NumberChangeVisual from './effects/NumberChangeVisual'
 import NumberDiff from './effects/NumberDiff'

@@ -5,13 +5,6 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import cx from 'clsx'
-import { useAppDispatch } from '../../utils/hooks/useAppDispatch'
-
-import useClickOutside from '../../utils/hooks/gamecontrols/useClickOutside'
-import { I18nContext } from '../../i18n/I18nContext'
-import useKeyDown from '../../utils/hooks/gamecontrols/useKeyDown'
-import { GameSizeContext } from '../../utils/contexts/GameSizeContext'
 import {
   SCREEN_PREF,
   SCREEN_LANG_PREF,
@@ -19,8 +12,14 @@ import {
   SCREEN_HELP,
   SCREEN_LANDSCAPE,
   SCREEN_DISCONNECT_NOTICE,
-} from '../../constants/ActionTypes'
-import { tooltipAttrs } from '../../utils/tooltip'
+} from '@/constants/ActionTypes'
+import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
+import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
+import useClickOutside from '@/utils/hooks/gamecontrols/useClickOutside'
+import useKeyDown from '@/utils/hooks/gamecontrols/useKeyDown'
+import { useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './Window.module.scss'
 
 type PropType = {
@@ -101,26 +100,27 @@ const Window = ({
 
   return (
     <div
-      className={cx('window-bg', { darkerbg: darkerBg })}
+      className={cl('window-bg', darkerBg && 'darkerbg')}
       role="dialog"
       aria-modal={true}
       ref={containerRef}
     >
       <div
         ref={prefRef}
-        className={cx(
+        className={cl(
           'window-wrapper',
           screenActionType.toLowerCase().replace(/_/g, '-'),
         )}
       >
-        <div className={cx('window-innerwrapper')}>
+        <div className={cl('window-innerwrapper')}>
           <div
-            className={cx(styles.logo, {
-              hidden:
-                size.narrowMobile &&
+            className={cl(
+              styles.logo,
+              size.narrowMobile &&
                 (screenActionType === SCREEN_PREF ||
-                  screenActionType === SCREEN_VOLUME_PREF),
-            })}
+                  screenActionType === SCREEN_VOLUME_PREF) &&
+                'hidden',
+            )}
             aria-hidden={true}
             {...tooltipAttrs(_.i18n('ArcoMage HD'), 'bottom')}
           ></div>

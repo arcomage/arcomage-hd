@@ -1,3 +1,4 @@
+import { produce } from 'immer'
 import React, {
   ChangeEvent,
   JSX,
@@ -6,14 +7,8 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { produce } from 'immer'
-import { copy } from '../../utils/textediting/copy'
-import {
-  useAppSelector,
-  useAppDispatch,
-} from '../../utils/hooks/useAppDispatch'
-import Window from './Window'
-
+import CheckBox from '@/components/special/CheckBox'
+import NumberInput from '@/components/special/NumberInput'
 import {
   UPDATE_SETTINGS_INIT,
   SCREEN_PREF,
@@ -23,38 +18,33 @@ import {
   SEND_NAME,
   SET_TEMP_PLAYER_NAME,
   UPDATE_AILEVEL,
-} from '../../constants/ActionTypes'
-import { I18nContext } from '../../i18n/I18nContext'
-import { upper1st } from '../../utils/upper1st'
-import { preSettings, continents } from '../../data/preSettings'
+} from '@/constants/ActionTypes'
 import {
   defaultPlayerNameList,
   defaultOpponentNameList,
   defaultSettings,
   defaultAiLevel,
-} from '../../constants/defaultSettings'
-import { hasProperty } from '../../utils/typeHelpers'
-import {
-  copiedDuration,
-  shorterIdStartEndLength,
-} from '../../constants/visuals'
+} from '@/constants/defaultSettings'
+import { maxCardsInHand, minGeneratorIsOne } from '@/constants/ranges'
 import {
   allStatusNames,
   otherSettingNames,
   poNames,
-} from '../../constants/resourceNames'
-import {
-  FormFieldsType,
-  FormFieldsAllPartialType,
-} from '../../types/formFields'
-import { allCondAndOtherSettingsEqual } from '../../utils/startWinState'
-import { sample } from '../../utils/random'
-import isEmoji from '../../utils/isEmoji'
-import { maxCardsInHand, minGeneratorIsOne } from '../../constants/ranges'
-import { variousLengthChunk } from '../../utils/variousLengthChunk'
-import NumberInput from '../special/NumberInput'
-import CheckBox from '../special/CheckBox'
-import { tooltipAttrs } from '../../utils/tooltip'
+} from '@/constants/resourceNames'
+import { copiedDuration, shorterIdStartEndLength } from '@/constants/visuals'
+import { preSettings, continents } from '@/data/preSettings'
+import { I18nContext } from '@/i18n/I18nContext'
+import { FormFieldsType, FormFieldsAllPartialType } from '@/types/formFields'
+import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import isEmoji from '@/utils/isEmoji'
+import { sample } from '@/utils/random'
+import { allCondAndOtherSettingsEqual } from '@/utils/startWinState'
+import { copy } from '@/utils/textediting/copy'
+import { tooltipAttrs } from '@/utils/tooltip'
+import { hasProperty } from '@/utils/typeHelpers'
+import { upper1st } from '@/utils/upper1st'
+import { variousLengthChunk } from '@/utils/variousLengthChunk'
+import Window from './Window'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -754,12 +744,12 @@ const Pref = () => {
             </span>
           </label>
         </h4>
-        <span id="multiplayerNotification" className="emoji">
+        <span id="multiplayernotification" className="emoji">
           {notification}
         </span>
       </div>
       <div className="multiplayer">
-        <label htmlFor="yourId">
+        <label htmlFor="yourid">
           <span>
             {_.i18n('Your ID')}
             {_.i18n(': ')}
@@ -767,8 +757,8 @@ const Pref = () => {
           <input
             ref={yourIdInputRef}
             type="text"
-            name="yourId"
-            id="yourId"
+            name="yourid"
+            id="yourid"
             value={yourId}
             readOnly
             onClick={(e) => {

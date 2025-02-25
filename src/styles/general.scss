@@ -4,8 +4,7 @@ body {
 }
 
 body {
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden auto;
   width: 100dvw;
   perspective: 120vh;
 }
@@ -36,4 +35,11 @@ button {
 
 button[disabled] {
   pointer-events: none; // for Firefox
+}
+
+body.noanim {
+  * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
 }

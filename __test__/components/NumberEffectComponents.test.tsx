@@ -2,12 +2,12 @@
 // import './matchMediaMock'
 // import React from 'react'
 // import { mount } from 'enzyme'
-// import NumberDiff from '../../src/components/effects/NumberDiff'
-// import AnimatedNumber from '../../src/components/effects/AnimatedNumber'
-// import NumberChangeVisual from '../../src/components/effects/NumberChangeVisual'
+// import NumberDiff from '@/components/effects/NumberDiff'
+// import AnimatedNumber from '@/components/effects/AnimatedNumber'
+// import NumberChangeVisual from '@/components/effects/NumberChangeVisual'
 // import { act } from 'react-dom/test-utils'
 // import { Provider } from 'react-redux'
-// import { store } from '../../src/store'
+// import { store } from '@/store'
 
 // jest.useFakeTimers()
 

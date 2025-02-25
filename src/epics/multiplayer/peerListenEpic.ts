@@ -1,19 +1,19 @@
+import { DataConnection } from 'peerjs'
+import { ofType, StateObservable } from 'redux-observable'
+import { concat, merge, EMPTY, fromEvent, of, Observable } from 'rxjs'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   PEER_LISTEN,
   ABORT_CONNECTION,
   CONNECTION_LISTEN,
   MULTIPLAYER_STATUS,
   SET_MULTI_GAME_NUMBER,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { concat, merge, EMPTY, fromEvent, of, Observable } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { peerAll } from '../../webrtc/peer'
-import { DataConnection } from 'peerjs'
-import devLog from '../../utils/devLog'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import { peerAll } from '@/webrtc/peer'
 
 export default (
   action$: Observable<RootActionType>,

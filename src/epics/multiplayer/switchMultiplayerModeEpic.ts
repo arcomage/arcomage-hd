@@ -1,16 +1,16 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { of, concat, Observable } from 'rxjs'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   SWITCH_MULTIPLAYER_MODE,
   SWITCH_MULTIPLAYER_MODE_MAIN,
   CONNECT_TO_NETWORK,
   DISCONNECT,
   ABORT_CONNECTION,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { of, concat, Observable } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
 
 export default (
   action$: Observable<RootActionType>,

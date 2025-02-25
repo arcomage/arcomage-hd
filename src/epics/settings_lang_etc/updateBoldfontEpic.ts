@@ -1,17 +1,17 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { Observable, of } from 'rxjs'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   UPDATE_BOLDFONT,
   UPDATE_BOLDFONT_MAIN,
   ABORT_ALL,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { Observable, of } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { lsSet } from '../../utils/localstorage'
-import { defaultLang } from '../../i18n/langs'
-import { defaultErathian } from '../../constants/defaultSettings'
+} from '@/constants/ActionTypes'
+import { defaultErathian } from '@/constants/defaultSettings'
+import { defaultLang } from '@/i18n/langs'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import { lsSet } from '@/utils/localstorage'
 
 export default (
   action$: Observable<RootActionType>,

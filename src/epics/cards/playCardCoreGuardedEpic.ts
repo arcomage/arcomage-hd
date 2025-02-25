@@ -1,8 +1,5 @@
-import {
-  ABORT_CONNECTION,
-  PLAY_CARD_CORE_GUARDED,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
+import { ofType, StateObservable } from 'redux-observable'
+import { Observable, of } from 'rxjs'
 import {
   filter,
   mergeMap,
@@ -12,10 +9,13 @@ import {
   takeUntil,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { Observable, of } from 'rxjs'
-import devLog from '../../utils/devLog'
+import {
+  ABORT_CONNECTION,
+  PLAY_CARD_CORE_GUARDED,
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
 
 export default (
   action$: Observable<RootActionType>,

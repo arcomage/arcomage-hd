@@ -1,0 +1,50 @@
+@use '@/constants/_css_constants.scss' as *;
+
+.main {
+  @apply h-full mx-2 relative;
+}
+
+.player {
+  @apply float-left;
+}
+
+.opponent {
+  @apply float-right;
+}
+
+.wallwrapper {
+  @apply z-20 w-full absolute px-4 overflow-hidden;
+
+  bottom: calc(1.75rem + 0.25rem * 2);
+}
+
+.wallbody {
+  @apply absolute bottom-0;
+
+  transform: translateY(calc((1 - (var(--n) / #{$maxWallOnScreen})) * 100%))
+    translateZ(0);
+  background-image: url('@assets/img/wall.webp');
+  background-repeat: repeat-y;
+  background-size: 100%;
+  background-position: center 0;
+  will-change: transform;
+  transition-property: transform;
+  transition-timing-function: linear;
+  transition-duration: 0.4s;
+}
+
+.numberouterwrapper {
+  @apply bg-black bg-opacity-50 p-1 shadow-lg w-full absolute bottom-0;
+}
+
+.numberinnerwrapper {
+  @apply border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono;
+}
+
+.walltooltipbearer {
+  @apply z-50 w-full absolute bottom-0;
+}
+
+.wallnbearer {
+  @apply w-full h-full;
+}

@@ -1,12 +1,8 @@
-import { allStatusNames, resNames } from '../constants/resourceNames'
-import cards from '../data/cards'
-import {
-  AiCardListItemType,
-  AiInstructionType,
-  ScoreObjType,
-} from '../types/ai'
-import { PersonStatusType, StatusType, WinSettingsType } from '../types/state'
-import { entries, fromEntries } from '../utils/typeHelpers'
+import { allStatusNames, resNames } from '@/constants/resourceNames'
+import cards from '@/data/cards'
+import { AiCardListItemType, AiInstructionType, ScoreObjType } from '@/types/ai'
+import { PersonStatusType, StatusType, WinSettingsType } from '@/types/state'
+import { entries, fromEntries } from '@/utils/typeHelpers'
 import { coefs } from './coefs'
 import { getMaxScore } from './getMaxScore'
 

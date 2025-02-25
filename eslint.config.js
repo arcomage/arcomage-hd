@@ -2,6 +2,7 @@
 
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
+import { flatConfigs as importFlatConfigs } from 'eslint-plugin-import'
 import globals from 'globals'
 import reactCompiler from 'eslint-plugin-react-compiler'
 import reactRefresh from 'eslint-plugin-react-refresh'
@@ -13,6 +14,35 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 const conf = tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [importFlatConfigs.recommended, importFlatConfigs.typescript],
+    settings: {
+      'import/resolver': {
+        typescript: {},
+      },
+    },
+    rules: {
+      'import/order': [
+        'error',
+        {
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+          ],
+          'newlines-between': 'never',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
+    },
+  },
   {
     ...reactPlugin.configs.flat.recommended,
     settings: {

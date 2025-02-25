@@ -1,7 +1,7 @@
 import fs from 'fs'
 import * as visualConsts from '../../src/constants/visuals'
 
-const sassFilePath = 'src/styles/_variables.scss'
+const sassFilePath = 'src/constants/_css_constants.scss'
 
 const sassContent = Object.entries(visualConsts)
   .map(([key, value]) => `$${key}: ${value};`)

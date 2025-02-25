@@ -1,11 +1,8 @@
 import { produce } from 'immer'
-import {
-  UPDATE_VOLUME_MAIN,
-  UPDATE_STEREO_MAIN,
-} from '../constants/ActionTypes'
-import { defaultVolume, defaultStereo } from '../constants/defaultSettings'
-import { RootActionType } from '../types/actionObj'
-import { SoundStateType } from '../types/state'
+import { UPDATE_VOLUME_MAIN, UPDATE_STEREO_MAIN } from '@/constants/ActionTypes'
+import { defaultVolume, defaultStereo } from '@/constants/defaultSettings'
+import { RootActionType } from '@/types/actionObj'
+import { SoundStateType } from '@/types/state'
 
 const defaultSoundState: SoundStateType = {
   volume: defaultVolume,

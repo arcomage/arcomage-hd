@@ -1,5 +1,4 @@
 import { createContext } from 'react'
-
 import { I18nContextType } from './types'
 
 const transObjDefault = { i18n: () => '', cards: () => '', taverns: () => '' }

@@ -1,17 +1,17 @@
-import { PLAY_CARD_TO_QUEUE } from '../../constants/ActionTypes'
+import { StateObservable } from 'redux-observable'
+import { Observable } from 'rxjs'
+import { filter, tap, ignoreElements } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
+import { PLAY_CARD_TO_QUEUE } from '@/constants/ActionTypes'
 import {
   DiscardCardCoreActionType,
   RootActionType,
   UseCardCoreActionType,
-} from '../../types/actionObj'
-import { filter, tap, ignoreElements } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
-import { StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { playCardQueues } from '../../utils/multiplayer/queues'
-import devLog from '../../utils/devLog'
-import Queue from '../../utils/multiplayer/Queue'
-import { Observable } from 'rxjs'
+} from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import Queue from '@/utils/multiplayer/Queue'
+import { playCardQueues } from '@/utils/multiplayer/queues'
 
 export default (
   action$: Observable<RootActionType>,

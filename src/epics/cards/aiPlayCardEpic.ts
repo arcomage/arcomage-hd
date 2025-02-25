@@ -1,18 +1,18 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { EMPTY, Observable, of } from 'rxjs'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
+import { ai } from '@/ai'
 import {
   AI_PLAY_CARD,
   DISCARD_CARD,
   ABORT_ALL,
   USE_CARD,
   SCREEN_END,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { EMPTY, Observable, of } from 'rxjs'
-import { ai } from '../../ai'
-import { AiInstructionType } from '../../types/ai'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { AiInstructionType } from '@/types/ai'
+import { RootStateType } from '@/types/state'
 
 export default (
   action$: Observable<RootActionType>,

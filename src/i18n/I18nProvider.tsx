@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { i18n as defaultTrans } from './main/en'
-import { cardsI18n as defaultCardsI18n } from '../../src/i18n/cards/en'
-import { tavernsI18n as defaultTavernsI18n } from '../../src/i18n/taverns/en'
-import { AvailableLangType, TranslationObjType } from './types'
-import { useAppSelector } from '../utils/hooks/useAppDispatch'
+import { cardsI18n as defaultCardsI18n } from '@/i18n/cards/en'
+import { tavernsI18n as defaultTavernsI18n } from '@/i18n/taverns/en'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import { I18nContext } from './I18nContext'
+import { i18n as defaultTrans } from './main/en'
+import { AvailableLangType, TranslationObjType } from './types'
 
 const translationDefault: TranslationObjType = {
   i18n: defaultTrans,

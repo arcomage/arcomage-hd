@@ -1,20 +1,13 @@
-import {
-  UPDATE_STATUS,
-  EXEC_CARD,
-  ABORT_ALL,
-} from '../../constants/ActionTypes'
-import {
-  RootActionType,
-  UpdateStatusActionTypeSingle,
-} from '../../types/actionObj'
+import { ofType, StateObservable } from 'redux-observable'
+import { Observable, of } from 'rxjs'
 import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { entries } from '../../utils/typeHelpers'
-import dataCards from '../../data/cards'
-import { resNames } from '../../constants/resourceNames'
-import { Observable, of } from 'rxjs'
+import { UPDATE_STATUS, EXEC_CARD, ABORT_ALL } from '@/constants/ActionTypes'
+import { resNames } from '@/constants/resourceNames'
+import dataCards from '@/data/cards'
+import { RootActionType, UpdateStatusActionTypeSingle } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import { entries } from '@/utils/typeHelpers'
 
 export default (
   action$: Observable<RootActionType>,

@@ -1,3 +1,7 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { concat, EMPTY, Observable, of } from 'rxjs'
+import { filter, takeUntil, mergeMap } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   ABORT_ALL,
   ABORT_CONNECTION,
@@ -6,14 +10,10 @@ import {
   SEND_SETTINGS,
   SET_TEMP_SETTINGS,
   UPDATE_SETTINGS,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, takeUntil, mergeMap } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { INST } from '../../constants/connDataKind'
-import { concat, EMPTY, Observable, of } from 'rxjs'
+} from '@/constants/ActionTypes'
+import { INST } from '@/constants/connDataKind'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
 
 export default (
   action$: Observable<RootActionType>,

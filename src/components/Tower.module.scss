@@ -1,0 +1,69 @@
+.main {
+  @apply h-full mx-1 relative;
+}
+
+.player {
+  @apply float-left;
+}
+
+.opponent {
+  @apply float-right;
+}
+
+.towernbearer {
+  @apply w-full h-full;
+}
+
+.towerwrapper {
+  @apply w-full h-full absolute overflow-hidden;
+
+  bottom: calc(1.75rem + 0.25rem * 2);
+}
+
+.towerbody {
+  @apply absolute bottom-0;
+
+  will-change: transform;
+  transition-property: transform;
+  transition-timing-function: linear;
+  transition-duration: 0.4s;
+}
+
+.towerbodybg {
+  @apply w-full h-full;
+
+  background-image: url('@assets/img/tower.webp');
+  background-repeat: repeat-y;
+  background-size: 100%;
+  background-position: center 0;
+}
+
+.towerbodytop {
+  position: absolute;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center 0;
+
+  .player & {
+    background-image: url('@assets/img/tower_red.webp');
+  }
+
+  .opponent & {
+    background-image: url('@assets/img/tower_blue.webp');
+  }
+}
+
+.numberouterwrapper {
+  @apply w-full left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 p-1 shadow-lg absolute bottom-0;
+
+  min-width: 2.8rem;
+}
+
+.numberinnerwrapper {
+  @apply border border-yellow-400 border-opacity-25 text-yellow-400 text-center h-7 leading-7 font-mono;
+}
+
+.towertooltipbearer {
+  @apply z-50 w-full absolute bottom-0;
+}

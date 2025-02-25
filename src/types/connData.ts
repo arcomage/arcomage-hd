@@ -6,9 +6,9 @@ import {
   PLAY_CARD_TO_QUEUE,
   INIT_CORE,
   INIT_TO_QUEUE,
-} from '../constants/ActionTypes'
-import { CHAT, INST } from '../constants/connDataKind'
-import { isInArray } from '../utils/typeHelpers'
+} from '@/constants/ActionTypes'
+import { CHAT, INST } from '@/constants/connDataKind'
+import { isInArray } from '@/utils/typeHelpers'
 import {
   SetTempSettingsActionType,
   SetTempOpponentNameActionType,

@@ -1,4 +1,4 @@
-import { AvailableLangType } from '../i18n/types'
+import { AvailableLangType } from '@/i18n/types'
 
 export type PersonStatusType = {
   bricks: number

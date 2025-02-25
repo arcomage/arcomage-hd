@@ -3,14 +3,14 @@ import {
   UPDATE_NOANIM_MAIN,
   UPDATE_PIXELATION_MAIN,
   UPDATE_VISUALVALUES_MAIN,
-} from '../constants/ActionTypes'
+} from '@/constants/ActionTypes'
 import {
   defaultNoanim,
   defaultPixelation,
   defaultVisualvalues,
-} from '../constants/defaultSettings'
-import { RootActionType } from '../types/actionObj'
-import { VisualStateType } from '../types/state'
+} from '@/constants/defaultSettings'
+import { RootActionType } from '@/types/actionObj'
+import { VisualStateType } from '@/types/state'
 
 const defaultVisualState: VisualStateType = {
   noanim: defaultNoanim,

@@ -8,10 +8,10 @@ import {
   SET_MULTI_GAME_NUMBER,
   SET_TEMP_OPPONENT_NAME,
   SET_TEMP_PLAYER_NAME,
-} from '../constants/ActionTypes'
-import { defaultSettings } from '../constants/defaultSettings'
-import { RootActionType } from '../types/actionObj'
-import { MultiplayerStateType, SettingsType } from '../types/state'
+} from '@/constants/ActionTypes'
+import { defaultSettings } from '@/constants/defaultSettings'
+import { RootActionType } from '@/types/actionObj'
+import { MultiplayerStateType, SettingsType } from '@/types/state'
 
 const tempSettingsDefault: SettingsType = {
   ...defaultSettings,

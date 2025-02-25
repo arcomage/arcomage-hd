@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import cx from 'clsx'
-import { githubUrl } from '../../constants/devSettings'
-import { useAppSelector } from '../../utils/hooks/useAppDispatch'
-import { tooltipAttrs } from '../../utils/tooltip'
-import { I18nContext } from '../../i18n/I18nContext'
+import { githubUrl } from '@/constants/devSettings'
+import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './ButtonGithub.module.scss'
 
 const ButtonGithub = () => {
@@ -15,7 +15,7 @@ const ButtonGithub = () => {
     <a
       {...(isEndScreen ? { tabIndex: -1 } : {})}
       accessKey="g"
-      className={cx('topbutton', styles.githubButton)}
+      className={cl('topbutton', styles.githubbutton)}
       href={githubUrl}
       target="_blank"
       rel="noopener noreferrer"

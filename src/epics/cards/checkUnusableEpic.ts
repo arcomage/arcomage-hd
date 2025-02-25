@@ -1,16 +1,16 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { Observable, of } from 'rxjs'
+import { withLatestFrom, filter, takeUntil, mergeMap } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   CHECK_UNUSABLE,
   ABORT_ALL,
   SET_UNUSABLE,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, takeUntil, mergeMap } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { CardListItemAllType, RootStateType } from '../../types/state'
-import cards from '../../data/cards'
-import { resNames } from '../../constants/resourceNames'
-import { Observable, of } from 'rxjs'
+} from '@/constants/ActionTypes'
+import { resNames } from '@/constants/resourceNames'
+import cards from '@/data/cards'
+import { RootActionType } from '@/types/actionObj'
+import { CardListItemAllType, RootStateType } from '@/types/state'
 
 export default (
   action$: Observable<RootActionType>,

@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
-import cx from 'clsx'
-import Window from './Window'
-
-import { SCREEN_LANDSCAPE } from '../../constants/ActionTypes'
-import { I18nContext } from '../../i18n/I18nContext'
-import { LandscapeNoticeExitableDelay } from '../../constants/visuals'
-import { tooltipAttrs } from '../../utils/tooltip'
+import { SCREEN_LANDSCAPE } from '@/constants/ActionTypes'
+import { LandscapeNoticeExitableDelay } from '@/constants/visuals'
+import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
+import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './LandscapeNotice.module.scss'
+import Window from './Window'
 
 const LandscapeNotice = () => {
   const _ = useContext(I18nContext)
@@ -18,7 +17,7 @@ const LandscapeNotice = () => {
       exitableDelay={LandscapeNoticeExitableDelay}
     >
       <div
-        className={cx(styles.wrapper, 'relative')}
+        className={cl(styles.wrapper, 'relative')}
         {...tooltipAttrs(
           _.i18n('Please rotate your device to landscape mode'),
           'bottom',
@@ -26,7 +25,7 @@ const LandscapeNotice = () => {
         aria-label={_.i18n('Please rotate your device to landscape mode')}
       >
         <svg
-          className={cx(styles.arrow, 'absolute')}
+          className={cl(styles.arrow, 'absolute')}
           viewBox="0 0 13.16 10.677"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -34,7 +33,7 @@ const LandscapeNotice = () => {
             <path d="M.662.66c5.926.163 9.178 3.464 9.354 9.354M12.499 6.02l-2.483 3.991M6.513 6.93l3.503 3.08" />
           </g>
         </svg>
-        <div className={cx(styles.all, 'relative')}>
+        <div className={cl(styles.all, 'relative')}>
           <svg viewBox="0 0 261.17 544.12" xmlns="http://www.w3.org/2000/svg">
             <path
               fill="#fff"
@@ -42,14 +41,14 @@ const LandscapeNotice = () => {
             />
           </svg>
           <svg
-            className={cx(styles.smiley, 'absolute')}
+            className={cl(styles.smiley, 'absolute')}
             viewBox="0 0 79.375 79.375"
             xmlns="http://www.w3.org/2000/svg"
           >
             <circle cx="21.828" cy="28.297" r="6.804" fill="#fff" />
             <circle cx="57.544" cy="28.297" r="6.804" fill="#fff" />
             <path
-              className={cx(styles.mouth, '')}
+              className={cl(styles.mouth, '')}
               d="M15.119 56.88c13.919-9.022 29.213-12.999 49.137 0"
               stroke="#fff"
               strokeLinecap="round"

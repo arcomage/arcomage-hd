@@ -5,7 +5,7 @@ import {
   setProperty,
   notEmpty,
   isInArray,
-} from '../../src/utils/typeHelpers'
+} from '@/utils/typeHelpers'
 
 it('entries is OK', () => {
   const obj = { foo: 'bar', baz: 42 }

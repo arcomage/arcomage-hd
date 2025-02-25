@@ -1,16 +1,16 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { Observable, of } from 'rxjs'
+import { withLatestFrom, filter, takeUntil, mergeMap } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   ABORT_ALL,
   RESOURCE_PROD,
   UPDATE_STATUS,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, takeUntil, mergeMap } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { entries } from '../../utils/typeHelpers'
-import { resProdMap } from '../../constants/resourceNames'
-import { Observable, of } from 'rxjs'
+} from '@/constants/ActionTypes'
+import { resProdMap } from '@/constants/resourceNames'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import { entries } from '@/utils/typeHelpers'
 
 export default (
   action$: Observable<RootActionType>,

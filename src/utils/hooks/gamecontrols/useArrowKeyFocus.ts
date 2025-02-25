@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
+import { isEditable } from '@/utils/textediting/isEditable'
 import { focusChange } from './focusChange'
-import { isEditable } from '../../textediting/isEditable'
 
 const useArrowKeyFocus = (): void => {
   useEffect(() => {

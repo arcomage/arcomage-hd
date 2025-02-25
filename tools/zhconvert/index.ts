@@ -1,7 +1,6 @@
 import './opencc.d.ts'
 import fs from 'fs'
 import { Converter } from 'opencc-js'
-
 import { specialStrings, specialStringsAfter } from './specialStrings'
 
 const convert = Converter({ from: 'cn', to: 'twp' })

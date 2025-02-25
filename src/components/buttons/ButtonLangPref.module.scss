@@ -2,203 +2,248 @@
   0% {
     stroke-dashoffset: 10.843;
   }
+
   9.375%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-2-8 {
   9.375% {
     stroke-dashoffset: 9.055;
   }
+
   18.75%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-3-8 {
   18.75% {
     stroke-dashoffset: 9.165;
   }
+
   28.125%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-4-8 {
   28.125% {
     stroke-dashoffset: 2.936;
   }
+
   37.5%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-5-8 {
   37.5% {
     stroke-dashoffset: 7.892;
   }
+
   46.875%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-6-8 {
   46.875% {
     stroke-dashoffset: 8.372;
   }
+
   56.250%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-7-8 {
   56.250% {
     stroke-dashoffset: 7.861;
   }
+
   65.625%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-8-8 {
   65.625% {
     stroke-dashoffset: 18.073;
   }
+
   75%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-1-14 {
   0% {
     stroke-dashoffset: 2.411;
   }
+
   5.357%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-2-14 {
   5.357% {
     stroke-dashoffset: 5.672;
   }
+
   10.714%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-3-14 {
   10.714% {
     stroke-dashoffset: 4.485;
   }
+
   16.071%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-4-14 {
   16.071% {
     stroke-dashoffset: 4.501;
   }
+
   21.429%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-5-14 {
   21.429% {
     stroke-dashoffset: 5.141;
   }
+
   26.786%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-6-14 {
   26.786% {
     stroke-dashoffset: 7.75;
   }
+
   32.143%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-7-14 {
   32.143% {
     stroke-dashoffset: 3.298;
   }
+
   37.5%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-8-14 {
   37.5% {
     stroke-dashoffset: 7.782;
   }
+
   42.857%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-9-14 {
   42.857% {
     stroke-dashoffset: 4.915;
   }
+
   48.214%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-10-14 {
   48.214% {
     stroke-dashoffset: 8.359;
   }
+
   53.571%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-11-14 {
   53.571% {
     stroke-dashoffset: 8.391;
   }
+
   58.929%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-12-14 {
   58.929% {
     stroke-dashoffset: 5.531;
   }
+
   64.286%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-13-14 {
   64.286% {
     stroke-dashoffset: 10.172;
   }
+
   69.649%,
   100% {
     stroke-dashoffset: 0;
   }
 }
+
 @keyframes draw-14-14 {
   69.649% {
     stroke-dashoffset: 5.36;
   }
+
   75%,
   100% {
     stroke-dashoffset: 0;
   }
 }
-.langPrefButton {
+
+.langprefbutton {
   left: calc(60% + 3rem);
-  html[data-noanime='false'] & {
+
+  :global(body.anim) & {
     &:hover,
     &:focus,
     &.windowactive {
@@ -208,106 +253,127 @@
           stroke-dashoffset: 10.843;
           animation: draw-1-8 2s linear infinite;
         }
+
         :global(.el-2) {
           stroke-dasharray: 9.055;
           stroke-dashoffset: 9.055;
           animation: draw-2-8 2s linear infinite;
         }
+
         :global(.el-3) {
           stroke-dasharray: 9.165;
           stroke-dashoffset: 9.165;
           animation: draw-3-8 2s linear infinite;
         }
+
         :global(.el-4) {
           stroke-dasharray: 2.936;
           stroke-dashoffset: 2.936;
           animation: draw-4-8 2s linear infinite;
         }
+
         :global(.el-5) {
           stroke-dasharray: 7.892;
           stroke-dashoffset: 7.892;
           animation: draw-5-8 2s linear infinite;
         }
+
         :global(.el-6) {
           stroke-dasharray: 8.372;
           stroke-dashoffset: 8.372;
           animation: draw-6-8 2s linear infinite;
         }
+
         :global(.el-7) {
           stroke-dasharray: 7.861;
           stroke-dashoffset: 7.861;
           animation: draw-7-8 2s linear infinite;
         }
+
         :global(.el-8) {
           stroke-dasharray: 18.073;
           stroke-dashoffset: 18.073;
           animation: draw-8-8 2s linear infinite;
         }
+
         :global(.el-9) {
           stroke-dasharray: 2.411;
           stroke-dashoffset: 2.411;
           animation: draw-1-14 2s linear infinite;
         }
+
         :global(.el-10) {
           stroke-dasharray: 5.672;
           stroke-dashoffset: 5.672;
           animation: draw-2-14 2s linear infinite;
         }
+
         :global(.el-11) {
           stroke-dasharray: 4.485;
           stroke-dashoffset: 4.485;
           animation: draw-3-14 2s linear infinite;
         }
+
         :global(.el-12) {
           stroke-dasharray: 4.501;
           stroke-dashoffset: 4.501;
           animation: draw-4-14 2s linear infinite;
         }
+
         :global(.el-13) {
           stroke-dasharray: 5.141;
           stroke-dashoffset: 5.141;
           animation: draw-5-14 2s linear infinite;
         }
+
         :global(.el-14) {
           stroke-dasharray: 7.75;
           stroke-dashoffset: 7.75;
           animation: draw-6-14 2s linear infinite;
         }
+
         :global(.el-15) {
           stroke-dasharray: 3.298;
           stroke-dashoffset: 3.298;
           animation: draw-7-14 2s linear infinite;
         }
+
         :global(.el-16) {
           stroke-dasharray: 7.782;
           stroke-dashoffset: 7.782;
           animation: draw-8-14 2s linear infinite;
         }
+
         :global(.el-17) {
           stroke-dasharray: 4.915;
           stroke-dashoffset: 4.915;
           animation: draw-9-14 2s linear infinite;
         }
+
         :global(.el-18) {
           stroke-dasharray: 8.359;
           stroke-dashoffset: 8.359;
           animation: draw-10-14 2s linear infinite;
         }
+
         :global(.el-19) {
           stroke-dasharray: 8.391;
           stroke-dashoffset: 8.391;
           animation: draw-11-14 2s linear infinite;
         }
+
         :global(.el-20) {
           stroke-dasharray: 5.531;
           stroke-dashoffset: 5.531;
           animation: draw-12-14 2s linear infinite;
         }
+
         :global(.el-21) {
           stroke-dasharray: 10.172;
           stroke-dashoffset: 10.172;
           animation: draw-13-14 2s linear infinite;
         }
+
         :global(.el-22) {
           stroke-dasharray: 5.36;
           stroke-dashoffset: 5.36;

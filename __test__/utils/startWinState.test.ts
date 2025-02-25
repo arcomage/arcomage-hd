@@ -1,5 +1,5 @@
 import { it, expect } from 'bun:test'
-import { getWinState } from '../../src/utils/startWinState'
+import { getWinState } from '@/utils/startWinState'
 
 it('getWinState is OK', () => {
   const state = {

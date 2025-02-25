@@ -1,8 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-
-import { i18n } from '../../src/i18n/main/en'
 import { cardsI18n } from '../../src/i18n/cards/en'
+import { i18n } from '../../src/i18n/main/en'
 import { tavernsI18n } from '../../src/i18n/taverns/en'
 
 const linesMain = Object.values(i18n)

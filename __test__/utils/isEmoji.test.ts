@@ -2,8 +2,8 @@ import { it, expect } from 'bun:test'
 import {
   defaultOpponentNameList,
   defaultPlayerNameList,
-} from '../../src/constants/defaultSettings'
-import isEmoji from '../../src/utils/isEmoji'
+} from '@/constants/defaultSettings'
+import isEmoji from '@/utils/isEmoji'
 
 it('isEmoji can test all emojis in the default name lists', () => {
   expect(

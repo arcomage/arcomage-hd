@@ -1,12 +1,12 @@
-import { allStatusNames, resNames } from '../../src/constants/resourceNames'
-import { PersonStatusType, StatusType } from '../../src/types/state'
-import cards from '../../src/data/cards'
+import fs from 'fs'
+import { coefs } from '../../src/ai/coefs'
 import { defaultSettings } from '../../src/constants/defaultSettings'
+import { allStatusNames, resNames } from '../../src/constants/resourceNames'
+import cards from '../../src/data/cards'
+import { cardsI18n } from '../../src/i18n/cards/en'
+import { PersonStatusType, StatusType } from '../../src/types/state'
 // import { preSettings } from '../../src/constants/preSettings'
 import { entries, fromEntries } from '../../src/utils/typeHelpers'
-import { coefs } from '../../src/ai/coefs'
-import { cardsI18n } from '../../src/i18n/cards/en'
-import fs from 'fs'
 
 const statusCoefs = (() => {
   const { bricks, gems, recruits, prod, tower, wall } = coefs

@@ -1,6 +1,6 @@
 import { it, expect } from 'bun:test'
-import getPan from '../../src/utils/sound/getPan'
-import { stereoPanValue } from '../../src/constants/visuals'
+import { stereoPanValue } from '@/constants/visuals'
+import getPan from '@/utils/sound/getPan'
 
 it('getPan is OK when n = 1', () => {
   const n = 1

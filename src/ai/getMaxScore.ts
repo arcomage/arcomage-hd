@@ -1,5 +1,5 @@
-import { ScoreObjType } from '../types/ai'
-import { weightedRandom, sample } from '../utils/random'
+import { ScoreObjType } from '@/types/ai'
+import { weightedRandom, sample } from '@/utils/random'
 
 export const getMaxScore = (
   allScores: ScoreObjType[],

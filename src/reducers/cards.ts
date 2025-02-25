@@ -11,9 +11,9 @@ import {
   SET_UNUSABLE,
   MOVE_CARD_TO_TOP_MAIN,
   SET_ZERO_OPACITY,
-} from '../constants/ActionTypes'
-import { CardStateType } from '../types/state'
-import { RootActionType } from '../types/actionObj'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { CardStateType } from '@/types/state'
 
 const defaultCards: CardStateType = {
   total: { player: 0, opponent: 0 },

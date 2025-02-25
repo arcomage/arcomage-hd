@@ -1,6 +1,6 @@
-import Peer, { DataConnection } from 'peerjs'
+import { Peer, DataConnection } from 'peerjs'
+import { isProd } from '@/constants/devSettings'
 import icelist from './icelist'
-import { isProd } from '../constants/devSettings'
 
 const config = {
   secure: true,

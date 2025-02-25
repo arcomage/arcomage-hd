@@ -1,13 +1,9 @@
 import React, { useContext } from 'react'
-import cx from 'clsx'
-import {
-  useAppSelector,
-  useAppDispatch,
-} from '../../utils/hooks/useAppDispatch'
-
-import { SCREEN_HELP } from '../../constants/ActionTypes'
-import { I18nContext } from '../../i18n/I18nContext'
-import { tooltipAttrs } from '../../utils/tooltip'
+import { SCREEN_HELP } from '@/constants/ActionTypes'
+import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
+import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './ButtonHelp.module.scss'
 
 const ButtonHelp = () => {
@@ -29,9 +25,11 @@ const ButtonHelp = () => {
     <button
       {...(isEndScreen ? { tabIndex: -1 } : {})}
       accessKey="h"
-      className={cx('topbutton', styles.helpButton, {
-        [styles.windowactive]: help,
-      })}
+      className={cl(
+        'topbutton',
+        styles.helpbutton,
+        help && styles.windowactive,
+      )}
       onClick={clickFunc}
       onAuxClick={clickFunc}
       {...tooltipAttrs(_.i18n('Help'), 'bottom')}

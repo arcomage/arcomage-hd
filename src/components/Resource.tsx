@@ -1,18 +1,15 @@
 import React, { useContext } from 'react'
-import cx from 'clsx'
-import { GameSizeContext } from '../utils/contexts/GameSizeContext'
-
-import ResourceNumber from './ResourceNumber'
-
-import { I18nContext } from '../i18n/I18nContext'
-import { upper1st } from '../utils/upper1st'
-import { smallRootFontScreenMax, unitTextMaxLength } from '../constants/visuals'
-
-import { resNameAllMap, ResNameType } from '../constants/resourceNames'
-import { useAppSelector } from '../utils/hooks/useAppDispatch'
-import { tooltipAttrs } from '../utils/tooltip'
-import { calcProdHeight, getFontSize, getLineHeight } from './ResourceFuncs'
+import { resNameAllMap, ResNameType } from '@/constants/resourceNames'
+import { smallRootFontScreenMax, unitTextMaxLength } from '@/constants/visuals'
+import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
+import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import { tooltipAttrs } from '@/utils/tooltip'
+import { upper1st } from '@/utils/upper1st'
 import styles from './Resource.module.scss'
+import { calcProdHeight, getFontSize, getLineHeight } from './ResourceFuncs'
+import ResourceNumber from './ResourceNumber'
 
 type PropType = {
   type: ResNameType
@@ -89,25 +86,25 @@ const Resource = ({ type, isOpponent }: PropType) => {
 
   return (
     <div
-      className={cx(
+      className={cl(
         styles.main,
         styles[type],
         size.narrowMobile ? 'mb-2' : 'mb-3',
       )}
     >
       <div
-        className={cx(styles.prodcontainer)}
+        className={cl(styles.prodcontainer)}
         style={{
           height: `calc(${calcProdHeight(height)})`,
         }}
         {...tooltipAttrs(resProdTooltip, isOpponent ? 'left' : 'right')}
       >
         <div
-          className={cx(styles.resimgholder, 'pixelated')}
+          className={cl(styles.resimgholder, 'pixelated')}
           aria-hidden={true}
         ></div>
         <div
-          className={cx(styles.prod, 'fatnumber', 'el-number')}
+          className={cl(styles.prod, 'fatnumber', 'el-number')}
           style={{
             fontSize: `${getFontSize(height, 0.05)}px`,
             lineHeight: `${getLineHeight(height, 0.05)}px`,
@@ -121,7 +118,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
         {...tooltipAttrs(resTooltip, isOpponent ? 'left' : 'right')}
       >
         <div
-          className={cx(styles.count, 'fatnumber', 'el-number')}
+          className={cl(styles.count, 'fatnumber', 'el-number')}
           style={{
             fontSize: `${getFontSize(height, 0.036)}px`,
             lineHeight: `${getLineHeight(height, 0.036)}px`,
@@ -131,7 +128,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
           <ResourceNumber n={nRes} />
         </div>
         <div
-          className={cx(
+          className={cl(
             styles.unit,
             smallMode && styles.smallmode,
             'robotocondensed',

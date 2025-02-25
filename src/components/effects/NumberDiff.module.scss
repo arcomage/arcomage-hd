@@ -1,33 +1,40 @@
-@use '../../styles/_variables.scss' as *;
+@use '@/constants/_css_constants.scss' as *;
 
 .main {
   @apply z-50 absolute w-full h-full;
 }
-@keyframes fadeOutUp {
+
+@keyframes fadeoutup {
   from {
     transform: translateY(0) translateZ(0);
     opacity: 1;
   }
+
   to {
     transform: translateY(-2.5em) translateZ(0);
     opacity: 0;
   }
 }
+
 .number {
   @apply absolute font-mono text-2xl text-shadow-md;
+
   top: -0.5em;
   left: 0.4em;
   opacity: 0;
-  html[data-noanime='false'] & {
+
+  :global(body.anim) & {
     will-change: transform, opacity;
-    animation-name: fadeOutUp;
+    animation-name: fadeoutup;
     animation-duration: #{$numberDiffDuration}ms;
     animation-timing-function: ease-out;
   }
 }
+
 .up {
   @apply text-green-500;
 }
+
 .down {
   @apply text-red-500;
 }

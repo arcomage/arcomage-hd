@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux'
-import status from './status'
-import lang from './lang'
+import ai from './ai'
 import cards from './cards'
 import game from './game'
-import settings from './settings'
-import screen from './screen'
-import sound from './sound'
-import visual from './visual'
-import ai from './ai'
+import lang from './lang'
 import multiplayer from './multiplayer'
+import screen from './screen'
+import settings from './settings'
+import sound from './sound'
+import status from './status'
+import visual from './visual'
 
 const rootReducer = combineReducers({
   status,

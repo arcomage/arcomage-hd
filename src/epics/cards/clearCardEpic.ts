@@ -1,12 +1,5 @@
-import {
-  CLEAR_CARD,
-  DELETE_CARD,
-  ABORT_ALL,
-  MOVE_CARD_TO_STACK,
-  SWITCH_NEW_TURN,
-  SET_ZERO_OPACITY,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
+import { ofType, StateObservable } from 'redux-observable'
+import { merge, Observable, of } from 'rxjs'
 import {
   withLatestFrom,
   filter,
@@ -15,10 +8,17 @@ import {
   takeUntil,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { merge, Observable, of } from 'rxjs'
-import { cardTransitionDuration } from '../../constants/visuals'
+import {
+  CLEAR_CARD,
+  DELETE_CARD,
+  ABORT_ALL,
+  MOVE_CARD_TO_STACK,
+  SWITCH_NEW_TURN,
+  SET_ZERO_OPACITY,
+} from '@/constants/ActionTypes'
+import { cardTransitionDuration } from '@/constants/visuals'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
 
 const topArr = [-2, -3, -4]
 

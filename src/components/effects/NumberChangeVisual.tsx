@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import cx from 'clsx'
-
-import { GameSizeContext } from '../../utils/contexts/GameSizeContext'
-
+import cl from '@/utils/clarr'
+import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 import styles from './NumberChangeVisual.module.scss'
 
 type PropType = { n: number }
@@ -19,7 +17,7 @@ const NumberChangeVisual = ({ n }: PropType) => {
       const mainEl = main.current
       if (mainEl !== null) {
         const divEl = document.createElement('div')
-        divEl.className = cx(
+        divEl.className = cl(
           '-translate-x-1/2 -translate-y-1/2 transform-gpu absolute',
           size.narrowMobile ? 'scale-50' : 'scale-75',
           styles.main,

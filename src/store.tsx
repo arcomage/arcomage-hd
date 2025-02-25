@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { createEpicMiddleware } from 'redux-observable'
+import { isProd } from '@/constants/devSettings'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
 import rootReducer from './reducers'
-import { RootActionType } from './types/actionObj'
-import { RootStateType } from './types/state'
-import { isProd } from './constants/devSettings'
 
 export const epicMiddleware = createEpicMiddleware<
   RootActionType,

@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import {
   animatedNumberDuration,
   minAnimatedNumberInterval,
-} from '../../constants/visuals'
-import { useAppSelector } from '../../utils/hooks/useAppDispatch'
+} from '@/constants/visuals'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 
 type PropType = { n: number }
 

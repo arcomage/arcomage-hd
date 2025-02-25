@@ -3,52 +3,62 @@
   32% {
     transform: none;
   }
+
   68%,
   100% {
     transform: rotate(90deg) translateX(-100%) translateZ(0);
   }
 }
+
 @keyframes mouth {
   0%,
   55.9999% {
     transform: none;
   }
+
   56%,
   100% {
     transform: scaleY(-1) translateY(-35%) translateZ(0);
   }
 }
+
 @keyframes smiley {
   0%,
   32% {
     transform: none;
   }
+
   68%,
   100% {
     transform: rotate(-90deg) translateZ(0);
   }
 }
+
 .wrapper {
   padding-right: 52%; // (544.12 - 261.17) / 544.12
   width: 10rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
 }
+
 .all {
   will-change: transform;
   transform-origin: bottom left;
   animation: all 2.3s linear infinite;
 }
+
 .arrow {
   top: 8%;
   right: 8%;
   width: 30%;
 }
+
 .mouth {
   will-change: transform;
   transform-origin: center;
   animation: mouth 2.3s linear infinite;
 }
+
 .smiley {
   top: 50%;
   left: 0;

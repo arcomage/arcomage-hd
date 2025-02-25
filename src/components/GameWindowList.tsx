@@ -1,14 +1,13 @@
 import React from 'react'
-import { useAppSelector } from '../utils/hooks/useAppDispatch'
-
+import { isEndScreenNoCloseState } from '@/types/state'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import DisconnectNotice from './screens/DisconnectNotice'
 import EndScreen from './screens/EndScreen'
-import Pref from './screens/Pref'
-import LangPref from './screens/LangPref'
-import SgPref from './screens/SgPref'
 import Help from './screens/Help'
 import LandscapeNotice from './screens/LandscapeNotice'
-import { isEndScreenNoCloseState } from '../types/state'
-import DisconnectNotice from './screens/DisconnectNotice'
+import LangPref from './screens/LangPref'
+import Pref from './screens/Pref'
+import SgPref from './screens/SgPref'
 
 const GameWindowList = () => {
   const pref = useAppSelector((state) => state.screen.pref)

@@ -1,13 +1,9 @@
 import React, { useContext } from 'react'
-import cx from 'clsx'
-import {
-  useAppSelector,
-  useAppDispatch,
-} from '../../utils/hooks/useAppDispatch'
-
-import { SCREEN_PREF } from '../../constants/ActionTypes'
-import { I18nContext } from '../../i18n/I18nContext'
-import { tooltipAttrs } from '../../utils/tooltip'
+import { SCREEN_PREF } from '@/constants/ActionTypes'
+import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
+import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './ButtonPref.module.scss'
 
 const ButtonPref = () => {
@@ -29,9 +25,11 @@ const ButtonPref = () => {
     <button
       {...(isEndScreen ? { tabIndex: -1 } : {})}
       accessKey="p"
-      className={cx('topbutton', styles.prefButton, {
-        [styles.windowactive]: pref,
-      })}
+      className={cl(
+        'topbutton',
+        styles.prefbutton,
+        pref && styles.windowactive,
+      )}
       onClick={clickFunc}
       onAuxClick={clickFunc}
       {...tooltipAttrs(_.i18n('Preferences'), 'bottom')}

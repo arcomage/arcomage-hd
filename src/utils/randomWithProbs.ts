@@ -1,4 +1,4 @@
-import dataCards from '../data/cards'
+import dataCards from '@/data/cards'
 
 const numbersWithProbs = dataCards
   .map((card) => card.prob)

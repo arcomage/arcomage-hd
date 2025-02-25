@@ -1,8 +1,7 @@
 import React, { useContext } from 'react'
-
-import { useAppSelector } from '../utils/hooks/useAppDispatch'
+import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import CardPosStyle from './CardPosStyle'
-import { GameSizeContext } from '../utils/contexts/GameSizeContext'
 import ZoneCardsInner from './ZoneCardsInner'
 
 /**

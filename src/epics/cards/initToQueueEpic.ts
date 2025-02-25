@@ -1,13 +1,13 @@
-import { INIT_TO_QUEUE } from '../../constants/ActionTypes'
-import { InitToQueueActionType, RootActionType } from '../../types/actionObj'
+import { StateObservable } from 'redux-observable'
+import { Observable } from 'rxjs'
 import { filter, tap, ignoreElements } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { initQueues } from '../../utils/multiplayer/queues'
-import Queue from '../../utils/multiplayer/Queue'
-import devLog from '../../utils/devLog'
-import { Observable } from 'rxjs'
+import { INIT_TO_QUEUE } from '@/constants/ActionTypes'
+import { InitToQueueActionType, RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import Queue from '@/utils/multiplayer/Queue'
+import { initQueues } from '@/utils/multiplayer/queues'
 
 export default (
   action$: Observable<RootActionType>,

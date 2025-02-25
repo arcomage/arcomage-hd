@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useAppSelector } from '../utils/hooks/useAppDispatch'
-import ZoneStatus from './ZoneStatus'
-import ZoneCards from './ZoneCards'
+import { defaultVisualvalues } from '@/constants/defaultSettings'
+import { dataVisualvalues } from '@/data/visualvalues'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import { entries } from '@/utils/typeHelpers'
 import ButtonBar from './buttons/ButtonBar'
-
-import { defaultVisualvalues } from '../constants/defaultSettings'
-import { entries } from '../utils/typeHelpers'
-import { dataVisualvalues } from '../data/visualvalues'
 import GameWindowList from './GameWindowList'
+import ZoneCards from './ZoneCards'
+import ZoneStatus from './ZoneStatus'
 
 const Game = () => {
   const visualvalues = useAppSelector((state) => state.visual.visualvalues)

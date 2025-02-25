@@ -1,15 +1,15 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { concat, EMPTY, Observable, of } from 'rxjs'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   MOVE_CARD_TO_TOP,
   MOVE_CARD_TO_TOP_MAIN,
   CLEAR_CARD,
   ABORT_ALL,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { concat, EMPTY, Observable, of } from 'rxjs'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
 
 const topArr = [-2, -3, -4]
 

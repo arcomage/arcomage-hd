@@ -1,15 +1,15 @@
+import { StateObservable } from 'redux-observable'
+import { of, concat, EMPTY, Observable } from 'rxjs'
+import { filter, mergeMap, delay, withLatestFrom } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   UPDATE_SETTINGS_INIT,
   UPDATE_SETTINGS,
   INIT,
   SEND_SETTINGS,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, delay, withLatestFrom } from 'rxjs/operators'
-import { of, concat, EMPTY, Observable } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
 
 export default (
   action$: Observable<RootActionType>,

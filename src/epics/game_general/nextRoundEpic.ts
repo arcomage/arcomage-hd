@@ -1,13 +1,5 @@
-import {
-  SWITCH_TURN,
-  SWITCH_LOCK,
-  NEXT_ROUND,
-  DRAW_CARD,
-  RESOURCE_PROD,
-  SWITCH_NEW_TURN,
-  ABORT_ALL,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
+import { ofType, StateObservable } from 'redux-observable'
+import { concat, Observable, of } from 'rxjs'
 import {
   withLatestFrom,
   filter,
@@ -16,9 +8,17 @@ import {
   takeUntil,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { concat, Observable, of } from 'rxjs'
+import {
+  SWITCH_TURN,
+  SWITCH_LOCK,
+  NEXT_ROUND,
+  DRAW_CARD,
+  RESOURCE_PROD,
+  SWITCH_NEW_TURN,
+  ABORT_ALL,
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
 
 export default (
   action$: Observable<RootActionType>,

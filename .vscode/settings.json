@@ -2,6 +2,7 @@
   "css.customData": [".vscode/css_custom_data.json"],
   "search.exclude": {
     "**/reducer_auto_all.test.ts": true,
-    "**/bun.lock": true,
-  }
+    "**/bun.lock": true
+  },
+  "stylelint.validate": ["css", "scss", "postcss"]
 }

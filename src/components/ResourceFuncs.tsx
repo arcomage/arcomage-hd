@@ -1,4 +1,4 @@
-import { minRootFontSize } from '../constants/visuals'
+import { minRootFontSize } from '@/constants/visuals'
 
 const whRatio = 156 / 216
 

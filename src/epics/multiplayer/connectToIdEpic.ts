@@ -1,21 +1,21 @@
+import { DataConnection } from 'peerjs'
+import { ofType, StateObservable } from 'redux-observable'
+import { of, concat, merge, from, EMPTY, Observable } from 'rxjs'
+import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   CONNECT_TO_ID,
   SET_OPPONENT_ID,
   MULTIPLAYER_STATUS,
   CONNECTION_LISTEN,
   ABORT_CONNECTION,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
-import { of, concat, merge, from, EMPTY, Observable } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { peerAll } from '../../webrtc/peer'
-import { DataConnection } from 'peerjs'
-import { connBaseRetryTime, connRetryTimes } from '../../constants/visuals'
-import { receiveSeq, sendSeq } from '../../utils/multiplayer/seq'
-import devLog from '../../utils/devLog'
+} from '@/constants/ActionTypes'
+import { connBaseRetryTime, connRetryTimes } from '@/constants/visuals'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import { receiveSeq, sendSeq } from '@/utils/multiplayer/seq'
+import { peerAll } from '@/webrtc/peer'
 
 // connect to opponent ID, and set opponent ID in the store
 

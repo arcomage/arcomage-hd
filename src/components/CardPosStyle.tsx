@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { GameSizeContext } from '../utils/contexts/GameSizeContext'
+import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 
 const heightPercToTable = 0.8
 const whRatio = 188 / 252

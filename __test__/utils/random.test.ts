@@ -1,5 +1,5 @@
 import { it, expect } from 'bun:test'
-import { weightedRandom, sample, randomIntFrom } from '../../src/utils/random'
+import { weightedRandom, sample, randomIntFrom } from '@/utils/random'
 
 it('weightedRandom is OK', () => {
   const max = 83

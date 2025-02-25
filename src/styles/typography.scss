@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'FatNumber';
+  font-family: FatNumber;
   src:
     url('../../assets/font/FatNumber.woff2') format('woff2'),
     url('../../assets/font/FatNumber.woff') format('woff');
@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: 'RobotoCondensed';
+  font-family: RobotoCondensed;
   src:
     url('../../assets/font/RobotoCondensed-Bold.woff2') format('woff2'),
     url('../../assets/font/RobotoCondensed-Bold.woff') format('woff');
@@ -17,7 +17,7 @@
 }
 
 @font-face {
-  font-family: 'Erathian';
+  font-family: Erathian;
   src:
     url('../../assets/font/Erathian-min.woff2') format('woff2'),
     url('../../assets/font/Erathian-min.woff') format('woff');
@@ -25,33 +25,38 @@
 }
 
 .fatnumber {
-  font-family: 'FatNumber';
+  font-family: FatNumber;
   font-weight: bold;
 }
 
 .robotocondensed {
-  font-family: 'RobotoCondensed';
+  font-family: RobotoCondensed;
   font-weight: bold;
 }
 
-html[data-erathian='true'] {
+body.with-erathian {
   .el-text,
   .window-wrapper:not(.screen-lang-pref) {
-    font-family: 'Erathian';
+    font-family: Erathian;
     font-weight: bold;
   }
+
   .tooltip {
-    font-family: 'Erathian';
+    font-family: Erathian;
   }
 }
 
 .erathian {
-  font-family: 'Erathian';
+  font-family: Erathian;
   font-weight: bold;
 }
 
 .erathian-normal {
-  font-family: 'Erathian';
+  font-family: Erathian;
+}
+
+body.with-boldfont .cantoggleboldfont {
+  font-weight: bold !important;
 }
 
 .emoji {

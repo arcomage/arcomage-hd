@@ -1,10 +1,10 @@
 // import { it, expect } from 'bun:test'
 // import React from 'react'
 // import { mount } from 'enzyme'
-// import I18nProvider from '../../src/i18n/I18nProvider'
+// import I18nProvider from '@/i18n/I18nProvider'
 // import { Provider } from 'react-redux'
-// import { store } from '../../src/store'
-// import Pref from '../../src/components/screens/Pref'
+// import { store } from '@/store'
+// import Pref from '@/components/screens/Pref'
 
 // jest.useFakeTimers('legacy')
 // it('renders Pref', () => {

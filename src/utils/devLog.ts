@@ -1,4 +1,4 @@
-import { noDevLog } from '../constants/devSettings'
+import { noDevLog } from '@/constants/devSettings'
 
 const devLog = (
   str: string,

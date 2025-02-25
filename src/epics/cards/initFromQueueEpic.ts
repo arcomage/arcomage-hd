@@ -1,9 +1,5 @@
-import {
-  INIT_FROM_QUEUE,
-  INIT_CORE,
-  ABORT_CONNECTION,
-} from '../../constants/ActionTypes'
-import { InitToQueueActionType, RootActionType } from '../../types/actionObj'
+import { ofType, StateObservable } from 'redux-observable'
+import { EMPTY, from, Observable, of } from 'rxjs'
 import {
   filter,
   mergeMap,
@@ -12,12 +8,16 @@ import {
   withLatestFrom,
 } from 'rxjs/operators'
 import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { EMPTY, from, Observable, of } from 'rxjs'
-import { initQueues } from '../../utils/multiplayer/queues'
-import Queue from '../../utils/multiplayer/Queue'
-import devLog from '../../utils/devLog'
+import {
+  INIT_FROM_QUEUE,
+  INIT_CORE,
+  ABORT_CONNECTION,
+} from '@/constants/ActionTypes'
+import { InitToQueueActionType, RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import devLog from '@/utils/devLog'
+import Queue from '@/utils/multiplayer/Queue'
+import { initQueues } from '@/utils/multiplayer/queues'
 
 export default (
   action$: Observable<RootActionType>,

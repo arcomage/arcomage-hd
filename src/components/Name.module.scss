@@ -1,4 +1,6 @@
 .username {
+  @apply border border-yellow-400 text-yellow-400 text-center h-7 leading-7 overflow-hidden font-mono;
+
   transition-property: color, border-color;
   transition-timing-function: ease-in-out;
   transition-duration: 0.3s;

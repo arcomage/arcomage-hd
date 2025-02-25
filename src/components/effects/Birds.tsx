@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import cx from 'clsx'
-
-import { play } from '../../utils/sound/Sound'
-import { startSoundLength, typingSoundLength } from '../../constants/visuals'
+import { startSoundLength, typingSoundLength } from '@/constants/visuals'
+import cl from '@/utils/clarr'
+import { play } from '@/utils/sound/Sound'
 import styles from './Birds.module.scss'
 
 type PropType = { index: 1 | 2 }
@@ -22,7 +21,7 @@ const Bird = ({ index }: PropType) => {
 
   return (
     <div
-      className={cx(
+      className={cl(
         'z-10',
         styles.birdcontainer,
         styles[index === 1 ? 'birdcontainer1' : 'birdcontainer2'],
@@ -48,15 +47,13 @@ const Bird = ({ index }: PropType) => {
       }}
     >
       <div
-        className={cx(styles.bird, styles[index === 1 ? 'bird1' : 'bird2'])}
+        className={cl(styles.bird, styles[index === 1 ? 'bird1' : 'bird2'])}
       ></div>
       <svg
         width="50"
         height="50"
         xmlns="http://www.w3.org/2000/svg"
-        className={cx(styles.svg, {
-          [styles.shown]: sounds.length > 0,
-        })}
+        className={cl(styles.svg, sounds.length > 0 && styles.shown)}
         aria-hidden={true}
       >
         <path

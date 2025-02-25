@@ -1,13 +1,13 @@
 // import { it, expect } from 'bun:test'
 // import React from 'react'
 // import { mount } from 'enzyme'
-// import I18nProvider from '../../src/i18n/I18nProvider'
+// import I18nProvider from '@/i18n/I18nProvider'
 // import { Provider } from 'react-redux'
-// import { store } from '../../src/store'
-// import DisconnectNotice from '../../src/components/screens/DisconnectNotice'
-// import Help from '../../src/components/screens/Help'
-// import LandscapeNotice from '../../src/components/screens/LandscapeNotice'
-// import SgPref from '../../src/components/screens/SgPref'
+// import { store } from '@/store'
+// import DisconnectNotice from '@/components/screens/DisconnectNotice'
+// import Help from '@/components/screens/Help'
+// import LandscapeNotice from '@/components/screens/LandscapeNotice'
+// import SgPref from '@/components/screens/SgPref'
 
 // it('renders DisconnectNotice', () => {
 //   const screen = mount(

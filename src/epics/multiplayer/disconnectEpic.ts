@@ -1,17 +1,17 @@
+import { StateObservable } from 'redux-observable'
+import { of, concat, Observable } from 'rxjs'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   DISCONNECT,
   ABORT_ALL,
   SET_YOUR_ID,
   ABORT_CONNECTION,
   SET_MULTI_GAME_NUMBER,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { of, concat, Observable } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { nullifyPeer, peerAll } from '../../webrtc/peer'
+} from '@/constants/ActionTypes'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import { nullifyPeer, peerAll } from '@/webrtc/peer'
 
 export default (
   action$: Observable<RootActionType>,

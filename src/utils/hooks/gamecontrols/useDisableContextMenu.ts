@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { disableContextMenu } from '../../../constants/devSettings'
+import { disableContextMenu } from '@/constants/devSettings'
 
 const useDisableContextMenu = () => {
   useEffect(() => {

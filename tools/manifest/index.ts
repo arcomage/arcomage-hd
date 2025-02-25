@@ -1,5 +1,5 @@
-import path from 'path'
 import fs from 'fs'
+import path from 'path'
 import manifestTmpl from '../../assets/logo/manifest.template'
 import resizedSvgToSharp from './resizedSvgToSharp'
 

@@ -1,12 +1,12 @@
 // import { it, expect } from 'bun:test'
 // import React from 'react'
 // import { mount } from 'enzyme'
-// import GameSizeProvider from '../../src/utils/contexts/GameSizeProvider'
-// import I18nProvider from '../../src/i18n/I18nProvider'
+// import GameSizeProvider from '@/utils/contexts/GameSizeProvider'
+// import I18nProvider from '@/i18n/I18nProvider'
 // import { Provider } from 'react-redux'
-// import { store } from '../../src/store'
-// import Card from '../../src/components/Card'
-// import { CardListItemType } from '../../src/types/state'
+// import { store } from '@/store'
+// import Card from '@/components/Card'
+// import { CardListItemType } from '@/types/state'
 
 // it('renders Card 1 that is clickable', () => {
 //   const cardProps: CardListItemType = {

@@ -1,5 +1,5 @@
 // import { it, expect } from 'bun:test'
-// import { setVolume, play } from '../../src/utils/sound/Sound'
+// import { setVolume, play } from '@/utils/sound/Sound'
 
 // const mockVolumeFn = jest.fn()
 // const mockStereoFn = jest.fn()

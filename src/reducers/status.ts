@@ -1,8 +1,8 @@
 import { produce } from 'immer'
-import { INIT_STATUS, UPDATE_STATUS_MAIN } from '../constants/ActionTypes'
-import { StatusType } from '../types/state'
-import { RootActionType } from '../types/actionObj'
-import { defaultStatus } from '../constants/defaultSettings'
+import { INIT_STATUS, UPDATE_STATUS_MAIN } from '@/constants/ActionTypes'
+import { defaultStatus } from '@/constants/defaultSettings'
+import { RootActionType } from '@/types/actionObj'
+import { StatusType } from '@/types/state'
 
 export default produce((draft: StatusType, action: RootActionType) => {
   switch (action.type) {

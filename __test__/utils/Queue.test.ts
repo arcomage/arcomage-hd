@@ -1,5 +1,5 @@
 // import { it, expect, describe, beforeAll } from 'bun:test'
-// import Queue from '../../src/utils/multiplayer/Queue'
+// import Queue from '@/utils/multiplayer/Queue'
 
 // const ns = [57, 68, 34, 9, 365]
 

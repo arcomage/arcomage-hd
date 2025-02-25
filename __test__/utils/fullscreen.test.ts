@@ -1,10 +1,5 @@
 import { it, expect } from 'bun:test'
-import {
-  isEnabled,
-  isFullscreen,
-  requestFs,
-  exitFs,
-} from '../../src/utils/fullscreen'
+import { isEnabled, isFullscreen, requestFs, exitFs } from '@/utils/fullscreen'
 
 it('isEnabled is boolean (false)', () => {
   expect(isEnabled).toBe(false)

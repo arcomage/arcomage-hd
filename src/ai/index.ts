@@ -1,6 +1,6 @@
-import { AiCardListItemType, AiInstructionType } from '../types/ai'
-import { RootStateType } from '../types/state'
-import { getWinState } from '../utils/startWinState'
+import { AiCardListItemType, AiInstructionType } from '@/types/ai'
+import { RootStateType } from '@/types/state'
+import { getWinState } from '@/utils/startWinState'
 import checkCardUseDiscard from './checkCardUseDiscard'
 import { aiDecision } from './main'
 

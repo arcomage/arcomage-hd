@@ -1,3 +1,7 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { of, concat, EMPTY, Observable } from 'rxjs'
+import { filter, mergeMap, takeUntil } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   READLS_UPDATESTORE_INIT,
   UPDATE_SETTINGS_MAIN,
@@ -12,24 +16,20 @@ import {
   UPDATE_PIXELATION_MAIN,
   UPDATE_VISUALVALUES_MAIN,
   UPDATE_AILEVEL_MAIN,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { of, concat, EMPTY, Observable } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
+} from '@/constants/ActionTypes'
+import {
+  defaultOpponentNameList,
+  defaultPlayerNameList,
+} from '@/constants/defaultSettings'
+import { AvailableLangType } from '@/i18n/types'
+import { RootActionType } from '@/types/actionObj'
 import {
   RootStateType,
   SettingsStateType,
   VisualValuesType,
-} from '../../types/state'
-import { lsGet, lsVersion } from '../../utils/localstorage'
-import { sample } from '../../utils/random'
-import {
-  defaultOpponentNameList,
-  defaultPlayerNameList,
-} from '../../constants/defaultSettings'
-import { AvailableLangType } from '../../i18n/types'
+} from '@/types/state'
+import { lsGet, lsVersion } from '@/utils/localstorage'
+import { sample } from '@/utils/random'
 
 export default (
   action$: Observable<RootActionType>,

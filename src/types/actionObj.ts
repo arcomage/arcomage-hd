@@ -96,8 +96,8 @@ import {
   ABORT_SEND_TEMP_SETTINGS,
   RECEIVE_WITH_LATENCY,
   RECEIVE,
-} from '../constants/ActionTypes'
-import { AvailableLangType } from '../i18n/types'
+} from '@/constants/ActionTypes'
+import { AvailableLangType } from '@/i18n/types'
 import {
   CardListItemAllType,
   CardStateType,
@@ -109,7 +109,7 @@ import {
   SettingsStateAllPartialType,
   SettingsType,
   VisualValuesType,
-} from '../types/state'
+} from '@/types/state'
 import { InstructionConnDataType } from './connData'
 
 export type UpdateLangActionType = {

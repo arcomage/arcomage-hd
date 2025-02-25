@@ -1,10 +1,10 @@
 import React from 'react'
-import ButtonPref from './ButtonPref'
-import ButtonLangPref from './ButtonLangPref'
-import ButtonSgPref from './ButtonSgPref'
-import ButtonHelp from './ButtonHelp'
-import ButtonGithub from './ButtonGithub'
 import ButtonFullscreen from './ButtonFullscreen'
+import ButtonGithub from './ButtonGithub'
+import ButtonHelp from './ButtonHelp'
+import ButtonLangPref from './ButtonLangPref'
+import ButtonPref from './ButtonPref'
+import ButtonSgPref from './ButtonSgPref'
 
 const ButtonBar = () => (
   <div role="navigation">

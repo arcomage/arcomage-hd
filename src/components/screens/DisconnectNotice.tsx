@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
+import { SCREEN_DISCONNECT_NOTICE } from '@/constants/ActionTypes'
+import { DisconnectNoticeExitableDelay } from '@/constants/visuals'
+import { I18nContext } from '@/i18n/I18nContext'
 import Window from './Window'
-
-import { SCREEN_DISCONNECT_NOTICE } from '../../constants/ActionTypes'
-import { I18nContext } from '../../i18n/I18nContext'
-import { DisconnectNoticeExitableDelay } from '../../constants/visuals'
 
 const DisconnectNotice = () => {
   const _ = useContext(I18nContext)

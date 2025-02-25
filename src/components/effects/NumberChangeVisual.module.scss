@@ -1,41 +1,48 @@
-@use '../../styles/_variables.scss' as *;
+@use '@/constants/_css_constants.scss' as *;
 
 @keyframes explosion {
   100% {
     background-position: -4032px;
   }
 }
+
 @keyframes firework {
   100% {
     background-position: -7936px;
   }
 }
+
 .main {
   background-repeat: no-repeat;
-  html[data-noanime='false'] & {
+
+  :global(body.anim) & {
     will-change: background-position;
     animation-duration: #{$numberChangeVisualDuration}ms;
     animation-iteration-count: 1;
   }
 }
+
 .explosion {
   width: 192px;
   height: 192px;
   top: 0;
   left: 0;
-  background-image: url('../../../assets/img/explosion.webp');
-  html[data-noanime='false'] & {
+  background-image: url('@assets/img/explosion.webp');
+
+  :global(body.anim) & {
     animation-name: explosion;
     animation-timing-function: steps(21);
   }
 }
+
 .firework {
   width: 256px;
   height: 256px;
   top: -300%;
   left: 1rem;
-  background-image: url('../../../assets/img/firework.webp');
-  html[data-noanime='false'] & {
+  background-image: url('@assets/img/firework.webp');
+
+  :global(body.anim) & {
     animation-name: firework;
     animation-timing-function: steps(31);
   }

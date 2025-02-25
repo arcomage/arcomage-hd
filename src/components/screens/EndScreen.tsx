@@ -1,16 +1,15 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import cx from 'clsx'
-
-import { I18nContext } from '../../i18n/I18nContext'
-import { useAppDispatch } from '../../utils/hooks/useAppDispatch'
-import { CLOSE_SCREEN_END_INIT } from '../../constants/ActionTypes'
-import useKeyDown from '../../utils/hooks/gamecontrols/useKeyDown'
-import { endScreenExitableDelay } from '../../constants/visuals'
-import { EndScreenNoCloseStateType } from '../../types/state'
-import { reasonTranslate } from '../../utils/checkVictory'
-import EndScreenReviewCardsBtn from './EndScreenReviewCardsBtn'
+import { CLOSE_SCREEN_END_INIT } from '@/constants/ActionTypes'
+import { endScreenExitableDelay } from '@/constants/visuals'
+import { I18nContext } from '@/i18n/I18nContext'
+import { EndScreenNoCloseStateType } from '@/types/state'
+import { reasonTranslate } from '@/utils/checkVictory'
+import cl from '@/utils/clarr'
+import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
+import useKeyDown from '@/utils/hooks/gamecontrols/useKeyDown'
+import { useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import styles from './EndScreen.module.scss'
-import { GameSizeContext } from '../../utils/contexts/GameSizeContext'
+import EndScreenReviewCardsBtn from './EndScreenReviewCardsBtn'
 
 const textMap = { lose: 'You Lose!', tie: 'Tie Game', win: 'You Win!' }
 const erathianTextMap = { lose: 'you lose', tie: 'tie game', win: 'you win' }
@@ -108,29 +107,29 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
 
   return (
     <div
-      className={cx(
+      className={cl(
         styles.container,
         styles[type],
         size.narrowMobile ? styles.narrowmobilemode : styles.normalmode,
       )}
       {...clickObj}
     >
-      <div className={cx(styles.main)} role="button" tabIndex={0}>
+      <div className={cl(styles.main)} role="button" tabIndex={0}>
         {noteText !== null && (
-          <div className={cx(styles.notetext, 'robotocondensed', 'el-text')}>
+          <div className={cl(styles.notetext, 'robotocondensed', 'el-text')}>
             {noteText}
           </div>
         )}
-        <div className={cx(styles.text, 'robotocondensed', 'el-text')}>
+        <div className={cl(styles.text, 'robotocondensed', 'el-text')}>
           {text}
         </div>
-        <div className={cx(styles.erathiantext, 'erathian-normal')}>
+        <div className={cl(styles.erathiantext, 'erathian-normal')}>
           {erathianTextContainer}
         </div>
         {(type === 'win' || type === 'tie') && (
           <>
-            <div className={cx(styles.firework, styles.firework1)}></div>
-            <div className={cx(styles.firework, styles.firework2)}></div>
+            <div className={cl(styles.firework, styles.firework1)}></div>
+            <div className={cl(styles.firework, styles.firework2)}></div>
           </>
         )}
       </div>

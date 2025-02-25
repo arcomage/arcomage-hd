@@ -1,10 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import {
-  useAppSelector,
-  useAppDispatch,
-} from '../../utils/hooks/useAppDispatch'
-import Window from './Window'
-
+import CheckBox from '@/components/special/CheckBox'
 import {
   SCREEN_VOLUME_PREF,
   UPDATE_VOLUME,
@@ -12,15 +7,14 @@ import {
   UPDATE_NOANIM,
   UPDATE_PIXELATION,
   UPDATE_VISUALVALUES,
-} from '../../constants/ActionTypes'
-import { I18nContext } from '../../i18n/I18nContext'
+} from '@/constants/ActionTypes'
 import {
   defaultVolume,
   defaultStereo,
   defaultNoanim,
   defaultPixelation,
   defaultVisualvalues,
-} from '../../constants/defaultSettings'
+} from '@/constants/defaultSettings'
 import {
   minVolume,
   maxVolume,
@@ -29,16 +23,18 @@ import {
   maxPixelation,
   stepPixelation,
   rangeVisualvalues,
-} from '../../constants/ranges'
+} from '@/constants/ranges'
 import {
   dataVisualvalues,
   DataVisualvaluesFilterType,
   DataVisualvaluesMainType,
   visualPresets,
-} from '../../data/visualvalues'
-import { shallowCompare } from '../../utils/shallowCompare'
-import CheckBox from '../special/CheckBox'
-import { tooltipAttrs } from '../../utils/tooltip'
+} from '@/data/visualvalues'
+import { I18nContext } from '@/i18n/I18nContext'
+import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import { shallowCompare } from '@/utils/shallowCompare'
+import { tooltipAttrs } from '@/utils/tooltip'
+import Window from './Window'
 
 const SgPref = () => {
   const volume = useAppSelector((state) => state.sound.volume)

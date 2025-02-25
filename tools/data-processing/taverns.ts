@@ -1,5 +1,5 @@
-import excelToJson from 'convert-excel-to-json'
 import fs from 'fs'
+import excelToJson from 'convert-excel-to-json'
 
 const sourceFile = './tools/data-processing/taverns.xlsx'
 const sheetName = 'taverns'

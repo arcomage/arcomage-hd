@@ -1,15 +1,14 @@
 import React, { useContext } from 'react'
-import Window from './Window'
-import MultilineText from '../special/MultilineText'
-
-import { SCREEN_HELP } from '../../constants/ActionTypes'
-import { I18nContext } from '../../i18n/I18nContext'
+import MultilineText from '@/components/special/MultilineText'
+import { SCREEN_HELP } from '@/constants/ActionTypes'
 import {
   authorUrl,
   appVersion,
   githubUrl,
   tutorialImageUrl,
-} from '../../constants/devSettings'
+} from '@/constants/devSettings'
+import { I18nContext } from '@/i18n/I18nContext'
+import Window from './Window'
 
 const Help = () => {
   const _ = useContext(I18nContext)

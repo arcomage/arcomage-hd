@@ -1,3 +1,7 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { of, concat, EMPTY, Observable } from 'rxjs'
+import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   DISCARD_CARD,
   DISCARD_CARD_CORE,
@@ -5,15 +9,11 @@ import {
   SEND,
   PLAY_CARD_TO_QUEUE,
   PLAY_CARD_CORE_GUARDED,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { of, concat, EMPTY, Observable } from 'rxjs'
-import { INST } from '../../constants/connDataKind'
-import { reverseOwnerStr } from '../../utils/multiplayer/reverseState'
+} from '@/constants/ActionTypes'
+import { INST } from '@/constants/connDataKind'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import { reverseOwnerStr } from '@/utils/multiplayer/reverseState'
 
 export default (
   action$: Observable<RootActionType>,

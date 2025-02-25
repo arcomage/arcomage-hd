@@ -1,4 +1,4 @@
-import { PersonStatusType } from '../types/state'
+import { PersonStatusType } from '@/types/state'
 
 export type DataCardEffectPersonType = PersonStatusType
 

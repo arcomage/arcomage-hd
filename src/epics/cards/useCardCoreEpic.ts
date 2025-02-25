@@ -1,3 +1,13 @@
+import { ofType, StateObservable } from 'redux-observable'
+import { concat, EMPTY, Observable, of } from 'rxjs'
+import {
+  filter,
+  mergeMap,
+  delay,
+  withLatestFrom,
+  takeUntil,
+} from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
 import {
   CLEAR_CARD,
   USE_CARD_CORE,
@@ -10,26 +20,13 @@ import {
   DRAW_CARD,
   NEXT_ROUND,
   ABORT_ALL,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import {
-  filter,
-  mergeMap,
-  delay,
-  withLatestFrom,
-  takeUntil,
-} from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
-import { ofType, StateObservable } from 'redux-observable'
-import { RootStateType } from '../../types/state'
-import { concat, EMPTY, Observable, of } from 'rxjs'
-import { play } from '../../utils/sound/Sound'
-import cards from '../../data/cards'
-import {
-  cardNextStepDelay,
-  cardTransitionDuration,
-} from '../../constants/visuals'
-import getPan from '../../utils/sound/getPan'
+} from '@/constants/ActionTypes'
+import { cardNextStepDelay, cardTransitionDuration } from '@/constants/visuals'
+import cards from '@/data/cards'
+import { RootActionType } from '@/types/actionObj'
+import { RootStateType } from '@/types/state'
+import getPan from '@/utils/sound/getPan'
+import { play } from '@/utils/sound/Sound'
 
 export default (
   action$: Observable<RootActionType>,

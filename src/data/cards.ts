@@ -1,4 +1,4 @@
-import { DataCardsType } from '../types/dataCard'
+import { DataCardsType } from '@/types/dataCard'
 import { set, change, damage } from './cardMethods'
 
 const cards: DataCardsType = [

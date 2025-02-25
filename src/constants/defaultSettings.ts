@@ -3,8 +3,8 @@ import {
   SettingsType,
   StatusType,
   VisualValuesType,
-} from '../types/state'
-import { getStartState } from '../utils/startWinState'
+} from '@/types/state'
+import { getStartState } from '@/utils/startWinState'
 
 export const defaultSettings: SettingsType = {
   // name: 'default',

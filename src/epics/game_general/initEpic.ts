@@ -1,18 +1,13 @@
-import {
-  INIT,
-  INIT_CORE,
-  SEND,
-  INIT_TO_QUEUE,
-} from '../../constants/ActionTypes'
-import { RootActionType } from '../../types/actionObj'
-import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
-import { concat, EMPTY, Observable, of } from 'rxjs'
-import { isOfType } from 'typesafe-actions'
 import { StateObservable } from 'redux-observable'
-import { CardListItemAllType, RootStateType } from '../../types/state'
-import { randomWithProbs } from '../../utils/randomWithProbs'
-import { INST } from '../../constants/connDataKind'
-import { reverseCardList } from '../../utils/multiplayer/reverseState'
+import { concat, EMPTY, Observable, of } from 'rxjs'
+import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
+import { isOfType } from 'typesafe-actions'
+import { INIT, INIT_CORE, SEND, INIT_TO_QUEUE } from '@/constants/ActionTypes'
+import { INST } from '@/constants/connDataKind'
+import { RootActionType } from '@/types/actionObj'
+import { CardListItemAllType, RootStateType } from '@/types/state'
+import { reverseCardList } from '@/utils/multiplayer/reverseState'
+import { randomWithProbs } from '@/utils/randomWithProbs'
 
 export default (
   action$: Observable<RootActionType>,

@@ -1,22 +1,18 @@
 import React, { Fragment, useContext } from 'react'
-import cx from 'clsx'
-import {
-  useAppSelector,
-  useAppDispatch,
-} from '../../utils/hooks/useAppDispatch'
-import Window from './Window'
-
-import { langs, langInfo } from '../../i18n/langs'
-import { AvailableLangType } from '../../i18n/types'
+import CheckBox from '@/components/special/CheckBox'
 import {
   SCREEN_LANG_PREF,
   UPDATE_BOLDFONT,
   UPDATE_ERATHIAN,
   UPDATE_LANG,
-} from '../../constants/ActionTypes'
-import { I18nContext } from '../../i18n/I18nContext'
-import CheckBox from '../special/CheckBox'
-import { tooltipAttrs } from '../../utils/tooltip'
+} from '@/constants/ActionTypes'
+import { I18nContext } from '@/i18n/I18nContext'
+import { langs, langInfo } from '@/i18n/langs'
+import { AvailableLangType } from '@/i18n/types'
+import cl from '@/utils/clarr'
+import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import { tooltipAttrs } from '@/utils/tooltip'
+import Window from './Window'
 
 const LangPref = () => {
   const lang: AvailableLangType = useAppSelector((state) => state.lang.code)
@@ -32,7 +28,7 @@ const LangPref = () => {
       return [
         <Fragment key={0}>{arr[0]}</Fragment>,
         <span aria-hidden={true} key={1} className="!px-0">
-          [<span className={cx('text-2xl p-0', 'erathian')}>Erathian</span>]
+          [<span className={cl('text-2xl p-0', 'erathian')}>Erathian</span>]
         </span>,
         <Fragment key={2}>{arr[1]}</Fragment>,
       ]
@@ -49,7 +45,7 @@ const LangPref = () => {
             <button
               key={code}
               lang={code}
-              className={cx('m-2', { active: code === lang })}
+              className={cl('m-2', code === lang && 'active')}
               onClick={() => {
                 dispatch({
                   type: UPDATE_LANG,
