@@ -2,7 +2,11 @@ import React, { useCallback, useContext, useEffect } from 'react'
 import SvgFilters from '@/components/effects/SvgFilters'
 import Game from '@/components/Game'
 import HtmlHead from '@/components/HtmlHead'
-import { UPDATE_VISUALVALUES } from '@/constants/ActionTypes'
+import {
+  READLS_UPDATESTORE_INIT,
+  SCREEN_LANDSCAPE,
+  UPDATE_VISUALVALUES,
+} from '@/constants/ActionTypes'
 import { defaultVisualvalues } from '@/constants/defaultSettings'
 import { minRootFontSize, smallRootFontScreenMax } from '@/constants/visuals'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
@@ -22,7 +26,7 @@ const App = () => {
 
   const onWindowLoad = useCallback(() => {
     dispatch({
-      type: 'READLS_UPDATESTORE_INIT',
+      type: READLS_UPDATESTORE_INIT,
     })
     // no lint reason: dispatch function is stable
     // eslint-disable-next-line react-compiler/react-compiler
@@ -55,7 +59,7 @@ const App = () => {
     const checkAndShowLandscapeNotice = () => {
       const isPortrait = window.matchMedia('(orientation:portrait)').matches
       dispatch({
-        type: 'SCREEN_LANDSCAPE',
+        type: SCREEN_LANDSCAPE,
         show: isPortrait,
       })
     }

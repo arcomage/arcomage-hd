@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { Observable, of } from 'rxjs'
-import { withLatestFrom, filter, takeUntil, mergeMap } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, takeUntil, mergeMap } from 'rxjs/operators'
 import {
   CHECK_UNUSABLE,
   ABORT_ALL,
@@ -17,7 +16,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(CHECK_UNUSABLE)),
+    ofType(CHECK_UNUSABLE),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const unusables: number[] = []

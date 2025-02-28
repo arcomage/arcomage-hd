@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { Observable, of } from 'rxjs'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil } from 'rxjs/operators'
 import {
   UPDATE_SETTINGS,
   UPDATE_SETTINGS_MAIN,
@@ -22,7 +21,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_SETTINGS)),
+    ofType(UPDATE_SETTINGS),
     mergeMap((action) => {
       const { payload } = action
       lsSet((draft) => {

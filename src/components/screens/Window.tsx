@@ -22,6 +22,15 @@ import { useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './Window.module.scss'
 
+const screenClassMap = {
+  [SCREEN_PREF]: styles.screenpref,
+  [SCREEN_LANG_PREF]: cl(styles.screenlangpref, 'screenlangpref'),
+  [SCREEN_VOLUME_PREF]: styles.screenvolumepref,
+  [SCREEN_HELP]: styles.screenhelp,
+  [SCREEN_LANDSCAPE]: '',
+  [SCREEN_DISCONNECT_NOTICE]: '',
+}
+
 type PropType = {
   screenActionType:
     | typeof SCREEN_PREF
@@ -100,7 +109,7 @@ const Window = ({
 
   return (
     <div
-      className={cl('window-bg', darkerBg && 'darkerbg')}
+      className={cl(styles.windowbg, 'windowbg', darkerBg && styles.darkerbg)}
       role="dialog"
       aria-modal={true}
       ref={containerRef}
@@ -108,11 +117,12 @@ const Window = ({
       <div
         ref={prefRef}
         className={cl(
-          'window-wrapper',
-          screenActionType.toLowerCase().replace(/_/g, '-'),
+          styles.windowmain,
+          'windowmain',
+          screenClassMap[screenActionType],
         )}
       >
-        <div className={cl('window-innerwrapper')}>
+        <div className={cl(styles.windowinner)}>
           <div
             className={cl(
               styles.logo,
@@ -129,7 +139,7 @@ const Window = ({
 
           <button
             accessKey="x"
-            className="cancel"
+            className={cl(styles.cancel, 'cancel')}
             onClick={cancelFunc}
             aria-label={_.i18n('Cancel')}
             {...tooltipAttrs(_.i18n('Cancel'), 'bottom')}
@@ -139,4 +149,5 @@ const Window = ({
     </div>
   )
 }
+
 export default Window

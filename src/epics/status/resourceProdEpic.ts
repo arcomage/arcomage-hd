@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { Observable, of } from 'rxjs'
-import { withLatestFrom, filter, takeUntil, mergeMap } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, takeUntil, mergeMap } from 'rxjs/operators'
 import {
   ABORT_ALL,
   RESOURCE_PROD,
@@ -17,7 +16,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(RESOURCE_PROD)),
+    ofType(RESOURCE_PROD),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const currentStatus = state.status[action.owner]

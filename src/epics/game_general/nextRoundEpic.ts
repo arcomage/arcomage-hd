@@ -1,13 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { concat, Observable, of } from 'rxjs'
-import {
-  withLatestFrom,
-  filter,
-  mergeMap,
-  delay,
-  takeUntil,
-} from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap, delay, takeUntil } from 'rxjs/operators'
 import {
   SWITCH_TURN,
   SWITCH_LOCK,
@@ -25,7 +18,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(NEXT_ROUND)),
+    ofType(NEXT_ROUND),
     withLatestFrom(state$),
     mergeMap(([action, state]) =>
       concat(

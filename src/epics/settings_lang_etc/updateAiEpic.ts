@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { Observable, of } from 'rxjs'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil } from 'rxjs/operators'
 import {
   UPDATE_AILEVEL,
   UPDATE_AILEVEL_MAIN,
@@ -16,7 +15,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_AILEVEL)),
+    ofType(UPDATE_AILEVEL),
     mergeMap((action) => {
       const { aiLevel } = action
       lsSet((draft) => {

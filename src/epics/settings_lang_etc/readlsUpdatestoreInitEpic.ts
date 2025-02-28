@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { of, concat, EMPTY, Observable } from 'rxjs'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil } from 'rxjs/operators'
 import {
   READLS_UPDATESTORE_INIT,
   UPDATE_SETTINGS_MAIN,
@@ -36,7 +35,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(READLS_UPDATESTORE_INIT)),
+    ofType(READLS_UPDATESTORE_INIT),
     mergeMap((action) => {
       lsVersion()
       const lang = lsGet<AvailableLangType>(['lang', 'code'])

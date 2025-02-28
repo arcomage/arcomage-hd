@@ -1,7 +1,6 @@
-import { StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { Observable } from 'rxjs'
-import { filter, tap, ignoreElements } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { tap, ignoreElements } from 'rxjs/operators'
 import { DRAW_CARD_TO_QUEUE } from '@/constants/ActionTypes'
 import { RootActionType } from '@/types/actionObj'
 import { RootStateType } from '@/types/state'
@@ -14,7 +13,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(DRAW_CARD_TO_QUEUE)),
+    ofType(DRAW_CARD_TO_QUEUE),
     tap((action) => {
       const { n, gameNumber } = action
       if (gameNumber === undefined) {

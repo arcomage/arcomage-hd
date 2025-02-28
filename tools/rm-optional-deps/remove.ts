@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 
 const packageJsonPath = 'package.json'
-const backupPath = 'package.json.bk'
+const backupPath = 'package.json.bak'
 
 if (!fs.existsSync(packageJsonPath)) {
   console.error('Error: package.json not found.')
@@ -24,5 +24,5 @@ fs.writeFileSync(
 )
 
 console.log(
-  'Removed optionalDependencies and created a backup at package.json.bk.',
+  'Removed optionalDependencies and created a backup at package.json.bak.',
 )

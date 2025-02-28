@@ -1,7 +1,6 @@
-import { StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { Observable, of } from 'rxjs'
-import { filter, mergeMap, delay } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, delay } from 'rxjs/operators'
 import { RECEIVE, RECEIVE_WITH_LATENCY } from '@/constants/ActionTypes'
 import { noLatency, testLatency } from '@/constants/devSettings'
 import { RootActionType } from '@/types/actionObj'
@@ -14,7 +13,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(RECEIVE_WITH_LATENCY)),
+    ofType(RECEIVE_WITH_LATENCY),
     mergeMap((action) => {
       const latency = noLatency
         ? 0

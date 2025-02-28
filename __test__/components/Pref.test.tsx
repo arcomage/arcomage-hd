@@ -99,7 +99,7 @@
 //   const buttonConnect = screen.find('div.multiplayer button')
 //   expect(buttonConnect.length).toBe(2)
 //   buttonConnect.at(0).simulate('click')
-//   const buttonsResetApply = screen.find('div.button-wrapper button')
+//   const buttonsResetApply = screen.find('div.buttonwrapper button')
 //   expect(buttonsResetApply.length > 0).toBeTruthy()
 //   buttonsResetApply.forEach((button) => {
 //     button.simulate('click')

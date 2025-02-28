@@ -8,7 +8,6 @@ import {
   take,
   takeUntil,
 } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
 import {
   ABORT_CONNECTION,
   PLAY_CARD_CORE_GUARDED,
@@ -22,7 +21,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(PLAY_CARD_CORE_GUARDED)),
+    ofType(PLAY_CARD_CORE_GUARDED),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const { payload: playCardAction } = action

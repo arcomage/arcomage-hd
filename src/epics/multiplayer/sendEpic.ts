@@ -1,7 +1,6 @@
-import { StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { EMPTY, Observable } from 'rxjs'
-import { filter, mergeMap, withLatestFrom } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, withLatestFrom } from 'rxjs/operators'
 import { SEND } from '@/constants/ActionTypes'
 import { RootActionType } from '@/types/actionObj'
 import { ConnDataType } from '@/types/connData'
@@ -15,7 +14,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(SEND)),
+    ofType(SEND),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const { gameNumber } = state.multiplayer

@@ -35,6 +35,7 @@ import { copiedDuration, shorterIdStartEndLength } from '@/constants/visuals'
 import { preSettings, continents } from '@/data/preSettings'
 import { I18nContext } from '@/i18n/I18nContext'
 import { FormFieldsType, FormFieldsAllPartialType } from '@/types/formFields'
+import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import isEmoji from '@/utils/isEmoji'
 import { sample } from '@/utils/random'
@@ -45,6 +46,7 @@ import { hasProperty } from '@/utils/typeHelpers'
 import { upper1st } from '@/utils/upper1st'
 import { variousLengthChunk } from '@/utils/variousLengthChunk'
 import Window from './Window'
+import styles from './Window.module.scss'
 
 const Pref = () => {
   const _ = useContext(I18nContext)
@@ -363,18 +365,18 @@ const Pref = () => {
         }
       }}
     >
-      <div className="flex justify-between">
-        <h3 className="preferences">
+      <div className={styles.twocolumnjustifybetween}>
+        <h3 className={styles.twocolumnitem}>
           {_.i18n('Preferences')}
           {_.i18n(': ')}
         </h3>
-        <span id="against-human-or-ai">
+        <span id={styles.againsthumanorai} className={styles.twocolumnitem}>
           {multiGameNumber > 0
             ? _.i18n('You are playing against human')
             : _.i18n('You are playing against computer AI')}
         </span>
       </div>
-      <div className="two-column half">
+      <div className={cl(styles.twocolumn, styles.half)}>
         <label htmlFor={poNames[0]}>
           <span>
             {_.i18n('Your Name')}
@@ -418,7 +420,7 @@ const Pref = () => {
         </label>
       </div>
 
-      <label htmlFor="tavern" className="one-colume">
+      <label htmlFor="tavern" className={cl(styles.onecolumn)}>
         <span>
           {_.i18n('Choose a Tavern (Preset Preferences)')}
           {_.i18n(': ')}
@@ -464,7 +466,7 @@ const Pref = () => {
         {_.i18n(': ')}
       </h4>
 
-      <div className="four-column">
+      <div className={cl(styles.fourcolumn)}>
         <label htmlFor={allStatusNames[0]}>
           <span>{upper1st(_.i18n('tower'))}</span>
           <NumberInput
@@ -527,7 +529,7 @@ const Pref = () => {
         </label>
       </div>
 
-      <div className="four-column">
+      <div className={cl(styles.fourcolumn)}>
         <label htmlFor={allStatusNames[1]}>
           <span>{upper1st(_.i18n('wall'))}</span>
           <NumberInput
@@ -594,7 +596,7 @@ const Pref = () => {
         {_.i18n('Victory Conditions')}
         {_.i18n(': ')}
       </h4>
-      <div className="two-column">
+      <div className={cl(styles.twocolumn)}>
         <label htmlFor={otherSettingNames[0]}>
           <span>{upper1st(_.i18n('tower'))}</span>
           <NumberInput
@@ -664,7 +666,7 @@ const Pref = () => {
         {_.i18n(': ')}
       </h4>
 
-      <div className="two-column">
+      <div className={cl(styles.twocolumn)}>
         <label htmlFor={otherSettingNames[2]}>
           <span>{_.i18n('Cards in Hand')}</span>
           <NumberInput
@@ -682,11 +684,11 @@ const Pref = () => {
           />
         </label>
         <label htmlFor={otherSettingNames[3]}>
-          <span className="onethird">{_.i18n('AI Level')}</span>
+          <span className={cl(styles.onethird)}>{_.i18n('AI Level')}</span>
           <select
             name={otherSettingNames[3]}
             id={otherSettingNames[3]}
-            className="twothird"
+            className={cl(styles.twothird)}
             value={aiLevelFormField}
             disabled={multiGameNumber > 0}
             onChange={(e) => {
@@ -712,8 +714,8 @@ const Pref = () => {
         </label>
       </div>
 
-      <div className="flex justify-between multiplayer">
-        <h4>
+      <div className={cl(styles.twocolumnjustifybetween, styles.multiplayer)}>
+        <h4 className={styles.twocolumnitem}>
           <label htmlFor="isMultiplayer">
             <CheckBox
               name="isMultiplayer"
@@ -744,11 +746,14 @@ const Pref = () => {
             </span>
           </label>
         </h4>
-        <span id="multiplayernotification" className="emoji">
+        <span
+          id={styles.multiplayernotification}
+          className={cl(styles.twocolumnitem, 'emoji')}
+        >
           {notification}
         </span>
       </div>
-      <div className="multiplayer">
+      <div className={cl(styles.multiplayer)}>
         <label htmlFor="yourid">
           <span>
             {_.i18n('Your ID')}
@@ -757,8 +762,9 @@ const Pref = () => {
           <input
             ref={yourIdInputRef}
             type="text"
-            name="yourid"
+            name="yourId"
             id="yourid"
+            className="cursor-pointer"
             value={yourId}
             readOnly
             onClick={(e) => {
@@ -791,8 +797,8 @@ const Pref = () => {
           </button>
         </label>
       </div>
-      <div className="multiplayer">
-        <label htmlFor="opponentId">
+      <div className={cl(styles.multiplayer)}>
+        <label htmlFor="opponentid">
           <span>
             {_.i18n("Enter your opponent's ID")}
             {_.i18n(': ')}
@@ -807,7 +813,7 @@ const Pref = () => {
             }
             type="text"
             name="opponentId"
-            id="opponentId"
+            id="opponentid"
             value={formFields.opponentId}
             onChange={handleChange}
           />
@@ -832,7 +838,7 @@ const Pref = () => {
         </button>
       </div>
 
-      <div className="button-wrapper">
+      <div className={cl(styles.buttonwrapper)}>
         <button
           accessKey="r"
           disabled={isGuest}
@@ -855,7 +861,7 @@ const Pref = () => {
         <button
           accessKey="a"
           disabled={isGuest}
-          className="warning"
+          className={styles.warning}
           onClick={applyAndNewGame}
         >
           {_.i18n('Apply & New Game')}

@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { Observable, of } from 'rxjs'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil } from 'rxjs/operators'
 import {
   UPDATE_PIXELATION,
   UPDATE_PIXELATION_MAIN,
@@ -17,7 +16,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_PIXELATION)),
+    ofType(UPDATE_PIXELATION),
     mergeMap((action) => {
       const { pixelation } = action
       lsSet((draft) => {

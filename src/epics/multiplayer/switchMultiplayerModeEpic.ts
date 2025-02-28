@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { of, concat, Observable } from 'rxjs'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil } from 'rxjs/operators'
 import {
   SWITCH_MULTIPLAYER_MODE,
   SWITCH_MULTIPLAYER_MODE_MAIN,
@@ -17,7 +16,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(SWITCH_MULTIPLAYER_MODE)),
+    ofType(SWITCH_MULTIPLAYER_MODE),
     mergeMap((action) => {
       const { on } = action
       return concat(

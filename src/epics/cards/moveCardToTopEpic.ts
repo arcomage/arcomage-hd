@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { concat, EMPTY, Observable, of } from 'rxjs'
-import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap, takeUntil } from 'rxjs/operators'
 import {
   MOVE_CARD_TO_TOP,
   MOVE_CARD_TO_TOP_MAIN,
@@ -18,7 +17,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(MOVE_CARD_TO_TOP)),
+    ofType(MOVE_CARD_TO_TOP),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const l = state.cards.list

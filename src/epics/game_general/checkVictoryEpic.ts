@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { EMPTY, Observable, of } from 'rxjs'
-import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap, takeUntil } from 'rxjs/operators'
 import { CHECK_VICTORY, ABORT_ALL, SCREEN_END } from '@/constants/ActionTypes'
 import { RootActionType } from '@/types/actionObj'
 import { RootStateType } from '@/types/state'
@@ -13,7 +12,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(CHECK_VICTORY)),
+    ofType(CHECK_VICTORY),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const { winTower, winResource } = getWinState(state.settings)

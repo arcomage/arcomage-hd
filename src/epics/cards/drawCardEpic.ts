@@ -1,13 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { concat, Observable, of } from 'rxjs'
-import {
-  filter,
-  mergeMap,
-  takeUntil,
-  withLatestFrom,
-  delay,
-} from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil, withLatestFrom, delay } from 'rxjs/operators'
 import {
   DRAW_CARD,
   DRAW_CARD_CORE,
@@ -27,7 +20,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(DRAW_CARD)),
+    ofType(DRAW_CARD),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const isHost = state.multiplayer.status === 'connected_to_id'

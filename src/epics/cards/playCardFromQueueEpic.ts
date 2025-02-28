@@ -1,13 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { EMPTY, from, Observable, of } from 'rxjs'
-import {
-  filter,
-  mergeMap,
-  takeUntil,
-  withLatestFrom,
-  delay,
-} from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil, withLatestFrom, delay } from 'rxjs/operators'
 import {
   PLAY_CARD_FROM_QUEUE,
   ABORT_CONNECTION,
@@ -28,7 +21,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(PLAY_CARD_FROM_QUEUE)),
+    ofType(PLAY_CARD_FROM_QUEUE),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const { gameNumber } = state.multiplayer

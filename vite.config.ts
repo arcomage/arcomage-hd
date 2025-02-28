@@ -3,12 +3,11 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import license from 'rollup-plugin-license'
 import legacy from '@vitejs/plugin-legacy'
-import vitePluginRunScript from './tools/vite-plugin-run-script'
 import htmlMinifier from 'vite-plugin-html-minifier'
 import pkg from './package.json'
 import fs from 'fs'
 import crypto from 'crypto'
-import childProcess from 'child_process'
+import { execSync } from 'child_process'
 import { defaultAppUrl, origDesc, origTitle } from './src/constants/htmlVars'
 import genManifestAndIcons from './tools/manifest'
 import path from 'path'
@@ -17,10 +16,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const commitTimeDateObj = new Date(
   parseInt(
-    childProcess
-      .execSync('git log -1 --date=unix --format="%ad"')
-      .toString()
-      .trim(),
+    execSync('git log -1 --date=unix --format="%ad"').toString().trim(),
   ) * 1000,
 )
 const commitTime = commitTimeDateObj.toUTCString()
@@ -38,6 +34,8 @@ const ReactCompilerConfig = {
 }
 
 const homeUrl = process.env.APP_URL || defaultAppUrl
+
+let isServe = false
 
 export default defineConfig({
   resolve: {
@@ -65,10 +63,41 @@ export default defineConfig({
     'import.meta.env.APP_COMMITTIME2': JSON.stringify(commitTime2),
   },
   plugins: [
-    vitePluginRunScript({
-      scripts: ['bun tools/sass-var-gen'],
-      before: 'both',
-    }),
+    {
+      name: 'vite-plugin-run-script',
+      configResolved(config) {
+        const script = 'bun tools/sass-var-gen'
+        console.log(
+          `[vite-plugin-run-script] Running (configResolved) ${script}`,
+        )
+        execSync(script, { stdio: 'inherit' })
+        if (config.command === 'serve') {
+          isServe = true
+        } else {
+          const script = 'bun tools/mangle-action-type/mangle.ts'
+          console.log(
+            `[vite-plugin-run-script] Running (configResolved, !isServe) ${script}`,
+          )
+          execSync(script, {
+            stdio: 'inherit',
+          })
+        }
+      },
+      buildEnd() {
+        if (isServe) {
+          // console.log(`[vite-plugin-run-script] Running (buildEnd, isServe)`)
+          // execSync('', { stdio: 'inherit' })
+        } else {
+          const script = 'bun tools/mangle-action-type/restore.ts'
+          console.log(
+            `[vite-plugin-run-script] Running (buildEnd, !isServe) ${script}`,
+          )
+          execSync(script, {
+            stdio: 'inherit',
+          })
+        }
+      },
+    },
     react({
       babel: {
         plugins: [['babel-plugin-react-compiler', ReactCompilerConfig]],

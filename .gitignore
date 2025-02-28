@@ -16,7 +16,7 @@ dev-dist
 
 _css_constants.scss
 
-package.json.bk
+*.bak
 
 # MicrosoftOffice.gitignore
 *.tmp

@@ -1,7 +1,6 @@
-import { StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { concat, EMPTY, Observable, of } from 'rxjs'
-import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap } from 'rxjs/operators'
 import { INIT, INIT_CORE, SEND, INIT_TO_QUEUE } from '@/constants/ActionTypes'
 import { INST } from '@/constants/connDataKind'
 import { RootActionType } from '@/types/actionObj'
@@ -14,7 +13,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(INIT)),
+    ofType(INIT),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const { fromScreenEnd = false } = action

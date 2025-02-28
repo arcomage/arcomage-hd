@@ -8,7 +8,9 @@ import {
   tutorialImageUrl,
 } from '@/constants/devSettings'
 import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
 import Window from './Window'
+import styles from './Window.module.scss'
 
 const Help = () => {
   const _ = useContext(I18nContext)
@@ -67,8 +69,8 @@ const Help = () => {
 
   return (
     <Window screenActionType={SCREEN_HELP}>
-      <small className="version select-all">v{appVersion}</small>
-      <p className="description select-text">
+      <small className={cl(styles.version, 'select-all')}>v{appVersion}</small>
+      <p className={cl(styles.description, 'select-text')}>
         {_.i18n('ArcoMage HD') !== 'ArcoMage HD' && (
           <>
             <strong>{_.i18n('ArcoMage HD')}</strong>

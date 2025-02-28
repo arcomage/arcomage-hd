@@ -31,10 +31,12 @@ import {
   visualPresets,
 } from '@/data/visualvalues'
 import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import { shallowCompare } from '@/utils/shallowCompare'
 import { tooltipAttrs } from '@/utils/tooltip'
 import Window from './Window'
+import styles from './Window.module.scss'
 
 const SgPref = () => {
   const volume = useAppSelector((state) => state.sound.volume)
@@ -248,7 +250,7 @@ const SgPref = () => {
             ))}
         </div>
       </div>
-      <div className="button-wrapper">
+      <div className={cl(styles.buttonwrapper)}>
         <button
           accessKey="r"
           onClick={(e) => {

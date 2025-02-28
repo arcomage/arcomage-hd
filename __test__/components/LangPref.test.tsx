@@ -28,7 +28,7 @@
 //   expect(frButton.length).toBe(1)
 //   frButton.simulate('click')
 //   const langprefCheckboxes = wrapper.find(
-//     '.window-wrapper input[type="checkbox"]',
+//     '.windowmain input[type="checkbox"]',
 //   )
 //   expect(langprefCheckboxes.length).toBe(2)
 //   langprefCheckboxes.at(0).simulate('change', { target: { checked: true } })

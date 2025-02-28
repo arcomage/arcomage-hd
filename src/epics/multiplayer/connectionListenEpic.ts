@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { concat, merge, EMPTY, fromEvent, of, Observable } from 'rxjs'
-import { filter, mergeMap, takeUntil, withLatestFrom } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil, withLatestFrom } from 'rxjs/operators'
 import {
   CONNECTION_LISTEN,
   ABORT_CONNECTION,
@@ -24,7 +23,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(CONNECTION_LISTEN)),
+    ofType(CONNECTION_LISTEN),
     mergeMap((action) => {
       const { conn } = peerAll
       const type = action.host ? 'host' : 'guest'

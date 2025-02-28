@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { Observable, of } from 'rxjs'
-import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap, takeUntil } from 'rxjs/operators'
 import { UPDATE_STATUS, EXEC_CARD, ABORT_ALL } from '@/constants/ActionTypes'
 import { resNames } from '@/constants/resourceNames'
 import dataCards from '@/data/cards'
@@ -14,7 +13,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(EXEC_CARD)),
+    ofType(EXEC_CARD),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const pOriginal = state.status.player

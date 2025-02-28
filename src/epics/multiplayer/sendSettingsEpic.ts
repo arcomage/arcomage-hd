@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { concat, EMPTY, Observable, of } from 'rxjs'
-import { filter, takeUntil, mergeMap } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { takeUntil, mergeMap } from 'rxjs/operators'
 import {
   ABORT_ALL,
   ABORT_CONNECTION,
@@ -20,7 +19,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(SEND_SETTINGS)),
+    ofType(SEND_SETTINGS),
     mergeMap((action) => {
       const { payload } = action
       const settings = payload

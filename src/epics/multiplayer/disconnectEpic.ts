@@ -1,7 +1,6 @@
-import { StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { of, concat, Observable } from 'rxjs'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil } from 'rxjs/operators'
 import {
   DISCONNECT,
   ABORT_ALL,
@@ -18,7 +17,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(DISCONNECT)),
+    ofType(DISCONNECT),
     mergeMap((action) => {
       const { peer } = peerAll
       if (peer !== null) {

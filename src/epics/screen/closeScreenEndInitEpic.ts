@@ -1,7 +1,6 @@
-import { StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { concat, Observable, of } from 'rxjs'
-import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap } from 'rxjs/operators'
 import {
   CLOSE_SCREEN_END_INIT,
   INIT,
@@ -16,7 +15,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(CLOSE_SCREEN_END_INIT)),
+    ofType(CLOSE_SCREEN_END_INIT),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const isGuestInGame =

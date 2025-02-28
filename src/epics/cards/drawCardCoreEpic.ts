@@ -1,13 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { concat, EMPTY, Observable, of } from 'rxjs'
-import {
-  withLatestFrom,
-  filter,
-  mergeMap,
-  delay,
-  takeUntil,
-} from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap, delay, takeUntil } from 'rxjs/operators'
 import {
   DRAW_CARD_CORE,
   DRAW_CARD_PRE,
@@ -41,7 +34,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(DRAW_CARD_CORE)),
+    ofType(DRAW_CARD_CORE),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const { n } = action

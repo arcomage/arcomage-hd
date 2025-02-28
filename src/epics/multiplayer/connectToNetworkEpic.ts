@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { of, concat, from, merge, Observable } from 'rxjs'
-import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil, catchError } from 'rxjs/operators'
 import {
   CONNECT_TO_NETWORK,
   SET_YOUR_ID,
@@ -21,7 +20,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(CONNECT_TO_NETWORK)),
+    ofType(CONNECT_TO_NETWORK),
     mergeMap((action) => {
       const getPeerId: Promise<string> = new Promise((resolve, reject) => {
         initPeer()

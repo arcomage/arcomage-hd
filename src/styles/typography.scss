@@ -36,7 +36,7 @@
 
 body.with-erathian {
   .el-text,
-  .window-wrapper:not(.screen-lang-pref) {
+  .windowmain:not(.screenlangpref) {
     font-family: Erathian;
     font-weight: bold;
   }

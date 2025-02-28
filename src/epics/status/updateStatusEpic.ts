@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { concat, Observable, of } from 'rxjs'
-import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap, takeUntil } from 'rxjs/operators'
 import {
   CHECK_UNUSABLE,
   CHECK_VICTORY,
@@ -21,7 +20,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_STATUS)),
+    ofType(UPDATE_STATUS),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       // note that it doesn't perform any negative check,

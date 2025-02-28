@@ -111,7 +111,7 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
           'input.number-input-field',
         ) as HTMLInputElement
         _target.dispatchEvent(upKeyDownEvent)
-      } else if (document.getElementsByClassName('window-bg').length === 0) {
+      } else if (document.getElementsByClassName('windowbg').length === 0) {
         focusChange({
           listType: 'b',
           indexType: '1',
@@ -137,7 +137,7 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
           'input.number-input-field',
         ) as HTMLInputElement
         _target.dispatchEvent(downKeyDownEvent)
-      } else if (document.getElementsByClassName('window-bg').length === 0) {
+      } else if (document.getElementsByClassName('windowbg').length === 0) {
         focusChange({
           listType: 'c',
           indexType: '1',
@@ -153,7 +153,7 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
         (target instanceof HTMLInputElement && target.type === 'range')
       ) {
         simulateArrowKey('left', target)
-      } else if (document.getElementsByClassName('window-bg').length === 0) {
+      } else if (document.getElementsByClassName('windowbg').length === 0) {
         focusChange({
           currentTarget: target,
           listType: 'c|b',
@@ -170,7 +170,7 @@ export const handleGamepadButtonDown = (button: GamepadButtonType) => {
         (target instanceof HTMLInputElement && target.type === 'range')
       ) {
         simulateArrowKey('right', target)
-      } else if (document.getElementsByClassName('window-bg').length === 0) {
+      } else if (document.getElementsByClassName('windowbg').length === 0) {
         focusChange({
           currentTarget: target,
           listType: 'c|b',

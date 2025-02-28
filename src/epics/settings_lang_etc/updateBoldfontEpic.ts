@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { Observable, of } from 'rxjs'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil } from 'rxjs/operators'
 import {
   UPDATE_BOLDFONT,
   UPDATE_BOLDFONT_MAIN,
@@ -18,7 +17,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_BOLDFONT)),
+    ofType(UPDATE_BOLDFONT),
     mergeMap((action) => {
       const { boldfont } = action
       lsSet((draft) => {

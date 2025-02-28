@@ -9,7 +9,7 @@ const useArrowKeyFocus = (): void => {
       const { target } = event
 
       if (
-        document.getElementsByClassName('window-bg').length > 0 ||
+        document.getElementsByClassName('windowbg').length > 0 ||
         isEditable(target as HTMLElement) ||
         target instanceof HTMLSelectElement ||
         (target instanceof HTMLInputElement && target.type === 'range')

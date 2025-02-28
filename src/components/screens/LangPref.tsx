@@ -13,6 +13,7 @@ import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '@/utils/tooltip'
 import Window from './Window'
+import styles from './Window.module.scss'
 
 const LangPref = () => {
   const lang: AvailableLangType = useAppSelector((state) => state.lang.code)
@@ -45,7 +46,7 @@ const LangPref = () => {
             <button
               key={code}
               lang={code}
-              className={cl('m-2', code === lang && 'active')}
+              className={cl('m-2', code === lang && styles.active)}
               onClick={() => {
                 dispatch({
                   type: UPDATE_LANG,

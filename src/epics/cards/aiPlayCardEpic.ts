@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { EMPTY, Observable, of } from 'rxjs'
-import { withLatestFrom, filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap, takeUntil } from 'rxjs/operators'
 import { ai } from '@/ai'
 import {
   AI_PLAY_CARD,
@@ -19,7 +18,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(AI_PLAY_CARD)),
+    ofType(AI_PLAY_CARD),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const aiInstruction: AiInstructionType | null = ai(state)

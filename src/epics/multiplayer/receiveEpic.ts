@@ -1,7 +1,6 @@
-import { StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { concat, EMPTY, Observable, of } from 'rxjs'
-import { filter, mergeMap, delay } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, delay } from 'rxjs/operators'
 import { INIT_TO_QUEUE, RECEIVE } from '@/constants/ActionTypes'
 import { INST } from '@/constants/connDataKind'
 import { RootActionType } from '@/types/actionObj'
@@ -19,7 +18,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(RECEIVE)),
+    ofType(RECEIVE),
     mergeMap((action) => {
       const { data: connDataStr } = action
       devLog(`received: ${connDataStr}`, 'note')

@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { isEndScreenNoCloseState } from '@/types/state'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
-import DisconnectNotice from './screens/DisconnectNotice'
-import EndScreen from './screens/EndScreen'
-import Help from './screens/Help'
-import LandscapeNotice from './screens/LandscapeNotice'
-import LangPref from './screens/LangPref'
-import Pref from './screens/Pref'
-import SgPref from './screens/SgPref'
+
+const EndScreen = lazy(() => import('./screens/EndScreen'))
+const Pref = lazy(() => import('./screens/Pref'))
+const LangPref = lazy(() => import('./screens/LangPref'))
+const SgPref = lazy(() => import('./screens/SgPref'))
+const Help = lazy(() => import('./screens/Help'))
+const LandscapeNotice = lazy(() => import('./screens/LandscapeNotice'))
+const DisconnectNotice = lazy(() => import('./screens/DisconnectNotice'))
 
 const GameWindowList = () => {
   const pref = useAppSelector((state) => state.screen.pref)
@@ -22,13 +23,41 @@ const GameWindowList = () => {
 
   return (
     <>
-      {isEndScreenNoCloseState(end) && <EndScreen {...end} />}
-      {pref && <Pref />}
-      {langPref && <LangPref />}
-      {sgPref && <SgPref />}
-      {help && <Help />}
-      {landscape && <LandscapeNotice />}
-      {disconnectNotice && <DisconnectNotice />}
+      {isEndScreenNoCloseState(end) && (
+        <Suspense>
+          <EndScreen {...end} />
+        </Suspense>
+      )}
+      {pref && (
+        <Suspense>
+          <Pref />
+        </Suspense>
+      )}
+      {langPref && (
+        <Suspense>
+          <LangPref />
+        </Suspense>
+      )}
+      {sgPref && (
+        <Suspense>
+          <SgPref />
+        </Suspense>
+      )}
+      {help && (
+        <Suspense>
+          <Help />
+        </Suspense>
+      )}
+      {landscape && (
+        <Suspense>
+          <LandscapeNotice />
+        </Suspense>
+      )}
+      {disconnectNotice && (
+        <Suspense>
+          <DisconnectNotice />
+        </Suspense>
+      )}
     </>
   )
 }

@@ -1,7 +1,6 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { Observable, of } from 'rxjs'
-import { filter, mergeMap, takeUntil } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil } from 'rxjs/operators'
 import {
   UPDATE_NOANIM,
   UPDATE_NOANIM_MAIN,
@@ -20,7 +19,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(UPDATE_NOANIM)),
+    ofType(UPDATE_NOANIM),
     mergeMap((action) => {
       const { noanim } = action
       lsSet((draft) => {

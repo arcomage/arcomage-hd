@@ -34,44 +34,61 @@ type soundTypeType =
   | keyof PersonStatusType
   | (typeof soundAdditionalTypes)[number]
 
+const [
+  towerUp,
+  wallUp,
+  brickUp,
+  gemUp,
+  recruitUp,
+  brickDown,
+  gemDown,
+  recruitDown,
+  damage,
+  deal,
+  victory,
+  defeat,
+  start,
+  typing,
+] = [...Array(14).keys()]
+
 const audioMap = {
   tower: {
-    up: 'towerUp',
-    down: 'damage',
+    up: towerUp,
+    down: damage,
   },
   wall: {
-    up: 'wallUp',
-    down: 'damage',
+    up: wallUp,
+    down: damage,
   },
   bricks: {
-    up: 'brickUp',
-    down: 'brickDown',
+    up: brickUp,
+    down: brickDown,
   },
   brickProd: {
-    up: 'brickUp',
-    down: 'brickDown',
+    up: brickUp,
+    down: brickDown,
   },
   gems: {
-    up: 'gemUp',
-    down: 'gemDown',
+    up: gemUp,
+    down: gemDown,
   },
   gemProd: {
-    up: 'gemUp',
-    down: 'gemDown',
+    up: gemUp,
+    down: gemDown,
   },
   recruits: {
-    up: 'recruitUp',
-    down: 'recruitDown',
+    up: recruitUp,
+    down: recruitDown,
   },
   recruitProd: {
-    up: 'recruitUp',
-    down: 'recruitDown',
+    up: recruitUp,
+    down: recruitDown,
   },
-  deal: 'deal',
-  victory: 'victory',
-  defeat: 'defeat',
-  start: 'start',
-  typing: 'typing',
+  deal: deal,
+  victory: victory,
+  defeat: defeat,
+  start: start,
+  typing: typing,
 }
 
 const loadAudio = async (url: string): Promise<AudioBuffer> => {
@@ -81,22 +98,22 @@ const loadAudio = async (url: string): Promise<AudioBuffer> => {
   return audioBuffer
 }
 
-const audioBufferPromises: Record<string, Promise<AudioBuffer>> = {
-  towerUp: loadAudio(towerUpUrl),
-  wallUp: loadAudio(wallUpUrl),
-  brickUp: loadAudio(brickUpUrl),
-  gemUp: loadAudio(gemUpUrl),
-  recruitUp: loadAudio(recruitUpUrl),
-  brickDown: loadAudio(brickDownUrl),
-  gemDown: loadAudio(gemDownUrl),
-  recruitDown: loadAudio(recruitDownUrl),
-  damage: loadAudio(damageUrl),
-  deal: loadAudio(dealUrl),
-  victory: loadAudio(victoryUrl),
-  defeat: loadAudio(defeatUrl),
-  start: loadAudio(startUrl),
-  typing: loadAudio(typingUrl),
-}
+const audioBufferPromises: Promise<AudioBuffer>[] = [
+  loadAudio(towerUpUrl),
+  loadAudio(wallUpUrl),
+  loadAudio(brickUpUrl),
+  loadAudio(gemUpUrl),
+  loadAudio(recruitUpUrl),
+  loadAudio(brickDownUrl),
+  loadAudio(gemDownUrl),
+  loadAudio(recruitDownUrl),
+  loadAudio(damageUrl),
+  loadAudio(dealUrl),
+  loadAudio(victoryUrl),
+  loadAudio(defeatUrl),
+  loadAudio(startUrl),
+  loadAudio(typingUrl),
+]
 
 export const setVolume = (volume: number): void => {
   gainNode.gain.value = volume / 10
@@ -115,12 +132,12 @@ export const play = (
   increase: boolean | null = null,
   pan: boolean | number = 0,
 ): void => {
-  const audioName: string = (() => {
+  const audioName = (() => {
     const tempObj = audioMap[type]
     if (typeof tempObj === 'object' && 'up' in tempObj) {
       return increase ? tempObj.up : tempObj.down
     } else {
-      return tempObj as string
+      return tempObj
     }
   })()
 

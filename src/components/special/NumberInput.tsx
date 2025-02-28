@@ -61,6 +61,8 @@ type NumberInputProps = InputHTMLAttributes<HTMLInputElement> & {
  *
  * @note `props.onChange`'s `event` argument also has the same interface as `event` in `React.ChangeEvent<HTMLInputElement>`, with `event.target` being the input element which is slightly different: it is now an input element with `type="text" inputMode="numeric"` instead of `type="number"`.
  *
+ * @note The component's style is in ./styles/NumberInput.scss and is intentionally globally scoped so the class name can be shared
+ *
  * @example
  * <NumberInput
  *   max={11}

@@ -1,0 +1,73 @@
+.number-input {
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  button {
+    position: absolute;
+
+    :dir(ltr) & {
+      right: 0;
+    }
+
+    :dir(rtl) & {
+      left: 0;
+    }
+
+    width: 0.9rem;
+    padding: 0;
+    margin: 0;
+    height: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255 255 255 / 25%);
+
+    &.increase {
+      top: 0;
+
+      &:hover {
+        color: greenyellow;
+      }
+    }
+
+    &.decrease {
+      bottom: 0;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    &:disabled {
+      color: rgb(255 255 255 / 11%);
+    }
+  }
+
+  &:hover button {
+    color: rgb(255 255 255 / 100%);
+
+    &:disabled {
+      color: rgb(255 255 255 / 11%);
+    }
+  }
+
+  input[type='text'] {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    flex: 1;
+
+    :dir(ltr) & {
+      padding-right: 0.9rem;
+    }
+
+    :dir(rtl) & {
+      padding-left: 0.9rem;
+    }
+
+    &[aria-invalid='true'] {
+      @apply border-red-500;
+    }
+  }
+}

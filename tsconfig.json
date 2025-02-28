@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
     "target": "es2017",
     "module": "esnext",
     "strict": true,

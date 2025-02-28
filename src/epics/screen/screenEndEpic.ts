@@ -1,7 +1,6 @@
-import { StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { concat, Observable, of } from 'rxjs'
-import { withLatestFrom, filter, mergeMap } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap } from 'rxjs/operators'
 import { ABORT_ALL, SCREEN_END, SCREEN_END_MAIN } from '@/constants/ActionTypes'
 import { RootActionType } from '@/types/actionObj'
 import { isEndScreenNoCloseState, RootStateType } from '@/types/state'
@@ -14,7 +13,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(SCREEN_END)),
+    ofType(SCREEN_END),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       const { payload } = action

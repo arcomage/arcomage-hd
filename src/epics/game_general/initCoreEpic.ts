@@ -1,7 +1,6 @@
-import { StateObservable } from 'redux-observable'
+import { ofType, StateObservable } from 'redux-observable'
 import { of, concat, Observable } from 'rxjs'
-import { withLatestFrom, filter, mergeMap, delay } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { withLatestFrom, mergeMap, delay } from 'rxjs/operators'
 import {
   INIT_CORE,
   INIT_CARD,
@@ -22,7 +21,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(INIT_CORE)),
+    ofType(INIT_CORE),
     withLatestFrom(state$),
     mergeMap(([action, state]) => {
       // const isHost =

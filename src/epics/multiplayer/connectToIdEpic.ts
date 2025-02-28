@@ -1,8 +1,7 @@
 import { DataConnection } from 'peerjs'
 import { ofType, StateObservable } from 'redux-observable'
 import { of, concat, merge, from, EMPTY, Observable } from 'rxjs'
-import { filter, mergeMap, takeUntil, catchError } from 'rxjs/operators'
-import { isOfType } from 'typesafe-actions'
+import { mergeMap, takeUntil, catchError } from 'rxjs/operators'
 import {
   CONNECT_TO_ID,
   SET_OPPONENT_ID,
@@ -24,7 +23,7 @@ export default (
   state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
-    filter(isOfType(CONNECT_TO_ID)),
+    ofType(CONNECT_TO_ID),
     mergeMap((action) => {
       const { peer } = peerAll
       if (peer === null) {
