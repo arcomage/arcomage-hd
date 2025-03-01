@@ -2,7 +2,6 @@ import { ofType, StateObservable } from 'redux-observable'
 import { concat, EMPTY, Observable, of } from 'rxjs'
 import { takeUntil, mergeMap } from 'rxjs/operators'
 import {
-  ABORT_ALL,
   ABORT_CONNECTION,
   ABORT_SEND_TEMP_SETTINGS,
   SEND,
@@ -16,7 +15,7 @@ import { RootStateType } from '@/types/state'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(SEND_SETTINGS),

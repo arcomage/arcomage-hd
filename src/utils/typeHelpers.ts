@@ -45,7 +45,7 @@ export const notEmpty = <TValue>(
   if (value === null || value === undefined) {
     return false
   }
-  const testDummy: TValue = value
+  // const testDummy: TValue = value
   return true
 }
 

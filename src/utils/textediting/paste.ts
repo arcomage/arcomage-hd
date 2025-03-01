@@ -5,42 +5,42 @@ import { isEditable } from './isEditable'
  * @returns Promise<string>
  * @note use navigator.clipboard if available (the browser will prompt the user for permission), otherwise use execCommand, otherwise throw error
  */
-const readClipboardText = async (): Promise<string> => {
-  if (navigator.clipboard) {
-    try {
-      const text = await navigator.clipboard.readText()
-      return text
-    } catch (err) {
-      throw new Error('Clipboard API read failed: ' + err)
-    }
-  } else if (
-    document.queryCommandSupported &&
-    document.queryCommandSupported('paste')
-  ) {
-    // Fallback to execCommand for older browsers
-    const textArea = document.createElement('textarea')
-    textArea.style.position = 'absolute'
-    textArea.style.opacity = '0'
-    document.body.appendChild(textArea)
+// const readClipboardText = async (): Promise<string> => {
+//   if (navigator.clipboard) {
+//     try {
+//       const text = await navigator.clipboard.readText()
+//       return text
+//     } catch (err) {
+//       throw new Error('Clipboard API read failed: ' + err)
+//     }
+//   } else if (
+//     document.queryCommandSupported &&
+//     document.queryCommandSupported('paste')
+//   ) {
+//     // Fallback to execCommand for older browsers
+//     const textArea = document.createElement('textarea')
+//     textArea.style.position = 'absolute'
+//     textArea.style.opacity = '0'
+//     document.body.appendChild(textArea)
 
-    textArea.focus()
-    try {
-      const successful = document.execCommand('paste')
-      if (successful) {
-        const clipboardText = textArea.value
-        document.body.removeChild(textArea)
-        return clipboardText
-      } else {
-        throw new Error('execCommand paste failed')
-      }
-    } catch (err) {
-      document.body.removeChild(textArea)
-      throw new Error('execCommand paste failed: ' + err)
-    }
-  } else {
-    throw new Error('Clipboard API and execCommand paste not supported')
-  }
-}
+//     textArea.focus()
+//     try {
+//       const successful = document.execCommand('paste')
+//       if (successful) {
+//         const clipboardText = textArea.value
+//         document.body.removeChild(textArea)
+//         return clipboardText
+//       } else {
+//         throw new Error('execCommand paste failed')
+//       }
+//     } catch (err) {
+//       document.body.removeChild(textArea)
+//       throw new Error('execCommand paste failed: ' + err)
+//     }
+//   } else {
+//     throw new Error('Clipboard API and execCommand paste not supported')
+//   }
+// }
 
 /**
  * Paste text into the target element

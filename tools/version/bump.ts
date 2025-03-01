@@ -19,7 +19,7 @@ const identifier: string | undefined = process.argv[3]
 
 try {
   execSync('bun checkall', { stdio: 'inherit' })
-} catch (error) {
+} catch (_error) {
   console.error('Prettier, eslint, type check, or test has failed')
   process.exit(1)
 }

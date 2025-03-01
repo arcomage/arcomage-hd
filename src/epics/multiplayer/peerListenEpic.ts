@@ -16,11 +16,11 @@ import { peerAll } from '@/webrtc/peer'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(PEER_LISTEN),
-    mergeMap((action) => {
+    mergeMap((_action) => {
       const { peer } = peerAll
       if (peer === null) {
         return EMPTY

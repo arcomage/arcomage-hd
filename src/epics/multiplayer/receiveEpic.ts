@@ -15,7 +15,7 @@ import { receiveSeq } from '@/utils/multiplayer/seq'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(RECEIVE),
@@ -60,7 +60,7 @@ export default (
         })
 
         return concat(...ret)
-      } catch (error) {
+      } catch (_error) {
         /* empty */
       }
       return EMPTY

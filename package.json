@@ -86,7 +86,7 @@
     "@vitejs/plugin-legacy": "^6.0.2",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
-    "babel-plugin-react-compiler": "19.0.0-beta-21e868a-20250216",
+    "babel-plugin-react-compiler": "19.0.0-beta-e1e972c-20250221",
     "cross-env": "^7.0.3",
     "globals": "^16.0.0",
     "postcss": "^8.5.3",
@@ -118,7 +118,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-compiler": "19.0.0-beta-21e868a-20250216",
+    "eslint-plugin-react-compiler": "19.0.0-beta-e1e972c-20250221",
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "fontmin": "^2.0.0",
@@ -150,5 +150,8 @@
       "last 1 safari version",
       "last 1 edge version"
     ]
+  },
+  "patchedDependencies": {
+    "peerjs@1.5.4": "patches/peerjs@1.5.4.patch"
   }
 }

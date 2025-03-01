@@ -23,7 +23,7 @@ import { TavernsI18nType } from '../../src/i18n/types'
 const root = './tools/i18n-extraction/data'
 
 const createPromise = (p: string): Promise<string[][]> =>
-  new Promise<string[][]>((resolve, reject) => {
+  new Promise<string[][]>((resolve, _reject) => {
     const csvData: string[][] = []
     fs.createReadStream(p)
       .pipe(

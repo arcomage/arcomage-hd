@@ -17,11 +17,11 @@ import { initPeer, peerAll } from '@/webrtc/peer'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(CONNECT_TO_NETWORK),
-    mergeMap((action) => {
+    mergeMap((_action) => {
       const getPeerId: Promise<string> = new Promise((resolve, reject) => {
         initPeer()
         const { peer } = peerAll

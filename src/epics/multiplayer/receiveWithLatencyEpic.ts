@@ -10,7 +10,7 @@ import { randomIntFrom } from '@/utils/random'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(RECEIVE_WITH_LATENCY),

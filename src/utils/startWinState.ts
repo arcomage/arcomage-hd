@@ -1,4 +1,4 @@
-import { FormFieldsAllPartialType, FormFieldsType } from '@/types/formFields'
+import { FormFieldsAllPartialType } from '@/types/formFields'
 import {
   PersonStatusType,
   SettingsStateAllPartialType,

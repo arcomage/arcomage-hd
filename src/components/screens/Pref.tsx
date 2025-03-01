@@ -445,7 +445,7 @@ const Pref = () => {
             >
               {
                 variousLengthChunk<JSX.Element>(
-                  preSettings.map((s, i) => (
+                  preSettings.map((_s, i) => (
                     <option value={i} key={i}>
                       {_.taverns(i, 'name')} - {_.taverns(i, 'location')}
                     </option>
@@ -827,7 +827,7 @@ const Pref = () => {
             multiplayerStatus === 'connected_by_id' ||
             formFields.opponentId === ''
           }
-          onClick={(e) => {
+          onClick={(_e) => {
             dispatch({
               type: CONNECT_TO_ID,
               id: formFields.opponentId,
@@ -842,7 +842,7 @@ const Pref = () => {
         <button
           accessKey="r"
           disabled={isGuest}
-          onClick={(e) => {
+          onClick={(_e) => {
             setFormFields(({ opponentId }) => ({
               playerName: sample(defaultPlayerNameList),
               opponentName: sample(defaultOpponentNameList),

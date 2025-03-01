@@ -32,11 +32,11 @@ import { sample } from '@/utils/random'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(READLS_UPDATESTORE_INIT),
-    mergeMap((action) => {
+    mergeMap((_action) => {
       lsVersion()
       const lang = lsGet<AvailableLangType>(['lang', 'code'])
       const boldfont = lsGet<boolean>(['lang', 'boldfont'])

@@ -13,7 +13,7 @@ import { lsSet } from '@/utils/localstorage'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  __state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(UPDATE_PIXELATION),

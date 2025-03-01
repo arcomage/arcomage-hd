@@ -30,10 +30,10 @@ class Queue<T> {
   async dequeueAsync(): Promise<T> {
     return (
       this._queue.shift() ??
-      new Promise((resolve, reject) => {
+      new Promise((resolve, _reject) => {
         this._resolves.push(resolve)
         // setTimeout(() => {
-        //   reject('timeout')
+        //   _reject('timeout')
         // }, 60000)
       })
     )

@@ -15,7 +15,7 @@ export default (
   action$.pipe(
     ofType(SCREEN_END),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    mergeMap(([action, _state]) => {
       const { payload } = action
       if (isEndScreenNoCloseState(payload)) {
         play(soundMap[payload.type])

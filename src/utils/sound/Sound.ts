@@ -22,17 +22,9 @@ const gainNode = audioContext.createGain()
 gainNode.gain.value = 0.5
 gainNode.connect(audioContext.destination)
 
-const soundAdditionalTypes = [
-  'deal',
-  'victory',
-  'defeat',
-  'start',
-  'typing',
-] as const
+type SoundAdditionalTypes = 'deal' | 'victory' | 'defeat' | 'start' | 'typing'
 
-type soundTypeType =
-  | keyof PersonStatusType
-  | (typeof soundAdditionalTypes)[number]
+type soundTypeType = SoundAdditionalTypes | keyof PersonStatusType
 
 const [
   towerUp,

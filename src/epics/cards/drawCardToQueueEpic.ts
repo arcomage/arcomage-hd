@@ -10,7 +10,7 @@ import { drawCardQueues } from '@/utils/multiplayer/queues'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(DRAW_CARD_TO_QUEUE),

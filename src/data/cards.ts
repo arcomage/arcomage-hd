@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { DataCardsType } from '@/types/dataCard'
 import { set, change, damage } from './cardMethods'
 

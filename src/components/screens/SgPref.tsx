@@ -253,7 +253,7 @@ const SgPref = () => {
       <div className={cl(styles.buttonwrapper)}>
         <button
           accessKey="r"
-          onClick={(e) => {
+          onClick={(_e) => {
             dispatch({
               type: UPDATE_VOLUME,
               volume: defaultVolume,

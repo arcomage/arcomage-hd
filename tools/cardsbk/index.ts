@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-fs.readFile('./src/data/cards.ts', 'utf8', (err, data) => {
+fs.readFile('./src/data/cards.ts', 'utf8', (_err, data) => {
   const str = data
     .replace(/'\.\.\/types\/dataCard'/g, "'../../src/types/dataCard'")
     .replace(/'\.\/cardMethods'/g, "'../../src/data/cardMethods'")

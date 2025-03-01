@@ -19,7 +19,7 @@ export default (
   action$.pipe(
     ofType(INIT_FROM_QUEUE),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    mergeMap(([_action, state]) => {
       const { gameNumber } = state.multiplayer
       devLog(`init from queue: ${gameNumber.toString()}`, 'info')
 

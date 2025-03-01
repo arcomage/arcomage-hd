@@ -68,7 +68,7 @@ doFiles(
   240,
 )
 
-function handleRejectedAny(e: Error): void {
+function handleRejectedAny(_e: Error): void {
   // console.error(e)
 }
 

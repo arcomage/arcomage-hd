@@ -33,7 +33,7 @@ const arraysEqual = (a: unknown[] | null, b: unknown[] | null) => {
   for (let i = 1, l = i18nStrs.length; i < l; i++) {
     const i18n = i18nStrs[i].cardsI18n
     const i18nEn = i18nStrs[0].cardsI18n
-    i18nEn.forEach(({ name, desc }, index) => {
+    i18nEn.forEach(({ desc }, index) => {
       const nameCur = i18n[index].name
       const descCur = i18n[index].desc
       if (/(_|\n)/.test(nameCur)) {

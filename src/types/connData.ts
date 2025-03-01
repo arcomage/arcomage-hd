@@ -7,7 +7,7 @@ import {
   INIT_CORE,
   INIT_TO_QUEUE,
 } from '@/constants/ActionTypes'
-import { CHAT, INST } from '@/constants/connDataKind'
+import { INST } from '@/constants/connDataKind' // CHAT
 import { isInArray } from '@/utils/typeHelpers'
 import {
   SetTempSettingsActionType,

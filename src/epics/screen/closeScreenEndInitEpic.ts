@@ -17,7 +17,7 @@ export default (
   action$.pipe(
     ofType(CLOSE_SCREEN_END_INIT),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    mergeMap(([_action, state]) => {
       const isGuestInGame =
         state.multiplayer.gameNumber > 0 &&
         state.multiplayer.status === 'connected_by_id'

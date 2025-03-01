@@ -14,7 +14,7 @@ export default (
   action$.pipe(
     ofType(CHECK_VICTORY),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    mergeMap(([_action, state]) => {
       const { winTower, winResource } = getWinState(state.settings)
       const { player, opponent } = state.status
 

@@ -14,7 +14,7 @@ export default (
   action$.pipe(
     ofType(CHECK_SURRENDER),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    mergeMap(([_action, state]) => {
       // if multiplayer mode, don't check surrender, user should manually start a new game
       // this is to temporarily fix https://github.com/arcomage/arcomage-hd/issues/94
       if (state.multiplayer.on) {

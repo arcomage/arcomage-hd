@@ -10,7 +10,7 @@ import { initQueues } from '@/utils/multiplayer/queues'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(INIT_TO_QUEUE),

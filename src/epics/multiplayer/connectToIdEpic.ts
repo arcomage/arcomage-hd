@@ -20,7 +20,7 @@ import { peerAll } from '@/webrtc/peer'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(CONNECT_TO_ID),

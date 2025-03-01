@@ -20,7 +20,7 @@ export default (
   action$.pipe(
     ofType(AI_PLAY_CARD),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    mergeMap(([_action, state]) => {
       const aiInstruction: AiInstructionType | null = ai(state)
       if (aiInstruction === null) {
         return of<RootActionType>({

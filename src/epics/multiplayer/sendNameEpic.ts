@@ -13,7 +13,7 @@ import { RootStateType } from '@/types/state'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(SEND_NAME),

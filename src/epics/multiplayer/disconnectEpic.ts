@@ -1,9 +1,8 @@
 import { ofType, StateObservable } from 'redux-observable'
 import { of, concat, Observable } from 'rxjs'
-import { mergeMap, takeUntil } from 'rxjs/operators'
+import { mergeMap } from 'rxjs/operators'
 import {
   DISCONNECT,
-  ABORT_ALL,
   SET_YOUR_ID,
   ABORT_CONNECTION,
   SET_MULTI_GAME_NUMBER,
@@ -14,11 +13,11 @@ import { nullifyPeer, peerAll } from '@/webrtc/peer'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(DISCONNECT),
-    mergeMap((action) => {
+    mergeMap((_action) => {
       const { peer } = peerAll
       if (peer !== null) {
         peer.disconnect()

@@ -22,7 +22,7 @@ export default (
   action$.pipe(
     ofType(DRAW_CARD),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    mergeMap(([_action, state]) => {
       const isHost = state.multiplayer.status === 'connected_to_id'
       // const isGuest = state.multiplayer.status === 'connected_by_id'
       const multiGameNumber = state.multiplayer.gameNumber

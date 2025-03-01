@@ -16,7 +16,7 @@ import { lsSet } from '@/utils/localstorage'
 
 export default (
   action$: Observable<RootActionType>,
-  state$: StateObservable<RootStateType>,
+  _state$: StateObservable<RootStateType>,
 ) =>
   action$.pipe(
     ofType(UPDATE_NOANIM),

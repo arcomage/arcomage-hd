@@ -22,7 +22,7 @@ export default (
   action$.pipe(
     ofType(CLEAR_CARD),
     withLatestFrom(state$),
-    mergeMap(([action, state]) => {
+    mergeMap(([_action, state]) => {
       const obs: Observable<RootActionType>[] = []
       const obs1: Observable<RootActionType>[] = []
       const obs2: Observable<RootActionType>[] = []

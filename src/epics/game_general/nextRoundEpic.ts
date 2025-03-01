@@ -20,7 +20,7 @@ export default (
   action$.pipe(
     ofType(NEXT_ROUND),
     withLatestFrom(state$),
-    mergeMap(([action, state]) =>
+    mergeMap(([_action, state]) =>
       concat(
         of<RootActionType>({
           type: SWITCH_TURN,
