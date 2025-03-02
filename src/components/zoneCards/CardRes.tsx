@@ -17,7 +17,7 @@ const CardRes = ({ n }: PropType) => {
       ? _.i18n(['1 brick', '1 gem', '1 recruit'][type])
       : _.i18n(['%s bricks', '%s gems', '%s recruits'][type]).replace(
           '%s',
-          cost.toString(10),
+          cost.toString(),
         ),
   )
 

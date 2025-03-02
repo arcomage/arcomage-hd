@@ -13,6 +13,12 @@
 }
 
 .main {
+  @apply z-40 pointer-events-none w-full h-full absolute top-0 left-1/2;
+}
+
+.inner {
+  @apply -translate-x-1/2 -translate-y-1/2 transform-gpu absolute;
+
   background-repeat: no-repeat;
 
   :global(body.anim) & {

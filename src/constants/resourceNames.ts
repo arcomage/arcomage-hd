@@ -1,6 +1,8 @@
 export const resNames = ['bricks', 'gems', 'recruits'] as const
 
-export const resProds = ['brickProd', 'gemProd', 'recruitProd']
+export const resProds = ['brickProd', 'gemProd', 'recruitProd'] as const
+
+export type allResType = (typeof resNames)[number] | (typeof resProds)[number]
 
 export const resProdMap = {
   brickProd: 'bricks',

@@ -5,6 +5,9 @@ import styles from './NumberChangeVisual.module.scss'
 
 type PropType = { n: number }
 
+/**
+ * Explosion / firework effect when the number changes
+ */
 const NumberChangeVisual = ({ n }: PropType) => {
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)
@@ -18,9 +21,8 @@ const NumberChangeVisual = ({ n }: PropType) => {
       if (mainEl !== null) {
         const divEl = document.createElement('div')
         divEl.className = cl(
-          '-translate-x-1/2 -translate-y-1/2 transform-gpu absolute',
+          styles.inner,
           size.narrowMobile ? 'scale-50' : 'scale-75',
-          styles.main,
           n < prev ? styles.explosion : styles.firework,
         )
         mainEl.appendChild(divEl)
@@ -33,12 +35,7 @@ const NumberChangeVisual = ({ n }: PropType) => {
     prevNRef.current = n
   }, [n, size.narrowMobile])
 
-  return (
-    <div
-      ref={main}
-      className="z-40 pointer-events-none w-full h-full absolute top-0 left-1/2"
-    ></div>
-  )
+  return <div ref={main} className={styles.main}></div>
 }
 
 export default NumberChangeVisual

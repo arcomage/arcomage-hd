@@ -7,6 +7,9 @@ import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 
 type PropType = { n: number }
 
+/**
+ * Number quickly changes from n to n+1 to n+2 ... until the final value
+ */
 const AnimatedNumber = ({ n }: PropType) => {
   const noanim = useAppSelector((state) => state.visual.noanim)
   const numberRef = useRef<HTMLSpanElement>(null)

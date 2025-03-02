@@ -8,7 +8,7 @@ export const set = (
   to: number,
 ) => {
   if (minGeneratorIsOne) {
-    const min = resProds.includes(prop) ? 1 : 0
+    const min = resProds.includes(prop as (typeof resProds)[number]) ? 1 : 0
     person[prop] = to > min ? to : min
   } else {
     person[prop] = to > 0 ? to : 0

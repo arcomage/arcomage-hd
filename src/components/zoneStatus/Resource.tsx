@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { resNameAllMap, ResNameType } from '@/constants/resourceNames'
 import { smallRootFontScreenMax, unitTextMaxLength } from '@/constants/visuals'
 import { I18nContext } from '@/i18n/I18nContext'
+import { RootState, store } from '@/store'
 import cl from '@/utils/clarr'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
-import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import { appSubscriber, useAppSelector } from '@/utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '@/utils/tooltip'
 import { upper1st } from '@/utils/upper1st'
 import styles from './Resource.module.scss'
@@ -16,6 +17,7 @@ type PropType = {
   isOpponent: boolean
 }
 const Resource = ({ type, isOpponent }: PropType) => {
+  console.log('Resource')
   const _ = useContext(I18nContext)
   const size = useContext(GameSizeContext)
   const winHeight = size.height
@@ -29,10 +31,6 @@ const Resource = ({ type, isOpponent }: PropType) => {
     }[type],
   )
 
-  const nProd = useAppSelector(
-    (state) =>
-      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][1]],
-  )
   let resProdTooltip = _.i18n(
     `${isOpponent ? "Opponent's" : 'Your'} %s`,
   ).replace(
@@ -60,12 +58,29 @@ const Resource = ({ type, isOpponent }: PropType) => {
         ),
       ),
   )
-  resProdTooltip = `${upper1st(resProdTooltip)} = ${nProd}`
+  resProdTooltip = `${upper1st(resProdTooltip)} = %%`
+  const resProdTooltipBearerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const selectN = (state: RootState) =>
+      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][1]]
+    const updateTooltip = (n: number) => {
+      if (resProdTooltipBearerRef.current !== null) {
+        const tooltipTemplate =
+          resProdTooltipBearerRef.current.dataset.tooltipContentTemplate
+        if (tooltipTemplate) {
+          resProdTooltipBearerRef.current.dataset.tooltipContent =
+            tooltipTemplate.replace('%%', n.toString())
+        }
+      }
+    }
+    const unsubscribe = appSubscriber(selectN, updateTooltip)
+    updateTooltip(selectN(store.getState()))
+    return unsubscribe
+    // no lint reason: isOpponent is stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-  const nRes = useAppSelector(
-    (state) =>
-      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][0]],
-  )
   const winResource = useAppSelector((state) => state.settings.winResource)
   let resTooltip = _.i18n(`${isOpponent ? "Opponent's" : 'Your'} %sp`)
     .replace(
@@ -80,9 +95,30 @@ const Resource = ({ type, isOpponent }: PropType) => {
     )
     .replace('%ss', _.i18n(type))
   resTooltip = _.i18n('%s1. Reach %s2 to win')
-    .replace('%s1', `${resTooltip} = ${nRes}`)
-    .replace('%s2', winResource.toString(10))
+    .replace('%s1', `${resTooltip} = %%`)
+    .replace('%s2', winResource.toString())
   resTooltip = upper1st(resTooltip)
+  const resTooltipBearerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const selectN = (state: RootState) =>
+      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][0]]
+    const updateTooltip = (n: number) => {
+      if (resTooltipBearerRef.current !== null) {
+        const tooltipTemplate =
+          resTooltipBearerRef.current.dataset.tooltipContentTemplate
+        if (tooltipTemplate) {
+          resTooltipBearerRef.current.dataset.tooltipContent =
+            tooltipTemplate.replace('%%', n.toString())
+        }
+      }
+    }
+    const unsubscribe = appSubscriber(selectN, updateTooltip)
+    updateTooltip(selectN(store.getState()))
+    return unsubscribe
+    // no lint reason: isOpponent is stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div
@@ -93,11 +129,13 @@ const Resource = ({ type, isOpponent }: PropType) => {
       )}
     >
       <div
+        ref={resProdTooltipBearerRef}
         className={cl(styles.prodcontainer)}
         style={{
           height: `calc(${calcProdHeight(height)})`,
         }}
         {...tooltipAttrs(resProdTooltip, isOpponent ? 'left' : 'right')}
+        data-tooltip-content-template={resProdTooltip}
       >
         <div
           className={cl(styles.resimgholder, 'pixelated')}
@@ -110,12 +148,17 @@ const Resource = ({ type, isOpponent }: PropType) => {
             lineHeight: `${getLineHeight(height, 0.05)}px`,
           }}
         >
-          <ResourceNumber n={nProd} />
+          <ResourceNumber
+            isOpponent={isOpponent}
+            type={resNameAllMap[type][1]}
+          />
         </div>
       </div>
       <div
+        ref={resTooltipBearerRef}
         className={styles.countcontainer}
         {...tooltipAttrs(resTooltip, isOpponent ? 'left' : 'right')}
+        data-tooltip-content-template={resTooltip}
       >
         <div
           className={cl(styles.count, 'fatnumber', 'el-number')}
@@ -125,7 +168,10 @@ const Resource = ({ type, isOpponent }: PropType) => {
             height: `${getLineHeight(height, 0.036)}px`,
           }}
         >
-          <ResourceNumber n={nRes} />
+          <ResourceNumber
+            isOpponent={isOpponent}
+            type={resNameAllMap[type][0]}
+          />
         </div>
         <div
           className={cl(

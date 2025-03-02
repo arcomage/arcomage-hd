@@ -39,11 +39,8 @@
 }
 
 .birdcontainer {
-  :global(body.noanim) & {
-    display: none;
-  }
+  @apply z-10 absolute;
 
-  position: absolute;
   top: 32%;
   left: -10%;
   transform: scale(0) translateX(-10vw) translateZ(0);
@@ -51,6 +48,10 @@
   animation-name: fly-right-one;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+
+  :global(body.noanim) & {
+    display: none;
+  }
 }
 
 .birdcontainer1 {

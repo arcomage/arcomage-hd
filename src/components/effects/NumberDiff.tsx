@@ -4,6 +4,9 @@ import styles from './NumberDiff.module.scss'
 
 type PropType = { n: number }
 
+/**
+ * Green "+n" / red "-n" text that shows up when the number changes but quickly disappears
+ */
 const NumberDiff = ({ n }: PropType) => {
   const hasMounted = useRef(false)
   const prevNRef = useRef(0)

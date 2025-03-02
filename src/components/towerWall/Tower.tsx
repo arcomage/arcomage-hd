@@ -1,8 +1,9 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { I18nContext } from '@/i18n/I18nContext'
+import { RootState, store } from '@/store'
 import cl from '@/utils/clarr'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
-import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import { useAppSelector, appSubscriber } from '@/utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '@/utils/tooltip'
 import { upper1st } from '@/utils/upper1st'
 import styles from './Tower.module.scss'
@@ -31,19 +32,38 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
   const height = size.height * (size.narrowMobile ? 1 / 2 : 2 / 3)
 
   const winTower = useAppSelector((state) => state.settings.winTower)
-  const n = useAppSelector(
-    (state) => state.status[isOpponent ? 'opponent' : 'player'].tower,
-  )
+
+  const towerNBearer = useRef<HTMLDivElement>(null)
+
   let towerTooltip = _.i18n(isOpponent ? "Opponent's %s" : 'Your %s').replace(
     '%s',
     _.i18n('tower'),
   )
   towerTooltip = _.i18n('%s1. Reach %s2 to win')
-    .replace('%s1', `${towerTooltip} = ${n}`)
-    .replace('%s2', winTower.toString(10))
+    .replace('%s1', `${towerTooltip} = %%`)
+    .replace('%s2', winTower.toString())
   towerTooltip = upper1st(towerTooltip)
-
-  const towerNBearer = useRef<HTMLDivElement>(null)
+  const towerTooltipBearerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const selectN = (state: RootState) =>
+      state.status[isOpponent ? 'opponent' : 'player'].tower
+    const updateTooltip = (n: number) => {
+      if (towerTooltipBearerRef.current !== null) {
+        const tooltipTemplate =
+          towerTooltipBearerRef.current.dataset.tooltipContentTemplate
+        if (tooltipTemplate) {
+          towerTooltipBearerRef.current.dataset.tooltipContent =
+            tooltipTemplate.replace('%%', n.toString())
+        }
+      }
+    }
+    const unsubscribe = appSubscriber(selectN, updateTooltip)
+    updateTooltip(selectN(store.getState()))
+    return unsubscribe
+    // no lint reason: isOpponent is stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div
@@ -89,15 +109,22 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
               'el-number cantoggleboldfont',
             )}
           >
-            <TowerOrWallNumber n={n} target={towerNBearer} maxN={goal} />
+            <TowerOrWallNumber
+              isOpponent={isOpponent}
+              isWall={false}
+              target={towerNBearer}
+              maxN={goal}
+            />
           </div>
         </div>
         <div
+          ref={towerTooltipBearerRef}
           className={styles.towertooltipbearer}
           style={{
             height: `calc(2.25rem + ${heightByCurrent(height, '1')} * var(--n) / ${goal} + ${calcWidth(height)} / 204 * 282)`, // (1.75rem + 0.25rem * 2) [numberoutwrapper] + heightByCurrent * nRatio + towerbodytop's Height
           }}
           {...tooltipAttrs(towerTooltip, 'bottom')}
+          data-tooltip-content-template={towerTooltip}
         ></div>
       </div>
     </div>

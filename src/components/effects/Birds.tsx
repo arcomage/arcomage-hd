@@ -22,7 +22,6 @@ const Bird = ({ index }: PropType) => {
   return (
     <div
       className={cl(
-        'z-10',
         styles.birdcontainer,
         styles[index === 1 ? 'birdcontainer1' : 'birdcontainer2'],
       )}

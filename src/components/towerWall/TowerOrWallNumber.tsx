@@ -3,17 +3,30 @@ import React, { RefObject, useEffect } from 'react'
 import AnimatedNumber from '@/components/effects/AnimatedNumber'
 import NumberChangeVisual from '@/components/effects/NumberChangeVisual'
 import NumberDiff from '@/components/effects/NumberDiff'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 
 type PropType = {
-  n: number
+  isOpponent: boolean
+  isWall?: boolean
   target: RefObject<HTMLDivElement | null>
   maxN: number // only applys to `--n`
 }
-const TowerOrWallNumber = ({ n, target, maxN }: PropType) => {
+const TowerOrWallNumber = ({
+  isOpponent,
+  isWall = false,
+  target,
+  maxN,
+}: PropType) => {
+  const n = useAppSelector(
+    (state) =>
+      state.status[isOpponent ? 'opponent' : 'player'][
+        isWall ? 'wall' : 'tower'
+      ],
+  )
   const nStyle = n > maxN ? maxN : n
   useEffect(() => {
     if (target.current !== null) {
-      target.current.style.setProperty('--n', nStyle.toString(10))
+      target.current.style.setProperty('--n', nStyle.toString())
     }
     // else {
     //   devLog("the tower / wall number component can't get its target!", 'bug')
