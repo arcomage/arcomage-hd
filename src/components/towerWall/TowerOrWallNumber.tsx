@@ -1,8 +1,8 @@
 import React, { RefObject, useEffect } from 'react'
 // import devLog from '@/utils/devLog'
-import AnimatedNumber from './effects/AnimatedNumber'
-import NumberChangeVisual from './effects/NumberChangeVisual'
-import NumberDiff from './effects/NumberDiff'
+import AnimatedNumber from '@/components/effects/AnimatedNumber'
+import NumberChangeVisual from '@/components/effects/NumberChangeVisual'
+import NumberDiff from '@/components/effects/NumberDiff'
 
 type PropType = {
   n: number

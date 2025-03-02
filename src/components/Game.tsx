@@ -5,8 +5,8 @@ import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import { entries } from '@/utils/typeHelpers'
 import ButtonBar from './buttons/ButtonBar'
 import GameWindowList from './GameWindowList'
-import ZoneCards from './ZoneCards'
-import ZoneStatus from './ZoneStatus'
+import ZoneCards from './zoneCards/ZoneCards'
+import ZoneStatus from './zoneStatus/ZoneStatus'
 
 const Game = () => {
   const visualvalues = useAppSelector((state) => state.visual.visualvalues)

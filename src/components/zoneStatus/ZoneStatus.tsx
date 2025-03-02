@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import cl from '@/utils/clarr'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
-import Birds from './effects/Birds'
+import Birds from '../effects/Birds'
+import Tower from '../towerWall/Tower'
+import Wall from '../towerWall/Wall'
 import Status from './Status'
-import Tower from './Tower'
-import Wall from './Wall'
 import styles from './ZoneStatus.module.scss'
 
 /**

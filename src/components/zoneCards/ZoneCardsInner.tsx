@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import DiscardModeNotice from '@/components/special/DiscardModeNotice'
 import { canDiscardUndiscardableWhenDDP } from '@/constants/devSettings'
 import dataCards from '@/data/cards'
 import { I18nContext } from '@/i18n/I18nContext'
@@ -8,7 +9,6 @@ import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '@/utils/tooltip'
 import Card from './Card'
-import DiscardModeNotice from './special/DiscardModeNotice'
 import styles from './ZoneCardsInner.module.scss'
 
 const ZoneCardsInner = () => {

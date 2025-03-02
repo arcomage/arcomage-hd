@@ -1,6 +1,6 @@
 import React from 'react'
-import AnimatedNumber from './effects/AnimatedNumber'
-import NumberDiff from './effects/NumberDiff'
+import AnimatedNumber from '@/components/effects/AnimatedNumber'
+import NumberDiff from '@/components/effects/NumberDiff'
 
 type PropType = {
   n: number

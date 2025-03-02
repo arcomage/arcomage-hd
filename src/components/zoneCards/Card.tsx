@@ -5,26 +5,16 @@ import {
   hideOpponentCard,
   shouldUseAi,
 } from '@/constants/devSettings'
-import { cardNameMaxLength, touchDelay } from '@/constants/visuals'
+import { touchDelay } from '@/constants/visuals'
 import dataCards from '@/data/cards'
 import { I18nContext } from '@/i18n/I18nContext'
 import { CardTotalType, ownerType } from '@/types/state'
 import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import isTouch from '@/utils/isTouch'
-import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './Card.module.scss'
-
-// `import.meta.glob()` is vite-only
-const images = import.meta.glob('../../assets/img/cards/*.webp', {
-  eager: true,
-})
-const getImageUrl = (n: number) => {
-  return (
-    (images[`../../assets/img/cards/${n}.webp`] as { default: string })
-      ?.default || ''
-  )
-}
+import CardBack from './CardBack'
+import CardFront from './CardFront'
 
 type PropType = {
   n: number // 0 | 1 | 2 | ... | -1: cardback. index of the card in `cards` array, see src/data/cards.ts
@@ -47,8 +37,6 @@ const Card = ({
   zeroOpacity = false,
 }: PropType) => {
   const _ = useContext(I18nContext)
-  const cardName = _.cards(n, 'name')
-  const cardNameLength = cardName.length
   const playersTurn = useAppSelector((state) => state.game.playersTurn)
   const locked = useAppSelector((state) =>
     state.game.locked.some((l) => l === true),
@@ -108,7 +96,7 @@ const Card = ({
   } else {
     // CardFront
 
-    const { cost, special } = dataCards[n]
+    const { special } = dataCards[n]
 
     let buttonDisabled = true
 
@@ -213,16 +201,6 @@ const Card = ({
       buttonDisabled = true
     }
 
-    const cardTooltip = _.i18n('This card costs %s').replace(
-      '%s',
-      cost === 1
-        ? _.i18n(['1 brick', '1 gem', '1 recruit'][type])
-        : _.i18n(['%s bricks', '%s gems', '%s recruits'][type]).replace(
-            '%s',
-            cost.toString(10),
-          ),
-    )
-
     return (
       <button
         ref={main}
@@ -265,72 +243,13 @@ const Card = ({
           }
         }}
       >
-        <div
-          className={cl(
-            styles.cardfront,
-            zeroOpacity
-              ? 'opacity-0'
-              : unusable
-                ? styles.unusableopacity
-                : 'opacity-100',
-          )}
-        >
-          <div
-            className={cl(styles.cardname, 'el-text cantoggleboldfont')}
-            style={{
-              fontSize:
-                cardNameLength > cardNameMaxLength
-                  ? `calc(var(--cardwidth) * 0.094 * ${cardNameMaxLength + 1} / ${cardNameLength})`
-                  : 'inherit',
-            }}
-          >
-            {cardName}
-          </div>
-          <div className={styles.imagewrapper}>
-            <div
-              style={{
-                backgroundImage: `url(${getImageUrl(n)})`,
-              }}
-              className={cl(styles.imageholder, 'pixelated')}
-            ></div>
-            {discarded && (
-              <div className={cl(styles.discarded, 'el-text')}>
-                {_.i18n('discarded')}
-              </div>
-            )}
-          </div>
-          <div className={styles.text}>
-            <div className={cl(styles.textholder, 'el-text cantoggleboldfont')}>
-              {_.cards(n, 'desc')}
-            </div>
-          </div>
-          <div className={styles.resall}>
-            <div
-              className={cl(
-                styles.resbg,
-                [styles.brick, styles.gem, styles.recruit][type],
-              )}
-            ></div>
-            <div
-              className={cl(styles.cost, 'el-number')}
-              {...tooltipAttrs(cardTooltip, undefined, { noTouch: true })}
-            >
-              {cost}
-            </div>
-          </div>
-        </div>
-        <div
-          className={cl(
-            styles.cardback,
-            zeroOpacity
-              ? 'opacity-0'
-              : unusable
-                ? styles.unusableopacity
-                : 'opacity-100',
-          )}
-        >
-          <div className={cl(styles.cardbackimage, 'pixelated')}></div>
-        </div>
+        <CardFront
+          n={n}
+          discarded={discarded}
+          unusable={unusable}
+          zeroOpacity={zeroOpacity}
+        />
+        <CardBack unusable={unusable} zeroOpacity={zeroOpacity} />
       </button>
     )
   }
