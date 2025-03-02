@@ -12,13 +12,13 @@ _To ensure you're using the latest version, open the game and press <kbd>Ctrl</k
 
 - [Major Library changes](https://github.com/arcomage/arcomage-hd/issues/78)
   - Major Upgrade: React 19, Redux 5, RxJS 7.8, etc.
-  - Removed: Webpack and related libs, Yarn, JSS, Jest and related libs, Enzyme, Testing Library, MUI, Husky, commitlint, classnames, copy-to-clipboard, some eslint plugins, ts-node, some polyfills (including pwacompat),etc.
-  - Added: Bun, Vite, [React Compiler](https://react.dev/learn/react-compiler), clsx, etc.
+  - Removed: Webpack and related libs, Yarn, JSS, Jest and related libs, Enzyme, Testing Library, MUI, Husky, commitlint, Howler, classnames/clsx, copy-to-clipboard, some eslint plugins, ts-node, some polyfills (including pwacompat),etc.
+  - Added: Bun, Vite, [React Compiler](https://react.dev/learn/react-compiler), etc.
 - [Automatic update (and/or showing notification) of the game in PWA or non PWA](https://github.com/arcomage/arcomage-hd/issues/106)
 - [Full control with mouse, touch device, keyboard, or gamepad](https://github.com/arcomage/arcomage-hd/issues/93) 🖱️📱⌨️🎮 ([instructions](gamecontrols.md)) (gamepad has basic support and is not fully finished)
 - At game end screen, [show reasons for win/loss/draw](https://github.com/arcomage/arcomage-hd/issues/84), [add "Review cards" button](https://github.com/arcomage/arcomage-hd/issues/101)
 - [Add scroll bar in window](https://github.com/arcomage/arcomage-hd/issues/98), [window layout issue in mobile](https://github.com/arcomage/arcomage-hd/issues/105)
-- Optimization of: [AnimatedNumber](https://github.com/arcomage/arcomage-hd/issues/95) (rewritten), [Tower/Wall/card anim](https://github.com/arcomage/arcomage-hd/issues/100), [tooltip](https://github.com/arcomage/arcomage-hd/issues/103) (rewritten), [debounced number input](https://github.com/arcomage/arcomage-hd/issues/81) (rewritten), lang change, etc.
+- [Optimization](https://github.com/arcomage/arcomage-hd/issues/100) of: [AnimatedNumber](https://github.com/arcomage/arcomage-hd/issues/95) (rewritten), [Tower/Wall/Resource/ResourceProd/Card anim and rerenders](https://github.com/arcomage/arcomage-hd/issues/100), [tooltip](https://github.com/arcomage/arcomage-hd/issues/103) (rewritten), [debounced number input](https://github.com/arcomage/arcomage-hd/issues/81) (rewritten), lang change, remove useless code in bundle, etc.
 - [LTR / Arabic support](https://github.com/arcomage/arcomage-hd/issues/90)
 - Fix some bugs including a [window load bug](https://github.com/arcomage/arcomage-hd/issues/104) and others
 - Fixes and improvements to accessibility (a11y)
