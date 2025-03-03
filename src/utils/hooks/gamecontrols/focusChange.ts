@@ -35,7 +35,7 @@ const inPlaceSortByTabIndex = (elArr: HTMLElement[]): void => {
 
 type FocusChangeOptions = {
   currentTarget?: EventTarget | null
-  listType?: 'c' | 'b' | 'c&b' | 'c|b' | 'all'
+  listType?: 'c' | 'b' | 'c&b' | 'c|b' | 'all' | 'all+'
   indexType?: '>' | '<' | '1' | '-1'
 }
 
@@ -49,20 +49,33 @@ type FocusChangeOptions = {
  * - 'c&b' : cards and top buttons
  * - 'c|b' : cards or top buttons, depending on which the current target belongs to, if current target does not belong to either, it will select cards
  * - 'all' : all focusable elements (default)
+ * - 'all+' : for (shift+)tab event only, expected to navigate among all focusable elements plus browser's focusable elements, so, it will not focus any element if it would "jump" from first to last (and vice versa), and will return `true` on both cases
  * @param options.indexType which element to focus, could be:
  * - '>' : next element (default)
  * - '<' : previous element
  * - '1' : first element
  * - '-1' : last element
- * @returns void
+ * @returns void, or true if it would "jump" from first to last (and vice versa) and `listType` is 'all+'
  *
  * @note it falls back to the first card if there is no next/previous element
  */
-export const focusChange = ({
+export function focusChange(
+  options:
+    | (Omit<FocusChangeOptions, 'listType'> & {
+        listType: 'c' | 'b' | 'c&b' | 'c|b' | 'all'
+      })
+    | Omit<FocusChangeOptions, 'listType'>,
+): void
+export function focusChange(
+  options: Omit<FocusChangeOptions, 'listType'> & {
+    listType: 'all+'
+  },
+): void | true
+export function focusChange({
   currentTarget = null,
   listType = 'all',
   indexType = '>',
-}: FocusChangeOptions): void => {
+}: FocusChangeOptions): void | true {
   const cardSelector = 'button.card:not([disabled]):not([tabindex="-1"])'
   const topButtonSelector =
     'button.topbutton:not([tabindex="-1"]),a.topbutton:not([tabindex="-1"])'
@@ -95,6 +108,7 @@ export const focusChange = ({
       }
       break
     }
+    case 'all+':
     case 'all': {
       selector =
         'button:not([disabled]):not([tabindex="-1"]),a[href]:not([tabindex="-1"]),input:not([disabled]):not([tabindex="-1"]),select:not([disabled]):not([tabindex="-1"]),textarea:not([disabled]):not([tabindex="-1"]),[tabindex]:not([tabindex="-1"])'
@@ -125,6 +139,8 @@ export const focusChange = ({
     return 0 // unreachable, just for ts check
   }
 
+  let isJump = false
+
   if (indexType === '1') {
     finalIndex = 0
   } else if (indexType === '-1') {
@@ -136,12 +152,26 @@ export const focusChange = ({
     if (currentIndex === -1) {
       finalIndex = defaultIndex(indexType)
     } else if (indexType === '>') {
-      finalIndex = currentIndex === elements.length - 1 ? 0 : currentIndex + 1
+      if (currentIndex === elements.length - 1) {
+        isJump = true
+        finalIndex = 0
+      } else {
+        finalIndex = currentIndex + 1
+      }
     } else if (indexType === '<') {
-      finalIndex = currentIndex === 0 ? elements.length - 1 : currentIndex - 1
+      if (currentIndex === 0) {
+        isJump = true
+        finalIndex = elements.length - 1
+      } else {
+        finalIndex = currentIndex - 1
+      }
     } else {
       finalIndex = 0
     }
+  }
+
+  if (listType === 'all+' && isJump) {
+    return true
   }
 
   elements[finalIndex].focus()

@@ -7,16 +7,22 @@ const handleKeyDown = (event: KeyboardEvent) => {
   }
   const target = document.activeElement as HTMLElement | null
   if (event.shiftKey) {
-    focusChange({
+    const isJump = focusChange({
       currentTarget: target,
+      listType: 'all+',
       indexType: '<',
     })
-    event.preventDefault()
+    if (!isJump) {
+      event.preventDefault()
+    }
   } else if (!event.shiftKey) {
-    focusChange({
+    const isJump = focusChange({
       currentTarget: target,
+      listType: 'all+',
     })
-    event.preventDefault()
+    if (!isJump) {
+      event.preventDefault()
+    }
   }
 }
 
