@@ -25,6 +25,10 @@
 .fullscreenbutton {
   left: calc(60% + 9rem);
 
+  &:active {
+    transform: translate(1px, 1px);
+  }
+
   :global(body.anim) & {
     &:hover,
     &:focus {

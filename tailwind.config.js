@@ -29,6 +29,9 @@ export default {
         90: 90,
         100: 100,
       },
+      transitionProperty: {
+        'text-shadow': 'text-shadow',
+      },
     },
   },
 

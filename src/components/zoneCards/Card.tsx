@@ -11,6 +11,7 @@ import { I18nContext } from '@/i18n/I18nContext'
 import { CardTotalType, ownerType } from '@/types/state'
 import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import isScreenState from '@/utils/isScreenState'
 import isTouch from '@/utils/isTouch'
 import styles from './Card.module.scss'
 import CardBack from './CardBack'
@@ -51,7 +52,7 @@ const Card = ({
   const totalObj: Readonly<CardTotalType> = useAppSelector(
     (state) => state.cards.total,
   ) // player: 4 | 5 | 6 | 7 | 8, opponent:...
-  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
+  const isScreen = useAppSelector(isScreenState)
   const cardsInHand = useAppSelector((state) => state.settings.cardsInHand) + 1
 
   const total =
@@ -211,7 +212,13 @@ const Card = ({
     !buttonDisabled && position >= 0 && position < 9
       ? (position + 1).toString()
       : ''
-  const tabIndex = isEndScreen ? -1 : !buttonDisabled ? position + 1 : -1
+
+  let tabIndexData = -1
+  let tabIndexShown = -1 // attr `tabindex` must be -1 or 0
+  if (!isScreen && !buttonDisabled) {
+    tabIndexData = position + 1
+    tabIndexShown = 0
+  }
 
   return (
     <button
@@ -231,7 +238,8 @@ const Card = ({
         `card-pos-${isM0 ? 'm0' : 'm1'}`,
       )}
       accessKey={accessKey}
-      tabIndex={tabIndex}
+      tabIndex={tabIndexShown}
+      data-tabindex={tabIndexData}
       disabled={buttonDisabled}
       onKeyDown={handleKeyDown}
       {...onClickFunc}

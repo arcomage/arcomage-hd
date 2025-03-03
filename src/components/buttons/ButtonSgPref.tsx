@@ -3,6 +3,7 @@ import { SCREEN_VOLUME_PREF } from '@/constants/ActionTypes'
 import { I18nContext } from '@/i18n/I18nContext'
 import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import isScreenState from '@/utils/isScreenState'
 import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './ButtonSgPref.module.scss'
 
@@ -10,7 +11,7 @@ const ButtonSgPref = () => {
   const _ = useContext(I18nContext)
 
   const sgPref = useAppSelector((state) => state.screen.sgPref)
-  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
+  const isScreen = useAppSelector(isScreenState)
 
   const dispatch = useAppDispatch()
 
@@ -23,7 +24,7 @@ const ButtonSgPref = () => {
 
   return (
     <button
-      {...(isEndScreen ? { tabIndex: -1 } : {})}
+      {...(isScreen ? { tabIndex: -1 } : {})}
       accessKey="s"
       className={cl(
         'topbutton',

@@ -3,13 +3,14 @@ import { I18nContext } from '@/i18n/I18nContext'
 import cl from '@/utils/clarr'
 import { isEnabled, isFullscreen, requestFs, exitFs } from '@/utils/fullscreen'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import isScreenState from '@/utils/isScreenState'
 import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './ButtonFullscreen.module.scss'
 
 const ButtonFullscreen = () => {
   const _ = useContext(I18nContext)
 
-  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
+  const isScreen = useAppSelector(isScreenState)
 
   const clickFunc = () => {
     if (isEnabled) {
@@ -23,7 +24,7 @@ const ButtonFullscreen = () => {
 
   return (
     <button
-      {...(isEndScreen ? { tabIndex: -1 } : {})}
+      {...(isScreen ? { tabIndex: -1 } : {})}
       accessKey="f"
       className={cl('topbutton', styles.fullscreenbutton)}
       onClick={clickFunc}

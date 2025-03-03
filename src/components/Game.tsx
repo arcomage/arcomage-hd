@@ -4,6 +4,7 @@ import { dataVisualvalues } from '@/data/visualvalues'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import { entries } from '@/utils/typeHelpers'
 import ButtonBar from './buttons/ButtonBar'
+import styles from './Game.module.scss'
 import GameWindowList from './GameWindowList'
 import ZoneCards from './zoneCards/ZoneCards'
 import ZoneStatus from './zoneStatus/ZoneStatus'
@@ -38,7 +39,7 @@ const Game = () => {
 
   return (
     <div
-      className="w-screen h-screen flex flex-col bg-black overflow-x-hidden select-none outline-none"
+      className={styles.main}
       tabIndex={-1}
       {...(visualCss !== '' ? { style: { filter: visualCss } } : {})}
     >

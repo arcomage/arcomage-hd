@@ -1,21 +1,11 @@
 import { useEffect } from 'react'
-import { isEditable } from '@/utils/textediting/isEditable'
-import { focusChange } from './focusChange'
+import { focusChange } from '@/utils/hooks/gamecontrols/focusChange'
 
 const useArrowKeyFocus = (): void => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const { key } = event
       const { target } = event
-
-      if (
-        document.getElementsByClassName('windowbg').length > 0 ||
-        isEditable(target as HTMLElement) ||
-        target instanceof HTMLSelectElement ||
-        (target instanceof HTMLInputElement && target.type === 'range')
-      ) {
-        return
-      }
 
       switch (key) {
         case 'ArrowUp': {

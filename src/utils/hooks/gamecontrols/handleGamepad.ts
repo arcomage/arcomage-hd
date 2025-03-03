@@ -1,6 +1,6 @@
+import { focusChange } from '@/utils/hooks/gamecontrols/focusChange'
 import { isEditable } from '@/utils/textediting/isEditable'
 import { simulateArrowKey } from '@/utils/textediting/simulateArrowKey'
-import { focusChange } from './focusChange'
 import { GamepadButtonType } from './useGamepad'
 
 const contextmenuEvent = new MouseEvent('contextmenu', {

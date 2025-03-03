@@ -74,7 +74,7 @@ https://user-images.githubusercontent.com/529949/115864733-941cbd00-a437-11eb-95
 
 ### Technical Details
 
-In Multiplayer Mode, the game connects directly to the opponent (Peer-to-Peer, P2P) without using a server. However, we still rely on free public [STUN](https://en.wikipedia.org/wiki/STUN) servers (set up by Google and others) for peer discovery. Once connected using the ID assigned by the server, the players are directly connected and no longer need the server.
+In Multiplayer Mode, the game establishes a direct Peer-to-Peer (P2P) connection with the opponent, eliminating the need for a central server. However, it still relies on free public [STUN](https://en.wikipedia.org/wiki/STUN) servers (provided by Google and others) and a signaling server (via [PeerJS](https://peerjs.com/docs/)) for peer discovery and exchanging connection details. Once the connection is established, players communicate directly without requiring any servers.
 
 The game doesn't use any servers, so there isn't a central "list of online players" for easy matchmaking. Instead, you must share your ID with your opponent through platforms like Discord.
 
@@ -137,7 +137,7 @@ Used in ≤1.4 but not in 1.5+:
 
 The game doesn't use [rAF](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) (except for a few cases), [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API), or `<canvas>` at all. Instead, it relies on DOM and CSS-based animations, which can improve SEO and accessibility, while making it feel more like a "standard web app." While CSS animations may not perform as well as `<canvas>`, they still provide excellent performance on Blink-based browsers on modern devices.
 
-The game features P2P Multiplayer Mode without a server, utilizing only [STUN](https://en.wikipedia.org/wiki/STUN) servers for peer discovery and [WebRTC](https://webrtc.org/) (with [PeerJS](https://peerjs.com/)) for communication.
+With [WebRTC](https://webrtc.org/) (using [PeerJS](https://peerjs.com/)), the game features P2P Multiplayer Mode without a server, utilizing only [STUN](https://en.wikipedia.org/wiki/STUN) servers and a signaling server (via [PeerJS](https://peerjs.com/docs/)) for peer discovery and connection establishment.
 
 It also supports stereo sound, WebP and SVG images, with images upscaled using the [waifu2x](https://github.com/nagadomi/waifu2x) / [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe) libraries. Card text is extracted using the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
 

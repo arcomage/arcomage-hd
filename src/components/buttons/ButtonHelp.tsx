@@ -3,6 +3,7 @@ import { SCREEN_HELP } from '@/constants/ActionTypes'
 import { I18nContext } from '@/i18n/I18nContext'
 import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import isScreenState from '@/utils/isScreenState'
 import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './ButtonHelp.module.scss'
 
@@ -10,7 +11,7 @@ const ButtonHelp = () => {
   const _ = useContext(I18nContext)
 
   const help = useAppSelector((state) => state.screen.help)
-  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
+  const isScreen = useAppSelector(isScreenState)
 
   const dispatch = useAppDispatch()
 
@@ -23,7 +24,7 @@ const ButtonHelp = () => {
 
   return (
     <button
-      {...(isEndScreen ? { tabIndex: -1 } : {})}
+      {...(isScreen ? { tabIndex: -1 } : {})}
       accessKey="h"
       className={cl(
         'topbutton',

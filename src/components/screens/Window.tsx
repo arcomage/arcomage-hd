@@ -20,16 +20,8 @@ import useClickOutside from '@/utils/hooks/gamecontrols/useClickOutside'
 import useKeyDown from '@/utils/hooks/gamecontrols/useKeyDown'
 import { useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '@/utils/tooltip'
+import { screenClassMap, screenTitleMap } from './screenMaps'
 import styles from './Window.module.scss'
-
-const screenClassMap = {
-  [SCREEN_PREF]: styles.screenpref,
-  [SCREEN_LANG_PREF]: cl(styles.screenlangpref, 'screenlangpref'),
-  [SCREEN_VOLUME_PREF]: styles.screenvolumepref,
-  [SCREEN_HELP]: styles.screenhelp,
-  [SCREEN_LANDSCAPE]: '',
-  [SCREEN_DISCONNECT_NOTICE]: '',
-}
 
 type PropType = {
   screenActionType:
@@ -67,21 +59,6 @@ const Window = ({
     }
   }, [exitableDelay])
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (containerRef.current) {
-        const lastEnabledCard = document.querySelector(
-          'button.card:not([disabled]):last-of-type',
-        ) as HTMLButtonElement | null
-        if (lastEnabledCard) {
-          // Set focus to the last enabled card so that tab will focus on the first focusable element in the Window
-          lastEnabledCard.focus()
-          lastEnabledCard.blur()
-        }
-      }
-    }, 50)
-  }, [])
-
   // to prevent cancelFunc from using stale exitable value
   const exitableRef = useRef<boolean>(false)
   useEffect(() => {
@@ -111,6 +88,7 @@ const Window = ({
     <div
       className={cl(styles.windowbg, 'windowbg', darkerBg && styles.darkerbg)}
       role="dialog"
+      aria-label={_.i18n(screenTitleMap[screenActionType])}
       aria-modal={true}
       ref={containerRef}
     >

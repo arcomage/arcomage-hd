@@ -45,6 +45,10 @@
 .githubbutton {
   left: calc(60% + 15rem);
 
+  &:active {
+    transform: translate(1px, 1px);
+  }
+
   & svg {
     :global(.el-0) {
       visibility: visible;

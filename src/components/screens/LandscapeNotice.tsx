@@ -17,6 +17,7 @@ const LandscapeNotice = () => {
       exitableDelay={LandscapeNoticeExitableDelay}
     >
       <div
+        role="alert"
         className={cl(styles.wrapper, 'relative')}
         {...tooltipAttrs(
           _.i18n('Please rotate your device to landscape mode'),

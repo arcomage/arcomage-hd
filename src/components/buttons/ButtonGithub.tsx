@@ -3,17 +3,18 @@ import { githubUrl } from '@/constants/devSettings'
 import { I18nContext } from '@/i18n/I18nContext'
 import cl from '@/utils/clarr'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
+import isScreenState from '@/utils/isScreenState'
 import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './ButtonGithub.module.scss'
 
 const ButtonGithub = () => {
   const _ = useContext(I18nContext)
 
-  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
+  const isScreen = useAppSelector(isScreenState)
 
   return (
     <a
-      {...(isEndScreen ? { tabIndex: -1 } : {})}
+      {...(isScreen ? { tabIndex: -1 } : {})}
       accessKey="g"
       className={cl('topbutton', styles.githubbutton)}
       href={githubUrl}

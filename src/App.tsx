@@ -15,6 +15,7 @@ import useArrowKeyFocus from '@/utils/hooks/gamecontrols/useArrowKeyFocus'
 import useDisableContextMenu from '@/utils/hooks/gamecontrols/useDisableContextMenu'
 import useGamepad from '@/utils/hooks/gamecontrols/useGamepad'
 import useKeyDown from '@/utils/hooks/gamecontrols/useKeyDown'
+import useNewTabIndex from '@/utils/hooks/gamecontrols/useNewTabIndex'
 import { useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import { useBeforeWindowUnloadWarning } from '@/utils/hooks/useBeforeWindowUnloadWarning'
 import useWindowLoad from '@/utils/hooks/useWindowLoad'
@@ -54,6 +55,8 @@ const App = () => {
   useGamepad({
     onButtonDown: _handleGamepadButtonDown,
   })
+
+  useNewTabIndex()
 
   useEffect(() => {
     const checkAndShowLandscapeNotice = () => {

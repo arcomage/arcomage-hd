@@ -116,13 +116,11 @@ const EndScreen = (endScreenState: EndScreenNoCloseStateType) => {
     >
       <div className={cl(styles.main)} role="button" tabIndex={0}>
         {noteText !== null && (
-          <div className={cl(styles.notetext, 'robotocondensed', 'el-text')}>
+          <div className={cl(styles.notetext, 'robotocondensed el-text')}>
             {noteText}
           </div>
         )}
-        <div className={cl(styles.text, 'robotocondensed', 'el-text')}>
-          {text}
-        </div>
+        <div className={cl(styles.text, 'robotocondensed el-text')}>{text}</div>
         <div className={cl(styles.erathiantext, 'erathian-normal')}>
           {erathianTextContainer}
         </div>

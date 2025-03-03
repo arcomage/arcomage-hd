@@ -1,13 +1,28 @@
+const getTabIndex = (el: HTMLElement): number => {
+  // el.tabIndex should be -1 or 0, while el.dataset.tabindex can be any -1 or 0 or any positive integer
+  const tabIndexShown = el.tabIndex
+  const tabIndexData = el.dataset.tabindex
+  if (tabIndexShown === -1) {
+    return -1
+  }
+  if (tabIndexData === undefined) {
+    return tabIndexShown
+  }
+  return parseInt(tabIndexData, 10)
+}
+
+// should not have [tabindex="-1"], but if it does, it will be sorted to the start of the list
+// 1, 2, 3, ..., 0 (including those focusable but without tabindex). elements with same tabindex will be sorted by their order in the array
 const inPlaceSortByTabIndex = (elArr: HTMLElement[]): void => {
   elArr.sort((a, b) => {
-    const tabindexA =
-      (a as HTMLElement).tabIndex >= 0
-        ? (a as HTMLElement).tabIndex
-        : Number.POSITIVE_INFINITY
-    const tabindexB =
-      (b as HTMLElement).tabIndex >= 0
-        ? (b as HTMLElement).tabIndex
-        : Number.POSITIVE_INFINITY
+    const tabindexA = getTabIndex(a)
+    const tabindexB = getTabIndex(b)
+    if (tabindexA === 0 && tabindexB !== 0) {
+      return 1
+    }
+    if (tabindexA !== 0 && tabindexB === 0) {
+      return -1
+    }
     if (tabindexA !== tabindexB) {
       return tabindexA - tabindexB
     }
@@ -32,10 +47,10 @@ type FocusChangeOptions = {
  * - 'c' : cards
  * - 'b' : top buttons
  * - 'c&b' : cards and top buttons
- * - 'c|b' : cards or top buttons, depending on which the current target belongs to
- * - 'all' : all focusable elements
+ * - 'c|b' : cards or top buttons, depending on which the current target belongs to, if current target does not belong to either, it will select cards
+ * - 'all' : all focusable elements (default)
  * @param options.indexType which element to focus, could be:
- * - '>' : next element
+ * - '>' : next element (default)
  * - '<' : previous element
  * - '1' : first element
  * - '-1' : last element
@@ -48,8 +63,9 @@ export const focusChange = ({
   listType = 'all',
   indexType = '>',
 }: FocusChangeOptions): void => {
-  const cardSelector = 'button.card:not([disabled])'
-  const topButtonSelector = 'button.topbutton,a.topbutton'
+  const cardSelector = 'button.card:not([disabled]):not([tabindex="-1"])'
+  const topButtonSelector =
+    'button.topbutton:not([tabindex="-1"]),a.topbutton:not([tabindex="-1"])'
 
   let selector = ''
 
@@ -63,7 +79,8 @@ export const focusChange = ({
       break
     }
     case 'c&b': {
-      selector = 'button.card:not([disabled]),button.topbutton,a.topbutton'
+      selector =
+        'button.card:not([disabled]):not([tabindex="-1"]),button.topbutton:not([tabindex="-1"]),a.topbutton:not([tabindex="-1"])'
       break
     }
     case 'c|b': {
@@ -94,20 +111,18 @@ export const focusChange = ({
     return
   }
 
+  // all selectors exclude [tabindex="-1"]
   inPlaceSortByTabIndex(elements)
 
   let finalIndex: number
-
-  console.log(currentTarget)
 
   const defaultIndex = (indexTypeArrow: '>' | '<') => {
     if (indexTypeArrow === '>') {
       return 0
     } else if (indexTypeArrow === '<') {
       return elements.length - 1
-    } else {
-      return 0 // unreachable, just for ts check
     }
+    return 0 // unreachable, just for ts check
   }
 
   if (indexType === '1') {

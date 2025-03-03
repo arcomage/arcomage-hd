@@ -11,7 +11,6 @@ import {
 import { RootActionType } from '@/types/actionObj'
 import { RootStateType } from '@/types/state'
 import devLog from '@/utils/devLog'
-import { initPeer, peerAll } from '@/webrtc/peer'
 
 // connect to the network, get your ID, and set your ID in the store
 
@@ -23,18 +22,24 @@ export default (
     ofType(CONNECT_TO_NETWORK),
     mergeMap((_action) => {
       const getPeerId: Promise<string> = new Promise((resolve, reject) => {
-        initPeer()
-        const { peer } = peerAll
-        if (peer !== null) {
-          peer.on('open', (id) => {
-            resolve(id)
+        import('@/webrtc/peer')
+          .then((peerModule) => {
+            peerModule.initPeer()
+            const { peer } = peerModule.peerAll
+            if (!peer) {
+              reject(new Error('Peer init failed'))
+              return
+            }
+            peer.on('open', (id) => {
+              resolve(id)
+            })
+            peer.on('error', (error: Error) => {
+              reject(error)
+            })
+            peer.on('error', (error: Error) => reject(error))
           })
-          peer.on('error', (error: Error) => {
-            reject(error)
-          })
-        }
+          .catch(reject)
       })
-
       return merge(
         of<RootActionType>({
           type: MULTIPLAYER_STATUS,

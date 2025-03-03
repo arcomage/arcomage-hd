@@ -3,6 +3,7 @@ import { SCREEN_LANG_PREF } from '@/constants/ActionTypes'
 import { I18nContext } from '@/i18n/I18nContext'
 import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
+import isScreenState from '@/utils/isScreenState'
 import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './ButtonLangPref.module.scss'
 
@@ -10,7 +11,7 @@ const ButtonLangPref = () => {
   const _ = useContext(I18nContext)
 
   const langPref = useAppSelector((state) => state.screen.langPref)
-  const isEndScreen = useAppSelector((state) => !!state.screen.end.type)
+  const isScreen = useAppSelector(isScreenState)
 
   const dispatch = useAppDispatch()
 
@@ -23,7 +24,7 @@ const ButtonLangPref = () => {
 
   return (
     <button
-      {...(isEndScreen ? { tabIndex: -1 } : {})}
+      {...(isScreen ? { tabIndex: -1 } : {})}
       accessKey="l"
       className={cl(
         'topbutton',

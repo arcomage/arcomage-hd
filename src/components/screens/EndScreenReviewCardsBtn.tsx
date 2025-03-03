@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { I18nContext } from '@/i18n/I18nContext'
+import cl from '@/utils/clarr'
+import styles from './EndScreenReviewCardsBtn.module.scss'
 
 const EndScreenReviewCardsBtn = () => {
   const _ = useContext(I18nContext)
@@ -23,7 +25,10 @@ const EndScreenReviewCardsBtn = () => {
 }`}</style>
       )}
       <button
-        className="robotocondensed text-lg text-white hover:text-shadow-md-white px-1 rounded absolute transition-text-shadow duration-500 focus:outline focus:outline-1 underline endscreen-review-cards-btn"
+        className={cl(
+          styles.main,
+          'robotocondensed endscreen-review-cards-btn',
+        )}
         accessKey="c"
         onClick={(e) => {
           e.stopPropagation()

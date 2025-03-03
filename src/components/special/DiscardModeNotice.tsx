@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { I18nContext } from '@/i18n/I18nContext'
 import cl from '@/utils/clarr'
+import styles from './DiscardModeNotice.module.scss'
 
 type PropType = {
   shown?: boolean
@@ -8,13 +9,7 @@ type PropType = {
 const DiscardModeNotice = ({ shown = true }: PropType) => {
   const _ = useContext(I18nContext)
   return shown ? (
-    <div
-      className={cl(
-        '-translate-y-1/2 w-full text-center text-yellow-300 pointer-events-none text-4xl text-shadow-lg',
-        'robotocondensed',
-        'el-text',
-      )}
-    >
+    <div className={cl(styles.main, 'robotocondensed el-text')}>
       {_.i18n('Discard a card')}
     </div>
   ) : null

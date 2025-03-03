@@ -17,7 +17,6 @@ type PropType = {
   isOpponent: boolean
 }
 const Resource = ({ type, isOpponent }: PropType) => {
-  console.log('Resource')
   const _ = useContext(I18nContext)
   const size = useContext(GameSizeContext)
   const winHeight = size.height

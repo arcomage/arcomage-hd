@@ -2,7 +2,7 @@
 
 ## Browser Support
 
-The game officially supports all individual versions of actively maintained browsers with more than 0.2% global market share (`>0.2% and not dead`). Click "[supported browser list](https://browsersl.ist/#q=%3E0.2%25+and+not+dead)" and check if your browser is supported. Upgrade your browser if it's not supported.
+The game officially supports all individual versions of actively maintained desktop and mobile browsers with more than 0.2% global market share (`>0.2% and not dead`). Click "[supported browser list](https://browsersl.ist/#q=%3E0.2%25+and+not+dead)" and check if your browser is supported. Upgrade your browser if it's not supported.
 
 <details><summary><strong>Click to show a list of browsers tested to run or not run the game in 2021 (maybe outdated)</strong></summary>
 
@@ -67,6 +67,14 @@ _(If your Chrome-based browser has performance issues, the Desktop Version (a Ch
 ❌ Very old browsers that [do not support ECMAScript 2015 (ES6)](https://caniuse.com/es6) or [WebP images](https://caniuse.com/webp) are also not supported.
 
 </details>
+
+## Mobile Support
+
+The game should function properly and maintain the correct layout on all modern mobile and tablet browsers.
+
+To ensure the correct layout, users should rotate their devices to landscape mode (where the screen's width is greater than its height).
+
+The minimum supported screen size is 480 × 320 pixels. Devices with a width (or height in landscape mode) smaller than 320 pixels may not display the game optimally.
 
 ## Performance
 
