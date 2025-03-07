@@ -36,6 +36,7 @@ import { preSettings, continents } from '@/data/preSettings'
 import { I18nContext } from '@/i18n/I18nContext'
 import { FormFieldsType, FormFieldsAllPartialType } from '@/types/formFields'
 import cl from '@/utils/clarr'
+import devLog from '@/utils/devLog'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import isEmoji from '@/utils/isEmoji'
 import { sample } from '@/utils/random'
@@ -782,7 +783,7 @@ const Pref = () => {
                     }, copiedDuration)
                   })
                   .catch((error) => {
-                    console.error('Failed to copy text: ', error)
+                    devLog(`Failed to copy text: ${error}`, 'error')
                   })
               }
             }}

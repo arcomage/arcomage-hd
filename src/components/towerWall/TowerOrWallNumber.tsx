@@ -1,5 +1,4 @@
 import React, { RefObject, useEffect } from 'react'
-// import devLog from '@/utils/devLog'
 import AnimatedNumber from '@/components/effects/AnimatedNumber'
 import NumberChangeVisual from '@/components/effects/NumberChangeVisual'
 import NumberDiff from '@/components/effects/NumberDiff'
@@ -28,9 +27,6 @@ const TowerOrWallNumber = ({
     if (target.current !== null) {
       target.current.style.setProperty('--n', nStyle.toString())
     }
-    // else {
-    //   devLog("the tower / wall number component can't get its target!", 'bug')
-    // }
     // no lint reason: `target` is stable
     // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps

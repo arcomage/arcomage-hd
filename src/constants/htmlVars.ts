@@ -1,4 +1,4 @@
-export const defaultAppUrl = 'https://arcomage.github.io/' // will be overriden by env var `APP_URL` if set
+export const defaultAppUrl = 'https://arcomage.github.io/' // will be overridden by env var `APP_URL` if set
 
 export const origTitle = 'ArcoMage HD'
 

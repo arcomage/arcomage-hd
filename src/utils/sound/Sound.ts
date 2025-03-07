@@ -14,10 +14,41 @@ import towerUpUrl from '@assets/sfx/tower_up.mp3'
 import typingUrl from '@assets/sfx/typing.mp3'
 import victoryUrl from '@assets/sfx/victory.mp3'
 import wallUpUrl from '@assets/sfx/wall_up.mp3'
+import devLog from '../devLog'
 
 const audioContext = new (window.AudioContext ||
   (window as typeof window & { webkitAudioContext: unknown })
     .webkitAudioContext)()
+
+const userGestures = [
+  'click',
+  'contextmenu',
+  'dblclick',
+  'keydown',
+  'touchstart',
+  'mousedown',
+  'pointerdown',
+]
+const removeAllListeners = () => {
+  userGestures.forEach((gesture) => {
+    document.body.removeEventListener(gesture, resumeAudioContext)
+  })
+}
+const resumeAudioContext = () => {
+  if (audioContext.state === 'suspended') {
+    audioContext.resume().then(() => {
+      devLog('AudioContext resumed', 'info')
+      removeAllListeners()
+    })
+  } else {
+    devLog('AudioContext is already running', 'info')
+    removeAllListeners()
+  }
+}
+userGestures.forEach((gesture) => {
+  document.body.addEventListener(gesture, resumeAudioContext)
+})
+
 const gainNode = audioContext.createGain()
 gainNode.gain.value = 0.5
 gainNode.connect(audioContext.destination)
@@ -144,15 +175,21 @@ export const play = (
   })()
 
   audioBufferPromise.then((audioBuffer) => {
-    const source = audioContext.createBufferSource()
-    source.buffer = audioBuffer
+    if (audioContext.state === 'suspended') {
+      // intentionally not await, but resume while dropping the sound play
+      // double resuming besides `resumeAudioContext()` to ensure it
+      audioContext.resume()
+    } else if (audioContext.state === 'running') {
+      const source = audioContext.createBufferSource()
+      source.buffer = audioBuffer
 
-    const panner = audioContext.createStereoPanner()
-    panner.pan.value = _pan
+      const panner = audioContext.createStereoPanner()
+      panner.pan.value = _pan
 
-    source.connect(panner)
-    panner.connect(gainNode)
+      source.connect(panner)
+      panner.connect(gainNode)
 
-    source.start()
+      source.start()
+    }
   })
 }

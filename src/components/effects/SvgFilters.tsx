@@ -1,5 +1,4 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import styles from './SvgFilters.module.scss'
 
@@ -7,11 +6,9 @@ const SvgFilters = () => {
   const pixelationLevel = useAppSelector((state) => state.visual.pixelation)
   return (
     <>
-      <Helmet>
-        <style>{`.pixelated { filter: ${
-          pixelationLevel > 0 ? 'url(#pixelation)' : 'none'
-        }; }`}</style>
-      </Helmet>
+      <style>{`.pixelated { filter: ${
+        pixelationLevel > 0 ? 'url(#pixelation)' : 'none'
+      }; }`}</style>
       <svg className={styles.main} aria-hidden={true}>
         <filter id="pixelation" x="0" y="0">
           <feFlood x="1" y="1" height="1" width="1" />

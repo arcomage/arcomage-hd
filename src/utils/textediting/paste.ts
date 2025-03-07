@@ -1,3 +1,4 @@
+import devLog from '@/utils/devLog'
 import { isEditable } from './isEditable'
 
 /**
@@ -75,7 +76,7 @@ export const paste = async (target: HTMLElement | null): Promise<void> => {
       target.value.substring(end)
     const newCursorPos = start + clipboardText.length
     target.setSelectionRange(newCursorPos, newCursorPos)
-  } catch (err) {
-    console.error('Clipboard access denied', err)
+  } catch (error) {
+    devLog(`Clipboard access denied: ${error}`, 'error')
   }
 }

@@ -19,7 +19,7 @@ const HtmlHead = () => {
   }, [volume])
 
   return (
-    <Helmet>
+    <Helmet prioritizeSeoTags>
       <html lang={lang} dir={langInfo[lang].isRtl ? 'rtl' : 'ltr'} />
 
       <title>{_.i18n('ArcoMage HD')}</title>
