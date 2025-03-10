@@ -1,6 +1,6 @@
 {
   "name": "arcomage-hd",
-  "version": "1.5.0-beta.20",
+  "version": "1.5.0-beta.21",
   "type": "module",
   "description": "Web-based free and open source HD clone of 3DO and NWC's 2000 card game Arcomage",
   "author": "Tom Chen <tomchen.org@gmail.com>",
