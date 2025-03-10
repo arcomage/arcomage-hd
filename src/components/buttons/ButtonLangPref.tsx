@@ -1,7 +1,7 @@
+import cl from 'clarr'
 import React, { useContext } from 'react'
 import { SCREEN_LANG_PREF } from '@/constants/ActionTypes'
 import { I18nContext } from '@/i18n/I18nContext'
-import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import isScreenState from '@/utils/isScreenState'
 import { tooltipAttrs } from '@/utils/tooltip'

@@ -1,7 +1,7 @@
+import cl from 'clarr'
 import React, { useContext } from 'react'
 import { githubUrl } from '@/constants/devSettings'
 import { I18nContext } from '@/i18n/I18nContext'
-import cl from '@/utils/clarr'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import isScreenState from '@/utils/isScreenState'
 import { tooltipAttrs } from '@/utils/tooltip'

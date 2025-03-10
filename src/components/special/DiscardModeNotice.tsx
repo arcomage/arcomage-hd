@@ -1,6 +1,6 @@
+import cl from 'clarr'
 import React, { useContext } from 'react'
 import { I18nContext } from '@/i18n/I18nContext'
-import cl from '@/utils/clarr'
 import styles from './DiscardModeNotice.module.scss'
 
 type PropType = {

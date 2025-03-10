@@ -1,3 +1,4 @@
+import cl from 'clarr'
 import React, { Fragment, useContext } from 'react'
 import CheckBox from '@/components/special/CheckBox'
 import {
@@ -9,7 +10,6 @@ import {
 import { I18nContext } from '@/i18n/I18nContext'
 import { langs, langInfo } from '@/i18n/langs'
 import { AvailableLangType } from '@/i18n/types'
-import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '@/utils/tooltip'
 import Window from './Window'

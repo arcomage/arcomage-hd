@@ -1,5 +1,5 @@
+import cl from 'clarr'
 import React, { useContext, useEffect, useRef } from 'react'
-import cl from '@/utils/clarr'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 import styles from './NumberChangeVisual.module.scss'
 

@@ -1,3 +1,4 @@
+import cl from 'clarr'
 import React, { useContext } from 'react'
 import MultilineText from '@/components/special/MultilineText'
 import { SCREEN_HELP } from '@/constants/ActionTypes'
@@ -8,7 +9,6 @@ import {
   tutorialImageUrl,
 } from '@/constants/devSettings'
 import { I18nContext } from '@/i18n/I18nContext'
-import cl from '@/utils/clarr'
 import Window from './Window'
 import styles from './Window.module.scss'
 

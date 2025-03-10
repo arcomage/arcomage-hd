@@ -1,7 +1,7 @@
+import cl from 'clarr'
 import React, { useContext, useEffect, useRef } from 'react'
 import { I18nContext } from '@/i18n/I18nContext'
 import { RootState, store } from '@/store'
-import cl from '@/utils/clarr'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 import { useAppSelector, appSubscriber } from '@/utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '@/utils/tooltip'

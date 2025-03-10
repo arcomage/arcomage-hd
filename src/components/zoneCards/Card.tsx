@@ -1,3 +1,4 @@
+import cl from 'clarr'
 import React, { useContext, useRef } from 'react'
 import { USE_CARD, DISCARD_CARD } from '@/constants/ActionTypes'
 import {
@@ -9,7 +10,6 @@ import { touchDelay } from '@/constants/visuals'
 import dataCards from '@/data/cards'
 import { I18nContext } from '@/i18n/I18nContext'
 import { CardTotalType, ownerType } from '@/types/state'
-import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import isScreenState from '@/utils/isScreenState'
 import isTouch from '@/utils/isTouch'

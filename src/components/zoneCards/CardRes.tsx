@@ -1,7 +1,7 @@
+import cl from 'clarr'
 import React, { useContext } from 'react'
 import dataCards from '@/data/cards'
 import { I18nContext } from '@/i18n/I18nContext'
-import cl from '@/utils/clarr'
 import { tooltipAttrs } from '@/utils/tooltip'
 import styles from './Card.module.scss'
 

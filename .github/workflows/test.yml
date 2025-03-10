@@ -31,7 +31,7 @@ jobs:
         uses: oven-sh/setup-bun@v2
       - name: Install modules
         run: bun install
-      - name: Run prettier + eslint + ts typecheck
+      - name: Run prettier + eslint + ts typecheck + tests
         run: bun checkall
       # - name: Codecov Upload
       #   uses: codecov/codecov-action@v5

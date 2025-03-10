@@ -11,16 +11,16 @@
  * `bun tools/version/bump.ts prerelease rc`
  */
 import { execSync } from 'child_process'
-import fs from 'fs'
-import semver from 'semver'
+import { readFileSync, writeFileSync } from 'fs'
+import { valid, inc } from 'semver-ts'
 
 const versionOrRelease: string | undefined = process.argv[2]
 const identifier: string | undefined = process.argv[3]
 
 try {
   execSync('bun checkall', { stdio: 'inherit' })
-} catch (_error) {
-  console.error('Prettier, eslint, type check, or test has failed')
+} catch (error) {
+  console.error('Prettier, eslint, type check, or test has failed:', error)
   process.exit(1)
 }
 
@@ -55,19 +55,19 @@ function isValidReleaseType(release: string): release is ReleaseType {
 
 try {
   const packageJsonPath = './package.json'
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'))
+  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
 
   const oldVersion = packageJson.version
 
   let version: string
-  if (semver.valid(versionOrRelease)) {
+  if (valid(versionOrRelease)) {
     version = versionOrRelease
   } else if (!isValidReleaseType(versionOrRelease)) {
     throw new Error('Invalid version number or release type.')
   } else {
     const _version = identifier
-      ? semver.inc(oldVersion, versionOrRelease, identifier)
-      : semver.inc(oldVersion, versionOrRelease)
+      ? inc(oldVersion, versionOrRelease, identifier)
+      : inc(oldVersion, versionOrRelease)
     if (!_version) {
       throw new Error('Invalid version number, release type, or identifier.')
     }
@@ -75,11 +75,7 @@ try {
   }
 
   packageJson.version = version
-  fs.writeFileSync(
-    packageJsonPath,
-    JSON.stringify(packageJson, null, 2),
-    'utf8',
-  )
+  writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf8')
   console.log(
     `Updated version from v${oldVersion} to ${version} in package.json`,
   )

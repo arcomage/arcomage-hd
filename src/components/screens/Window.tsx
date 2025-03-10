@@ -1,3 +1,4 @@
+import cl from 'clarr'
 import React, {
   useCallback,
   useContext,
@@ -14,7 +15,6 @@ import {
   SCREEN_DISCONNECT_NOTICE,
 } from '@/constants/ActionTypes'
 import { I18nContext } from '@/i18n/I18nContext'
-import cl from '@/utils/clarr'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 import useClickOutside from '@/utils/hooks/gamecontrols/useClickOutside'
 import useKeyDown from '@/utils/hooks/gamecontrols/useKeyDown'

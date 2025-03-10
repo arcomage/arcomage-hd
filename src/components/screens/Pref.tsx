@@ -1,3 +1,4 @@
+import cl from 'clarr'
 import { produce } from 'immer'
 import React, {
   ChangeEvent,
@@ -35,7 +36,6 @@ import { copiedDuration, shorterIdStartEndLength } from '@/constants/visuals'
 import { preSettings, continents } from '@/data/preSettings'
 import { I18nContext } from '@/i18n/I18nContext'
 import { FormFieldsType, FormFieldsAllPartialType } from '@/types/formFields'
-import cl from '@/utils/clarr'
 import devLog from '@/utils/devLog'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import isEmoji from '@/utils/isEmoji'

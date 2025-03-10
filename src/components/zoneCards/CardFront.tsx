@@ -1,5 +1,5 @@
+import cl from 'clarr'
 import React from 'react'
-import cl from '@/utils/clarr'
 import styles from './Card.module.scss'
 import CardDesc from './CardDesc'
 import CardImage from './CardImage'

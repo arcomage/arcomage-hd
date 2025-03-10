@@ -1,5 +1,5 @@
+import cl from 'clarr'
 import React, { useContext } from 'react'
-import cl from '@/utils/clarr'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 import Name from './Name'
 import Resource from './Resource'

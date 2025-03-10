@@ -1,3 +1,4 @@
+import cl from 'clarr'
 import {
   SCREEN_PREF,
   SCREEN_LANG_PREF,
@@ -6,7 +7,6 @@ import {
   SCREEN_LANDSCAPE,
   SCREEN_DISCONNECT_NOTICE,
 } from '@/constants/ActionTypes'
-import cl from '@/utils/clarr'
 import styles from './Window.module.scss'
 
 export const screenClassMap = {

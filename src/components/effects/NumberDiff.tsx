@@ -1,5 +1,5 @@
+import cl from 'clarr'
 import React, { useEffect, useRef } from 'react'
-import cl from '@/utils/clarr'
 import styles from './NumberDiff.module.scss'
 
 type PropType = { n: number }

@@ -1,5 +1,5 @@
 import { produce } from 'immer'
-import lt from 'semver/functions/lt'
+import { lt } from 'semver-ts'
 import {
   appVersion,
   localstorageMinVer,

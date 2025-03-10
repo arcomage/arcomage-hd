@@ -1,8 +1,8 @@
+import cl from 'clarr'
 import React, { useContext, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { I18nContext } from '@/i18n/I18nContext'
 import { langInfo } from '@/i18n/langs'
-import cl from '@/utils/clarr'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import { setVolume } from '@/utils/sound/Sound'
 

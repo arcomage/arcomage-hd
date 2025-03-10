@@ -1,6 +1,6 @@
+import cl from 'clarr'
 import React, { useContext } from 'react'
 import { I18nContext } from '@/i18n/I18nContext'
-import cl from '@/utils/clarr'
 import { isEnabled, isFullscreen, requestFs, exitFs } from '@/utils/fullscreen'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import isScreenState from '@/utils/isScreenState'

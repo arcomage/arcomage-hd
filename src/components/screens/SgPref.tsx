@@ -1,3 +1,4 @@
+import cl from 'clarr'
 import React, { useContext, useEffect, useState } from 'react'
 import CheckBox from '@/components/special/CheckBox'
 import {
@@ -31,7 +32,6 @@ import {
   visualPresets,
 } from '@/data/visualvalues'
 import { I18nContext } from '@/i18n/I18nContext'
-import cl from '@/utils/clarr'
 import { useAppSelector, useAppDispatch } from '@/utils/hooks/useAppDispatch'
 import { shallowCompare } from '@/utils/shallowCompare'
 import { tooltipAttrs } from '@/utils/tooltip'

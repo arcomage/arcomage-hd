@@ -1,5 +1,5 @@
+import cl from 'clarr'
 import React, { useContext } from 'react'
-import cl from '@/utils/clarr'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import Birds from '../effects/Birds'

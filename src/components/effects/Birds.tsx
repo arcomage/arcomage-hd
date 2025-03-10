@@ -1,6 +1,6 @@
+import cl from 'clarr'
 import React, { useEffect, useRef, useState } from 'react'
 import { startSoundLength, typingSoundLength } from '@/constants/visuals'
-import cl from '@/utils/clarr'
 import { play } from '@/utils/sound/Sound'
 import styles from './Birds.module.scss'
 
