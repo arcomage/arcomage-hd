@@ -55,7 +55,10 @@ function isValidReleaseType(release: string): release is ReleaseType {
 
 try {
   const packageJsonPath = './package.json'
-  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
+  const originalContent = readFileSync(packageJsonPath, 'utf8')
+  const hasFinalNewline = originalContent.endsWith('\n')
+
+  const packageJson = JSON.parse(originalContent)
 
   const oldVersion = packageJson.version
 
@@ -75,7 +78,13 @@ try {
   }
 
   packageJson.version = version
-  writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2), 'utf8')
+
+  let updatedContent = JSON.stringify(packageJson, null, 2)
+  if (hasFinalNewline) {
+    updatedContent += '\n'
+  }
+
+  writeFileSync(packageJsonPath, updatedContent, 'utf8')
   console.log(
     `Updated version from v${oldVersion} to ${version} in package.json`,
   )

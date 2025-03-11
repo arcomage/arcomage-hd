@@ -82,6 +82,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@types/bun": "^1.2.4",
+    "@types/opencc-js": "^1.0.3",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/react-redux": "^7.1.34",
