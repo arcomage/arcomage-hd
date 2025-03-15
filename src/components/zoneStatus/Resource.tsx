@@ -1,5 +1,5 @@
 import cl from 'clarr'
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useCallback, useContext, useEffect, useRef } from 'react'
 import { resNameAllMap, ResNameType } from '@/constants/resourceNames'
 import { smallRootFontScreenMax, unitTextMaxLength } from '@/constants/visuals'
 import { I18nContext } from '@/i18n/I18nContext'
@@ -59,26 +59,31 @@ const Resource = ({ type, isOpponent }: PropType) => {
   )
   resProdTooltip = `${upper1st(resProdTooltip)} = %%`
   const resProdTooltipBearerRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const selectN = (state: RootState) =>
-      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][1]]
-    const updateTooltip = (n: number) => {
-      if (resProdTooltipBearerRef.current !== null) {
-        const tooltipTemplate =
-          resProdTooltipBearerRef.current.dataset.tooltipContentTemplate
-        if (tooltipTemplate) {
-          resProdTooltipBearerRef.current.dataset.tooltipContent =
-            tooltipTemplate.replace('%%', n.toString())
-        }
+  const selectNProd = useCallback(
+    (state: RootState) =>
+      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][1]],
+    [isOpponent, type],
+  )
+  const updateTooltipProd = useCallback((n: number) => {
+    if (resProdTooltipBearerRef.current !== null) {
+      const tooltipTemplate =
+        resProdTooltipBearerRef.current.dataset.tooltipContentTemplate
+      if (tooltipTemplate) {
+        resProdTooltipBearerRef.current.dataset.tooltipContent =
+          tooltipTemplate.replace('%%', n.toString())
       }
     }
-    const unsubscribe = appSubscriber(selectN, updateTooltip)
-    updateTooltip(selectN(store.getState()))
+  }, [])
+  useEffect(() => {
+    const unsubscribe = appSubscriber(selectNProd, updateTooltipProd)
     return unsubscribe
     // no lint reason: isOpponent is stable
     // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  useEffect(() => {
+    updateTooltipProd(selectNProd(store.getState()))
+  }, [_, selectNProd, updateTooltipProd])
 
   const winResource = useAppSelector((state) => state.settings.winResource)
   let resTooltip = _.i18n(`${isOpponent ? "Opponent's" : 'Your'} %sp`)
@@ -98,26 +103,38 @@ const Resource = ({ type, isOpponent }: PropType) => {
     .replace('%s2', winResource.toString())
   resTooltip = upper1st(resTooltip)
   const resTooltipBearerRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const selectN = (state: RootState) =>
-      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][0]]
-    const updateTooltip = (n: number) => {
-      if (resTooltipBearerRef.current !== null) {
-        const tooltipTemplate =
-          resTooltipBearerRef.current.dataset.tooltipContentTemplate
-        if (tooltipTemplate) {
-          resTooltipBearerRef.current.dataset.tooltipContent =
-            tooltipTemplate.replace('%%', n.toString())
-        }
+  const selectN = useCallback(
+    (state: RootState) =>
+      state.status[isOpponent ? 'opponent' : 'player'][resNameAllMap[type][0]],
+    // no lint reason: type is stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isOpponent],
+  )
+  const updateTooltip = useCallback((n: number) => {
+    if (resTooltipBearerRef.current !== null) {
+      const tooltipTemplate =
+        resTooltipBearerRef.current.dataset.tooltipContentTemplate
+      if (tooltipTemplate) {
+        resTooltipBearerRef.current.dataset.tooltipContent =
+          tooltipTemplate.replace('%%', n.toString())
       }
     }
+  }, [])
+  useEffect(() => {
+    // non-declarative, efficient update
     const unsubscribe = appSubscriber(selectN, updateTooltip)
-    updateTooltip(selectN(store.getState()))
     return unsubscribe
     // no lint reason: isOpponent is stable
     // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  useEffect(() => {
+    updateTooltip(selectN(store.getState()))
+    // no lint reason: isOpponent is stable
+    // eslint-disable-next-line react-compiler/react-compiler
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [_])
 
   return (
     <div
@@ -133,7 +150,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
         style={{
           height: `calc(${calcProdHeight(height)})`,
         }}
-        {...tooltipAttrs(resProdTooltip, isOpponent ? 'left' : 'right')}
+        {...tooltipAttrs('', isOpponent ? 'left' : 'right')}
         data-tooltip-content-template={resProdTooltip}
       >
         <div
@@ -156,7 +173,7 @@ const Resource = ({ type, isOpponent }: PropType) => {
       <div
         ref={resTooltipBearerRef}
         className={styles.countcontainer}
-        {...tooltipAttrs(resTooltip, isOpponent ? 'left' : 'right')}
+        {...tooltipAttrs('', isOpponent ? 'left' : 'right')}
         data-tooltip-content-template={resTooltip}
       >
         <div

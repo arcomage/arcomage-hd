@@ -1,5 +1,5 @@
 import cl from 'clarr'
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useCallback, useContext, useEffect, useRef } from 'react'
 import { maxWallOnScreen } from '@/constants/visuals'
 import { I18nContext } from '@/i18n/I18nContext'
 import { RootState, store } from '@/store'
@@ -33,26 +33,31 @@ const Wall = ({ isOpponent = false }: PropType) => {
     ),
   )} = %%`
   const wallTooltipBearerRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const selectN = (state: RootState) =>
-      state.status[isOpponent ? 'opponent' : 'player'].wall
-    const updateTooltip = (n: number) => {
-      if (wallTooltipBearerRef.current !== null) {
-        const tooltipTemplate =
-          wallTooltipBearerRef.current.dataset.tooltipContentTemplate
-        if (tooltipTemplate) {
-          wallTooltipBearerRef.current.dataset.tooltipContent =
-            tooltipTemplate.replace('%%', n.toString())
-        }
+  const selectN = useCallback(
+    (state: RootState) => state.status[isOpponent ? 'opponent' : 'player'].wall,
+    [isOpponent],
+  )
+  const updateTooltip = useCallback((n: number) => {
+    if (wallTooltipBearerRef.current !== null) {
+      const tooltipTemplate =
+        wallTooltipBearerRef.current.dataset.tooltipContentTemplate
+      if (tooltipTemplate) {
+        wallTooltipBearerRef.current.dataset.tooltipContent =
+          tooltipTemplate.replace('%%', n.toString())
       }
     }
+  }, [])
+  useEffect(() => {
+    // non-declarative, efficient update
     const unsubscribe = appSubscriber(selectN, updateTooltip)
-    updateTooltip(selectN(store.getState()))
     return unsubscribe
     // no lint reason: isOpponent is stable
     // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  useEffect(() => {
+    updateTooltip(selectN(store.getState()))
+  }, [_, selectN, updateTooltip])
 
   return (
     <div
@@ -98,7 +103,7 @@ const Wall = ({ isOpponent = false }: PropType) => {
           style={{
             height: `calc(2.25rem + ${heightByCurrent(height, '1')} * var(--n) / 100)`, // (1.75rem + 0.25rem * 2) [numberoutwrapper] + heightByCurrent * nRatio
           }}
-          {...tooltipAttrs(wallTooltip, 'bottom')}
+          {...tooltipAttrs('', 'bottom')}
           data-tooltip-content-template={wallTooltip}
         ></div>
       </div>

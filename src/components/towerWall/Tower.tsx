@@ -1,5 +1,5 @@
 import cl from 'clarr'
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useCallback, useContext, useEffect, useRef } from 'react'
 import { I18nContext } from '@/i18n/I18nContext'
 import { RootState, store } from '@/store'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
@@ -44,26 +44,32 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
     .replace('%s2', winTower.toString())
   towerTooltip = upper1st(towerTooltip)
   const towerTooltipBearerRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const selectN = (state: RootState) =>
-      state.status[isOpponent ? 'opponent' : 'player'].tower
-    const updateTooltip = (n: number) => {
-      if (towerTooltipBearerRef.current !== null) {
-        const tooltipTemplate =
-          towerTooltipBearerRef.current.dataset.tooltipContentTemplate
-        if (tooltipTemplate) {
-          towerTooltipBearerRef.current.dataset.tooltipContent =
-            tooltipTemplate.replace('%%', n.toString())
-        }
+  const selectN = useCallback(
+    (state: RootState) =>
+      state.status[isOpponent ? 'opponent' : 'player'].tower,
+    [isOpponent],
+  )
+  const updateTooltip = useCallback((n: number) => {
+    if (towerTooltipBearerRef.current !== null) {
+      const tooltipTemplate =
+        towerTooltipBearerRef.current.dataset.tooltipContentTemplate
+      if (tooltipTemplate) {
+        towerTooltipBearerRef.current.dataset.tooltipContent =
+          tooltipTemplate.replace('%%', n.toString())
       }
     }
+  }, [])
+  useEffect(() => {
+    // non-declarative, efficient update
     const unsubscribe = appSubscriber(selectN, updateTooltip)
-    updateTooltip(selectN(store.getState()))
     return unsubscribe
     // no lint reason: isOpponent is stable
     // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  useEffect(() => {
+    updateTooltip(selectN(store.getState()))
+  }, [_, selectN, updateTooltip])
 
   return (
     <div
@@ -123,7 +129,7 @@ const Tower = ({ isOpponent = false, goal }: PropType) => {
           style={{
             height: `calc(2.25rem + ${heightByCurrent(height, '1')} * var(--n) / ${goal} + ${calcWidth(height)} / 204 * 282)`, // (1.75rem + 0.25rem * 2) [numberoutwrapper] + heightByCurrent * nRatio + towerbodytop's Height
           }}
-          {...tooltipAttrs(towerTooltip, 'bottom')}
+          {...tooltipAttrs('', 'bottom')}
           data-tooltip-content-template={towerTooltip}
         ></div>
       </div>
