@@ -42,12 +42,18 @@
 - `bun typecheck`: Check TypeScript types
 - `bun version a.b.c`: Update the version to `a.b.c` in `package.json`, create a tag, and commit changes (see tools/version/bump.ts for detailed usage)
 - `bun tool:zhconvert`: Convert text from zh-Hans to zh-Hant (used for 'cards' & 'main', not 'taverns')
-- `bun tool:imgpc`: Extract (crop) images from the original game’s big image
-- `bun tool:imgmin`: Minify images (the minified PNG images are stored in `./img-min/original/` before being converted to .webp)
+- Image processing (in `./tools/img-processing/`):
+  - `bun tool:imgcrop`: Extract (crop) images from `0_original/` to `1_after_crop`
+  - Then (if Windows) download the latest Windows version from https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan/releases, and put all files in `./tools/img-processing/realesrgan-ncnn-vulkan-windows/`, and right click `./tools/img-processing/2_upscale.ps1`, "Run with PowerShell", to upscale images from `1_after_crop/` to `2_after_upscale`
+  - Then `bun tool:imgmin`: Minify (compress to WebP) images from `2_after_upscale/` and `2_no_preprocess` to `3_final`
+  - Then `bun tool:imgcleanup`: copy `3_final/*.*` to `./assets/img/` and remove `1_after_crop`, `2_after_upscale`, `3_final` folders
 - `bun tool:genimgimports`: Generate card image imports in `./src/data/cardImgImports.ts` (unused & not generated for now)
 - `bun tool:datapc`: Extract card data from an Excel file
 - `bun tool:taverns`: Extract tavern data from an Excel file
 - `bun tool:geticelist`: Fetch a free STUN server list
+  - STUN Server Test: https://tomchen.github.io/stun-server-test/
+  - Symmetric NAT Test: https://tomchen.github.io/symmetric-nat-test/
+  - WebRTC P2P Chat Test: https://tomchen.github.io/webrtc-p2p-chat/
 - `bun tool:ocr:pre`: Prepare OCR processing
 - `bun tool:ocr`: Extract card text in different languages
 - `bun tool:i18ncheck:card`: Check card localization

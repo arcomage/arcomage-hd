@@ -139,7 +139,7 @@ The game doesn't use [rAF](https://developer.mozilla.org/en-US/docs/Web/API/wind
 
 With [WebRTC](https://webrtc.org/) (using [PeerJS](https://peerjs.com/)), the game features P2P Multiplayer Mode without a server, utilizing only [STUN](https://en.wikipedia.org/wiki/STUN) servers and a signaling server (via [PeerJS](https://peerjs.com/docs/)) for peer discovery and connection establishment.
 
-It also supports stereo sound, WebP and SVG images, with images upscaled using the [waifu2x](https://github.com/nagadomi/waifu2x) / [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe) libraries. Card text is extracted using the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
+It also supports stereo sound, WebP and SVG images, with images upscaled using [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan). Card text is extracted using the OCR library [tesseract.js](https://tesseract.projectnaptha.com/).
 
 Developer scripts and tools are located in the [`tools` folder](https://github.com/arcomage/arcomage-hd/tree/main/tools). For more details, see the [development notes](https://github.com/arcomage/arcomage-hd/blob/main/DEVELOPMENT.md), [changelog](CHANGELOG.md), and the `scripts` section in [`package.json`](https://github.com/arcomage/arcomage-hd/blob/main/package.json).
 

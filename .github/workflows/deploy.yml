@@ -16,8 +16,6 @@ jobs:
         run: |
           bun install:nooptional
           bun run build
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
       - name: Deploy to GitHub Pages (in another repo)
         uses: cpina/github-action-push-to-another-repository@main
         env:

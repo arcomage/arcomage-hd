@@ -106,6 +106,9 @@ If you encounter any issues related to Multiplayer Mode, please refer to the [§
 
 In rare cases, depending on network conditions and other factors, users may experience difficulties connecting to other players, even if there are no NAT issues ([issue page](https://github.com/arcomage/arcomage-hd/issues/75)). Currently, we are unable to replicate the issue, and the only suggestion is to try again later.
 
+- [Symmetric NAT Online Test](https://tomchen.github.io/symmetric-nat-test/)
+- [WebRTC P2P Chat Online Test](https://tomchen.github.io/webrtc-p2p-chat)
+
 ## Sound Lag at Game Start
 
 If you experience a delay in sound playing when the game starts, it is likely due to:
