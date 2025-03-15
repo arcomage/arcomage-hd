@@ -101,7 +101,11 @@ async function optimizeImages() {
   for (const file of cardsFiles2) {
     if (file.endsWith('.png')) {
       const inputPath = path.join(cardsDir2, file)
-      const outputPath = path.join(_outputDir, cardsDir, `${path.parse(file).name}.webp`)
+      const outputPath = path.join(
+        _outputDir,
+        cardsDir,
+        `${path.parse(file).name}.webp`,
+      )
 
       await processImage(inputPath, outputPath)
     }

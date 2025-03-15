@@ -133,11 +133,7 @@ combine('firework.png', 1536, 1280, 6, 5)
 /**
  * copy all images that don't need to be cropped
  */
-;[
-  'res_1.png',
-  'res_2.png',
-  'res_3.png',
-].forEach((filename) => {
+;['res_1.png', 'res_2.png', 'res_3.png'].forEach((filename) => {
   fs.copyFile(
     path.join(_inputDir, filename),
     path.join(_outputDir, filename),

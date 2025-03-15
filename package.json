@@ -78,7 +78,7 @@
     "redux": "^5.0.1",
     "redux-observable": "^3.0.0-rc.2",
     "rxjs": "^7.8.2",
-    "semver-ts": "^1.0.2"
+    "semver-ts": "^1.0.3"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
@@ -101,7 +101,7 @@
     "sharp": "^0.33.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2",
-    "vite": "^6.2.1",
+    "vite": "^6.2.2",
     "vite-plugin-html-minifier": "^1.0.5",
     "vite-plugin-pwa": "^0.21.1"
   },
@@ -114,7 +114,7 @@
     "csv-parse": "^5.6.0",
     "doiuse": "^6.0.5",
     "eslint": "^9.22.0",
-    "eslint-import-resolver-typescript": "^3.8.5",
+    "eslint-import-resolver-typescript": "^3.9.0",
     "eslint-plugin-compat": "^6.0.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -128,7 +128,7 @@
     "opencc-js": "^1.0.5",
     "prettier": "^3.5.3",
     "sloc": "^0.3.2",
-    "stylelint": "^16.15.0",
+    "stylelint": "^16.16.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "tesseract.js": "^2.1.5",
     "typescript-eslint": "^8.26.1",
