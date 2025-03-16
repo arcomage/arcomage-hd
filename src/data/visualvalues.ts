@@ -53,10 +53,10 @@ export const visualPresets = [
   },
   {
     en: 'Bright',
-    values: { brightness: 1.4, contrast: 1.1 },
+    values: { brightness: 1.3, contrast: 1.1 },
   },
   {
     en: 'Dark',
-    values: { brightness: 0.6, contrast: 1.1 },
+    values: { brightness: 0.7, contrast: 1.1 },
   },
 ]
