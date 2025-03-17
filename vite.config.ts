@@ -22,12 +22,12 @@ const commitTimeDateObj = new Date(
 const commitTime = commitTimeDateObj.toUTCString()
 const commitTime2 = commitTimeDateObj.toISOString().replace(/\.\d+Z$/, '+00:00')
 
-const ogimageHash = (() => {
-  const fileBuffer = fs.readFileSync('./assets/logo/ogimage.jpg')
-  const hashSum = crypto.createHash('sha1')
-  hashSum.update(fileBuffer)
-  return hashSum.digest('hex').substring(0, 20)
-})()
+// const ogimageHash = (() => {
+//   const fileBuffer = fs.readFileSync('./assets/logo/ogimage.jpg')
+//   const hashSum = crypto.createHash('sha1')
+//   hashSum.update(fileBuffer)
+//   return hashSum.digest('hex').substring(0, 20)
+// })()
 
 const ReactCompilerConfig = {
   target: '19',
@@ -56,7 +56,7 @@ export default defineConfig({
       isDev ? './favicon.ico' : `${homeUrl}favicon.ico`,
     ),
     'import.meta.env.APP_OGIMAGE': JSON.stringify(
-      isDev ? './ogimage.jpg' : `${homeUrl}ogimage.jpg?${ogimageHash}`,
+      isDev ? './ogimage.jpg' : `${homeUrl}ogimage.jpg`,
     ),
     'import.meta.env.APP_DESCRIPTION': JSON.stringify(origDesc),
     'import.meta.env.APP_COMMITTIME': JSON.stringify(commitTime),
