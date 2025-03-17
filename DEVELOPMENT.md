@@ -36,7 +36,7 @@
 - `bun run build`: Build the project in production mode
 - `bun preview`: Preview the built project in production mode (does not include build process)
 - `bun checkall`: Run format with Prettier, lint with ESLint, check types, and run basic tests (see below)
-- `bun test`: Run basic tests (Jest tests from < v1.5 are not yet all migrated after v1.5's upgrade/migration to react 19 & bun)
+- `bun test`: Run basic tests (Jest tests from < v1.5.0-beta are not yet all migrated after v1.5.0-beta's upgrade/migration to react 19 & bun)
 - `bun format`: Format code using Prettier
 - `bun lint`: Lint code using ESLint
 - `bun typecheck`: Check TypeScript types
@@ -68,3 +68,11 @@
 - `bun tool:resizesvg`: Resize SVG images in `./misc/readme_images/`
 - `bun tool:reduxreducers`: Remove duplicate auto-generated reducer tests from Redux DevTools
 - `bun linecount`: Get the total line count of the project
+
+## Others
+
+Add `.env` file in root folder:
+
+```
+APP_URL=https://arcomage.github.io/
+```

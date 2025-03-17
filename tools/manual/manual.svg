@@ -1,0 +1,1202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1280 884"
+   style="background-color:#ffffff00"
+   version="1.1"
+   xml:space="preserve"
+   x="0px"
+   y="0px"
+   width="100%"
+   height="100%"
+   id="svg67"
+   sodipodi:docname="manual.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:export-filename="manual.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs67"><rect
+   x="1000.8994"
+   y="84.071006"
+   width="26.508876"
+   height="43.171597"
+   id="rect6" /><rect
+   x="1000.142"
+   y="87.47929"
+   width="59.455621"
+   height="62.485207"
+   id="rect5" />
+	
+	
+</defs><sodipodi:namedview
+   id="namedview67"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="0.66015626"
+   inkscape:cx="674.84023"
+   inkscape:cy="352.94674"
+   inkscape:window-width="2400"
+   inkscape:window-height="1262"
+   inkscape:window-x="-8"
+   inkscape:window-y="106"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Background" />
+	<g
+   id="Background">
+		<image
+   x="0"
+   y="0"
+   width="1280"
+   height="884"
+   xlink:href="manual.svg.images/image1.png"
+   id="image1" />
+		<rect
+   x="89"
+   y="43"
+   width="122"
+   height="41"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="#00000066"
+   id="rect1"
+   style="fill:#000000;fill-opacity:0.50304878" />
+		<rect
+   x="71"
+   y="137"
+   width="154"
+   height="54"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="#00000066"
+   id="rect2"
+   style="fill:#000000;fill-opacity:0.50304878" />
+		<rect
+   x="71"
+   y="294"
+   width="154"
+   height="54"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="#00000066"
+   id="rect3"
+   style="fill:#000000;fill-opacity:0.50304878" />
+		<rect
+   x="69.026794"
+   y="454.02679"
+   width="168.00558"
+   height="53.946415"
+   stroke="#ffffff"
+   stroke-width="3.05359"
+   fill="#00000066"
+   id="rect4"
+   style="fill:#000000;fill-opacity:0.5;stroke-width:3;stroke-dasharray:none" />
+		<text
+   x="114.85298"
+   y="72.212677"
+   width="120"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:26px;font-family:Arial;text-align:center"
+   id="text4"><tspan
+     id="tspan4"><![CDATA[Name]]></tspan></text>
+		<text
+   x="208.14757"
+   y="25.216415"
+   width="90"
+   fill="#ffffff"
+   style="color:#ffffff;font-size:20px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:91.4754;display:inline"
+   id="text5"
+   transform="translate(-205.6551,24.100208)"
+   xml:space="preserve"><tspan
+     x="208.14757"
+     y="25.216415"
+     id="tspan7"><tspan
+       style="text-anchor:middle"
+       id="tspan5">Player’s </tspan></tspan><tspan
+     x="208.14757"
+     y="45.216417"
+     id="tspan13"><tspan
+       style="text-anchor:middle"
+       id="tspan12">turn</tspan></tspan></text>
+		<text
+   x="1054.8876"
+   y="113.94083"
+   width="124"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:20px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:116.73;display:inline"
+   id="text7"
+   transform="translate(106.65524,-61.306433)"
+   xml:space="preserve"><tspan
+     x="1054.8876"
+     y="113.94083"
+     id="tspan14">Name </tspan><tspan
+     x="1054.8876"
+     y="133.94082"
+     id="tspan15">grayed out: </tspan><tspan
+     x="1054.8876"
+     y="153.94082"
+     id="tspan36"><tspan
+       style="font-weight:normal"
+       id="tspan25">Opponent </tspan><tspan
+       style="font-weight:normal"
+       id="tspan31">is </tspan></tspan><tspan
+     x="1054.8876"
+     y="173.94082"
+     id="tspan41"><tspan
+       style="font-weight:normal"
+       id="tspan40">out of turn</tspan></tspan></text>
+		<rect
+   x="832"
+   y="47"
+   width="34"
+   height="260"
+   stroke="#ffffff"
+   stroke-width="2"
+   fill="#00000066"
+   id="rect7"
+   style="fill:#000000;fill-opacity:0.5" />
+		<text
+   x="49.645107"
+   y="-842.12018"
+   width="29"
+   fill="#ffffff"
+   style="color:#ffffff;font-size:24px;font-family:Arial;text-align:center"
+   id="text8"
+   transform="rotate(90)"><tspan
+     id="tspan8"><![CDATA[10+ languages to select]]></tspan></text>
+		<rect
+   x="871.25146"
+   y="47.069401"
+   width="75.696213"
+   height="172.16121"
+   stroke="#ffffff"
+   stroke-width="2.04996"
+   fill="#00000066"
+   id="rect8"
+   style="fill:#000000;fill-opacity:0.5;stroke-width:2.08884;stroke-dasharray:none" />
+		<rect
+   x="951"
+   y="47"
+   width="33"
+   height="124"
+   stroke="#ffff00"
+   stroke-width="2"
+   fill="#00000066"
+   id="rect9"
+   style="fill:#000000;fill-opacity:0.5" />
+		<rect
+   x="949"
+   y="5"
+   width="37"
+   height="40"
+   stroke="#ffff00"
+   stroke-width="2"
+   fill="none"
+   id="rect10" />
+		<rect
+   x="1009"
+   y="5"
+   width="37"
+   height="40"
+   stroke="#ffffff"
+   stroke-width="2"
+   fill="none"
+   id="rect11" />
+		<rect
+   x="828"
+   y="5"
+   width="42.5"
+   height="40"
+   stroke="#ffffff"
+   stroke-width="2"
+   fill="none"
+   id="rect12" />
+		<rect
+   x="887"
+   y="5"
+   width="42.5"
+   height="40"
+   stroke="#ffffff"
+   stroke-width="2"
+   fill="none"
+   id="rect13" />
+		<rect
+   x="991.38208"
+   y="47.032982"
+   width="70.678413"
+   height="116.93404"
+   stroke="#ffffff"
+   stroke-width="2.06596"
+   fill="#00000066"
+   id="rect14"
+   style="fill:#000000;fill-opacity:0.5;stroke-width:2;stroke-dasharray:none" />
+		<text
+   x="48.649303"
+   y="-959.84564"
+   width="29"
+   fill="#ffff00"
+   style="color:#ffff00;font-size:24px;line-height:1;font-family:Arial;text-align:center"
+   id="text14"
+   transform="rotate(90)"><![CDATA[Full Screen]]></text>
+		<rect
+   x="363.65637"
+   y="522.15338"
+   width="69.284912"
+   height="34.113308"
+   stroke="#ffffff"
+   stroke-width="2.31273"
+   fill="#00000066"
+   id="rect15"
+   style="fill:#000000;fill-opacity:0.5;stroke-width:3;stroke-dasharray:none" />
+		<rect
+   x="757"
+   y="3"
+   width="63"
+   height="48"
+   stroke="#ffff00"
+   stroke-width="3"
+   fill="none"
+   id="rect16" />
+		<text
+   x="371.4379"
+   y="548.86389"
+   width="96"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:26px;font-family:Arial;text-align:center"
+   id="text16"><tspan
+     id="tspan16"><![CDATA[Wall]]></tspan></text>
+		<rect
+   x="246.99361"
+   y="521.53796"
+   width="89.071968"
+   height="33.450668"
+   stroke="#ffffff"
+   stroke-width="2.59667"
+   fill="#00000066"
+   id="rect17"
+   style="fill:#000000;fill-opacity:0.5;stroke-width:3;stroke-dasharray:none" />
+		<text
+   x="253.49704"
+   y="547.86389"
+   width="96"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:26px;font-family:Arial;text-align:center"
+   id="text17"><tspan
+     id="tspan17"><![CDATA[Tower]]></tspan></text>
+		
+		<g
+   id="g12"
+   transform="rotate(59.258964,378.40158,282.65247)"><rect
+     x="309.01865"
+     y="313.9324"
+     width="255.59958"
+     height="35.492561"
+     stroke="#ffffff"
+     stroke-width="1.37001"
+     fill="#00000066"
+     id="rect18"
+     style="fill:#000000;fill-opacity:0.503049;stroke-width:3;stroke-dasharray:none" /><text
+     x="313.44266"
+     y="344.18088"
+     width="192.5"
+     fill="#ffffff"
+     style="color:#ffffff;font-weight:bold;font-size:35px;font-family:Arial;text-align:center"
+     id="text18"><tspan
+       id="tspan18"><![CDATA[PLAYER ZONE]]></tspan></text></g><g
+   id="g13"
+   transform="rotate(-59.028294,799.21334,126.98435)"><rect
+     x="452.19232"
+     y="333.11868"
+     width="311.9935"
+     height="35.214741"
+     stroke="#ffffff"
+     stroke-width="1.37001"
+     fill="#00000066"
+     id="rect18-7"
+     style="fill:#000000;fill-opacity:0.503049;stroke-width:3.00002;stroke-dasharray:none"
+     transform="matrix(0.99994475,-0.01051205,0.01591165,0.9998734,0,0)" /><text
+     x="457.32178"
+     y="365.24646"
+     width="192.5"
+     fill="#ffffff"
+     style="color:#ffffff;font-weight:bold;font-size:35px;font-family:Arial;text-align:center"
+     id="text18-7"
+     transform="rotate(-0.741036)"><tspan
+       id="tspan18-4">OPPONENT ZONE</tspan></text></g>
+		
+		
+		<rect
+   x="656"
+   y="55"
+   width="164"
+   height="176.2"
+   stroke="#ffff00"
+   stroke-width="3"
+   fill="#00000066"
+   id="rect20"
+   style="fill:#000000;fill-opacity:0.5" />
+		<rect
+   x="663"
+   y="242"
+   width="153.3"
+   height="158"
+   stroke="#7fff00"
+   stroke-width="3"
+   fill="#00000066"
+   id="rect21"
+   style="fill:#000000;fill-opacity:0.5" />
+		<rect
+   x="24"
+   y="814"
+   width="145"
+   height="57"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="#00000066"
+   id="rect22"
+   style="fill:#000000;fill-opacity:0.5" />
+		<rect
+   x="172"
+   y="814"
+   width="45"
+   height="41"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="none"
+   id="rect23" />
+		<text
+   x="25"
+   y="872"
+   width="145"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:22px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:141.437;display:inline"
+   id="text23"
+   transform="translate(0.37869823,-32.189349)"
+   xml:space="preserve"><tspan
+     x="25"
+     y="872"
+     id="tspan42">Card costs 3 </tspan><tspan
+     x="25"
+     y="894.00001"
+     id="tspan43">bricks (red)</tspan></text>
+		<rect
+   x="283"
+   y="615"
+   width="151"
+   height="189"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="#00000066"
+   id="rect24"
+   style="fill:#000000;fill-opacity:0.5" />
+		<rect
+   x="1071"
+   y="701.5"
+   width="187"
+   height="76.5"
+   stroke="#ff0000"
+   stroke-width="2"
+   fill="#00000066"
+   id="rect25"
+   style="fill:#000000;fill-opacity:0.5" /><rect
+   x="1076.2426"
+   y="779.7041"
+   width="82.964554"
+   height="24.724907"
+   stroke="#ff0000"
+   stroke-width="0.757342"
+   fill="#00000066"
+   id="rect25-3"
+   style="fill:none;fill-opacity:0.5;stroke-width:2;stroke-dasharray:none" />
+		<text
+   x="293.57397"
+   y="639.88757"
+   width="145"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:22px;line-height:1.2;font-family:Arial;text-align:center;white-space:pre;inline-size:142.891;display:inline"
+   id="text26"
+   transform="translate(-6.8165681,-1.5147929)"
+   xml:space="preserve"><tspan
+     x="293.57397"
+     y="639.88757"
+     id="tspan44">Grayed out </tspan><tspan
+     x="293.57397"
+     y="666.28759"
+     id="tspan46">card: <tspan
+   style="font-weight:normal"
+   id="tspan45">Not </tspan></tspan><tspan
+     x="293.57397"
+     y="692.68762"
+     id="tspan48"><tspan
+       style="font-weight:normal"
+       id="tspan47">enough </tspan></tspan><tspan
+     x="293.57397"
+     y="719.08764"
+     id="tspan50"><tspan
+       style="font-weight:normal"
+       id="tspan49">resources to </tspan></tspan><tspan
+     x="293.57397"
+     y="745.48767"
+     id="tspan52"><tspan
+       style="font-weight:normal"
+       id="tspan51">play this card, </tspan></tspan><tspan
+     x="293.57397"
+     y="771.88769"
+     id="tspan54"><tspan
+       style="font-weight:normal"
+       id="tspan53">you can only </tspan></tspan><tspan
+     x="293.57397"
+     y="798.28772"
+     id="tspan56"><tspan
+       style="font-weight:normal"
+       id="tspan55">discard it</tspan></tspan></text>
+		<text
+   x="631"
+   y="429.00891"
+   width="183"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:22px;line-height:1;font-family:Arial;text-align:left"
+   id="text29"><tspan
+     sodipodi:role="line"
+     id="tspan29"
+     x="631"
+     y="429.00891"><![CDATA[DISCARD CARD:]]></tspan><tspan
+     sodipodi:role="line"
+     id="tspan30"
+     x="631"
+     y="451.00891">Right Click<tspan
+   style="font-style:italic;font-weight:normal;font-size:16px;line-height:1"
+   id="tspan28" /></tspan><tspan
+     sodipodi:role="line"
+     x="631"
+     y="473.00891"
+     id="tspan33"><tspan
+       style="font-style:italic;font-weight:normal;font-size:16px;line-height:1"
+       id="tspan35">or</tspan></tspan><tspan
+     sodipodi:role="line"
+     x="631"
+     y="495.00891"
+     id="tspan37">Long Press</tspan></text>
+		<text
+   x="617.08875"
+   y="429.23077"
+   width="140"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:22px;line-height:1;font-family:Arial;text-align:right"
+   id="text33"><tspan
+     sodipodi:role="line"
+     id="tspan21"
+     x="617.08875"
+     y="429.23077"
+     style="text-align:end;text-anchor:end"><![CDATA[USE CARD:]]></tspan><tspan
+     sodipodi:role="line"
+     id="tspan22"
+     x="617.08875"
+     y="451.23077"
+     style="text-align:end;text-anchor:end">Left Click</tspan><tspan
+     sodipodi:role="line"
+     x="617.08875"
+     y="473.23077"
+     id="tspan24"
+     style="font-style:italic;font-weight:normal;font-size:16px;line-height:1;text-align:end;text-anchor:end">or</tspan><tspan
+     sodipodi:role="line"
+     x="617.08875"
+     y="495.23077"
+     id="tspan26"
+     style="text-align:end;text-anchor:end"><tspan
+   style="font-style:normal;font-size:20px;line-height:1;text-align:end;text-anchor:end"
+   id="tspan27">(Short) </tspan><![CDATA[Press]]></tspan></text>
+		<rect
+   x="842"
+   y="815"
+   width="143"
+   height="57"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="#00000066"
+   id="rect33"
+   style="fill:#000000;fill-opacity:0.5" />
+		<rect
+   x="988"
+   y="815"
+   width="45"
+   height="41"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="none"
+   id="rect34" />
+		<text
+   x="841"
+   y="873"
+   width="145"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:22px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:143.229;display:inline"
+   id="text34"
+   transform="translate(0,-33.20473)"
+   xml:space="preserve"><tspan
+     x="841"
+     y="873"
+     id="tspan57">Card costs 3 </tspan><tspan
+     x="841"
+     y="895.00001"
+     id="tspan58">gems (blue)</tspan></text>
+		<rect
+   x="1039.8025"
+   y="811.01581"
+   width="149.18169"
+   height="56.96833"
+   stroke="#ffffff"
+   stroke-width="3.03167"
+   fill="#00000066"
+   id="rect35"
+   style="fill:#000000;fill-opacity:0.5;stroke-width:3;stroke-dasharray:none" />
+		<rect
+   x="1192"
+   y="811"
+   width="45"
+   height="41"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="none"
+   id="rect36" />
+		<text
+   x="1032"
+   y="866"
+   width="170"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:22px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:157.477;display:inline"
+   id="text37"
+   transform="translate(4.2844813,-28.920249)"
+   xml:space="preserve"><tspan
+     x="1032"
+     y="866"
+     id="tspan59">Card costs 3 </tspan><tspan
+     x="1032"
+     y="888.00001"
+     id="tspan61"><tspan
+       style="font-size:20px"
+       id="tspan60">recruits (green)</tspan></tspan></text>
+		<path
+   d="M 15 16 L 138.7 16 L 480.7 599 L 15 599 L 15 16 Z"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="none"
+   id="path37"
+   style="stroke-dasharray:3,9;stroke-dashoffset:0" />
+		<path
+   d="M 1264.7 16 L 1141 16 L 799 599 L 1264.7 599 L 1264.7 16 Z"
+   stroke="#ffffff"
+   stroke-width="3"
+   fill="none"
+   id="path38"
+   style="stroke-dasharray:3,9;stroke-dashoffset:0" />
+		<text
+   x="148.6519"
+   y="161.93752"
+   width="187"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:26px;line-height:0.8;font-family:Arial;text-align:center"
+   id="text39"><tspan
+     sodipodi:role="line"
+     id="tspan70"
+     x="148.6519"
+     y="161.93752"
+     style="text-align:center;text-anchor:middle;line-height:0.8"><![CDATA[Quarry]]></tspan><tspan
+     sodipodi:role="line"
+     id="tspan71"
+     x="148.6519"
+     y="182.73752"
+     style="font-weight:normal;font-size:20px;text-align:center;text-anchor:middle;line-height:0.8">(brick generator)</tspan></text>
+		<rect
+   x="194.34839"
+   y="92.993919"
+   width="115.30858"
+   height="71.95298"
+   stroke="#ffffff"
+   stroke-width="2.04702"
+   fill="#00000099"
+   id="rect39"
+   style="fill:#000000;fill-opacity:0.503049;stroke-width:2;stroke-dasharray:none" />
+		<text
+   x="802.27216"
+   y="124.99409"
+   width="70"
+   fill="#ffffff"
+   style="color:#ffffff;font-size:24px;line-height:0.8;font-family:Arial;text-align:center;white-space:pre;inline-size:68.6895;display:inline"
+   id="text43"
+   transform="translate(190.48521,-49.988166)"
+   xml:space="preserve"><tspan
+     x="802.27216"
+     y="124.99409"
+     id="tspan63"><tspan
+       style="-inkscape-font-specification:Arial"
+       id="tspan62">Help </tspan></tspan><tspan
+     x="802.27216"
+     y="144.19409"
+     id="tspan65"><tspan
+       style="font-style:italic;font-size:18px;-inkscape-font-specification:'Arial Italic'"
+       id="tspan64">(check </tspan></tspan><tspan
+     x="802.27216"
+     y="163.39409"
+     id="tspan67"><tspan
+       style="color:#ffff99;font-size:17px;font-family:Consolas;-inkscape-font-specification:Consolas;fill:#ffff00"
+       id="tspan66">Version </tspan></tspan><tspan
+     x="802.27216"
+     y="182.59408"
+     id="tspan72"><tspan
+       style="color:#ffff99;font-size:17px;font-family:Consolas;-inkscape-font-specification:Consolas;fill:#ffff00"
+       id="tspan68">Number</tspan><tspan
+       style="font-style:italic;font-size:18px;-inkscape-font-specification:'Arial Italic'"
+       id="tspan69"> </tspan></tspan><tspan
+     x="802.27216"
+     y="201.79408"
+     id="tspan74"><tspan
+       style="font-style:italic;font-size:18px;-inkscape-font-specification:'Arial Italic'"
+       id="tspan73">here)</tspan></tspan></text>
+		<text
+   x="189"
+   y="171"
+   width="117"
+   fill="#ffffff"
+   style="color:#ffffff;font-size:17px;line-height:1;font-family:Arial;text-align:center;text-anchor:middle;white-space:pre;inline-size:114.982;display:inline"
+   id="text44"
+   transform="translate(62.449851,-61.514482)"
+   xml:space="preserve"><tspan
+     x="189"
+     y="171"
+     id="tspan75">The Quarry<tspan
+   y="171"
+   id="tspan76"> </tspan></tspan><tspan
+     x="189"
+     y="188"
+     id="tspan77">here produces<tspan
+   y="188"
+   id="tspan78"> </tspan></tspan><tspan
+     x="189"
+     y="205"
+     id="tspan79">3 bricks each<tspan
+   y="205"
+   id="tspan80"> </tspan></tspan><tspan
+     x="189"
+     y="222"
+     id="tspan81">turn</tspan></text>
+		<rect
+   x="188.69165"
+   y="241.99957"
+   width="84.241653"
+   height="74.954666"
+   stroke="#ffffff"
+   stroke-width="2.04534"
+   fill="#00000099"
+   id="rect44"
+   style="fill:#000000;fill-opacity:0.503049;stroke-width:2;stroke-dasharray:none" />
+		<text
+   x="184"
+   y="317"
+   width="89"
+   fill="#ffffff"
+   style="color:#ffffff;font-size:15px;line-height:0.9;font-family:Arial;text-align:center;white-space:pre;inline-size:86.3245;display:inline"
+   id="text45"
+   transform="translate(3.4890238,-59.06848)"
+   xml:space="preserve"><tspan
+     x="184"
+     y="317"
+     id="tspan82">Minimum </tspan><tspan
+     x="184"
+     y="330.49999"
+     id="tspan83">generator is </tspan><tspan
+     x="184"
+     y="343.99999"
+     id="tspan84">1. It could </tspan><tspan
+     x="184"
+     y="357.49999"
+     id="tspan85">never be 0 </tspan><tspan
+     x="184"
+     y="370.99999"
+     id="tspan86">or less</tspan></text>
+		<rect
+   x="488"
+   y="92"
+   width="121"
+   height="89"
+   stroke="#ffffff"
+   stroke-width="2"
+   fill="#00000066"
+   id="rect45"
+   style="fill:#000000;fill-opacity:0.5" />
+		<text
+   x="484"
+   y="180"
+   width="127"
+   fill="#ffffff"
+   style="color:#ffffff;font-size:22px;line-height:1.2;font-family:Arial;text-align:center;white-space:pre;inline-size:120.827;display:inline"
+   id="text46"
+   transform="translate(3.0295858,-62.106509)"
+   xml:space="preserve"><tspan
+     x="484"
+     y="180"
+     id="tspan87">Cards that </tspan><tspan
+     x="484"
+     y="206.39999"
+     id="tspan88">have just </tspan><tspan
+     x="484"
+     y="232.79998"
+     id="tspan89">been used</tspan></text>
+		<text
+   x="147.11635"
+   y="318.40195"
+   width="187"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:26px;line-height:0.8;font-family:Arial;text-align:center"
+   id="text48"><tspan
+     sodipodi:role="line"
+     id="tspan2"
+     x="147.11635"
+     y="318.40195"
+     style="line-height:0.8;text-align:center;text-anchor:middle"><![CDATA[Magic]]></tspan><tspan
+     sodipodi:role="line"
+     id="tspan9"
+     x="147.11635"
+     y="339.20193"
+     style="font-weight:normal;font-size:20px;line-height:0.8;text-align:center;text-anchor:middle">(gem generator)</tspan></text>
+		<text
+   x="152.25859"
+   y="478.9375"
+   width="187"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:26px;line-height:0.8;font-family:Arial;text-align:center"
+   id="text50"><tspan
+     sodipodi:role="line"
+     id="tspan10"
+     x="152.25859"
+     y="478.9375"
+     style="text-align:center;text-anchor:middle"><![CDATA[Dungeon]]></tspan><tspan
+     sodipodi:role="line"
+     id="tspan11"
+     x="152.25859"
+     y="499.73749"
+     style="font-weight:normal;font-size:20px;line-height:0.8;text-align:center;text-anchor:middle">(recruit generator)</tspan></text>
+		<text
+   x="494"
+   y="302"
+   width="141"
+   fill="#ffffff"
+   style="color:#ffffff;font-size:15px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:135.137;display:inline"
+   id="text51"
+   transform="translate(26.778008,-12.317884)"
+   xml:space="preserve"><tspan
+     x="494"
+     y="302"
+     id="tspan90">Animated birds: </tspan><tspan
+     x="494"
+     y="316.99999"
+     id="tspan91">they chirp &amp; sing</tspan></text>
+		
+		<text
+   x="1073"
+   y="776"
+   width="182"
+   fill="#ffffff"
+   style="color:#ffffff;font-weight:bold;font-size:20px;line-height:1.2;font-family:Arial;text-align:center;white-space:pre;inline-size:181.583;display:inline"
+   id="text53"
+   transform="translate(0,-53.289941)"
+   xml:space="preserve"><tspan
+     x="1073"
+     y="776"
+     id="tspan93">“Damage”: <tspan
+   style="font-weight:normal"
+   id="tspan92">reduce </tspan></tspan><tspan
+     x="1073"
+     y="800.00001"
+     id="tspan95"><tspan
+       style="font-weight:normal"
+       id="tspan94">Wall until it’s 0, then </tspan></tspan><tspan
+     x="1073"
+     y="824.00001"
+     id="tspan97"><tspan
+       style="font-weight:normal"
+       id="tspan96">reduce Tower</tspan></tspan></text>
+		<image
+   x="255"
+   y="10"
+   width="227"
+   height="77"
+   xlink:href="manual.svg.images/image2.png"
+   id="image53" />
+		<g
+   id="g37"
+   transform="matrix(0.32297038,0,0,0.32297038,586.53042,509.49983)"
+   style="fill:#f9f9f9"><g
+     id="g1"
+     style="fill:#f9f9f9">
+	<path
+   d="M 115.973,0 C 73.102,0 38.223,34.879 38.223,77.75 v 89.913 c 0,35.445 28.837,64.282 64.282,64.282 h 26.936 c 35.445,0 64.282,-28.837 64.282,-64.282 V 77.75 C 193.723,34.879 158.844,0 115.973,0 Z m -13.468,213.945 c -25.521,0 -46.282,-20.762 -46.282,-46.282 v -30.496 h 119.5 v 30.496 c 0,25.521 -20.762,46.282 -46.282,46.282 z M 112.973,50.771 c 0,-1.654 1.346,-3 3,-3 1.654,0 3,1.346 3,3 v 31.917 c 0,1.654 -1.346,3 -3,3 -1.654,0 -3,-1.346 -3,-3 z m 62.75,68.396 h -50.75 v -17.535 c 7.082,-3.379 12,-10.589 12,-18.945 V 50.771 c 0,-8.355 -4.918,-15.566 -12,-18.945 V 18.679 c 28.691,4.353 50.75,29.184 50.75,59.071 z M 106.973,18.679 v 13.147 c -7.082,3.379 -12,10.589 -12,18.945 v 31.917 c 0,8.355 4.918,15.566 12,18.945 v 17.535 H 56.223 V 77.75 c 0,-29.888 22.058,-54.718 50.75,-59.071 z"
+   id="path1"
+   style="fill:#f9f9f9" />
+</g><g
+     id="g2"
+     style="fill:#f9f9f9">
+</g><g
+     id="g3"
+     style="fill:#f9f9f9">
+</g><g
+     id="g4"
+     style="fill:#f9f9f9">
+</g><g
+     id="g5"
+     style="fill:#f9f9f9">
+</g><g
+     id="g6"
+     style="fill:#f9f9f9">
+</g><g
+     id="g7"
+     style="fill:#f9f9f9">
+</g><g
+     id="g8"
+     style="fill:#f9f9f9">
+</g><g
+     id="g9"
+     style="fill:#f9f9f9">
+</g><g
+     id="g10"
+     style="fill:#f9f9f9">
+</g><g
+     id="g11"
+     style="fill:#f9f9f9">
+</g><g
+     id="g12-2"
+     style="fill:#f9f9f9">
+</g><g
+     id="g13-2"
+     style="fill:#f9f9f9">
+</g><g
+     id="g14"
+     style="fill:#f9f9f9">
+</g><g
+     id="g15"
+     style="fill:#f9f9f9">
+</g><g
+     id="g16"
+     style="fill:#f9f9f9">
+</g></g>
+		<g
+   id="g38"
+   transform="translate(477.09569,267.25792)"
+   style="fill:#f9f9f9"><g
+     id="g2-7"
+     style="fill:#f9f9f9"
+     transform="matrix(0.29421512,0,0,0.29421512,167.48391,240.09467)">
+	<path
+   d="m 62.288,89.305 c 1.367,0 2.741,-0.465 3.867,-1.415 2.532,-2.138 2.853,-5.924 0.715,-8.455 C 60.642,72.058 57.213,62.67 57.213,53 c 0,-22.608 18.393,-41 41,-41 22.607,0 41,18.392 41,41 0,6.308 -1.392,12.354 -4.137,17.974 -1.455,2.978 -0.221,6.57 2.757,8.024 2.977,1.459 6.57,0.22 8.024,-2.757 3.554,-7.274 5.355,-15.093 5.355,-23.241 0,-29.225 -23.775,-53 -53,-53 -29.225,0 -53,23.775 -53,53 0,12.5 4.435,24.637 12.487,34.175 1.188,1.406 2.883,2.13 4.589,2.13 z"
+   id="path1-4"
+   style="fill:#f9f9f9" />
+	<path
+   d="m 211.134,141.765 c -3.866,-22.86 -20.326,-25.967 -27.416,-26.223 -2.007,-0.073 -3.836,-1.129 -4.912,-2.824 -5.367,-8.456 -12.645,-10.681 -18.813,-10.681 -2.824,-0.001 -5.414,0.465 -7.485,1.013 -0.608,0.16 -1.227,0.239 -1.839,0.239 -2.178,0 -4.277,-0.994 -5.588,-2.811 -5.28,-7.315 -12.171,-9.293 -18.078,-9.293 -1.58,0 -3.09,0.142 -4.479,0.36 -0.371,0.059 -0.739,0.087 -1.1,0.087 -3.78,0 -6.969,-3.07 -6.974,-6.987 L 114.4,42.358 c -0.014,-10.927 -8.209,-16.387 -16.404,-16.387 -8.211,0 -16.422,5.479 -16.408,16.427 0.022,18.357 0.089,73.493 0.108,90.106 0.004,2.808 -1.675,5.345 -4.265,6.428 -32.541,13.602 7.643,74.619 14.84,85.076 0.702,1.02 1.118,2.203 1.211,3.438 l 1.759,23.661 c 0.274,3.65 3.316,6.724 6.977,6.724 0.003,0 0.006,0 0.009,0 l 78.623,-0.349 c 3.509,-0.005 6.471,-2.732 6.928,-6.211 l 3.202,-24.453 c 0.136,-1.031 0.51,-2.053 1.074,-2.927 21.012,-32.478 22.663,-60.937 19.08,-82.126 z"
+   id="path2"
+   style="fill:#f9f9f9" />
+</g><g
+     id="g3-2"
+     style="fill:#f9f9f9">
+</g><g
+     id="g4-8"
+     style="fill:#f9f9f9">
+</g><g
+     id="g5-5"
+     style="fill:#f9f9f9">
+</g><g
+     id="g6-8"
+     style="fill:#f9f9f9">
+</g><g
+     id="g7-5"
+     style="fill:#f9f9f9">
+</g><g
+     id="g8-5"
+     style="fill:#f9f9f9">
+</g><g
+     id="g9-3"
+     style="fill:#f9f9f9">
+</g><g
+     id="g10-5"
+     style="fill:#f9f9f9">
+</g><g
+     id="g11-6"
+     style="fill:#f9f9f9">
+</g><g
+     id="g12-7"
+     style="fill:#f9f9f9">
+</g><g
+     id="g13-1"
+     style="fill:#f9f9f9">
+</g><g
+     id="g14-7"
+     style="fill:#f9f9f9">
+</g><g
+     id="g15-8"
+     style="fill:#f9f9f9">
+</g><g
+     id="g16-0"
+     style="fill:#f9f9f9">
+</g><g
+     id="g17"
+     style="fill:#f9f9f9">
+</g></g>
+		<path
+   d="m 590.9913,548.92949 c -1.13744,-6.72576 -5.98022,-7.63989 -8.06621,-7.71521 -0.59049,-0.0215 -1.12861,-0.33217 -1.44518,-0.83086 -1.57905,-2.48788 -3.72035,-3.14251 -5.53507,-3.14251 -0.83086,-3e-4 -1.59288,0.13681 -2.2022,0.29804 -0.17888,0.0471 -0.361,0.0703 -0.54106,0.0703 -0.6408,0 -1.25836,-0.29245 -1.64408,-0.82704 -1.55345,-2.15219 -3.58089,-2.73414 -5.31882,-2.73414 -0.46486,0 -0.90912,0.0418 -1.31779,0.10591 -0.10915,0.0174 -0.21742,0.0256 -0.32363,0.0256 -1.11214,0 -2.05039,-0.90324 -2.05186,-2.05568 l -0.0147,-12.44148 c -0.004,-3.21488 -2.41521,-4.8213 -4.82631,-4.8213 -2.4158,0 -4.8316,1.61201 -4.82748,4.83307 0.006,5.40091 0.0262,21.62275 0.0318,26.51055 10e-4,0.82616 -0.49281,1.57258 -1.25483,1.89122 -9.57405,4.00191 2.24869,21.95403 4.36615,25.03064 0.20654,0.3001 0.32894,0.64816 0.3563,1.01151 l 0.51752,6.96143 c 0.0806,1.07388 0.97562,1.9783 2.05274,1.9783 8.8e-4,0 0.002,0 0.003,0 l 23.13207,-0.10268 c 1.03241,-10e-4 1.90387,-0.8038 2.03833,-1.82737 l 0.94207,-7.19444 c 0.04,-0.30334 0.15005,-0.60403 0.31599,-0.86117 6.18205,-9.55552 6.6678,-17.92859 5.61363,-24.16271 z"
+   id="path2-9"
+   style="fill:#f9f9f9;stroke-width:0.294215" />
+		<text
+   x="653"
+   y="234"
+   width="170"
+   fill="#ffff00"
+   style="color:#ffff00;font-weight:bold;font-size:26px;line-height:0.9;font-family:Arial;text-align:center;white-space:pre;inline-size:165.536;display:inline"
+   id="text57"
+   transform="translate(3.0295858,-152.99409)"
+   xml:space="preserve"><tspan
+     x="653"
+     y="234"
+     id="tspan98">Preferences
+</tspan><tspan
+     x="653"
+     y="257.39999"
+     id="tspan100"><tspan
+       style="font-weight:normal;font-size:20px"
+       id="tspan99">(view/set Names, </tspan></tspan><tspan
+     x="653"
+     y="280.8"
+     id="tspan102"><tspan
+       style="font-weight:normal;font-size:20px"
+       id="tspan101">Starting/Victory </tspan></tspan><tspan
+     x="653"
+     y="304.2"
+     id="tspan104"><tspan
+       style="font-weight:normal;font-size:20px"
+       id="tspan103">Conditions, AI </tspan></tspan><tspan
+     x="653"
+     y="327.59999"
+     id="tspan106"><tspan
+       style="font-weight:normal;font-size:20px"
+       id="tspan105">Level, etc., switch </tspan></tspan><tspan
+     x="653"
+     y="350.99999"
+     id="tspan108"><tspan
+       style="font-weight:normal;font-size:20px"
+       id="tspan107">Multiplayer Mode, </tspan></tspan><tspan
+     x="653"
+     y="374.39998"
+     id="tspan110"><tspan
+       style="font-weight:normal;font-size:20px"
+       id="tspan109">Start New Game)</tspan></tspan></text>
+		<text
+   x="659"
+   y="402"
+   width="162"
+   fill="#7fff00"
+   style="color:#7fff00;font-weight:bold;font-size:19px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:154.463;display:inline"
+   id="text63"
+   transform="translate(4.0547624,-136.00323)"
+   xml:space="preserve"><tspan
+     x="659"
+     y="402"
+     id="tspan111">Tower or one of </tspan><tspan
+     x="659"
+     y="421.00002"
+     id="tspan112">the resources </tspan><tspan
+     x="659"
+     y="440.00002"
+     id="tspan113">reaches Victory </tspan><tspan
+     x="659"
+     y="459.00002"
+     id="tspan114">Condition = WIN</tspan></text><text
+   x="659"
+   y="402"
+   width="162"
+   fill="#7fff00"
+   style="color:#7fff00;font-weight:bold;font-size:19px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:154.463;display:inline"
+   id="text63-6"
+   transform="translate(4.0826575,-45.314037)"
+   xml:space="preserve"><tspan
+     x="659"
+     y="402"
+     id="tspan116"><tspan
+       style="fill:#ff0000"
+       id="tspan115">0 Tower = LOSE</tspan></tspan></text><text
+   x="659"
+   y="402"
+   width="162"
+   fill="#7fff00"
+   style="color:#7fff00;font-weight:bold;font-size:19px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:154.463;display:inline"
+   id="text63-68"
+   transform="translate(5.3973489,-16.9432)"
+   xml:space="preserve"><tspan
+     x="659"
+     y="402"
+     id="tspan118"><tspan
+       style="color:#ffffff;font-weight:normal;font-size:16px;fill:#f9f9f9"
+       id="tspan117">both = TIE</tspan></tspan></text>
+		<path
+   id="Ellipse"
+   d="m 623.82004,265.57112 c 0,-9.1 8.3,-16.5 18.5,-16.5 10.2,0 18.5,7.4 18.5,16.5 0,9.1 -8.3,16.5 -18.5,16.5 -10.2,0 -18.5,-7.4 -18.5,-16.5 z"
+   stroke="#ffffff"
+   stroke-width="1"
+   fill="none" />
+		<text
+   x="880.31787"
+   y="250.74028"
+   width="83"
+   fill="#ffffff"
+   style="color:#ffffff;font-size:18px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:92.5736;display:inline"
+   id="text66"
+   transform="translate(-17.575067,-184.40972)"
+   xml:space="preserve"><tspan
+     x="880.31787"
+     y="250.74028"
+     id="tspan120"><tspan
+       style="text-anchor:middle"
+       id="tspan119">Sound
+</tspan></tspan><tspan
+     x="880.31787"
+     y="268.74028"
+     id="tspan122"><tspan
+       style="text-anchor:middle"
+       id="tspan121">&amp;
+</tspan></tspan><tspan
+     x="880.31787"
+     y="286.74028"
+     id="tspan124"><tspan
+       style="text-anchor:middle"
+       id="tspan123">Graphics</tspan></tspan></text>
+		
+		
+		<text
+   x="880"
+   y="177"
+   width="54"
+   fill="#ffff99"
+   style="color:#ffff99;font-size:21.3333px;line-height:1;font-family:Arial;text-align:center;white-space:pre;inline-size:68.9175;display:inline"
+   id="text67"
+   transform="translate(-5.8563659,-28.143634)"
+   xml:space="preserve"><tspan
+     x="880"
+     y="177"
+     id="tspan126"><tspan
+       style="font-family:PixelifySans;-inkscape-font-specification:PixelifySans"
+       id="tspan125">Pixel </tspan></tspan><tspan
+     x="880"
+     y="198.52717"
+     id="tspan128"><tspan
+       style="font-family:PixelifySans;-inkscape-font-specification:PixelifySans"
+       id="tspan127">Mode</tspan></tspan></text>
+	<text
+   xml:space="preserve"
+   style="font-weight:bold;font-size:18px;line-height:1;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei Bold';text-align:center;text-anchor:middle;fill:#f9f9f9;stroke-width:3;stroke-dasharray:none"
+   x="939.64978"
+   y="170.83334"
+   id="text19"><tspan
+     id="tspan19"
+     x="939.64978"
+     y="170.83334"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:end;text-anchor:end"
+     sodipodi:role="line">,</tspan><tspan
+     x="939.64978"
+     y="189.12204"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:end;text-anchor:end"
+     id="tspan20"
+     sodipodi:role="line">visual </tspan><tspan
+     x="939.64978"
+     y="207.41075"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:end;text-anchor:end"
+     sodipodi:role="line"
+     id="tspan23">effects)</tspan></text><text
+   xml:space="preserve"
+   style="font-weight:bold;font-size:18px;line-height:1;font-family:'Microsoft YaHei';-inkscape-font-specification:'Microsoft YaHei Bold';text-align:center;text-anchor:middle;fill:#f9f9f9;stroke-width:3;stroke-dasharray:none"
+   x="943.07019"
+   y="126.72689"
+   id="text19-1"><tspan
+     x="943.07019"
+     y="126.72689"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18px;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:end;text-anchor:end"
+     id="tspan23-0"
+     sodipodi:role="line">(volume,</tspan></text><text
+   xml:space="preserve"
+   id="text1"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;line-height:0.8;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;white-space:pre;shape-inside:url(#rect5);display:inline;fill:#f9f9f9;stroke-width:3" /><text
+   xml:space="preserve"
+   id="text6"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;line-height:0.8;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;white-space:pre;shape-inside:url(#rect6);display:inline;fill:#f9f9f9;stroke-width:3" /><g
+   id="g3-2-3"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g4-8-1"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g5-5-6"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g6-8-1"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g7-5-0"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g8-5-7"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g9-3-7"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g10-5-0"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g11-6-1"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g12-7-3"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g13-1-3"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g14-7-7"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g15-8-0"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g16-0-9"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><g
+   id="g17-8"
+   style="fill:#f9f9f9"
+   transform="translate(360.37972,266.63906)">
+</g><path
+   style="fill:none;stroke:#ffffff;stroke-width:6;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+   d="m 623.88147,511.22484 0.54149,-102.66317"
+   id="path39"
+   sodipodi:nodetypes="cc" /></g>
+	<g
+   id="Layer%201">
+	</g>
+</svg>

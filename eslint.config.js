@@ -19,7 +19,10 @@ const conf = tseslint.config(
     extends: [importFlatConfigs.recommended, importFlatConfigs.typescript],
     settings: {
       'import/resolver': {
-        typescript: {},
+        typescript: {
+          alwaysTryTypes: true,
+          bun: true,
+        },
       },
     },
     rules: {

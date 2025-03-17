@@ -4,12 +4,13 @@ _Summary of changes for major & minor releases. For detailed changes, click the 
 
 _To ensure you're using the latest version, open the game and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache and reload the webpage._
 
-<!-- ## [v1.6.0](https://github.com/arcomage/arcomage-hd/compare/v1.5.0...v1.6.0) (2025-?-?) (in progress)
+<!-- ## [v2.1.0](https://github.com/arcomage/arcomage-hd/compare/v2.0.0...v2.1.0) (202?-?-?) (in progress)
 
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-02-26..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-02-26..*)) -->
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-03-18..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-03-18..*)) -->
 
-## [v1.5.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.3...v1.5.0) (2025-02-25) (in beta testing phase)
+## [v2.0.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.3...v2.0.0) (2025-03-17)
 
+- [Optimization](https://github.com/arcomage/arcomage-hd/issues/100) of: images (better upscale with [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan), better minification with [squoosh](https://github.com/GoogleChromeLabs/squoosh)), [AnimatedNumber](https://github.com/arcomage/arcomage-hd/issues/95) (rewritten), [Tower/Wall/Resource/ResourceProd/Card anim and rerenders](https://github.com/arcomage/arcomage-hd/issues/100), [tooltip](https://github.com/arcomage/arcomage-hd/issues/103) (rewritten), [debounced number input](https://github.com/arcomage/arcomage-hd/issues/81) (rewritten), lang change, remove useless code in bundle, etc.
 - [Major Library changes](https://github.com/arcomage/arcomage-hd/issues/78)
   - Major Upgrade: React 19, Redux 5, RxJS 7.8, etc.
   - Removed: Webpack and related libs, Yarn, JSS, Jest and related libs, Enzyme, Testing Library, MUI, Husky, commitlint, Howler, classnames/clsx, copy-to-clipboard, some eslint plugins, ts-node, some polyfills (including pwacompat),etc.
@@ -18,7 +19,6 @@ _To ensure you're using the latest version, open the game and press <kbd>Ctrl</k
 - [Full control with mouse, touch device, keyboard, or gamepad](https://github.com/arcomage/arcomage-hd/issues/93) 🖱️📱⌨️🎮 ([instructions](gamecontrols.md)) (gamepad has basic support and is not fully finished)
 - At game end screen, [show reasons for win/loss/draw](https://github.com/arcomage/arcomage-hd/issues/84), [add "Review cards" button](https://github.com/arcomage/arcomage-hd/issues/101)
 - [Add scroll bar in window](https://github.com/arcomage/arcomage-hd/issues/98), [window layout issue in mobile](https://github.com/arcomage/arcomage-hd/issues/105)
-- [Optimization](https://github.com/arcomage/arcomage-hd/issues/100) of: [AnimatedNumber](https://github.com/arcomage/arcomage-hd/issues/95) (rewritten), [Tower/Wall/Resource/ResourceProd/Card anim and rerenders](https://github.com/arcomage/arcomage-hd/issues/100), [tooltip](https://github.com/arcomage/arcomage-hd/issues/103) (rewritten), [debounced number input](https://github.com/arcomage/arcomage-hd/issues/81) (rewritten), lang change, remove useless code in bundle, etc.
 - [LTR / Arabic support](https://github.com/arcomage/arcomage-hd/issues/90)
 - Fix some bugs including a [window load bug](https://github.com/arcomage/arcomage-hd/issues/104) and others
 - Fixes and improvements to accessibility (a11y)
@@ -26,7 +26,7 @@ _To ensure you're using the latest version, open the game and press <kbd>Ctrl</k
 - CI update, replaced husky git hooks with custom script
 - Docs update
 - Easter egg when clicking on birds
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..2025-02-25); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..2025-02-25))
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-01-26..2025-03-17); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-01-26..2025-03-17))
 
 ## [v1.4.0](https://github.com/arcomage/arcomage-hd/compare/v1.3.0...v1.4.3) ([2025-01-25](https://github.com/arcomage/arcomage-hd/tree/552bf596a98d403310345efe7afc7c067938d489))
 
