@@ -6,7 +6,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Harmondale',
   },
   {
-    name: "A Griff Pihenője",
+    name: 'A Griff Pihenője',
     location: 'Erathia',
   },
   {
@@ -34,11 +34,11 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Evenmorn-sziget',
   },
   {
-    name: "Szeszélyes Szerencse",
+    name: 'Szeszélyes Szerencse',
     location: 'Nighon-hegy',
   },
   {
-    name: "Bányászoknak Fenntartva",
+    name: 'Bányászoknak Fenntartva',
     location: 'Barrow-dombság',
   },
   {
@@ -50,7 +50,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Avlee',
   },
   {
-    name: "Grogg Grogja",
+    name: 'Grogg Grogja',
     location: 'Kőváros',
   },
   {
@@ -58,7 +58,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Tőrseb-sziget',
   },
   {
-    name: "Kessel Kantinja",
+    name: 'Kessel Kantinja',
     location: 'Hollópart',
   },
   {
@@ -70,7 +70,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Vaspor-sivatag',
   },
   {
-    name: "Sárkány Vére Fogadó",
+    name: 'Sárkány Vére Fogadó',
     location: 'Garrote-szurdok',
   },
   {
@@ -78,15 +78,15 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Árnycsúcs',
   },
   {
-    name: "Az Utazó Pihenője",
+    name: 'Az Utazó Pihenője',
     location: 'Mormolóerdő',
   },
   {
-    name: "Telitalálat Fogadó",
+    name: 'Telitalálat Fogadó',
     location: 'Vándorvadon',
   },
   {
-    name: "A Kalóz Pihenője",
+    name: 'A Kalóz Pihenője',
     location: 'Regna',
   },
   {
@@ -94,7 +94,7 @@ export const tavernsI18n: TavernsI18nType = [
     location: 'Hollópart',
   },
   {
-    name: "Miho Csárdája",
+    name: 'Miho Csárdája',
     location: 'Alvar',
   },
   {

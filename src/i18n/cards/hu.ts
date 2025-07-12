@@ -43,7 +43,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Újítások',
-    desc: "+1 bánya minden játékosnak, kapsz 4 drágakövet",
+    desc: '+1 bánya minden játékosnak, kapsz 4 drágakövet',
   },
   {
     name: 'Alapozás',
@@ -59,7 +59,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Földrengés',
-    desc: "-1 bánya minden játékosnak",
+    desc: '-1 bánya minden játékosnak',
   },
   {
     name: 'Nagy fal',
@@ -110,7 +110,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '+6 fal. 10 sebzés az ellenségnek',
   },
   {
-    name: "Sárkányszív",
+    name: 'Sárkányszív',
     desc: '+20 fal, +8 torony',
   },
   {
@@ -159,7 +159,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Mágneskő',
-    desc: "+3 torony. Ezt a kártyát nem lehet eldobni",
+    desc: '+3 torony. Ezt a kártyát nem lehet eldobni',
   },
   {
     name: 'Napkitörés',
@@ -191,7 +191,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Egyenlőség',
-    desc: "Minden játékos mágiája egyenlő a legnagyobb mágiával",
+    desc: 'Minden játékos mágiája egyenlő a legnagyobb mágiával',
   },
   {
     name: 'Smaragd',
@@ -222,7 +222,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '+6 torony. 4 sebzés az ellenséges toronynak',
   },
   {
-    name: "A bánya segítsége",
+    name: 'A bánya segítsége',
     desc: '+7 torony. Veszítesz 10 téglát',
   },
   {
@@ -246,7 +246,7 @@ export const cardsI18n: DataCardsI18nType = [
     desc: '+12 torony. 6 sebzés az ellenségnek',
   },
   {
-    name: "Sárkányszem",
+    name: 'Sárkányszem',
     desc: '+20 torony',
   },
   {
@@ -327,7 +327,7 @@ export const cardsI18n: DataCardsI18nType = [
   },
   {
     name: 'Telihold',
-    desc: "+1 állatkert minden játékosnak. Kapsz 3 szörnyet",
+    desc: '+1 állatkert minden játékosnak. Kapsz 3 szörnyet',
   },
   {
     name: 'Hasító',

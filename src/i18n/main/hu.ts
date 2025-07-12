@@ -15,7 +15,7 @@ export const i18n = {
   dungeon: 'állatkert', // i.e. recruit production
 
   'Your %s': 'Saját %s', // Your quarry/tower
-  "Opponent's %s": "Ellenséges %s", // Opponent's quarry/tower
+  "Opponent's %s": 'Ellenséges %s', // Opponent's quarry/tower
 
   '1 brick': '1 tégla',
   '%s bricks': '%s tégla', // 3 bricks
@@ -30,7 +30,7 @@ export const i18n = {
 
   // %ss = 'brick', %sp = 'bricks'
   'Your %sp': 'Saját %sp', // Your bricks
-  "Opponent's %sp": "Ellenséges %sp", // Opponent's bricks
+  "Opponent's %sp": 'Ellenséges %sp', // Opponent's bricks
 
   '%s1. Reach %s2 to win': '%s1. Győzelemhez szükséges: %s2', // Your tower/bricks/gems/recruits = n. Reach 100 to win
 
@@ -44,10 +44,8 @@ export const i18n = {
   'You Lose!': 'Vesztettél!',
   'Tie Game': 'Döntetlen',
 
-  '%s has reached the victory condition':
-    '%s elérte a győzelmi feltételt', // %s = 'Your tower', "Opponent's tower"
-  '%s have reached the victory condition':
-    '%s elérte a győzelmi feltételt', // %s = 'Your bricks', "Opponent's bricks", "Your gems", ...
+  '%s has reached the victory condition': '%s elérte a győzelmi feltételt', // %s = 'Your tower', "Opponent's tower"
+  '%s have reached the victory condition': '%s elérte a győzelmi feltételt', // %s = 'Your bricks', "Opponent's bricks", "Your gems", ...
   'Your opponent has no tower left': 'Az ellenségednek nem maradt tornya',
   'You have no tower left': 'Nem maradt tornyod',
 
@@ -59,7 +57,7 @@ export const i18n = {
   Preferences: 'Beállítások',
   ': ': ': ',
   'Your Name': 'Saját név',
-  "Opponent's Name": "Ellenfél neve",
+  "Opponent's Name": 'Ellenfél neve',
 
   'Choose a Tavern (Preset Preferences)':
     'Válassz Fogadót (Előre definiált beállítások)',
@@ -90,7 +88,7 @@ export const i18n = {
   off: 'kikapcsolva',
   on: 'bekapcsolva',
   'Your ID': 'Saját azonosító',
-  "Enter your opponent's ID": "Add meg az ellenfeled azonosítóját",
+  "Enter your opponent's ID": 'Add meg az ellenfeled azonosítóját',
   Connect: 'Csatlakozás',
   Copy: 'Másol',
   'Copied 📋✅': 'Másolva 📋✅',
@@ -100,9 +98,9 @@ export const i18n = {
     'Csatlakozva a hálózathoz (de senkihez) 🟡',
   'Connecting to ID %s ⌛': 'Csatlakozás hozzá: %s ⌛',
   "Connected to ID %s ✅ You're the host 🏠":
-    "Csatlakozva hozzá: %s ✅ Te vagy a házigazda 🏠",
+    'Csatlakozva hozzá: %s ✅ Te vagy a házigazda 🏠',
   "Connected by ID %s ✅ You're the guest 💼":
-    "Csatlakozva %s azonosítóval ✅ Te vagy a vendég 💼",
+    'Csatlakozva %s azonosítóval ✅ Te vagy a vendég 💼',
   'Connection failed ❌': 'Csatlakozás sikertelen ❌',
   'Disconnected 🔌': 'Kapcsolat megszakadt 🔌',
   'You are playing against computer AI': 'Számítógép ellen játszol',
@@ -161,7 +159,7 @@ export const i18n = {
 
   'ArcoMage HD': 'ArcoMage HD',
 
-  DESC: "Webes, ingyenes és nyílt forráskódú HD-klónja a 3DO és NWC által 2000-ben kiadott Arcomage kártyajátéknak.",
+  DESC: 'Webes, ingyenes és nyílt forráskódú HD-klónja a 3DO és NWC által 2000-ben kiadott Arcomage kártyajátéknak.',
 
   'Please go to %s to view more information (including %s1), star the repo and follow %s2 there.':
     'Látogass el %s további információért (beleértve %s1), csillagozd be a projektet és kövesd %s2-t.',
