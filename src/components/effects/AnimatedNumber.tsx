@@ -91,7 +91,6 @@ const AnimatedNumber = ({ n }: PropType) => {
   }, [n, noanim])
 
   // no lint reason: intentionally use ref and imperative actions for optimization
-  // eslint-disable-next-line react-compiler/react-compiler
   return <span ref={numberRef}>{displayValueRef.current}</span>
 }
 

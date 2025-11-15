@@ -70,7 +70,7 @@
     "@reduxjs/toolkit": "^2.6.1",
     "clarr": "^1.0.1",
     "immer": "^10.1.1",
-    "peerjs": "^1.5.4",
+    "peerjs": "^1.5.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-helmet-async": "^2.0.5",
@@ -145,8 +145,5 @@
       "last 1 safari version",
       "last 1 edge version"
     ]
-  },
-  "patchedDependencies": {
-    "peerjs@1.5.4": "patches/peerjs@1.5.4.patch"
   }
 }
