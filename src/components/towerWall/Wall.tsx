@@ -1,10 +1,10 @@
 import cl from 'clarr'
-import React, { useCallback, useContext, useEffect, useRef } from 'react'
+import React, { useCallback, useContext, useRef } from 'react'
 import { maxWallOnScreen } from '@/constants/visuals'
 import { I18nContext } from '@/i18n/I18nContext'
-import { RootState, store } from '@/store'
+import { RootState } from '@/store'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
-import { appSubscriber } from '@/utils/hooks/useAppDispatch'
+import { useAppSelector } from '@/utils/hooks/useAppDispatch'
 import { tooltipAttrs } from '@/utils/tooltip'
 import { upper1st } from '@/utils/upper1st'
 import TowerOrWallNumber from './TowerOrWallNumber'
@@ -32,32 +32,12 @@ const Wall = ({ isOpponent = false }: PropType) => {
       _.i18n('wall'),
     ),
   )} = %%`
-  const wallTooltipBearerRef = useRef<HTMLDivElement>(null)
   const selectN = useCallback(
-    (state: RootState) => state.status[isOpponent ? 'opponent' : 'player'].wall,
+    (state: RootState) =>
+      state.status[isOpponent ? 'opponent' : 'player'].wall.toString(),
     [isOpponent],
   )
-  const updateTooltip = useCallback((n: number) => {
-    if (wallTooltipBearerRef.current !== null) {
-      const tooltipTemplate =
-        wallTooltipBearerRef.current.dataset.tooltipContentTemplate
-      if (tooltipTemplate) {
-        wallTooltipBearerRef.current.dataset.tooltipContent =
-          tooltipTemplate.replace('%%', n.toString())
-      }
-    }
-  }, [])
-  useEffect(() => {
-    // non-declarative, efficient update
-    const unsubscribe = appSubscriber(selectN, updateTooltip)
-    return unsubscribe
-    // no lint reason: isOpponent is stable
-    // eslint-disable-next-line react-compiler/react-compiler
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-  useEffect(() => {
-    updateTooltip(selectN(store.getState()))
-  }, [_, selectN, updateTooltip])
+  const wallN = useAppSelector(selectN)
 
   return (
     <div
@@ -98,12 +78,11 @@ const Wall = ({ isOpponent = false }: PropType) => {
           </div>
         </div>
         <div
-          ref={wallTooltipBearerRef}
           className={styles.walltooltipbearer}
           style={{
             height: `calc(2.25rem + ${heightByCurrent(height, '1')} * var(--n) / 100)`, // (1.75rem + 0.25rem * 2) [numberoutwrapper] + heightByCurrent * nRatio
           }}
-          {...tooltipAttrs('', 'bottom')}
+          {...tooltipAttrs(wallTooltip.replace('%%', wallN), 'bottom')}
           data-tooltip-content-template={wallTooltip}
         ></div>
       </div>
