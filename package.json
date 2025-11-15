@@ -137,7 +137,8 @@
   ],
   "browserslist": {
     "production": [
-      ">0.2% and not dead"
+      "> 0.2% and not dead",
+      "not iOS < 12"
     ],
     "development": [
       "last 1 chrome version",
