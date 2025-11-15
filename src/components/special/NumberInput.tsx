@@ -5,6 +5,7 @@ import React, {
   InputHTMLAttributes,
   useMemo,
   useCallback,
+  startTransition,
 } from 'react'
 
 const _toValidMaxMin = (
@@ -139,11 +140,41 @@ const NumberInput = ({
     [validateAndUpdate],
   )
 
+  const validatedTargetValue = useMemo(
+    () =>
+      value !== undefined ? validate(value.toString(), _max, _min) : undefined,
+    [value, _max, _min, validate],
+  )
+  const prevSyncedValueRef = useRef<string | undefined>(undefined)
+
   useEffect(() => {
-    if (value !== undefined) {
-      immediateValidateAndUpdate(value?.toString() ?? '0')
+    if (
+      validatedTargetValue !== undefined &&
+      prevSyncedValueRef.current !== validatedTargetValue
+    ) {
+      const finalValue = validatedTargetValue
+      startTransition(() => {
+        setInputValue(finalValue)
+        setHasError(false)
+      })
+
+      if (
+        debounceTimerRef.current === undefined &&
+        oldInputValueRef.current !== undefined &&
+        finalValue !== oldInputValueRef.current &&
+        onChange &&
+        inputRef.current
+      ) {
+        inputRef.current.value = finalValue
+        const e = {
+          target: inputRef.current,
+        } as React.ChangeEvent<HTMLInputElement>
+        onChange(e)
+      }
+      oldInputValueRef.current = finalValue
+      prevSyncedValueRef.current = finalValue
     }
-  }, [value, _min, _max, immediateValidateAndUpdate])
+  }, [validatedTargetValue, onChange])
 
   const debouncedValidateAndUpdate = (val: string, delay: number) => {
     if (debounceTimerRef.current) {

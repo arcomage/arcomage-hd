@@ -54,7 +54,12 @@ const conf = tseslint.config(
       },
     },
   },
-  reactHooks.configs['recommended-latest'],
+  {
+    plugins: {
+      'react-hooks': reactHooks,
+    },
+    rules: reactHooks.configs.recommended.rules,
+  },
   reactRefresh.configs.recommended,
   // @ts-ignore
   reactCompiler.configs.recommended,

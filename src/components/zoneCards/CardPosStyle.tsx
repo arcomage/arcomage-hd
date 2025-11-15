@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useMemo, useContext } from 'react'
 import { GameSizeContext } from '@/utils/contexts/GameSizeContext'
 
 const heightPercToTable = 0.8
@@ -158,12 +158,10 @@ type PropType = {
   winWidth: number
 }
 const CardPosStyle = ({ cardsInHand, winHeight, winWidth }: PropType) => {
-  const [css, setCss] = useState('')
-
   const size = useContext(GameSizeContext)
   const { narrowMobile } = size
 
-  useEffect(() => {
+  const css = useMemo(() => {
     const total = cardsInHand + 1
     const rangeArr = [...Array(total + 5).keys()]
 
@@ -229,7 +227,7 @@ const CardPosStyle = ({ cardsInHand, winHeight, winWidth }: PropType) => {
 
     _css += posCsses.join('')
 
-    setCss(_css)
+    return _css
   }, [cardsInHand, winHeight, winWidth, narrowMobile])
 
   return <style>{css}</style>

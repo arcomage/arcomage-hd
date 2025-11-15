@@ -148,6 +148,8 @@ const Pref = () => {
       ) + 1
 
     if (formFields.winTower < winTowerMin) {
+      // TODO: fix all similar problems in this file without `// eslint-disable-next-line react-hooks/set-state-in-effect`
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormFields((prev) =>
         produce(prev, (draft) => {
           draft.winTower = winTowerMin
@@ -175,6 +177,7 @@ const Pref = () => {
   const [tempPreset, setTempPreset] = useState<number>(-10)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTempPreset(checkPreset(tempSettingsStore))
   }, [tempSettingsStore])
 
@@ -219,6 +222,7 @@ const Pref = () => {
   }, [dispatch, formFields, multiplayerStatus, settingStore.opponentId])
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormFields((prev) =>
       produce(prev, (draft) => {
         draft.opponentId = settingStore.opponentId
@@ -271,6 +275,7 @@ const Pref = () => {
   useEffect(() => {
     switch (multiplayerStatus) {
       case 'connecting_net':
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setNotification(
           isMultiplayer
             ? _.i18n('Connecting to the network ⌛')
@@ -349,6 +354,7 @@ const Pref = () => {
   ])
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsGuest(isMultiplayer && multiplayerStatus === 'connected_by_id')
     setIsHost(isMultiplayer && multiplayerStatus === 'connected_to_id')
   }, [isMultiplayer, multiplayerStatus])

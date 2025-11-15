@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useMemo } from 'react'
 import { defaultVisualvalues } from '@/constants/defaultSettings'
 import { dataVisualvalues } from '@/data/visualvalues'
 import { useAppSelector } from '@/utils/hooks/useAppDispatch'
@@ -12,9 +12,8 @@ import ZoneStatus from './zoneStatus/ZoneStatus'
 const Game = () => {
   const visualvalues = useAppSelector((state) => state.visual.visualvalues)
 
-  const [visualCss, setVisualCss] = useState('')
-  useEffect(() => {
-    setVisualCss(
+  const visualCss = useMemo(
+    () =>
       entries(visualvalues)
         .filter(([key, value]) => defaultVisualvalues[key] !== value)
         .map(([key, value]) => {
@@ -34,8 +33,8 @@ const Game = () => {
         })
         .filter((v): v is string => v !== null)
         .join(' '),
-    )
-  }, [visualvalues])
+    [visualvalues],
+  )
 
   return (
     <div

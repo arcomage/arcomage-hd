@@ -4,9 +4,10 @@ _Summary of changes for major & minor releases. For detailed changes, click the 
 
 _To ensure you're using the latest version, open the game and press <kbd>Ctrl</kbd> + <kbd>F5</kbd> to clear the cache and reload the webpage._
 
-<!-- ## [v2.1.0](https://github.com/arcomage/arcomage-hd/compare/v2.0.0...v2.1.0) (202?-?-?) (in progress)
+## [v2.1.0](https://github.com/arcomage/arcomage-hd/compare/v2.0.0...v2.1.0) (202?-?-?) (in progress)
 
-- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-03-18..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-03-18..*)) -->
+- [Hungarian translation](https://github.com/arcomage/arcomage-hd/issues/111)
+- And more ([issue list](https://github.com/arcomage/arcomage-hd/issues?q=is%3Aissue+is%3Aclosed+closed%3A2025-03-18..*); [PR list](https://github.com/arcomage/arcomage-hd/pulls?q=is%3Apr+is%3Aclosed+merged%3A2025-03-18..*))
 
 ## [v2.0.0](https://github.com/arcomage/arcomage-hd/compare/v1.4.3...v2.0.0) ([2025-03-17](https://github.com/arcomage/arcomage-hd/tree/2d326ce3a3162c3d25e148493da9e11088d04b86))
 

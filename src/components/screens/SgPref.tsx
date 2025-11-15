@@ -1,5 +1,5 @@
 import cl from 'clarr'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useMemo } from 'react'
 import CheckBox from '@/components/special/CheckBox'
 import {
   SCREEN_VOLUME_PREF,
@@ -47,17 +47,16 @@ const SgPref = () => {
   const _ = useContext(I18nContext)
   const dispatch = useAppDispatch()
 
-  const [visualPresetIndex, setVisualPresetIndex] = useState(0)
-  useEffect(() => {
-    setVisualPresetIndex(
+  const visualPresetIndex = useMemo(
+    () =>
       visualPresets.findIndex((visualPreset) =>
         shallowCompare(visualvalues, {
           ...defaultVisualvalues,
           ...visualPreset.values,
         }),
       ),
-    )
-  }, [visualvalues])
+    [visualvalues],
+  )
 
   return (
     <Window screenActionType={SCREEN_VOLUME_PREF}>
