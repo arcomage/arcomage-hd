@@ -6,7 +6,7 @@
 
 This non-profit fan remake brings the classic tower defense and resource management fantasy game to modern platforms, and is developed by [@tomchen](https://github.com/tomchen) using TypeScript, React, Redux, redux-observable, RxJS, CSS animations, and WebRTC (see [§ Development](#development)). If you enjoy the game, please support me by starring the repository or following me on [GitHub](https://github.com/tomchen).
 
-ArcoMage HD is available in 14 languages: English, French, German, Simplified Chinese, Traditional Chinese, Spanish, Italian, Russian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian, and Arabic (with RTL support). ([§ Translation Credits](#translation-credits))
+ArcoMage HD is available in 16 languages: English, French, German, Simplified Chinese, Traditional Chinese, Russian, Spanish, Italian, Czech, Polish, Brazilian Portuguese, Japanese, Ukrainian, Arabic (with RTL support), Hungarian, Korean. ([§ Translation Credits](#translation-credits))
 
 It's compatible with the latest versions of <a href="https://www.google.com/chrome/" title="Google Chrome"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/chrome.svg" alt="Google Chrome" width="21px" height="21px"></a> <a href="https://www.mozilla.org/firefox/browsers/" title="Firefox"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/firefox.svg" alt="Firefox" width="21px" height="21px"></a> <a href="https://www.apple.com/safari/" title="Safari 14+"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/safari.svg" alt="Safari 14+" width="21px" height="21px"></a> <a href="https://www.microsoft.com/edge" title="Microsoft Edge"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/edge.svg" alt="Microsoft Edge" width="21px" height="21px"></a> <a href="https://www.opera.com/" title="Opera"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/opera.svg" alt="Opera" width="21px" height="21px"></a> <a href="https://www.samsung.com/us/support/owners/app/samsung-internet" title="Samsung Internet"><img src="https://raw.githubusercontent.com/arcomage/arcomage-hd/main/misc/readme_images/browsers/samsung_internet.svg" alt="Samsung Internet" width="21px" height="21px"></a> and other modern [browsers](troubleshooting.md#browser-support).
 
@@ -153,24 +153,25 @@ Developer scripts and tools are located in the [`tools` folder](https://github.c
   - Czech (`cs`): Yym
   - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
   - Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
-  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
-  - Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/)
+  - Hungarian (`hu`) (translated): [gbq6](https://github.com/gbq6)
+  - Japanese (`ja`), Korean (`ko`), Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/) and/or [DeepL](https://www.deepl.com/translator)
   - All others: [Tom Chen](https://github.com/tomchen) with OCR tool [tesseract.js](https://tesseract.projectnaptha.com/) & [other scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools)
   - Traditional Chinese (`zh-Hant`): Converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) using [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) and [opencc-js](https://github.com/nk2028/opencc-js)
-- **[Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main)** string translators (some from the original games):
 
+- **[Main](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/main)** string translators (some from the original games):
   - Russian (`ru`): [rayburn](https://github.com/TombOfVARN)
   - Polish (`pl`): (partially by) Plamcia
   - Brazilian Portuguese (`pt-BR`): [mateuscv](https://github.com/mateuscv)
   - Ukrainian (`uk`): [troyane](https://github.com/troyane)
+  - Hungarian (`hu`) (translated): [gbq6](https://github.com/gbq6)
   - All others: [Tom Chen](https://github.com/tomchen) by himself and/or with help from [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
   - Traditional Chinese (`zh-Hant`): Converted from `zh-Hans` by [Tom Chen](https://github.com/tomchen) using [his scripts](https://github.com/arcomage/arcomage-hd/tree/main/tools/zhconvert) and [opencc-js](https://github.com/nk2028/opencc-js)
 
 - **[Taverns](https://github.com/arcomage/arcomage-hd/tree/main/src/i18n/taverns)**: Extracted from _Might and Magic VIII_ & _VI_ original games by [Tom Chen](https://github.com/tomchen) using [his script](https://github.com/arcomage/arcomage-hd/tree/main/tools/i18n-extraction). Except for:
   - Brazilian Portuguese (`pt-BR`) (translated): [mateuscv](https://github.com/mateuscv)
-  - Japanese (`ja`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/) & [DeepL](https://www.deepl.com/translator)
-  - Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/)
   - Ukrainian (`uk`) (translated): [troyane](https://github.com/troyane)
+  - Hungarian (`hu`) (translated): [gbq6](https://github.com/gbq6)
+  - Japanese (`ja`), Korean (`ko`), Arabic (`ar`) (translated): [Tom Chen](https://github.com/tomchen) with help from [Google Translate](https://translate.google.com/) and/or [DeepL](https://www.deepl.com/translator)
 
 _See also [I18N Issue Page](https://github.com/arcomage/arcomage-hd/issues/9)_
 
@@ -190,4 +191,4 @@ See the [CREDIT.md file](CREDIT.md) for a detailed presentation of the copyright
 
 [![Changelog](https://img.shields.io/badge/-Changelog-green)](CHANGELOG.md) [![Credit](https://img.shields.io/badge/-Credit-yellow)](CREDIT.md) [![MIT License](https://img.shields.io/badge/-MIT_License-pink)](LICENSE.md) [![Development Notes](https://img.shields.io/badge/-Development_Notes-tan)](DEVELOPMENT.md) [![Game Control Details](https://img.shields.io/badge/-Game_Control_Details-blue)](gamecontrols.md) [![Troubleshooting](https://img.shields.io/badge/-Troubleshooting-red)](troubleshooting.md)
 
- [![Game Home Page](https://img.shields.io/badge/-Game_Home_Page-coral)](https://arcomage.github.io/) [![GitHub Project Page](https://img.shields.io/badge/-GitHub_Project_Page-forestgreen)](https://github.com/arcomage/arcomage-hd) [![Issues](https://img.shields.io/badge/-Issues-darkslateblue)](https://github.com/arcomage/arcomage-hd/issues)   [![@tomchen on GitHub](https://img.shields.io/badge/-@tomchen_on_GitHub-black)](https://github.com/tomchen)
+[![Game Home Page](https://img.shields.io/badge/-Game_Home_Page-coral)](https://arcomage.github.io/) [![GitHub Project Page](https://img.shields.io/badge/-GitHub_Project_Page-forestgreen)](https://github.com/arcomage/arcomage-hd) [![Issues](https://img.shields.io/badge/-Issues-darkslateblue)](https://github.com/arcomage/arcomage-hd/issues) [![@tomchen on GitHub](https://img.shields.io/badge/-@tomchen_on_GitHub-black)](https://github.com/tomchen)
