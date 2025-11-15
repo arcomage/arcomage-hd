@@ -16,6 +16,7 @@ export const langInfo = {
   ja:        { local: '日本語', en: 'Japanese', isLatinScript: false, isRtl: false },
   uk:        { local: 'Українська', en: 'Ukrainian', isLatinScript: false, isRtl: false },
   ar:        { local: 'العربية', en: 'Arabic', isLatinScript: false, isRtl: true },
+  hu:        { local: 'Magyar', en: 'Hungarian', isLatinScript: true, isRtl: false },
 }
 
 export const langs = keys(langInfo)
